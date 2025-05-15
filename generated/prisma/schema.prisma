@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Alapadatok {
+  id              String @id @default(uuid()) @db.Uuid
+  iskola_neve     String @db.VarChar(150)
+  intezmeny_tipus String @db.VarChar(50)
+
+  tanulo_letszam  Tanulo_Letszam[]  @relation()
+  tanar_letszam   Tanar_Letszam[]   @relation()
+  felvettek_szama Felvettek_Szama[] @relation()
+}
+
+model Szakirany {
+  id  String @id @default(uuid()) @db.Uuid
+  nev String @db.VarChar(75)
+
+  tanulo_letszam Tanulo_Letszam[] @relation()
+}
+
+model Szakma {
+  id  String @id @default(uuid()) @db.Uuid
+  nev String @db.VarChar(75)
+
+  tanulo_letszam  Tanulo_Letszam[]  @relation()
+  felvettek_szama Felvettek_Szama[] @relation()
+}
+
+model Tanulo_Letszam {
+  id            String @id @default(uuid()) @db.Uuid
+  alapadatok_id String @db.Uuid
+  tanev_kezdete Int    @db.SmallInt
+  jogv_tipus    Int    @db.SmallInt
+  letszam       Int    @db.SmallInt
+  szakirany_id  String @db.Uuid
+  szakma_id     String @db.Uuid
+
+  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakirany  Szakirany  @relation(fields: [szakirany_id], references: [id])
+  szakma     Szakma     @relation(fields: [szakma_id], references: [id])
+}
+
+model Tanar_Letszam {
+  id            String @id @default(uuid()) @db.Uuid
+  alapadatok_id String @db.Uuid
+  tanev_kezdete Int    @db.SmallInt
+  letszam       Int    @db.SmallInt
+
+  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
+}
+
+model Felvettek_Szama {
+  id                 String @id @default(uuid()) @db.Uuid
+  alapadatok_id      String @db.Uuid
+  tanev_kezdete      Int    @db.SmallInt
+  szakma_id          String @db.Uuid
+  jelentkezo_letszam Int    @db.SmallInt
+  felveheto_letszam  Int    @db.SmallInt
+  felvett_letszam    Int    @db.SmallInt
+
+  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakma     Szakma     @relation(fields: [szakma_id], references: [id])
+}
