@@ -1,4 +1,4 @@
-import { PrismaClient } from "../generated/prisma/client";
+import { PrismaClient } from "../generated/prisma/client.js";
 
 const prisma = new PrismaClient();
 
@@ -45,6 +45,29 @@ export async function getById(id) {
           },
         },
       },
+    },
+  });
+
+  return data;
+}
+
+export async function add(iskola_neve, intezmeny_tipus) {
+  await prisma.alapadatok.create({
+    data: {
+      iskola_neve: iskola_neve,
+      intezmeny_tipus: intezmeny_tipus,
+    },
+  });
+}
+
+export async function update(id, iskola_neve, intezmeny_tipus) {
+  await prisma.alapadatok.update({
+    data: {
+      iskola_neve: iskola_neve,
+      intezmeny_tipus: intezmeny_tipus,
+    },
+    where: {
+      id: id,
     },
   });
 }
