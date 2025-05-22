@@ -151,4 +151,9 @@ model Tanugyi_Adatok{
   
   alapadatok_id String @db.Uuid
   alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  createAt DateTime @default(now())
+  createBy String
+  updatedAt DateTime @updatedAt
+  updatedBy String
 }

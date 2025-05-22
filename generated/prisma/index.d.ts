@@ -8207,6 +8207,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program: string | null
     munkarend: string | null
     alapadatok_id: string | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
   }
 
   export type Tanugyi_AdatokMaxAggregateOutputType = {
@@ -8282,6 +8286,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program: string | null
     munkarend: string | null
     alapadatok_id: string | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
   }
 
   export type Tanugyi_AdatokCountAggregateOutputType = {
@@ -8357,6 +8365,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program: number
     munkarend: number
     alapadatok_id: number
+    createAt: number
+    createBy: number
+    updatedAt: number
+    updatedBy: number
     _all: number
   }
 
@@ -8434,6 +8446,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: true
     munkarend?: true
     alapadatok_id?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
   }
 
   export type Tanugyi_AdatokMaxAggregateInputType = {
@@ -8509,6 +8525,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: true
     munkarend?: true
     alapadatok_id?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
   }
 
   export type Tanugyi_AdatokCountAggregateInputType = {
@@ -8584,6 +8604,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: true
     munkarend?: true
     alapadatok_id?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
     _all?: true
   }
 
@@ -8732,6 +8756,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program: string
     munkarend: string
     alapadatok_id: string
+    createAt: Date
+    createBy: string
+    updatedAt: Date
+    updatedBy: string
     _count: Tanugyi_AdatokCountAggregateOutputType | null
     _min: Tanugyi_AdatokMinAggregateOutputType | null
     _max: Tanugyi_AdatokMaxAggregateOutputType | null
@@ -8824,6 +8852,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: boolean
     munkarend?: boolean
     alapadatok_id?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tanugyi_Adatok"]>
 
@@ -8900,6 +8932,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: boolean
     munkarend?: boolean
     alapadatok_id?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tanugyi_Adatok"]>
 
@@ -8976,6 +9012,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: boolean
     munkarend?: boolean
     alapadatok_id?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tanugyi_Adatok"]>
 
@@ -9052,9 +9092,13 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: boolean
     munkarend?: boolean
     alapadatok_id?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
   }
 
-  export type Tanugyi_AdatokOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "elotag" | "vezeteknev" | "utonev" | "oktatasiAzonositoja" | "osztaly" | "szuletesiDatuma" | "anyjaSzuletesiDatuma" | "tanterv" | "naploSorszam" | "beiras_naplo_sorszam" | "felvetel_taneve" | "torzslapszam" | "tabulo_jogviszonya" | "jogviszony_kezdete" | "jogviszony_megszunesenek_varhato_datuma" | "jogviszonyátSzunetelteto" | "tankotelezettsegetTeljesito" | "tankotelezettségVege" | "bejaro" | "Szakmai_gyakorlaton_tartozkodik" | "Egyeni_munkarend" | "Egyeni_munkarend_oka" | "Egyeni_munkarend_kezdete" | "Egyeni_munkarend_vege" | "Vendegtanulo" | "tandijat_fizeto" | "teritesi_dijat_fizeto" | "tanuloszerzodeses" | "polgari_szerzodeses" | "iskolai_sportkorben_reszt_vevo_tanulo" | "evfolyamismetlo" | "elozo_intezmeny" | "osztaly1" | "evfolyam" | "bizonyitvany_sorszama" | "okleveles_technikus_képzes" | "uj_Szkt_agazat_tipusa" | "uj_szkt_szakma_tipusa" | "uj_szkt_szakmairany_tipusa" | "nkt_tanulmanyi_terulet" | "nkt_szakkepesites" | "nkt_szakirany" | "agazat_uj_szkt_reszszakmahoz" | "szakma_reszszakmahoz" | "reszszakma" | "agazat_tanulmanyi_terulet" | "szakmai_kepzes" | "agazati_alapoktatas_megnevezese" | "agazati_alapvizsga_eredmeny" | "agazati_alapvizsga_teljesitesenek_datuma" | "agazati_alapvizsga_eredmenye" | "agazati_alapvizsga_eredmenye_percent" | "szakkepzesi_munkaszerzodessel" | "Dualis_kepzohely_neve" | "Dualis_kepzohely_adoszama" | "a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte" | "kiemelten_tehetseges" | "szamitogepet_tanulasi_oktatasi_celra_hasznal" | "szaboky_adolf_szakkepzesi_osztondijban_reszesul" | "egesz_napos_iskolai_oktatasban_reszesul" | "nyelvi_elokeszito" | "ket_tanitasi_nyelvu" | "NemzetisegiNevelesOktatas" | "NemzetisegiNevelesOktatásFajtaja" | "nemzetisegiNyelv" | "nemzetisegNyelvenFolyoSzakmaiOktatas" | "sportosztaly" | "aranyjanostehetseggondozoprogram" | "arany_janos_kollegiumi_program" | "munkarend" | "alapadatok_id", ExtArgs["result"]["tanugyi_Adatok"]>
+  export type Tanugyi_AdatokOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "elotag" | "vezeteknev" | "utonev" | "oktatasiAzonositoja" | "osztaly" | "szuletesiDatuma" | "anyjaSzuletesiDatuma" | "tanterv" | "naploSorszam" | "beiras_naplo_sorszam" | "felvetel_taneve" | "torzslapszam" | "tabulo_jogviszonya" | "jogviszony_kezdete" | "jogviszony_megszunesenek_varhato_datuma" | "jogviszonyátSzunetelteto" | "tankotelezettsegetTeljesito" | "tankotelezettségVege" | "bejaro" | "Szakmai_gyakorlaton_tartozkodik" | "Egyeni_munkarend" | "Egyeni_munkarend_oka" | "Egyeni_munkarend_kezdete" | "Egyeni_munkarend_vege" | "Vendegtanulo" | "tandijat_fizeto" | "teritesi_dijat_fizeto" | "tanuloszerzodeses" | "polgari_szerzodeses" | "iskolai_sportkorben_reszt_vevo_tanulo" | "evfolyamismetlo" | "elozo_intezmeny" | "osztaly1" | "evfolyam" | "bizonyitvany_sorszama" | "okleveles_technikus_képzes" | "uj_Szkt_agazat_tipusa" | "uj_szkt_szakma_tipusa" | "uj_szkt_szakmairany_tipusa" | "nkt_tanulmanyi_terulet" | "nkt_szakkepesites" | "nkt_szakirany" | "agazat_uj_szkt_reszszakmahoz" | "szakma_reszszakmahoz" | "reszszakma" | "agazat_tanulmanyi_terulet" | "szakmai_kepzes" | "agazati_alapoktatas_megnevezese" | "agazati_alapvizsga_eredmeny" | "agazati_alapvizsga_teljesitesenek_datuma" | "agazati_alapvizsga_eredmenye" | "agazati_alapvizsga_eredmenye_percent" | "szakkepzesi_munkaszerzodessel" | "Dualis_kepzohely_neve" | "Dualis_kepzohely_adoszama" | "a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte" | "kiemelten_tehetseges" | "szamitogepet_tanulasi_oktatasi_celra_hasznal" | "szaboky_adolf_szakkepzesi_osztondijban_reszesul" | "egesz_napos_iskolai_oktatasban_reszesul" | "nyelvi_elokeszito" | "ket_tanitasi_nyelvu" | "NemzetisegiNevelesOktatas" | "NemzetisegiNevelesOktatásFajtaja" | "nemzetisegiNyelv" | "nemzetisegNyelvenFolyoSzakmaiOktatas" | "sportosztaly" | "aranyjanostehetseggondozoprogram" | "arany_janos_kollegiumi_program" | "munkarend" | "alapadatok_id" | "createAt" | "createBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["tanugyi_Adatok"]>
   export type Tanugyi_AdatokInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }
@@ -9143,6 +9187,10 @@ export namespace Prisma {
       arany_janos_kollegiumi_program: string
       munkarend: string
       alapadatok_id: string
+      createAt: Date
+      createBy: string
+      updatedAt: Date
+      updatedBy: string
     }, ExtArgs["result"]["tanugyi_Adatok"]>
     composites: {}
   }
@@ -9639,6 +9687,10 @@ export namespace Prisma {
     readonly arany_janos_kollegiumi_program: FieldRef<"Tanugyi_Adatok", 'String'>
     readonly munkarend: FieldRef<"Tanugyi_Adatok", 'String'>
     readonly alapadatok_id: FieldRef<"Tanugyi_Adatok", 'String'>
+    readonly createAt: FieldRef<"Tanugyi_Adatok", 'DateTime'>
+    readonly createBy: FieldRef<"Tanugyi_Adatok", 'String'>
+    readonly updatedAt: FieldRef<"Tanugyi_Adatok", 'DateTime'>
+    readonly updatedBy: FieldRef<"Tanugyi_Adatok", 'String'>
   }
     
 
@@ -10200,7 +10252,11 @@ export namespace Prisma {
     aranyjanostehetseggondozoprogram: 'aranyjanostehetseggondozoprogram',
     arany_janos_kollegiumi_program: 'arany_janos_kollegiumi_program',
     munkarend: 'munkarend',
-    alapadatok_id: 'alapadatok_id'
+    alapadatok_id: 'alapadatok_id',
+    createAt: 'createAt',
+    createBy: 'createBy',
+    updatedAt: 'updatedAt',
+    updatedBy: 'updatedBy'
   };
 
   export type Tanugyi_AdatokScalarFieldEnum = (typeof Tanugyi_AdatokScalarFieldEnum)[keyof typeof Tanugyi_AdatokScalarFieldEnum]
@@ -10252,6 +10308,20 @@ export namespace Prisma {
    * Reference to a field of type 'Int[]'
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
 
 
@@ -10680,6 +10750,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: StringFilter<"Tanugyi_Adatok"> | string
     munkarend?: StringFilter<"Tanugyi_Adatok"> | string
     alapadatok_id?: UuidFilter<"Tanugyi_Adatok"> | string
+    createAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
+    createBy?: StringFilter<"Tanugyi_Adatok"> | string
+    updatedAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
+    updatedBy?: StringFilter<"Tanugyi_Adatok"> | string
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
   }
 
@@ -10756,6 +10830,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: SortOrder
     munkarend?: SortOrder
     alapadatok_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
     alapadatok?: AlapadatokOrderByWithRelationInput
   }
 
@@ -10835,6 +10913,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: StringFilter<"Tanugyi_Adatok"> | string
     munkarend?: StringFilter<"Tanugyi_Adatok"> | string
     alapadatok_id?: UuidFilter<"Tanugyi_Adatok"> | string
+    createAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
+    createBy?: StringFilter<"Tanugyi_Adatok"> | string
+    updatedAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
+    updatedBy?: StringFilter<"Tanugyi_Adatok"> | string
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
   }, "id">
 
@@ -10911,6 +10993,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: SortOrder
     munkarend?: SortOrder
     alapadatok_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
     _count?: Tanugyi_AdatokCountOrderByAggregateInput
     _max?: Tanugyi_AdatokMaxOrderByAggregateInput
     _min?: Tanugyi_AdatokMinOrderByAggregateInput
@@ -10992,6 +11078,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
     munkarend?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
     alapadatok_id?: UuidWithAggregatesFilter<"Tanugyi_Adatok"> | string
+    createAt?: DateTimeWithAggregatesFilter<"Tanugyi_Adatok"> | Date | string
+    createBy?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Tanugyi_Adatok"> | Date | string
+    updatedBy?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
   }
 
   export type AlapadatokCreateInput = {
@@ -11389,6 +11479,10 @@ export namespace Prisma {
     aranyjanostehetseggondozoprogram: string
     arany_janos_kollegiumi_program: string
     munkarend: string
+    createAt?: Date | string
+    createBy: string
+    updatedAt?: Date | string
+    updatedBy: string
     alapadatok: AlapadatokCreateNestedOneWithoutTanugyiAdatokInput
   }
 
@@ -11465,6 +11559,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program: string
     munkarend: string
     alapadatok_id: string
+    createAt?: Date | string
+    createBy: string
+    updatedAt?: Date | string
+    updatedBy: string
   }
 
   export type Tanugyi_AdatokUpdateInput = {
@@ -11539,6 +11637,10 @@ export namespace Prisma {
     aranyjanostehetseggondozoprogram?: StringFieldUpdateOperationsInput | string
     arany_janos_kollegiumi_program?: StringFieldUpdateOperationsInput | string
     munkarend?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
     alapadatok?: AlapadatokUpdateOneRequiredWithoutTanugyiAdatokNestedInput
   }
 
@@ -11615,6 +11717,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: StringFieldUpdateOperationsInput | string
     munkarend?: StringFieldUpdateOperationsInput | string
     alapadatok_id?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
   export type Tanugyi_AdatokCreateManyInput = {
@@ -11690,6 +11796,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program: string
     munkarend: string
     alapadatok_id: string
+    createAt?: Date | string
+    createBy: string
+    updatedAt?: Date | string
+    updatedBy: string
   }
 
   export type Tanugyi_AdatokUpdateManyMutationInput = {
@@ -11764,6 +11874,10 @@ export namespace Prisma {
     aranyjanostehetseggondozoprogram?: StringFieldUpdateOperationsInput | string
     arany_janos_kollegiumi_program?: StringFieldUpdateOperationsInput | string
     munkarend?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
   export type Tanugyi_AdatokUncheckedUpdateManyInput = {
@@ -11839,6 +11953,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: StringFieldUpdateOperationsInput | string
     munkarend?: StringFieldUpdateOperationsInput | string
     alapadatok_id?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
   export type UuidFilter<$PrismaModel = never> = {
@@ -12148,6 +12266,17 @@ export namespace Prisma {
     felvett_letszam?: SortOrder
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type Tanugyi_AdatokCountOrderByAggregateInput = {
     id?: SortOrder
     elotag?: SortOrder
@@ -12221,6 +12350,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: SortOrder
     munkarend?: SortOrder
     alapadatok_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
   }
 
   export type Tanugyi_AdatokMaxOrderByAggregateInput = {
@@ -12296,6 +12429,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: SortOrder
     munkarend?: SortOrder
     alapadatok_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
   }
 
   export type Tanugyi_AdatokMinOrderByAggregateInput = {
@@ -12371,6 +12508,24 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: SortOrder
     munkarend?: SortOrder
     alapadatok_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput = {
@@ -12769,6 +12924,10 @@ export namespace Prisma {
     connect?: AlapadatokWhereUniqueInput
   }
 
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
   export type AlapadatokUpdateOneRequiredWithoutTanugyiAdatokNestedInput = {
     create?: XOR<AlapadatokCreateWithoutTanugyiAdatokInput, AlapadatokUncheckedCreateWithoutTanugyiAdatokInput>
     connectOrCreate?: AlapadatokCreateOrConnectWithoutTanugyiAdatokInput
@@ -12869,6 +13028,31 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type Tanulo_LetszamCreateWithoutAlapadatokInput = {
@@ -13021,6 +13205,10 @@ export namespace Prisma {
     aranyjanostehetseggondozoprogram: string
     arany_janos_kollegiumi_program: string
     munkarend: string
+    createAt?: Date | string
+    createBy: string
+    updatedAt?: Date | string
+    updatedBy: string
   }
 
   export type Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput = {
@@ -13095,6 +13283,10 @@ export namespace Prisma {
     aranyjanostehetseggondozoprogram: string
     arany_janos_kollegiumi_program: string
     munkarend: string
+    createAt?: Date | string
+    createBy: string
+    updatedAt?: Date | string
+    updatedBy: string
   }
 
   export type Tanugyi_AdatokCreateOrConnectWithoutAlapadatokInput = {
@@ -13283,6 +13475,10 @@ export namespace Prisma {
     arany_janos_kollegiumi_program?: StringFilter<"Tanugyi_Adatok"> | string
     munkarend?: StringFilter<"Tanugyi_Adatok"> | string
     alapadatok_id?: UuidFilter<"Tanugyi_Adatok"> | string
+    createAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
+    createBy?: StringFilter<"Tanugyi_Adatok"> | string
+    updatedAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
+    updatedBy?: StringFilter<"Tanugyi_Adatok"> | string
   }
 
   export type Tanulo_LetszamCreateWithoutSzakiranyInput = {
@@ -13837,6 +14033,10 @@ export namespace Prisma {
     aranyjanostehetseggondozoprogram: string
     arany_janos_kollegiumi_program: string
     munkarend: string
+    createAt?: Date | string
+    createBy: string
+    updatedAt?: Date | string
+    updatedBy: string
   }
 
   export type Tanulo_LetszamUpdateWithoutAlapadatokInput = {
@@ -13983,6 +14183,10 @@ export namespace Prisma {
     aranyjanostehetseggondozoprogram?: StringFieldUpdateOperationsInput | string
     arany_janos_kollegiumi_program?: StringFieldUpdateOperationsInput | string
     munkarend?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
   export type Tanugyi_AdatokUncheckedUpdateWithoutAlapadatokInput = {
@@ -14057,6 +14261,10 @@ export namespace Prisma {
     aranyjanostehetseggondozoprogram?: StringFieldUpdateOperationsInput | string
     arany_janos_kollegiumi_program?: StringFieldUpdateOperationsInput | string
     munkarend?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
   export type Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokInput = {
@@ -14131,6 +14339,10 @@ export namespace Prisma {
     aranyjanostehetseggondozoprogram?: StringFieldUpdateOperationsInput | string
     arany_janos_kollegiumi_program?: StringFieldUpdateOperationsInput | string
     munkarend?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
   export type Tanulo_LetszamCreateManySzakiranyInput = {

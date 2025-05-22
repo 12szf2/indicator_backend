@@ -235,7 +235,11 @@ exports.Prisma.Tanugyi_AdatokScalarFieldEnum = {
   aranyjanostehetseggondozoprogram: 'aranyjanostehetseggondozoprogram',
   arany_janos_kollegiumi_program: 'arany_janos_kollegiumi_program',
   munkarend: 'munkarend',
-  alapadatok_id: 'alapadatok_id'
+  alapadatok_id: 'alapadatok_id',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
 };
 
 exports.Prisma.SortOrder = {
