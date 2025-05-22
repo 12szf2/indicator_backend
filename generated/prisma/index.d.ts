@@ -8685,76 +8685,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokGroupByOutputType = {
     id: string
-    elotag: string
-    vezeteknev: string
-    utonev: string
-    oktatasiAzonositoja: string
-    osztaly: string
-    szuletesiDatuma: string
-    anyjaSzuletesiDatuma: string
-    tanterv: string
-    naploSorszam: string
-    beiras_naplo_sorszam: string
-    felvetel_taneve: string
-    torzslapszam: string
-    tabulo_jogviszonya: string
-    jogviszony_kezdete: string
-    jogviszony_megszunesenek_varhato_datuma: string
-    jogviszonyátSzunetelteto: string
-    tankotelezettsegetTeljesito: string
-    tankotelezettségVege: string
-    bejaro: string
-    Szakmai_gyakorlaton_tartozkodik: string
-    Egyeni_munkarend: string
-    Egyeni_munkarend_oka: string
-    Egyeni_munkarend_kezdete: string
-    Egyeni_munkarend_vege: string
-    Vendegtanulo: string
-    tandijat_fizeto: string
-    teritesi_dijat_fizeto: string
-    tanuloszerzodeses: string
-    polgari_szerzodeses: string
-    iskolai_sportkorben_reszt_vevo_tanulo: string
-    evfolyamismetlo: string
-    elozo_intezmeny: string
-    osztaly1: string
-    evfolyam: string
-    bizonyitvany_sorszama: string
-    okleveles_technikus_képzes: string
-    uj_Szkt_agazat_tipusa: string
-    uj_szkt_szakma_tipusa: string
-    uj_szkt_szakmairany_tipusa: string
-    nkt_tanulmanyi_terulet: string
-    nkt_szakkepesites: string
-    nkt_szakirany: string
-    agazat_uj_szkt_reszszakmahoz: string
-    szakma_reszszakmahoz: string
-    reszszakma: string
-    agazat_tanulmanyi_terulet: string
-    szakmai_kepzes: string
-    agazati_alapoktatas_megnevezese: string
-    agazati_alapvizsga_eredmeny: string
-    agazati_alapvizsga_teljesitesenek_datuma: string
-    agazati_alapvizsga_eredmenye: string
-    agazati_alapvizsga_eredmenye_percent: string
-    szakkepzesi_munkaszerzodessel: string
-    Dualis_kepzohely_neve: string
-    Dualis_kepzohely_adoszama: string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: string
-    kiemelten_tehetseges: string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal: string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul: string
-    egesz_napos_iskolai_oktatasban_reszesul: string
-    nyelvi_elokeszito: string
-    ket_tanitasi_nyelvu: string
-    NemzetisegiNevelesOktatas: string
-    NemzetisegiNevelesOktatásFajtaja: string
-    nemzetisegiNyelv: string
-    nemzetisegNyelvenFolyoSzakmaiOktatas: string
-    sportosztaly: string
-    aranyjanostehetseggondozoprogram: string
-    arany_janos_kollegiumi_program: string
-    munkarend: string
+    elotag: string | null
+    vezeteknev: string | null
+    utonev: string | null
+    oktatasiAzonositoja: string | null
+    osztaly: string | null
+    szuletesiDatuma: string | null
+    anyjaSzuletesiDatuma: string | null
+    tanterv: string | null
+    naploSorszam: string | null
+    beiras_naplo_sorszam: string | null
+    felvetel_taneve: string | null
+    torzslapszam: string | null
+    tabulo_jogviszonya: string | null
+    jogviszony_kezdete: string | null
+    jogviszony_megszunesenek_varhato_datuma: string | null
+    jogviszonyátSzunetelteto: string | null
+    tankotelezettsegetTeljesito: string | null
+    tankotelezettségVege: string | null
+    bejaro: string | null
+    Szakmai_gyakorlaton_tartozkodik: string | null
+    Egyeni_munkarend: string | null
+    Egyeni_munkarend_oka: string | null
+    Egyeni_munkarend_kezdete: string | null
+    Egyeni_munkarend_vege: string | null
+    Vendegtanulo: string | null
+    tandijat_fizeto: string | null
+    teritesi_dijat_fizeto: string | null
+    tanuloszerzodeses: string | null
+    polgari_szerzodeses: string | null
+    iskolai_sportkorben_reszt_vevo_tanulo: string | null
+    evfolyamismetlo: string | null
+    elozo_intezmeny: string | null
+    osztaly1: string | null
+    evfolyam: string | null
+    bizonyitvany_sorszama: string | null
+    okleveles_technikus_képzes: string | null
+    uj_Szkt_agazat_tipusa: string | null
+    uj_szkt_szakma_tipusa: string | null
+    uj_szkt_szakmairany_tipusa: string | null
+    nkt_tanulmanyi_terulet: string | null
+    nkt_szakkepesites: string | null
+    nkt_szakirany: string | null
+    agazat_uj_szkt_reszszakmahoz: string | null
+    szakma_reszszakmahoz: string | null
+    reszszakma: string | null
+    agazat_tanulmanyi_terulet: string | null
+    szakmai_kepzes: string | null
+    agazati_alapoktatas_megnevezese: string | null
+    agazati_alapvizsga_eredmeny: string | null
+    agazati_alapvizsga_teljesitesenek_datuma: string | null
+    agazati_alapvizsga_eredmenye: string | null
+    agazati_alapvizsga_eredmenye_percent: string | null
+    szakkepzesi_munkaszerzodessel: string | null
+    Dualis_kepzohely_neve: string | null
+    Dualis_kepzohely_adoszama: string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: string | null
+    kiemelten_tehetseges: string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal: string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul: string | null
+    egesz_napos_iskolai_oktatasban_reszesul: string | null
+    nyelvi_elokeszito: string | null
+    ket_tanitasi_nyelvu: string | null
+    NemzetisegiNevelesOktatas: string | null
+    NemzetisegiNevelesOktatásFajtaja: string | null
+    nemzetisegiNyelv: string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas: string | null
+    sportosztaly: string | null
+    aranyjanostehetseggondozoprogram: string | null
+    arany_janos_kollegiumi_program: string | null
+    munkarend: string | null
     alapadatok_id: string
     createAt: Date
     createBy: string
@@ -9116,76 +9116,76 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      elotag: string
-      vezeteknev: string
-      utonev: string
-      oktatasiAzonositoja: string
-      osztaly: string
-      szuletesiDatuma: string
-      anyjaSzuletesiDatuma: string
-      tanterv: string
-      naploSorszam: string
-      beiras_naplo_sorszam: string
-      felvetel_taneve: string
-      torzslapszam: string
-      tabulo_jogviszonya: string
-      jogviszony_kezdete: string
-      jogviszony_megszunesenek_varhato_datuma: string
-      jogviszonyátSzunetelteto: string
-      tankotelezettsegetTeljesito: string
-      tankotelezettségVege: string
-      bejaro: string
-      Szakmai_gyakorlaton_tartozkodik: string
-      Egyeni_munkarend: string
-      Egyeni_munkarend_oka: string
-      Egyeni_munkarend_kezdete: string
-      Egyeni_munkarend_vege: string
-      Vendegtanulo: string
-      tandijat_fizeto: string
-      teritesi_dijat_fizeto: string
-      tanuloszerzodeses: string
-      polgari_szerzodeses: string
-      iskolai_sportkorben_reszt_vevo_tanulo: string
-      evfolyamismetlo: string
-      elozo_intezmeny: string
-      osztaly1: string
-      evfolyam: string
-      bizonyitvany_sorszama: string
-      okleveles_technikus_képzes: string
-      uj_Szkt_agazat_tipusa: string
-      uj_szkt_szakma_tipusa: string
-      uj_szkt_szakmairany_tipusa: string
-      nkt_tanulmanyi_terulet: string
-      nkt_szakkepesites: string
-      nkt_szakirany: string
-      agazat_uj_szkt_reszszakmahoz: string
-      szakma_reszszakmahoz: string
-      reszszakma: string
-      agazat_tanulmanyi_terulet: string
-      szakmai_kepzes: string
-      agazati_alapoktatas_megnevezese: string
-      agazati_alapvizsga_eredmeny: string
-      agazati_alapvizsga_teljesitesenek_datuma: string
-      agazati_alapvizsga_eredmenye: string
-      agazati_alapvizsga_eredmenye_percent: string
-      szakkepzesi_munkaszerzodessel: string
-      Dualis_kepzohely_neve: string
-      Dualis_kepzohely_adoszama: string
-      a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: string
-      kiemelten_tehetseges: string
-      szamitogepet_tanulasi_oktatasi_celra_hasznal: string
-      szaboky_adolf_szakkepzesi_osztondijban_reszesul: string
-      egesz_napos_iskolai_oktatasban_reszesul: string
-      nyelvi_elokeszito: string
-      ket_tanitasi_nyelvu: string
-      NemzetisegiNevelesOktatas: string
-      NemzetisegiNevelesOktatásFajtaja: string
-      nemzetisegiNyelv: string
-      nemzetisegNyelvenFolyoSzakmaiOktatas: string
-      sportosztaly: string
-      aranyjanostehetseggondozoprogram: string
-      arany_janos_kollegiumi_program: string
-      munkarend: string
+      elotag: string | null
+      vezeteknev: string | null
+      utonev: string | null
+      oktatasiAzonositoja: string | null
+      osztaly: string | null
+      szuletesiDatuma: string | null
+      anyjaSzuletesiDatuma: string | null
+      tanterv: string | null
+      naploSorszam: string | null
+      beiras_naplo_sorszam: string | null
+      felvetel_taneve: string | null
+      torzslapszam: string | null
+      tabulo_jogviszonya: string | null
+      jogviszony_kezdete: string | null
+      jogviszony_megszunesenek_varhato_datuma: string | null
+      jogviszonyátSzunetelteto: string | null
+      tankotelezettsegetTeljesito: string | null
+      tankotelezettségVege: string | null
+      bejaro: string | null
+      Szakmai_gyakorlaton_tartozkodik: string | null
+      Egyeni_munkarend: string | null
+      Egyeni_munkarend_oka: string | null
+      Egyeni_munkarend_kezdete: string | null
+      Egyeni_munkarend_vege: string | null
+      Vendegtanulo: string | null
+      tandijat_fizeto: string | null
+      teritesi_dijat_fizeto: string | null
+      tanuloszerzodeses: string | null
+      polgari_szerzodeses: string | null
+      iskolai_sportkorben_reszt_vevo_tanulo: string | null
+      evfolyamismetlo: string | null
+      elozo_intezmeny: string | null
+      osztaly1: string | null
+      evfolyam: string | null
+      bizonyitvany_sorszama: string | null
+      okleveles_technikus_képzes: string | null
+      uj_Szkt_agazat_tipusa: string | null
+      uj_szkt_szakma_tipusa: string | null
+      uj_szkt_szakmairany_tipusa: string | null
+      nkt_tanulmanyi_terulet: string | null
+      nkt_szakkepesites: string | null
+      nkt_szakirany: string | null
+      agazat_uj_szkt_reszszakmahoz: string | null
+      szakma_reszszakmahoz: string | null
+      reszszakma: string | null
+      agazat_tanulmanyi_terulet: string | null
+      szakmai_kepzes: string | null
+      agazati_alapoktatas_megnevezese: string | null
+      agazati_alapvizsga_eredmeny: string | null
+      agazati_alapvizsga_teljesitesenek_datuma: string | null
+      agazati_alapvizsga_eredmenye: string | null
+      agazati_alapvizsga_eredmenye_percent: string | null
+      szakkepzesi_munkaszerzodessel: string | null
+      Dualis_kepzohely_neve: string | null
+      Dualis_kepzohely_adoszama: string | null
+      a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: string | null
+      kiemelten_tehetseges: string | null
+      szamitogepet_tanulasi_oktatasi_celra_hasznal: string | null
+      szaboky_adolf_szakkepzesi_osztondijban_reszesul: string | null
+      egesz_napos_iskolai_oktatasban_reszesul: string | null
+      nyelvi_elokeszito: string | null
+      ket_tanitasi_nyelvu: string | null
+      NemzetisegiNevelesOktatas: string | null
+      NemzetisegiNevelesOktatásFajtaja: string | null
+      nemzetisegiNyelv: string | null
+      nemzetisegNyelvenFolyoSzakmaiOktatas: string | null
+      sportosztaly: string | null
+      aranyjanostehetseggondozoprogram: string | null
+      arany_janos_kollegiumi_program: string | null
+      munkarend: string | null
       alapadatok_id: string
       createAt: Date
       createBy: string
@@ -10278,6 +10278,14 @@ export namespace Prisma {
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
   /**
    * Field references
    */
@@ -10679,76 +10687,76 @@ export namespace Prisma {
     OR?: Tanugyi_AdatokWhereInput[]
     NOT?: Tanugyi_AdatokWhereInput | Tanugyi_AdatokWhereInput[]
     id?: UuidFilter<"Tanugyi_Adatok"> | string
-    elotag?: StringFilter<"Tanugyi_Adatok"> | string
-    vezeteknev?: StringFilter<"Tanugyi_Adatok"> | string
-    utonev?: StringFilter<"Tanugyi_Adatok"> | string
-    oktatasiAzonositoja?: StringFilter<"Tanugyi_Adatok"> | string
-    osztaly?: StringFilter<"Tanugyi_Adatok"> | string
-    szuletesiDatuma?: StringFilter<"Tanugyi_Adatok"> | string
-    anyjaSzuletesiDatuma?: StringFilter<"Tanugyi_Adatok"> | string
-    tanterv?: StringFilter<"Tanugyi_Adatok"> | string
-    naploSorszam?: StringFilter<"Tanugyi_Adatok"> | string
-    beiras_naplo_sorszam?: StringFilter<"Tanugyi_Adatok"> | string
-    felvetel_taneve?: StringFilter<"Tanugyi_Adatok"> | string
-    torzslapszam?: StringFilter<"Tanugyi_Adatok"> | string
-    tabulo_jogviszonya?: StringFilter<"Tanugyi_Adatok"> | string
-    jogviszony_kezdete?: StringFilter<"Tanugyi_Adatok"> | string
-    jogviszony_megszunesenek_varhato_datuma?: StringFilter<"Tanugyi_Adatok"> | string
-    jogviszonyátSzunetelteto?: StringFilter<"Tanugyi_Adatok"> | string
-    tankotelezettsegetTeljesito?: StringFilter<"Tanugyi_Adatok"> | string
-    tankotelezettségVege?: StringFilter<"Tanugyi_Adatok"> | string
-    bejaro?: StringFilter<"Tanugyi_Adatok"> | string
-    Szakmai_gyakorlaton_tartozkodik?: StringFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend?: StringFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend_oka?: StringFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend_kezdete?: StringFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend_vege?: StringFilter<"Tanugyi_Adatok"> | string
-    Vendegtanulo?: StringFilter<"Tanugyi_Adatok"> | string
-    tandijat_fizeto?: StringFilter<"Tanugyi_Adatok"> | string
-    teritesi_dijat_fizeto?: StringFilter<"Tanugyi_Adatok"> | string
-    tanuloszerzodeses?: StringFilter<"Tanugyi_Adatok"> | string
-    polgari_szerzodeses?: StringFilter<"Tanugyi_Adatok"> | string
-    iskolai_sportkorben_reszt_vevo_tanulo?: StringFilter<"Tanugyi_Adatok"> | string
-    evfolyamismetlo?: StringFilter<"Tanugyi_Adatok"> | string
-    elozo_intezmeny?: StringFilter<"Tanugyi_Adatok"> | string
-    osztaly1?: StringFilter<"Tanugyi_Adatok"> | string
-    evfolyam?: StringFilter<"Tanugyi_Adatok"> | string
-    bizonyitvany_sorszama?: StringFilter<"Tanugyi_Adatok"> | string
-    okleveles_technikus_képzes?: StringFilter<"Tanugyi_Adatok"> | string
-    uj_Szkt_agazat_tipusa?: StringFilter<"Tanugyi_Adatok"> | string
-    uj_szkt_szakma_tipusa?: StringFilter<"Tanugyi_Adatok"> | string
-    uj_szkt_szakmairany_tipusa?: StringFilter<"Tanugyi_Adatok"> | string
-    nkt_tanulmanyi_terulet?: StringFilter<"Tanugyi_Adatok"> | string
-    nkt_szakkepesites?: StringFilter<"Tanugyi_Adatok"> | string
-    nkt_szakirany?: StringFilter<"Tanugyi_Adatok"> | string
-    agazat_uj_szkt_reszszakmahoz?: StringFilter<"Tanugyi_Adatok"> | string
-    szakma_reszszakmahoz?: StringFilter<"Tanugyi_Adatok"> | string
-    reszszakma?: StringFilter<"Tanugyi_Adatok"> | string
-    agazat_tanulmanyi_terulet?: StringFilter<"Tanugyi_Adatok"> | string
-    szakmai_kepzes?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapoktatas_megnevezese?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_eredmeny?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_teljesitesenek_datuma?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_eredmenye?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_eredmenye_percent?: StringFilter<"Tanugyi_Adatok"> | string
-    szakkepzesi_munkaszerzodessel?: StringFilter<"Tanugyi_Adatok"> | string
-    Dualis_kepzohely_neve?: StringFilter<"Tanugyi_Adatok"> | string
-    Dualis_kepzohely_adoszama?: StringFilter<"Tanugyi_Adatok"> | string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringFilter<"Tanugyi_Adatok"> | string
-    kiemelten_tehetseges?: StringFilter<"Tanugyi_Adatok"> | string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringFilter<"Tanugyi_Adatok"> | string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringFilter<"Tanugyi_Adatok"> | string
-    egesz_napos_iskolai_oktatasban_reszesul?: StringFilter<"Tanugyi_Adatok"> | string
-    nyelvi_elokeszito?: StringFilter<"Tanugyi_Adatok"> | string
-    ket_tanitasi_nyelvu?: StringFilter<"Tanugyi_Adatok"> | string
-    NemzetisegiNevelesOktatas?: StringFilter<"Tanugyi_Adatok"> | string
-    NemzetisegiNevelesOktatásFajtaja?: StringFilter<"Tanugyi_Adatok"> | string
-    nemzetisegiNyelv?: StringFilter<"Tanugyi_Adatok"> | string
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringFilter<"Tanugyi_Adatok"> | string
-    sportosztaly?: StringFilter<"Tanugyi_Adatok"> | string
-    aranyjanostehetseggondozoprogram?: StringFilter<"Tanugyi_Adatok"> | string
-    arany_janos_kollegiumi_program?: StringFilter<"Tanugyi_Adatok"> | string
-    munkarend?: StringFilter<"Tanugyi_Adatok"> | string
+    elotag?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    vezeteknev?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    utonev?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    oktatasiAzonositoja?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    osztaly?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szuletesiDatuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    anyjaSzuletesiDatuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tanterv?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    naploSorszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    beiras_naplo_sorszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    felvetel_taneve?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    torzslapszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tabulo_jogviszonya?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    jogviszony_kezdete?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    jogviszony_megszunesenek_varhato_datuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    jogviszonyátSzunetelteto?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tankotelezettsegetTeljesito?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tankotelezettségVege?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    bejaro?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Szakmai_gyakorlaton_tartozkodik?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend_oka?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend_kezdete?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend_vege?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Vendegtanulo?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tandijat_fizeto?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    teritesi_dijat_fizeto?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tanuloszerzodeses?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    polgari_szerzodeses?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    evfolyamismetlo?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    elozo_intezmeny?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    osztaly1?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    evfolyam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    bizonyitvany_sorszama?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    okleveles_technikus_képzes?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    uj_Szkt_agazat_tipusa?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    uj_szkt_szakma_tipusa?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    uj_szkt_szakmairany_tipusa?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nkt_tanulmanyi_terulet?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nkt_szakkepesites?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nkt_szakirany?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazat_uj_szkt_reszszakmahoz?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szakma_reszszakmahoz?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    reszszakma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazat_tanulmanyi_terulet?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szakmai_kepzes?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapoktatas_megnevezese?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_eredmeny?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_eredmenye?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_eredmenye_percent?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szakkepzesi_munkaszerzodessel?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Dualis_kepzohely_neve?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Dualis_kepzohely_adoszama?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    kiemelten_tehetseges?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nyelvi_elokeszito?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    ket_tanitasi_nyelvu?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    NemzetisegiNevelesOktatas?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    NemzetisegiNevelesOktatásFajtaja?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nemzetisegiNyelv?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    sportosztaly?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    aranyjanostehetseggondozoprogram?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    arany_janos_kollegiumi_program?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    munkarend?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     alapadatok_id?: UuidFilter<"Tanugyi_Adatok"> | string
     createAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
     createBy?: StringFilter<"Tanugyi_Adatok"> | string
@@ -10759,76 +10767,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokOrderByWithRelationInput = {
     id?: SortOrder
-    elotag?: SortOrder
-    vezeteknev?: SortOrder
-    utonev?: SortOrder
-    oktatasiAzonositoja?: SortOrder
-    osztaly?: SortOrder
-    szuletesiDatuma?: SortOrder
-    anyjaSzuletesiDatuma?: SortOrder
-    tanterv?: SortOrder
-    naploSorszam?: SortOrder
-    beiras_naplo_sorszam?: SortOrder
-    felvetel_taneve?: SortOrder
-    torzslapszam?: SortOrder
-    tabulo_jogviszonya?: SortOrder
-    jogviszony_kezdete?: SortOrder
-    jogviszony_megszunesenek_varhato_datuma?: SortOrder
-    jogviszonyátSzunetelteto?: SortOrder
-    tankotelezettsegetTeljesito?: SortOrder
-    tankotelezettségVege?: SortOrder
-    bejaro?: SortOrder
-    Szakmai_gyakorlaton_tartozkodik?: SortOrder
-    Egyeni_munkarend?: SortOrder
-    Egyeni_munkarend_oka?: SortOrder
-    Egyeni_munkarend_kezdete?: SortOrder
-    Egyeni_munkarend_vege?: SortOrder
-    Vendegtanulo?: SortOrder
-    tandijat_fizeto?: SortOrder
-    teritesi_dijat_fizeto?: SortOrder
-    tanuloszerzodeses?: SortOrder
-    polgari_szerzodeses?: SortOrder
-    iskolai_sportkorben_reszt_vevo_tanulo?: SortOrder
-    evfolyamismetlo?: SortOrder
-    elozo_intezmeny?: SortOrder
-    osztaly1?: SortOrder
-    evfolyam?: SortOrder
-    bizonyitvany_sorszama?: SortOrder
-    okleveles_technikus_képzes?: SortOrder
-    uj_Szkt_agazat_tipusa?: SortOrder
-    uj_szkt_szakma_tipusa?: SortOrder
-    uj_szkt_szakmairany_tipusa?: SortOrder
-    nkt_tanulmanyi_terulet?: SortOrder
-    nkt_szakkepesites?: SortOrder
-    nkt_szakirany?: SortOrder
-    agazat_uj_szkt_reszszakmahoz?: SortOrder
-    szakma_reszszakmahoz?: SortOrder
-    reszszakma?: SortOrder
-    agazat_tanulmanyi_terulet?: SortOrder
-    szakmai_kepzes?: SortOrder
-    agazati_alapoktatas_megnevezese?: SortOrder
-    agazati_alapvizsga_eredmeny?: SortOrder
-    agazati_alapvizsga_teljesitesenek_datuma?: SortOrder
-    agazati_alapvizsga_eredmenye?: SortOrder
-    agazati_alapvizsga_eredmenye_percent?: SortOrder
-    szakkepzesi_munkaszerzodessel?: SortOrder
-    Dualis_kepzohely_neve?: SortOrder
-    Dualis_kepzohely_adoszama?: SortOrder
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: SortOrder
-    kiemelten_tehetseges?: SortOrder
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: SortOrder
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: SortOrder
-    egesz_napos_iskolai_oktatasban_reszesul?: SortOrder
-    nyelvi_elokeszito?: SortOrder
-    ket_tanitasi_nyelvu?: SortOrder
-    NemzetisegiNevelesOktatas?: SortOrder
-    NemzetisegiNevelesOktatásFajtaja?: SortOrder
-    nemzetisegiNyelv?: SortOrder
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: SortOrder
-    sportosztaly?: SortOrder
-    aranyjanostehetseggondozoprogram?: SortOrder
-    arany_janos_kollegiumi_program?: SortOrder
-    munkarend?: SortOrder
+    elotag?: SortOrderInput | SortOrder
+    vezeteknev?: SortOrderInput | SortOrder
+    utonev?: SortOrderInput | SortOrder
+    oktatasiAzonositoja?: SortOrderInput | SortOrder
+    osztaly?: SortOrderInput | SortOrder
+    szuletesiDatuma?: SortOrderInput | SortOrder
+    anyjaSzuletesiDatuma?: SortOrderInput | SortOrder
+    tanterv?: SortOrderInput | SortOrder
+    naploSorszam?: SortOrderInput | SortOrder
+    beiras_naplo_sorszam?: SortOrderInput | SortOrder
+    felvetel_taneve?: SortOrderInput | SortOrder
+    torzslapszam?: SortOrderInput | SortOrder
+    tabulo_jogviszonya?: SortOrderInput | SortOrder
+    jogviszony_kezdete?: SortOrderInput | SortOrder
+    jogviszony_megszunesenek_varhato_datuma?: SortOrderInput | SortOrder
+    jogviszonyátSzunetelteto?: SortOrderInput | SortOrder
+    tankotelezettsegetTeljesito?: SortOrderInput | SortOrder
+    tankotelezettségVege?: SortOrderInput | SortOrder
+    bejaro?: SortOrderInput | SortOrder
+    Szakmai_gyakorlaton_tartozkodik?: SortOrderInput | SortOrder
+    Egyeni_munkarend?: SortOrderInput | SortOrder
+    Egyeni_munkarend_oka?: SortOrderInput | SortOrder
+    Egyeni_munkarend_kezdete?: SortOrderInput | SortOrder
+    Egyeni_munkarend_vege?: SortOrderInput | SortOrder
+    Vendegtanulo?: SortOrderInput | SortOrder
+    tandijat_fizeto?: SortOrderInput | SortOrder
+    teritesi_dijat_fizeto?: SortOrderInput | SortOrder
+    tanuloszerzodeses?: SortOrderInput | SortOrder
+    polgari_szerzodeses?: SortOrderInput | SortOrder
+    iskolai_sportkorben_reszt_vevo_tanulo?: SortOrderInput | SortOrder
+    evfolyamismetlo?: SortOrderInput | SortOrder
+    elozo_intezmeny?: SortOrderInput | SortOrder
+    osztaly1?: SortOrderInput | SortOrder
+    evfolyam?: SortOrderInput | SortOrder
+    bizonyitvany_sorszama?: SortOrderInput | SortOrder
+    okleveles_technikus_képzes?: SortOrderInput | SortOrder
+    uj_Szkt_agazat_tipusa?: SortOrderInput | SortOrder
+    uj_szkt_szakma_tipusa?: SortOrderInput | SortOrder
+    uj_szkt_szakmairany_tipusa?: SortOrderInput | SortOrder
+    nkt_tanulmanyi_terulet?: SortOrderInput | SortOrder
+    nkt_szakkepesites?: SortOrderInput | SortOrder
+    nkt_szakirany?: SortOrderInput | SortOrder
+    agazat_uj_szkt_reszszakmahoz?: SortOrderInput | SortOrder
+    szakma_reszszakmahoz?: SortOrderInput | SortOrder
+    reszszakma?: SortOrderInput | SortOrder
+    agazat_tanulmanyi_terulet?: SortOrderInput | SortOrder
+    szakmai_kepzes?: SortOrderInput | SortOrder
+    agazati_alapoktatas_megnevezese?: SortOrderInput | SortOrder
+    agazati_alapvizsga_eredmeny?: SortOrderInput | SortOrder
+    agazati_alapvizsga_teljesitesenek_datuma?: SortOrderInput | SortOrder
+    agazati_alapvizsga_eredmenye?: SortOrderInput | SortOrder
+    agazati_alapvizsga_eredmenye_percent?: SortOrderInput | SortOrder
+    szakkepzesi_munkaszerzodessel?: SortOrderInput | SortOrder
+    Dualis_kepzohely_neve?: SortOrderInput | SortOrder
+    Dualis_kepzohely_adoszama?: SortOrderInput | SortOrder
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: SortOrderInput | SortOrder
+    kiemelten_tehetseges?: SortOrderInput | SortOrder
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: SortOrderInput | SortOrder
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: SortOrderInput | SortOrder
+    egesz_napos_iskolai_oktatasban_reszesul?: SortOrderInput | SortOrder
+    nyelvi_elokeszito?: SortOrderInput | SortOrder
+    ket_tanitasi_nyelvu?: SortOrderInput | SortOrder
+    NemzetisegiNevelesOktatas?: SortOrderInput | SortOrder
+    NemzetisegiNevelesOktatásFajtaja?: SortOrderInput | SortOrder
+    nemzetisegiNyelv?: SortOrderInput | SortOrder
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: SortOrderInput | SortOrder
+    sportosztaly?: SortOrderInput | SortOrder
+    aranyjanostehetseggondozoprogram?: SortOrderInput | SortOrder
+    arany_janos_kollegiumi_program?: SortOrderInput | SortOrder
+    munkarend?: SortOrderInput | SortOrder
     alapadatok_id?: SortOrder
     createAt?: SortOrder
     createBy?: SortOrder
@@ -10842,76 +10850,76 @@ export namespace Prisma {
     AND?: Tanugyi_AdatokWhereInput | Tanugyi_AdatokWhereInput[]
     OR?: Tanugyi_AdatokWhereInput[]
     NOT?: Tanugyi_AdatokWhereInput | Tanugyi_AdatokWhereInput[]
-    elotag?: StringFilter<"Tanugyi_Adatok"> | string
-    vezeteknev?: StringFilter<"Tanugyi_Adatok"> | string
-    utonev?: StringFilter<"Tanugyi_Adatok"> | string
-    oktatasiAzonositoja?: StringFilter<"Tanugyi_Adatok"> | string
-    osztaly?: StringFilter<"Tanugyi_Adatok"> | string
-    szuletesiDatuma?: StringFilter<"Tanugyi_Adatok"> | string
-    anyjaSzuletesiDatuma?: StringFilter<"Tanugyi_Adatok"> | string
-    tanterv?: StringFilter<"Tanugyi_Adatok"> | string
-    naploSorszam?: StringFilter<"Tanugyi_Adatok"> | string
-    beiras_naplo_sorszam?: StringFilter<"Tanugyi_Adatok"> | string
-    felvetel_taneve?: StringFilter<"Tanugyi_Adatok"> | string
-    torzslapszam?: StringFilter<"Tanugyi_Adatok"> | string
-    tabulo_jogviszonya?: StringFilter<"Tanugyi_Adatok"> | string
-    jogviszony_kezdete?: StringFilter<"Tanugyi_Adatok"> | string
-    jogviszony_megszunesenek_varhato_datuma?: StringFilter<"Tanugyi_Adatok"> | string
-    jogviszonyátSzunetelteto?: StringFilter<"Tanugyi_Adatok"> | string
-    tankotelezettsegetTeljesito?: StringFilter<"Tanugyi_Adatok"> | string
-    tankotelezettségVege?: StringFilter<"Tanugyi_Adatok"> | string
-    bejaro?: StringFilter<"Tanugyi_Adatok"> | string
-    Szakmai_gyakorlaton_tartozkodik?: StringFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend?: StringFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend_oka?: StringFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend_kezdete?: StringFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend_vege?: StringFilter<"Tanugyi_Adatok"> | string
-    Vendegtanulo?: StringFilter<"Tanugyi_Adatok"> | string
-    tandijat_fizeto?: StringFilter<"Tanugyi_Adatok"> | string
-    teritesi_dijat_fizeto?: StringFilter<"Tanugyi_Adatok"> | string
-    tanuloszerzodeses?: StringFilter<"Tanugyi_Adatok"> | string
-    polgari_szerzodeses?: StringFilter<"Tanugyi_Adatok"> | string
-    iskolai_sportkorben_reszt_vevo_tanulo?: StringFilter<"Tanugyi_Adatok"> | string
-    evfolyamismetlo?: StringFilter<"Tanugyi_Adatok"> | string
-    elozo_intezmeny?: StringFilter<"Tanugyi_Adatok"> | string
-    osztaly1?: StringFilter<"Tanugyi_Adatok"> | string
-    evfolyam?: StringFilter<"Tanugyi_Adatok"> | string
-    bizonyitvany_sorszama?: StringFilter<"Tanugyi_Adatok"> | string
-    okleveles_technikus_képzes?: StringFilter<"Tanugyi_Adatok"> | string
-    uj_Szkt_agazat_tipusa?: StringFilter<"Tanugyi_Adatok"> | string
-    uj_szkt_szakma_tipusa?: StringFilter<"Tanugyi_Adatok"> | string
-    uj_szkt_szakmairany_tipusa?: StringFilter<"Tanugyi_Adatok"> | string
-    nkt_tanulmanyi_terulet?: StringFilter<"Tanugyi_Adatok"> | string
-    nkt_szakkepesites?: StringFilter<"Tanugyi_Adatok"> | string
-    nkt_szakirany?: StringFilter<"Tanugyi_Adatok"> | string
-    agazat_uj_szkt_reszszakmahoz?: StringFilter<"Tanugyi_Adatok"> | string
-    szakma_reszszakmahoz?: StringFilter<"Tanugyi_Adatok"> | string
-    reszszakma?: StringFilter<"Tanugyi_Adatok"> | string
-    agazat_tanulmanyi_terulet?: StringFilter<"Tanugyi_Adatok"> | string
-    szakmai_kepzes?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapoktatas_megnevezese?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_eredmeny?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_teljesitesenek_datuma?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_eredmenye?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_eredmenye_percent?: StringFilter<"Tanugyi_Adatok"> | string
-    szakkepzesi_munkaszerzodessel?: StringFilter<"Tanugyi_Adatok"> | string
-    Dualis_kepzohely_neve?: StringFilter<"Tanugyi_Adatok"> | string
-    Dualis_kepzohely_adoszama?: StringFilter<"Tanugyi_Adatok"> | string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringFilter<"Tanugyi_Adatok"> | string
-    kiemelten_tehetseges?: StringFilter<"Tanugyi_Adatok"> | string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringFilter<"Tanugyi_Adatok"> | string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringFilter<"Tanugyi_Adatok"> | string
-    egesz_napos_iskolai_oktatasban_reszesul?: StringFilter<"Tanugyi_Adatok"> | string
-    nyelvi_elokeszito?: StringFilter<"Tanugyi_Adatok"> | string
-    ket_tanitasi_nyelvu?: StringFilter<"Tanugyi_Adatok"> | string
-    NemzetisegiNevelesOktatas?: StringFilter<"Tanugyi_Adatok"> | string
-    NemzetisegiNevelesOktatásFajtaja?: StringFilter<"Tanugyi_Adatok"> | string
-    nemzetisegiNyelv?: StringFilter<"Tanugyi_Adatok"> | string
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringFilter<"Tanugyi_Adatok"> | string
-    sportosztaly?: StringFilter<"Tanugyi_Adatok"> | string
-    aranyjanostehetseggondozoprogram?: StringFilter<"Tanugyi_Adatok"> | string
-    arany_janos_kollegiumi_program?: StringFilter<"Tanugyi_Adatok"> | string
-    munkarend?: StringFilter<"Tanugyi_Adatok"> | string
+    elotag?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    vezeteknev?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    utonev?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    oktatasiAzonositoja?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    osztaly?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szuletesiDatuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    anyjaSzuletesiDatuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tanterv?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    naploSorszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    beiras_naplo_sorszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    felvetel_taneve?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    torzslapszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tabulo_jogviszonya?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    jogviszony_kezdete?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    jogviszony_megszunesenek_varhato_datuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    jogviszonyátSzunetelteto?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tankotelezettsegetTeljesito?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tankotelezettségVege?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    bejaro?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Szakmai_gyakorlaton_tartozkodik?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend_oka?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend_kezdete?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend_vege?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Vendegtanulo?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tandijat_fizeto?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    teritesi_dijat_fizeto?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tanuloszerzodeses?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    polgari_szerzodeses?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    evfolyamismetlo?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    elozo_intezmeny?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    osztaly1?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    evfolyam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    bizonyitvany_sorszama?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    okleveles_technikus_képzes?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    uj_Szkt_agazat_tipusa?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    uj_szkt_szakma_tipusa?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    uj_szkt_szakmairany_tipusa?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nkt_tanulmanyi_terulet?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nkt_szakkepesites?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nkt_szakirany?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazat_uj_szkt_reszszakmahoz?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szakma_reszszakmahoz?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    reszszakma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazat_tanulmanyi_terulet?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szakmai_kepzes?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapoktatas_megnevezese?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_eredmeny?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_eredmenye?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_eredmenye_percent?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szakkepzesi_munkaszerzodessel?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Dualis_kepzohely_neve?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Dualis_kepzohely_adoszama?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    kiemelten_tehetseges?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nyelvi_elokeszito?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    ket_tanitasi_nyelvu?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    NemzetisegiNevelesOktatas?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    NemzetisegiNevelesOktatásFajtaja?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nemzetisegiNyelv?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    sportosztaly?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    aranyjanostehetseggondozoprogram?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    arany_janos_kollegiumi_program?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    munkarend?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     alapadatok_id?: UuidFilter<"Tanugyi_Adatok"> | string
     createAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
     createBy?: StringFilter<"Tanugyi_Adatok"> | string
@@ -10922,76 +10930,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokOrderByWithAggregationInput = {
     id?: SortOrder
-    elotag?: SortOrder
-    vezeteknev?: SortOrder
-    utonev?: SortOrder
-    oktatasiAzonositoja?: SortOrder
-    osztaly?: SortOrder
-    szuletesiDatuma?: SortOrder
-    anyjaSzuletesiDatuma?: SortOrder
-    tanterv?: SortOrder
-    naploSorszam?: SortOrder
-    beiras_naplo_sorszam?: SortOrder
-    felvetel_taneve?: SortOrder
-    torzslapszam?: SortOrder
-    tabulo_jogviszonya?: SortOrder
-    jogviszony_kezdete?: SortOrder
-    jogviszony_megszunesenek_varhato_datuma?: SortOrder
-    jogviszonyátSzunetelteto?: SortOrder
-    tankotelezettsegetTeljesito?: SortOrder
-    tankotelezettségVege?: SortOrder
-    bejaro?: SortOrder
-    Szakmai_gyakorlaton_tartozkodik?: SortOrder
-    Egyeni_munkarend?: SortOrder
-    Egyeni_munkarend_oka?: SortOrder
-    Egyeni_munkarend_kezdete?: SortOrder
-    Egyeni_munkarend_vege?: SortOrder
-    Vendegtanulo?: SortOrder
-    tandijat_fizeto?: SortOrder
-    teritesi_dijat_fizeto?: SortOrder
-    tanuloszerzodeses?: SortOrder
-    polgari_szerzodeses?: SortOrder
-    iskolai_sportkorben_reszt_vevo_tanulo?: SortOrder
-    evfolyamismetlo?: SortOrder
-    elozo_intezmeny?: SortOrder
-    osztaly1?: SortOrder
-    evfolyam?: SortOrder
-    bizonyitvany_sorszama?: SortOrder
-    okleveles_technikus_képzes?: SortOrder
-    uj_Szkt_agazat_tipusa?: SortOrder
-    uj_szkt_szakma_tipusa?: SortOrder
-    uj_szkt_szakmairany_tipusa?: SortOrder
-    nkt_tanulmanyi_terulet?: SortOrder
-    nkt_szakkepesites?: SortOrder
-    nkt_szakirany?: SortOrder
-    agazat_uj_szkt_reszszakmahoz?: SortOrder
-    szakma_reszszakmahoz?: SortOrder
-    reszszakma?: SortOrder
-    agazat_tanulmanyi_terulet?: SortOrder
-    szakmai_kepzes?: SortOrder
-    agazati_alapoktatas_megnevezese?: SortOrder
-    agazati_alapvizsga_eredmeny?: SortOrder
-    agazati_alapvizsga_teljesitesenek_datuma?: SortOrder
-    agazati_alapvizsga_eredmenye?: SortOrder
-    agazati_alapvizsga_eredmenye_percent?: SortOrder
-    szakkepzesi_munkaszerzodessel?: SortOrder
-    Dualis_kepzohely_neve?: SortOrder
-    Dualis_kepzohely_adoszama?: SortOrder
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: SortOrder
-    kiemelten_tehetseges?: SortOrder
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: SortOrder
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: SortOrder
-    egesz_napos_iskolai_oktatasban_reszesul?: SortOrder
-    nyelvi_elokeszito?: SortOrder
-    ket_tanitasi_nyelvu?: SortOrder
-    NemzetisegiNevelesOktatas?: SortOrder
-    NemzetisegiNevelesOktatásFajtaja?: SortOrder
-    nemzetisegiNyelv?: SortOrder
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: SortOrder
-    sportosztaly?: SortOrder
-    aranyjanostehetseggondozoprogram?: SortOrder
-    arany_janos_kollegiumi_program?: SortOrder
-    munkarend?: SortOrder
+    elotag?: SortOrderInput | SortOrder
+    vezeteknev?: SortOrderInput | SortOrder
+    utonev?: SortOrderInput | SortOrder
+    oktatasiAzonositoja?: SortOrderInput | SortOrder
+    osztaly?: SortOrderInput | SortOrder
+    szuletesiDatuma?: SortOrderInput | SortOrder
+    anyjaSzuletesiDatuma?: SortOrderInput | SortOrder
+    tanterv?: SortOrderInput | SortOrder
+    naploSorszam?: SortOrderInput | SortOrder
+    beiras_naplo_sorszam?: SortOrderInput | SortOrder
+    felvetel_taneve?: SortOrderInput | SortOrder
+    torzslapszam?: SortOrderInput | SortOrder
+    tabulo_jogviszonya?: SortOrderInput | SortOrder
+    jogviszony_kezdete?: SortOrderInput | SortOrder
+    jogviszony_megszunesenek_varhato_datuma?: SortOrderInput | SortOrder
+    jogviszonyátSzunetelteto?: SortOrderInput | SortOrder
+    tankotelezettsegetTeljesito?: SortOrderInput | SortOrder
+    tankotelezettségVege?: SortOrderInput | SortOrder
+    bejaro?: SortOrderInput | SortOrder
+    Szakmai_gyakorlaton_tartozkodik?: SortOrderInput | SortOrder
+    Egyeni_munkarend?: SortOrderInput | SortOrder
+    Egyeni_munkarend_oka?: SortOrderInput | SortOrder
+    Egyeni_munkarend_kezdete?: SortOrderInput | SortOrder
+    Egyeni_munkarend_vege?: SortOrderInput | SortOrder
+    Vendegtanulo?: SortOrderInput | SortOrder
+    tandijat_fizeto?: SortOrderInput | SortOrder
+    teritesi_dijat_fizeto?: SortOrderInput | SortOrder
+    tanuloszerzodeses?: SortOrderInput | SortOrder
+    polgari_szerzodeses?: SortOrderInput | SortOrder
+    iskolai_sportkorben_reszt_vevo_tanulo?: SortOrderInput | SortOrder
+    evfolyamismetlo?: SortOrderInput | SortOrder
+    elozo_intezmeny?: SortOrderInput | SortOrder
+    osztaly1?: SortOrderInput | SortOrder
+    evfolyam?: SortOrderInput | SortOrder
+    bizonyitvany_sorszama?: SortOrderInput | SortOrder
+    okleveles_technikus_képzes?: SortOrderInput | SortOrder
+    uj_Szkt_agazat_tipusa?: SortOrderInput | SortOrder
+    uj_szkt_szakma_tipusa?: SortOrderInput | SortOrder
+    uj_szkt_szakmairany_tipusa?: SortOrderInput | SortOrder
+    nkt_tanulmanyi_terulet?: SortOrderInput | SortOrder
+    nkt_szakkepesites?: SortOrderInput | SortOrder
+    nkt_szakirany?: SortOrderInput | SortOrder
+    agazat_uj_szkt_reszszakmahoz?: SortOrderInput | SortOrder
+    szakma_reszszakmahoz?: SortOrderInput | SortOrder
+    reszszakma?: SortOrderInput | SortOrder
+    agazat_tanulmanyi_terulet?: SortOrderInput | SortOrder
+    szakmai_kepzes?: SortOrderInput | SortOrder
+    agazati_alapoktatas_megnevezese?: SortOrderInput | SortOrder
+    agazati_alapvizsga_eredmeny?: SortOrderInput | SortOrder
+    agazati_alapvizsga_teljesitesenek_datuma?: SortOrderInput | SortOrder
+    agazati_alapvizsga_eredmenye?: SortOrderInput | SortOrder
+    agazati_alapvizsga_eredmenye_percent?: SortOrderInput | SortOrder
+    szakkepzesi_munkaszerzodessel?: SortOrderInput | SortOrder
+    Dualis_kepzohely_neve?: SortOrderInput | SortOrder
+    Dualis_kepzohely_adoszama?: SortOrderInput | SortOrder
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: SortOrderInput | SortOrder
+    kiemelten_tehetseges?: SortOrderInput | SortOrder
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: SortOrderInput | SortOrder
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: SortOrderInput | SortOrder
+    egesz_napos_iskolai_oktatasban_reszesul?: SortOrderInput | SortOrder
+    nyelvi_elokeszito?: SortOrderInput | SortOrder
+    ket_tanitasi_nyelvu?: SortOrderInput | SortOrder
+    NemzetisegiNevelesOktatas?: SortOrderInput | SortOrder
+    NemzetisegiNevelesOktatásFajtaja?: SortOrderInput | SortOrder
+    nemzetisegiNyelv?: SortOrderInput | SortOrder
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: SortOrderInput | SortOrder
+    sportosztaly?: SortOrderInput | SortOrder
+    aranyjanostehetseggondozoprogram?: SortOrderInput | SortOrder
+    arany_janos_kollegiumi_program?: SortOrderInput | SortOrder
+    munkarend?: SortOrderInput | SortOrder
     alapadatok_id?: SortOrder
     createAt?: SortOrder
     createBy?: SortOrder
@@ -11007,76 +11015,76 @@ export namespace Prisma {
     OR?: Tanugyi_AdatokScalarWhereWithAggregatesInput[]
     NOT?: Tanugyi_AdatokScalarWhereWithAggregatesInput | Tanugyi_AdatokScalarWhereWithAggregatesInput[]
     id?: UuidWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    elotag?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    vezeteknev?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    utonev?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    oktatasiAzonositoja?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    osztaly?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    szuletesiDatuma?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    anyjaSzuletesiDatuma?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    tanterv?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    naploSorszam?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    beiras_naplo_sorszam?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    felvetel_taneve?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    torzslapszam?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    tabulo_jogviszonya?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    jogviszony_kezdete?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    jogviszony_megszunesenek_varhato_datuma?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    jogviszonyátSzunetelteto?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    tankotelezettsegetTeljesito?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    tankotelezettségVege?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    bejaro?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    Szakmai_gyakorlaton_tartozkodik?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend_oka?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend_kezdete?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend_vege?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    Vendegtanulo?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    tandijat_fizeto?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    teritesi_dijat_fizeto?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    tanuloszerzodeses?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    polgari_szerzodeses?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    iskolai_sportkorben_reszt_vevo_tanulo?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    evfolyamismetlo?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    elozo_intezmeny?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    osztaly1?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    evfolyam?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    bizonyitvany_sorszama?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    okleveles_technikus_képzes?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    uj_Szkt_agazat_tipusa?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    uj_szkt_szakma_tipusa?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    uj_szkt_szakmairany_tipusa?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    nkt_tanulmanyi_terulet?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    nkt_szakkepesites?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    nkt_szakirany?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    agazat_uj_szkt_reszszakmahoz?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    szakma_reszszakmahoz?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    reszszakma?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    agazat_tanulmanyi_terulet?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    szakmai_kepzes?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    agazati_alapoktatas_megnevezese?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_eredmeny?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_teljesitesenek_datuma?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_eredmenye?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_eredmenye_percent?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    szakkepzesi_munkaszerzodessel?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    Dualis_kepzohely_neve?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    Dualis_kepzohely_adoszama?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    kiemelten_tehetseges?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    egesz_napos_iskolai_oktatasban_reszesul?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    nyelvi_elokeszito?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    ket_tanitasi_nyelvu?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    NemzetisegiNevelesOktatas?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    NemzetisegiNevelesOktatásFajtaja?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    nemzetisegiNyelv?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    sportosztaly?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    aranyjanostehetseggondozoprogram?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    arany_janos_kollegiumi_program?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    munkarend?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
+    elotag?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    vezeteknev?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    utonev?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    oktatasiAzonositoja?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    osztaly?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    szuletesiDatuma?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    anyjaSzuletesiDatuma?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    tanterv?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    naploSorszam?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    beiras_naplo_sorszam?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    felvetel_taneve?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    torzslapszam?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    tabulo_jogviszonya?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    jogviszony_kezdete?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    jogviszony_megszunesenek_varhato_datuma?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    jogviszonyátSzunetelteto?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    tankotelezettsegetTeljesito?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    tankotelezettségVege?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    bejaro?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    Szakmai_gyakorlaton_tartozkodik?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend_oka?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend_kezdete?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend_vege?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    Vendegtanulo?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    tandijat_fizeto?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    teritesi_dijat_fizeto?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    tanuloszerzodeses?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    polgari_szerzodeses?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    evfolyamismetlo?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    elozo_intezmeny?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    osztaly1?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    evfolyam?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    bizonyitvany_sorszama?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    okleveles_technikus_képzes?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    uj_Szkt_agazat_tipusa?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    uj_szkt_szakma_tipusa?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    uj_szkt_szakmairany_tipusa?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    nkt_tanulmanyi_terulet?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    nkt_szakkepesites?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    nkt_szakirany?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    agazat_uj_szkt_reszszakmahoz?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    szakma_reszszakmahoz?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    reszszakma?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    agazat_tanulmanyi_terulet?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    szakmai_kepzes?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapoktatas_megnevezese?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_eredmeny?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_eredmenye?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_eredmenye_percent?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    szakkepzesi_munkaszerzodessel?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    Dualis_kepzohely_neve?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    Dualis_kepzohely_adoszama?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    kiemelten_tehetseges?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    nyelvi_elokeszito?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    ket_tanitasi_nyelvu?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    NemzetisegiNevelesOktatas?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    NemzetisegiNevelesOktatásFajtaja?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    nemzetisegiNyelv?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    sportosztaly?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    aranyjanostehetseggondozoprogram?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    arany_janos_kollegiumi_program?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    munkarend?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
     alapadatok_id?: UuidWithAggregatesFilter<"Tanugyi_Adatok"> | string
     createAt?: DateTimeWithAggregatesFilter<"Tanugyi_Adatok"> | Date | string
     createBy?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
@@ -11409,76 +11417,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokCreateInput = {
     id?: string
-    elotag: string
-    vezeteknev: string
-    utonev: string
-    oktatasiAzonositoja: string
-    osztaly: string
-    szuletesiDatuma: string
-    anyjaSzuletesiDatuma: string
-    tanterv: string
-    naploSorszam: string
-    beiras_naplo_sorszam: string
-    felvetel_taneve: string
-    torzslapszam: string
-    tabulo_jogviszonya: string
-    jogviszony_kezdete: string
-    jogviszony_megszunesenek_varhato_datuma: string
-    jogviszonyátSzunetelteto: string
-    tankotelezettsegetTeljesito: string
-    tankotelezettségVege: string
-    bejaro: string
-    Szakmai_gyakorlaton_tartozkodik: string
-    Egyeni_munkarend: string
-    Egyeni_munkarend_oka: string
-    Egyeni_munkarend_kezdete: string
-    Egyeni_munkarend_vege: string
-    Vendegtanulo: string
-    tandijat_fizeto: string
-    teritesi_dijat_fizeto: string
-    tanuloszerzodeses: string
-    polgari_szerzodeses: string
-    iskolai_sportkorben_reszt_vevo_tanulo: string
-    evfolyamismetlo: string
-    elozo_intezmeny: string
-    osztaly1: string
-    evfolyam: string
-    bizonyitvany_sorszama: string
-    okleveles_technikus_képzes: string
-    uj_Szkt_agazat_tipusa: string
-    uj_szkt_szakma_tipusa: string
-    uj_szkt_szakmairany_tipusa: string
-    nkt_tanulmanyi_terulet: string
-    nkt_szakkepesites: string
-    nkt_szakirany: string
-    agazat_uj_szkt_reszszakmahoz: string
-    szakma_reszszakmahoz: string
-    reszszakma: string
-    agazat_tanulmanyi_terulet: string
-    szakmai_kepzes: string
-    agazati_alapoktatas_megnevezese: string
-    agazati_alapvizsga_eredmeny: string
-    agazati_alapvizsga_teljesitesenek_datuma: string
-    agazati_alapvizsga_eredmenye: string
-    agazati_alapvizsga_eredmenye_percent: string
-    szakkepzesi_munkaszerzodessel: string
-    Dualis_kepzohely_neve: string
-    Dualis_kepzohely_adoszama: string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: string
-    kiemelten_tehetseges: string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal: string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul: string
-    egesz_napos_iskolai_oktatasban_reszesul: string
-    nyelvi_elokeszito: string
-    ket_tanitasi_nyelvu: string
-    NemzetisegiNevelesOktatas: string
-    NemzetisegiNevelesOktatásFajtaja: string
-    nemzetisegiNyelv: string
-    nemzetisegNyelvenFolyoSzakmaiOktatas: string
-    sportosztaly: string
-    aranyjanostehetseggondozoprogram: string
-    arany_janos_kollegiumi_program: string
-    munkarend: string
+    elotag?: string | null
+    vezeteknev?: string | null
+    utonev?: string | null
+    oktatasiAzonositoja?: string | null
+    osztaly?: string | null
+    szuletesiDatuma?: string | null
+    anyjaSzuletesiDatuma?: string | null
+    tanterv?: string | null
+    naploSorszam?: string | null
+    beiras_naplo_sorszam?: string | null
+    felvetel_taneve?: string | null
+    torzslapszam?: string | null
+    tabulo_jogviszonya?: string | null
+    jogviszony_kezdete?: string | null
+    jogviszony_megszunesenek_varhato_datuma?: string | null
+    jogviszonyátSzunetelteto?: string | null
+    tankotelezettsegetTeljesito?: string | null
+    tankotelezettségVege?: string | null
+    bejaro?: string | null
+    Szakmai_gyakorlaton_tartozkodik?: string | null
+    Egyeni_munkarend?: string | null
+    Egyeni_munkarend_oka?: string | null
+    Egyeni_munkarend_kezdete?: string | null
+    Egyeni_munkarend_vege?: string | null
+    Vendegtanulo?: string | null
+    tandijat_fizeto?: string | null
+    teritesi_dijat_fizeto?: string | null
+    tanuloszerzodeses?: string | null
+    polgari_szerzodeses?: string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: string | null
+    evfolyamismetlo?: string | null
+    elozo_intezmeny?: string | null
+    osztaly1?: string | null
+    evfolyam?: string | null
+    bizonyitvany_sorszama?: string | null
+    okleveles_technikus_képzes?: string | null
+    uj_Szkt_agazat_tipusa?: string | null
+    uj_szkt_szakma_tipusa?: string | null
+    uj_szkt_szakmairany_tipusa?: string | null
+    nkt_tanulmanyi_terulet?: string | null
+    nkt_szakkepesites?: string | null
+    nkt_szakirany?: string | null
+    agazat_uj_szkt_reszszakmahoz?: string | null
+    szakma_reszszakmahoz?: string | null
+    reszszakma?: string | null
+    agazat_tanulmanyi_terulet?: string | null
+    szakmai_kepzes?: string | null
+    agazati_alapoktatas_megnevezese?: string | null
+    agazati_alapvizsga_eredmeny?: string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: string | null
+    agazati_alapvizsga_eredmenye?: string | null
+    agazati_alapvizsga_eredmenye_percent?: string | null
+    szakkepzesi_munkaszerzodessel?: string | null
+    Dualis_kepzohely_neve?: string | null
+    Dualis_kepzohely_adoszama?: string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: string | null
+    kiemelten_tehetseges?: string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: string | null
+    nyelvi_elokeszito?: string | null
+    ket_tanitasi_nyelvu?: string | null
+    NemzetisegiNevelesOktatas?: string | null
+    NemzetisegiNevelesOktatásFajtaja?: string | null
+    nemzetisegiNyelv?: string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: string | null
+    sportosztaly?: string | null
+    aranyjanostehetseggondozoprogram?: string | null
+    arany_janos_kollegiumi_program?: string | null
+    munkarend?: string | null
     createAt?: Date | string
     createBy: string
     updatedAt?: Date | string
@@ -11488,76 +11496,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokUncheckedCreateInput = {
     id?: string
-    elotag: string
-    vezeteknev: string
-    utonev: string
-    oktatasiAzonositoja: string
-    osztaly: string
-    szuletesiDatuma: string
-    anyjaSzuletesiDatuma: string
-    tanterv: string
-    naploSorszam: string
-    beiras_naplo_sorszam: string
-    felvetel_taneve: string
-    torzslapszam: string
-    tabulo_jogviszonya: string
-    jogviszony_kezdete: string
-    jogviszony_megszunesenek_varhato_datuma: string
-    jogviszonyátSzunetelteto: string
-    tankotelezettsegetTeljesito: string
-    tankotelezettségVege: string
-    bejaro: string
-    Szakmai_gyakorlaton_tartozkodik: string
-    Egyeni_munkarend: string
-    Egyeni_munkarend_oka: string
-    Egyeni_munkarend_kezdete: string
-    Egyeni_munkarend_vege: string
-    Vendegtanulo: string
-    tandijat_fizeto: string
-    teritesi_dijat_fizeto: string
-    tanuloszerzodeses: string
-    polgari_szerzodeses: string
-    iskolai_sportkorben_reszt_vevo_tanulo: string
-    evfolyamismetlo: string
-    elozo_intezmeny: string
-    osztaly1: string
-    evfolyam: string
-    bizonyitvany_sorszama: string
-    okleveles_technikus_képzes: string
-    uj_Szkt_agazat_tipusa: string
-    uj_szkt_szakma_tipusa: string
-    uj_szkt_szakmairany_tipusa: string
-    nkt_tanulmanyi_terulet: string
-    nkt_szakkepesites: string
-    nkt_szakirany: string
-    agazat_uj_szkt_reszszakmahoz: string
-    szakma_reszszakmahoz: string
-    reszszakma: string
-    agazat_tanulmanyi_terulet: string
-    szakmai_kepzes: string
-    agazati_alapoktatas_megnevezese: string
-    agazati_alapvizsga_eredmeny: string
-    agazati_alapvizsga_teljesitesenek_datuma: string
-    agazati_alapvizsga_eredmenye: string
-    agazati_alapvizsga_eredmenye_percent: string
-    szakkepzesi_munkaszerzodessel: string
-    Dualis_kepzohely_neve: string
-    Dualis_kepzohely_adoszama: string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: string
-    kiemelten_tehetseges: string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal: string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul: string
-    egesz_napos_iskolai_oktatasban_reszesul: string
-    nyelvi_elokeszito: string
-    ket_tanitasi_nyelvu: string
-    NemzetisegiNevelesOktatas: string
-    NemzetisegiNevelesOktatásFajtaja: string
-    nemzetisegiNyelv: string
-    nemzetisegNyelvenFolyoSzakmaiOktatas: string
-    sportosztaly: string
-    aranyjanostehetseggondozoprogram: string
-    arany_janos_kollegiumi_program: string
-    munkarend: string
+    elotag?: string | null
+    vezeteknev?: string | null
+    utonev?: string | null
+    oktatasiAzonositoja?: string | null
+    osztaly?: string | null
+    szuletesiDatuma?: string | null
+    anyjaSzuletesiDatuma?: string | null
+    tanterv?: string | null
+    naploSorszam?: string | null
+    beiras_naplo_sorszam?: string | null
+    felvetel_taneve?: string | null
+    torzslapszam?: string | null
+    tabulo_jogviszonya?: string | null
+    jogviszony_kezdete?: string | null
+    jogviszony_megszunesenek_varhato_datuma?: string | null
+    jogviszonyátSzunetelteto?: string | null
+    tankotelezettsegetTeljesito?: string | null
+    tankotelezettségVege?: string | null
+    bejaro?: string | null
+    Szakmai_gyakorlaton_tartozkodik?: string | null
+    Egyeni_munkarend?: string | null
+    Egyeni_munkarend_oka?: string | null
+    Egyeni_munkarend_kezdete?: string | null
+    Egyeni_munkarend_vege?: string | null
+    Vendegtanulo?: string | null
+    tandijat_fizeto?: string | null
+    teritesi_dijat_fizeto?: string | null
+    tanuloszerzodeses?: string | null
+    polgari_szerzodeses?: string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: string | null
+    evfolyamismetlo?: string | null
+    elozo_intezmeny?: string | null
+    osztaly1?: string | null
+    evfolyam?: string | null
+    bizonyitvany_sorszama?: string | null
+    okleveles_technikus_képzes?: string | null
+    uj_Szkt_agazat_tipusa?: string | null
+    uj_szkt_szakma_tipusa?: string | null
+    uj_szkt_szakmairany_tipusa?: string | null
+    nkt_tanulmanyi_terulet?: string | null
+    nkt_szakkepesites?: string | null
+    nkt_szakirany?: string | null
+    agazat_uj_szkt_reszszakmahoz?: string | null
+    szakma_reszszakmahoz?: string | null
+    reszszakma?: string | null
+    agazat_tanulmanyi_terulet?: string | null
+    szakmai_kepzes?: string | null
+    agazati_alapoktatas_megnevezese?: string | null
+    agazati_alapvizsga_eredmeny?: string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: string | null
+    agazati_alapvizsga_eredmenye?: string | null
+    agazati_alapvizsga_eredmenye_percent?: string | null
+    szakkepzesi_munkaszerzodessel?: string | null
+    Dualis_kepzohely_neve?: string | null
+    Dualis_kepzohely_adoszama?: string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: string | null
+    kiemelten_tehetseges?: string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: string | null
+    nyelvi_elokeszito?: string | null
+    ket_tanitasi_nyelvu?: string | null
+    NemzetisegiNevelesOktatas?: string | null
+    NemzetisegiNevelesOktatásFajtaja?: string | null
+    nemzetisegiNyelv?: string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: string | null
+    sportosztaly?: string | null
+    aranyjanostehetseggondozoprogram?: string | null
+    arany_janos_kollegiumi_program?: string | null
+    munkarend?: string | null
     alapadatok_id: string
     createAt?: Date | string
     createBy: string
@@ -11567,76 +11575,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    elotag?: StringFieldUpdateOperationsInput | string
-    vezeteknev?: StringFieldUpdateOperationsInput | string
-    utonev?: StringFieldUpdateOperationsInput | string
-    oktatasiAzonositoja?: StringFieldUpdateOperationsInput | string
-    osztaly?: StringFieldUpdateOperationsInput | string
-    szuletesiDatuma?: StringFieldUpdateOperationsInput | string
-    anyjaSzuletesiDatuma?: StringFieldUpdateOperationsInput | string
-    tanterv?: StringFieldUpdateOperationsInput | string
-    naploSorszam?: StringFieldUpdateOperationsInput | string
-    beiras_naplo_sorszam?: StringFieldUpdateOperationsInput | string
-    felvetel_taneve?: StringFieldUpdateOperationsInput | string
-    torzslapszam?: StringFieldUpdateOperationsInput | string
-    tabulo_jogviszonya?: StringFieldUpdateOperationsInput | string
-    jogviszony_kezdete?: StringFieldUpdateOperationsInput | string
-    jogviszony_megszunesenek_varhato_datuma?: StringFieldUpdateOperationsInput | string
-    jogviszonyátSzunetelteto?: StringFieldUpdateOperationsInput | string
-    tankotelezettsegetTeljesito?: StringFieldUpdateOperationsInput | string
-    tankotelezettségVege?: StringFieldUpdateOperationsInput | string
-    bejaro?: StringFieldUpdateOperationsInput | string
-    Szakmai_gyakorlaton_tartozkodik?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_oka?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_kezdete?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_vege?: StringFieldUpdateOperationsInput | string
-    Vendegtanulo?: StringFieldUpdateOperationsInput | string
-    tandijat_fizeto?: StringFieldUpdateOperationsInput | string
-    teritesi_dijat_fizeto?: StringFieldUpdateOperationsInput | string
-    tanuloszerzodeses?: StringFieldUpdateOperationsInput | string
-    polgari_szerzodeses?: StringFieldUpdateOperationsInput | string
-    iskolai_sportkorben_reszt_vevo_tanulo?: StringFieldUpdateOperationsInput | string
-    evfolyamismetlo?: StringFieldUpdateOperationsInput | string
-    elozo_intezmeny?: StringFieldUpdateOperationsInput | string
-    osztaly1?: StringFieldUpdateOperationsInput | string
-    evfolyam?: StringFieldUpdateOperationsInput | string
-    bizonyitvany_sorszama?: StringFieldUpdateOperationsInput | string
-    okleveles_technikus_képzes?: StringFieldUpdateOperationsInput | string
-    uj_Szkt_agazat_tipusa?: StringFieldUpdateOperationsInput | string
-    uj_szkt_szakma_tipusa?: StringFieldUpdateOperationsInput | string
-    uj_szkt_szakmairany_tipusa?: StringFieldUpdateOperationsInput | string
-    nkt_tanulmanyi_terulet?: StringFieldUpdateOperationsInput | string
-    nkt_szakkepesites?: StringFieldUpdateOperationsInput | string
-    nkt_szakirany?: StringFieldUpdateOperationsInput | string
-    agazat_uj_szkt_reszszakmahoz?: StringFieldUpdateOperationsInput | string
-    szakma_reszszakmahoz?: StringFieldUpdateOperationsInput | string
-    reszszakma?: StringFieldUpdateOperationsInput | string
-    agazat_tanulmanyi_terulet?: StringFieldUpdateOperationsInput | string
-    szakmai_kepzes?: StringFieldUpdateOperationsInput | string
-    agazati_alapoktatas_megnevezese?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmeny?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_teljesitesenek_datuma?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmenye?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmenye_percent?: StringFieldUpdateOperationsInput | string
-    szakkepzesi_munkaszerzodessel?: StringFieldUpdateOperationsInput | string
-    Dualis_kepzohely_neve?: StringFieldUpdateOperationsInput | string
-    Dualis_kepzohely_adoszama?: StringFieldUpdateOperationsInput | string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringFieldUpdateOperationsInput | string
-    kiemelten_tehetseges?: StringFieldUpdateOperationsInput | string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringFieldUpdateOperationsInput | string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringFieldUpdateOperationsInput | string
-    egesz_napos_iskolai_oktatasban_reszesul?: StringFieldUpdateOperationsInput | string
-    nyelvi_elokeszito?: StringFieldUpdateOperationsInput | string
-    ket_tanitasi_nyelvu?: StringFieldUpdateOperationsInput | string
-    NemzetisegiNevelesOktatas?: StringFieldUpdateOperationsInput | string
-    NemzetisegiNevelesOktatásFajtaja?: StringFieldUpdateOperationsInput | string
-    nemzetisegiNyelv?: StringFieldUpdateOperationsInput | string
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringFieldUpdateOperationsInput | string
-    sportosztaly?: StringFieldUpdateOperationsInput | string
-    aranyjanostehetseggondozoprogram?: StringFieldUpdateOperationsInput | string
-    arany_janos_kollegiumi_program?: StringFieldUpdateOperationsInput | string
-    munkarend?: StringFieldUpdateOperationsInput | string
+    elotag?: NullableStringFieldUpdateOperationsInput | string | null
+    vezeteknev?: NullableStringFieldUpdateOperationsInput | string | null
+    utonev?: NullableStringFieldUpdateOperationsInput | string | null
+    oktatasiAzonositoja?: NullableStringFieldUpdateOperationsInput | string | null
+    osztaly?: NullableStringFieldUpdateOperationsInput | string | null
+    szuletesiDatuma?: NullableStringFieldUpdateOperationsInput | string | null
+    anyjaSzuletesiDatuma?: NullableStringFieldUpdateOperationsInput | string | null
+    tanterv?: NullableStringFieldUpdateOperationsInput | string | null
+    naploSorszam?: NullableStringFieldUpdateOperationsInput | string | null
+    beiras_naplo_sorszam?: NullableStringFieldUpdateOperationsInput | string | null
+    felvetel_taneve?: NullableStringFieldUpdateOperationsInput | string | null
+    torzslapszam?: NullableStringFieldUpdateOperationsInput | string | null
+    tabulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszony_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszony_megszunesenek_varhato_datuma?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszonyátSzunetelteto?: NullableStringFieldUpdateOperationsInput | string | null
+    tankotelezettsegetTeljesito?: NullableStringFieldUpdateOperationsInput | string | null
+    tankotelezettségVege?: NullableStringFieldUpdateOperationsInput | string | null
+    bejaro?: NullableStringFieldUpdateOperationsInput | string | null
+    Szakmai_gyakorlaton_tartozkodik?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_oka?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_vege?: NullableStringFieldUpdateOperationsInput | string | null
+    Vendegtanulo?: NullableStringFieldUpdateOperationsInput | string | null
+    tandijat_fizeto?: NullableStringFieldUpdateOperationsInput | string | null
+    teritesi_dijat_fizeto?: NullableStringFieldUpdateOperationsInput | string | null
+    tanuloszerzodeses?: NullableStringFieldUpdateOperationsInput | string | null
+    polgari_szerzodeses?: NullableStringFieldUpdateOperationsInput | string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
+    evfolyamismetlo?: NullableStringFieldUpdateOperationsInput | string | null
+    elozo_intezmeny?: NullableStringFieldUpdateOperationsInput | string | null
+    osztaly1?: NullableStringFieldUpdateOperationsInput | string | null
+    evfolyam?: NullableStringFieldUpdateOperationsInput | string | null
+    bizonyitvany_sorszama?: NullableStringFieldUpdateOperationsInput | string | null
+    okleveles_technikus_képzes?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_Szkt_agazat_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_szkt_szakma_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_szkt_szakmairany_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_szakkepesites?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_szakirany?: NullableStringFieldUpdateOperationsInput | string | null
+    agazat_uj_szkt_reszszakmahoz?: NullableStringFieldUpdateOperationsInput | string | null
+    szakma_reszszakmahoz?: NullableStringFieldUpdateOperationsInput | string | null
+    reszszakma?: NullableStringFieldUpdateOperationsInput | string | null
+    agazat_tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
+    szakmai_kepzes?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapoktatas_megnevezese?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmeny?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmenye?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmenye_percent?: NullableStringFieldUpdateOperationsInput | string | null
+    szakkepzesi_munkaszerzodessel?: NullableStringFieldUpdateOperationsInput | string | null
+    Dualis_kepzohely_neve?: NullableStringFieldUpdateOperationsInput | string | null
+    Dualis_kepzohely_adoszama?: NullableStringFieldUpdateOperationsInput | string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
+    kiemelten_tehetseges?: NullableStringFieldUpdateOperationsInput | string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: NullableStringFieldUpdateOperationsInput | string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
+    nyelvi_elokeszito?: NullableStringFieldUpdateOperationsInput | string | null
+    ket_tanitasi_nyelvu?: NullableStringFieldUpdateOperationsInput | string | null
+    NemzetisegiNevelesOktatas?: NullableStringFieldUpdateOperationsInput | string | null
+    NemzetisegiNevelesOktatásFajtaja?: NullableStringFieldUpdateOperationsInput | string | null
+    nemzetisegiNyelv?: NullableStringFieldUpdateOperationsInput | string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: NullableStringFieldUpdateOperationsInput | string | null
+    sportosztaly?: NullableStringFieldUpdateOperationsInput | string | null
+    aranyjanostehetseggondozoprogram?: NullableStringFieldUpdateOperationsInput | string | null
+    arany_janos_kollegiumi_program?: NullableStringFieldUpdateOperationsInput | string | null
+    munkarend?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11646,76 +11654,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    elotag?: StringFieldUpdateOperationsInput | string
-    vezeteknev?: StringFieldUpdateOperationsInput | string
-    utonev?: StringFieldUpdateOperationsInput | string
-    oktatasiAzonositoja?: StringFieldUpdateOperationsInput | string
-    osztaly?: StringFieldUpdateOperationsInput | string
-    szuletesiDatuma?: StringFieldUpdateOperationsInput | string
-    anyjaSzuletesiDatuma?: StringFieldUpdateOperationsInput | string
-    tanterv?: StringFieldUpdateOperationsInput | string
-    naploSorszam?: StringFieldUpdateOperationsInput | string
-    beiras_naplo_sorszam?: StringFieldUpdateOperationsInput | string
-    felvetel_taneve?: StringFieldUpdateOperationsInput | string
-    torzslapszam?: StringFieldUpdateOperationsInput | string
-    tabulo_jogviszonya?: StringFieldUpdateOperationsInput | string
-    jogviszony_kezdete?: StringFieldUpdateOperationsInput | string
-    jogviszony_megszunesenek_varhato_datuma?: StringFieldUpdateOperationsInput | string
-    jogviszonyátSzunetelteto?: StringFieldUpdateOperationsInput | string
-    tankotelezettsegetTeljesito?: StringFieldUpdateOperationsInput | string
-    tankotelezettségVege?: StringFieldUpdateOperationsInput | string
-    bejaro?: StringFieldUpdateOperationsInput | string
-    Szakmai_gyakorlaton_tartozkodik?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_oka?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_kezdete?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_vege?: StringFieldUpdateOperationsInput | string
-    Vendegtanulo?: StringFieldUpdateOperationsInput | string
-    tandijat_fizeto?: StringFieldUpdateOperationsInput | string
-    teritesi_dijat_fizeto?: StringFieldUpdateOperationsInput | string
-    tanuloszerzodeses?: StringFieldUpdateOperationsInput | string
-    polgari_szerzodeses?: StringFieldUpdateOperationsInput | string
-    iskolai_sportkorben_reszt_vevo_tanulo?: StringFieldUpdateOperationsInput | string
-    evfolyamismetlo?: StringFieldUpdateOperationsInput | string
-    elozo_intezmeny?: StringFieldUpdateOperationsInput | string
-    osztaly1?: StringFieldUpdateOperationsInput | string
-    evfolyam?: StringFieldUpdateOperationsInput | string
-    bizonyitvany_sorszama?: StringFieldUpdateOperationsInput | string
-    okleveles_technikus_képzes?: StringFieldUpdateOperationsInput | string
-    uj_Szkt_agazat_tipusa?: StringFieldUpdateOperationsInput | string
-    uj_szkt_szakma_tipusa?: StringFieldUpdateOperationsInput | string
-    uj_szkt_szakmairany_tipusa?: StringFieldUpdateOperationsInput | string
-    nkt_tanulmanyi_terulet?: StringFieldUpdateOperationsInput | string
-    nkt_szakkepesites?: StringFieldUpdateOperationsInput | string
-    nkt_szakirany?: StringFieldUpdateOperationsInput | string
-    agazat_uj_szkt_reszszakmahoz?: StringFieldUpdateOperationsInput | string
-    szakma_reszszakmahoz?: StringFieldUpdateOperationsInput | string
-    reszszakma?: StringFieldUpdateOperationsInput | string
-    agazat_tanulmanyi_terulet?: StringFieldUpdateOperationsInput | string
-    szakmai_kepzes?: StringFieldUpdateOperationsInput | string
-    agazati_alapoktatas_megnevezese?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmeny?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_teljesitesenek_datuma?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmenye?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmenye_percent?: StringFieldUpdateOperationsInput | string
-    szakkepzesi_munkaszerzodessel?: StringFieldUpdateOperationsInput | string
-    Dualis_kepzohely_neve?: StringFieldUpdateOperationsInput | string
-    Dualis_kepzohely_adoszama?: StringFieldUpdateOperationsInput | string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringFieldUpdateOperationsInput | string
-    kiemelten_tehetseges?: StringFieldUpdateOperationsInput | string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringFieldUpdateOperationsInput | string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringFieldUpdateOperationsInput | string
-    egesz_napos_iskolai_oktatasban_reszesul?: StringFieldUpdateOperationsInput | string
-    nyelvi_elokeszito?: StringFieldUpdateOperationsInput | string
-    ket_tanitasi_nyelvu?: StringFieldUpdateOperationsInput | string
-    NemzetisegiNevelesOktatas?: StringFieldUpdateOperationsInput | string
-    NemzetisegiNevelesOktatásFajtaja?: StringFieldUpdateOperationsInput | string
-    nemzetisegiNyelv?: StringFieldUpdateOperationsInput | string
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringFieldUpdateOperationsInput | string
-    sportosztaly?: StringFieldUpdateOperationsInput | string
-    aranyjanostehetseggondozoprogram?: StringFieldUpdateOperationsInput | string
-    arany_janos_kollegiumi_program?: StringFieldUpdateOperationsInput | string
-    munkarend?: StringFieldUpdateOperationsInput | string
+    elotag?: NullableStringFieldUpdateOperationsInput | string | null
+    vezeteknev?: NullableStringFieldUpdateOperationsInput | string | null
+    utonev?: NullableStringFieldUpdateOperationsInput | string | null
+    oktatasiAzonositoja?: NullableStringFieldUpdateOperationsInput | string | null
+    osztaly?: NullableStringFieldUpdateOperationsInput | string | null
+    szuletesiDatuma?: NullableStringFieldUpdateOperationsInput | string | null
+    anyjaSzuletesiDatuma?: NullableStringFieldUpdateOperationsInput | string | null
+    tanterv?: NullableStringFieldUpdateOperationsInput | string | null
+    naploSorszam?: NullableStringFieldUpdateOperationsInput | string | null
+    beiras_naplo_sorszam?: NullableStringFieldUpdateOperationsInput | string | null
+    felvetel_taneve?: NullableStringFieldUpdateOperationsInput | string | null
+    torzslapszam?: NullableStringFieldUpdateOperationsInput | string | null
+    tabulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszony_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszony_megszunesenek_varhato_datuma?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszonyátSzunetelteto?: NullableStringFieldUpdateOperationsInput | string | null
+    tankotelezettsegetTeljesito?: NullableStringFieldUpdateOperationsInput | string | null
+    tankotelezettségVege?: NullableStringFieldUpdateOperationsInput | string | null
+    bejaro?: NullableStringFieldUpdateOperationsInput | string | null
+    Szakmai_gyakorlaton_tartozkodik?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_oka?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_vege?: NullableStringFieldUpdateOperationsInput | string | null
+    Vendegtanulo?: NullableStringFieldUpdateOperationsInput | string | null
+    tandijat_fizeto?: NullableStringFieldUpdateOperationsInput | string | null
+    teritesi_dijat_fizeto?: NullableStringFieldUpdateOperationsInput | string | null
+    tanuloszerzodeses?: NullableStringFieldUpdateOperationsInput | string | null
+    polgari_szerzodeses?: NullableStringFieldUpdateOperationsInput | string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
+    evfolyamismetlo?: NullableStringFieldUpdateOperationsInput | string | null
+    elozo_intezmeny?: NullableStringFieldUpdateOperationsInput | string | null
+    osztaly1?: NullableStringFieldUpdateOperationsInput | string | null
+    evfolyam?: NullableStringFieldUpdateOperationsInput | string | null
+    bizonyitvany_sorszama?: NullableStringFieldUpdateOperationsInput | string | null
+    okleveles_technikus_képzes?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_Szkt_agazat_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_szkt_szakma_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_szkt_szakmairany_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_szakkepesites?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_szakirany?: NullableStringFieldUpdateOperationsInput | string | null
+    agazat_uj_szkt_reszszakmahoz?: NullableStringFieldUpdateOperationsInput | string | null
+    szakma_reszszakmahoz?: NullableStringFieldUpdateOperationsInput | string | null
+    reszszakma?: NullableStringFieldUpdateOperationsInput | string | null
+    agazat_tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
+    szakmai_kepzes?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapoktatas_megnevezese?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmeny?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmenye?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmenye_percent?: NullableStringFieldUpdateOperationsInput | string | null
+    szakkepzesi_munkaszerzodessel?: NullableStringFieldUpdateOperationsInput | string | null
+    Dualis_kepzohely_neve?: NullableStringFieldUpdateOperationsInput | string | null
+    Dualis_kepzohely_adoszama?: NullableStringFieldUpdateOperationsInput | string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
+    kiemelten_tehetseges?: NullableStringFieldUpdateOperationsInput | string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: NullableStringFieldUpdateOperationsInput | string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
+    nyelvi_elokeszito?: NullableStringFieldUpdateOperationsInput | string | null
+    ket_tanitasi_nyelvu?: NullableStringFieldUpdateOperationsInput | string | null
+    NemzetisegiNevelesOktatas?: NullableStringFieldUpdateOperationsInput | string | null
+    NemzetisegiNevelesOktatásFajtaja?: NullableStringFieldUpdateOperationsInput | string | null
+    nemzetisegiNyelv?: NullableStringFieldUpdateOperationsInput | string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: NullableStringFieldUpdateOperationsInput | string | null
+    sportosztaly?: NullableStringFieldUpdateOperationsInput | string | null
+    aranyjanostehetseggondozoprogram?: NullableStringFieldUpdateOperationsInput | string | null
+    arany_janos_kollegiumi_program?: NullableStringFieldUpdateOperationsInput | string | null
+    munkarend?: NullableStringFieldUpdateOperationsInput | string | null
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: StringFieldUpdateOperationsInput | string
@@ -11725,76 +11733,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokCreateManyInput = {
     id?: string
-    elotag: string
-    vezeteknev: string
-    utonev: string
-    oktatasiAzonositoja: string
-    osztaly: string
-    szuletesiDatuma: string
-    anyjaSzuletesiDatuma: string
-    tanterv: string
-    naploSorszam: string
-    beiras_naplo_sorszam: string
-    felvetel_taneve: string
-    torzslapszam: string
-    tabulo_jogviszonya: string
-    jogviszony_kezdete: string
-    jogviszony_megszunesenek_varhato_datuma: string
-    jogviszonyátSzunetelteto: string
-    tankotelezettsegetTeljesito: string
-    tankotelezettségVege: string
-    bejaro: string
-    Szakmai_gyakorlaton_tartozkodik: string
-    Egyeni_munkarend: string
-    Egyeni_munkarend_oka: string
-    Egyeni_munkarend_kezdete: string
-    Egyeni_munkarend_vege: string
-    Vendegtanulo: string
-    tandijat_fizeto: string
-    teritesi_dijat_fizeto: string
-    tanuloszerzodeses: string
-    polgari_szerzodeses: string
-    iskolai_sportkorben_reszt_vevo_tanulo: string
-    evfolyamismetlo: string
-    elozo_intezmeny: string
-    osztaly1: string
-    evfolyam: string
-    bizonyitvany_sorszama: string
-    okleveles_technikus_képzes: string
-    uj_Szkt_agazat_tipusa: string
-    uj_szkt_szakma_tipusa: string
-    uj_szkt_szakmairany_tipusa: string
-    nkt_tanulmanyi_terulet: string
-    nkt_szakkepesites: string
-    nkt_szakirany: string
-    agazat_uj_szkt_reszszakmahoz: string
-    szakma_reszszakmahoz: string
-    reszszakma: string
-    agazat_tanulmanyi_terulet: string
-    szakmai_kepzes: string
-    agazati_alapoktatas_megnevezese: string
-    agazati_alapvizsga_eredmeny: string
-    agazati_alapvizsga_teljesitesenek_datuma: string
-    agazati_alapvizsga_eredmenye: string
-    agazati_alapvizsga_eredmenye_percent: string
-    szakkepzesi_munkaszerzodessel: string
-    Dualis_kepzohely_neve: string
-    Dualis_kepzohely_adoszama: string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: string
-    kiemelten_tehetseges: string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal: string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul: string
-    egesz_napos_iskolai_oktatasban_reszesul: string
-    nyelvi_elokeszito: string
-    ket_tanitasi_nyelvu: string
-    NemzetisegiNevelesOktatas: string
-    NemzetisegiNevelesOktatásFajtaja: string
-    nemzetisegiNyelv: string
-    nemzetisegNyelvenFolyoSzakmaiOktatas: string
-    sportosztaly: string
-    aranyjanostehetseggondozoprogram: string
-    arany_janos_kollegiumi_program: string
-    munkarend: string
+    elotag?: string | null
+    vezeteknev?: string | null
+    utonev?: string | null
+    oktatasiAzonositoja?: string | null
+    osztaly?: string | null
+    szuletesiDatuma?: string | null
+    anyjaSzuletesiDatuma?: string | null
+    tanterv?: string | null
+    naploSorszam?: string | null
+    beiras_naplo_sorszam?: string | null
+    felvetel_taneve?: string | null
+    torzslapszam?: string | null
+    tabulo_jogviszonya?: string | null
+    jogviszony_kezdete?: string | null
+    jogviszony_megszunesenek_varhato_datuma?: string | null
+    jogviszonyátSzunetelteto?: string | null
+    tankotelezettsegetTeljesito?: string | null
+    tankotelezettségVege?: string | null
+    bejaro?: string | null
+    Szakmai_gyakorlaton_tartozkodik?: string | null
+    Egyeni_munkarend?: string | null
+    Egyeni_munkarend_oka?: string | null
+    Egyeni_munkarend_kezdete?: string | null
+    Egyeni_munkarend_vege?: string | null
+    Vendegtanulo?: string | null
+    tandijat_fizeto?: string | null
+    teritesi_dijat_fizeto?: string | null
+    tanuloszerzodeses?: string | null
+    polgari_szerzodeses?: string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: string | null
+    evfolyamismetlo?: string | null
+    elozo_intezmeny?: string | null
+    osztaly1?: string | null
+    evfolyam?: string | null
+    bizonyitvany_sorszama?: string | null
+    okleveles_technikus_képzes?: string | null
+    uj_Szkt_agazat_tipusa?: string | null
+    uj_szkt_szakma_tipusa?: string | null
+    uj_szkt_szakmairany_tipusa?: string | null
+    nkt_tanulmanyi_terulet?: string | null
+    nkt_szakkepesites?: string | null
+    nkt_szakirany?: string | null
+    agazat_uj_szkt_reszszakmahoz?: string | null
+    szakma_reszszakmahoz?: string | null
+    reszszakma?: string | null
+    agazat_tanulmanyi_terulet?: string | null
+    szakmai_kepzes?: string | null
+    agazati_alapoktatas_megnevezese?: string | null
+    agazati_alapvizsga_eredmeny?: string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: string | null
+    agazati_alapvizsga_eredmenye?: string | null
+    agazati_alapvizsga_eredmenye_percent?: string | null
+    szakkepzesi_munkaszerzodessel?: string | null
+    Dualis_kepzohely_neve?: string | null
+    Dualis_kepzohely_adoszama?: string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: string | null
+    kiemelten_tehetseges?: string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: string | null
+    nyelvi_elokeszito?: string | null
+    ket_tanitasi_nyelvu?: string | null
+    NemzetisegiNevelesOktatas?: string | null
+    NemzetisegiNevelesOktatásFajtaja?: string | null
+    nemzetisegiNyelv?: string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: string | null
+    sportosztaly?: string | null
+    aranyjanostehetseggondozoprogram?: string | null
+    arany_janos_kollegiumi_program?: string | null
+    munkarend?: string | null
     alapadatok_id: string
     createAt?: Date | string
     createBy: string
@@ -11804,76 +11812,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    elotag?: StringFieldUpdateOperationsInput | string
-    vezeteknev?: StringFieldUpdateOperationsInput | string
-    utonev?: StringFieldUpdateOperationsInput | string
-    oktatasiAzonositoja?: StringFieldUpdateOperationsInput | string
-    osztaly?: StringFieldUpdateOperationsInput | string
-    szuletesiDatuma?: StringFieldUpdateOperationsInput | string
-    anyjaSzuletesiDatuma?: StringFieldUpdateOperationsInput | string
-    tanterv?: StringFieldUpdateOperationsInput | string
-    naploSorszam?: StringFieldUpdateOperationsInput | string
-    beiras_naplo_sorszam?: StringFieldUpdateOperationsInput | string
-    felvetel_taneve?: StringFieldUpdateOperationsInput | string
-    torzslapszam?: StringFieldUpdateOperationsInput | string
-    tabulo_jogviszonya?: StringFieldUpdateOperationsInput | string
-    jogviszony_kezdete?: StringFieldUpdateOperationsInput | string
-    jogviszony_megszunesenek_varhato_datuma?: StringFieldUpdateOperationsInput | string
-    jogviszonyátSzunetelteto?: StringFieldUpdateOperationsInput | string
-    tankotelezettsegetTeljesito?: StringFieldUpdateOperationsInput | string
-    tankotelezettségVege?: StringFieldUpdateOperationsInput | string
-    bejaro?: StringFieldUpdateOperationsInput | string
-    Szakmai_gyakorlaton_tartozkodik?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_oka?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_kezdete?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_vege?: StringFieldUpdateOperationsInput | string
-    Vendegtanulo?: StringFieldUpdateOperationsInput | string
-    tandijat_fizeto?: StringFieldUpdateOperationsInput | string
-    teritesi_dijat_fizeto?: StringFieldUpdateOperationsInput | string
-    tanuloszerzodeses?: StringFieldUpdateOperationsInput | string
-    polgari_szerzodeses?: StringFieldUpdateOperationsInput | string
-    iskolai_sportkorben_reszt_vevo_tanulo?: StringFieldUpdateOperationsInput | string
-    evfolyamismetlo?: StringFieldUpdateOperationsInput | string
-    elozo_intezmeny?: StringFieldUpdateOperationsInput | string
-    osztaly1?: StringFieldUpdateOperationsInput | string
-    evfolyam?: StringFieldUpdateOperationsInput | string
-    bizonyitvany_sorszama?: StringFieldUpdateOperationsInput | string
-    okleveles_technikus_képzes?: StringFieldUpdateOperationsInput | string
-    uj_Szkt_agazat_tipusa?: StringFieldUpdateOperationsInput | string
-    uj_szkt_szakma_tipusa?: StringFieldUpdateOperationsInput | string
-    uj_szkt_szakmairany_tipusa?: StringFieldUpdateOperationsInput | string
-    nkt_tanulmanyi_terulet?: StringFieldUpdateOperationsInput | string
-    nkt_szakkepesites?: StringFieldUpdateOperationsInput | string
-    nkt_szakirany?: StringFieldUpdateOperationsInput | string
-    agazat_uj_szkt_reszszakmahoz?: StringFieldUpdateOperationsInput | string
-    szakma_reszszakmahoz?: StringFieldUpdateOperationsInput | string
-    reszszakma?: StringFieldUpdateOperationsInput | string
-    agazat_tanulmanyi_terulet?: StringFieldUpdateOperationsInput | string
-    szakmai_kepzes?: StringFieldUpdateOperationsInput | string
-    agazati_alapoktatas_megnevezese?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmeny?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_teljesitesenek_datuma?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmenye?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmenye_percent?: StringFieldUpdateOperationsInput | string
-    szakkepzesi_munkaszerzodessel?: StringFieldUpdateOperationsInput | string
-    Dualis_kepzohely_neve?: StringFieldUpdateOperationsInput | string
-    Dualis_kepzohely_adoszama?: StringFieldUpdateOperationsInput | string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringFieldUpdateOperationsInput | string
-    kiemelten_tehetseges?: StringFieldUpdateOperationsInput | string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringFieldUpdateOperationsInput | string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringFieldUpdateOperationsInput | string
-    egesz_napos_iskolai_oktatasban_reszesul?: StringFieldUpdateOperationsInput | string
-    nyelvi_elokeszito?: StringFieldUpdateOperationsInput | string
-    ket_tanitasi_nyelvu?: StringFieldUpdateOperationsInput | string
-    NemzetisegiNevelesOktatas?: StringFieldUpdateOperationsInput | string
-    NemzetisegiNevelesOktatásFajtaja?: StringFieldUpdateOperationsInput | string
-    nemzetisegiNyelv?: StringFieldUpdateOperationsInput | string
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringFieldUpdateOperationsInput | string
-    sportosztaly?: StringFieldUpdateOperationsInput | string
-    aranyjanostehetseggondozoprogram?: StringFieldUpdateOperationsInput | string
-    arany_janos_kollegiumi_program?: StringFieldUpdateOperationsInput | string
-    munkarend?: StringFieldUpdateOperationsInput | string
+    elotag?: NullableStringFieldUpdateOperationsInput | string | null
+    vezeteknev?: NullableStringFieldUpdateOperationsInput | string | null
+    utonev?: NullableStringFieldUpdateOperationsInput | string | null
+    oktatasiAzonositoja?: NullableStringFieldUpdateOperationsInput | string | null
+    osztaly?: NullableStringFieldUpdateOperationsInput | string | null
+    szuletesiDatuma?: NullableStringFieldUpdateOperationsInput | string | null
+    anyjaSzuletesiDatuma?: NullableStringFieldUpdateOperationsInput | string | null
+    tanterv?: NullableStringFieldUpdateOperationsInput | string | null
+    naploSorszam?: NullableStringFieldUpdateOperationsInput | string | null
+    beiras_naplo_sorszam?: NullableStringFieldUpdateOperationsInput | string | null
+    felvetel_taneve?: NullableStringFieldUpdateOperationsInput | string | null
+    torzslapszam?: NullableStringFieldUpdateOperationsInput | string | null
+    tabulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszony_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszony_megszunesenek_varhato_datuma?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszonyátSzunetelteto?: NullableStringFieldUpdateOperationsInput | string | null
+    tankotelezettsegetTeljesito?: NullableStringFieldUpdateOperationsInput | string | null
+    tankotelezettségVege?: NullableStringFieldUpdateOperationsInput | string | null
+    bejaro?: NullableStringFieldUpdateOperationsInput | string | null
+    Szakmai_gyakorlaton_tartozkodik?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_oka?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_vege?: NullableStringFieldUpdateOperationsInput | string | null
+    Vendegtanulo?: NullableStringFieldUpdateOperationsInput | string | null
+    tandijat_fizeto?: NullableStringFieldUpdateOperationsInput | string | null
+    teritesi_dijat_fizeto?: NullableStringFieldUpdateOperationsInput | string | null
+    tanuloszerzodeses?: NullableStringFieldUpdateOperationsInput | string | null
+    polgari_szerzodeses?: NullableStringFieldUpdateOperationsInput | string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
+    evfolyamismetlo?: NullableStringFieldUpdateOperationsInput | string | null
+    elozo_intezmeny?: NullableStringFieldUpdateOperationsInput | string | null
+    osztaly1?: NullableStringFieldUpdateOperationsInput | string | null
+    evfolyam?: NullableStringFieldUpdateOperationsInput | string | null
+    bizonyitvany_sorszama?: NullableStringFieldUpdateOperationsInput | string | null
+    okleveles_technikus_képzes?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_Szkt_agazat_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_szkt_szakma_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_szkt_szakmairany_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_szakkepesites?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_szakirany?: NullableStringFieldUpdateOperationsInput | string | null
+    agazat_uj_szkt_reszszakmahoz?: NullableStringFieldUpdateOperationsInput | string | null
+    szakma_reszszakmahoz?: NullableStringFieldUpdateOperationsInput | string | null
+    reszszakma?: NullableStringFieldUpdateOperationsInput | string | null
+    agazat_tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
+    szakmai_kepzes?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapoktatas_megnevezese?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmeny?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmenye?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmenye_percent?: NullableStringFieldUpdateOperationsInput | string | null
+    szakkepzesi_munkaszerzodessel?: NullableStringFieldUpdateOperationsInput | string | null
+    Dualis_kepzohely_neve?: NullableStringFieldUpdateOperationsInput | string | null
+    Dualis_kepzohely_adoszama?: NullableStringFieldUpdateOperationsInput | string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
+    kiemelten_tehetseges?: NullableStringFieldUpdateOperationsInput | string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: NullableStringFieldUpdateOperationsInput | string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
+    nyelvi_elokeszito?: NullableStringFieldUpdateOperationsInput | string | null
+    ket_tanitasi_nyelvu?: NullableStringFieldUpdateOperationsInput | string | null
+    NemzetisegiNevelesOktatas?: NullableStringFieldUpdateOperationsInput | string | null
+    NemzetisegiNevelesOktatásFajtaja?: NullableStringFieldUpdateOperationsInput | string | null
+    nemzetisegiNyelv?: NullableStringFieldUpdateOperationsInput | string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: NullableStringFieldUpdateOperationsInput | string | null
+    sportosztaly?: NullableStringFieldUpdateOperationsInput | string | null
+    aranyjanostehetseggondozoprogram?: NullableStringFieldUpdateOperationsInput | string | null
+    arany_janos_kollegiumi_program?: NullableStringFieldUpdateOperationsInput | string | null
+    munkarend?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11882,76 +11890,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    elotag?: StringFieldUpdateOperationsInput | string
-    vezeteknev?: StringFieldUpdateOperationsInput | string
-    utonev?: StringFieldUpdateOperationsInput | string
-    oktatasiAzonositoja?: StringFieldUpdateOperationsInput | string
-    osztaly?: StringFieldUpdateOperationsInput | string
-    szuletesiDatuma?: StringFieldUpdateOperationsInput | string
-    anyjaSzuletesiDatuma?: StringFieldUpdateOperationsInput | string
-    tanterv?: StringFieldUpdateOperationsInput | string
-    naploSorszam?: StringFieldUpdateOperationsInput | string
-    beiras_naplo_sorszam?: StringFieldUpdateOperationsInput | string
-    felvetel_taneve?: StringFieldUpdateOperationsInput | string
-    torzslapszam?: StringFieldUpdateOperationsInput | string
-    tabulo_jogviszonya?: StringFieldUpdateOperationsInput | string
-    jogviszony_kezdete?: StringFieldUpdateOperationsInput | string
-    jogviszony_megszunesenek_varhato_datuma?: StringFieldUpdateOperationsInput | string
-    jogviszonyátSzunetelteto?: StringFieldUpdateOperationsInput | string
-    tankotelezettsegetTeljesito?: StringFieldUpdateOperationsInput | string
-    tankotelezettségVege?: StringFieldUpdateOperationsInput | string
-    bejaro?: StringFieldUpdateOperationsInput | string
-    Szakmai_gyakorlaton_tartozkodik?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_oka?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_kezdete?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_vege?: StringFieldUpdateOperationsInput | string
-    Vendegtanulo?: StringFieldUpdateOperationsInput | string
-    tandijat_fizeto?: StringFieldUpdateOperationsInput | string
-    teritesi_dijat_fizeto?: StringFieldUpdateOperationsInput | string
-    tanuloszerzodeses?: StringFieldUpdateOperationsInput | string
-    polgari_szerzodeses?: StringFieldUpdateOperationsInput | string
-    iskolai_sportkorben_reszt_vevo_tanulo?: StringFieldUpdateOperationsInput | string
-    evfolyamismetlo?: StringFieldUpdateOperationsInput | string
-    elozo_intezmeny?: StringFieldUpdateOperationsInput | string
-    osztaly1?: StringFieldUpdateOperationsInput | string
-    evfolyam?: StringFieldUpdateOperationsInput | string
-    bizonyitvany_sorszama?: StringFieldUpdateOperationsInput | string
-    okleveles_technikus_képzes?: StringFieldUpdateOperationsInput | string
-    uj_Szkt_agazat_tipusa?: StringFieldUpdateOperationsInput | string
-    uj_szkt_szakma_tipusa?: StringFieldUpdateOperationsInput | string
-    uj_szkt_szakmairany_tipusa?: StringFieldUpdateOperationsInput | string
-    nkt_tanulmanyi_terulet?: StringFieldUpdateOperationsInput | string
-    nkt_szakkepesites?: StringFieldUpdateOperationsInput | string
-    nkt_szakirany?: StringFieldUpdateOperationsInput | string
-    agazat_uj_szkt_reszszakmahoz?: StringFieldUpdateOperationsInput | string
-    szakma_reszszakmahoz?: StringFieldUpdateOperationsInput | string
-    reszszakma?: StringFieldUpdateOperationsInput | string
-    agazat_tanulmanyi_terulet?: StringFieldUpdateOperationsInput | string
-    szakmai_kepzes?: StringFieldUpdateOperationsInput | string
-    agazati_alapoktatas_megnevezese?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmeny?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_teljesitesenek_datuma?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmenye?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmenye_percent?: StringFieldUpdateOperationsInput | string
-    szakkepzesi_munkaszerzodessel?: StringFieldUpdateOperationsInput | string
-    Dualis_kepzohely_neve?: StringFieldUpdateOperationsInput | string
-    Dualis_kepzohely_adoszama?: StringFieldUpdateOperationsInput | string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringFieldUpdateOperationsInput | string
-    kiemelten_tehetseges?: StringFieldUpdateOperationsInput | string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringFieldUpdateOperationsInput | string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringFieldUpdateOperationsInput | string
-    egesz_napos_iskolai_oktatasban_reszesul?: StringFieldUpdateOperationsInput | string
-    nyelvi_elokeszito?: StringFieldUpdateOperationsInput | string
-    ket_tanitasi_nyelvu?: StringFieldUpdateOperationsInput | string
-    NemzetisegiNevelesOktatas?: StringFieldUpdateOperationsInput | string
-    NemzetisegiNevelesOktatásFajtaja?: StringFieldUpdateOperationsInput | string
-    nemzetisegiNyelv?: StringFieldUpdateOperationsInput | string
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringFieldUpdateOperationsInput | string
-    sportosztaly?: StringFieldUpdateOperationsInput | string
-    aranyjanostehetseggondozoprogram?: StringFieldUpdateOperationsInput | string
-    arany_janos_kollegiumi_program?: StringFieldUpdateOperationsInput | string
-    munkarend?: StringFieldUpdateOperationsInput | string
+    elotag?: NullableStringFieldUpdateOperationsInput | string | null
+    vezeteknev?: NullableStringFieldUpdateOperationsInput | string | null
+    utonev?: NullableStringFieldUpdateOperationsInput | string | null
+    oktatasiAzonositoja?: NullableStringFieldUpdateOperationsInput | string | null
+    osztaly?: NullableStringFieldUpdateOperationsInput | string | null
+    szuletesiDatuma?: NullableStringFieldUpdateOperationsInput | string | null
+    anyjaSzuletesiDatuma?: NullableStringFieldUpdateOperationsInput | string | null
+    tanterv?: NullableStringFieldUpdateOperationsInput | string | null
+    naploSorszam?: NullableStringFieldUpdateOperationsInput | string | null
+    beiras_naplo_sorszam?: NullableStringFieldUpdateOperationsInput | string | null
+    felvetel_taneve?: NullableStringFieldUpdateOperationsInput | string | null
+    torzslapszam?: NullableStringFieldUpdateOperationsInput | string | null
+    tabulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszony_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszony_megszunesenek_varhato_datuma?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszonyátSzunetelteto?: NullableStringFieldUpdateOperationsInput | string | null
+    tankotelezettsegetTeljesito?: NullableStringFieldUpdateOperationsInput | string | null
+    tankotelezettségVege?: NullableStringFieldUpdateOperationsInput | string | null
+    bejaro?: NullableStringFieldUpdateOperationsInput | string | null
+    Szakmai_gyakorlaton_tartozkodik?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_oka?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_vege?: NullableStringFieldUpdateOperationsInput | string | null
+    Vendegtanulo?: NullableStringFieldUpdateOperationsInput | string | null
+    tandijat_fizeto?: NullableStringFieldUpdateOperationsInput | string | null
+    teritesi_dijat_fizeto?: NullableStringFieldUpdateOperationsInput | string | null
+    tanuloszerzodeses?: NullableStringFieldUpdateOperationsInput | string | null
+    polgari_szerzodeses?: NullableStringFieldUpdateOperationsInput | string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
+    evfolyamismetlo?: NullableStringFieldUpdateOperationsInput | string | null
+    elozo_intezmeny?: NullableStringFieldUpdateOperationsInput | string | null
+    osztaly1?: NullableStringFieldUpdateOperationsInput | string | null
+    evfolyam?: NullableStringFieldUpdateOperationsInput | string | null
+    bizonyitvany_sorszama?: NullableStringFieldUpdateOperationsInput | string | null
+    okleveles_technikus_képzes?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_Szkt_agazat_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_szkt_szakma_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_szkt_szakmairany_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_szakkepesites?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_szakirany?: NullableStringFieldUpdateOperationsInput | string | null
+    agazat_uj_szkt_reszszakmahoz?: NullableStringFieldUpdateOperationsInput | string | null
+    szakma_reszszakmahoz?: NullableStringFieldUpdateOperationsInput | string | null
+    reszszakma?: NullableStringFieldUpdateOperationsInput | string | null
+    agazat_tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
+    szakmai_kepzes?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapoktatas_megnevezese?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmeny?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmenye?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmenye_percent?: NullableStringFieldUpdateOperationsInput | string | null
+    szakkepzesi_munkaszerzodessel?: NullableStringFieldUpdateOperationsInput | string | null
+    Dualis_kepzohely_neve?: NullableStringFieldUpdateOperationsInput | string | null
+    Dualis_kepzohely_adoszama?: NullableStringFieldUpdateOperationsInput | string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
+    kiemelten_tehetseges?: NullableStringFieldUpdateOperationsInput | string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: NullableStringFieldUpdateOperationsInput | string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
+    nyelvi_elokeszito?: NullableStringFieldUpdateOperationsInput | string | null
+    ket_tanitasi_nyelvu?: NullableStringFieldUpdateOperationsInput | string | null
+    NemzetisegiNevelesOktatas?: NullableStringFieldUpdateOperationsInput | string | null
+    NemzetisegiNevelesOktatásFajtaja?: NullableStringFieldUpdateOperationsInput | string | null
+    nemzetisegiNyelv?: NullableStringFieldUpdateOperationsInput | string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: NullableStringFieldUpdateOperationsInput | string | null
+    sportosztaly?: NullableStringFieldUpdateOperationsInput | string | null
+    aranyjanostehetseggondozoprogram?: NullableStringFieldUpdateOperationsInput | string | null
+    arany_janos_kollegiumi_program?: NullableStringFieldUpdateOperationsInput | string | null
+    munkarend?: NullableStringFieldUpdateOperationsInput | string | null
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: StringFieldUpdateOperationsInput | string
@@ -12266,6 +12274,21 @@ export namespace Prisma {
     felvett_letszam?: SortOrder
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -12275,6 +12298,11 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
   }
 
   export type Tanugyi_AdatokCountOrderByAggregateInput = {
@@ -12512,6 +12540,24 @@ export namespace Prisma {
     createBy?: SortOrder
     updatedAt?: SortOrder
     updatedBy?: SortOrder
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -12924,6 +12970,10 @@ export namespace Prisma {
     connect?: AlapadatokWhereUniqueInput
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
@@ -13030,6 +13080,20 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -13039,6 +13103,34 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -13135,76 +13227,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokCreateWithoutAlapadatokInput = {
     id?: string
-    elotag: string
-    vezeteknev: string
-    utonev: string
-    oktatasiAzonositoja: string
-    osztaly: string
-    szuletesiDatuma: string
-    anyjaSzuletesiDatuma: string
-    tanterv: string
-    naploSorszam: string
-    beiras_naplo_sorszam: string
-    felvetel_taneve: string
-    torzslapszam: string
-    tabulo_jogviszonya: string
-    jogviszony_kezdete: string
-    jogviszony_megszunesenek_varhato_datuma: string
-    jogviszonyátSzunetelteto: string
-    tankotelezettsegetTeljesito: string
-    tankotelezettségVege: string
-    bejaro: string
-    Szakmai_gyakorlaton_tartozkodik: string
-    Egyeni_munkarend: string
-    Egyeni_munkarend_oka: string
-    Egyeni_munkarend_kezdete: string
-    Egyeni_munkarend_vege: string
-    Vendegtanulo: string
-    tandijat_fizeto: string
-    teritesi_dijat_fizeto: string
-    tanuloszerzodeses: string
-    polgari_szerzodeses: string
-    iskolai_sportkorben_reszt_vevo_tanulo: string
-    evfolyamismetlo: string
-    elozo_intezmeny: string
-    osztaly1: string
-    evfolyam: string
-    bizonyitvany_sorszama: string
-    okleveles_technikus_képzes: string
-    uj_Szkt_agazat_tipusa: string
-    uj_szkt_szakma_tipusa: string
-    uj_szkt_szakmairany_tipusa: string
-    nkt_tanulmanyi_terulet: string
-    nkt_szakkepesites: string
-    nkt_szakirany: string
-    agazat_uj_szkt_reszszakmahoz: string
-    szakma_reszszakmahoz: string
-    reszszakma: string
-    agazat_tanulmanyi_terulet: string
-    szakmai_kepzes: string
-    agazati_alapoktatas_megnevezese: string
-    agazati_alapvizsga_eredmeny: string
-    agazati_alapvizsga_teljesitesenek_datuma: string
-    agazati_alapvizsga_eredmenye: string
-    agazati_alapvizsga_eredmenye_percent: string
-    szakkepzesi_munkaszerzodessel: string
-    Dualis_kepzohely_neve: string
-    Dualis_kepzohely_adoszama: string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: string
-    kiemelten_tehetseges: string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal: string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul: string
-    egesz_napos_iskolai_oktatasban_reszesul: string
-    nyelvi_elokeszito: string
-    ket_tanitasi_nyelvu: string
-    NemzetisegiNevelesOktatas: string
-    NemzetisegiNevelesOktatásFajtaja: string
-    nemzetisegiNyelv: string
-    nemzetisegNyelvenFolyoSzakmaiOktatas: string
-    sportosztaly: string
-    aranyjanostehetseggondozoprogram: string
-    arany_janos_kollegiumi_program: string
-    munkarend: string
+    elotag?: string | null
+    vezeteknev?: string | null
+    utonev?: string | null
+    oktatasiAzonositoja?: string | null
+    osztaly?: string | null
+    szuletesiDatuma?: string | null
+    anyjaSzuletesiDatuma?: string | null
+    tanterv?: string | null
+    naploSorszam?: string | null
+    beiras_naplo_sorszam?: string | null
+    felvetel_taneve?: string | null
+    torzslapszam?: string | null
+    tabulo_jogviszonya?: string | null
+    jogviszony_kezdete?: string | null
+    jogviszony_megszunesenek_varhato_datuma?: string | null
+    jogviszonyátSzunetelteto?: string | null
+    tankotelezettsegetTeljesito?: string | null
+    tankotelezettségVege?: string | null
+    bejaro?: string | null
+    Szakmai_gyakorlaton_tartozkodik?: string | null
+    Egyeni_munkarend?: string | null
+    Egyeni_munkarend_oka?: string | null
+    Egyeni_munkarend_kezdete?: string | null
+    Egyeni_munkarend_vege?: string | null
+    Vendegtanulo?: string | null
+    tandijat_fizeto?: string | null
+    teritesi_dijat_fizeto?: string | null
+    tanuloszerzodeses?: string | null
+    polgari_szerzodeses?: string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: string | null
+    evfolyamismetlo?: string | null
+    elozo_intezmeny?: string | null
+    osztaly1?: string | null
+    evfolyam?: string | null
+    bizonyitvany_sorszama?: string | null
+    okleveles_technikus_képzes?: string | null
+    uj_Szkt_agazat_tipusa?: string | null
+    uj_szkt_szakma_tipusa?: string | null
+    uj_szkt_szakmairany_tipusa?: string | null
+    nkt_tanulmanyi_terulet?: string | null
+    nkt_szakkepesites?: string | null
+    nkt_szakirany?: string | null
+    agazat_uj_szkt_reszszakmahoz?: string | null
+    szakma_reszszakmahoz?: string | null
+    reszszakma?: string | null
+    agazat_tanulmanyi_terulet?: string | null
+    szakmai_kepzes?: string | null
+    agazati_alapoktatas_megnevezese?: string | null
+    agazati_alapvizsga_eredmeny?: string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: string | null
+    agazati_alapvizsga_eredmenye?: string | null
+    agazati_alapvizsga_eredmenye_percent?: string | null
+    szakkepzesi_munkaszerzodessel?: string | null
+    Dualis_kepzohely_neve?: string | null
+    Dualis_kepzohely_adoszama?: string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: string | null
+    kiemelten_tehetseges?: string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: string | null
+    nyelvi_elokeszito?: string | null
+    ket_tanitasi_nyelvu?: string | null
+    NemzetisegiNevelesOktatas?: string | null
+    NemzetisegiNevelesOktatásFajtaja?: string | null
+    nemzetisegiNyelv?: string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: string | null
+    sportosztaly?: string | null
+    aranyjanostehetseggondozoprogram?: string | null
+    arany_janos_kollegiumi_program?: string | null
+    munkarend?: string | null
     createAt?: Date | string
     createBy: string
     updatedAt?: Date | string
@@ -13213,76 +13305,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput = {
     id?: string
-    elotag: string
-    vezeteknev: string
-    utonev: string
-    oktatasiAzonositoja: string
-    osztaly: string
-    szuletesiDatuma: string
-    anyjaSzuletesiDatuma: string
-    tanterv: string
-    naploSorszam: string
-    beiras_naplo_sorszam: string
-    felvetel_taneve: string
-    torzslapszam: string
-    tabulo_jogviszonya: string
-    jogviszony_kezdete: string
-    jogviszony_megszunesenek_varhato_datuma: string
-    jogviszonyátSzunetelteto: string
-    tankotelezettsegetTeljesito: string
-    tankotelezettségVege: string
-    bejaro: string
-    Szakmai_gyakorlaton_tartozkodik: string
-    Egyeni_munkarend: string
-    Egyeni_munkarend_oka: string
-    Egyeni_munkarend_kezdete: string
-    Egyeni_munkarend_vege: string
-    Vendegtanulo: string
-    tandijat_fizeto: string
-    teritesi_dijat_fizeto: string
-    tanuloszerzodeses: string
-    polgari_szerzodeses: string
-    iskolai_sportkorben_reszt_vevo_tanulo: string
-    evfolyamismetlo: string
-    elozo_intezmeny: string
-    osztaly1: string
-    evfolyam: string
-    bizonyitvany_sorszama: string
-    okleveles_technikus_képzes: string
-    uj_Szkt_agazat_tipusa: string
-    uj_szkt_szakma_tipusa: string
-    uj_szkt_szakmairany_tipusa: string
-    nkt_tanulmanyi_terulet: string
-    nkt_szakkepesites: string
-    nkt_szakirany: string
-    agazat_uj_szkt_reszszakmahoz: string
-    szakma_reszszakmahoz: string
-    reszszakma: string
-    agazat_tanulmanyi_terulet: string
-    szakmai_kepzes: string
-    agazati_alapoktatas_megnevezese: string
-    agazati_alapvizsga_eredmeny: string
-    agazati_alapvizsga_teljesitesenek_datuma: string
-    agazati_alapvizsga_eredmenye: string
-    agazati_alapvizsga_eredmenye_percent: string
-    szakkepzesi_munkaszerzodessel: string
-    Dualis_kepzohely_neve: string
-    Dualis_kepzohely_adoszama: string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: string
-    kiemelten_tehetseges: string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal: string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul: string
-    egesz_napos_iskolai_oktatasban_reszesul: string
-    nyelvi_elokeszito: string
-    ket_tanitasi_nyelvu: string
-    NemzetisegiNevelesOktatas: string
-    NemzetisegiNevelesOktatásFajtaja: string
-    nemzetisegiNyelv: string
-    nemzetisegNyelvenFolyoSzakmaiOktatas: string
-    sportosztaly: string
-    aranyjanostehetseggondozoprogram: string
-    arany_janos_kollegiumi_program: string
-    munkarend: string
+    elotag?: string | null
+    vezeteknev?: string | null
+    utonev?: string | null
+    oktatasiAzonositoja?: string | null
+    osztaly?: string | null
+    szuletesiDatuma?: string | null
+    anyjaSzuletesiDatuma?: string | null
+    tanterv?: string | null
+    naploSorszam?: string | null
+    beiras_naplo_sorszam?: string | null
+    felvetel_taneve?: string | null
+    torzslapszam?: string | null
+    tabulo_jogviszonya?: string | null
+    jogviszony_kezdete?: string | null
+    jogviszony_megszunesenek_varhato_datuma?: string | null
+    jogviszonyátSzunetelteto?: string | null
+    tankotelezettsegetTeljesito?: string | null
+    tankotelezettségVege?: string | null
+    bejaro?: string | null
+    Szakmai_gyakorlaton_tartozkodik?: string | null
+    Egyeni_munkarend?: string | null
+    Egyeni_munkarend_oka?: string | null
+    Egyeni_munkarend_kezdete?: string | null
+    Egyeni_munkarend_vege?: string | null
+    Vendegtanulo?: string | null
+    tandijat_fizeto?: string | null
+    teritesi_dijat_fizeto?: string | null
+    tanuloszerzodeses?: string | null
+    polgari_szerzodeses?: string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: string | null
+    evfolyamismetlo?: string | null
+    elozo_intezmeny?: string | null
+    osztaly1?: string | null
+    evfolyam?: string | null
+    bizonyitvany_sorszama?: string | null
+    okleveles_technikus_képzes?: string | null
+    uj_Szkt_agazat_tipusa?: string | null
+    uj_szkt_szakma_tipusa?: string | null
+    uj_szkt_szakmairany_tipusa?: string | null
+    nkt_tanulmanyi_terulet?: string | null
+    nkt_szakkepesites?: string | null
+    nkt_szakirany?: string | null
+    agazat_uj_szkt_reszszakmahoz?: string | null
+    szakma_reszszakmahoz?: string | null
+    reszszakma?: string | null
+    agazat_tanulmanyi_terulet?: string | null
+    szakmai_kepzes?: string | null
+    agazati_alapoktatas_megnevezese?: string | null
+    agazati_alapvizsga_eredmeny?: string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: string | null
+    agazati_alapvizsga_eredmenye?: string | null
+    agazati_alapvizsga_eredmenye_percent?: string | null
+    szakkepzesi_munkaszerzodessel?: string | null
+    Dualis_kepzohely_neve?: string | null
+    Dualis_kepzohely_adoszama?: string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: string | null
+    kiemelten_tehetseges?: string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: string | null
+    nyelvi_elokeszito?: string | null
+    ket_tanitasi_nyelvu?: string | null
+    NemzetisegiNevelesOktatas?: string | null
+    NemzetisegiNevelesOktatásFajtaja?: string | null
+    nemzetisegiNyelv?: string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: string | null
+    sportosztaly?: string | null
+    aranyjanostehetseggondozoprogram?: string | null
+    arany_janos_kollegiumi_program?: string | null
+    munkarend?: string | null
     createAt?: Date | string
     createBy: string
     updatedAt?: Date | string
@@ -13404,76 +13496,76 @@ export namespace Prisma {
     OR?: Tanugyi_AdatokScalarWhereInput[]
     NOT?: Tanugyi_AdatokScalarWhereInput | Tanugyi_AdatokScalarWhereInput[]
     id?: UuidFilter<"Tanugyi_Adatok"> | string
-    elotag?: StringFilter<"Tanugyi_Adatok"> | string
-    vezeteknev?: StringFilter<"Tanugyi_Adatok"> | string
-    utonev?: StringFilter<"Tanugyi_Adatok"> | string
-    oktatasiAzonositoja?: StringFilter<"Tanugyi_Adatok"> | string
-    osztaly?: StringFilter<"Tanugyi_Adatok"> | string
-    szuletesiDatuma?: StringFilter<"Tanugyi_Adatok"> | string
-    anyjaSzuletesiDatuma?: StringFilter<"Tanugyi_Adatok"> | string
-    tanterv?: StringFilter<"Tanugyi_Adatok"> | string
-    naploSorszam?: StringFilter<"Tanugyi_Adatok"> | string
-    beiras_naplo_sorszam?: StringFilter<"Tanugyi_Adatok"> | string
-    felvetel_taneve?: StringFilter<"Tanugyi_Adatok"> | string
-    torzslapszam?: StringFilter<"Tanugyi_Adatok"> | string
-    tabulo_jogviszonya?: StringFilter<"Tanugyi_Adatok"> | string
-    jogviszony_kezdete?: StringFilter<"Tanugyi_Adatok"> | string
-    jogviszony_megszunesenek_varhato_datuma?: StringFilter<"Tanugyi_Adatok"> | string
-    jogviszonyátSzunetelteto?: StringFilter<"Tanugyi_Adatok"> | string
-    tankotelezettsegetTeljesito?: StringFilter<"Tanugyi_Adatok"> | string
-    tankotelezettségVege?: StringFilter<"Tanugyi_Adatok"> | string
-    bejaro?: StringFilter<"Tanugyi_Adatok"> | string
-    Szakmai_gyakorlaton_tartozkodik?: StringFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend?: StringFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend_oka?: StringFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend_kezdete?: StringFilter<"Tanugyi_Adatok"> | string
-    Egyeni_munkarend_vege?: StringFilter<"Tanugyi_Adatok"> | string
-    Vendegtanulo?: StringFilter<"Tanugyi_Adatok"> | string
-    tandijat_fizeto?: StringFilter<"Tanugyi_Adatok"> | string
-    teritesi_dijat_fizeto?: StringFilter<"Tanugyi_Adatok"> | string
-    tanuloszerzodeses?: StringFilter<"Tanugyi_Adatok"> | string
-    polgari_szerzodeses?: StringFilter<"Tanugyi_Adatok"> | string
-    iskolai_sportkorben_reszt_vevo_tanulo?: StringFilter<"Tanugyi_Adatok"> | string
-    evfolyamismetlo?: StringFilter<"Tanugyi_Adatok"> | string
-    elozo_intezmeny?: StringFilter<"Tanugyi_Adatok"> | string
-    osztaly1?: StringFilter<"Tanugyi_Adatok"> | string
-    evfolyam?: StringFilter<"Tanugyi_Adatok"> | string
-    bizonyitvany_sorszama?: StringFilter<"Tanugyi_Adatok"> | string
-    okleveles_technikus_képzes?: StringFilter<"Tanugyi_Adatok"> | string
-    uj_Szkt_agazat_tipusa?: StringFilter<"Tanugyi_Adatok"> | string
-    uj_szkt_szakma_tipusa?: StringFilter<"Tanugyi_Adatok"> | string
-    uj_szkt_szakmairany_tipusa?: StringFilter<"Tanugyi_Adatok"> | string
-    nkt_tanulmanyi_terulet?: StringFilter<"Tanugyi_Adatok"> | string
-    nkt_szakkepesites?: StringFilter<"Tanugyi_Adatok"> | string
-    nkt_szakirany?: StringFilter<"Tanugyi_Adatok"> | string
-    agazat_uj_szkt_reszszakmahoz?: StringFilter<"Tanugyi_Adatok"> | string
-    szakma_reszszakmahoz?: StringFilter<"Tanugyi_Adatok"> | string
-    reszszakma?: StringFilter<"Tanugyi_Adatok"> | string
-    agazat_tanulmanyi_terulet?: StringFilter<"Tanugyi_Adatok"> | string
-    szakmai_kepzes?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapoktatas_megnevezese?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_eredmeny?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_teljesitesenek_datuma?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_eredmenye?: StringFilter<"Tanugyi_Adatok"> | string
-    agazati_alapvizsga_eredmenye_percent?: StringFilter<"Tanugyi_Adatok"> | string
-    szakkepzesi_munkaszerzodessel?: StringFilter<"Tanugyi_Adatok"> | string
-    Dualis_kepzohely_neve?: StringFilter<"Tanugyi_Adatok"> | string
-    Dualis_kepzohely_adoszama?: StringFilter<"Tanugyi_Adatok"> | string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringFilter<"Tanugyi_Adatok"> | string
-    kiemelten_tehetseges?: StringFilter<"Tanugyi_Adatok"> | string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringFilter<"Tanugyi_Adatok"> | string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringFilter<"Tanugyi_Adatok"> | string
-    egesz_napos_iskolai_oktatasban_reszesul?: StringFilter<"Tanugyi_Adatok"> | string
-    nyelvi_elokeszito?: StringFilter<"Tanugyi_Adatok"> | string
-    ket_tanitasi_nyelvu?: StringFilter<"Tanugyi_Adatok"> | string
-    NemzetisegiNevelesOktatas?: StringFilter<"Tanugyi_Adatok"> | string
-    NemzetisegiNevelesOktatásFajtaja?: StringFilter<"Tanugyi_Adatok"> | string
-    nemzetisegiNyelv?: StringFilter<"Tanugyi_Adatok"> | string
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringFilter<"Tanugyi_Adatok"> | string
-    sportosztaly?: StringFilter<"Tanugyi_Adatok"> | string
-    aranyjanostehetseggondozoprogram?: StringFilter<"Tanugyi_Adatok"> | string
-    arany_janos_kollegiumi_program?: StringFilter<"Tanugyi_Adatok"> | string
-    munkarend?: StringFilter<"Tanugyi_Adatok"> | string
+    elotag?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    vezeteknev?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    utonev?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    oktatasiAzonositoja?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    osztaly?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szuletesiDatuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    anyjaSzuletesiDatuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tanterv?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    naploSorszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    beiras_naplo_sorszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    felvetel_taneve?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    torzslapszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tabulo_jogviszonya?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    jogviszony_kezdete?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    jogviszony_megszunesenek_varhato_datuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    jogviszonyátSzunetelteto?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tankotelezettsegetTeljesito?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tankotelezettségVege?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    bejaro?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Szakmai_gyakorlaton_tartozkodik?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend_oka?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend_kezdete?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Egyeni_munkarend_vege?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Vendegtanulo?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tandijat_fizeto?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    teritesi_dijat_fizeto?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tanuloszerzodeses?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    polgari_szerzodeses?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    evfolyamismetlo?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    elozo_intezmeny?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    osztaly1?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    evfolyam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    bizonyitvany_sorszama?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    okleveles_technikus_képzes?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    uj_Szkt_agazat_tipusa?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    uj_szkt_szakma_tipusa?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    uj_szkt_szakmairany_tipusa?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nkt_tanulmanyi_terulet?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nkt_szakkepesites?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nkt_szakirany?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazat_uj_szkt_reszszakmahoz?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szakma_reszszakmahoz?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    reszszakma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazat_tanulmanyi_terulet?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szakmai_kepzes?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapoktatas_megnevezese?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_eredmeny?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_eredmenye?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    agazati_alapvizsga_eredmenye_percent?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szakkepzesi_munkaszerzodessel?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Dualis_kepzohely_neve?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    Dualis_kepzohely_adoszama?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    kiemelten_tehetseges?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nyelvi_elokeszito?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    ket_tanitasi_nyelvu?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    NemzetisegiNevelesOktatas?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    NemzetisegiNevelesOktatásFajtaja?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nemzetisegiNyelv?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    sportosztaly?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    aranyjanostehetseggondozoprogram?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    arany_janos_kollegiumi_program?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    munkarend?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     alapadatok_id?: UuidFilter<"Tanugyi_Adatok"> | string
     createAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
     createBy?: StringFilter<"Tanugyi_Adatok"> | string
@@ -13963,76 +14055,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokCreateManyAlapadatokInput = {
     id?: string
-    elotag: string
-    vezeteknev: string
-    utonev: string
-    oktatasiAzonositoja: string
-    osztaly: string
-    szuletesiDatuma: string
-    anyjaSzuletesiDatuma: string
-    tanterv: string
-    naploSorszam: string
-    beiras_naplo_sorszam: string
-    felvetel_taneve: string
-    torzslapszam: string
-    tabulo_jogviszonya: string
-    jogviszony_kezdete: string
-    jogviszony_megszunesenek_varhato_datuma: string
-    jogviszonyátSzunetelteto: string
-    tankotelezettsegetTeljesito: string
-    tankotelezettségVege: string
-    bejaro: string
-    Szakmai_gyakorlaton_tartozkodik: string
-    Egyeni_munkarend: string
-    Egyeni_munkarend_oka: string
-    Egyeni_munkarend_kezdete: string
-    Egyeni_munkarend_vege: string
-    Vendegtanulo: string
-    tandijat_fizeto: string
-    teritesi_dijat_fizeto: string
-    tanuloszerzodeses: string
-    polgari_szerzodeses: string
-    iskolai_sportkorben_reszt_vevo_tanulo: string
-    evfolyamismetlo: string
-    elozo_intezmeny: string
-    osztaly1: string
-    evfolyam: string
-    bizonyitvany_sorszama: string
-    okleveles_technikus_képzes: string
-    uj_Szkt_agazat_tipusa: string
-    uj_szkt_szakma_tipusa: string
-    uj_szkt_szakmairany_tipusa: string
-    nkt_tanulmanyi_terulet: string
-    nkt_szakkepesites: string
-    nkt_szakirany: string
-    agazat_uj_szkt_reszszakmahoz: string
-    szakma_reszszakmahoz: string
-    reszszakma: string
-    agazat_tanulmanyi_terulet: string
-    szakmai_kepzes: string
-    agazati_alapoktatas_megnevezese: string
-    agazati_alapvizsga_eredmeny: string
-    agazati_alapvizsga_teljesitesenek_datuma: string
-    agazati_alapvizsga_eredmenye: string
-    agazati_alapvizsga_eredmenye_percent: string
-    szakkepzesi_munkaszerzodessel: string
-    Dualis_kepzohely_neve: string
-    Dualis_kepzohely_adoszama: string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: string
-    kiemelten_tehetseges: string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal: string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul: string
-    egesz_napos_iskolai_oktatasban_reszesul: string
-    nyelvi_elokeszito: string
-    ket_tanitasi_nyelvu: string
-    NemzetisegiNevelesOktatas: string
-    NemzetisegiNevelesOktatásFajtaja: string
-    nemzetisegiNyelv: string
-    nemzetisegNyelvenFolyoSzakmaiOktatas: string
-    sportosztaly: string
-    aranyjanostehetseggondozoprogram: string
-    arany_janos_kollegiumi_program: string
-    munkarend: string
+    elotag?: string | null
+    vezeteknev?: string | null
+    utonev?: string | null
+    oktatasiAzonositoja?: string | null
+    osztaly?: string | null
+    szuletesiDatuma?: string | null
+    anyjaSzuletesiDatuma?: string | null
+    tanterv?: string | null
+    naploSorszam?: string | null
+    beiras_naplo_sorszam?: string | null
+    felvetel_taneve?: string | null
+    torzslapszam?: string | null
+    tabulo_jogviszonya?: string | null
+    jogviszony_kezdete?: string | null
+    jogviszony_megszunesenek_varhato_datuma?: string | null
+    jogviszonyátSzunetelteto?: string | null
+    tankotelezettsegetTeljesito?: string | null
+    tankotelezettségVege?: string | null
+    bejaro?: string | null
+    Szakmai_gyakorlaton_tartozkodik?: string | null
+    Egyeni_munkarend?: string | null
+    Egyeni_munkarend_oka?: string | null
+    Egyeni_munkarend_kezdete?: string | null
+    Egyeni_munkarend_vege?: string | null
+    Vendegtanulo?: string | null
+    tandijat_fizeto?: string | null
+    teritesi_dijat_fizeto?: string | null
+    tanuloszerzodeses?: string | null
+    polgari_szerzodeses?: string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: string | null
+    evfolyamismetlo?: string | null
+    elozo_intezmeny?: string | null
+    osztaly1?: string | null
+    evfolyam?: string | null
+    bizonyitvany_sorszama?: string | null
+    okleveles_technikus_képzes?: string | null
+    uj_Szkt_agazat_tipusa?: string | null
+    uj_szkt_szakma_tipusa?: string | null
+    uj_szkt_szakmairany_tipusa?: string | null
+    nkt_tanulmanyi_terulet?: string | null
+    nkt_szakkepesites?: string | null
+    nkt_szakirany?: string | null
+    agazat_uj_szkt_reszszakmahoz?: string | null
+    szakma_reszszakmahoz?: string | null
+    reszszakma?: string | null
+    agazat_tanulmanyi_terulet?: string | null
+    szakmai_kepzes?: string | null
+    agazati_alapoktatas_megnevezese?: string | null
+    agazati_alapvizsga_eredmeny?: string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: string | null
+    agazati_alapvizsga_eredmenye?: string | null
+    agazati_alapvizsga_eredmenye_percent?: string | null
+    szakkepzesi_munkaszerzodessel?: string | null
+    Dualis_kepzohely_neve?: string | null
+    Dualis_kepzohely_adoszama?: string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: string | null
+    kiemelten_tehetseges?: string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: string | null
+    nyelvi_elokeszito?: string | null
+    ket_tanitasi_nyelvu?: string | null
+    NemzetisegiNevelesOktatas?: string | null
+    NemzetisegiNevelesOktatásFajtaja?: string | null
+    nemzetisegiNyelv?: string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: string | null
+    sportosztaly?: string | null
+    aranyjanostehetseggondozoprogram?: string | null
+    arany_janos_kollegiumi_program?: string | null
+    munkarend?: string | null
     createAt?: Date | string
     createBy: string
     updatedAt?: Date | string
@@ -14113,76 +14205,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokUpdateWithoutAlapadatokInput = {
     id?: StringFieldUpdateOperationsInput | string
-    elotag?: StringFieldUpdateOperationsInput | string
-    vezeteknev?: StringFieldUpdateOperationsInput | string
-    utonev?: StringFieldUpdateOperationsInput | string
-    oktatasiAzonositoja?: StringFieldUpdateOperationsInput | string
-    osztaly?: StringFieldUpdateOperationsInput | string
-    szuletesiDatuma?: StringFieldUpdateOperationsInput | string
-    anyjaSzuletesiDatuma?: StringFieldUpdateOperationsInput | string
-    tanterv?: StringFieldUpdateOperationsInput | string
-    naploSorszam?: StringFieldUpdateOperationsInput | string
-    beiras_naplo_sorszam?: StringFieldUpdateOperationsInput | string
-    felvetel_taneve?: StringFieldUpdateOperationsInput | string
-    torzslapszam?: StringFieldUpdateOperationsInput | string
-    tabulo_jogviszonya?: StringFieldUpdateOperationsInput | string
-    jogviszony_kezdete?: StringFieldUpdateOperationsInput | string
-    jogviszony_megszunesenek_varhato_datuma?: StringFieldUpdateOperationsInput | string
-    jogviszonyátSzunetelteto?: StringFieldUpdateOperationsInput | string
-    tankotelezettsegetTeljesito?: StringFieldUpdateOperationsInput | string
-    tankotelezettségVege?: StringFieldUpdateOperationsInput | string
-    bejaro?: StringFieldUpdateOperationsInput | string
-    Szakmai_gyakorlaton_tartozkodik?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_oka?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_kezdete?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_vege?: StringFieldUpdateOperationsInput | string
-    Vendegtanulo?: StringFieldUpdateOperationsInput | string
-    tandijat_fizeto?: StringFieldUpdateOperationsInput | string
-    teritesi_dijat_fizeto?: StringFieldUpdateOperationsInput | string
-    tanuloszerzodeses?: StringFieldUpdateOperationsInput | string
-    polgari_szerzodeses?: StringFieldUpdateOperationsInput | string
-    iskolai_sportkorben_reszt_vevo_tanulo?: StringFieldUpdateOperationsInput | string
-    evfolyamismetlo?: StringFieldUpdateOperationsInput | string
-    elozo_intezmeny?: StringFieldUpdateOperationsInput | string
-    osztaly1?: StringFieldUpdateOperationsInput | string
-    evfolyam?: StringFieldUpdateOperationsInput | string
-    bizonyitvany_sorszama?: StringFieldUpdateOperationsInput | string
-    okleveles_technikus_képzes?: StringFieldUpdateOperationsInput | string
-    uj_Szkt_agazat_tipusa?: StringFieldUpdateOperationsInput | string
-    uj_szkt_szakma_tipusa?: StringFieldUpdateOperationsInput | string
-    uj_szkt_szakmairany_tipusa?: StringFieldUpdateOperationsInput | string
-    nkt_tanulmanyi_terulet?: StringFieldUpdateOperationsInput | string
-    nkt_szakkepesites?: StringFieldUpdateOperationsInput | string
-    nkt_szakirany?: StringFieldUpdateOperationsInput | string
-    agazat_uj_szkt_reszszakmahoz?: StringFieldUpdateOperationsInput | string
-    szakma_reszszakmahoz?: StringFieldUpdateOperationsInput | string
-    reszszakma?: StringFieldUpdateOperationsInput | string
-    agazat_tanulmanyi_terulet?: StringFieldUpdateOperationsInput | string
-    szakmai_kepzes?: StringFieldUpdateOperationsInput | string
-    agazati_alapoktatas_megnevezese?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmeny?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_teljesitesenek_datuma?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmenye?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmenye_percent?: StringFieldUpdateOperationsInput | string
-    szakkepzesi_munkaszerzodessel?: StringFieldUpdateOperationsInput | string
-    Dualis_kepzohely_neve?: StringFieldUpdateOperationsInput | string
-    Dualis_kepzohely_adoszama?: StringFieldUpdateOperationsInput | string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringFieldUpdateOperationsInput | string
-    kiemelten_tehetseges?: StringFieldUpdateOperationsInput | string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringFieldUpdateOperationsInput | string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringFieldUpdateOperationsInput | string
-    egesz_napos_iskolai_oktatasban_reszesul?: StringFieldUpdateOperationsInput | string
-    nyelvi_elokeszito?: StringFieldUpdateOperationsInput | string
-    ket_tanitasi_nyelvu?: StringFieldUpdateOperationsInput | string
-    NemzetisegiNevelesOktatas?: StringFieldUpdateOperationsInput | string
-    NemzetisegiNevelesOktatásFajtaja?: StringFieldUpdateOperationsInput | string
-    nemzetisegiNyelv?: StringFieldUpdateOperationsInput | string
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringFieldUpdateOperationsInput | string
-    sportosztaly?: StringFieldUpdateOperationsInput | string
-    aranyjanostehetseggondozoprogram?: StringFieldUpdateOperationsInput | string
-    arany_janos_kollegiumi_program?: StringFieldUpdateOperationsInput | string
-    munkarend?: StringFieldUpdateOperationsInput | string
+    elotag?: NullableStringFieldUpdateOperationsInput | string | null
+    vezeteknev?: NullableStringFieldUpdateOperationsInput | string | null
+    utonev?: NullableStringFieldUpdateOperationsInput | string | null
+    oktatasiAzonositoja?: NullableStringFieldUpdateOperationsInput | string | null
+    osztaly?: NullableStringFieldUpdateOperationsInput | string | null
+    szuletesiDatuma?: NullableStringFieldUpdateOperationsInput | string | null
+    anyjaSzuletesiDatuma?: NullableStringFieldUpdateOperationsInput | string | null
+    tanterv?: NullableStringFieldUpdateOperationsInput | string | null
+    naploSorszam?: NullableStringFieldUpdateOperationsInput | string | null
+    beiras_naplo_sorszam?: NullableStringFieldUpdateOperationsInput | string | null
+    felvetel_taneve?: NullableStringFieldUpdateOperationsInput | string | null
+    torzslapszam?: NullableStringFieldUpdateOperationsInput | string | null
+    tabulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszony_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszony_megszunesenek_varhato_datuma?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszonyátSzunetelteto?: NullableStringFieldUpdateOperationsInput | string | null
+    tankotelezettsegetTeljesito?: NullableStringFieldUpdateOperationsInput | string | null
+    tankotelezettségVege?: NullableStringFieldUpdateOperationsInput | string | null
+    bejaro?: NullableStringFieldUpdateOperationsInput | string | null
+    Szakmai_gyakorlaton_tartozkodik?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_oka?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_vege?: NullableStringFieldUpdateOperationsInput | string | null
+    Vendegtanulo?: NullableStringFieldUpdateOperationsInput | string | null
+    tandijat_fizeto?: NullableStringFieldUpdateOperationsInput | string | null
+    teritesi_dijat_fizeto?: NullableStringFieldUpdateOperationsInput | string | null
+    tanuloszerzodeses?: NullableStringFieldUpdateOperationsInput | string | null
+    polgari_szerzodeses?: NullableStringFieldUpdateOperationsInput | string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
+    evfolyamismetlo?: NullableStringFieldUpdateOperationsInput | string | null
+    elozo_intezmeny?: NullableStringFieldUpdateOperationsInput | string | null
+    osztaly1?: NullableStringFieldUpdateOperationsInput | string | null
+    evfolyam?: NullableStringFieldUpdateOperationsInput | string | null
+    bizonyitvany_sorszama?: NullableStringFieldUpdateOperationsInput | string | null
+    okleveles_technikus_képzes?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_Szkt_agazat_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_szkt_szakma_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_szkt_szakmairany_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_szakkepesites?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_szakirany?: NullableStringFieldUpdateOperationsInput | string | null
+    agazat_uj_szkt_reszszakmahoz?: NullableStringFieldUpdateOperationsInput | string | null
+    szakma_reszszakmahoz?: NullableStringFieldUpdateOperationsInput | string | null
+    reszszakma?: NullableStringFieldUpdateOperationsInput | string | null
+    agazat_tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
+    szakmai_kepzes?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapoktatas_megnevezese?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmeny?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmenye?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmenye_percent?: NullableStringFieldUpdateOperationsInput | string | null
+    szakkepzesi_munkaszerzodessel?: NullableStringFieldUpdateOperationsInput | string | null
+    Dualis_kepzohely_neve?: NullableStringFieldUpdateOperationsInput | string | null
+    Dualis_kepzohely_adoszama?: NullableStringFieldUpdateOperationsInput | string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
+    kiemelten_tehetseges?: NullableStringFieldUpdateOperationsInput | string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: NullableStringFieldUpdateOperationsInput | string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
+    nyelvi_elokeszito?: NullableStringFieldUpdateOperationsInput | string | null
+    ket_tanitasi_nyelvu?: NullableStringFieldUpdateOperationsInput | string | null
+    NemzetisegiNevelesOktatas?: NullableStringFieldUpdateOperationsInput | string | null
+    NemzetisegiNevelesOktatásFajtaja?: NullableStringFieldUpdateOperationsInput | string | null
+    nemzetisegiNyelv?: NullableStringFieldUpdateOperationsInput | string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: NullableStringFieldUpdateOperationsInput | string | null
+    sportosztaly?: NullableStringFieldUpdateOperationsInput | string | null
+    aranyjanostehetseggondozoprogram?: NullableStringFieldUpdateOperationsInput | string | null
+    arany_janos_kollegiumi_program?: NullableStringFieldUpdateOperationsInput | string | null
+    munkarend?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14191,76 +14283,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokUncheckedUpdateWithoutAlapadatokInput = {
     id?: StringFieldUpdateOperationsInput | string
-    elotag?: StringFieldUpdateOperationsInput | string
-    vezeteknev?: StringFieldUpdateOperationsInput | string
-    utonev?: StringFieldUpdateOperationsInput | string
-    oktatasiAzonositoja?: StringFieldUpdateOperationsInput | string
-    osztaly?: StringFieldUpdateOperationsInput | string
-    szuletesiDatuma?: StringFieldUpdateOperationsInput | string
-    anyjaSzuletesiDatuma?: StringFieldUpdateOperationsInput | string
-    tanterv?: StringFieldUpdateOperationsInput | string
-    naploSorszam?: StringFieldUpdateOperationsInput | string
-    beiras_naplo_sorszam?: StringFieldUpdateOperationsInput | string
-    felvetel_taneve?: StringFieldUpdateOperationsInput | string
-    torzslapszam?: StringFieldUpdateOperationsInput | string
-    tabulo_jogviszonya?: StringFieldUpdateOperationsInput | string
-    jogviszony_kezdete?: StringFieldUpdateOperationsInput | string
-    jogviszony_megszunesenek_varhato_datuma?: StringFieldUpdateOperationsInput | string
-    jogviszonyátSzunetelteto?: StringFieldUpdateOperationsInput | string
-    tankotelezettsegetTeljesito?: StringFieldUpdateOperationsInput | string
-    tankotelezettségVege?: StringFieldUpdateOperationsInput | string
-    bejaro?: StringFieldUpdateOperationsInput | string
-    Szakmai_gyakorlaton_tartozkodik?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_oka?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_kezdete?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_vege?: StringFieldUpdateOperationsInput | string
-    Vendegtanulo?: StringFieldUpdateOperationsInput | string
-    tandijat_fizeto?: StringFieldUpdateOperationsInput | string
-    teritesi_dijat_fizeto?: StringFieldUpdateOperationsInput | string
-    tanuloszerzodeses?: StringFieldUpdateOperationsInput | string
-    polgari_szerzodeses?: StringFieldUpdateOperationsInput | string
-    iskolai_sportkorben_reszt_vevo_tanulo?: StringFieldUpdateOperationsInput | string
-    evfolyamismetlo?: StringFieldUpdateOperationsInput | string
-    elozo_intezmeny?: StringFieldUpdateOperationsInput | string
-    osztaly1?: StringFieldUpdateOperationsInput | string
-    evfolyam?: StringFieldUpdateOperationsInput | string
-    bizonyitvany_sorszama?: StringFieldUpdateOperationsInput | string
-    okleveles_technikus_képzes?: StringFieldUpdateOperationsInput | string
-    uj_Szkt_agazat_tipusa?: StringFieldUpdateOperationsInput | string
-    uj_szkt_szakma_tipusa?: StringFieldUpdateOperationsInput | string
-    uj_szkt_szakmairany_tipusa?: StringFieldUpdateOperationsInput | string
-    nkt_tanulmanyi_terulet?: StringFieldUpdateOperationsInput | string
-    nkt_szakkepesites?: StringFieldUpdateOperationsInput | string
-    nkt_szakirany?: StringFieldUpdateOperationsInput | string
-    agazat_uj_szkt_reszszakmahoz?: StringFieldUpdateOperationsInput | string
-    szakma_reszszakmahoz?: StringFieldUpdateOperationsInput | string
-    reszszakma?: StringFieldUpdateOperationsInput | string
-    agazat_tanulmanyi_terulet?: StringFieldUpdateOperationsInput | string
-    szakmai_kepzes?: StringFieldUpdateOperationsInput | string
-    agazati_alapoktatas_megnevezese?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmeny?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_teljesitesenek_datuma?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmenye?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmenye_percent?: StringFieldUpdateOperationsInput | string
-    szakkepzesi_munkaszerzodessel?: StringFieldUpdateOperationsInput | string
-    Dualis_kepzohely_neve?: StringFieldUpdateOperationsInput | string
-    Dualis_kepzohely_adoszama?: StringFieldUpdateOperationsInput | string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringFieldUpdateOperationsInput | string
-    kiemelten_tehetseges?: StringFieldUpdateOperationsInput | string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringFieldUpdateOperationsInput | string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringFieldUpdateOperationsInput | string
-    egesz_napos_iskolai_oktatasban_reszesul?: StringFieldUpdateOperationsInput | string
-    nyelvi_elokeszito?: StringFieldUpdateOperationsInput | string
-    ket_tanitasi_nyelvu?: StringFieldUpdateOperationsInput | string
-    NemzetisegiNevelesOktatas?: StringFieldUpdateOperationsInput | string
-    NemzetisegiNevelesOktatásFajtaja?: StringFieldUpdateOperationsInput | string
-    nemzetisegiNyelv?: StringFieldUpdateOperationsInput | string
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringFieldUpdateOperationsInput | string
-    sportosztaly?: StringFieldUpdateOperationsInput | string
-    aranyjanostehetseggondozoprogram?: StringFieldUpdateOperationsInput | string
-    arany_janos_kollegiumi_program?: StringFieldUpdateOperationsInput | string
-    munkarend?: StringFieldUpdateOperationsInput | string
+    elotag?: NullableStringFieldUpdateOperationsInput | string | null
+    vezeteknev?: NullableStringFieldUpdateOperationsInput | string | null
+    utonev?: NullableStringFieldUpdateOperationsInput | string | null
+    oktatasiAzonositoja?: NullableStringFieldUpdateOperationsInput | string | null
+    osztaly?: NullableStringFieldUpdateOperationsInput | string | null
+    szuletesiDatuma?: NullableStringFieldUpdateOperationsInput | string | null
+    anyjaSzuletesiDatuma?: NullableStringFieldUpdateOperationsInput | string | null
+    tanterv?: NullableStringFieldUpdateOperationsInput | string | null
+    naploSorszam?: NullableStringFieldUpdateOperationsInput | string | null
+    beiras_naplo_sorszam?: NullableStringFieldUpdateOperationsInput | string | null
+    felvetel_taneve?: NullableStringFieldUpdateOperationsInput | string | null
+    torzslapszam?: NullableStringFieldUpdateOperationsInput | string | null
+    tabulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszony_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszony_megszunesenek_varhato_datuma?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszonyátSzunetelteto?: NullableStringFieldUpdateOperationsInput | string | null
+    tankotelezettsegetTeljesito?: NullableStringFieldUpdateOperationsInput | string | null
+    tankotelezettségVege?: NullableStringFieldUpdateOperationsInput | string | null
+    bejaro?: NullableStringFieldUpdateOperationsInput | string | null
+    Szakmai_gyakorlaton_tartozkodik?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_oka?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_vege?: NullableStringFieldUpdateOperationsInput | string | null
+    Vendegtanulo?: NullableStringFieldUpdateOperationsInput | string | null
+    tandijat_fizeto?: NullableStringFieldUpdateOperationsInput | string | null
+    teritesi_dijat_fizeto?: NullableStringFieldUpdateOperationsInput | string | null
+    tanuloszerzodeses?: NullableStringFieldUpdateOperationsInput | string | null
+    polgari_szerzodeses?: NullableStringFieldUpdateOperationsInput | string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
+    evfolyamismetlo?: NullableStringFieldUpdateOperationsInput | string | null
+    elozo_intezmeny?: NullableStringFieldUpdateOperationsInput | string | null
+    osztaly1?: NullableStringFieldUpdateOperationsInput | string | null
+    evfolyam?: NullableStringFieldUpdateOperationsInput | string | null
+    bizonyitvany_sorszama?: NullableStringFieldUpdateOperationsInput | string | null
+    okleveles_technikus_képzes?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_Szkt_agazat_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_szkt_szakma_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_szkt_szakmairany_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_szakkepesites?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_szakirany?: NullableStringFieldUpdateOperationsInput | string | null
+    agazat_uj_szkt_reszszakmahoz?: NullableStringFieldUpdateOperationsInput | string | null
+    szakma_reszszakmahoz?: NullableStringFieldUpdateOperationsInput | string | null
+    reszszakma?: NullableStringFieldUpdateOperationsInput | string | null
+    agazat_tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
+    szakmai_kepzes?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapoktatas_megnevezese?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmeny?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmenye?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmenye_percent?: NullableStringFieldUpdateOperationsInput | string | null
+    szakkepzesi_munkaszerzodessel?: NullableStringFieldUpdateOperationsInput | string | null
+    Dualis_kepzohely_neve?: NullableStringFieldUpdateOperationsInput | string | null
+    Dualis_kepzohely_adoszama?: NullableStringFieldUpdateOperationsInput | string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
+    kiemelten_tehetseges?: NullableStringFieldUpdateOperationsInput | string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: NullableStringFieldUpdateOperationsInput | string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
+    nyelvi_elokeszito?: NullableStringFieldUpdateOperationsInput | string | null
+    ket_tanitasi_nyelvu?: NullableStringFieldUpdateOperationsInput | string | null
+    NemzetisegiNevelesOktatas?: NullableStringFieldUpdateOperationsInput | string | null
+    NemzetisegiNevelesOktatásFajtaja?: NullableStringFieldUpdateOperationsInput | string | null
+    nemzetisegiNyelv?: NullableStringFieldUpdateOperationsInput | string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: NullableStringFieldUpdateOperationsInput | string | null
+    sportosztaly?: NullableStringFieldUpdateOperationsInput | string | null
+    aranyjanostehetseggondozoprogram?: NullableStringFieldUpdateOperationsInput | string | null
+    arany_janos_kollegiumi_program?: NullableStringFieldUpdateOperationsInput | string | null
+    munkarend?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14269,76 +14361,76 @@ export namespace Prisma {
 
   export type Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokInput = {
     id?: StringFieldUpdateOperationsInput | string
-    elotag?: StringFieldUpdateOperationsInput | string
-    vezeteknev?: StringFieldUpdateOperationsInput | string
-    utonev?: StringFieldUpdateOperationsInput | string
-    oktatasiAzonositoja?: StringFieldUpdateOperationsInput | string
-    osztaly?: StringFieldUpdateOperationsInput | string
-    szuletesiDatuma?: StringFieldUpdateOperationsInput | string
-    anyjaSzuletesiDatuma?: StringFieldUpdateOperationsInput | string
-    tanterv?: StringFieldUpdateOperationsInput | string
-    naploSorszam?: StringFieldUpdateOperationsInput | string
-    beiras_naplo_sorszam?: StringFieldUpdateOperationsInput | string
-    felvetel_taneve?: StringFieldUpdateOperationsInput | string
-    torzslapszam?: StringFieldUpdateOperationsInput | string
-    tabulo_jogviszonya?: StringFieldUpdateOperationsInput | string
-    jogviszony_kezdete?: StringFieldUpdateOperationsInput | string
-    jogviszony_megszunesenek_varhato_datuma?: StringFieldUpdateOperationsInput | string
-    jogviszonyátSzunetelteto?: StringFieldUpdateOperationsInput | string
-    tankotelezettsegetTeljesito?: StringFieldUpdateOperationsInput | string
-    tankotelezettségVege?: StringFieldUpdateOperationsInput | string
-    bejaro?: StringFieldUpdateOperationsInput | string
-    Szakmai_gyakorlaton_tartozkodik?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_oka?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_kezdete?: StringFieldUpdateOperationsInput | string
-    Egyeni_munkarend_vege?: StringFieldUpdateOperationsInput | string
-    Vendegtanulo?: StringFieldUpdateOperationsInput | string
-    tandijat_fizeto?: StringFieldUpdateOperationsInput | string
-    teritesi_dijat_fizeto?: StringFieldUpdateOperationsInput | string
-    tanuloszerzodeses?: StringFieldUpdateOperationsInput | string
-    polgari_szerzodeses?: StringFieldUpdateOperationsInput | string
-    iskolai_sportkorben_reszt_vevo_tanulo?: StringFieldUpdateOperationsInput | string
-    evfolyamismetlo?: StringFieldUpdateOperationsInput | string
-    elozo_intezmeny?: StringFieldUpdateOperationsInput | string
-    osztaly1?: StringFieldUpdateOperationsInput | string
-    evfolyam?: StringFieldUpdateOperationsInput | string
-    bizonyitvany_sorszama?: StringFieldUpdateOperationsInput | string
-    okleveles_technikus_képzes?: StringFieldUpdateOperationsInput | string
-    uj_Szkt_agazat_tipusa?: StringFieldUpdateOperationsInput | string
-    uj_szkt_szakma_tipusa?: StringFieldUpdateOperationsInput | string
-    uj_szkt_szakmairany_tipusa?: StringFieldUpdateOperationsInput | string
-    nkt_tanulmanyi_terulet?: StringFieldUpdateOperationsInput | string
-    nkt_szakkepesites?: StringFieldUpdateOperationsInput | string
-    nkt_szakirany?: StringFieldUpdateOperationsInput | string
-    agazat_uj_szkt_reszszakmahoz?: StringFieldUpdateOperationsInput | string
-    szakma_reszszakmahoz?: StringFieldUpdateOperationsInput | string
-    reszszakma?: StringFieldUpdateOperationsInput | string
-    agazat_tanulmanyi_terulet?: StringFieldUpdateOperationsInput | string
-    szakmai_kepzes?: StringFieldUpdateOperationsInput | string
-    agazati_alapoktatas_megnevezese?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmeny?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_teljesitesenek_datuma?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmenye?: StringFieldUpdateOperationsInput | string
-    agazati_alapvizsga_eredmenye_percent?: StringFieldUpdateOperationsInput | string
-    szakkepzesi_munkaszerzodessel?: StringFieldUpdateOperationsInput | string
-    Dualis_kepzohely_neve?: StringFieldUpdateOperationsInput | string
-    Dualis_kepzohely_adoszama?: StringFieldUpdateOperationsInput | string
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringFieldUpdateOperationsInput | string
-    kiemelten_tehetseges?: StringFieldUpdateOperationsInput | string
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringFieldUpdateOperationsInput | string
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringFieldUpdateOperationsInput | string
-    egesz_napos_iskolai_oktatasban_reszesul?: StringFieldUpdateOperationsInput | string
-    nyelvi_elokeszito?: StringFieldUpdateOperationsInput | string
-    ket_tanitasi_nyelvu?: StringFieldUpdateOperationsInput | string
-    NemzetisegiNevelesOktatas?: StringFieldUpdateOperationsInput | string
-    NemzetisegiNevelesOktatásFajtaja?: StringFieldUpdateOperationsInput | string
-    nemzetisegiNyelv?: StringFieldUpdateOperationsInput | string
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: StringFieldUpdateOperationsInput | string
-    sportosztaly?: StringFieldUpdateOperationsInput | string
-    aranyjanostehetseggondozoprogram?: StringFieldUpdateOperationsInput | string
-    arany_janos_kollegiumi_program?: StringFieldUpdateOperationsInput | string
-    munkarend?: StringFieldUpdateOperationsInput | string
+    elotag?: NullableStringFieldUpdateOperationsInput | string | null
+    vezeteknev?: NullableStringFieldUpdateOperationsInput | string | null
+    utonev?: NullableStringFieldUpdateOperationsInput | string | null
+    oktatasiAzonositoja?: NullableStringFieldUpdateOperationsInput | string | null
+    osztaly?: NullableStringFieldUpdateOperationsInput | string | null
+    szuletesiDatuma?: NullableStringFieldUpdateOperationsInput | string | null
+    anyjaSzuletesiDatuma?: NullableStringFieldUpdateOperationsInput | string | null
+    tanterv?: NullableStringFieldUpdateOperationsInput | string | null
+    naploSorszam?: NullableStringFieldUpdateOperationsInput | string | null
+    beiras_naplo_sorszam?: NullableStringFieldUpdateOperationsInput | string | null
+    felvetel_taneve?: NullableStringFieldUpdateOperationsInput | string | null
+    torzslapszam?: NullableStringFieldUpdateOperationsInput | string | null
+    tabulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszony_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszony_megszunesenek_varhato_datuma?: NullableStringFieldUpdateOperationsInput | string | null
+    jogviszonyátSzunetelteto?: NullableStringFieldUpdateOperationsInput | string | null
+    tankotelezettsegetTeljesito?: NullableStringFieldUpdateOperationsInput | string | null
+    tankotelezettségVege?: NullableStringFieldUpdateOperationsInput | string | null
+    bejaro?: NullableStringFieldUpdateOperationsInput | string | null
+    Szakmai_gyakorlaton_tartozkodik?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_oka?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
+    Egyeni_munkarend_vege?: NullableStringFieldUpdateOperationsInput | string | null
+    Vendegtanulo?: NullableStringFieldUpdateOperationsInput | string | null
+    tandijat_fizeto?: NullableStringFieldUpdateOperationsInput | string | null
+    teritesi_dijat_fizeto?: NullableStringFieldUpdateOperationsInput | string | null
+    tanuloszerzodeses?: NullableStringFieldUpdateOperationsInput | string | null
+    polgari_szerzodeses?: NullableStringFieldUpdateOperationsInput | string | null
+    iskolai_sportkorben_reszt_vevo_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
+    evfolyamismetlo?: NullableStringFieldUpdateOperationsInput | string | null
+    elozo_intezmeny?: NullableStringFieldUpdateOperationsInput | string | null
+    osztaly1?: NullableStringFieldUpdateOperationsInput | string | null
+    evfolyam?: NullableStringFieldUpdateOperationsInput | string | null
+    bizonyitvany_sorszama?: NullableStringFieldUpdateOperationsInput | string | null
+    okleveles_technikus_képzes?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_Szkt_agazat_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_szkt_szakma_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    uj_szkt_szakmairany_tipusa?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_szakkepesites?: NullableStringFieldUpdateOperationsInput | string | null
+    nkt_szakirany?: NullableStringFieldUpdateOperationsInput | string | null
+    agazat_uj_szkt_reszszakmahoz?: NullableStringFieldUpdateOperationsInput | string | null
+    szakma_reszszakmahoz?: NullableStringFieldUpdateOperationsInput | string | null
+    reszszakma?: NullableStringFieldUpdateOperationsInput | string | null
+    agazat_tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
+    szakmai_kepzes?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapoktatas_megnevezese?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmeny?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_teljesitesenek_datuma?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmenye?: NullableStringFieldUpdateOperationsInput | string | null
+    agazati_alapvizsga_eredmenye_percent?: NullableStringFieldUpdateOperationsInput | string | null
+    szakkepzesi_munkaszerzodessel?: NullableStringFieldUpdateOperationsInput | string | null
+    Dualis_kepzohely_neve?: NullableStringFieldUpdateOperationsInput | string | null
+    Dualis_kepzohely_adoszama?: NullableStringFieldUpdateOperationsInput | string | null
+    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
+    kiemelten_tehetseges?: NullableStringFieldUpdateOperationsInput | string | null
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: NullableStringFieldUpdateOperationsInput | string | null
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
+    egesz_napos_iskolai_oktatasban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
+    nyelvi_elokeszito?: NullableStringFieldUpdateOperationsInput | string | null
+    ket_tanitasi_nyelvu?: NullableStringFieldUpdateOperationsInput | string | null
+    NemzetisegiNevelesOktatas?: NullableStringFieldUpdateOperationsInput | string | null
+    NemzetisegiNevelesOktatásFajtaja?: NullableStringFieldUpdateOperationsInput | string | null
+    nemzetisegiNyelv?: NullableStringFieldUpdateOperationsInput | string | null
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: NullableStringFieldUpdateOperationsInput | string | null
+    sportosztaly?: NullableStringFieldUpdateOperationsInput | string | null
+    aranyjanostehetseggondozoprogram?: NullableStringFieldUpdateOperationsInput | string | null
+    arany_janos_kollegiumi_program?: NullableStringFieldUpdateOperationsInput | string | null
+    munkarend?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
