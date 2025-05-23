@@ -143,14 +143,22 @@ exports.Prisma.Tanulo_LetszamScalarFieldEnum = {
   jogv_tipus: 'jogv_tipus',
   letszam: 'letszam',
   szakirany_id: 'szakirany_id',
-  szakma_id: 'szakma_id'
+  szakma_id: 'szakma_id',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
 };
 
 exports.Prisma.Tanar_LetszamScalarFieldEnum = {
   id: 'id',
   alapadatok_id: 'alapadatok_id',
   tanev_kezdete: 'tanev_kezdete',
-  letszam: 'letszam'
+  letszam: 'letszam',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
 };
 
 exports.Prisma.Felvettek_SzamaScalarFieldEnum = {
@@ -160,7 +168,11 @@ exports.Prisma.Felvettek_SzamaScalarFieldEnum = {
   szakma_id: 'szakma_id',
   jelentkezo_letszam: 'jelentkezo_letszam',
   felveheto_letszam: 'felveheto_letszam',
-  felvett_letszam: 'felvett_letszam'
+  felvett_letszam: 'felvett_letszam',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
 };
 
 exports.Prisma.Tanugyi_AdatokScalarFieldEnum = {
@@ -177,7 +189,7 @@ exports.Prisma.Tanugyi_AdatokScalarFieldEnum = {
   beiras_naplo_sorszam: 'beiras_naplo_sorszam',
   felvetel_taneve: 'felvetel_taneve',
   torzslapszam: 'torzslapszam',
-  tabulo_jogviszonya: 'tabulo_jogviszonya',
+  tanulo_jogviszonya: 'tanulo_jogviszonya',
   jogviszony_kezdete: 'jogviszony_kezdete',
   jogviszony_megszunesenek_varhato_datuma: 'jogviszony_megszunesenek_varhato_datuma',
   jogviszonyátSzunetelteto: 'jogviszonyátSzunetelteto',
@@ -220,7 +232,6 @@ exports.Prisma.Tanugyi_AdatokScalarFieldEnum = {
   szakkepzesi_munkaszerzodessel: 'szakkepzesi_munkaszerzodessel',
   Dualis_kepzohely_neve: 'Dualis_kepzohely_neve',
   Dualis_kepzohely_adoszama: 'Dualis_kepzohely_adoszama',
-  a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: 'a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte',
   kiemelten_tehetseges: 'kiemelten_tehetseges',
   szamitogepet_tanulasi_oktatasi_celra_hasznal: 'szamitogepet_tanulasi_oktatasi_celra_hasznal',
   szaboky_adolf_szakkepzesi_osztondijban_reszesul: 'szaboky_adolf_szakkepzesi_osztondijban_reszesul',
@@ -239,7 +250,9 @@ exports.Prisma.Tanugyi_AdatokScalarFieldEnum = {
   createAt: 'createAt',
   createBy: 'createBy',
   updatedAt: 'updatedAt',
-  updatedBy: 'updatedBy'
+  updatedBy: 'updatedBy',
+  a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte: 'a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte',
+  tanev_kezdete: 'tanev_kezdete'
 };
 
 exports.Prisma.SortOrder = {

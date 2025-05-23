@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -15,145 +9,153 @@ datasource db {
 }
 
 model Alapadatok {
-  id String @db.Uuid @id @default(uuid())
-  iskola_neve String @db.VarChar(150)
-  intezmeny_tipus String @db.VarChar(50)
-
-  tanulo_letszam Tanulo_Letszam[] @relation()
-  tanar_letszam Tanar_Letszam[] @relation()
-  felvettek_szama Felvettek_Szama[] @relation()
-  tanugyiAdatok Tanugyi_Adatok[] @relation()
+  id              String            @id @default(uuid()) @db.Uuid
+  iskola_neve     String            @db.VarChar(150)
+  intezmeny_tipus String            @db.VarChar(50)
+  felvettek_szama Felvettek_Szama[]
+  tanar_letszam   Tanar_Letszam[]
+  tanugyiAdatok   Tanugyi_Adatok[]
+  tanulo_letszam  Tanulo_Letszam[]
 }
 
 model Szakirany {
-  id String @db.Uuid @id @default(uuid())
-  nev String @db.VarChar(75)
-
-  tanulo_letszam Tanulo_Letszam[] @relation()
+  id             String           @id @default(uuid()) @db.Uuid
+  nev            String           @db.VarChar(75) @unique
+  tanulo_letszam Tanulo_Letszam[]
 }
 
 model Szakma {
-  id String @db.Uuid @id @default(uuid())
-  nev String @db.VarChar(75)
-
-  tanulo_letszam Tanulo_Letszam[] @relation()
-  felvettek_szama Felvettek_Szama[] @relation()
+  id              String            @id @default(uuid()) @db.Uuid
+  nev             String            @db.VarChar(75) @unique
+  felvettek_szama Felvettek_Szama[]
+  tanulo_letszam  Tanulo_Letszam[]
 }
 
 model Tanulo_Letszam {
-  id String @db.Uuid @id @default(uuid())
-  alapadatok_id String @db.Uuid
-  tanev_kezdete Int @db.SmallInt
-  jogv_tipus Int @db.SmallInt
-  letszam Int @db.SmallInt
-  szakirany_id String @db.Uuid
-  szakma_id String @db.Uuid
+  id            String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+  jogv_tipus    Int        @db.SmallInt
+  letszam       Int        @db.SmallInt
+  szakirany_id  String     @db.Uuid
+  szakma_id     String     @db.Uuid
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakirany     Szakirany  @relation(fields: [szakirany_id], references: [id])
+  szakma        Szakma     @relation(fields: [szakma_id], references: [id])
 
-  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
-  szakirany Szakirany @relation(fields: [szakirany_id], references: [id])
-  szakma Szakma @relation(fields: [szakma_id], references: [id])
+  createAt                                                        DateTime   @default(now())
+  createBy                                                        String?
+  updatedAt                                                       DateTime?   @updatedAt
+  updatedBy                                                       String?
 }
 
 model Tanar_Letszam {
-  id String @db.Uuid @id @default(uuid())
-  alapadatok_id String @db.Uuid
-  tanev_kezdete Int @db.SmallInt
-  letszam Int @db.SmallInt
+  id            String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+  letszam       Int        @db.SmallInt
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
 
-  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  createAt                                                        DateTime   @default(now())
+  createBy                                                        String?
+  updatedAt                                                       DateTime?   @updatedAt
+  updatedBy                                                       String?
 }
 
 model Felvettek_Szama {
-  id String @db.Uuid @id @default(uuid())
-  alapadatok_id String @db.Uuid
-  tanev_kezdete Int @db.SmallInt
-  szakma_id String @db.Uuid
-  jelentkezo_letszam Int @db.SmallInt
-  felveheto_letszam Int @db.SmallInt
-  felvett_letszam Int @db.SmallInt
+  id                 String     @id @default(uuid()) @db.Uuid
+  alapadatok_id      String     @db.Uuid
+  tanev_kezdete      Int        @db.SmallInt
+  szakma_id          String     @db.Uuid
+  jelentkezo_letszam Int        @db.SmallInt
+  felveheto_letszam  Int        @db.SmallInt
+  felvett_letszam    Int        @db.SmallInt
+  alapadatok         Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakma             Szakma     @relation(fields: [szakma_id], references: [id])
 
-  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
-  szakma Szakma @relation(fields: [szakma_id], references: [id])
+  createAt                                                        DateTime   @default(now())
+  createBy                                                        String?
+  updatedAt                                                       DateTime?   @updatedAt
+  updatedBy                                                       String?
 }
 
-model Tanugyi_Adatok{
-  id String @db.Uuid @id @default(uuid())
-  elotag String?
-  vezeteknev String?
-  utonev String?
-  oktatasiAzonositoja String?
-  osztaly String?
-  szuletesiDatuma String?
-  anyjaSzuletesiDatuma String?
-  tanterv String?
-  naploSorszam String?
-  beiras_naplo_sorszam String?
-  felvetel_taneve String?
-  torzslapszam String?
-  tabulo_jogviszonya String?
-  jogviszony_kezdete String?
-  jogviszony_megszunesenek_varhato_datuma String?
-  jogviszonyátSzunetelteto String?
-  tankotelezettsegetTeljesito String?
-  tankotelezettségVege String?
-  bejaro String?
-  Szakmai_gyakorlaton_tartozkodik String?
-  Egyeni_munkarend String?
-  Egyeni_munkarend_oka String?
-  Egyeni_munkarend_kezdete String?
-  Egyeni_munkarend_vege String?
-  Vendegtanulo String?
-  tandijat_fizeto String?
-  teritesi_dijat_fizeto String?
-  tanuloszerzodeses String?
-  polgari_szerzodeses String?
-  iskolai_sportkorben_reszt_vevo_tanulo String?
-  evfolyamismetlo String?
-  elozo_intezmeny String?
-  osztaly1 String?
-  evfolyam String?
-  bizonyitvany_sorszama String?
-  okleveles_technikus_képzes String?
-  uj_Szkt_agazat_tipusa String?
-  uj_szkt_szakma_tipusa String?
-  uj_szkt_szakmairany_tipusa String?
-  nkt_tanulmanyi_terulet String?
-  nkt_szakkepesites String?
-  nkt_szakirany String?
-  agazat_uj_szkt_reszszakmahoz String?
-  szakma_reszszakmahoz String?
-  reszszakma String?
-  agazat_tanulmanyi_terulet String?
-  szakmai_kepzes String?
-  agazati_alapoktatas_megnevezese String?
-  agazati_alapvizsga_eredmeny String?
-  agazati_alapvizsga_teljesitesenek_datuma String?
-  agazati_alapvizsga_eredmenye String?
-  agazati_alapvizsga_eredmenye_percent String?
-  szakkepzesi_munkaszerzodessel String?
-  Dualis_kepzohely_neve String?
-  Dualis_kepzohely_adoszama String?
-  a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte String?
-  kiemelten_tehetseges String?
-  szamitogepet_tanulasi_oktatasi_celra_hasznal String?
-  szaboky_adolf_szakkepzesi_osztondijban_reszesul String?
-  egesz_napos_iskolai_oktatasban_reszesul String?
-  nyelvi_elokeszito String?
-  ket_tanitasi_nyelvu String?
-  NemzetisegiNevelesOktatas String?
-  NemzetisegiNevelesOktatásFajtaja String?
-  nemzetisegiNyelv String?
-  nemzetisegNyelvenFolyoSzakmaiOktatas String?
-  sportosztaly String?
-  aranyjanostehetseggondozoprogram String?
-  arany_janos_kollegiumi_program String?
-  munkarend String?
-  
-  alapadatok_id String @db.Uuid
-  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
-
-  createAt DateTime @default(now())
-  createBy String
-  updatedAt DateTime @updatedAt
-  updatedBy String
+model Tanugyi_Adatok {
+  id                                                              String     @id @default(uuid()) @db.Uuid
+  elotag                                                          String?
+  vezeteknev                                                      String?
+  utonev                                                          String?
+  oktatasiAzonositoja                                             String?
+  osztaly                                                         String?
+  szuletesiDatuma                                                 String?
+  anyjaSzuletesiDatuma                                            String?
+  tanterv                                                         String?
+  naploSorszam                                                    String?
+  beiras_naplo_sorszam                                            String?
+  felvetel_taneve                                                 String?
+  torzslapszam                                                    String?
+  tanulo_jogviszonya                                              String?
+  jogviszony_kezdete                                              String?
+  jogviszony_megszunesenek_varhato_datuma                         String?
+  jogviszonyátSzunetelteto                                       String?
+  tankotelezettsegetTeljesito                                     String?
+  tankotelezettségVege                                           String?
+  bejaro                                                          String?
+  Szakmai_gyakorlaton_tartozkodik                                 String?
+  Egyeni_munkarend                                                String?
+  Egyeni_munkarend_oka                                            String?
+  Egyeni_munkarend_kezdete                                        String?
+  Egyeni_munkarend_vege                                           String?
+  Vendegtanulo                                                    String?
+  tandijat_fizeto                                                 String?
+  teritesi_dijat_fizeto                                           String?
+  tanuloszerzodeses                                               String?
+  polgari_szerzodeses                                             String?
+  iskolai_sportkorben_reszt_vevo_tanulo                           String?
+  evfolyamismetlo                                                 String?
+  elozo_intezmeny                                                 String?
+  osztaly1                                                        String?
+  evfolyam                                                        String?
+  bizonyitvany_sorszama                                           String?
+  okleveles_technikus_képzes                                     String?
+  uj_Szkt_agazat_tipusa                                           String?
+  uj_szkt_szakma_tipusa                                           String?
+  uj_szkt_szakmairany_tipusa                                      String?
+  nkt_tanulmanyi_terulet                                          String?
+  nkt_szakkepesites                                               String?
+  nkt_szakirany                                                   String?
+  agazat_uj_szkt_reszszakmahoz                                    String?
+  szakma_reszszakmahoz                                            String?
+  reszszakma                                                      String?
+  agazat_tanulmanyi_terulet                                       String?
+  szakmai_kepzes                                                  String?
+  agazati_alapoktatas_megnevezese                                 String?
+  agazati_alapvizsga_eredmeny                                     String?
+  agazati_alapvizsga_teljesitesenek_datuma                        String?
+  agazati_alapvizsga_eredmenye                                    String?
+  agazati_alapvizsga_eredmenye_percent                            String?
+  szakkepzesi_munkaszerzodessel                                   String?
+  Dualis_kepzohely_neve                                           String?
+  Dualis_kepzohely_adoszama                                       String?
+  kiemelten_tehetseges                                            String?
+  szamitogepet_tanulasi_oktatasi_celra_hasznal                    String?
+  szaboky_adolf_szakkepzesi_osztondijban_reszesul                 String?
+  egesz_napos_iskolai_oktatasban_reszesul                         String?
+  nyelvi_elokeszito                                               String?
+  ket_tanitasi_nyelvu                                             String?
+  NemzetisegiNevelesOktatas                                       String?
+  NemzetisegiNevelesOktatásFajtaja                               String?
+  nemzetisegiNyelv                                                String?
+  nemzetisegNyelvenFolyoSzakmaiOktatas                            String?
+  sportosztaly                                                    String?
+  aranyjanostehetseggondozoprogram                                String?
+  arany_janos_kollegiumi_program                                  String?
+  munkarend                                                       String?
+  alapadatok_id                                                   String     @db.Uuid
+  createAt                                                        DateTime   @default(now())
+  createBy                                                        String
+  updatedAt                                                       DateTime?   @updatedAt
+  updatedBy                                                       String?
+  a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte String?
+  tanev_kezdete                                                   Int        @default(0) @db.SmallInt
+  alapadatok                                                      Alapadatok @relation(fields: [alapadatok_id], references: [id])
 }

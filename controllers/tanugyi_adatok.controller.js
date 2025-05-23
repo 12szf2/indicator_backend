@@ -1,5 +1,5 @@
 import e from "express";
-import { getAll, createMany } from "../services/tanugyi_adatok.service";
+import { getAll, createMany } from "../services/tanugyi_adatok.service.js";
 
 const router = e.Router();
 

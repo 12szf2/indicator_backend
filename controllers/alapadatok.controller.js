@@ -24,7 +24,7 @@ router.get("/:id", async (req, res) => {
   try {
     const id = req.params.id;
 
-    if (!id || typeof id == "string")
+    if (!id)
       return res.status(400).json({ message: "A paraméter nem megfelelő" });
 
     const data = await getById(id);

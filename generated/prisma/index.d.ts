@@ -1415,17 +1415,17 @@ export namespace Prisma {
    */
 
   export type AlapadatokCountOutputType = {
-    tanulo_letszam: number
-    tanar_letszam: number
     felvettek_szama: number
+    tanar_letszam: number
     tanugyiAdatok: number
+    tanulo_letszam: number
   }
 
   export type AlapadatokCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tanulo_letszam?: boolean | AlapadatokCountOutputTypeCountTanulo_letszamArgs
-    tanar_letszam?: boolean | AlapadatokCountOutputTypeCountTanar_letszamArgs
     felvettek_szama?: boolean | AlapadatokCountOutputTypeCountFelvettek_szamaArgs
+    tanar_letszam?: boolean | AlapadatokCountOutputTypeCountTanar_letszamArgs
     tanugyiAdatok?: boolean | AlapadatokCountOutputTypeCountTanugyiAdatokArgs
+    tanulo_letszam?: boolean | AlapadatokCountOutputTypeCountTanulo_letszamArgs
   }
 
   // Custom InputTypes
@@ -1442,8 +1442,8 @@ export namespace Prisma {
   /**
    * AlapadatokCountOutputType without action
    */
-  export type AlapadatokCountOutputTypeCountTanulo_letszamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Tanulo_LetszamWhereInput
+  export type AlapadatokCountOutputTypeCountFelvettek_szamaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Felvettek_SzamaWhereInput
   }
 
   /**
@@ -1456,15 +1456,15 @@ export namespace Prisma {
   /**
    * AlapadatokCountOutputType without action
    */
-  export type AlapadatokCountOutputTypeCountFelvettek_szamaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Felvettek_SzamaWhereInput
+  export type AlapadatokCountOutputTypeCountTanugyiAdatokArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Tanugyi_AdatokWhereInput
   }
 
   /**
    * AlapadatokCountOutputType without action
    */
-  export type AlapadatokCountOutputTypeCountTanugyiAdatokArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Tanugyi_AdatokWhereInput
+  export type AlapadatokCountOutputTypeCountTanulo_letszamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Tanulo_LetszamWhereInput
   }
 
 
@@ -1504,13 +1504,13 @@ export namespace Prisma {
    */
 
   export type SzakmaCountOutputType = {
-    tanulo_letszam: number
     felvettek_szama: number
+    tanulo_letszam: number
   }
 
   export type SzakmaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tanulo_letszam?: boolean | SzakmaCountOutputTypeCountTanulo_letszamArgs
     felvettek_szama?: boolean | SzakmaCountOutputTypeCountFelvettek_szamaArgs
+    tanulo_letszam?: boolean | SzakmaCountOutputTypeCountTanulo_letszamArgs
   }
 
   // Custom InputTypes
@@ -1527,15 +1527,15 @@ export namespace Prisma {
   /**
    * SzakmaCountOutputType without action
    */
-  export type SzakmaCountOutputTypeCountTanulo_letszamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Tanulo_LetszamWhereInput
+  export type SzakmaCountOutputTypeCountFelvettek_szamaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Felvettek_SzamaWhereInput
   }
 
   /**
    * SzakmaCountOutputType without action
    */
-  export type SzakmaCountOutputTypeCountFelvettek_szamaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Felvettek_SzamaWhereInput
+  export type SzakmaCountOutputTypeCountTanulo_letszamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Tanulo_LetszamWhereInput
   }
 
 
@@ -1691,10 +1691,10 @@ export namespace Prisma {
     id?: boolean
     iskola_neve?: boolean
     intezmeny_tipus?: boolean
-    tanulo_letszam?: boolean | Alapadatok$tanulo_letszamArgs<ExtArgs>
-    tanar_letszam?: boolean | Alapadatok$tanar_letszamArgs<ExtArgs>
     felvettek_szama?: boolean | Alapadatok$felvettek_szamaArgs<ExtArgs>
+    tanar_letszam?: boolean | Alapadatok$tanar_letszamArgs<ExtArgs>
     tanugyiAdatok?: boolean | Alapadatok$tanugyiAdatokArgs<ExtArgs>
+    tanulo_letszam?: boolean | Alapadatok$tanulo_letszamArgs<ExtArgs>
     _count?: boolean | AlapadatokCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["alapadatok"]>
 
@@ -1718,10 +1718,10 @@ export namespace Prisma {
 
   export type AlapadatokOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "iskola_neve" | "intezmeny_tipus", ExtArgs["result"]["alapadatok"]>
   export type AlapadatokInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tanulo_letszam?: boolean | Alapadatok$tanulo_letszamArgs<ExtArgs>
-    tanar_letszam?: boolean | Alapadatok$tanar_letszamArgs<ExtArgs>
     felvettek_szama?: boolean | Alapadatok$felvettek_szamaArgs<ExtArgs>
+    tanar_letszam?: boolean | Alapadatok$tanar_letszamArgs<ExtArgs>
     tanugyiAdatok?: boolean | Alapadatok$tanugyiAdatokArgs<ExtArgs>
+    tanulo_letszam?: boolean | Alapadatok$tanulo_letszamArgs<ExtArgs>
     _count?: boolean | AlapadatokCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type AlapadatokIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1730,10 +1730,10 @@ export namespace Prisma {
   export type $AlapadatokPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Alapadatok"
     objects: {
-      tanulo_letszam: Prisma.$Tanulo_LetszamPayload<ExtArgs>[]
-      tanar_letszam: Prisma.$Tanar_LetszamPayload<ExtArgs>[]
       felvettek_szama: Prisma.$Felvettek_SzamaPayload<ExtArgs>[]
+      tanar_letszam: Prisma.$Tanar_LetszamPayload<ExtArgs>[]
       tanugyiAdatok: Prisma.$Tanugyi_AdatokPayload<ExtArgs>[]
+      tanulo_letszam: Prisma.$Tanulo_LetszamPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2133,10 +2133,10 @@ export namespace Prisma {
    */
   export interface Prisma__AlapadatokClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    tanulo_letszam<T extends Alapadatok$tanulo_letszamArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$tanulo_letszamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanulo_LetszamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    tanar_letszam<T extends Alapadatok$tanar_letszamArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$tanar_letszamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanar_LetszamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     felvettek_szama<T extends Alapadatok$felvettek_szamaArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$felvettek_szamaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Felvettek_SzamaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    tanar_letszam<T extends Alapadatok$tanar_letszamArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$tanar_letszamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanar_LetszamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tanugyiAdatok<T extends Alapadatok$tanugyiAdatokArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$tanugyiAdatokArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanugyi_AdatokPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    tanulo_letszam<T extends Alapadatok$tanulo_letszamArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$tanulo_letszamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanulo_LetszamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2557,27 +2557,27 @@ export namespace Prisma {
   }
 
   /**
-   * Alapadatok.tanulo_letszam
+   * Alapadatok.felvettek_szama
    */
-  export type Alapadatok$tanulo_letszamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Alapadatok$felvettek_szamaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Tanulo_Letszam
+     * Select specific fields to fetch from the Felvettek_Szama
      */
-    select?: Tanulo_LetszamSelect<ExtArgs> | null
+    select?: Felvettek_SzamaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Tanulo_Letszam
+     * Omit specific fields from the Felvettek_Szama
      */
-    omit?: Tanulo_LetszamOmit<ExtArgs> | null
+    omit?: Felvettek_SzamaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Tanulo_LetszamInclude<ExtArgs> | null
-    where?: Tanulo_LetszamWhereInput
-    orderBy?: Tanulo_LetszamOrderByWithRelationInput | Tanulo_LetszamOrderByWithRelationInput[]
-    cursor?: Tanulo_LetszamWhereUniqueInput
+    include?: Felvettek_SzamaInclude<ExtArgs> | null
+    where?: Felvettek_SzamaWhereInput
+    orderBy?: Felvettek_SzamaOrderByWithRelationInput | Felvettek_SzamaOrderByWithRelationInput[]
+    cursor?: Felvettek_SzamaWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: Tanulo_LetszamScalarFieldEnum | Tanulo_LetszamScalarFieldEnum[]
+    distinct?: Felvettek_SzamaScalarFieldEnum | Felvettek_SzamaScalarFieldEnum[]
   }
 
   /**
@@ -2605,30 +2605,6 @@ export namespace Prisma {
   }
 
   /**
-   * Alapadatok.felvettek_szama
-   */
-  export type Alapadatok$felvettek_szamaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Felvettek_Szama
-     */
-    select?: Felvettek_SzamaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Felvettek_Szama
-     */
-    omit?: Felvettek_SzamaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: Felvettek_SzamaInclude<ExtArgs> | null
-    where?: Felvettek_SzamaWhereInput
-    orderBy?: Felvettek_SzamaOrderByWithRelationInput | Felvettek_SzamaOrderByWithRelationInput[]
-    cursor?: Felvettek_SzamaWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Felvettek_SzamaScalarFieldEnum | Felvettek_SzamaScalarFieldEnum[]
-  }
-
-  /**
    * Alapadatok.tanugyiAdatok
    */
   export type Alapadatok$tanugyiAdatokArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2650,6 +2626,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Tanugyi_AdatokScalarFieldEnum | Tanugyi_AdatokScalarFieldEnum[]
+  }
+
+  /**
+   * Alapadatok.tanulo_letszam
+   */
+  export type Alapadatok$tanulo_letszamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tanulo_Letszam
+     */
+    select?: Tanulo_LetszamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tanulo_Letszam
+     */
+    omit?: Tanulo_LetszamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Tanulo_LetszamInclude<ExtArgs> | null
+    where?: Tanulo_LetszamWhereInput
+    orderBy?: Tanulo_LetszamOrderByWithRelationInput | Tanulo_LetszamOrderByWithRelationInput[]
+    cursor?: Tanulo_LetszamWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tanulo_LetszamScalarFieldEnum | Tanulo_LetszamScalarFieldEnum[]
   }
 
   /**
@@ -3842,8 +3842,8 @@ export namespace Prisma {
   export type SzakmaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nev?: boolean
-    tanulo_letszam?: boolean | Szakma$tanulo_letszamArgs<ExtArgs>
     felvettek_szama?: boolean | Szakma$felvettek_szamaArgs<ExtArgs>
+    tanulo_letszam?: boolean | Szakma$tanulo_letszamArgs<ExtArgs>
     _count?: boolean | SzakmaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["szakma"]>
 
@@ -3864,8 +3864,8 @@ export namespace Prisma {
 
   export type SzakmaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nev", ExtArgs["result"]["szakma"]>
   export type SzakmaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tanulo_letszam?: boolean | Szakma$tanulo_letszamArgs<ExtArgs>
     felvettek_szama?: boolean | Szakma$felvettek_szamaArgs<ExtArgs>
+    tanulo_letszam?: boolean | Szakma$tanulo_letszamArgs<ExtArgs>
     _count?: boolean | SzakmaCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type SzakmaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3874,8 +3874,8 @@ export namespace Prisma {
   export type $SzakmaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Szakma"
     objects: {
-      tanulo_letszam: Prisma.$Tanulo_LetszamPayload<ExtArgs>[]
       felvettek_szama: Prisma.$Felvettek_SzamaPayload<ExtArgs>[]
+      tanulo_letszam: Prisma.$Tanulo_LetszamPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -4274,8 +4274,8 @@ export namespace Prisma {
    */
   export interface Prisma__SzakmaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    tanulo_letszam<T extends Szakma$tanulo_letszamArgs<ExtArgs> = {}>(args?: Subset<T, Szakma$tanulo_letszamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanulo_LetszamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     felvettek_szama<T extends Szakma$felvettek_szamaArgs<ExtArgs> = {}>(args?: Subset<T, Szakma$felvettek_szamaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Felvettek_SzamaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    tanulo_letszam<T extends Szakma$tanulo_letszamArgs<ExtArgs> = {}>(args?: Subset<T, Szakma$tanulo_letszamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanulo_LetszamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4695,30 +4695,6 @@ export namespace Prisma {
   }
 
   /**
-   * Szakma.tanulo_letszam
-   */
-  export type Szakma$tanulo_letszamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tanulo_Letszam
-     */
-    select?: Tanulo_LetszamSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tanulo_Letszam
-     */
-    omit?: Tanulo_LetszamOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: Tanulo_LetszamInclude<ExtArgs> | null
-    where?: Tanulo_LetszamWhereInput
-    orderBy?: Tanulo_LetszamOrderByWithRelationInput | Tanulo_LetszamOrderByWithRelationInput[]
-    cursor?: Tanulo_LetszamWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Tanulo_LetszamScalarFieldEnum | Tanulo_LetszamScalarFieldEnum[]
-  }
-
-  /**
    * Szakma.felvettek_szama
    */
   export type Szakma$felvettek_szamaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4740,6 +4716,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Felvettek_SzamaScalarFieldEnum | Felvettek_SzamaScalarFieldEnum[]
+  }
+
+  /**
+   * Szakma.tanulo_letszam
+   */
+  export type Szakma$tanulo_letszamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tanulo_Letszam
+     */
+    select?: Tanulo_LetszamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tanulo_Letszam
+     */
+    omit?: Tanulo_LetszamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Tanulo_LetszamInclude<ExtArgs> | null
+    where?: Tanulo_LetszamWhereInput
+    orderBy?: Tanulo_LetszamOrderByWithRelationInput | Tanulo_LetszamOrderByWithRelationInput[]
+    cursor?: Tanulo_LetszamWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tanulo_LetszamScalarFieldEnum | Tanulo_LetszamScalarFieldEnum[]
   }
 
   /**
@@ -4793,6 +4793,10 @@ export namespace Prisma {
     letszam: number | null
     szakirany_id: string | null
     szakma_id: string | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
   }
 
   export type Tanulo_LetszamMaxAggregateOutputType = {
@@ -4803,6 +4807,10 @@ export namespace Prisma {
     letszam: number | null
     szakirany_id: string | null
     szakma_id: string | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
   }
 
   export type Tanulo_LetszamCountAggregateOutputType = {
@@ -4813,6 +4821,10 @@ export namespace Prisma {
     letszam: number
     szakirany_id: number
     szakma_id: number
+    createAt: number
+    createBy: number
+    updatedAt: number
+    updatedBy: number
     _all: number
   }
 
@@ -4837,6 +4849,10 @@ export namespace Prisma {
     letszam?: true
     szakirany_id?: true
     szakma_id?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
   }
 
   export type Tanulo_LetszamMaxAggregateInputType = {
@@ -4847,6 +4863,10 @@ export namespace Prisma {
     letszam?: true
     szakirany_id?: true
     szakma_id?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
   }
 
   export type Tanulo_LetszamCountAggregateInputType = {
@@ -4857,6 +4877,10 @@ export namespace Prisma {
     letszam?: true
     szakirany_id?: true
     szakma_id?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
     _all?: true
   }
 
@@ -4954,6 +4978,10 @@ export namespace Prisma {
     letszam: number
     szakirany_id: string
     szakma_id: string
+    createAt: Date
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
     _count: Tanulo_LetszamCountAggregateOutputType | null
     _avg: Tanulo_LetszamAvgAggregateOutputType | null
     _sum: Tanulo_LetszamSumAggregateOutputType | null
@@ -4983,6 +5011,10 @@ export namespace Prisma {
     letszam?: boolean
     szakirany_id?: boolean
     szakma_id?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
     szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
@@ -4996,6 +5028,10 @@ export namespace Prisma {
     letszam?: boolean
     szakirany_id?: boolean
     szakma_id?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
     szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
@@ -5009,6 +5045,10 @@ export namespace Prisma {
     letszam?: boolean
     szakirany_id?: boolean
     szakma_id?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
     szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
@@ -5022,9 +5062,13 @@ export namespace Prisma {
     letszam?: boolean
     szakirany_id?: boolean
     szakma_id?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
   }
 
-  export type Tanulo_LetszamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "jogv_tipus" | "letszam" | "szakirany_id" | "szakma_id", ExtArgs["result"]["tanulo_Letszam"]>
+  export type Tanulo_LetszamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "jogv_tipus" | "letszam" | "szakirany_id" | "szakma_id" | "createAt" | "createBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["tanulo_Letszam"]>
   export type Tanulo_LetszamInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
@@ -5056,6 +5100,10 @@ export namespace Prisma {
       letszam: number
       szakirany_id: string
       szakma_id: string
+      createAt: Date
+      createBy: string | null
+      updatedAt: Date | null
+      updatedBy: string | null
     }, ExtArgs["result"]["tanulo_Letszam"]>
     composites: {}
   }
@@ -5489,6 +5537,10 @@ export namespace Prisma {
     readonly letszam: FieldRef<"Tanulo_Letszam", 'Int'>
     readonly szakirany_id: FieldRef<"Tanulo_Letszam", 'String'>
     readonly szakma_id: FieldRef<"Tanulo_Letszam", 'String'>
+    readonly createAt: FieldRef<"Tanulo_Letszam", 'DateTime'>
+    readonly createBy: FieldRef<"Tanulo_Letszam", 'String'>
+    readonly updatedAt: FieldRef<"Tanulo_Letszam", 'DateTime'>
+    readonly updatedBy: FieldRef<"Tanulo_Letszam", 'String'>
   }
     
 
@@ -5930,6 +5982,10 @@ export namespace Prisma {
     alapadatok_id: string | null
     tanev_kezdete: number | null
     letszam: number | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
   }
 
   export type Tanar_LetszamMaxAggregateOutputType = {
@@ -5937,6 +5993,10 @@ export namespace Prisma {
     alapadatok_id: string | null
     tanev_kezdete: number | null
     letszam: number | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
   }
 
   export type Tanar_LetszamCountAggregateOutputType = {
@@ -5944,6 +6004,10 @@ export namespace Prisma {
     alapadatok_id: number
     tanev_kezdete: number
     letszam: number
+    createAt: number
+    createBy: number
+    updatedAt: number
+    updatedBy: number
     _all: number
   }
 
@@ -5963,6 +6027,10 @@ export namespace Prisma {
     alapadatok_id?: true
     tanev_kezdete?: true
     letszam?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
   }
 
   export type Tanar_LetszamMaxAggregateInputType = {
@@ -5970,6 +6038,10 @@ export namespace Prisma {
     alapadatok_id?: true
     tanev_kezdete?: true
     letszam?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
   }
 
   export type Tanar_LetszamCountAggregateInputType = {
@@ -5977,6 +6049,10 @@ export namespace Prisma {
     alapadatok_id?: true
     tanev_kezdete?: true
     letszam?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
     _all?: true
   }
 
@@ -6071,6 +6147,10 @@ export namespace Prisma {
     alapadatok_id: string
     tanev_kezdete: number
     letszam: number
+    createAt: Date
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
     _count: Tanar_LetszamCountAggregateOutputType | null
     _avg: Tanar_LetszamAvgAggregateOutputType | null
     _sum: Tanar_LetszamSumAggregateOutputType | null
@@ -6097,6 +6177,10 @@ export namespace Prisma {
     alapadatok_id?: boolean
     tanev_kezdete?: boolean
     letszam?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tanar_Letszam"]>
 
@@ -6105,6 +6189,10 @@ export namespace Prisma {
     alapadatok_id?: boolean
     tanev_kezdete?: boolean
     letszam?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tanar_Letszam"]>
 
@@ -6113,6 +6201,10 @@ export namespace Prisma {
     alapadatok_id?: boolean
     tanev_kezdete?: boolean
     letszam?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tanar_Letszam"]>
 
@@ -6121,9 +6213,13 @@ export namespace Prisma {
     alapadatok_id?: boolean
     tanev_kezdete?: boolean
     letszam?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
   }
 
-  export type Tanar_LetszamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "letszam", ExtArgs["result"]["tanar_Letszam"]>
+  export type Tanar_LetszamOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "letszam" | "createAt" | "createBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["tanar_Letszam"]>
   export type Tanar_LetszamInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }
@@ -6144,6 +6240,10 @@ export namespace Prisma {
       alapadatok_id: string
       tanev_kezdete: number
       letszam: number
+      createAt: Date
+      createBy: string | null
+      updatedAt: Date | null
+      updatedBy: string | null
     }, ExtArgs["result"]["tanar_Letszam"]>
     composites: {}
   }
@@ -6572,6 +6672,10 @@ export namespace Prisma {
     readonly alapadatok_id: FieldRef<"Tanar_Letszam", 'String'>
     readonly tanev_kezdete: FieldRef<"Tanar_Letszam", 'Int'>
     readonly letszam: FieldRef<"Tanar_Letszam", 'Int'>
+    readonly createAt: FieldRef<"Tanar_Letszam", 'DateTime'>
+    readonly createBy: FieldRef<"Tanar_Letszam", 'String'>
+    readonly updatedAt: FieldRef<"Tanar_Letszam", 'DateTime'>
+    readonly updatedBy: FieldRef<"Tanar_Letszam", 'String'>
   }
     
 
@@ -7020,6 +7124,10 @@ export namespace Prisma {
     jelentkezo_letszam: number | null
     felveheto_letszam: number | null
     felvett_letszam: number | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
   }
 
   export type Felvettek_SzamaMaxAggregateOutputType = {
@@ -7030,6 +7138,10 @@ export namespace Prisma {
     jelentkezo_letszam: number | null
     felveheto_letszam: number | null
     felvett_letszam: number | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
   }
 
   export type Felvettek_SzamaCountAggregateOutputType = {
@@ -7040,6 +7152,10 @@ export namespace Prisma {
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
+    createAt: number
+    createBy: number
+    updatedAt: number
+    updatedBy: number
     _all: number
   }
 
@@ -7066,6 +7182,10 @@ export namespace Prisma {
     jelentkezo_letszam?: true
     felveheto_letszam?: true
     felvett_letszam?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
   }
 
   export type Felvettek_SzamaMaxAggregateInputType = {
@@ -7076,6 +7196,10 @@ export namespace Prisma {
     jelentkezo_letszam?: true
     felveheto_letszam?: true
     felvett_letszam?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
   }
 
   export type Felvettek_SzamaCountAggregateInputType = {
@@ -7086,6 +7210,10 @@ export namespace Prisma {
     jelentkezo_letszam?: true
     felveheto_letszam?: true
     felvett_letszam?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
     _all?: true
   }
 
@@ -7183,6 +7311,10 @@ export namespace Prisma {
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
+    createAt: Date
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
     _count: Felvettek_SzamaCountAggregateOutputType | null
     _avg: Felvettek_SzamaAvgAggregateOutputType | null
     _sum: Felvettek_SzamaSumAggregateOutputType | null
@@ -7212,6 +7344,10 @@ export namespace Prisma {
     jelentkezo_letszam?: boolean
     felveheto_letszam?: boolean
     felvett_letszam?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["felvettek_Szama"]>
@@ -7224,6 +7360,10 @@ export namespace Prisma {
     jelentkezo_letszam?: boolean
     felveheto_letszam?: boolean
     felvett_letszam?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["felvettek_Szama"]>
@@ -7236,6 +7376,10 @@ export namespace Prisma {
     jelentkezo_letszam?: boolean
     felveheto_letszam?: boolean
     felvett_letszam?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["felvettek_Szama"]>
@@ -7248,9 +7392,13 @@ export namespace Prisma {
     jelentkezo_letszam?: boolean
     felveheto_letszam?: boolean
     felvett_letszam?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
   }
 
-  export type Felvettek_SzamaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "szakma_id" | "jelentkezo_letszam" | "felveheto_letszam" | "felvett_letszam", ExtArgs["result"]["felvettek_Szama"]>
+  export type Felvettek_SzamaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "szakma_id" | "jelentkezo_letszam" | "felveheto_letszam" | "felvett_letszam" | "createAt" | "createBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["felvettek_Szama"]>
   export type Felvettek_SzamaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
@@ -7278,6 +7426,10 @@ export namespace Prisma {
       jelentkezo_letszam: number
       felveheto_letszam: number
       felvett_letszam: number
+      createAt: Date
+      createBy: string | null
+      updatedAt: Date | null
+      updatedBy: string | null
     }, ExtArgs["result"]["felvettek_Szama"]>
     composites: {}
   }
@@ -7710,6 +7862,10 @@ export namespace Prisma {
     readonly jelentkezo_letszam: FieldRef<"Felvettek_Szama", 'Int'>
     readonly felveheto_letszam: FieldRef<"Felvettek_Szama", 'Int'>
     readonly felvett_letszam: FieldRef<"Felvettek_Szama", 'Int'>
+    readonly createAt: FieldRef<"Felvettek_Szama", 'DateTime'>
+    readonly createBy: FieldRef<"Felvettek_Szama", 'String'>
+    readonly updatedAt: FieldRef<"Felvettek_Szama", 'DateTime'>
+    readonly updatedBy: FieldRef<"Felvettek_Szama", 'String'>
   }
     
 
@@ -8130,8 +8286,18 @@ export namespace Prisma {
 
   export type AggregateTanugyi_Adatok = {
     _count: Tanugyi_AdatokCountAggregateOutputType | null
+    _avg: Tanugyi_AdatokAvgAggregateOutputType | null
+    _sum: Tanugyi_AdatokSumAggregateOutputType | null
     _min: Tanugyi_AdatokMinAggregateOutputType | null
     _max: Tanugyi_AdatokMaxAggregateOutputType | null
+  }
+
+  export type Tanugyi_AdatokAvgAggregateOutputType = {
+    tanev_kezdete: number | null
+  }
+
+  export type Tanugyi_AdatokSumAggregateOutputType = {
+    tanev_kezdete: number | null
   }
 
   export type Tanugyi_AdatokMinAggregateOutputType = {
@@ -8148,7 +8314,7 @@ export namespace Prisma {
     beiras_naplo_sorszam: string | null
     felvetel_taneve: string | null
     torzslapszam: string | null
-    tabulo_jogviszonya: string | null
+    tanulo_jogviszonya: string | null
     jogviszony_kezdete: string | null
     jogviszony_megszunesenek_varhato_datuma: string | null
     jogviszonyátSzunetelteto: string | null
@@ -8191,7 +8357,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel: string | null
     Dualis_kepzohely_neve: string | null
     Dualis_kepzohely_adoszama: string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: string | null
     kiemelten_tehetseges: string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal: string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul: string | null
@@ -8211,6 +8376,8 @@ export namespace Prisma {
     createBy: string | null
     updatedAt: Date | null
     updatedBy: string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte: string | null
+    tanev_kezdete: number | null
   }
 
   export type Tanugyi_AdatokMaxAggregateOutputType = {
@@ -8227,7 +8394,7 @@ export namespace Prisma {
     beiras_naplo_sorszam: string | null
     felvetel_taneve: string | null
     torzslapszam: string | null
-    tabulo_jogviszonya: string | null
+    tanulo_jogviszonya: string | null
     jogviszony_kezdete: string | null
     jogviszony_megszunesenek_varhato_datuma: string | null
     jogviszonyátSzunetelteto: string | null
@@ -8270,7 +8437,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel: string | null
     Dualis_kepzohely_neve: string | null
     Dualis_kepzohely_adoszama: string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: string | null
     kiemelten_tehetseges: string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal: string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul: string | null
@@ -8290,6 +8456,8 @@ export namespace Prisma {
     createBy: string | null
     updatedAt: Date | null
     updatedBy: string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte: string | null
+    tanev_kezdete: number | null
   }
 
   export type Tanugyi_AdatokCountAggregateOutputType = {
@@ -8306,7 +8474,7 @@ export namespace Prisma {
     beiras_naplo_sorszam: number
     felvetel_taneve: number
     torzslapszam: number
-    tabulo_jogviszonya: number
+    tanulo_jogviszonya: number
     jogviszony_kezdete: number
     jogviszony_megszunesenek_varhato_datuma: number
     jogviszonyátSzunetelteto: number
@@ -8349,7 +8517,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel: number
     Dualis_kepzohely_neve: number
     Dualis_kepzohely_adoszama: number
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: number
     kiemelten_tehetseges: number
     szamitogepet_tanulasi_oktatasi_celra_hasznal: number
     szaboky_adolf_szakkepzesi_osztondijban_reszesul: number
@@ -8369,9 +8536,19 @@ export namespace Prisma {
     createBy: number
     updatedAt: number
     updatedBy: number
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte: number
+    tanev_kezdete: number
     _all: number
   }
 
+
+  export type Tanugyi_AdatokAvgAggregateInputType = {
+    tanev_kezdete?: true
+  }
+
+  export type Tanugyi_AdatokSumAggregateInputType = {
+    tanev_kezdete?: true
+  }
 
   export type Tanugyi_AdatokMinAggregateInputType = {
     id?: true
@@ -8387,7 +8564,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: true
     felvetel_taneve?: true
     torzslapszam?: true
-    tabulo_jogviszonya?: true
+    tanulo_jogviszonya?: true
     jogviszony_kezdete?: true
     jogviszony_megszunesenek_varhato_datuma?: true
     jogviszonyátSzunetelteto?: true
@@ -8430,7 +8607,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: true
     Dualis_kepzohely_neve?: true
     Dualis_kepzohely_adoszama?: true
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: true
     kiemelten_tehetseges?: true
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: true
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: true
@@ -8450,6 +8626,8 @@ export namespace Prisma {
     createBy?: true
     updatedAt?: true
     updatedBy?: true
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: true
+    tanev_kezdete?: true
   }
 
   export type Tanugyi_AdatokMaxAggregateInputType = {
@@ -8466,7 +8644,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: true
     felvetel_taneve?: true
     torzslapszam?: true
-    tabulo_jogviszonya?: true
+    tanulo_jogviszonya?: true
     jogviszony_kezdete?: true
     jogviszony_megszunesenek_varhato_datuma?: true
     jogviszonyátSzunetelteto?: true
@@ -8509,7 +8687,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: true
     Dualis_kepzohely_neve?: true
     Dualis_kepzohely_adoszama?: true
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: true
     kiemelten_tehetseges?: true
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: true
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: true
@@ -8529,6 +8706,8 @@ export namespace Prisma {
     createBy?: true
     updatedAt?: true
     updatedBy?: true
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: true
+    tanev_kezdete?: true
   }
 
   export type Tanugyi_AdatokCountAggregateInputType = {
@@ -8545,7 +8724,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: true
     felvetel_taneve?: true
     torzslapszam?: true
-    tabulo_jogviszonya?: true
+    tanulo_jogviszonya?: true
     jogviszony_kezdete?: true
     jogviszony_megszunesenek_varhato_datuma?: true
     jogviszonyátSzunetelteto?: true
@@ -8588,7 +8767,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: true
     Dualis_kepzohely_neve?: true
     Dualis_kepzohely_adoszama?: true
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: true
     kiemelten_tehetseges?: true
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: true
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: true
@@ -8608,6 +8786,8 @@ export namespace Prisma {
     createBy?: true
     updatedAt?: true
     updatedBy?: true
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: true
+    tanev_kezdete?: true
     _all?: true
   }
 
@@ -8649,6 +8829,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: Tanugyi_AdatokAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Tanugyi_AdatokSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: Tanugyi_AdatokMinAggregateInputType
@@ -8679,6 +8871,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: Tanugyi_AdatokCountAggregateInputType | true
+    _avg?: Tanugyi_AdatokAvgAggregateInputType
+    _sum?: Tanugyi_AdatokSumAggregateInputType
     _min?: Tanugyi_AdatokMinAggregateInputType
     _max?: Tanugyi_AdatokMaxAggregateInputType
   }
@@ -8697,7 +8891,7 @@ export namespace Prisma {
     beiras_naplo_sorszam: string | null
     felvetel_taneve: string | null
     torzslapszam: string | null
-    tabulo_jogviszonya: string | null
+    tanulo_jogviszonya: string | null
     jogviszony_kezdete: string | null
     jogviszony_megszunesenek_varhato_datuma: string | null
     jogviszonyátSzunetelteto: string | null
@@ -8740,7 +8934,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel: string | null
     Dualis_kepzohely_neve: string | null
     Dualis_kepzohely_adoszama: string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: string | null
     kiemelten_tehetseges: string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal: string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul: string | null
@@ -8758,9 +8951,13 @@ export namespace Prisma {
     alapadatok_id: string
     createAt: Date
     createBy: string
-    updatedAt: Date
-    updatedBy: string
+    updatedAt: Date | null
+    updatedBy: string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte: string | null
+    tanev_kezdete: number
     _count: Tanugyi_AdatokCountAggregateOutputType | null
+    _avg: Tanugyi_AdatokAvgAggregateOutputType | null
+    _sum: Tanugyi_AdatokSumAggregateOutputType | null
     _min: Tanugyi_AdatokMinAggregateOutputType | null
     _max: Tanugyi_AdatokMaxAggregateOutputType | null
   }
@@ -8793,7 +8990,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: boolean
     felvetel_taneve?: boolean
     torzslapszam?: boolean
-    tabulo_jogviszonya?: boolean
+    tanulo_jogviszonya?: boolean
     jogviszony_kezdete?: boolean
     jogviszony_megszunesenek_varhato_datuma?: boolean
     jogviszonyátSzunetelteto?: boolean
@@ -8836,7 +9033,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: boolean
     Dualis_kepzohely_neve?: boolean
     Dualis_kepzohely_adoszama?: boolean
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: boolean
     kiemelten_tehetseges?: boolean
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: boolean
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: boolean
@@ -8856,6 +9052,8 @@ export namespace Prisma {
     createBy?: boolean
     updatedAt?: boolean
     updatedBy?: boolean
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: boolean
+    tanev_kezdete?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tanugyi_Adatok"]>
 
@@ -8873,7 +9071,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: boolean
     felvetel_taneve?: boolean
     torzslapszam?: boolean
-    tabulo_jogviszonya?: boolean
+    tanulo_jogviszonya?: boolean
     jogviszony_kezdete?: boolean
     jogviszony_megszunesenek_varhato_datuma?: boolean
     jogviszonyátSzunetelteto?: boolean
@@ -8916,7 +9114,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: boolean
     Dualis_kepzohely_neve?: boolean
     Dualis_kepzohely_adoszama?: boolean
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: boolean
     kiemelten_tehetseges?: boolean
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: boolean
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: boolean
@@ -8936,6 +9133,8 @@ export namespace Prisma {
     createBy?: boolean
     updatedAt?: boolean
     updatedBy?: boolean
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: boolean
+    tanev_kezdete?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tanugyi_Adatok"]>
 
@@ -8953,7 +9152,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: boolean
     felvetel_taneve?: boolean
     torzslapszam?: boolean
-    tabulo_jogviszonya?: boolean
+    tanulo_jogviszonya?: boolean
     jogviszony_kezdete?: boolean
     jogviszony_megszunesenek_varhato_datuma?: boolean
     jogviszonyátSzunetelteto?: boolean
@@ -8996,7 +9195,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: boolean
     Dualis_kepzohely_neve?: boolean
     Dualis_kepzohely_adoszama?: boolean
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: boolean
     kiemelten_tehetseges?: boolean
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: boolean
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: boolean
@@ -9016,6 +9214,8 @@ export namespace Prisma {
     createBy?: boolean
     updatedAt?: boolean
     updatedBy?: boolean
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: boolean
+    tanev_kezdete?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tanugyi_Adatok"]>
 
@@ -9033,7 +9233,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: boolean
     felvetel_taneve?: boolean
     torzslapszam?: boolean
-    tabulo_jogviszonya?: boolean
+    tanulo_jogviszonya?: boolean
     jogviszony_kezdete?: boolean
     jogviszony_megszunesenek_varhato_datuma?: boolean
     jogviszonyátSzunetelteto?: boolean
@@ -9076,7 +9276,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: boolean
     Dualis_kepzohely_neve?: boolean
     Dualis_kepzohely_adoszama?: boolean
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: boolean
     kiemelten_tehetseges?: boolean
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: boolean
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: boolean
@@ -9096,9 +9295,11 @@ export namespace Prisma {
     createBy?: boolean
     updatedAt?: boolean
     updatedBy?: boolean
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: boolean
+    tanev_kezdete?: boolean
   }
 
-  export type Tanugyi_AdatokOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "elotag" | "vezeteknev" | "utonev" | "oktatasiAzonositoja" | "osztaly" | "szuletesiDatuma" | "anyjaSzuletesiDatuma" | "tanterv" | "naploSorszam" | "beiras_naplo_sorszam" | "felvetel_taneve" | "torzslapszam" | "tabulo_jogviszonya" | "jogviszony_kezdete" | "jogviszony_megszunesenek_varhato_datuma" | "jogviszonyátSzunetelteto" | "tankotelezettsegetTeljesito" | "tankotelezettségVege" | "bejaro" | "Szakmai_gyakorlaton_tartozkodik" | "Egyeni_munkarend" | "Egyeni_munkarend_oka" | "Egyeni_munkarend_kezdete" | "Egyeni_munkarend_vege" | "Vendegtanulo" | "tandijat_fizeto" | "teritesi_dijat_fizeto" | "tanuloszerzodeses" | "polgari_szerzodeses" | "iskolai_sportkorben_reszt_vevo_tanulo" | "evfolyamismetlo" | "elozo_intezmeny" | "osztaly1" | "evfolyam" | "bizonyitvany_sorszama" | "okleveles_technikus_képzes" | "uj_Szkt_agazat_tipusa" | "uj_szkt_szakma_tipusa" | "uj_szkt_szakmairany_tipusa" | "nkt_tanulmanyi_terulet" | "nkt_szakkepesites" | "nkt_szakirany" | "agazat_uj_szkt_reszszakmahoz" | "szakma_reszszakmahoz" | "reszszakma" | "agazat_tanulmanyi_terulet" | "szakmai_kepzes" | "agazati_alapoktatas_megnevezese" | "agazati_alapvizsga_eredmeny" | "agazati_alapvizsga_teljesitesenek_datuma" | "agazati_alapvizsga_eredmenye" | "agazati_alapvizsga_eredmenye_percent" | "szakkepzesi_munkaszerzodessel" | "Dualis_kepzohely_neve" | "Dualis_kepzohely_adoszama" | "a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte" | "kiemelten_tehetseges" | "szamitogepet_tanulasi_oktatasi_celra_hasznal" | "szaboky_adolf_szakkepzesi_osztondijban_reszesul" | "egesz_napos_iskolai_oktatasban_reszesul" | "nyelvi_elokeszito" | "ket_tanitasi_nyelvu" | "NemzetisegiNevelesOktatas" | "NemzetisegiNevelesOktatásFajtaja" | "nemzetisegiNyelv" | "nemzetisegNyelvenFolyoSzakmaiOktatas" | "sportosztaly" | "aranyjanostehetseggondozoprogram" | "arany_janos_kollegiumi_program" | "munkarend" | "alapadatok_id" | "createAt" | "createBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["tanugyi_Adatok"]>
+  export type Tanugyi_AdatokOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "elotag" | "vezeteknev" | "utonev" | "oktatasiAzonositoja" | "osztaly" | "szuletesiDatuma" | "anyjaSzuletesiDatuma" | "tanterv" | "naploSorszam" | "beiras_naplo_sorszam" | "felvetel_taneve" | "torzslapszam" | "tanulo_jogviszonya" | "jogviszony_kezdete" | "jogviszony_megszunesenek_varhato_datuma" | "jogviszonyátSzunetelteto" | "tankotelezettsegetTeljesito" | "tankotelezettségVege" | "bejaro" | "Szakmai_gyakorlaton_tartozkodik" | "Egyeni_munkarend" | "Egyeni_munkarend_oka" | "Egyeni_munkarend_kezdete" | "Egyeni_munkarend_vege" | "Vendegtanulo" | "tandijat_fizeto" | "teritesi_dijat_fizeto" | "tanuloszerzodeses" | "polgari_szerzodeses" | "iskolai_sportkorben_reszt_vevo_tanulo" | "evfolyamismetlo" | "elozo_intezmeny" | "osztaly1" | "evfolyam" | "bizonyitvany_sorszama" | "okleveles_technikus_képzes" | "uj_Szkt_agazat_tipusa" | "uj_szkt_szakma_tipusa" | "uj_szkt_szakmairany_tipusa" | "nkt_tanulmanyi_terulet" | "nkt_szakkepesites" | "nkt_szakirany" | "agazat_uj_szkt_reszszakmahoz" | "szakma_reszszakmahoz" | "reszszakma" | "agazat_tanulmanyi_terulet" | "szakmai_kepzes" | "agazati_alapoktatas_megnevezese" | "agazati_alapvizsga_eredmeny" | "agazati_alapvizsga_teljesitesenek_datuma" | "agazati_alapvizsga_eredmenye" | "agazati_alapvizsga_eredmenye_percent" | "szakkepzesi_munkaszerzodessel" | "Dualis_kepzohely_neve" | "Dualis_kepzohely_adoszama" | "kiemelten_tehetseges" | "szamitogepet_tanulasi_oktatasi_celra_hasznal" | "szaboky_adolf_szakkepzesi_osztondijban_reszesul" | "egesz_napos_iskolai_oktatasban_reszesul" | "nyelvi_elokeszito" | "ket_tanitasi_nyelvu" | "NemzetisegiNevelesOktatas" | "NemzetisegiNevelesOktatásFajtaja" | "nemzetisegiNyelv" | "nemzetisegNyelvenFolyoSzakmaiOktatas" | "sportosztaly" | "aranyjanostehetseggondozoprogram" | "arany_janos_kollegiumi_program" | "munkarend" | "alapadatok_id" | "createAt" | "createBy" | "updatedAt" | "updatedBy" | "a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte" | "tanev_kezdete", ExtArgs["result"]["tanugyi_Adatok"]>
   export type Tanugyi_AdatokInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }
@@ -9128,7 +9329,7 @@ export namespace Prisma {
       beiras_naplo_sorszam: string | null
       felvetel_taneve: string | null
       torzslapszam: string | null
-      tabulo_jogviszonya: string | null
+      tanulo_jogviszonya: string | null
       jogviszony_kezdete: string | null
       jogviszony_megszunesenek_varhato_datuma: string | null
       jogviszonyátSzunetelteto: string | null
@@ -9171,7 +9372,6 @@ export namespace Prisma {
       szakkepzesi_munkaszerzodessel: string | null
       Dualis_kepzohely_neve: string | null
       Dualis_kepzohely_adoszama: string | null
-      a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: string | null
       kiemelten_tehetseges: string | null
       szamitogepet_tanulasi_oktatasi_celra_hasznal: string | null
       szaboky_adolf_szakkepzesi_osztondijban_reszesul: string | null
@@ -9189,8 +9389,10 @@ export namespace Prisma {
       alapadatok_id: string
       createAt: Date
       createBy: string
-      updatedAt: Date
-      updatedBy: string
+      updatedAt: Date | null
+      updatedBy: string | null
+      a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte: string | null
+      tanev_kezdete: number
     }, ExtArgs["result"]["tanugyi_Adatok"]>
     composites: {}
   }
@@ -9628,7 +9830,7 @@ export namespace Prisma {
     readonly beiras_naplo_sorszam: FieldRef<"Tanugyi_Adatok", 'String'>
     readonly felvetel_taneve: FieldRef<"Tanugyi_Adatok", 'String'>
     readonly torzslapszam: FieldRef<"Tanugyi_Adatok", 'String'>
-    readonly tabulo_jogviszonya: FieldRef<"Tanugyi_Adatok", 'String'>
+    readonly tanulo_jogviszonya: FieldRef<"Tanugyi_Adatok", 'String'>
     readonly jogviszony_kezdete: FieldRef<"Tanugyi_Adatok", 'String'>
     readonly jogviszony_megszunesenek_varhato_datuma: FieldRef<"Tanugyi_Adatok", 'String'>
     readonly jogviszonyátSzunetelteto: FieldRef<"Tanugyi_Adatok", 'String'>
@@ -9671,7 +9873,6 @@ export namespace Prisma {
     readonly szakkepzesi_munkaszerzodessel: FieldRef<"Tanugyi_Adatok", 'String'>
     readonly Dualis_kepzohely_neve: FieldRef<"Tanugyi_Adatok", 'String'>
     readonly Dualis_kepzohely_adoszama: FieldRef<"Tanugyi_Adatok", 'String'>
-    readonly a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: FieldRef<"Tanugyi_Adatok", 'String'>
     readonly kiemelten_tehetseges: FieldRef<"Tanugyi_Adatok", 'String'>
     readonly szamitogepet_tanulasi_oktatasi_celra_hasznal: FieldRef<"Tanugyi_Adatok", 'String'>
     readonly szaboky_adolf_szakkepzesi_osztondijban_reszesul: FieldRef<"Tanugyi_Adatok", 'String'>
@@ -9691,6 +9892,8 @@ export namespace Prisma {
     readonly createBy: FieldRef<"Tanugyi_Adatok", 'String'>
     readonly updatedAt: FieldRef<"Tanugyi_Adatok", 'DateTime'>
     readonly updatedBy: FieldRef<"Tanugyi_Adatok", 'String'>
+    readonly a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte: FieldRef<"Tanugyi_Adatok", 'String'>
+    readonly tanev_kezdete: FieldRef<"Tanugyi_Adatok", 'Int'>
   }
     
 
@@ -10151,7 +10354,11 @@ export namespace Prisma {
     jogv_tipus: 'jogv_tipus',
     letszam: 'letszam',
     szakirany_id: 'szakirany_id',
-    szakma_id: 'szakma_id'
+    szakma_id: 'szakma_id',
+    createAt: 'createAt',
+    createBy: 'createBy',
+    updatedAt: 'updatedAt',
+    updatedBy: 'updatedBy'
   };
 
   export type Tanulo_LetszamScalarFieldEnum = (typeof Tanulo_LetszamScalarFieldEnum)[keyof typeof Tanulo_LetszamScalarFieldEnum]
@@ -10161,7 +10368,11 @@ export namespace Prisma {
     id: 'id',
     alapadatok_id: 'alapadatok_id',
     tanev_kezdete: 'tanev_kezdete',
-    letszam: 'letszam'
+    letszam: 'letszam',
+    createAt: 'createAt',
+    createBy: 'createBy',
+    updatedAt: 'updatedAt',
+    updatedBy: 'updatedBy'
   };
 
   export type Tanar_LetszamScalarFieldEnum = (typeof Tanar_LetszamScalarFieldEnum)[keyof typeof Tanar_LetszamScalarFieldEnum]
@@ -10174,7 +10385,11 @@ export namespace Prisma {
     szakma_id: 'szakma_id',
     jelentkezo_letszam: 'jelentkezo_letszam',
     felveheto_letszam: 'felveheto_letszam',
-    felvett_letszam: 'felvett_letszam'
+    felvett_letszam: 'felvett_letszam',
+    createAt: 'createAt',
+    createBy: 'createBy',
+    updatedAt: 'updatedAt',
+    updatedBy: 'updatedBy'
   };
 
   export type Felvettek_SzamaScalarFieldEnum = (typeof Felvettek_SzamaScalarFieldEnum)[keyof typeof Felvettek_SzamaScalarFieldEnum]
@@ -10194,7 +10409,7 @@ export namespace Prisma {
     beiras_naplo_sorszam: 'beiras_naplo_sorszam',
     felvetel_taneve: 'felvetel_taneve',
     torzslapszam: 'torzslapszam',
-    tabulo_jogviszonya: 'tabulo_jogviszonya',
+    tanulo_jogviszonya: 'tanulo_jogviszonya',
     jogviszony_kezdete: 'jogviszony_kezdete',
     jogviszony_megszunesenek_varhato_datuma: 'jogviszony_megszunesenek_varhato_datuma',
     jogviszonyátSzunetelteto: 'jogviszonyátSzunetelteto',
@@ -10237,7 +10452,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel: 'szakkepzesi_munkaszerzodessel',
     Dualis_kepzohely_neve: 'Dualis_kepzohely_neve',
     Dualis_kepzohely_adoszama: 'Dualis_kepzohely_adoszama',
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte: 'a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte',
     kiemelten_tehetseges: 'kiemelten_tehetseges',
     szamitogepet_tanulasi_oktatasi_celra_hasznal: 'szamitogepet_tanulasi_oktatasi_celra_hasznal',
     szaboky_adolf_szakkepzesi_osztondijban_reszesul: 'szaboky_adolf_szakkepzesi_osztondijban_reszesul',
@@ -10256,7 +10470,9 @@ export namespace Prisma {
     createAt: 'createAt',
     createBy: 'createBy',
     updatedAt: 'updatedAt',
-    updatedBy: 'updatedBy'
+    updatedBy: 'updatedBy',
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte: 'a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte',
+    tanev_kezdete: 'tanev_kezdete'
   };
 
   export type Tanugyi_AdatokScalarFieldEnum = (typeof Tanugyi_AdatokScalarFieldEnum)[keyof typeof Tanugyi_AdatokScalarFieldEnum]
@@ -10357,20 +10573,20 @@ export namespace Prisma {
     id?: UuidFilter<"Alapadatok"> | string
     iskola_neve?: StringFilter<"Alapadatok"> | string
     intezmeny_tipus?: StringFilter<"Alapadatok"> | string
-    tanulo_letszam?: Tanulo_LetszamListRelationFilter
-    tanar_letszam?: Tanar_LetszamListRelationFilter
     felvettek_szama?: Felvettek_SzamaListRelationFilter
+    tanar_letszam?: Tanar_LetszamListRelationFilter
     tanugyiAdatok?: Tanugyi_AdatokListRelationFilter
+    tanulo_letszam?: Tanulo_LetszamListRelationFilter
   }
 
   export type AlapadatokOrderByWithRelationInput = {
     id?: SortOrder
     iskola_neve?: SortOrder
     intezmeny_tipus?: SortOrder
-    tanulo_letszam?: Tanulo_LetszamOrderByRelationAggregateInput
-    tanar_letszam?: Tanar_LetszamOrderByRelationAggregateInput
     felvettek_szama?: Felvettek_SzamaOrderByRelationAggregateInput
+    tanar_letszam?: Tanar_LetszamOrderByRelationAggregateInput
     tanugyiAdatok?: Tanugyi_AdatokOrderByRelationAggregateInput
+    tanulo_letszam?: Tanulo_LetszamOrderByRelationAggregateInput
   }
 
   export type AlapadatokWhereUniqueInput = Prisma.AtLeast<{
@@ -10380,10 +10596,10 @@ export namespace Prisma {
     NOT?: AlapadatokWhereInput | AlapadatokWhereInput[]
     iskola_neve?: StringFilter<"Alapadatok"> | string
     intezmeny_tipus?: StringFilter<"Alapadatok"> | string
-    tanulo_letszam?: Tanulo_LetszamListRelationFilter
-    tanar_letszam?: Tanar_LetszamListRelationFilter
     felvettek_szama?: Felvettek_SzamaListRelationFilter
+    tanar_letszam?: Tanar_LetszamListRelationFilter
     tanugyiAdatok?: Tanugyi_AdatokListRelationFilter
+    tanulo_letszam?: Tanulo_LetszamListRelationFilter
   }, "id">
 
   export type AlapadatokOrderByWithAggregationInput = {
@@ -10421,12 +10637,12 @@ export namespace Prisma {
 
   export type SzakiranyWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    nev?: string
     AND?: SzakiranyWhereInput | SzakiranyWhereInput[]
     OR?: SzakiranyWhereInput[]
     NOT?: SzakiranyWhereInput | SzakiranyWhereInput[]
-    nev?: StringFilter<"Szakirany"> | string
     tanulo_letszam?: Tanulo_LetszamListRelationFilter
-  }, "id">
+  }, "id" | "nev">
 
   export type SzakiranyOrderByWithAggregationInput = {
     id?: SortOrder
@@ -10450,26 +10666,26 @@ export namespace Prisma {
     NOT?: SzakmaWhereInput | SzakmaWhereInput[]
     id?: UuidFilter<"Szakma"> | string
     nev?: StringFilter<"Szakma"> | string
-    tanulo_letszam?: Tanulo_LetszamListRelationFilter
     felvettek_szama?: Felvettek_SzamaListRelationFilter
+    tanulo_letszam?: Tanulo_LetszamListRelationFilter
   }
 
   export type SzakmaOrderByWithRelationInput = {
     id?: SortOrder
     nev?: SortOrder
-    tanulo_letszam?: Tanulo_LetszamOrderByRelationAggregateInput
     felvettek_szama?: Felvettek_SzamaOrderByRelationAggregateInput
+    tanulo_letszam?: Tanulo_LetszamOrderByRelationAggregateInput
   }
 
   export type SzakmaWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    nev?: string
     AND?: SzakmaWhereInput | SzakmaWhereInput[]
     OR?: SzakmaWhereInput[]
     NOT?: SzakmaWhereInput | SzakmaWhereInput[]
-    nev?: StringFilter<"Szakma"> | string
-    tanulo_letszam?: Tanulo_LetszamListRelationFilter
     felvettek_szama?: Felvettek_SzamaListRelationFilter
-  }, "id">
+    tanulo_letszam?: Tanulo_LetszamListRelationFilter
+  }, "id" | "nev">
 
   export type SzakmaOrderByWithAggregationInput = {
     id?: SortOrder
@@ -10498,6 +10714,10 @@ export namespace Prisma {
     letszam?: IntFilter<"Tanulo_Letszam"> | number
     szakirany_id?: UuidFilter<"Tanulo_Letszam"> | string
     szakma_id?: UuidFilter<"Tanulo_Letszam"> | string
+    createAt?: DateTimeFilter<"Tanulo_Letszam"> | Date | string
+    createBy?: StringNullableFilter<"Tanulo_Letszam"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Tanulo_Letszam"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Tanulo_Letszam"> | string | null
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
     szakirany?: XOR<SzakiranyScalarRelationFilter, SzakiranyWhereInput>
     szakma?: XOR<SzakmaScalarRelationFilter, SzakmaWhereInput>
@@ -10511,6 +10731,10 @@ export namespace Prisma {
     letszam?: SortOrder
     szakirany_id?: SortOrder
     szakma_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
     alapadatok?: AlapadatokOrderByWithRelationInput
     szakirany?: SzakiranyOrderByWithRelationInput
     szakma?: SzakmaOrderByWithRelationInput
@@ -10527,6 +10751,10 @@ export namespace Prisma {
     letszam?: IntFilter<"Tanulo_Letszam"> | number
     szakirany_id?: UuidFilter<"Tanulo_Letszam"> | string
     szakma_id?: UuidFilter<"Tanulo_Letszam"> | string
+    createAt?: DateTimeFilter<"Tanulo_Letszam"> | Date | string
+    createBy?: StringNullableFilter<"Tanulo_Letszam"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Tanulo_Letszam"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Tanulo_Letszam"> | string | null
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
     szakirany?: XOR<SzakiranyScalarRelationFilter, SzakiranyWhereInput>
     szakma?: XOR<SzakmaScalarRelationFilter, SzakmaWhereInput>
@@ -10540,6 +10768,10 @@ export namespace Prisma {
     letszam?: SortOrder
     szakirany_id?: SortOrder
     szakma_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
     _count?: Tanulo_LetszamCountOrderByAggregateInput
     _avg?: Tanulo_LetszamAvgOrderByAggregateInput
     _max?: Tanulo_LetszamMaxOrderByAggregateInput
@@ -10558,6 +10790,10 @@ export namespace Prisma {
     letszam?: IntWithAggregatesFilter<"Tanulo_Letszam"> | number
     szakirany_id?: UuidWithAggregatesFilter<"Tanulo_Letszam"> | string
     szakma_id?: UuidWithAggregatesFilter<"Tanulo_Letszam"> | string
+    createAt?: DateTimeWithAggregatesFilter<"Tanulo_Letszam"> | Date | string
+    createBy?: StringNullableWithAggregatesFilter<"Tanulo_Letszam"> | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Tanulo_Letszam"> | Date | string | null
+    updatedBy?: StringNullableWithAggregatesFilter<"Tanulo_Letszam"> | string | null
   }
 
   export type Tanar_LetszamWhereInput = {
@@ -10568,6 +10804,10 @@ export namespace Prisma {
     alapadatok_id?: UuidFilter<"Tanar_Letszam"> | string
     tanev_kezdete?: IntFilter<"Tanar_Letszam"> | number
     letszam?: IntFilter<"Tanar_Letszam"> | number
+    createAt?: DateTimeFilter<"Tanar_Letszam"> | Date | string
+    createBy?: StringNullableFilter<"Tanar_Letszam"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Tanar_Letszam"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Tanar_Letszam"> | string | null
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
   }
 
@@ -10576,6 +10816,10 @@ export namespace Prisma {
     alapadatok_id?: SortOrder
     tanev_kezdete?: SortOrder
     letszam?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
     alapadatok?: AlapadatokOrderByWithRelationInput
   }
 
@@ -10587,6 +10831,10 @@ export namespace Prisma {
     alapadatok_id?: UuidFilter<"Tanar_Letszam"> | string
     tanev_kezdete?: IntFilter<"Tanar_Letszam"> | number
     letszam?: IntFilter<"Tanar_Letszam"> | number
+    createAt?: DateTimeFilter<"Tanar_Letszam"> | Date | string
+    createBy?: StringNullableFilter<"Tanar_Letszam"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Tanar_Letszam"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Tanar_Letszam"> | string | null
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
   }, "id">
 
@@ -10595,6 +10843,10 @@ export namespace Prisma {
     alapadatok_id?: SortOrder
     tanev_kezdete?: SortOrder
     letszam?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
     _count?: Tanar_LetszamCountOrderByAggregateInput
     _avg?: Tanar_LetszamAvgOrderByAggregateInput
     _max?: Tanar_LetszamMaxOrderByAggregateInput
@@ -10610,6 +10862,10 @@ export namespace Prisma {
     alapadatok_id?: UuidWithAggregatesFilter<"Tanar_Letszam"> | string
     tanev_kezdete?: IntWithAggregatesFilter<"Tanar_Letszam"> | number
     letszam?: IntWithAggregatesFilter<"Tanar_Letszam"> | number
+    createAt?: DateTimeWithAggregatesFilter<"Tanar_Letszam"> | Date | string
+    createBy?: StringNullableWithAggregatesFilter<"Tanar_Letszam"> | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Tanar_Letszam"> | Date | string | null
+    updatedBy?: StringNullableWithAggregatesFilter<"Tanar_Letszam"> | string | null
   }
 
   export type Felvettek_SzamaWhereInput = {
@@ -10623,6 +10879,10 @@ export namespace Prisma {
     jelentkezo_letszam?: IntFilter<"Felvettek_Szama"> | number
     felveheto_letszam?: IntFilter<"Felvettek_Szama"> | number
     felvett_letszam?: IntFilter<"Felvettek_Szama"> | number
+    createAt?: DateTimeFilter<"Felvettek_Szama"> | Date | string
+    createBy?: StringNullableFilter<"Felvettek_Szama"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Felvettek_Szama"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Felvettek_Szama"> | string | null
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
     szakma?: XOR<SzakmaScalarRelationFilter, SzakmaWhereInput>
   }
@@ -10635,6 +10895,10 @@ export namespace Prisma {
     jelentkezo_letszam?: SortOrder
     felveheto_letszam?: SortOrder
     felvett_letszam?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
     alapadatok?: AlapadatokOrderByWithRelationInput
     szakma?: SzakmaOrderByWithRelationInput
   }
@@ -10650,6 +10914,10 @@ export namespace Prisma {
     jelentkezo_letszam?: IntFilter<"Felvettek_Szama"> | number
     felveheto_letszam?: IntFilter<"Felvettek_Szama"> | number
     felvett_letszam?: IntFilter<"Felvettek_Szama"> | number
+    createAt?: DateTimeFilter<"Felvettek_Szama"> | Date | string
+    createBy?: StringNullableFilter<"Felvettek_Szama"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Felvettek_Szama"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Felvettek_Szama"> | string | null
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
     szakma?: XOR<SzakmaScalarRelationFilter, SzakmaWhereInput>
   }, "id">
@@ -10662,6 +10930,10 @@ export namespace Prisma {
     jelentkezo_letszam?: SortOrder
     felveheto_letszam?: SortOrder
     felvett_letszam?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
     _count?: Felvettek_SzamaCountOrderByAggregateInput
     _avg?: Felvettek_SzamaAvgOrderByAggregateInput
     _max?: Felvettek_SzamaMaxOrderByAggregateInput
@@ -10680,6 +10952,10 @@ export namespace Prisma {
     jelentkezo_letszam?: IntWithAggregatesFilter<"Felvettek_Szama"> | number
     felveheto_letszam?: IntWithAggregatesFilter<"Felvettek_Szama"> | number
     felvett_letszam?: IntWithAggregatesFilter<"Felvettek_Szama"> | number
+    createAt?: DateTimeWithAggregatesFilter<"Felvettek_Szama"> | Date | string
+    createBy?: StringNullableWithAggregatesFilter<"Felvettek_Szama"> | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Felvettek_Szama"> | Date | string | null
+    updatedBy?: StringNullableWithAggregatesFilter<"Felvettek_Szama"> | string | null
   }
 
   export type Tanugyi_AdatokWhereInput = {
@@ -10699,7 +10975,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     felvetel_taneve?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     torzslapszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
-    tabulo_jogviszonya?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tanulo_jogviszonya?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     jogviszony_kezdete?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     jogviszony_megszunesenek_varhato_datuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     jogviszonyátSzunetelteto?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
@@ -10742,7 +11018,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     Dualis_kepzohely_neve?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     Dualis_kepzohely_adoszama?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     kiemelten_tehetseges?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
@@ -10760,8 +11035,10 @@ export namespace Prisma {
     alapadatok_id?: UuidFilter<"Tanugyi_Adatok"> | string
     createAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
     createBy?: StringFilter<"Tanugyi_Adatok"> | string
-    updatedAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
-    updatedBy?: StringFilter<"Tanugyi_Adatok"> | string
+    updatedAt?: DateTimeNullableFilter<"Tanugyi_Adatok"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tanev_kezdete?: IntFilter<"Tanugyi_Adatok"> | number
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
   }
 
@@ -10779,7 +11056,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: SortOrderInput | SortOrder
     felvetel_taneve?: SortOrderInput | SortOrder
     torzslapszam?: SortOrderInput | SortOrder
-    tabulo_jogviszonya?: SortOrderInput | SortOrder
+    tanulo_jogviszonya?: SortOrderInput | SortOrder
     jogviszony_kezdete?: SortOrderInput | SortOrder
     jogviszony_megszunesenek_varhato_datuma?: SortOrderInput | SortOrder
     jogviszonyátSzunetelteto?: SortOrderInput | SortOrder
@@ -10822,7 +11099,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: SortOrderInput | SortOrder
     Dualis_kepzohely_neve?: SortOrderInput | SortOrder
     Dualis_kepzohely_adoszama?: SortOrderInput | SortOrder
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: SortOrderInput | SortOrder
     kiemelten_tehetseges?: SortOrderInput | SortOrder
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: SortOrderInput | SortOrder
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: SortOrderInput | SortOrder
@@ -10840,8 +11116,10 @@ export namespace Prisma {
     alapadatok_id?: SortOrder
     createAt?: SortOrder
     createBy?: SortOrder
-    updatedAt?: SortOrder
-    updatedBy?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: SortOrderInput | SortOrder
+    tanev_kezdete?: SortOrder
     alapadatok?: AlapadatokOrderByWithRelationInput
   }
 
@@ -10862,7 +11140,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     felvetel_taneve?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     torzslapszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
-    tabulo_jogviszonya?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tanulo_jogviszonya?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     jogviszony_kezdete?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     jogviszony_megszunesenek_varhato_datuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     jogviszonyátSzunetelteto?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
@@ -10905,7 +11183,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     Dualis_kepzohely_neve?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     Dualis_kepzohely_adoszama?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     kiemelten_tehetseges?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
@@ -10923,8 +11200,10 @@ export namespace Prisma {
     alapadatok_id?: UuidFilter<"Tanugyi_Adatok"> | string
     createAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
     createBy?: StringFilter<"Tanugyi_Adatok"> | string
-    updatedAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
-    updatedBy?: StringFilter<"Tanugyi_Adatok"> | string
+    updatedAt?: DateTimeNullableFilter<"Tanugyi_Adatok"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tanev_kezdete?: IntFilter<"Tanugyi_Adatok"> | number
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
   }, "id">
 
@@ -10942,7 +11221,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: SortOrderInput | SortOrder
     felvetel_taneve?: SortOrderInput | SortOrder
     torzslapszam?: SortOrderInput | SortOrder
-    tabulo_jogviszonya?: SortOrderInput | SortOrder
+    tanulo_jogviszonya?: SortOrderInput | SortOrder
     jogviszony_kezdete?: SortOrderInput | SortOrder
     jogviszony_megszunesenek_varhato_datuma?: SortOrderInput | SortOrder
     jogviszonyátSzunetelteto?: SortOrderInput | SortOrder
@@ -10985,7 +11264,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: SortOrderInput | SortOrder
     Dualis_kepzohely_neve?: SortOrderInput | SortOrder
     Dualis_kepzohely_adoszama?: SortOrderInput | SortOrder
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: SortOrderInput | SortOrder
     kiemelten_tehetseges?: SortOrderInput | SortOrder
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: SortOrderInput | SortOrder
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: SortOrderInput | SortOrder
@@ -11003,11 +11281,15 @@ export namespace Prisma {
     alapadatok_id?: SortOrder
     createAt?: SortOrder
     createBy?: SortOrder
-    updatedAt?: SortOrder
-    updatedBy?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: SortOrderInput | SortOrder
+    tanev_kezdete?: SortOrder
     _count?: Tanugyi_AdatokCountOrderByAggregateInput
+    _avg?: Tanugyi_AdatokAvgOrderByAggregateInput
     _max?: Tanugyi_AdatokMaxOrderByAggregateInput
     _min?: Tanugyi_AdatokMinOrderByAggregateInput
+    _sum?: Tanugyi_AdatokSumOrderByAggregateInput
   }
 
   export type Tanugyi_AdatokScalarWhereWithAggregatesInput = {
@@ -11027,7 +11309,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
     felvetel_taneve?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
     torzslapszam?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
-    tabulo_jogviszonya?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    tanulo_jogviszonya?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
     jogviszony_kezdete?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
     jogviszony_megszunesenek_varhato_datuma?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
     jogviszonyátSzunetelteto?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
@@ -11070,7 +11352,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
     Dualis_kepzohely_neve?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
     Dualis_kepzohely_adoszama?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
     kiemelten_tehetseges?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
@@ -11088,48 +11369,50 @@ export namespace Prisma {
     alapadatok_id?: UuidWithAggregatesFilter<"Tanugyi_Adatok"> | string
     createAt?: DateTimeWithAggregatesFilter<"Tanugyi_Adatok"> | Date | string
     createBy?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
-    updatedAt?: DateTimeWithAggregatesFilter<"Tanugyi_Adatok"> | Date | string
-    updatedBy?: StringWithAggregatesFilter<"Tanugyi_Adatok"> | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Tanugyi_Adatok"> | Date | string | null
+    updatedBy?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: StringNullableWithAggregatesFilter<"Tanugyi_Adatok"> | string | null
+    tanev_kezdete?: IntWithAggregatesFilter<"Tanugyi_Adatok"> | number
   }
 
   export type AlapadatokCreateInput = {
     id?: string
     iskola_neve: string
     intezmeny_tipus: string
-    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
-    tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateInput = {
     id?: string
     iskola_neve: string
     intezmeny_tipus: string
-    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
-    tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
-    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
-    tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
-    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
-    tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateManyInput = {
@@ -11192,29 +11475,29 @@ export namespace Prisma {
   export type SzakmaCreateInput = {
     id?: string
     nev: string
-    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakmaInput
+    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateInput = {
     id?: string
     nev: string
-    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
-    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
-    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaCreateManyInput = {
@@ -11237,6 +11520,10 @@ export namespace Prisma {
     tanev_kezdete: number
     jogv_tipus: number
     letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
     alapadatok: AlapadatokCreateNestedOneWithoutTanulo_letszamInput
     szakirany: SzakiranyCreateNestedOneWithoutTanulo_letszamInput
     szakma: SzakmaCreateNestedOneWithoutTanulo_letszamInput
@@ -11250,6 +11537,10 @@ export namespace Prisma {
     letszam: number
     szakirany_id: string
     szakma_id: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
   }
 
   export type Tanulo_LetszamUpdateInput = {
@@ -11257,6 +11548,10 @@ export namespace Prisma {
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     jogv_tipus?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     alapadatok?: AlapadatokUpdateOneRequiredWithoutTanulo_letszamNestedInput
     szakirany?: SzakiranyUpdateOneRequiredWithoutTanulo_letszamNestedInput
     szakma?: SzakmaUpdateOneRequiredWithoutTanulo_letszamNestedInput
@@ -11270,6 +11565,10 @@ export namespace Prisma {
     letszam?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
     szakma_id?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Tanulo_LetszamCreateManyInput = {
@@ -11280,6 +11579,10 @@ export namespace Prisma {
     letszam: number
     szakirany_id: string
     szakma_id: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
   }
 
   export type Tanulo_LetszamUpdateManyMutationInput = {
@@ -11287,6 +11590,10 @@ export namespace Prisma {
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     jogv_tipus?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Tanulo_LetszamUncheckedUpdateManyInput = {
@@ -11297,12 +11604,20 @@ export namespace Prisma {
     letszam?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
     szakma_id?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Tanar_LetszamCreateInput = {
     id?: string
     tanev_kezdete: number
     letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
     alapadatok: AlapadatokCreateNestedOneWithoutTanar_letszamInput
   }
 
@@ -11311,12 +11626,20 @@ export namespace Prisma {
     alapadatok_id: string
     tanev_kezdete: number
     letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
   }
 
   export type Tanar_LetszamUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     alapadatok?: AlapadatokUpdateOneRequiredWithoutTanar_letszamNestedInput
   }
 
@@ -11325,6 +11648,10 @@ export namespace Prisma {
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Tanar_LetszamCreateManyInput = {
@@ -11332,12 +11659,20 @@ export namespace Prisma {
     alapadatok_id: string
     tanev_kezdete: number
     letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
   }
 
   export type Tanar_LetszamUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Tanar_LetszamUncheckedUpdateManyInput = {
@@ -11345,6 +11680,10 @@ export namespace Prisma {
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Felvettek_SzamaCreateInput = {
@@ -11353,6 +11692,10 @@ export namespace Prisma {
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
     alapadatok: AlapadatokCreateNestedOneWithoutFelvettek_szamaInput
     szakma: SzakmaCreateNestedOneWithoutFelvettek_szamaInput
   }
@@ -11365,6 +11708,10 @@ export namespace Prisma {
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
   }
 
   export type Felvettek_SzamaUpdateInput = {
@@ -11373,6 +11720,10 @@ export namespace Prisma {
     jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
     felveheto_letszam?: IntFieldUpdateOperationsInput | number
     felvett_letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     alapadatok?: AlapadatokUpdateOneRequiredWithoutFelvettek_szamaNestedInput
     szakma?: SzakmaUpdateOneRequiredWithoutFelvettek_szamaNestedInput
   }
@@ -11385,6 +11736,10 @@ export namespace Prisma {
     jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
     felveheto_letszam?: IntFieldUpdateOperationsInput | number
     felvett_letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Felvettek_SzamaCreateManyInput = {
@@ -11395,6 +11750,10 @@ export namespace Prisma {
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
   }
 
   export type Felvettek_SzamaUpdateManyMutationInput = {
@@ -11403,6 +11762,10 @@ export namespace Prisma {
     jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
     felveheto_letszam?: IntFieldUpdateOperationsInput | number
     felvett_letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Felvettek_SzamaUncheckedUpdateManyInput = {
@@ -11413,6 +11776,10 @@ export namespace Prisma {
     jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
     felveheto_letszam?: IntFieldUpdateOperationsInput | number
     felvett_letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Tanugyi_AdatokCreateInput = {
@@ -11429,7 +11796,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: string | null
     felvetel_taneve?: string | null
     torzslapszam?: string | null
-    tabulo_jogviszonya?: string | null
+    tanulo_jogviszonya?: string | null
     jogviszony_kezdete?: string | null
     jogviszony_megszunesenek_varhato_datuma?: string | null
     jogviszonyátSzunetelteto?: string | null
@@ -11472,7 +11839,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: string | null
     Dualis_kepzohely_neve?: string | null
     Dualis_kepzohely_adoszama?: string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: string | null
     kiemelten_tehetseges?: string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: string | null
@@ -11489,8 +11855,10 @@ export namespace Prisma {
     munkarend?: string | null
     createAt?: Date | string
     createBy: string
-    updatedAt?: Date | string
-    updatedBy: string
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: string | null
+    tanev_kezdete?: number
     alapadatok: AlapadatokCreateNestedOneWithoutTanugyiAdatokInput
   }
 
@@ -11508,7 +11876,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: string | null
     felvetel_taneve?: string | null
     torzslapszam?: string | null
-    tabulo_jogviszonya?: string | null
+    tanulo_jogviszonya?: string | null
     jogviszony_kezdete?: string | null
     jogviszony_megszunesenek_varhato_datuma?: string | null
     jogviszonyátSzunetelteto?: string | null
@@ -11551,7 +11919,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: string | null
     Dualis_kepzohely_neve?: string | null
     Dualis_kepzohely_adoszama?: string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: string | null
     kiemelten_tehetseges?: string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: string | null
@@ -11569,8 +11936,10 @@ export namespace Prisma {
     alapadatok_id: string
     createAt?: Date | string
     createBy: string
-    updatedAt?: Date | string
-    updatedBy: string
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: string | null
+    tanev_kezdete?: number
   }
 
   export type Tanugyi_AdatokUpdateInput = {
@@ -11587,7 +11956,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: NullableStringFieldUpdateOperationsInput | string | null
     felvetel_taneve?: NullableStringFieldUpdateOperationsInput | string | null
     torzslapszam?: NullableStringFieldUpdateOperationsInput | string | null
-    tabulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
+    tanulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszony_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszony_megszunesenek_varhato_datuma?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszonyátSzunetelteto?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11630,7 +11999,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: NullableStringFieldUpdateOperationsInput | string | null
     Dualis_kepzohely_neve?: NullableStringFieldUpdateOperationsInput | string | null
     Dualis_kepzohely_adoszama?: NullableStringFieldUpdateOperationsInput | string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
     kiemelten_tehetseges?: NullableStringFieldUpdateOperationsInput | string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: NullableStringFieldUpdateOperationsInput | string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11647,8 +12015,10 @@ export namespace Prisma {
     munkarend?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: StringFieldUpdateOperationsInput | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
     alapadatok?: AlapadatokUpdateOneRequiredWithoutTanugyiAdatokNestedInput
   }
 
@@ -11666,7 +12036,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: NullableStringFieldUpdateOperationsInput | string | null
     felvetel_taneve?: NullableStringFieldUpdateOperationsInput | string | null
     torzslapszam?: NullableStringFieldUpdateOperationsInput | string | null
-    tabulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
+    tanulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszony_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszony_megszunesenek_varhato_datuma?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszonyátSzunetelteto?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11709,7 +12079,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: NullableStringFieldUpdateOperationsInput | string | null
     Dualis_kepzohely_neve?: NullableStringFieldUpdateOperationsInput | string | null
     Dualis_kepzohely_adoszama?: NullableStringFieldUpdateOperationsInput | string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
     kiemelten_tehetseges?: NullableStringFieldUpdateOperationsInput | string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: NullableStringFieldUpdateOperationsInput | string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11727,8 +12096,10 @@ export namespace Prisma {
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: StringFieldUpdateOperationsInput | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
   }
 
   export type Tanugyi_AdatokCreateManyInput = {
@@ -11745,7 +12116,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: string | null
     felvetel_taneve?: string | null
     torzslapszam?: string | null
-    tabulo_jogviszonya?: string | null
+    tanulo_jogviszonya?: string | null
     jogviszony_kezdete?: string | null
     jogviszony_megszunesenek_varhato_datuma?: string | null
     jogviszonyátSzunetelteto?: string | null
@@ -11788,7 +12159,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: string | null
     Dualis_kepzohely_neve?: string | null
     Dualis_kepzohely_adoszama?: string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: string | null
     kiemelten_tehetseges?: string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: string | null
@@ -11806,8 +12176,10 @@ export namespace Prisma {
     alapadatok_id: string
     createAt?: Date | string
     createBy: string
-    updatedAt?: Date | string
-    updatedBy: string
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: string | null
+    tanev_kezdete?: number
   }
 
   export type Tanugyi_AdatokUpdateManyMutationInput = {
@@ -11824,7 +12196,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: NullableStringFieldUpdateOperationsInput | string | null
     felvetel_taneve?: NullableStringFieldUpdateOperationsInput | string | null
     torzslapszam?: NullableStringFieldUpdateOperationsInput | string | null
-    tabulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
+    tanulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszony_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszony_megszunesenek_varhato_datuma?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszonyátSzunetelteto?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11867,7 +12239,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: NullableStringFieldUpdateOperationsInput | string | null
     Dualis_kepzohely_neve?: NullableStringFieldUpdateOperationsInput | string | null
     Dualis_kepzohely_adoszama?: NullableStringFieldUpdateOperationsInput | string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
     kiemelten_tehetseges?: NullableStringFieldUpdateOperationsInput | string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: NullableStringFieldUpdateOperationsInput | string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11884,8 +12255,10 @@ export namespace Prisma {
     munkarend?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: StringFieldUpdateOperationsInput | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
   }
 
   export type Tanugyi_AdatokUncheckedUpdateManyInput = {
@@ -11902,7 +12275,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: NullableStringFieldUpdateOperationsInput | string | null
     felvetel_taneve?: NullableStringFieldUpdateOperationsInput | string | null
     torzslapszam?: NullableStringFieldUpdateOperationsInput | string | null
-    tabulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
+    tanulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszony_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszony_megszunesenek_varhato_datuma?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszonyátSzunetelteto?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11945,7 +12318,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: NullableStringFieldUpdateOperationsInput | string | null
     Dualis_kepzohely_neve?: NullableStringFieldUpdateOperationsInput | string | null
     Dualis_kepzohely_adoszama?: NullableStringFieldUpdateOperationsInput | string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
     kiemelten_tehetseges?: NullableStringFieldUpdateOperationsInput | string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: NullableStringFieldUpdateOperationsInput | string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11963,8 +12335,10 @@ export namespace Prisma {
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: StringFieldUpdateOperationsInput | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
   }
 
   export type UuidFilter<$PrismaModel = never> = {
@@ -11994,10 +12368,10 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type Tanulo_LetszamListRelationFilter = {
-    every?: Tanulo_LetszamWhereInput
-    some?: Tanulo_LetszamWhereInput
-    none?: Tanulo_LetszamWhereInput
+  export type Felvettek_SzamaListRelationFilter = {
+    every?: Felvettek_SzamaWhereInput
+    some?: Felvettek_SzamaWhereInput
+    none?: Felvettek_SzamaWhereInput
   }
 
   export type Tanar_LetszamListRelationFilter = {
@@ -12006,19 +12380,19 @@ export namespace Prisma {
     none?: Tanar_LetszamWhereInput
   }
 
-  export type Felvettek_SzamaListRelationFilter = {
-    every?: Felvettek_SzamaWhereInput
-    some?: Felvettek_SzamaWhereInput
-    none?: Felvettek_SzamaWhereInput
-  }
-
   export type Tanugyi_AdatokListRelationFilter = {
     every?: Tanugyi_AdatokWhereInput
     some?: Tanugyi_AdatokWhereInput
     none?: Tanugyi_AdatokWhereInput
   }
 
-  export type Tanulo_LetszamOrderByRelationAggregateInput = {
+  export type Tanulo_LetszamListRelationFilter = {
+    every?: Tanulo_LetszamWhereInput
+    some?: Tanulo_LetszamWhereInput
+    none?: Tanulo_LetszamWhereInput
+  }
+
+  export type Felvettek_SzamaOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -12026,11 +12400,11 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type Felvettek_SzamaOrderByRelationAggregateInput = {
+  export type Tanugyi_AdatokOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type Tanugyi_AdatokOrderByRelationAggregateInput = {
+  export type Tanulo_LetszamOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -12126,6 +12500,43 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type AlapadatokScalarRelationFilter = {
     is?: AlapadatokWhereInput
     isNot?: AlapadatokWhereInput
@@ -12141,6 +12552,11 @@ export namespace Prisma {
     isNot?: SzakmaWhereInput
   }
 
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type Tanulo_LetszamCountOrderByAggregateInput = {
     id?: SortOrder
     alapadatok_id?: SortOrder
@@ -12149,6 +12565,10 @@ export namespace Prisma {
     letszam?: SortOrder
     szakirany_id?: SortOrder
     szakma_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
   }
 
   export type Tanulo_LetszamAvgOrderByAggregateInput = {
@@ -12165,6 +12585,10 @@ export namespace Prisma {
     letszam?: SortOrder
     szakirany_id?: SortOrder
     szakma_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
   }
 
   export type Tanulo_LetszamMinOrderByAggregateInput = {
@@ -12175,6 +12599,10 @@ export namespace Prisma {
     letszam?: SortOrder
     szakirany_id?: SortOrder
     szakma_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
   }
 
   export type Tanulo_LetszamSumOrderByAggregateInput = {
@@ -12199,97 +12627,7 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type Tanar_LetszamCountOrderByAggregateInput = {
-    id?: SortOrder
-    alapadatok_id?: SortOrder
-    tanev_kezdete?: SortOrder
-    letszam?: SortOrder
-  }
-
-  export type Tanar_LetszamAvgOrderByAggregateInput = {
-    tanev_kezdete?: SortOrder
-    letszam?: SortOrder
-  }
-
-  export type Tanar_LetszamMaxOrderByAggregateInput = {
-    id?: SortOrder
-    alapadatok_id?: SortOrder
-    tanev_kezdete?: SortOrder
-    letszam?: SortOrder
-  }
-
-  export type Tanar_LetszamMinOrderByAggregateInput = {
-    id?: SortOrder
-    alapadatok_id?: SortOrder
-    tanev_kezdete?: SortOrder
-    letszam?: SortOrder
-  }
-
-  export type Tanar_LetszamSumOrderByAggregateInput = {
-    tanev_kezdete?: SortOrder
-    letszam?: SortOrder
-  }
-
-  export type Felvettek_SzamaCountOrderByAggregateInput = {
-    id?: SortOrder
-    alapadatok_id?: SortOrder
-    tanev_kezdete?: SortOrder
-    szakma_id?: SortOrder
-    jelentkezo_letszam?: SortOrder
-    felveheto_letszam?: SortOrder
-    felvett_letszam?: SortOrder
-  }
-
-  export type Felvettek_SzamaAvgOrderByAggregateInput = {
-    tanev_kezdete?: SortOrder
-    jelentkezo_letszam?: SortOrder
-    felveheto_letszam?: SortOrder
-    felvett_letszam?: SortOrder
-  }
-
-  export type Felvettek_SzamaMaxOrderByAggregateInput = {
-    id?: SortOrder
-    alapadatok_id?: SortOrder
-    tanev_kezdete?: SortOrder
-    szakma_id?: SortOrder
-    jelentkezo_letszam?: SortOrder
-    felveheto_letszam?: SortOrder
-    felvett_letszam?: SortOrder
-  }
-
-  export type Felvettek_SzamaMinOrderByAggregateInput = {
-    id?: SortOrder
-    alapadatok_id?: SortOrder
-    tanev_kezdete?: SortOrder
-    szakma_id?: SortOrder
-    jelentkezo_letszam?: SortOrder
-    felveheto_letszam?: SortOrder
-    felvett_letszam?: SortOrder
-  }
-
-  export type Felvettek_SzamaSumOrderByAggregateInput = {
-    tanev_kezdete?: SortOrder
-    jelentkezo_letszam?: SortOrder
-    felveheto_letszam?: SortOrder
-    felvett_letszam?: SortOrder
-  }
-
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type DateTimeFilter<$PrismaModel = never> = {
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -12297,249 +12635,10 @@ export namespace Prisma {
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
-  }
-
-  export type Tanugyi_AdatokCountOrderByAggregateInput = {
-    id?: SortOrder
-    elotag?: SortOrder
-    vezeteknev?: SortOrder
-    utonev?: SortOrder
-    oktatasiAzonositoja?: SortOrder
-    osztaly?: SortOrder
-    szuletesiDatuma?: SortOrder
-    anyjaSzuletesiDatuma?: SortOrder
-    tanterv?: SortOrder
-    naploSorszam?: SortOrder
-    beiras_naplo_sorszam?: SortOrder
-    felvetel_taneve?: SortOrder
-    torzslapszam?: SortOrder
-    tabulo_jogviszonya?: SortOrder
-    jogviszony_kezdete?: SortOrder
-    jogviszony_megszunesenek_varhato_datuma?: SortOrder
-    jogviszonyátSzunetelteto?: SortOrder
-    tankotelezettsegetTeljesito?: SortOrder
-    tankotelezettségVege?: SortOrder
-    bejaro?: SortOrder
-    Szakmai_gyakorlaton_tartozkodik?: SortOrder
-    Egyeni_munkarend?: SortOrder
-    Egyeni_munkarend_oka?: SortOrder
-    Egyeni_munkarend_kezdete?: SortOrder
-    Egyeni_munkarend_vege?: SortOrder
-    Vendegtanulo?: SortOrder
-    tandijat_fizeto?: SortOrder
-    teritesi_dijat_fizeto?: SortOrder
-    tanuloszerzodeses?: SortOrder
-    polgari_szerzodeses?: SortOrder
-    iskolai_sportkorben_reszt_vevo_tanulo?: SortOrder
-    evfolyamismetlo?: SortOrder
-    elozo_intezmeny?: SortOrder
-    osztaly1?: SortOrder
-    evfolyam?: SortOrder
-    bizonyitvany_sorszama?: SortOrder
-    okleveles_technikus_képzes?: SortOrder
-    uj_Szkt_agazat_tipusa?: SortOrder
-    uj_szkt_szakma_tipusa?: SortOrder
-    uj_szkt_szakmairany_tipusa?: SortOrder
-    nkt_tanulmanyi_terulet?: SortOrder
-    nkt_szakkepesites?: SortOrder
-    nkt_szakirany?: SortOrder
-    agazat_uj_szkt_reszszakmahoz?: SortOrder
-    szakma_reszszakmahoz?: SortOrder
-    reszszakma?: SortOrder
-    agazat_tanulmanyi_terulet?: SortOrder
-    szakmai_kepzes?: SortOrder
-    agazati_alapoktatas_megnevezese?: SortOrder
-    agazati_alapvizsga_eredmeny?: SortOrder
-    agazati_alapvizsga_teljesitesenek_datuma?: SortOrder
-    agazati_alapvizsga_eredmenye?: SortOrder
-    agazati_alapvizsga_eredmenye_percent?: SortOrder
-    szakkepzesi_munkaszerzodessel?: SortOrder
-    Dualis_kepzohely_neve?: SortOrder
-    Dualis_kepzohely_adoszama?: SortOrder
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: SortOrder
-    kiemelten_tehetseges?: SortOrder
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: SortOrder
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: SortOrder
-    egesz_napos_iskolai_oktatasban_reszesul?: SortOrder
-    nyelvi_elokeszito?: SortOrder
-    ket_tanitasi_nyelvu?: SortOrder
-    NemzetisegiNevelesOktatas?: SortOrder
-    NemzetisegiNevelesOktatásFajtaja?: SortOrder
-    nemzetisegiNyelv?: SortOrder
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: SortOrder
-    sportosztaly?: SortOrder
-    aranyjanostehetseggondozoprogram?: SortOrder
-    arany_janos_kollegiumi_program?: SortOrder
-    munkarend?: SortOrder
-    alapadatok_id?: SortOrder
-    createAt?: SortOrder
-    createBy?: SortOrder
-    updatedAt?: SortOrder
-    updatedBy?: SortOrder
-  }
-
-  export type Tanugyi_AdatokMaxOrderByAggregateInput = {
-    id?: SortOrder
-    elotag?: SortOrder
-    vezeteknev?: SortOrder
-    utonev?: SortOrder
-    oktatasiAzonositoja?: SortOrder
-    osztaly?: SortOrder
-    szuletesiDatuma?: SortOrder
-    anyjaSzuletesiDatuma?: SortOrder
-    tanterv?: SortOrder
-    naploSorszam?: SortOrder
-    beiras_naplo_sorszam?: SortOrder
-    felvetel_taneve?: SortOrder
-    torzslapszam?: SortOrder
-    tabulo_jogviszonya?: SortOrder
-    jogviszony_kezdete?: SortOrder
-    jogviszony_megszunesenek_varhato_datuma?: SortOrder
-    jogviszonyátSzunetelteto?: SortOrder
-    tankotelezettsegetTeljesito?: SortOrder
-    tankotelezettségVege?: SortOrder
-    bejaro?: SortOrder
-    Szakmai_gyakorlaton_tartozkodik?: SortOrder
-    Egyeni_munkarend?: SortOrder
-    Egyeni_munkarend_oka?: SortOrder
-    Egyeni_munkarend_kezdete?: SortOrder
-    Egyeni_munkarend_vege?: SortOrder
-    Vendegtanulo?: SortOrder
-    tandijat_fizeto?: SortOrder
-    teritesi_dijat_fizeto?: SortOrder
-    tanuloszerzodeses?: SortOrder
-    polgari_szerzodeses?: SortOrder
-    iskolai_sportkorben_reszt_vevo_tanulo?: SortOrder
-    evfolyamismetlo?: SortOrder
-    elozo_intezmeny?: SortOrder
-    osztaly1?: SortOrder
-    evfolyam?: SortOrder
-    bizonyitvany_sorszama?: SortOrder
-    okleveles_technikus_képzes?: SortOrder
-    uj_Szkt_agazat_tipusa?: SortOrder
-    uj_szkt_szakma_tipusa?: SortOrder
-    uj_szkt_szakmairany_tipusa?: SortOrder
-    nkt_tanulmanyi_terulet?: SortOrder
-    nkt_szakkepesites?: SortOrder
-    nkt_szakirany?: SortOrder
-    agazat_uj_szkt_reszszakmahoz?: SortOrder
-    szakma_reszszakmahoz?: SortOrder
-    reszszakma?: SortOrder
-    agazat_tanulmanyi_terulet?: SortOrder
-    szakmai_kepzes?: SortOrder
-    agazati_alapoktatas_megnevezese?: SortOrder
-    agazati_alapvizsga_eredmeny?: SortOrder
-    agazati_alapvizsga_teljesitesenek_datuma?: SortOrder
-    agazati_alapvizsga_eredmenye?: SortOrder
-    agazati_alapvizsga_eredmenye_percent?: SortOrder
-    szakkepzesi_munkaszerzodessel?: SortOrder
-    Dualis_kepzohely_neve?: SortOrder
-    Dualis_kepzohely_adoszama?: SortOrder
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: SortOrder
-    kiemelten_tehetseges?: SortOrder
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: SortOrder
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: SortOrder
-    egesz_napos_iskolai_oktatasban_reszesul?: SortOrder
-    nyelvi_elokeszito?: SortOrder
-    ket_tanitasi_nyelvu?: SortOrder
-    NemzetisegiNevelesOktatas?: SortOrder
-    NemzetisegiNevelesOktatásFajtaja?: SortOrder
-    nemzetisegiNyelv?: SortOrder
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: SortOrder
-    sportosztaly?: SortOrder
-    aranyjanostehetseggondozoprogram?: SortOrder
-    arany_janos_kollegiumi_program?: SortOrder
-    munkarend?: SortOrder
-    alapadatok_id?: SortOrder
-    createAt?: SortOrder
-    createBy?: SortOrder
-    updatedAt?: SortOrder
-    updatedBy?: SortOrder
-  }
-
-  export type Tanugyi_AdatokMinOrderByAggregateInput = {
-    id?: SortOrder
-    elotag?: SortOrder
-    vezeteknev?: SortOrder
-    utonev?: SortOrder
-    oktatasiAzonositoja?: SortOrder
-    osztaly?: SortOrder
-    szuletesiDatuma?: SortOrder
-    anyjaSzuletesiDatuma?: SortOrder
-    tanterv?: SortOrder
-    naploSorszam?: SortOrder
-    beiras_naplo_sorszam?: SortOrder
-    felvetel_taneve?: SortOrder
-    torzslapszam?: SortOrder
-    tabulo_jogviszonya?: SortOrder
-    jogviszony_kezdete?: SortOrder
-    jogviszony_megszunesenek_varhato_datuma?: SortOrder
-    jogviszonyátSzunetelteto?: SortOrder
-    tankotelezettsegetTeljesito?: SortOrder
-    tankotelezettségVege?: SortOrder
-    bejaro?: SortOrder
-    Szakmai_gyakorlaton_tartozkodik?: SortOrder
-    Egyeni_munkarend?: SortOrder
-    Egyeni_munkarend_oka?: SortOrder
-    Egyeni_munkarend_kezdete?: SortOrder
-    Egyeni_munkarend_vege?: SortOrder
-    Vendegtanulo?: SortOrder
-    tandijat_fizeto?: SortOrder
-    teritesi_dijat_fizeto?: SortOrder
-    tanuloszerzodeses?: SortOrder
-    polgari_szerzodeses?: SortOrder
-    iskolai_sportkorben_reszt_vevo_tanulo?: SortOrder
-    evfolyamismetlo?: SortOrder
-    elozo_intezmeny?: SortOrder
-    osztaly1?: SortOrder
-    evfolyam?: SortOrder
-    bizonyitvany_sorszama?: SortOrder
-    okleveles_technikus_képzes?: SortOrder
-    uj_Szkt_agazat_tipusa?: SortOrder
-    uj_szkt_szakma_tipusa?: SortOrder
-    uj_szkt_szakmairany_tipusa?: SortOrder
-    nkt_tanulmanyi_terulet?: SortOrder
-    nkt_szakkepesites?: SortOrder
-    nkt_szakirany?: SortOrder
-    agazat_uj_szkt_reszszakmahoz?: SortOrder
-    szakma_reszszakmahoz?: SortOrder
-    reszszakma?: SortOrder
-    agazat_tanulmanyi_terulet?: SortOrder
-    szakmai_kepzes?: SortOrder
-    agazati_alapoktatas_megnevezese?: SortOrder
-    agazati_alapvizsga_eredmeny?: SortOrder
-    agazati_alapvizsga_teljesitesenek_datuma?: SortOrder
-    agazati_alapvizsga_eredmenye?: SortOrder
-    agazati_alapvizsga_eredmenye_percent?: SortOrder
-    szakkepzesi_munkaszerzodessel?: SortOrder
-    Dualis_kepzohely_neve?: SortOrder
-    Dualis_kepzohely_adoszama?: SortOrder
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: SortOrder
-    kiemelten_tehetseges?: SortOrder
-    szamitogepet_tanulasi_oktatasi_celra_hasznal?: SortOrder
-    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: SortOrder
-    egesz_napos_iskolai_oktatasban_reszesul?: SortOrder
-    nyelvi_elokeszito?: SortOrder
-    ket_tanitasi_nyelvu?: SortOrder
-    NemzetisegiNevelesOktatas?: SortOrder
-    NemzetisegiNevelesOktatásFajtaja?: SortOrder
-    nemzetisegiNyelv?: SortOrder
-    nemzetisegNyelvenFolyoSzakmaiOktatas?: SortOrder
-    sportosztaly?: SortOrder
-    aranyjanostehetseggondozoprogram?: SortOrder
-    arany_janos_kollegiumi_program?: SortOrder
-    munkarend?: SortOrder
-    alapadatok_id?: SortOrder
-    createAt?: SortOrder
-    createBy?: SortOrder
-    updatedAt?: SortOrder
-    updatedBy?: SortOrder
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -12560,32 +12659,365 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput = {
-    create?: XOR<Tanulo_LetszamCreateWithoutAlapadatokInput, Tanulo_LetszamUncheckedCreateWithoutAlapadatokInput> | Tanulo_LetszamCreateWithoutAlapadatokInput[] | Tanulo_LetszamUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutAlapadatokInput | Tanulo_LetszamCreateOrConnectWithoutAlapadatokInput[]
-    createMany?: Tanulo_LetszamCreateManyAlapadatokInputEnvelope
-    connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+  export type Tanar_LetszamCountOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    letszam?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
   }
 
-  export type Tanar_LetszamCreateNestedManyWithoutAlapadatokInput = {
-    create?: XOR<Tanar_LetszamCreateWithoutAlapadatokInput, Tanar_LetszamUncheckedCreateWithoutAlapadatokInput> | Tanar_LetszamCreateWithoutAlapadatokInput[] | Tanar_LetszamUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: Tanar_LetszamCreateOrConnectWithoutAlapadatokInput | Tanar_LetszamCreateOrConnectWithoutAlapadatokInput[]
-    createMany?: Tanar_LetszamCreateManyAlapadatokInputEnvelope
-    connect?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
+  export type Tanar_LetszamAvgOrderByAggregateInput = {
+    tanev_kezdete?: SortOrder
+    letszam?: SortOrder
+  }
+
+  export type Tanar_LetszamMaxOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    letszam?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type Tanar_LetszamMinOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    letszam?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type Tanar_LetszamSumOrderByAggregateInput = {
+    tanev_kezdete?: SortOrder
+    letszam?: SortOrder
+  }
+
+  export type Felvettek_SzamaCountOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    szakma_id?: SortOrder
+    jelentkezo_letszam?: SortOrder
+    felveheto_letszam?: SortOrder
+    felvett_letszam?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type Felvettek_SzamaAvgOrderByAggregateInput = {
+    tanev_kezdete?: SortOrder
+    jelentkezo_letszam?: SortOrder
+    felveheto_letszam?: SortOrder
+    felvett_letszam?: SortOrder
+  }
+
+  export type Felvettek_SzamaMaxOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    szakma_id?: SortOrder
+    jelentkezo_letszam?: SortOrder
+    felveheto_letszam?: SortOrder
+    felvett_letszam?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type Felvettek_SzamaMinOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    szakma_id?: SortOrder
+    jelentkezo_letszam?: SortOrder
+    felveheto_letszam?: SortOrder
+    felvett_letszam?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type Felvettek_SzamaSumOrderByAggregateInput = {
+    tanev_kezdete?: SortOrder
+    jelentkezo_letszam?: SortOrder
+    felveheto_letszam?: SortOrder
+    felvett_letszam?: SortOrder
+  }
+
+  export type Tanugyi_AdatokCountOrderByAggregateInput = {
+    id?: SortOrder
+    elotag?: SortOrder
+    vezeteknev?: SortOrder
+    utonev?: SortOrder
+    oktatasiAzonositoja?: SortOrder
+    osztaly?: SortOrder
+    szuletesiDatuma?: SortOrder
+    anyjaSzuletesiDatuma?: SortOrder
+    tanterv?: SortOrder
+    naploSorszam?: SortOrder
+    beiras_naplo_sorszam?: SortOrder
+    felvetel_taneve?: SortOrder
+    torzslapszam?: SortOrder
+    tanulo_jogviszonya?: SortOrder
+    jogviszony_kezdete?: SortOrder
+    jogviszony_megszunesenek_varhato_datuma?: SortOrder
+    jogviszonyátSzunetelteto?: SortOrder
+    tankotelezettsegetTeljesito?: SortOrder
+    tankotelezettségVege?: SortOrder
+    bejaro?: SortOrder
+    Szakmai_gyakorlaton_tartozkodik?: SortOrder
+    Egyeni_munkarend?: SortOrder
+    Egyeni_munkarend_oka?: SortOrder
+    Egyeni_munkarend_kezdete?: SortOrder
+    Egyeni_munkarend_vege?: SortOrder
+    Vendegtanulo?: SortOrder
+    tandijat_fizeto?: SortOrder
+    teritesi_dijat_fizeto?: SortOrder
+    tanuloszerzodeses?: SortOrder
+    polgari_szerzodeses?: SortOrder
+    iskolai_sportkorben_reszt_vevo_tanulo?: SortOrder
+    evfolyamismetlo?: SortOrder
+    elozo_intezmeny?: SortOrder
+    osztaly1?: SortOrder
+    evfolyam?: SortOrder
+    bizonyitvany_sorszama?: SortOrder
+    okleveles_technikus_képzes?: SortOrder
+    uj_Szkt_agazat_tipusa?: SortOrder
+    uj_szkt_szakma_tipusa?: SortOrder
+    uj_szkt_szakmairany_tipusa?: SortOrder
+    nkt_tanulmanyi_terulet?: SortOrder
+    nkt_szakkepesites?: SortOrder
+    nkt_szakirany?: SortOrder
+    agazat_uj_szkt_reszszakmahoz?: SortOrder
+    szakma_reszszakmahoz?: SortOrder
+    reszszakma?: SortOrder
+    agazat_tanulmanyi_terulet?: SortOrder
+    szakmai_kepzes?: SortOrder
+    agazati_alapoktatas_megnevezese?: SortOrder
+    agazati_alapvizsga_eredmeny?: SortOrder
+    agazati_alapvizsga_teljesitesenek_datuma?: SortOrder
+    agazati_alapvizsga_eredmenye?: SortOrder
+    agazati_alapvizsga_eredmenye_percent?: SortOrder
+    szakkepzesi_munkaszerzodessel?: SortOrder
+    Dualis_kepzohely_neve?: SortOrder
+    Dualis_kepzohely_adoszama?: SortOrder
+    kiemelten_tehetseges?: SortOrder
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: SortOrder
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: SortOrder
+    egesz_napos_iskolai_oktatasban_reszesul?: SortOrder
+    nyelvi_elokeszito?: SortOrder
+    ket_tanitasi_nyelvu?: SortOrder
+    NemzetisegiNevelesOktatas?: SortOrder
+    NemzetisegiNevelesOktatásFajtaja?: SortOrder
+    nemzetisegiNyelv?: SortOrder
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: SortOrder
+    sportosztaly?: SortOrder
+    aranyjanostehetseggondozoprogram?: SortOrder
+    arany_janos_kollegiumi_program?: SortOrder
+    munkarend?: SortOrder
+    alapadatok_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: SortOrder
+    tanev_kezdete?: SortOrder
+  }
+
+  export type Tanugyi_AdatokAvgOrderByAggregateInput = {
+    tanev_kezdete?: SortOrder
+  }
+
+  export type Tanugyi_AdatokMaxOrderByAggregateInput = {
+    id?: SortOrder
+    elotag?: SortOrder
+    vezeteknev?: SortOrder
+    utonev?: SortOrder
+    oktatasiAzonositoja?: SortOrder
+    osztaly?: SortOrder
+    szuletesiDatuma?: SortOrder
+    anyjaSzuletesiDatuma?: SortOrder
+    tanterv?: SortOrder
+    naploSorszam?: SortOrder
+    beiras_naplo_sorszam?: SortOrder
+    felvetel_taneve?: SortOrder
+    torzslapszam?: SortOrder
+    tanulo_jogviszonya?: SortOrder
+    jogviszony_kezdete?: SortOrder
+    jogviszony_megszunesenek_varhato_datuma?: SortOrder
+    jogviszonyátSzunetelteto?: SortOrder
+    tankotelezettsegetTeljesito?: SortOrder
+    tankotelezettségVege?: SortOrder
+    bejaro?: SortOrder
+    Szakmai_gyakorlaton_tartozkodik?: SortOrder
+    Egyeni_munkarend?: SortOrder
+    Egyeni_munkarend_oka?: SortOrder
+    Egyeni_munkarend_kezdete?: SortOrder
+    Egyeni_munkarend_vege?: SortOrder
+    Vendegtanulo?: SortOrder
+    tandijat_fizeto?: SortOrder
+    teritesi_dijat_fizeto?: SortOrder
+    tanuloszerzodeses?: SortOrder
+    polgari_szerzodeses?: SortOrder
+    iskolai_sportkorben_reszt_vevo_tanulo?: SortOrder
+    evfolyamismetlo?: SortOrder
+    elozo_intezmeny?: SortOrder
+    osztaly1?: SortOrder
+    evfolyam?: SortOrder
+    bizonyitvany_sorszama?: SortOrder
+    okleveles_technikus_képzes?: SortOrder
+    uj_Szkt_agazat_tipusa?: SortOrder
+    uj_szkt_szakma_tipusa?: SortOrder
+    uj_szkt_szakmairany_tipusa?: SortOrder
+    nkt_tanulmanyi_terulet?: SortOrder
+    nkt_szakkepesites?: SortOrder
+    nkt_szakirany?: SortOrder
+    agazat_uj_szkt_reszszakmahoz?: SortOrder
+    szakma_reszszakmahoz?: SortOrder
+    reszszakma?: SortOrder
+    agazat_tanulmanyi_terulet?: SortOrder
+    szakmai_kepzes?: SortOrder
+    agazati_alapoktatas_megnevezese?: SortOrder
+    agazati_alapvizsga_eredmeny?: SortOrder
+    agazati_alapvizsga_teljesitesenek_datuma?: SortOrder
+    agazati_alapvizsga_eredmenye?: SortOrder
+    agazati_alapvizsga_eredmenye_percent?: SortOrder
+    szakkepzesi_munkaszerzodessel?: SortOrder
+    Dualis_kepzohely_neve?: SortOrder
+    Dualis_kepzohely_adoszama?: SortOrder
+    kiemelten_tehetseges?: SortOrder
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: SortOrder
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: SortOrder
+    egesz_napos_iskolai_oktatasban_reszesul?: SortOrder
+    nyelvi_elokeszito?: SortOrder
+    ket_tanitasi_nyelvu?: SortOrder
+    NemzetisegiNevelesOktatas?: SortOrder
+    NemzetisegiNevelesOktatásFajtaja?: SortOrder
+    nemzetisegiNyelv?: SortOrder
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: SortOrder
+    sportosztaly?: SortOrder
+    aranyjanostehetseggondozoprogram?: SortOrder
+    arany_janos_kollegiumi_program?: SortOrder
+    munkarend?: SortOrder
+    alapadatok_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: SortOrder
+    tanev_kezdete?: SortOrder
+  }
+
+  export type Tanugyi_AdatokMinOrderByAggregateInput = {
+    id?: SortOrder
+    elotag?: SortOrder
+    vezeteknev?: SortOrder
+    utonev?: SortOrder
+    oktatasiAzonositoja?: SortOrder
+    osztaly?: SortOrder
+    szuletesiDatuma?: SortOrder
+    anyjaSzuletesiDatuma?: SortOrder
+    tanterv?: SortOrder
+    naploSorszam?: SortOrder
+    beiras_naplo_sorszam?: SortOrder
+    felvetel_taneve?: SortOrder
+    torzslapszam?: SortOrder
+    tanulo_jogviszonya?: SortOrder
+    jogviszony_kezdete?: SortOrder
+    jogviszony_megszunesenek_varhato_datuma?: SortOrder
+    jogviszonyátSzunetelteto?: SortOrder
+    tankotelezettsegetTeljesito?: SortOrder
+    tankotelezettségVege?: SortOrder
+    bejaro?: SortOrder
+    Szakmai_gyakorlaton_tartozkodik?: SortOrder
+    Egyeni_munkarend?: SortOrder
+    Egyeni_munkarend_oka?: SortOrder
+    Egyeni_munkarend_kezdete?: SortOrder
+    Egyeni_munkarend_vege?: SortOrder
+    Vendegtanulo?: SortOrder
+    tandijat_fizeto?: SortOrder
+    teritesi_dijat_fizeto?: SortOrder
+    tanuloszerzodeses?: SortOrder
+    polgari_szerzodeses?: SortOrder
+    iskolai_sportkorben_reszt_vevo_tanulo?: SortOrder
+    evfolyamismetlo?: SortOrder
+    elozo_intezmeny?: SortOrder
+    osztaly1?: SortOrder
+    evfolyam?: SortOrder
+    bizonyitvany_sorszama?: SortOrder
+    okleveles_technikus_képzes?: SortOrder
+    uj_Szkt_agazat_tipusa?: SortOrder
+    uj_szkt_szakma_tipusa?: SortOrder
+    uj_szkt_szakmairany_tipusa?: SortOrder
+    nkt_tanulmanyi_terulet?: SortOrder
+    nkt_szakkepesites?: SortOrder
+    nkt_szakirany?: SortOrder
+    agazat_uj_szkt_reszszakmahoz?: SortOrder
+    szakma_reszszakmahoz?: SortOrder
+    reszszakma?: SortOrder
+    agazat_tanulmanyi_terulet?: SortOrder
+    szakmai_kepzes?: SortOrder
+    agazati_alapoktatas_megnevezese?: SortOrder
+    agazati_alapvizsga_eredmeny?: SortOrder
+    agazati_alapvizsga_teljesitesenek_datuma?: SortOrder
+    agazati_alapvizsga_eredmenye?: SortOrder
+    agazati_alapvizsga_eredmenye_percent?: SortOrder
+    szakkepzesi_munkaszerzodessel?: SortOrder
+    Dualis_kepzohely_neve?: SortOrder
+    Dualis_kepzohely_adoszama?: SortOrder
+    kiemelten_tehetseges?: SortOrder
+    szamitogepet_tanulasi_oktatasi_celra_hasznal?: SortOrder
+    szaboky_adolf_szakkepzesi_osztondijban_reszesul?: SortOrder
+    egesz_napos_iskolai_oktatasban_reszesul?: SortOrder
+    nyelvi_elokeszito?: SortOrder
+    ket_tanitasi_nyelvu?: SortOrder
+    NemzetisegiNevelesOktatas?: SortOrder
+    NemzetisegiNevelesOktatásFajtaja?: SortOrder
+    nemzetisegiNyelv?: SortOrder
+    nemzetisegNyelvenFolyoSzakmaiOktatas?: SortOrder
+    sportosztaly?: SortOrder
+    aranyjanostehetseggondozoprogram?: SortOrder
+    arany_janos_kollegiumi_program?: SortOrder
+    munkarend?: SortOrder
+    alapadatok_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: SortOrder
+    tanev_kezdete?: SortOrder
+  }
+
+  export type Tanugyi_AdatokSumOrderByAggregateInput = {
+    tanev_kezdete?: SortOrder
   }
 
   export type Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput = {
@@ -12595,7 +13027,42 @@ export namespace Prisma {
     connect?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
   }
 
+  export type Tanar_LetszamCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<Tanar_LetszamCreateWithoutAlapadatokInput, Tanar_LetszamUncheckedCreateWithoutAlapadatokInput> | Tanar_LetszamCreateWithoutAlapadatokInput[] | Tanar_LetszamUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: Tanar_LetszamCreateOrConnectWithoutAlapadatokInput | Tanar_LetszamCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: Tanar_LetszamCreateManyAlapadatokInputEnvelope
+    connect?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
+  }
+
   export type Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<Tanugyi_AdatokCreateWithoutAlapadatokInput, Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput> | Tanugyi_AdatokCreateWithoutAlapadatokInput[] | Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: Tanugyi_AdatokCreateOrConnectWithoutAlapadatokInput | Tanugyi_AdatokCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: Tanugyi_AdatokCreateManyAlapadatokInputEnvelope
+    connect?: Tanugyi_AdatokWhereUniqueInput | Tanugyi_AdatokWhereUniqueInput[]
+  }
+
+  export type Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<Tanulo_LetszamCreateWithoutAlapadatokInput, Tanulo_LetszamUncheckedCreateWithoutAlapadatokInput> | Tanulo_LetszamCreateWithoutAlapadatokInput[] | Tanulo_LetszamUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutAlapadatokInput | Tanulo_LetszamCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: Tanulo_LetszamCreateManyAlapadatokInputEnvelope
+    connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+  }
+
+  export type Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<Felvettek_SzamaCreateWithoutAlapadatokInput, Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput> | Felvettek_SzamaCreateWithoutAlapadatokInput[] | Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput | Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: Felvettek_SzamaCreateManyAlapadatokInputEnvelope
+    connect?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
+  }
+
+  export type Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<Tanar_LetszamCreateWithoutAlapadatokInput, Tanar_LetszamUncheckedCreateWithoutAlapadatokInput> | Tanar_LetszamCreateWithoutAlapadatokInput[] | Tanar_LetszamUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: Tanar_LetszamCreateOrConnectWithoutAlapadatokInput | Tanar_LetszamCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: Tanar_LetszamCreateManyAlapadatokInputEnvelope
+    connect?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
+  }
+
+  export type Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput = {
     create?: XOR<Tanugyi_AdatokCreateWithoutAlapadatokInput, Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput> | Tanugyi_AdatokCreateWithoutAlapadatokInput[] | Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput[]
     connectOrCreate?: Tanugyi_AdatokCreateOrConnectWithoutAlapadatokInput | Tanugyi_AdatokCreateOrConnectWithoutAlapadatokInput[]
     createMany?: Tanugyi_AdatokCreateManyAlapadatokInputEnvelope
@@ -12609,57 +13076,8 @@ export namespace Prisma {
     connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
   }
 
-  export type Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput = {
-    create?: XOR<Tanar_LetszamCreateWithoutAlapadatokInput, Tanar_LetszamUncheckedCreateWithoutAlapadatokInput> | Tanar_LetszamCreateWithoutAlapadatokInput[] | Tanar_LetszamUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: Tanar_LetszamCreateOrConnectWithoutAlapadatokInput | Tanar_LetszamCreateOrConnectWithoutAlapadatokInput[]
-    createMany?: Tanar_LetszamCreateManyAlapadatokInputEnvelope
-    connect?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
-  }
-
-  export type Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput = {
-    create?: XOR<Felvettek_SzamaCreateWithoutAlapadatokInput, Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput> | Felvettek_SzamaCreateWithoutAlapadatokInput[] | Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput | Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput[]
-    createMany?: Felvettek_SzamaCreateManyAlapadatokInputEnvelope
-    connect?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
-  }
-
-  export type Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput = {
-    create?: XOR<Tanugyi_AdatokCreateWithoutAlapadatokInput, Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput> | Tanugyi_AdatokCreateWithoutAlapadatokInput[] | Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: Tanugyi_AdatokCreateOrConnectWithoutAlapadatokInput | Tanugyi_AdatokCreateOrConnectWithoutAlapadatokInput[]
-    createMany?: Tanugyi_AdatokCreateManyAlapadatokInputEnvelope
-    connect?: Tanugyi_AdatokWhereUniqueInput | Tanugyi_AdatokWhereUniqueInput[]
-  }
-
   export type StringFieldUpdateOperationsInput = {
     set?: string
-  }
-
-  export type Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput = {
-    create?: XOR<Tanulo_LetszamCreateWithoutAlapadatokInput, Tanulo_LetszamUncheckedCreateWithoutAlapadatokInput> | Tanulo_LetszamCreateWithoutAlapadatokInput[] | Tanulo_LetszamUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutAlapadatokInput | Tanulo_LetszamCreateOrConnectWithoutAlapadatokInput[]
-    upsert?: Tanulo_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput | Tanulo_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput[]
-    createMany?: Tanulo_LetszamCreateManyAlapadatokInputEnvelope
-    set?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
-    disconnect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
-    delete?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
-    connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
-    update?: Tanulo_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput | Tanulo_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput[]
-    updateMany?: Tanulo_LetszamUpdateManyWithWhereWithoutAlapadatokInput | Tanulo_LetszamUpdateManyWithWhereWithoutAlapadatokInput[]
-    deleteMany?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
-  }
-
-  export type Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput = {
-    create?: XOR<Tanar_LetszamCreateWithoutAlapadatokInput, Tanar_LetszamUncheckedCreateWithoutAlapadatokInput> | Tanar_LetszamCreateWithoutAlapadatokInput[] | Tanar_LetszamUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: Tanar_LetszamCreateOrConnectWithoutAlapadatokInput | Tanar_LetszamCreateOrConnectWithoutAlapadatokInput[]
-    upsert?: Tanar_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput | Tanar_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput[]
-    createMany?: Tanar_LetszamCreateManyAlapadatokInputEnvelope
-    set?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
-    disconnect?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
-    delete?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
-    connect?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
-    update?: Tanar_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput | Tanar_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput[]
-    updateMany?: Tanar_LetszamUpdateManyWithWhereWithoutAlapadatokInput | Tanar_LetszamUpdateManyWithWhereWithoutAlapadatokInput[]
-    deleteMany?: Tanar_LetszamScalarWhereInput | Tanar_LetszamScalarWhereInput[]
   }
 
   export type Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput = {
@@ -12676,7 +13094,77 @@ export namespace Prisma {
     deleteMany?: Felvettek_SzamaScalarWhereInput | Felvettek_SzamaScalarWhereInput[]
   }
 
+  export type Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<Tanar_LetszamCreateWithoutAlapadatokInput, Tanar_LetszamUncheckedCreateWithoutAlapadatokInput> | Tanar_LetszamCreateWithoutAlapadatokInput[] | Tanar_LetszamUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: Tanar_LetszamCreateOrConnectWithoutAlapadatokInput | Tanar_LetszamCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: Tanar_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput | Tanar_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: Tanar_LetszamCreateManyAlapadatokInputEnvelope
+    set?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
+    disconnect?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
+    delete?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
+    connect?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
+    update?: Tanar_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput | Tanar_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: Tanar_LetszamUpdateManyWithWhereWithoutAlapadatokInput | Tanar_LetszamUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: Tanar_LetszamScalarWhereInput | Tanar_LetszamScalarWhereInput[]
+  }
+
   export type Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<Tanugyi_AdatokCreateWithoutAlapadatokInput, Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput> | Tanugyi_AdatokCreateWithoutAlapadatokInput[] | Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: Tanugyi_AdatokCreateOrConnectWithoutAlapadatokInput | Tanugyi_AdatokCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: Tanugyi_AdatokUpsertWithWhereUniqueWithoutAlapadatokInput | Tanugyi_AdatokUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: Tanugyi_AdatokCreateManyAlapadatokInputEnvelope
+    set?: Tanugyi_AdatokWhereUniqueInput | Tanugyi_AdatokWhereUniqueInput[]
+    disconnect?: Tanugyi_AdatokWhereUniqueInput | Tanugyi_AdatokWhereUniqueInput[]
+    delete?: Tanugyi_AdatokWhereUniqueInput | Tanugyi_AdatokWhereUniqueInput[]
+    connect?: Tanugyi_AdatokWhereUniqueInput | Tanugyi_AdatokWhereUniqueInput[]
+    update?: Tanugyi_AdatokUpdateWithWhereUniqueWithoutAlapadatokInput | Tanugyi_AdatokUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: Tanugyi_AdatokUpdateManyWithWhereWithoutAlapadatokInput | Tanugyi_AdatokUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: Tanugyi_AdatokScalarWhereInput | Tanugyi_AdatokScalarWhereInput[]
+  }
+
+  export type Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<Tanulo_LetszamCreateWithoutAlapadatokInput, Tanulo_LetszamUncheckedCreateWithoutAlapadatokInput> | Tanulo_LetszamCreateWithoutAlapadatokInput[] | Tanulo_LetszamUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutAlapadatokInput | Tanulo_LetszamCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: Tanulo_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput | Tanulo_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: Tanulo_LetszamCreateManyAlapadatokInputEnvelope
+    set?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+    disconnect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+    delete?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+    connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+    update?: Tanulo_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput | Tanulo_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: Tanulo_LetszamUpdateManyWithWhereWithoutAlapadatokInput | Tanulo_LetszamUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
+  }
+
+  export type Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<Felvettek_SzamaCreateWithoutAlapadatokInput, Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput> | Felvettek_SzamaCreateWithoutAlapadatokInput[] | Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput | Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: Felvettek_SzamaUpsertWithWhereUniqueWithoutAlapadatokInput | Felvettek_SzamaUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: Felvettek_SzamaCreateManyAlapadatokInputEnvelope
+    set?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
+    disconnect?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
+    delete?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
+    connect?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
+    update?: Felvettek_SzamaUpdateWithWhereUniqueWithoutAlapadatokInput | Felvettek_SzamaUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: Felvettek_SzamaUpdateManyWithWhereWithoutAlapadatokInput | Felvettek_SzamaUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: Felvettek_SzamaScalarWhereInput | Felvettek_SzamaScalarWhereInput[]
+  }
+
+  export type Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<Tanar_LetszamCreateWithoutAlapadatokInput, Tanar_LetszamUncheckedCreateWithoutAlapadatokInput> | Tanar_LetszamCreateWithoutAlapadatokInput[] | Tanar_LetszamUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: Tanar_LetszamCreateOrConnectWithoutAlapadatokInput | Tanar_LetszamCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: Tanar_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput | Tanar_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: Tanar_LetszamCreateManyAlapadatokInputEnvelope
+    set?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
+    disconnect?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
+    delete?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
+    connect?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
+    update?: Tanar_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput | Tanar_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: Tanar_LetszamUpdateManyWithWhereWithoutAlapadatokInput | Tanar_LetszamUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: Tanar_LetszamScalarWhereInput | Tanar_LetszamScalarWhereInput[]
+  }
+
+  export type Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput = {
     create?: XOR<Tanugyi_AdatokCreateWithoutAlapadatokInput, Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput> | Tanugyi_AdatokCreateWithoutAlapadatokInput[] | Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput[]
     connectOrCreate?: Tanugyi_AdatokCreateOrConnectWithoutAlapadatokInput | Tanugyi_AdatokCreateOrConnectWithoutAlapadatokInput[]
     upsert?: Tanugyi_AdatokUpsertWithWhereUniqueWithoutAlapadatokInput | Tanugyi_AdatokUpsertWithWhereUniqueWithoutAlapadatokInput[]
@@ -12702,48 +13190,6 @@ export namespace Prisma {
     update?: Tanulo_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput | Tanulo_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput[]
     updateMany?: Tanulo_LetszamUpdateManyWithWhereWithoutAlapadatokInput | Tanulo_LetszamUpdateManyWithWhereWithoutAlapadatokInput[]
     deleteMany?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
-  }
-
-  export type Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput = {
-    create?: XOR<Tanar_LetszamCreateWithoutAlapadatokInput, Tanar_LetszamUncheckedCreateWithoutAlapadatokInput> | Tanar_LetszamCreateWithoutAlapadatokInput[] | Tanar_LetszamUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: Tanar_LetszamCreateOrConnectWithoutAlapadatokInput | Tanar_LetszamCreateOrConnectWithoutAlapadatokInput[]
-    upsert?: Tanar_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput | Tanar_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput[]
-    createMany?: Tanar_LetszamCreateManyAlapadatokInputEnvelope
-    set?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
-    disconnect?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
-    delete?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
-    connect?: Tanar_LetszamWhereUniqueInput | Tanar_LetszamWhereUniqueInput[]
-    update?: Tanar_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput | Tanar_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput[]
-    updateMany?: Tanar_LetszamUpdateManyWithWhereWithoutAlapadatokInput | Tanar_LetszamUpdateManyWithWhereWithoutAlapadatokInput[]
-    deleteMany?: Tanar_LetszamScalarWhereInput | Tanar_LetszamScalarWhereInput[]
-  }
-
-  export type Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput = {
-    create?: XOR<Felvettek_SzamaCreateWithoutAlapadatokInput, Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput> | Felvettek_SzamaCreateWithoutAlapadatokInput[] | Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput | Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput[]
-    upsert?: Felvettek_SzamaUpsertWithWhereUniqueWithoutAlapadatokInput | Felvettek_SzamaUpsertWithWhereUniqueWithoutAlapadatokInput[]
-    createMany?: Felvettek_SzamaCreateManyAlapadatokInputEnvelope
-    set?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
-    disconnect?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
-    delete?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
-    connect?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
-    update?: Felvettek_SzamaUpdateWithWhereUniqueWithoutAlapadatokInput | Felvettek_SzamaUpdateWithWhereUniqueWithoutAlapadatokInput[]
-    updateMany?: Felvettek_SzamaUpdateManyWithWhereWithoutAlapadatokInput | Felvettek_SzamaUpdateManyWithWhereWithoutAlapadatokInput[]
-    deleteMany?: Felvettek_SzamaScalarWhereInput | Felvettek_SzamaScalarWhereInput[]
-  }
-
-  export type Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput = {
-    create?: XOR<Tanugyi_AdatokCreateWithoutAlapadatokInput, Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput> | Tanugyi_AdatokCreateWithoutAlapadatokInput[] | Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: Tanugyi_AdatokCreateOrConnectWithoutAlapadatokInput | Tanugyi_AdatokCreateOrConnectWithoutAlapadatokInput[]
-    upsert?: Tanugyi_AdatokUpsertWithWhereUniqueWithoutAlapadatokInput | Tanugyi_AdatokUpsertWithWhereUniqueWithoutAlapadatokInput[]
-    createMany?: Tanugyi_AdatokCreateManyAlapadatokInputEnvelope
-    set?: Tanugyi_AdatokWhereUniqueInput | Tanugyi_AdatokWhereUniqueInput[]
-    disconnect?: Tanugyi_AdatokWhereUniqueInput | Tanugyi_AdatokWhereUniqueInput[]
-    delete?: Tanugyi_AdatokWhereUniqueInput | Tanugyi_AdatokWhereUniqueInput[]
-    connect?: Tanugyi_AdatokWhereUniqueInput | Tanugyi_AdatokWhereUniqueInput[]
-    update?: Tanugyi_AdatokUpdateWithWhereUniqueWithoutAlapadatokInput | Tanugyi_AdatokUpdateWithWhereUniqueWithoutAlapadatokInput[]
-    updateMany?: Tanugyi_AdatokUpdateManyWithWhereWithoutAlapadatokInput | Tanugyi_AdatokUpdateManyWithWhereWithoutAlapadatokInput[]
-    deleteMany?: Tanugyi_AdatokScalarWhereInput | Tanugyi_AdatokScalarWhereInput[]
   }
 
   export type Tanulo_LetszamCreateNestedManyWithoutSzakiranyInput = {
@@ -12788,13 +13234,6 @@ export namespace Prisma {
     deleteMany?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
   }
 
-  export type Tanulo_LetszamCreateNestedManyWithoutSzakmaInput = {
-    create?: XOR<Tanulo_LetszamCreateWithoutSzakmaInput, Tanulo_LetszamUncheckedCreateWithoutSzakmaInput> | Tanulo_LetszamCreateWithoutSzakmaInput[] | Tanulo_LetszamUncheckedCreateWithoutSzakmaInput[]
-    connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutSzakmaInput | Tanulo_LetszamCreateOrConnectWithoutSzakmaInput[]
-    createMany?: Tanulo_LetszamCreateManySzakmaInputEnvelope
-    connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
-  }
-
   export type Felvettek_SzamaCreateNestedManyWithoutSzakmaInput = {
     create?: XOR<Felvettek_SzamaCreateWithoutSzakmaInput, Felvettek_SzamaUncheckedCreateWithoutSzakmaInput> | Felvettek_SzamaCreateWithoutSzakmaInput[] | Felvettek_SzamaUncheckedCreateWithoutSzakmaInput[]
     connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutSzakmaInput | Felvettek_SzamaCreateOrConnectWithoutSzakmaInput[]
@@ -12802,7 +13241,7 @@ export namespace Prisma {
     connect?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
   }
 
-  export type Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput = {
+  export type Tanulo_LetszamCreateNestedManyWithoutSzakmaInput = {
     create?: XOR<Tanulo_LetszamCreateWithoutSzakmaInput, Tanulo_LetszamUncheckedCreateWithoutSzakmaInput> | Tanulo_LetszamCreateWithoutSzakmaInput[] | Tanulo_LetszamUncheckedCreateWithoutSzakmaInput[]
     connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutSzakmaInput | Tanulo_LetszamCreateOrConnectWithoutSzakmaInput[]
     createMany?: Tanulo_LetszamCreateManySzakmaInputEnvelope
@@ -12816,18 +13255,11 @@ export namespace Prisma {
     connect?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
   }
 
-  export type Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput = {
+  export type Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput = {
     create?: XOR<Tanulo_LetszamCreateWithoutSzakmaInput, Tanulo_LetszamUncheckedCreateWithoutSzakmaInput> | Tanulo_LetszamCreateWithoutSzakmaInput[] | Tanulo_LetszamUncheckedCreateWithoutSzakmaInput[]
     connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutSzakmaInput | Tanulo_LetszamCreateOrConnectWithoutSzakmaInput[]
-    upsert?: Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakmaInput | Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakmaInput[]
     createMany?: Tanulo_LetszamCreateManySzakmaInputEnvelope
-    set?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
-    disconnect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
-    delete?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
     connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
-    update?: Tanulo_LetszamUpdateWithWhereUniqueWithoutSzakmaInput | Tanulo_LetszamUpdateWithWhereUniqueWithoutSzakmaInput[]
-    updateMany?: Tanulo_LetszamUpdateManyWithWhereWithoutSzakmaInput | Tanulo_LetszamUpdateManyWithWhereWithoutSzakmaInput[]
-    deleteMany?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
   }
 
   export type Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput = {
@@ -12844,7 +13276,7 @@ export namespace Prisma {
     deleteMany?: Felvettek_SzamaScalarWhereInput | Felvettek_SzamaScalarWhereInput[]
   }
 
-  export type Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput = {
+  export type Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput = {
     create?: XOR<Tanulo_LetszamCreateWithoutSzakmaInput, Tanulo_LetszamUncheckedCreateWithoutSzakmaInput> | Tanulo_LetszamCreateWithoutSzakmaInput[] | Tanulo_LetszamUncheckedCreateWithoutSzakmaInput[]
     connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutSzakmaInput | Tanulo_LetszamCreateOrConnectWithoutSzakmaInput[]
     upsert?: Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakmaInput | Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakmaInput[]
@@ -12872,6 +13304,20 @@ export namespace Prisma {
     deleteMany?: Felvettek_SzamaScalarWhereInput | Felvettek_SzamaScalarWhereInput[]
   }
 
+  export type Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput = {
+    create?: XOR<Tanulo_LetszamCreateWithoutSzakmaInput, Tanulo_LetszamUncheckedCreateWithoutSzakmaInput> | Tanulo_LetszamCreateWithoutSzakmaInput[] | Tanulo_LetszamUncheckedCreateWithoutSzakmaInput[]
+    connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutSzakmaInput | Tanulo_LetszamCreateOrConnectWithoutSzakmaInput[]
+    upsert?: Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakmaInput | Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakmaInput[]
+    createMany?: Tanulo_LetszamCreateManySzakmaInputEnvelope
+    set?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+    disconnect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+    delete?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+    connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+    update?: Tanulo_LetszamUpdateWithWhereUniqueWithoutSzakmaInput | Tanulo_LetszamUpdateWithWhereUniqueWithoutSzakmaInput[]
+    updateMany?: Tanulo_LetszamUpdateManyWithWhereWithoutSzakmaInput | Tanulo_LetszamUpdateManyWithWhereWithoutSzakmaInput[]
+    deleteMany?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
+  }
+
   export type AlapadatokCreateNestedOneWithoutTanulo_letszamInput = {
     create?: XOR<AlapadatokCreateWithoutTanulo_letszamInput, AlapadatokUncheckedCreateWithoutTanulo_letszamInput>
     connectOrCreate?: AlapadatokCreateOrConnectWithoutTanulo_letszamInput
@@ -12896,6 +13342,18 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type AlapadatokUpdateOneRequiredWithoutTanulo_letszamNestedInput = {
@@ -12968,14 +13426,6 @@ export namespace Prisma {
     create?: XOR<AlapadatokCreateWithoutTanugyiAdatokInput, AlapadatokUncheckedCreateWithoutTanugyiAdatokInput>
     connectOrCreate?: AlapadatokCreateOrConnectWithoutTanugyiAdatokInput
     connect?: AlapadatokWhereUniqueInput
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
   }
 
   export type AlapadatokUpdateOneRequiredWithoutTanugyiAdatokNestedInput = {
@@ -13053,6 +13503,42 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -13080,21 +13566,7 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -13102,7 +13574,10 @@ export namespace Prisma {
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -13133,68 +13608,18 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type Tanulo_LetszamCreateWithoutAlapadatokInput = {
-    id?: string
-    tanev_kezdete: number
-    jogv_tipus: number
-    letszam: number
-    szakirany: SzakiranyCreateNestedOneWithoutTanulo_letszamInput
-    szakma: SzakmaCreateNestedOneWithoutTanulo_letszamInput
-  }
-
-  export type Tanulo_LetszamUncheckedCreateWithoutAlapadatokInput = {
-    id?: string
-    tanev_kezdete: number
-    jogv_tipus: number
-    letszam: number
-    szakirany_id: string
-    szakma_id: string
-  }
-
-  export type Tanulo_LetszamCreateOrConnectWithoutAlapadatokInput = {
-    where: Tanulo_LetszamWhereUniqueInput
-    create: XOR<Tanulo_LetszamCreateWithoutAlapadatokInput, Tanulo_LetszamUncheckedCreateWithoutAlapadatokInput>
-  }
-
-  export type Tanulo_LetszamCreateManyAlapadatokInputEnvelope = {
-    data: Tanulo_LetszamCreateManyAlapadatokInput | Tanulo_LetszamCreateManyAlapadatokInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type Tanar_LetszamCreateWithoutAlapadatokInput = {
-    id?: string
-    tanev_kezdete: number
-    letszam: number
-  }
-
-  export type Tanar_LetszamUncheckedCreateWithoutAlapadatokInput = {
-    id?: string
-    tanev_kezdete: number
-    letszam: number
-  }
-
-  export type Tanar_LetszamCreateOrConnectWithoutAlapadatokInput = {
-    where: Tanar_LetszamWhereUniqueInput
-    create: XOR<Tanar_LetszamCreateWithoutAlapadatokInput, Tanar_LetszamUncheckedCreateWithoutAlapadatokInput>
-  }
-
-  export type Tanar_LetszamCreateManyAlapadatokInputEnvelope = {
-    data: Tanar_LetszamCreateManyAlapadatokInput | Tanar_LetszamCreateManyAlapadatokInput[]
-    skipDuplicates?: boolean
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type Felvettek_SzamaCreateWithoutAlapadatokInput = {
@@ -13203,6 +13628,10 @@ export namespace Prisma {
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
     szakma: SzakmaCreateNestedOneWithoutFelvettek_szamaInput
   }
 
@@ -13213,6 +13642,10 @@ export namespace Prisma {
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
   }
 
   export type Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput = {
@@ -13222,6 +13655,36 @@ export namespace Prisma {
 
   export type Felvettek_SzamaCreateManyAlapadatokInputEnvelope = {
     data: Felvettek_SzamaCreateManyAlapadatokInput | Felvettek_SzamaCreateManyAlapadatokInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type Tanar_LetszamCreateWithoutAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type Tanar_LetszamUncheckedCreateWithoutAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type Tanar_LetszamCreateOrConnectWithoutAlapadatokInput = {
+    where: Tanar_LetszamWhereUniqueInput
+    create: XOR<Tanar_LetszamCreateWithoutAlapadatokInput, Tanar_LetszamUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type Tanar_LetszamCreateManyAlapadatokInputEnvelope = {
+    data: Tanar_LetszamCreateManyAlapadatokInput | Tanar_LetszamCreateManyAlapadatokInput[]
     skipDuplicates?: boolean
   }
 
@@ -13239,7 +13702,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: string | null
     felvetel_taneve?: string | null
     torzslapszam?: string | null
-    tabulo_jogviszonya?: string | null
+    tanulo_jogviszonya?: string | null
     jogviszony_kezdete?: string | null
     jogviszony_megszunesenek_varhato_datuma?: string | null
     jogviszonyátSzunetelteto?: string | null
@@ -13282,7 +13745,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: string | null
     Dualis_kepzohely_neve?: string | null
     Dualis_kepzohely_adoszama?: string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: string | null
     kiemelten_tehetseges?: string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: string | null
@@ -13299,8 +13761,10 @@ export namespace Prisma {
     munkarend?: string | null
     createAt?: Date | string
     createBy: string
-    updatedAt?: Date | string
-    updatedBy: string
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: string | null
+    tanev_kezdete?: number
   }
 
   export type Tanugyi_AdatokUncheckedCreateWithoutAlapadatokInput = {
@@ -13317,7 +13781,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: string | null
     felvetel_taneve?: string | null
     torzslapszam?: string | null
-    tabulo_jogviszonya?: string | null
+    tanulo_jogviszonya?: string | null
     jogviszony_kezdete?: string | null
     jogviszony_megszunesenek_varhato_datuma?: string | null
     jogviszonyátSzunetelteto?: string | null
@@ -13360,7 +13824,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: string | null
     Dualis_kepzohely_neve?: string | null
     Dualis_kepzohely_adoszama?: string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: string | null
     kiemelten_tehetseges?: string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: string | null
@@ -13377,8 +13840,10 @@ export namespace Prisma {
     munkarend?: string | null
     createAt?: Date | string
     createBy: string
-    updatedAt?: Date | string
-    updatedBy: string
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: string | null
+    tanev_kezdete?: number
   }
 
   export type Tanugyi_AdatokCreateOrConnectWithoutAlapadatokInput = {
@@ -13391,59 +13856,40 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type Tanulo_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput = {
+  export type Tanulo_LetszamCreateWithoutAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    jogv_tipus: number
+    letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    szakirany: SzakiranyCreateNestedOneWithoutTanulo_letszamInput
+    szakma: SzakmaCreateNestedOneWithoutTanulo_letszamInput
+  }
+
+  export type Tanulo_LetszamUncheckedCreateWithoutAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    jogv_tipus: number
+    letszam: number
+    szakirany_id: string
+    szakma_id: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type Tanulo_LetszamCreateOrConnectWithoutAlapadatokInput = {
     where: Tanulo_LetszamWhereUniqueInput
-    update: XOR<Tanulo_LetszamUpdateWithoutAlapadatokInput, Tanulo_LetszamUncheckedUpdateWithoutAlapadatokInput>
     create: XOR<Tanulo_LetszamCreateWithoutAlapadatokInput, Tanulo_LetszamUncheckedCreateWithoutAlapadatokInput>
   }
 
-  export type Tanulo_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput = {
-    where: Tanulo_LetszamWhereUniqueInput
-    data: XOR<Tanulo_LetszamUpdateWithoutAlapadatokInput, Tanulo_LetszamUncheckedUpdateWithoutAlapadatokInput>
-  }
-
-  export type Tanulo_LetszamUpdateManyWithWhereWithoutAlapadatokInput = {
-    where: Tanulo_LetszamScalarWhereInput
-    data: XOR<Tanulo_LetszamUpdateManyMutationInput, Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokInput>
-  }
-
-  export type Tanulo_LetszamScalarWhereInput = {
-    AND?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
-    OR?: Tanulo_LetszamScalarWhereInput[]
-    NOT?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
-    id?: UuidFilter<"Tanulo_Letszam"> | string
-    alapadatok_id?: UuidFilter<"Tanulo_Letszam"> | string
-    tanev_kezdete?: IntFilter<"Tanulo_Letszam"> | number
-    jogv_tipus?: IntFilter<"Tanulo_Letszam"> | number
-    letszam?: IntFilter<"Tanulo_Letszam"> | number
-    szakirany_id?: UuidFilter<"Tanulo_Letszam"> | string
-    szakma_id?: UuidFilter<"Tanulo_Letszam"> | string
-  }
-
-  export type Tanar_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput = {
-    where: Tanar_LetszamWhereUniqueInput
-    update: XOR<Tanar_LetszamUpdateWithoutAlapadatokInput, Tanar_LetszamUncheckedUpdateWithoutAlapadatokInput>
-    create: XOR<Tanar_LetszamCreateWithoutAlapadatokInput, Tanar_LetszamUncheckedCreateWithoutAlapadatokInput>
-  }
-
-  export type Tanar_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput = {
-    where: Tanar_LetszamWhereUniqueInput
-    data: XOR<Tanar_LetszamUpdateWithoutAlapadatokInput, Tanar_LetszamUncheckedUpdateWithoutAlapadatokInput>
-  }
-
-  export type Tanar_LetszamUpdateManyWithWhereWithoutAlapadatokInput = {
-    where: Tanar_LetszamScalarWhereInput
-    data: XOR<Tanar_LetszamUpdateManyMutationInput, Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokInput>
-  }
-
-  export type Tanar_LetszamScalarWhereInput = {
-    AND?: Tanar_LetszamScalarWhereInput | Tanar_LetszamScalarWhereInput[]
-    OR?: Tanar_LetszamScalarWhereInput[]
-    NOT?: Tanar_LetszamScalarWhereInput | Tanar_LetszamScalarWhereInput[]
-    id?: UuidFilter<"Tanar_Letszam"> | string
-    alapadatok_id?: UuidFilter<"Tanar_Letszam"> | string
-    tanev_kezdete?: IntFilter<"Tanar_Letszam"> | number
-    letszam?: IntFilter<"Tanar_Letszam"> | number
+  export type Tanulo_LetszamCreateManyAlapadatokInputEnvelope = {
+    data: Tanulo_LetszamCreateManyAlapadatokInput | Tanulo_LetszamCreateManyAlapadatokInput[]
+    skipDuplicates?: boolean
   }
 
   export type Felvettek_SzamaUpsertWithWhereUniqueWithoutAlapadatokInput = {
@@ -13473,6 +13919,40 @@ export namespace Prisma {
     jelentkezo_letszam?: IntFilter<"Felvettek_Szama"> | number
     felveheto_letszam?: IntFilter<"Felvettek_Szama"> | number
     felvett_letszam?: IntFilter<"Felvettek_Szama"> | number
+    createAt?: DateTimeFilter<"Felvettek_Szama"> | Date | string
+    createBy?: StringNullableFilter<"Felvettek_Szama"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Felvettek_Szama"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Felvettek_Szama"> | string | null
+  }
+
+  export type Tanar_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput = {
+    where: Tanar_LetszamWhereUniqueInput
+    update: XOR<Tanar_LetszamUpdateWithoutAlapadatokInput, Tanar_LetszamUncheckedUpdateWithoutAlapadatokInput>
+    create: XOR<Tanar_LetszamCreateWithoutAlapadatokInput, Tanar_LetszamUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type Tanar_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput = {
+    where: Tanar_LetszamWhereUniqueInput
+    data: XOR<Tanar_LetszamUpdateWithoutAlapadatokInput, Tanar_LetszamUncheckedUpdateWithoutAlapadatokInput>
+  }
+
+  export type Tanar_LetszamUpdateManyWithWhereWithoutAlapadatokInput = {
+    where: Tanar_LetszamScalarWhereInput
+    data: XOR<Tanar_LetszamUpdateManyMutationInput, Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokInput>
+  }
+
+  export type Tanar_LetszamScalarWhereInput = {
+    AND?: Tanar_LetszamScalarWhereInput | Tanar_LetszamScalarWhereInput[]
+    OR?: Tanar_LetszamScalarWhereInput[]
+    NOT?: Tanar_LetszamScalarWhereInput | Tanar_LetszamScalarWhereInput[]
+    id?: UuidFilter<"Tanar_Letszam"> | string
+    alapadatok_id?: UuidFilter<"Tanar_Letszam"> | string
+    tanev_kezdete?: IntFilter<"Tanar_Letszam"> | number
+    letszam?: IntFilter<"Tanar_Letszam"> | number
+    createAt?: DateTimeFilter<"Tanar_Letszam"> | Date | string
+    createBy?: StringNullableFilter<"Tanar_Letszam"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Tanar_Letszam"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Tanar_Letszam"> | string | null
   }
 
   export type Tanugyi_AdatokUpsertWithWhereUniqueWithoutAlapadatokInput = {
@@ -13508,7 +13988,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     felvetel_taneve?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     torzslapszam?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
-    tabulo_jogviszonya?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tanulo_jogviszonya?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     jogviszony_kezdete?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     jogviszony_megszunesenek_varhato_datuma?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     jogviszonyátSzunetelteto?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
@@ -13551,7 +14031,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     Dualis_kepzohely_neve?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     Dualis_kepzohely_adoszama?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     kiemelten_tehetseges?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
@@ -13569,8 +14048,43 @@ export namespace Prisma {
     alapadatok_id?: UuidFilter<"Tanugyi_Adatok"> | string
     createAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
     createBy?: StringFilter<"Tanugyi_Adatok"> | string
-    updatedAt?: DateTimeFilter<"Tanugyi_Adatok"> | Date | string
-    updatedBy?: StringFilter<"Tanugyi_Adatok"> | string
+    updatedAt?: DateTimeNullableFilter<"Tanugyi_Adatok"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: StringNullableFilter<"Tanugyi_Adatok"> | string | null
+    tanev_kezdete?: IntFilter<"Tanugyi_Adatok"> | number
+  }
+
+  export type Tanulo_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput = {
+    where: Tanulo_LetszamWhereUniqueInput
+    update: XOR<Tanulo_LetszamUpdateWithoutAlapadatokInput, Tanulo_LetszamUncheckedUpdateWithoutAlapadatokInput>
+    create: XOR<Tanulo_LetszamCreateWithoutAlapadatokInput, Tanulo_LetszamUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type Tanulo_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput = {
+    where: Tanulo_LetszamWhereUniqueInput
+    data: XOR<Tanulo_LetszamUpdateWithoutAlapadatokInput, Tanulo_LetszamUncheckedUpdateWithoutAlapadatokInput>
+  }
+
+  export type Tanulo_LetszamUpdateManyWithWhereWithoutAlapadatokInput = {
+    where: Tanulo_LetszamScalarWhereInput
+    data: XOR<Tanulo_LetszamUpdateManyMutationInput, Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokInput>
+  }
+
+  export type Tanulo_LetszamScalarWhereInput = {
+    AND?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
+    OR?: Tanulo_LetszamScalarWhereInput[]
+    NOT?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
+    id?: UuidFilter<"Tanulo_Letszam"> | string
+    alapadatok_id?: UuidFilter<"Tanulo_Letszam"> | string
+    tanev_kezdete?: IntFilter<"Tanulo_Letszam"> | number
+    jogv_tipus?: IntFilter<"Tanulo_Letszam"> | number
+    letszam?: IntFilter<"Tanulo_Letszam"> | number
+    szakirany_id?: UuidFilter<"Tanulo_Letszam"> | string
+    szakma_id?: UuidFilter<"Tanulo_Letszam"> | string
+    createAt?: DateTimeFilter<"Tanulo_Letszam"> | Date | string
+    createBy?: StringNullableFilter<"Tanulo_Letszam"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Tanulo_Letszam"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Tanulo_Letszam"> | string | null
   }
 
   export type Tanulo_LetszamCreateWithoutSzakiranyInput = {
@@ -13578,6 +14092,10 @@ export namespace Prisma {
     tanev_kezdete: number
     jogv_tipus: number
     letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
     alapadatok: AlapadatokCreateNestedOneWithoutTanulo_letszamInput
     szakma: SzakmaCreateNestedOneWithoutTanulo_letszamInput
   }
@@ -13589,6 +14107,10 @@ export namespace Prisma {
     jogv_tipus: number
     letszam: number
     szakma_id: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
   }
 
   export type Tanulo_LetszamCreateOrConnectWithoutSzakiranyInput = {
@@ -13617,40 +14139,16 @@ export namespace Prisma {
     data: XOR<Tanulo_LetszamUpdateManyMutationInput, Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyInput>
   }
 
-  export type Tanulo_LetszamCreateWithoutSzakmaInput = {
-    id?: string
-    tanev_kezdete: number
-    jogv_tipus: number
-    letszam: number
-    alapadatok: AlapadatokCreateNestedOneWithoutTanulo_letszamInput
-    szakirany: SzakiranyCreateNestedOneWithoutTanulo_letszamInput
-  }
-
-  export type Tanulo_LetszamUncheckedCreateWithoutSzakmaInput = {
-    id?: string
-    alapadatok_id: string
-    tanev_kezdete: number
-    jogv_tipus: number
-    letszam: number
-    szakirany_id: string
-  }
-
-  export type Tanulo_LetszamCreateOrConnectWithoutSzakmaInput = {
-    where: Tanulo_LetszamWhereUniqueInput
-    create: XOR<Tanulo_LetszamCreateWithoutSzakmaInput, Tanulo_LetszamUncheckedCreateWithoutSzakmaInput>
-  }
-
-  export type Tanulo_LetszamCreateManySzakmaInputEnvelope = {
-    data: Tanulo_LetszamCreateManySzakmaInput | Tanulo_LetszamCreateManySzakmaInput[]
-    skipDuplicates?: boolean
-  }
-
   export type Felvettek_SzamaCreateWithoutSzakmaInput = {
     id?: string
     tanev_kezdete: number
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
     alapadatok: AlapadatokCreateNestedOneWithoutFelvettek_szamaInput
   }
 
@@ -13661,6 +14159,10 @@ export namespace Prisma {
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
   }
 
   export type Felvettek_SzamaCreateOrConnectWithoutSzakmaInput = {
@@ -13673,20 +14175,40 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakmaInput = {
+  export type Tanulo_LetszamCreateWithoutSzakmaInput = {
+    id?: string
+    tanev_kezdete: number
+    jogv_tipus: number
+    letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    alapadatok: AlapadatokCreateNestedOneWithoutTanulo_letszamInput
+    szakirany: SzakiranyCreateNestedOneWithoutTanulo_letszamInput
+  }
+
+  export type Tanulo_LetszamUncheckedCreateWithoutSzakmaInput = {
+    id?: string
+    alapadatok_id: string
+    tanev_kezdete: number
+    jogv_tipus: number
+    letszam: number
+    szakirany_id: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type Tanulo_LetszamCreateOrConnectWithoutSzakmaInput = {
     where: Tanulo_LetszamWhereUniqueInput
-    update: XOR<Tanulo_LetszamUpdateWithoutSzakmaInput, Tanulo_LetszamUncheckedUpdateWithoutSzakmaInput>
     create: XOR<Tanulo_LetszamCreateWithoutSzakmaInput, Tanulo_LetszamUncheckedCreateWithoutSzakmaInput>
   }
 
-  export type Tanulo_LetszamUpdateWithWhereUniqueWithoutSzakmaInput = {
-    where: Tanulo_LetszamWhereUniqueInput
-    data: XOR<Tanulo_LetszamUpdateWithoutSzakmaInput, Tanulo_LetszamUncheckedUpdateWithoutSzakmaInput>
-  }
-
-  export type Tanulo_LetszamUpdateManyWithWhereWithoutSzakmaInput = {
-    where: Tanulo_LetszamScalarWhereInput
-    data: XOR<Tanulo_LetszamUpdateManyMutationInput, Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaInput>
+  export type Tanulo_LetszamCreateManySzakmaInputEnvelope = {
+    data: Tanulo_LetszamCreateManySzakmaInput | Tanulo_LetszamCreateManySzakmaInput[]
+    skipDuplicates?: boolean
   }
 
   export type Felvettek_SzamaUpsertWithWhereUniqueWithoutSzakmaInput = {
@@ -13705,12 +14227,28 @@ export namespace Prisma {
     data: XOR<Felvettek_SzamaUpdateManyMutationInput, Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaInput>
   }
 
+  export type Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakmaInput = {
+    where: Tanulo_LetszamWhereUniqueInput
+    update: XOR<Tanulo_LetszamUpdateWithoutSzakmaInput, Tanulo_LetszamUncheckedUpdateWithoutSzakmaInput>
+    create: XOR<Tanulo_LetszamCreateWithoutSzakmaInput, Tanulo_LetszamUncheckedCreateWithoutSzakmaInput>
+  }
+
+  export type Tanulo_LetszamUpdateWithWhereUniqueWithoutSzakmaInput = {
+    where: Tanulo_LetszamWhereUniqueInput
+    data: XOR<Tanulo_LetszamUpdateWithoutSzakmaInput, Tanulo_LetszamUncheckedUpdateWithoutSzakmaInput>
+  }
+
+  export type Tanulo_LetszamUpdateManyWithWhereWithoutSzakmaInput = {
+    where: Tanulo_LetszamScalarWhereInput
+    data: XOR<Tanulo_LetszamUpdateManyMutationInput, Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaInput>
+  }
+
   export type AlapadatokCreateWithoutTanulo_letszamInput = {
     id?: string
     iskola_neve: string
     intezmeny_tipus: string
-    tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -13718,8 +14256,8 @@ export namespace Prisma {
     id?: string
     iskola_neve: string
     intezmeny_tipus: string
-    tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -13775,8 +14313,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
-    tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -13784,8 +14322,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
-    tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -13837,18 +14375,18 @@ export namespace Prisma {
     id?: string
     iskola_neve: string
     intezmeny_tipus: string
-    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutTanar_letszamInput = {
     id?: string
     iskola_neve: string
     intezmeny_tipus: string
-    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutTanar_letszamInput = {
@@ -13871,36 +14409,36 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
-    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutTanar_letszamInput = {
     id?: StringFieldUpdateOperationsInput | string
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
-    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateWithoutFelvettek_szamaInput = {
     id?: string
     iskola_neve: string
     intezmeny_tipus: string
-    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutFelvettek_szamaInput = {
     id?: string
     iskola_neve: string
     intezmeny_tipus: string
-    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutFelvettek_szamaInput = {
@@ -13940,18 +14478,18 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
-    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
     tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutFelvettek_szamaInput = {
     id?: StringFieldUpdateOperationsInput | string
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
-    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type SzakmaUpsertWithoutFelvettek_szamaInput = {
@@ -13981,18 +14519,18 @@ export namespace Prisma {
     id?: string
     iskola_neve: string
     intezmeny_tipus: string
-    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
-    tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutTanugyiAdatokInput = {
     id?: string
     iskola_neve: string
     intezmeny_tipus: string
-    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
-    tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutTanugyiAdatokInput = {
@@ -14015,33 +14553,18 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
-    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
-    tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutTanugyiAdatokInput = {
     id?: StringFieldUpdateOperationsInput | string
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
-    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
-    tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
-  }
-
-  export type Tanulo_LetszamCreateManyAlapadatokInput = {
-    id?: string
-    tanev_kezdete: number
-    jogv_tipus: number
-    letszam: number
-    szakirany_id: string
-    szakma_id: string
-  }
-
-  export type Tanar_LetszamCreateManyAlapadatokInput = {
-    id?: string
-    tanev_kezdete: number
-    letszam: number
+    tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type Felvettek_SzamaCreateManyAlapadatokInput = {
@@ -14051,6 +14574,20 @@ export namespace Prisma {
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type Tanar_LetszamCreateManyAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
   }
 
   export type Tanugyi_AdatokCreateManyAlapadatokInput = {
@@ -14067,7 +14604,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: string | null
     felvetel_taneve?: string | null
     torzslapszam?: string | null
-    tabulo_jogviszonya?: string | null
+    tanulo_jogviszonya?: string | null
     jogviszony_kezdete?: string | null
     jogviszony_megszunesenek_varhato_datuma?: string | null
     jogviszonyátSzunetelteto?: string | null
@@ -14110,7 +14647,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: string | null
     Dualis_kepzohely_neve?: string | null
     Dualis_kepzohely_adoszama?: string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: string | null
     kiemelten_tehetseges?: string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: string | null
@@ -14127,53 +14663,23 @@ export namespace Prisma {
     munkarend?: string | null
     createAt?: Date | string
     createBy: string
-    updatedAt?: Date | string
-    updatedBy: string
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: string | null
+    tanev_kezdete?: number
   }
 
-  export type Tanulo_LetszamUpdateWithoutAlapadatokInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    jogv_tipus?: IntFieldUpdateOperationsInput | number
-    letszam?: IntFieldUpdateOperationsInput | number
-    szakirany?: SzakiranyUpdateOneRequiredWithoutTanulo_letszamNestedInput
-    szakma?: SzakmaUpdateOneRequiredWithoutTanulo_letszamNestedInput
-  }
-
-  export type Tanulo_LetszamUncheckedUpdateWithoutAlapadatokInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    jogv_tipus?: IntFieldUpdateOperationsInput | number
-    letszam?: IntFieldUpdateOperationsInput | number
-    szakirany_id?: StringFieldUpdateOperationsInput | string
-    szakma_id?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    jogv_tipus?: IntFieldUpdateOperationsInput | number
-    letszam?: IntFieldUpdateOperationsInput | number
-    szakirany_id?: StringFieldUpdateOperationsInput | string
-    szakma_id?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type Tanar_LetszamUpdateWithoutAlapadatokInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    letszam?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type Tanar_LetszamUncheckedUpdateWithoutAlapadatokInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    letszam?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    letszam?: IntFieldUpdateOperationsInput | number
+  export type Tanulo_LetszamCreateManyAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    jogv_tipus: number
+    letszam: number
+    szakirany_id: string
+    szakma_id: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
   }
 
   export type Felvettek_SzamaUpdateWithoutAlapadatokInput = {
@@ -14182,6 +14688,10 @@ export namespace Prisma {
     jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
     felveheto_letszam?: IntFieldUpdateOperationsInput | number
     felvett_letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     szakma?: SzakmaUpdateOneRequiredWithoutFelvettek_szamaNestedInput
   }
 
@@ -14192,6 +14702,10 @@ export namespace Prisma {
     jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
     felveheto_letszam?: IntFieldUpdateOperationsInput | number
     felvett_letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokInput = {
@@ -14201,6 +14715,40 @@ export namespace Prisma {
     jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
     felveheto_letszam?: IntFieldUpdateOperationsInput | number
     felvett_letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type Tanar_LetszamUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type Tanar_LetszamUncheckedUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Tanugyi_AdatokUpdateWithoutAlapadatokInput = {
@@ -14217,7 +14765,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: NullableStringFieldUpdateOperationsInput | string | null
     felvetel_taneve?: NullableStringFieldUpdateOperationsInput | string | null
     torzslapszam?: NullableStringFieldUpdateOperationsInput | string | null
-    tabulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
+    tanulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszony_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszony_megszunesenek_varhato_datuma?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszonyátSzunetelteto?: NullableStringFieldUpdateOperationsInput | string | null
@@ -14260,7 +14808,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: NullableStringFieldUpdateOperationsInput | string | null
     Dualis_kepzohely_neve?: NullableStringFieldUpdateOperationsInput | string | null
     Dualis_kepzohely_adoszama?: NullableStringFieldUpdateOperationsInput | string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
     kiemelten_tehetseges?: NullableStringFieldUpdateOperationsInput | string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: NullableStringFieldUpdateOperationsInput | string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
@@ -14277,8 +14824,10 @@ export namespace Prisma {
     munkarend?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: StringFieldUpdateOperationsInput | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
   }
 
   export type Tanugyi_AdatokUncheckedUpdateWithoutAlapadatokInput = {
@@ -14295,7 +14844,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: NullableStringFieldUpdateOperationsInput | string | null
     felvetel_taneve?: NullableStringFieldUpdateOperationsInput | string | null
     torzslapszam?: NullableStringFieldUpdateOperationsInput | string | null
-    tabulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
+    tanulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszony_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszony_megszunesenek_varhato_datuma?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszonyátSzunetelteto?: NullableStringFieldUpdateOperationsInput | string | null
@@ -14338,7 +14887,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: NullableStringFieldUpdateOperationsInput | string | null
     Dualis_kepzohely_neve?: NullableStringFieldUpdateOperationsInput | string | null
     Dualis_kepzohely_adoszama?: NullableStringFieldUpdateOperationsInput | string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
     kiemelten_tehetseges?: NullableStringFieldUpdateOperationsInput | string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: NullableStringFieldUpdateOperationsInput | string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
@@ -14355,8 +14903,10 @@ export namespace Prisma {
     munkarend?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: StringFieldUpdateOperationsInput | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
   }
 
   export type Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokInput = {
@@ -14373,7 +14923,7 @@ export namespace Prisma {
     beiras_naplo_sorszam?: NullableStringFieldUpdateOperationsInput | string | null
     felvetel_taneve?: NullableStringFieldUpdateOperationsInput | string | null
     torzslapszam?: NullableStringFieldUpdateOperationsInput | string | null
-    tabulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
+    tanulo_jogviszonya?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszony_kezdete?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszony_megszunesenek_varhato_datuma?: NullableStringFieldUpdateOperationsInput | string | null
     jogviszonyátSzunetelteto?: NullableStringFieldUpdateOperationsInput | string | null
@@ -14416,7 +14966,6 @@ export namespace Prisma {
     szakkepzesi_munkaszerzodessel?: NullableStringFieldUpdateOperationsInput | string | null
     Dualis_kepzohely_neve?: NullableStringFieldUpdateOperationsInput | string | null
     Dualis_kepzohely_adoszama?: NullableStringFieldUpdateOperationsInput | string | null
-    a_evfolyamosok_kozul_a_evfolyamot_azelozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
     kiemelten_tehetseges?: NullableStringFieldUpdateOperationsInput | string | null
     szamitogepet_tanulasi_oktatasi_celra_hasznal?: NullableStringFieldUpdateOperationsInput | string | null
     szaboky_adolf_szakkepzesi_osztondijban_reszesul?: NullableStringFieldUpdateOperationsInput | string | null
@@ -14433,8 +14982,49 @@ export namespace Prisma {
     munkarend?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: StringFieldUpdateOperationsInput | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte?: NullableStringFieldUpdateOperationsInput | string | null
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type Tanulo_LetszamUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    jogv_tipus?: IntFieldUpdateOperationsInput | number
+    letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    szakirany?: SzakiranyUpdateOneRequiredWithoutTanulo_letszamNestedInput
+    szakma?: SzakmaUpdateOneRequiredWithoutTanulo_letszamNestedInput
+  }
+
+  export type Tanulo_LetszamUncheckedUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    jogv_tipus?: IntFieldUpdateOperationsInput | number
+    letszam?: IntFieldUpdateOperationsInput | number
+    szakirany_id?: StringFieldUpdateOperationsInput | string
+    szakma_id?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    jogv_tipus?: IntFieldUpdateOperationsInput | number
+    letszam?: IntFieldUpdateOperationsInput | number
+    szakirany_id?: StringFieldUpdateOperationsInput | string
+    szakma_id?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Tanulo_LetszamCreateManySzakiranyInput = {
@@ -14444,6 +15034,10 @@ export namespace Prisma {
     jogv_tipus: number
     letszam: number
     szakma_id: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
   }
 
   export type Tanulo_LetszamUpdateWithoutSzakiranyInput = {
@@ -14451,6 +15045,10 @@ export namespace Prisma {
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     jogv_tipus?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     alapadatok?: AlapadatokUpdateOneRequiredWithoutTanulo_letszamNestedInput
     szakma?: SzakmaUpdateOneRequiredWithoutTanulo_letszamNestedInput
   }
@@ -14462,6 +15060,10 @@ export namespace Prisma {
     jogv_tipus?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
     szakma_id?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyInput = {
@@ -14471,15 +15073,10 @@ export namespace Prisma {
     jogv_tipus?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
     szakma_id?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type Tanulo_LetszamCreateManySzakmaInput = {
-    id?: string
-    alapadatok_id: string
-    tanev_kezdete: number
-    jogv_tipus: number
-    letszam: number
-    szakirany_id: string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Felvettek_SzamaCreateManySzakmaInput = {
@@ -14489,6 +15086,62 @@ export namespace Prisma {
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type Tanulo_LetszamCreateManySzakmaInput = {
+    id?: string
+    alapadatok_id: string
+    tanev_kezdete: number
+    jogv_tipus: number
+    letszam: number
+    szakirany_id: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type Felvettek_SzamaUpdateWithoutSzakmaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
+    felveheto_letszam?: IntFieldUpdateOperationsInput | number
+    felvett_letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    alapadatok?: AlapadatokUpdateOneRequiredWithoutFelvettek_szamaNestedInput
+  }
+
+  export type Felvettek_SzamaUncheckedUpdateWithoutSzakmaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
+    felveheto_letszam?: IntFieldUpdateOperationsInput | number
+    felvett_letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
+    felveheto_letszam?: IntFieldUpdateOperationsInput | number
+    felvett_letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Tanulo_LetszamUpdateWithoutSzakmaInput = {
@@ -14496,6 +15149,10 @@ export namespace Prisma {
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     jogv_tipus?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     alapadatok?: AlapadatokUpdateOneRequiredWithoutTanulo_letszamNestedInput
     szakirany?: SzakiranyUpdateOneRequiredWithoutTanulo_letszamNestedInput
   }
@@ -14507,6 +15164,10 @@ export namespace Prisma {
     jogv_tipus?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaInput = {
@@ -14516,33 +15177,10 @@ export namespace Prisma {
     jogv_tipus?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type Felvettek_SzamaUpdateWithoutSzakmaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
-    felveheto_letszam?: IntFieldUpdateOperationsInput | number
-    felvett_letszam?: IntFieldUpdateOperationsInput | number
-    alapadatok?: AlapadatokUpdateOneRequiredWithoutFelvettek_szamaNestedInput
-  }
-
-  export type Felvettek_SzamaUncheckedUpdateWithoutSzakmaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    alapadatok_id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
-    felveheto_letszam?: IntFieldUpdateOperationsInput | number
-    felvett_letszam?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    alapadatok_id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
-    felveheto_letszam?: IntFieldUpdateOperationsInput | number
-    felvett_letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 
