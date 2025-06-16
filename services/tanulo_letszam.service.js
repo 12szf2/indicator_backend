@@ -38,6 +38,10 @@ export async function getById(id) {
         alapadatok_id: id,
       },
     },
+    include: {
+      szakirany: true,
+      szakma: true,
+    },
   });
 
   return data;
@@ -50,6 +54,8 @@ export async function create(
   szakirany,
   tanev_kezdete
 ) {
+  await deleteMany(alapadatok_id, tanev_kezdete);
+
   const szakiranyData = await prisma.szakirany.findUnique({
     where: {
       nev: szakirany,
@@ -64,12 +70,23 @@ export async function create(
 
   const ret = await prisma.tanulo_Letszam.create({
     data: {
-      tanev_kezdete,
+      tanev_kezdete: Number(tanev_kezdete),
       szakirany_id: szakiranyData.id,
       szakma_id: szakmaData.id,
+      alapadatok_id: alapadatok_id,
+      jogv_tipus: Number(jogv_tipus),
+      letszam: Number(letszam),
+    },
+  });
+
+  return ret;
+}
+
+export async function deleteMany(alapadatok_id, year) {
+  const ret = await prisma.tanulo_Letszam.deleteMany({
+    where: {
       alapadatok_id,
-      jogv_tipus,
-      letszam,
+      tanev_kezdete: Number(year),
     },
   });
 
