@@ -16,6 +16,7 @@ model Alapadatok {
   tanar_letszam   Tanar_Letszam[]
   tanugyiAdatok   Tanugyi_Adatok[]
   tanulo_letszam  Tanulo_Letszam[]
+  kompetencia Kompetencia[]
 }
 
 model Szakirany {
@@ -79,6 +80,24 @@ model Felvettek_Szama {
   updatedBy                                                       String?
 }
 
+model Kompetencia {
+  id                 String     @id @default(uuid()) @db.Uuid
+  tanev_kezdete      Int        @default(0) @db.SmallInt
+  mat_orsz_p         String
+  szoveg_orsz_p      String
+  mat_int_p          String
+  szoveg_int_p       String
+  kepzes_forma       String
+
+  alapadatok_id      String     @db.Uuid
+
+  alapadatok         Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  createAt                                                        DateTime   @default(now())
+  createBy                                                        String?
+  updatedAt                                                       DateTime?   @updatedAt
+  updatedBy                                                       String?
+}
+
 model Tanugyi_Adatok {
   id                                                              String     @id @default(uuid()) @db.Uuid
   elotag                                                          String?
@@ -96,9 +115,9 @@ model Tanugyi_Adatok {
   tanulo_jogviszonya                                              String?
   jogviszony_kezdete                                              String?
   jogviszony_megszunesenek_varhato_datuma                         String?
-  jogviszonyátSzunetelteto                                       String?
+  jogviszonyátSzunetelteto                                        String?
   tankotelezettsegetTeljesito                                     String?
-  tankotelezettségVege                                           String?
+  tankotelezettségVege                                            String?
   bejaro                                                          String?
   Szakmai_gyakorlaton_tartozkodik                                 String?
   Egyeni_munkarend                                                String?
@@ -116,7 +135,7 @@ model Tanugyi_Adatok {
   osztaly1                                                        String?
   evfolyam                                                        String?
   bizonyitvany_sorszama                                           String?
-  okleveles_technikus_képzes                                     String?
+  okleveles_technikus_képzes                                      String?
   uj_Szkt_agazat_tipusa                                           String?
   uj_szkt_szakma_tipusa                                           String?
   uj_szkt_szakmairany_tipusa                                      String?
@@ -143,7 +162,7 @@ model Tanugyi_Adatok {
   nyelvi_elokeszito                                               String?
   ket_tanitasi_nyelvu                                             String?
   NemzetisegiNevelesOktatas                                       String?
-  NemzetisegiNevelesOktatásFajtaja                               String?
+  NemzetisegiNevelesOktatásFajtaja                                String?
   nemzetisegiNyelv                                                String?
   nemzetisegNyelvenFolyoSzakmaiOktatas                            String?
   sportosztaly                                                    String?

@@ -175,6 +175,21 @@ exports.Prisma.Felvettek_SzamaScalarFieldEnum = {
   updatedBy: 'updatedBy'
 };
 
+exports.Prisma.KompetenciaScalarFieldEnum = {
+  id: 'id',
+  tanev_kezdete: 'tanev_kezdete',
+  mat_orsz_p: 'mat_orsz_p',
+  szoveg_orsz_p: 'szoveg_orsz_p',
+  mat_int_p: 'mat_int_p',
+  szoveg_int_p: 'szoveg_int_p',
+  kepzes_forma: 'kepzes_forma',
+  alapadatok_id: 'alapadatok_id',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
 exports.Prisma.Tanugyi_AdatokScalarFieldEnum = {
   id: 'id',
   elotag: 'elotag',
@@ -278,6 +293,7 @@ exports.Prisma.ModelName = {
   Tanulo_Letszam: 'Tanulo_Letszam',
   Tanar_Letszam: 'Tanar_Letszam',
   Felvettek_Szama: 'Felvettek_Szama',
+  Kompetencia: 'Kompetencia',
   Tanugyi_Adatok: 'Tanugyi_Adatok'
 };
 
