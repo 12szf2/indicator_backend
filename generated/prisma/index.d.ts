@@ -44,6 +44,11 @@ export type Tanar_Letszam = $Result.DefaultSelection<Prisma.$Tanar_LetszamPayloa
  */
 export type Felvettek_Szama = $Result.DefaultSelection<Prisma.$Felvettek_SzamaPayload>
 /**
+ * Model Kompetencia
+ * 
+ */
+export type Kompetencia = $Result.DefaultSelection<Prisma.$KompetenciaPayload>
+/**
  * Model Tanugyi_Adatok
  * 
  */
@@ -233,6 +238,16 @@ export class PrismaClient<
     * ```
     */
   get felvettek_Szama(): Prisma.Felvettek_SzamaDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.kompetencia`: Exposes CRUD operations for the **Kompetencia** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Kompetencias
+    * const kompetencias = await prisma.kompetencia.findMany()
+    * ```
+    */
+  get kompetencia(): Prisma.KompetenciaDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.tanugyi_Adatok`: Exposes CRUD operations for the **Tanugyi_Adatok** model.
@@ -689,6 +704,7 @@ export namespace Prisma {
     Tanulo_Letszam: 'Tanulo_Letszam',
     Tanar_Letszam: 'Tanar_Letszam',
     Felvettek_Szama: 'Felvettek_Szama',
+    Kompetencia: 'Kompetencia',
     Tanugyi_Adatok: 'Tanugyi_Adatok'
   };
 
@@ -708,7 +724,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "alapadatok" | "szakirany" | "szakma" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "tanugyi_Adatok"
+      modelProps: "alapadatok" | "szakirany" | "szakma" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "tanugyi_Adatok"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1156,6 +1172,80 @@ export namespace Prisma {
           }
         }
       }
+      Kompetencia: {
+        payload: Prisma.$KompetenciaPayload<ExtArgs>
+        fields: Prisma.KompetenciaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.KompetenciaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KompetenciaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.KompetenciaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KompetenciaPayload>
+          }
+          findFirst: {
+            args: Prisma.KompetenciaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KompetenciaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.KompetenciaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KompetenciaPayload>
+          }
+          findMany: {
+            args: Prisma.KompetenciaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KompetenciaPayload>[]
+          }
+          create: {
+            args: Prisma.KompetenciaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KompetenciaPayload>
+          }
+          createMany: {
+            args: Prisma.KompetenciaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.KompetenciaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KompetenciaPayload>[]
+          }
+          delete: {
+            args: Prisma.KompetenciaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KompetenciaPayload>
+          }
+          update: {
+            args: Prisma.KompetenciaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KompetenciaPayload>
+          }
+          deleteMany: {
+            args: Prisma.KompetenciaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.KompetenciaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.KompetenciaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KompetenciaPayload>[]
+          }
+          upsert: {
+            args: Prisma.KompetenciaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$KompetenciaPayload>
+          }
+          aggregate: {
+            args: Prisma.KompetenciaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateKompetencia>
+          }
+          groupBy: {
+            args: Prisma.KompetenciaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<KompetenciaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.KompetenciaCountArgs<ExtArgs>
+            result: $Utils.Optional<KompetenciaCountAggregateOutputType> | number
+          }
+        }
+      }
       Tanugyi_Adatok: {
         payload: Prisma.$Tanugyi_AdatokPayload<ExtArgs>
         fields: Prisma.Tanugyi_AdatokFieldRefs
@@ -1320,6 +1410,7 @@ export namespace Prisma {
     tanulo_Letszam?: Tanulo_LetszamOmit
     tanar_Letszam?: Tanar_LetszamOmit
     felvettek_Szama?: Felvettek_SzamaOmit
+    kompetencia?: KompetenciaOmit
     tanugyi_Adatok?: Tanugyi_AdatokOmit
   }
 
@@ -1419,6 +1510,7 @@ export namespace Prisma {
     tanar_letszam: number
     tanugyiAdatok: number
     tanulo_letszam: number
+    kompetencia: number
   }
 
   export type AlapadatokCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1426,6 +1518,7 @@ export namespace Prisma {
     tanar_letszam?: boolean | AlapadatokCountOutputTypeCountTanar_letszamArgs
     tanugyiAdatok?: boolean | AlapadatokCountOutputTypeCountTanugyiAdatokArgs
     tanulo_letszam?: boolean | AlapadatokCountOutputTypeCountTanulo_letszamArgs
+    kompetencia?: boolean | AlapadatokCountOutputTypeCountKompetenciaArgs
   }
 
   // Custom InputTypes
@@ -1465,6 +1558,13 @@ export namespace Prisma {
    */
   export type AlapadatokCountOutputTypeCountTanulo_letszamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: Tanulo_LetszamWhereInput
+  }
+
+  /**
+   * AlapadatokCountOutputType without action
+   */
+  export type AlapadatokCountOutputTypeCountKompetenciaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: KompetenciaWhereInput
   }
 
 
@@ -1695,6 +1795,7 @@ export namespace Prisma {
     tanar_letszam?: boolean | Alapadatok$tanar_letszamArgs<ExtArgs>
     tanugyiAdatok?: boolean | Alapadatok$tanugyiAdatokArgs<ExtArgs>
     tanulo_letszam?: boolean | Alapadatok$tanulo_letszamArgs<ExtArgs>
+    kompetencia?: boolean | Alapadatok$kompetenciaArgs<ExtArgs>
     _count?: boolean | AlapadatokCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["alapadatok"]>
 
@@ -1722,6 +1823,7 @@ export namespace Prisma {
     tanar_letszam?: boolean | Alapadatok$tanar_letszamArgs<ExtArgs>
     tanugyiAdatok?: boolean | Alapadatok$tanugyiAdatokArgs<ExtArgs>
     tanulo_letszam?: boolean | Alapadatok$tanulo_letszamArgs<ExtArgs>
+    kompetencia?: boolean | Alapadatok$kompetenciaArgs<ExtArgs>
     _count?: boolean | AlapadatokCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type AlapadatokIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1734,6 +1836,7 @@ export namespace Prisma {
       tanar_letszam: Prisma.$Tanar_LetszamPayload<ExtArgs>[]
       tanugyiAdatok: Prisma.$Tanugyi_AdatokPayload<ExtArgs>[]
       tanulo_letszam: Prisma.$Tanulo_LetszamPayload<ExtArgs>[]
+      kompetencia: Prisma.$KompetenciaPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2137,6 +2240,7 @@ export namespace Prisma {
     tanar_letszam<T extends Alapadatok$tanar_letszamArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$tanar_letszamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanar_LetszamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tanugyiAdatok<T extends Alapadatok$tanugyiAdatokArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$tanugyiAdatokArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanugyi_AdatokPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tanulo_letszam<T extends Alapadatok$tanulo_letszamArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$tanulo_letszamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanulo_LetszamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    kompetencia<T extends Alapadatok$kompetenciaArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$kompetenciaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KompetenciaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2650,6 +2754,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Tanulo_LetszamScalarFieldEnum | Tanulo_LetszamScalarFieldEnum[]
+  }
+
+  /**
+   * Alapadatok.kompetencia
+   */
+  export type Alapadatok$kompetenciaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kompetencia
+     */
+    select?: KompetenciaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kompetencia
+     */
+    omit?: KompetenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KompetenciaInclude<ExtArgs> | null
+    where?: KompetenciaWhereInput
+    orderBy?: KompetenciaOrderByWithRelationInput | KompetenciaOrderByWithRelationInput[]
+    cursor?: KompetenciaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: KompetenciaScalarFieldEnum | KompetenciaScalarFieldEnum[]
   }
 
   /**
@@ -8281,6 +8409,1189 @@ export namespace Prisma {
 
 
   /**
+   * Model Kompetencia
+   */
+
+  export type AggregateKompetencia = {
+    _count: KompetenciaCountAggregateOutputType | null
+    _avg: KompetenciaAvgAggregateOutputType | null
+    _sum: KompetenciaSumAggregateOutputType | null
+    _min: KompetenciaMinAggregateOutputType | null
+    _max: KompetenciaMaxAggregateOutputType | null
+  }
+
+  export type KompetenciaAvgAggregateOutputType = {
+    tanev_kezdete: number | null
+  }
+
+  export type KompetenciaSumAggregateOutputType = {
+    tanev_kezdete: number | null
+  }
+
+  export type KompetenciaMinAggregateOutputType = {
+    id: string | null
+    tanev_kezdete: number | null
+    mat_orsz_p: string | null
+    szoveg_orsz_p: string | null
+    mat_int_p: string | null
+    szoveg_int_p: string | null
+    kepzes_forma: string | null
+    alapadatok_id: string | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
+  }
+
+  export type KompetenciaMaxAggregateOutputType = {
+    id: string | null
+    tanev_kezdete: number | null
+    mat_orsz_p: string | null
+    szoveg_orsz_p: string | null
+    mat_int_p: string | null
+    szoveg_int_p: string | null
+    kepzes_forma: string | null
+    alapadatok_id: string | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
+  }
+
+  export type KompetenciaCountAggregateOutputType = {
+    id: number
+    tanev_kezdete: number
+    mat_orsz_p: number
+    szoveg_orsz_p: number
+    mat_int_p: number
+    szoveg_int_p: number
+    kepzes_forma: number
+    alapadatok_id: number
+    createAt: number
+    createBy: number
+    updatedAt: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type KompetenciaAvgAggregateInputType = {
+    tanev_kezdete?: true
+  }
+
+  export type KompetenciaSumAggregateInputType = {
+    tanev_kezdete?: true
+  }
+
+  export type KompetenciaMinAggregateInputType = {
+    id?: true
+    tanev_kezdete?: true
+    mat_orsz_p?: true
+    szoveg_orsz_p?: true
+    mat_int_p?: true
+    szoveg_int_p?: true
+    kepzes_forma?: true
+    alapadatok_id?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
+  }
+
+  export type KompetenciaMaxAggregateInputType = {
+    id?: true
+    tanev_kezdete?: true
+    mat_orsz_p?: true
+    szoveg_orsz_p?: true
+    mat_int_p?: true
+    szoveg_int_p?: true
+    kepzes_forma?: true
+    alapadatok_id?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
+  }
+
+  export type KompetenciaCountAggregateInputType = {
+    id?: true
+    tanev_kezdete?: true
+    mat_orsz_p?: true
+    szoveg_orsz_p?: true
+    mat_int_p?: true
+    szoveg_int_p?: true
+    kepzes_forma?: true
+    alapadatok_id?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type KompetenciaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Kompetencia to aggregate.
+     */
+    where?: KompetenciaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Kompetencias to fetch.
+     */
+    orderBy?: KompetenciaOrderByWithRelationInput | KompetenciaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: KompetenciaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Kompetencias from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Kompetencias.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Kompetencias
+    **/
+    _count?: true | KompetenciaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: KompetenciaAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: KompetenciaSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: KompetenciaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: KompetenciaMaxAggregateInputType
+  }
+
+  export type GetKompetenciaAggregateType<T extends KompetenciaAggregateArgs> = {
+        [P in keyof T & keyof AggregateKompetencia]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateKompetencia[P]>
+      : GetScalarType<T[P], AggregateKompetencia[P]>
+  }
+
+
+
+
+  export type KompetenciaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: KompetenciaWhereInput
+    orderBy?: KompetenciaOrderByWithAggregationInput | KompetenciaOrderByWithAggregationInput[]
+    by: KompetenciaScalarFieldEnum[] | KompetenciaScalarFieldEnum
+    having?: KompetenciaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: KompetenciaCountAggregateInputType | true
+    _avg?: KompetenciaAvgAggregateInputType
+    _sum?: KompetenciaSumAggregateInputType
+    _min?: KompetenciaMinAggregateInputType
+    _max?: KompetenciaMaxAggregateInputType
+  }
+
+  export type KompetenciaGroupByOutputType = {
+    id: string
+    tanev_kezdete: number
+    mat_orsz_p: string
+    szoveg_orsz_p: string
+    mat_int_p: string
+    szoveg_int_p: string
+    kepzes_forma: string
+    alapadatok_id: string
+    createAt: Date
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
+    _count: KompetenciaCountAggregateOutputType | null
+    _avg: KompetenciaAvgAggregateOutputType | null
+    _sum: KompetenciaSumAggregateOutputType | null
+    _min: KompetenciaMinAggregateOutputType | null
+    _max: KompetenciaMaxAggregateOutputType | null
+  }
+
+  type GetKompetenciaGroupByPayload<T extends KompetenciaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<KompetenciaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof KompetenciaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], KompetenciaGroupByOutputType[P]>
+            : GetScalarType<T[P], KompetenciaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type KompetenciaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tanev_kezdete?: boolean
+    mat_orsz_p?: boolean
+    szoveg_orsz_p?: boolean
+    mat_int_p?: boolean
+    szoveg_int_p?: boolean
+    kepzes_forma?: boolean
+    alapadatok_id?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["kompetencia"]>
+
+  export type KompetenciaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tanev_kezdete?: boolean
+    mat_orsz_p?: boolean
+    szoveg_orsz_p?: boolean
+    mat_int_p?: boolean
+    szoveg_int_p?: boolean
+    kepzes_forma?: boolean
+    alapadatok_id?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["kompetencia"]>
+
+  export type KompetenciaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tanev_kezdete?: boolean
+    mat_orsz_p?: boolean
+    szoveg_orsz_p?: boolean
+    mat_int_p?: boolean
+    szoveg_int_p?: boolean
+    kepzes_forma?: boolean
+    alapadatok_id?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["kompetencia"]>
+
+  export type KompetenciaSelectScalar = {
+    id?: boolean
+    tanev_kezdete?: boolean
+    mat_orsz_p?: boolean
+    szoveg_orsz_p?: boolean
+    mat_int_p?: boolean
+    szoveg_int_p?: boolean
+    kepzes_forma?: boolean
+    alapadatok_id?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+  }
+
+  export type KompetenciaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tanev_kezdete" | "mat_orsz_p" | "szoveg_orsz_p" | "mat_int_p" | "szoveg_int_p" | "kepzes_forma" | "alapadatok_id" | "createAt" | "createBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["kompetencia"]>
+  export type KompetenciaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }
+  export type KompetenciaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }
+  export type KompetenciaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }
+
+  export type $KompetenciaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Kompetencia"
+    objects: {
+      alapadatok: Prisma.$AlapadatokPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      tanev_kezdete: number
+      mat_orsz_p: string
+      szoveg_orsz_p: string
+      mat_int_p: string
+      szoveg_int_p: string
+      kepzes_forma: string
+      alapadatok_id: string
+      createAt: Date
+      createBy: string | null
+      updatedAt: Date | null
+      updatedBy: string | null
+    }, ExtArgs["result"]["kompetencia"]>
+    composites: {}
+  }
+
+  type KompetenciaGetPayload<S extends boolean | null | undefined | KompetenciaDefaultArgs> = $Result.GetResult<Prisma.$KompetenciaPayload, S>
+
+  type KompetenciaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<KompetenciaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: KompetenciaCountAggregateInputType | true
+    }
+
+  export interface KompetenciaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Kompetencia'], meta: { name: 'Kompetencia' } }
+    /**
+     * Find zero or one Kompetencia that matches the filter.
+     * @param {KompetenciaFindUniqueArgs} args - Arguments to find a Kompetencia
+     * @example
+     * // Get one Kompetencia
+     * const kompetencia = await prisma.kompetencia.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends KompetenciaFindUniqueArgs>(args: SelectSubset<T, KompetenciaFindUniqueArgs<ExtArgs>>): Prisma__KompetenciaClient<$Result.GetResult<Prisma.$KompetenciaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Kompetencia that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {KompetenciaFindUniqueOrThrowArgs} args - Arguments to find a Kompetencia
+     * @example
+     * // Get one Kompetencia
+     * const kompetencia = await prisma.kompetencia.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends KompetenciaFindUniqueOrThrowArgs>(args: SelectSubset<T, KompetenciaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__KompetenciaClient<$Result.GetResult<Prisma.$KompetenciaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Kompetencia that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KompetenciaFindFirstArgs} args - Arguments to find a Kompetencia
+     * @example
+     * // Get one Kompetencia
+     * const kompetencia = await prisma.kompetencia.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends KompetenciaFindFirstArgs>(args?: SelectSubset<T, KompetenciaFindFirstArgs<ExtArgs>>): Prisma__KompetenciaClient<$Result.GetResult<Prisma.$KompetenciaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Kompetencia that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KompetenciaFindFirstOrThrowArgs} args - Arguments to find a Kompetencia
+     * @example
+     * // Get one Kompetencia
+     * const kompetencia = await prisma.kompetencia.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends KompetenciaFindFirstOrThrowArgs>(args?: SelectSubset<T, KompetenciaFindFirstOrThrowArgs<ExtArgs>>): Prisma__KompetenciaClient<$Result.GetResult<Prisma.$KompetenciaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Kompetencias that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KompetenciaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Kompetencias
+     * const kompetencias = await prisma.kompetencia.findMany()
+     * 
+     * // Get first 10 Kompetencias
+     * const kompetencias = await prisma.kompetencia.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const kompetenciaWithIdOnly = await prisma.kompetencia.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends KompetenciaFindManyArgs>(args?: SelectSubset<T, KompetenciaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KompetenciaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Kompetencia.
+     * @param {KompetenciaCreateArgs} args - Arguments to create a Kompetencia.
+     * @example
+     * // Create one Kompetencia
+     * const Kompetencia = await prisma.kompetencia.create({
+     *   data: {
+     *     // ... data to create a Kompetencia
+     *   }
+     * })
+     * 
+     */
+    create<T extends KompetenciaCreateArgs>(args: SelectSubset<T, KompetenciaCreateArgs<ExtArgs>>): Prisma__KompetenciaClient<$Result.GetResult<Prisma.$KompetenciaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Kompetencias.
+     * @param {KompetenciaCreateManyArgs} args - Arguments to create many Kompetencias.
+     * @example
+     * // Create many Kompetencias
+     * const kompetencia = await prisma.kompetencia.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends KompetenciaCreateManyArgs>(args?: SelectSubset<T, KompetenciaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Kompetencias and returns the data saved in the database.
+     * @param {KompetenciaCreateManyAndReturnArgs} args - Arguments to create many Kompetencias.
+     * @example
+     * // Create many Kompetencias
+     * const kompetencia = await prisma.kompetencia.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Kompetencias and only return the `id`
+     * const kompetenciaWithIdOnly = await prisma.kompetencia.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends KompetenciaCreateManyAndReturnArgs>(args?: SelectSubset<T, KompetenciaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KompetenciaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Kompetencia.
+     * @param {KompetenciaDeleteArgs} args - Arguments to delete one Kompetencia.
+     * @example
+     * // Delete one Kompetencia
+     * const Kompetencia = await prisma.kompetencia.delete({
+     *   where: {
+     *     // ... filter to delete one Kompetencia
+     *   }
+     * })
+     * 
+     */
+    delete<T extends KompetenciaDeleteArgs>(args: SelectSubset<T, KompetenciaDeleteArgs<ExtArgs>>): Prisma__KompetenciaClient<$Result.GetResult<Prisma.$KompetenciaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Kompetencia.
+     * @param {KompetenciaUpdateArgs} args - Arguments to update one Kompetencia.
+     * @example
+     * // Update one Kompetencia
+     * const kompetencia = await prisma.kompetencia.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends KompetenciaUpdateArgs>(args: SelectSubset<T, KompetenciaUpdateArgs<ExtArgs>>): Prisma__KompetenciaClient<$Result.GetResult<Prisma.$KompetenciaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Kompetencias.
+     * @param {KompetenciaDeleteManyArgs} args - Arguments to filter Kompetencias to delete.
+     * @example
+     * // Delete a few Kompetencias
+     * const { count } = await prisma.kompetencia.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends KompetenciaDeleteManyArgs>(args?: SelectSubset<T, KompetenciaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Kompetencias.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KompetenciaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Kompetencias
+     * const kompetencia = await prisma.kompetencia.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends KompetenciaUpdateManyArgs>(args: SelectSubset<T, KompetenciaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Kompetencias and returns the data updated in the database.
+     * @param {KompetenciaUpdateManyAndReturnArgs} args - Arguments to update many Kompetencias.
+     * @example
+     * // Update many Kompetencias
+     * const kompetencia = await prisma.kompetencia.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Kompetencias and only return the `id`
+     * const kompetenciaWithIdOnly = await prisma.kompetencia.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends KompetenciaUpdateManyAndReturnArgs>(args: SelectSubset<T, KompetenciaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KompetenciaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Kompetencia.
+     * @param {KompetenciaUpsertArgs} args - Arguments to update or create a Kompetencia.
+     * @example
+     * // Update or create a Kompetencia
+     * const kompetencia = await prisma.kompetencia.upsert({
+     *   create: {
+     *     // ... data to create a Kompetencia
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Kompetencia we want to update
+     *   }
+     * })
+     */
+    upsert<T extends KompetenciaUpsertArgs>(args: SelectSubset<T, KompetenciaUpsertArgs<ExtArgs>>): Prisma__KompetenciaClient<$Result.GetResult<Prisma.$KompetenciaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Kompetencias.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KompetenciaCountArgs} args - Arguments to filter Kompetencias to count.
+     * @example
+     * // Count the number of Kompetencias
+     * const count = await prisma.kompetencia.count({
+     *   where: {
+     *     // ... the filter for the Kompetencias we want to count
+     *   }
+     * })
+    **/
+    count<T extends KompetenciaCountArgs>(
+      args?: Subset<T, KompetenciaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], KompetenciaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Kompetencia.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KompetenciaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends KompetenciaAggregateArgs>(args: Subset<T, KompetenciaAggregateArgs>): Prisma.PrismaPromise<GetKompetenciaAggregateType<T>>
+
+    /**
+     * Group by Kompetencia.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {KompetenciaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends KompetenciaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: KompetenciaGroupByArgs['orderBy'] }
+        : { orderBy?: KompetenciaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, KompetenciaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetKompetenciaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Kompetencia model
+   */
+  readonly fields: KompetenciaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Kompetencia.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__KompetenciaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    alapadatok<T extends AlapadatokDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AlapadatokDefaultArgs<ExtArgs>>): Prisma__AlapadatokClient<$Result.GetResult<Prisma.$AlapadatokPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Kompetencia model
+   */
+  interface KompetenciaFieldRefs {
+    readonly id: FieldRef<"Kompetencia", 'String'>
+    readonly tanev_kezdete: FieldRef<"Kompetencia", 'Int'>
+    readonly mat_orsz_p: FieldRef<"Kompetencia", 'String'>
+    readonly szoveg_orsz_p: FieldRef<"Kompetencia", 'String'>
+    readonly mat_int_p: FieldRef<"Kompetencia", 'String'>
+    readonly szoveg_int_p: FieldRef<"Kompetencia", 'String'>
+    readonly kepzes_forma: FieldRef<"Kompetencia", 'String'>
+    readonly alapadatok_id: FieldRef<"Kompetencia", 'String'>
+    readonly createAt: FieldRef<"Kompetencia", 'DateTime'>
+    readonly createBy: FieldRef<"Kompetencia", 'String'>
+    readonly updatedAt: FieldRef<"Kompetencia", 'DateTime'>
+    readonly updatedBy: FieldRef<"Kompetencia", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Kompetencia findUnique
+   */
+  export type KompetenciaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kompetencia
+     */
+    select?: KompetenciaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kompetencia
+     */
+    omit?: KompetenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KompetenciaInclude<ExtArgs> | null
+    /**
+     * Filter, which Kompetencia to fetch.
+     */
+    where: KompetenciaWhereUniqueInput
+  }
+
+  /**
+   * Kompetencia findUniqueOrThrow
+   */
+  export type KompetenciaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kompetencia
+     */
+    select?: KompetenciaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kompetencia
+     */
+    omit?: KompetenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KompetenciaInclude<ExtArgs> | null
+    /**
+     * Filter, which Kompetencia to fetch.
+     */
+    where: KompetenciaWhereUniqueInput
+  }
+
+  /**
+   * Kompetencia findFirst
+   */
+  export type KompetenciaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kompetencia
+     */
+    select?: KompetenciaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kompetencia
+     */
+    omit?: KompetenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KompetenciaInclude<ExtArgs> | null
+    /**
+     * Filter, which Kompetencia to fetch.
+     */
+    where?: KompetenciaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Kompetencias to fetch.
+     */
+    orderBy?: KompetenciaOrderByWithRelationInput | KompetenciaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Kompetencias.
+     */
+    cursor?: KompetenciaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Kompetencias from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Kompetencias.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Kompetencias.
+     */
+    distinct?: KompetenciaScalarFieldEnum | KompetenciaScalarFieldEnum[]
+  }
+
+  /**
+   * Kompetencia findFirstOrThrow
+   */
+  export type KompetenciaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kompetencia
+     */
+    select?: KompetenciaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kompetencia
+     */
+    omit?: KompetenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KompetenciaInclude<ExtArgs> | null
+    /**
+     * Filter, which Kompetencia to fetch.
+     */
+    where?: KompetenciaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Kompetencias to fetch.
+     */
+    orderBy?: KompetenciaOrderByWithRelationInput | KompetenciaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Kompetencias.
+     */
+    cursor?: KompetenciaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Kompetencias from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Kompetencias.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Kompetencias.
+     */
+    distinct?: KompetenciaScalarFieldEnum | KompetenciaScalarFieldEnum[]
+  }
+
+  /**
+   * Kompetencia findMany
+   */
+  export type KompetenciaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kompetencia
+     */
+    select?: KompetenciaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kompetencia
+     */
+    omit?: KompetenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KompetenciaInclude<ExtArgs> | null
+    /**
+     * Filter, which Kompetencias to fetch.
+     */
+    where?: KompetenciaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Kompetencias to fetch.
+     */
+    orderBy?: KompetenciaOrderByWithRelationInput | KompetenciaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Kompetencias.
+     */
+    cursor?: KompetenciaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Kompetencias from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Kompetencias.
+     */
+    skip?: number
+    distinct?: KompetenciaScalarFieldEnum | KompetenciaScalarFieldEnum[]
+  }
+
+  /**
+   * Kompetencia create
+   */
+  export type KompetenciaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kompetencia
+     */
+    select?: KompetenciaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kompetencia
+     */
+    omit?: KompetenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KompetenciaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Kompetencia.
+     */
+    data: XOR<KompetenciaCreateInput, KompetenciaUncheckedCreateInput>
+  }
+
+  /**
+   * Kompetencia createMany
+   */
+  export type KompetenciaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Kompetencias.
+     */
+    data: KompetenciaCreateManyInput | KompetenciaCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Kompetencia createManyAndReturn
+   */
+  export type KompetenciaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kompetencia
+     */
+    select?: KompetenciaSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kompetencia
+     */
+    omit?: KompetenciaOmit<ExtArgs> | null
+    /**
+     * The data used to create many Kompetencias.
+     */
+    data: KompetenciaCreateManyInput | KompetenciaCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KompetenciaIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Kompetencia update
+   */
+  export type KompetenciaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kompetencia
+     */
+    select?: KompetenciaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kompetencia
+     */
+    omit?: KompetenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KompetenciaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Kompetencia.
+     */
+    data: XOR<KompetenciaUpdateInput, KompetenciaUncheckedUpdateInput>
+    /**
+     * Choose, which Kompetencia to update.
+     */
+    where: KompetenciaWhereUniqueInput
+  }
+
+  /**
+   * Kompetencia updateMany
+   */
+  export type KompetenciaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Kompetencias.
+     */
+    data: XOR<KompetenciaUpdateManyMutationInput, KompetenciaUncheckedUpdateManyInput>
+    /**
+     * Filter which Kompetencias to update
+     */
+    where?: KompetenciaWhereInput
+    /**
+     * Limit how many Kompetencias to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Kompetencia updateManyAndReturn
+   */
+  export type KompetenciaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kompetencia
+     */
+    select?: KompetenciaSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kompetencia
+     */
+    omit?: KompetenciaOmit<ExtArgs> | null
+    /**
+     * The data used to update Kompetencias.
+     */
+    data: XOR<KompetenciaUpdateManyMutationInput, KompetenciaUncheckedUpdateManyInput>
+    /**
+     * Filter which Kompetencias to update
+     */
+    where?: KompetenciaWhereInput
+    /**
+     * Limit how many Kompetencias to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KompetenciaIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Kompetencia upsert
+   */
+  export type KompetenciaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kompetencia
+     */
+    select?: KompetenciaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kompetencia
+     */
+    omit?: KompetenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KompetenciaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Kompetencia to update in case it exists.
+     */
+    where: KompetenciaWhereUniqueInput
+    /**
+     * In case the Kompetencia found by the `where` argument doesn't exist, create a new Kompetencia with this data.
+     */
+    create: XOR<KompetenciaCreateInput, KompetenciaUncheckedCreateInput>
+    /**
+     * In case the Kompetencia was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<KompetenciaUpdateInput, KompetenciaUncheckedUpdateInput>
+  }
+
+  /**
+   * Kompetencia delete
+   */
+  export type KompetenciaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kompetencia
+     */
+    select?: KompetenciaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kompetencia
+     */
+    omit?: KompetenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KompetenciaInclude<ExtArgs> | null
+    /**
+     * Filter which Kompetencia to delete.
+     */
+    where: KompetenciaWhereUniqueInput
+  }
+
+  /**
+   * Kompetencia deleteMany
+   */
+  export type KompetenciaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Kompetencias to delete
+     */
+    where?: KompetenciaWhereInput
+    /**
+     * Limit how many Kompetencias to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Kompetencia without action
+   */
+  export type KompetenciaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kompetencia
+     */
+    select?: KompetenciaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kompetencia
+     */
+    omit?: KompetenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KompetenciaInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model Tanugyi_Adatok
    */
 
@@ -10395,6 +11706,24 @@ export namespace Prisma {
   export type Felvettek_SzamaScalarFieldEnum = (typeof Felvettek_SzamaScalarFieldEnum)[keyof typeof Felvettek_SzamaScalarFieldEnum]
 
 
+  export const KompetenciaScalarFieldEnum: {
+    id: 'id',
+    tanev_kezdete: 'tanev_kezdete',
+    mat_orsz_p: 'mat_orsz_p',
+    szoveg_orsz_p: 'szoveg_orsz_p',
+    mat_int_p: 'mat_int_p',
+    szoveg_int_p: 'szoveg_int_p',
+    kepzes_forma: 'kepzes_forma',
+    alapadatok_id: 'alapadatok_id',
+    createAt: 'createAt',
+    createBy: 'createBy',
+    updatedAt: 'updatedAt',
+    updatedBy: 'updatedBy'
+  };
+
+  export type KompetenciaScalarFieldEnum = (typeof KompetenciaScalarFieldEnum)[keyof typeof KompetenciaScalarFieldEnum]
+
+
   export const Tanugyi_AdatokScalarFieldEnum: {
     id: 'id',
     elotag: 'elotag',
@@ -10577,6 +11906,7 @@ export namespace Prisma {
     tanar_letszam?: Tanar_LetszamListRelationFilter
     tanugyiAdatok?: Tanugyi_AdatokListRelationFilter
     tanulo_letszam?: Tanulo_LetszamListRelationFilter
+    kompetencia?: KompetenciaListRelationFilter
   }
 
   export type AlapadatokOrderByWithRelationInput = {
@@ -10587,6 +11917,7 @@ export namespace Prisma {
     tanar_letszam?: Tanar_LetszamOrderByRelationAggregateInput
     tanugyiAdatok?: Tanugyi_AdatokOrderByRelationAggregateInput
     tanulo_letszam?: Tanulo_LetszamOrderByRelationAggregateInput
+    kompetencia?: KompetenciaOrderByRelationAggregateInput
   }
 
   export type AlapadatokWhereUniqueInput = Prisma.AtLeast<{
@@ -10600,6 +11931,7 @@ export namespace Prisma {
     tanar_letszam?: Tanar_LetszamListRelationFilter
     tanugyiAdatok?: Tanugyi_AdatokListRelationFilter
     tanulo_letszam?: Tanulo_LetszamListRelationFilter
+    kompetencia?: KompetenciaListRelationFilter
   }, "id">
 
   export type AlapadatokOrderByWithAggregationInput = {
@@ -10956,6 +12288,98 @@ export namespace Prisma {
     createBy?: StringNullableWithAggregatesFilter<"Felvettek_Szama"> | string | null
     updatedAt?: DateTimeNullableWithAggregatesFilter<"Felvettek_Szama"> | Date | string | null
     updatedBy?: StringNullableWithAggregatesFilter<"Felvettek_Szama"> | string | null
+  }
+
+  export type KompetenciaWhereInput = {
+    AND?: KompetenciaWhereInput | KompetenciaWhereInput[]
+    OR?: KompetenciaWhereInput[]
+    NOT?: KompetenciaWhereInput | KompetenciaWhereInput[]
+    id?: UuidFilter<"Kompetencia"> | string
+    tanev_kezdete?: IntFilter<"Kompetencia"> | number
+    mat_orsz_p?: StringFilter<"Kompetencia"> | string
+    szoveg_orsz_p?: StringFilter<"Kompetencia"> | string
+    mat_int_p?: StringFilter<"Kompetencia"> | string
+    szoveg_int_p?: StringFilter<"Kompetencia"> | string
+    kepzes_forma?: StringFilter<"Kompetencia"> | string
+    alapadatok_id?: UuidFilter<"Kompetencia"> | string
+    createAt?: DateTimeFilter<"Kompetencia"> | Date | string
+    createBy?: StringNullableFilter<"Kompetencia"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Kompetencia"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Kompetencia"> | string | null
+    alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
+  }
+
+  export type KompetenciaOrderByWithRelationInput = {
+    id?: SortOrder
+    tanev_kezdete?: SortOrder
+    mat_orsz_p?: SortOrder
+    szoveg_orsz_p?: SortOrder
+    mat_int_p?: SortOrder
+    szoveg_int_p?: SortOrder
+    kepzes_forma?: SortOrder
+    alapadatok_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
+    alapadatok?: AlapadatokOrderByWithRelationInput
+  }
+
+  export type KompetenciaWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: KompetenciaWhereInput | KompetenciaWhereInput[]
+    OR?: KompetenciaWhereInput[]
+    NOT?: KompetenciaWhereInput | KompetenciaWhereInput[]
+    tanev_kezdete?: IntFilter<"Kompetencia"> | number
+    mat_orsz_p?: StringFilter<"Kompetencia"> | string
+    szoveg_orsz_p?: StringFilter<"Kompetencia"> | string
+    mat_int_p?: StringFilter<"Kompetencia"> | string
+    szoveg_int_p?: StringFilter<"Kompetencia"> | string
+    kepzes_forma?: StringFilter<"Kompetencia"> | string
+    alapadatok_id?: UuidFilter<"Kompetencia"> | string
+    createAt?: DateTimeFilter<"Kompetencia"> | Date | string
+    createBy?: StringNullableFilter<"Kompetencia"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Kompetencia"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Kompetencia"> | string | null
+    alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
+  }, "id">
+
+  export type KompetenciaOrderByWithAggregationInput = {
+    id?: SortOrder
+    tanev_kezdete?: SortOrder
+    mat_orsz_p?: SortOrder
+    szoveg_orsz_p?: SortOrder
+    mat_int_p?: SortOrder
+    szoveg_int_p?: SortOrder
+    kepzes_forma?: SortOrder
+    alapadatok_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
+    _count?: KompetenciaCountOrderByAggregateInput
+    _avg?: KompetenciaAvgOrderByAggregateInput
+    _max?: KompetenciaMaxOrderByAggregateInput
+    _min?: KompetenciaMinOrderByAggregateInput
+    _sum?: KompetenciaSumOrderByAggregateInput
+  }
+
+  export type KompetenciaScalarWhereWithAggregatesInput = {
+    AND?: KompetenciaScalarWhereWithAggregatesInput | KompetenciaScalarWhereWithAggregatesInput[]
+    OR?: KompetenciaScalarWhereWithAggregatesInput[]
+    NOT?: KompetenciaScalarWhereWithAggregatesInput | KompetenciaScalarWhereWithAggregatesInput[]
+    id?: UuidWithAggregatesFilter<"Kompetencia"> | string
+    tanev_kezdete?: IntWithAggregatesFilter<"Kompetencia"> | number
+    mat_orsz_p?: StringWithAggregatesFilter<"Kompetencia"> | string
+    szoveg_orsz_p?: StringWithAggregatesFilter<"Kompetencia"> | string
+    mat_int_p?: StringWithAggregatesFilter<"Kompetencia"> | string
+    szoveg_int_p?: StringWithAggregatesFilter<"Kompetencia"> | string
+    kepzes_forma?: StringWithAggregatesFilter<"Kompetencia"> | string
+    alapadatok_id?: UuidWithAggregatesFilter<"Kompetencia"> | string
+    createAt?: DateTimeWithAggregatesFilter<"Kompetencia"> | Date | string
+    createBy?: StringNullableWithAggregatesFilter<"Kompetencia"> | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Kompetencia"> | Date | string | null
+    updatedBy?: StringNullableWithAggregatesFilter<"Kompetencia"> | string | null
   }
 
   export type Tanugyi_AdatokWhereInput = {
@@ -11383,6 +12807,7 @@ export namespace Prisma {
     tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateInput = {
@@ -11393,6 +12818,7 @@ export namespace Prisma {
     tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUpdateInput = {
@@ -11403,6 +12829,7 @@ export namespace Prisma {
     tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateInput = {
@@ -11413,6 +12840,7 @@ export namespace Prisma {
     tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateManyInput = {
@@ -11776,6 +13204,110 @@ export namespace Prisma {
     jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
     felveheto_letszam?: IntFieldUpdateOperationsInput | number
     felvett_letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type KompetenciaCreateInput = {
+    id?: string
+    tanev_kezdete?: number
+    mat_orsz_p: string
+    szoveg_orsz_p: string
+    mat_int_p: string
+    szoveg_int_p: string
+    kepzes_forma: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    alapadatok: AlapadatokCreateNestedOneWithoutKompetenciaInput
+  }
+
+  export type KompetenciaUncheckedCreateInput = {
+    id?: string
+    tanev_kezdete?: number
+    mat_orsz_p: string
+    szoveg_orsz_p: string
+    mat_int_p: string
+    szoveg_int_p: string
+    kepzes_forma: string
+    alapadatok_id: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type KompetenciaUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    mat_orsz_p?: StringFieldUpdateOperationsInput | string
+    szoveg_orsz_p?: StringFieldUpdateOperationsInput | string
+    mat_int_p?: StringFieldUpdateOperationsInput | string
+    szoveg_int_p?: StringFieldUpdateOperationsInput | string
+    kepzes_forma?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    alapadatok?: AlapadatokUpdateOneRequiredWithoutKompetenciaNestedInput
+  }
+
+  export type KompetenciaUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    mat_orsz_p?: StringFieldUpdateOperationsInput | string
+    szoveg_orsz_p?: StringFieldUpdateOperationsInput | string
+    mat_int_p?: StringFieldUpdateOperationsInput | string
+    szoveg_int_p?: StringFieldUpdateOperationsInput | string
+    kepzes_forma?: StringFieldUpdateOperationsInput | string
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type KompetenciaCreateManyInput = {
+    id?: string
+    tanev_kezdete?: number
+    mat_orsz_p: string
+    szoveg_orsz_p: string
+    mat_int_p: string
+    szoveg_int_p: string
+    kepzes_forma: string
+    alapadatok_id: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type KompetenciaUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    mat_orsz_p?: StringFieldUpdateOperationsInput | string
+    szoveg_orsz_p?: StringFieldUpdateOperationsInput | string
+    mat_int_p?: StringFieldUpdateOperationsInput | string
+    szoveg_int_p?: StringFieldUpdateOperationsInput | string
+    kepzes_forma?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type KompetenciaUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    mat_orsz_p?: StringFieldUpdateOperationsInput | string
+    szoveg_orsz_p?: StringFieldUpdateOperationsInput | string
+    mat_int_p?: StringFieldUpdateOperationsInput | string
+    szoveg_int_p?: StringFieldUpdateOperationsInput | string
+    kepzes_forma?: StringFieldUpdateOperationsInput | string
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -12392,6 +13924,12 @@ export namespace Prisma {
     none?: Tanulo_LetszamWhereInput
   }
 
+  export type KompetenciaListRelationFilter = {
+    every?: KompetenciaWhereInput
+    some?: KompetenciaWhereInput
+    none?: KompetenciaWhereInput
+  }
+
   export type Felvettek_SzamaOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -12405,6 +13943,10 @@ export namespace Prisma {
   }
 
   export type Tanulo_LetszamOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type KompetenciaOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -12772,6 +14314,59 @@ export namespace Prisma {
     felvett_letszam?: SortOrder
   }
 
+  export type KompetenciaCountOrderByAggregateInput = {
+    id?: SortOrder
+    tanev_kezdete?: SortOrder
+    mat_orsz_p?: SortOrder
+    szoveg_orsz_p?: SortOrder
+    mat_int_p?: SortOrder
+    szoveg_int_p?: SortOrder
+    kepzes_forma?: SortOrder
+    alapadatok_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type KompetenciaAvgOrderByAggregateInput = {
+    tanev_kezdete?: SortOrder
+  }
+
+  export type KompetenciaMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tanev_kezdete?: SortOrder
+    mat_orsz_p?: SortOrder
+    szoveg_orsz_p?: SortOrder
+    mat_int_p?: SortOrder
+    szoveg_int_p?: SortOrder
+    kepzes_forma?: SortOrder
+    alapadatok_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type KompetenciaMinOrderByAggregateInput = {
+    id?: SortOrder
+    tanev_kezdete?: SortOrder
+    mat_orsz_p?: SortOrder
+    szoveg_orsz_p?: SortOrder
+    mat_int_p?: SortOrder
+    szoveg_int_p?: SortOrder
+    kepzes_forma?: SortOrder
+    alapadatok_id?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type KompetenciaSumOrderByAggregateInput = {
+    tanev_kezdete?: SortOrder
+  }
+
   export type Tanugyi_AdatokCountOrderByAggregateInput = {
     id?: SortOrder
     elotag?: SortOrder
@@ -13048,6 +14643,13 @@ export namespace Prisma {
     connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
   }
 
+  export type KompetenciaCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput> | KompetenciaCreateWithoutAlapadatokInput[] | KompetenciaUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: KompetenciaCreateOrConnectWithoutAlapadatokInput | KompetenciaCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: KompetenciaCreateManyAlapadatokInputEnvelope
+    connect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+  }
+
   export type Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput = {
     create?: XOR<Felvettek_SzamaCreateWithoutAlapadatokInput, Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput> | Felvettek_SzamaCreateWithoutAlapadatokInput[] | Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput[]
     connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput | Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput[]
@@ -13074,6 +14676,13 @@ export namespace Prisma {
     connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutAlapadatokInput | Tanulo_LetszamCreateOrConnectWithoutAlapadatokInput[]
     createMany?: Tanulo_LetszamCreateManyAlapadatokInputEnvelope
     connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+  }
+
+  export type KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput> | KompetenciaCreateWithoutAlapadatokInput[] | KompetenciaUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: KompetenciaCreateOrConnectWithoutAlapadatokInput | KompetenciaCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: KompetenciaCreateManyAlapadatokInputEnvelope
+    connect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -13136,6 +14745,20 @@ export namespace Prisma {
     deleteMany?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
   }
 
+  export type KompetenciaUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput> | KompetenciaCreateWithoutAlapadatokInput[] | KompetenciaUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: KompetenciaCreateOrConnectWithoutAlapadatokInput | KompetenciaCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput | KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: KompetenciaCreateManyAlapadatokInputEnvelope
+    set?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    disconnect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    delete?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    connect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    update?: KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput | KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: KompetenciaUpdateManyWithWhereWithoutAlapadatokInput | KompetenciaUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: KompetenciaScalarWhereInput | KompetenciaScalarWhereInput[]
+  }
+
   export type Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput = {
     create?: XOR<Felvettek_SzamaCreateWithoutAlapadatokInput, Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput> | Felvettek_SzamaCreateWithoutAlapadatokInput[] | Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput[]
     connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput | Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput[]
@@ -13190,6 +14813,20 @@ export namespace Prisma {
     update?: Tanulo_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput | Tanulo_LetszamUpdateWithWhereUniqueWithoutAlapadatokInput[]
     updateMany?: Tanulo_LetszamUpdateManyWithWhereWithoutAlapadatokInput | Tanulo_LetszamUpdateManyWithWhereWithoutAlapadatokInput[]
     deleteMany?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
+  }
+
+  export type KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput> | KompetenciaCreateWithoutAlapadatokInput[] | KompetenciaUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: KompetenciaCreateOrConnectWithoutAlapadatokInput | KompetenciaCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput | KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: KompetenciaCreateManyAlapadatokInputEnvelope
+    set?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    disconnect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    delete?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    connect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    update?: KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput | KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: KompetenciaUpdateManyWithWhereWithoutAlapadatokInput | KompetenciaUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: KompetenciaScalarWhereInput | KompetenciaScalarWhereInput[]
   }
 
   export type Tanulo_LetszamCreateNestedManyWithoutSzakiranyInput = {
@@ -13420,6 +15057,20 @@ export namespace Prisma {
     upsert?: SzakmaUpsertWithoutFelvettek_szamaInput
     connect?: SzakmaWhereUniqueInput
     update?: XOR<XOR<SzakmaUpdateToOneWithWhereWithoutFelvettek_szamaInput, SzakmaUpdateWithoutFelvettek_szamaInput>, SzakmaUncheckedUpdateWithoutFelvettek_szamaInput>
+  }
+
+  export type AlapadatokCreateNestedOneWithoutKompetenciaInput = {
+    create?: XOR<AlapadatokCreateWithoutKompetenciaInput, AlapadatokUncheckedCreateWithoutKompetenciaInput>
+    connectOrCreate?: AlapadatokCreateOrConnectWithoutKompetenciaInput
+    connect?: AlapadatokWhereUniqueInput
+  }
+
+  export type AlapadatokUpdateOneRequiredWithoutKompetenciaNestedInput = {
+    create?: XOR<AlapadatokCreateWithoutKompetenciaInput, AlapadatokUncheckedCreateWithoutKompetenciaInput>
+    connectOrCreate?: AlapadatokCreateOrConnectWithoutKompetenciaInput
+    upsert?: AlapadatokUpsertWithoutKompetenciaInput
+    connect?: AlapadatokWhereUniqueInput
+    update?: XOR<XOR<AlapadatokUpdateToOneWithWhereWithoutKompetenciaInput, AlapadatokUpdateWithoutKompetenciaInput>, AlapadatokUncheckedUpdateWithoutKompetenciaInput>
   }
 
   export type AlapadatokCreateNestedOneWithoutTanugyiAdatokInput = {
@@ -13892,6 +15543,44 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type KompetenciaCreateWithoutAlapadatokInput = {
+    id?: string
+    tanev_kezdete?: number
+    mat_orsz_p: string
+    szoveg_orsz_p: string
+    mat_int_p: string
+    szoveg_int_p: string
+    kepzes_forma: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type KompetenciaUncheckedCreateWithoutAlapadatokInput = {
+    id?: string
+    tanev_kezdete?: number
+    mat_orsz_p: string
+    szoveg_orsz_p: string
+    mat_int_p: string
+    szoveg_int_p: string
+    kepzes_forma: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type KompetenciaCreateOrConnectWithoutAlapadatokInput = {
+    where: KompetenciaWhereUniqueInput
+    create: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type KompetenciaCreateManyAlapadatokInputEnvelope = {
+    data: KompetenciaCreateManyAlapadatokInput | KompetenciaCreateManyAlapadatokInput[]
+    skipDuplicates?: boolean
+  }
+
   export type Felvettek_SzamaUpsertWithWhereUniqueWithoutAlapadatokInput = {
     where: Felvettek_SzamaWhereUniqueInput
     update: XOR<Felvettek_SzamaUpdateWithoutAlapadatokInput, Felvettek_SzamaUncheckedUpdateWithoutAlapadatokInput>
@@ -14087,6 +15776,40 @@ export namespace Prisma {
     updatedBy?: StringNullableFilter<"Tanulo_Letszam"> | string | null
   }
 
+  export type KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput = {
+    where: KompetenciaWhereUniqueInput
+    update: XOR<KompetenciaUpdateWithoutAlapadatokInput, KompetenciaUncheckedUpdateWithoutAlapadatokInput>
+    create: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput = {
+    where: KompetenciaWhereUniqueInput
+    data: XOR<KompetenciaUpdateWithoutAlapadatokInput, KompetenciaUncheckedUpdateWithoutAlapadatokInput>
+  }
+
+  export type KompetenciaUpdateManyWithWhereWithoutAlapadatokInput = {
+    where: KompetenciaScalarWhereInput
+    data: XOR<KompetenciaUpdateManyMutationInput, KompetenciaUncheckedUpdateManyWithoutAlapadatokInput>
+  }
+
+  export type KompetenciaScalarWhereInput = {
+    AND?: KompetenciaScalarWhereInput | KompetenciaScalarWhereInput[]
+    OR?: KompetenciaScalarWhereInput[]
+    NOT?: KompetenciaScalarWhereInput | KompetenciaScalarWhereInput[]
+    id?: UuidFilter<"Kompetencia"> | string
+    tanev_kezdete?: IntFilter<"Kompetencia"> | number
+    mat_orsz_p?: StringFilter<"Kompetencia"> | string
+    szoveg_orsz_p?: StringFilter<"Kompetencia"> | string
+    mat_int_p?: StringFilter<"Kompetencia"> | string
+    szoveg_int_p?: StringFilter<"Kompetencia"> | string
+    kepzes_forma?: StringFilter<"Kompetencia"> | string
+    alapadatok_id?: UuidFilter<"Kompetencia"> | string
+    createAt?: DateTimeFilter<"Kompetencia"> | Date | string
+    createBy?: StringNullableFilter<"Kompetencia"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Kompetencia"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Kompetencia"> | string | null
+  }
+
   export type Tanulo_LetszamCreateWithoutSzakiranyInput = {
     id?: string
     tanev_kezdete: number
@@ -14250,6 +15973,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutTanulo_letszamInput = {
@@ -14259,6 +15983,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutTanulo_letszamInput = {
@@ -14316,6 +16041,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
     tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutTanulo_letszamInput = {
@@ -14325,6 +16051,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type SzakiranyUpsertWithoutTanulo_letszamInput = {
@@ -14378,6 +16105,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutTanar_letszamInput = {
@@ -14387,6 +16115,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutTanar_letszamInput = {
@@ -14412,6 +16141,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutTanar_letszamInput = {
@@ -14421,6 +16151,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateWithoutFelvettek_szamaInput = {
@@ -14430,6 +16161,7 @@ export namespace Prisma {
     tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutFelvettek_szamaInput = {
@@ -14439,6 +16171,7 @@ export namespace Prisma {
     tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutFelvettek_szamaInput = {
@@ -14481,6 +16214,7 @@ export namespace Prisma {
     tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutFelvettek_szamaInput = {
@@ -14490,6 +16224,7 @@ export namespace Prisma {
     tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type SzakmaUpsertWithoutFelvettek_szamaInput = {
@@ -14515,6 +16250,62 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
+  export type AlapadatokCreateWithoutKompetenciaInput = {
+    id?: string
+    iskola_neve: string
+    intezmeny_tipus: string
+    felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
+    tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
+  }
+
+  export type AlapadatokUncheckedCreateWithoutKompetenciaInput = {
+    id?: string
+    iskola_neve: string
+    intezmeny_tipus: string
+    felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+  }
+
+  export type AlapadatokCreateOrConnectWithoutKompetenciaInput = {
+    where: AlapadatokWhereUniqueInput
+    create: XOR<AlapadatokCreateWithoutKompetenciaInput, AlapadatokUncheckedCreateWithoutKompetenciaInput>
+  }
+
+  export type AlapadatokUpsertWithoutKompetenciaInput = {
+    update: XOR<AlapadatokUpdateWithoutKompetenciaInput, AlapadatokUncheckedUpdateWithoutKompetenciaInput>
+    create: XOR<AlapadatokCreateWithoutKompetenciaInput, AlapadatokUncheckedCreateWithoutKompetenciaInput>
+    where?: AlapadatokWhereInput
+  }
+
+  export type AlapadatokUpdateToOneWithWhereWithoutKompetenciaInput = {
+    where?: AlapadatokWhereInput
+    data: XOR<AlapadatokUpdateWithoutKompetenciaInput, AlapadatokUncheckedUpdateWithoutKompetenciaInput>
+  }
+
+  export type AlapadatokUpdateWithoutKompetenciaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    iskola_neve?: StringFieldUpdateOperationsInput | string
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
+    tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
+  }
+
+  export type AlapadatokUncheckedUpdateWithoutKompetenciaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    iskola_neve?: StringFieldUpdateOperationsInput | string
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+  }
+
   export type AlapadatokCreateWithoutTanugyiAdatokInput = {
     id?: string
     iskola_neve: string
@@ -14522,6 +16313,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutTanugyiAdatokInput = {
@@ -14531,6 +16323,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutTanugyiAdatokInput = {
@@ -14556,6 +16349,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
     tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutTanugyiAdatokInput = {
@@ -14565,6 +16359,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type Felvettek_SzamaCreateManyAlapadatokInput = {
@@ -14676,6 +16471,20 @@ export namespace Prisma {
     letszam: number
     szakirany_id: string
     szakma_id: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type KompetenciaCreateManyAlapadatokInput = {
+    id?: string
+    tanev_kezdete?: number
+    mat_orsz_p: string
+    szoveg_orsz_p: string
+    mat_int_p: string
+    szoveg_int_p: string
+    kepzes_forma: string
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -15021,6 +16830,48 @@ export namespace Prisma {
     letszam?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
     szakma_id?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type KompetenciaUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    mat_orsz_p?: StringFieldUpdateOperationsInput | string
+    szoveg_orsz_p?: StringFieldUpdateOperationsInput | string
+    mat_int_p?: StringFieldUpdateOperationsInput | string
+    szoveg_int_p?: StringFieldUpdateOperationsInput | string
+    kepzes_forma?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type KompetenciaUncheckedUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    mat_orsz_p?: StringFieldUpdateOperationsInput | string
+    szoveg_orsz_p?: StringFieldUpdateOperationsInput | string
+    mat_int_p?: StringFieldUpdateOperationsInput | string
+    szoveg_int_p?: StringFieldUpdateOperationsInput | string
+    kepzes_forma?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type KompetenciaUncheckedUpdateManyWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    mat_orsz_p?: StringFieldUpdateOperationsInput | string
+    szoveg_orsz_p?: StringFieldUpdateOperationsInput | string
+    mat_int_p?: StringFieldUpdateOperationsInput | string
+    szoveg_int_p?: StringFieldUpdateOperationsInput | string
+    kepzes_forma?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
