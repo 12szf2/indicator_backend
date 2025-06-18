@@ -120,6 +120,26 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  name: 'name',
+  password: 'password',
+  permissions: 'permissions',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  alapadatokId: 'alapadatokId'
+};
+
+exports.Prisma.TableAccessScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  tableName: 'tableName',
+  access: 'access',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.AlapadatokScalarFieldEnum = {
   id: 'id',
   iskola_neve: 'iskola_neve',
@@ -287,6 +307,8 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
+  User: 'User',
+  TableAccess: 'TableAccess',
   Alapadatok: 'Alapadatok',
   Szakirany: 'Szakirany',
   Szakma: 'Szakma',

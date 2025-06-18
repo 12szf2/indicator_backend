@@ -18,15 +18,6 @@ export async function getById(id) {
   return data;
 }
 
-/**
- * 
-mat_orsz_p         String
-  szoveg_orsz_p      String
-  mat_int_p          String
-  szoveg_int_p       String
-  kepzes_forma       String
- */
-
 export async function create(
   alapadatok_id,
   tanev_kezdete,
@@ -39,7 +30,7 @@ export async function create(
   const data = await prisma.kompetencia.create({
     data: {
       alapadatok_id: alapadatok_id,
-      tanev_kezdete,
+      tanev_kezdete: Number(tanev_kezdete),
       mat_int_p,
       mat_orsz_p,
       szoveg_int_p,
