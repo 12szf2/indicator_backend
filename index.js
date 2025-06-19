@@ -5,7 +5,11 @@ import kompetencia from "./controllers/kompetencia.controller.js";
 import tanulo_letszam from "./controllers/tanulo_letszam.controller.js";
 import userRouter from "./controllers/user.controller.js";
 import authRouter from "./controllers/auth.controller.js";
+
+import logMiddleware from "./middleware/log.middleware.js";
+
 import cors from "cors";
+import { authMiddleware } from "./middleware/auth.middleware.js";
 
 const corsConfig = {
   origin: [
@@ -16,18 +20,22 @@ const corsConfig = {
 };
 
 const app = express();
+const port = process.env.PORT || 5300;
 
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb" }));
 app.use(cors(corsConfig));
 
-app.use("/api/v1/alapadatok", alapadatokRouter);
-app.use("/api/v1/tanugyi_adatok", tanugyi_adatok);
-app.use("/api/v1/tanulo_letszam", tanulo_letszam);
-app.use("/api/v1/kompetencia", kompetencia);
-app.use("/api/v1/user", userRouter);
+// Middleware for logging requests
+app.use(logMiddleware);
+
+app.use("/api/v1/alapadatok", authMiddleware, alapadatokRouter);
+app.use("/api/v1/tanugyi_adatok", authMiddleware, tanugyi_adatok);
+app.use("/api/v1/tanulo_letszam", authMiddleware, tanulo_letszam);
+app.use("/api/v1/kompetencia", authMiddleware, kompetencia);
+app.use("/api/v1/user", authMiddleware, userRouter);
 app.use("/api/v1/auth", authRouter);
 
-app.listen(5300, () => {
-  console.log("Elindult a http://localhost:3300");
+app.listen(port, () => {
+  console.log(`Elindult a http://localhost:${port}`);
 });

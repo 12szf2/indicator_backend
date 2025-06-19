@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import { getByEmail } from "../services/user.service.js";
 
 export function generateToken(user) {
   const payload = {
@@ -45,16 +46,11 @@ export function generateToken(user) {
 }
 
 export function verifyToken(token) {
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET, {
-      algorithms: ["HS512"],
-      issuer: "https://indicator-api.pollak.info",
-    });
-    return decoded;
-  } catch (error) {
-    console.error("Token verification failed:", error);
-    return null;
-  }
+  const decoded = jwt.verify(token, process.env.JWT_SECRET, {
+    algorithms: ["HS512"],
+    issuer: "https://indicator-api.pollak.info",
+  });
+  return decoded;
 }
 
 export function verifyRefreshToken(token) {
@@ -98,17 +94,27 @@ export function isRefreshTokenExpired(token) {
   }
 }
 
-export function refreshAccessToken(refreshToken) {
+export async function refreshAccessToken(refreshToken) {
   const decoded = verifyRefreshToken(refreshToken);
   if (!decoded) {
     return null; // Invalid refresh token
   }
 
-  // Assuming you have a function to get user details by email
-  const user = getUserByEmail(decoded.email);
+  const user = await getByEmail(decoded.email);
   if (!user) {
     return null; // User not found
   }
 
   return generateToken(user); // Generate new access token
+}
+
+export async function getUserFromToken(token) {
+  try {
+    const decoded = verifyToken(token);
+
+    return await getByEmail(decoded.email);
+  } catch (error) {
+    console.error("Error getting user from token:", error);
+    return null; // Return null if there's an error
+  }
 }
