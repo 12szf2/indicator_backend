@@ -72,9 +72,10 @@ model Alapadatok {
 }
 
 model Szakirany {
-  id             String           @id @default(uuid()) @db.Uuid
-  nev            String           @unique @db.VarChar(75)
-  tanulo_letszam Tanulo_Letszam[]
+  id              String            @id @default(uuid()) @db.Uuid
+  nev             String            @unique @db.VarChar(75)
+  tanulo_letszam  Tanulo_Letszam[]
+  felvettek_szama Felvettek_Szama[]
 }
 
 model Szakma {
@@ -120,11 +121,13 @@ model Felvettek_Szama {
   alapadatok_id      String     @db.Uuid
   tanev_kezdete      Int        @db.SmallInt
   szakma_id          String     @db.Uuid
+  szakiranyId        String?    @db.Uuid
   jelentkezo_letszam Int        @db.SmallInt
   felveheto_letszam  Int        @db.SmallInt
   felvett_letszam    Int        @db.SmallInt
   alapadatok         Alapadatok @relation(fields: [alapadatok_id], references: [id])
   szakma             Szakma     @relation(fields: [szakma_id], references: [id])
+  szakirany          Szakirany? @relation(fields: [szakiranyId], references: [id])
 
   createAt  DateTime  @default(now())
   createBy  String?

@@ -199,6 +199,7 @@ exports.Prisma.Felvettek_SzamaScalarFieldEnum = {
   alapadatok_id: 'alapadatok_id',
   tanev_kezdete: 'tanev_kezdete',
   szakma_id: 'szakma_id',
+  szakiranyId: 'szakiranyId',
   jelentkezo_letszam: 'jelentkezo_letszam',
   felveheto_letszam: 'felveheto_letszam',
   felvett_letszam: 'felvett_letszam',
