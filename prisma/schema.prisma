@@ -8,6 +8,49 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id        String   @id @default(uuid()) @db.Uuid
+  email     String   @unique
+  name      String?
+  password  String?
+
+  permissions Int     @default(0)
+  // Superadmin, HSZC, ADMIN, PRIVILAGED, STANDARD
+  // Permissions are represented as an integer bitmask
+  // 0b10000 = Superadmin
+  // 0b01000 = HSZC
+  // 0b00100 = ADMIN
+  // 0b00010 = PRIVILAGED
+  // 0b00001 = STANDARD
+  
+  tableAccess TableAccess[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
+
+  alapadatokId String? @db.Uuid
+  alapadatok Alapadatok? @relation("AlapadatokUsers", fields: [alapadatokId], references: [id])
+
+  @@map("users")
+}
+
+model TableAccess {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String?  @db.Uuid
+  tableName String   @db.VarChar(100)
+  access    Int      @default(0) // Bitmask for access rights
+  // 0b01000 = DELETE
+  // 0b00100 = UPDATE
+  // 0b00010 = CREATE
+  // 0b00001 = READ
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
+
+  user      User?    @relation(fields: [userId], references: [id])
+
+  @@map("table_access")
+}
+
 model Alapadatok {
   id              String            @id @default(uuid()) @db.Uuid
   iskola_neve     String            @db.VarChar(150)
@@ -17,6 +60,8 @@ model Alapadatok {
   tanugyiAdatok   Tanugyi_Adatok[]
   tanulo_letszam  Tanulo_Letszam[]
   kompetencia Kompetencia[]
+
+  users User[] @relation("AlapadatokUsers")
 }
 
 model Szakirany {

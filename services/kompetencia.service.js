@@ -18,15 +18,6 @@ export async function getById(id) {
   return data;
 }
 
-/**
- * 
-mat_orsz_p         String
-  szoveg_orsz_p      String
-  mat_int_p          String
-  szoveg_int_p       String
-  kepzes_forma       String
- */
-
 export async function create(
   alapadatok_id,
   tanev_kezdete,
