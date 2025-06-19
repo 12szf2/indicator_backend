@@ -68,3 +68,84 @@ export async function getByEmail(email) {
 
   return data;
 }
+
+export async function create(
+  email,
+  name,
+  password,
+  permissions = 0b00001,
+  tableAccess = [],
+  alapadatok_id = null
+) {
+  const user = await prisma.user.create({
+    data: {
+      email,
+      name,
+      password,
+      permissions: Number(permissions),
+      alapadatok_id: alapadatok_id ? Number(alapadatok_id) : null,
+    },
+  });
+
+  if (tableAccess && tableAccess.length > 0) {
+    await Promise.all(
+      tableAccess.map((access) =>
+        prisma.tableAccess.create({
+          data: {
+            userId: user.id,
+            tableName: access.tableName,
+            access: access.access,
+          },
+        })
+      )
+    );
+  }
+
+  return user;
+}
+
+export async function update(
+  id,
+  email,
+  name,
+  password,
+  permissions = 0b00001,
+  tableAccess = [],
+  alapadatok_id = null
+) {
+  const user = await prisma.user.update({
+    where: { id: Number(id) },
+    data: {
+      email,
+      name,
+      password,
+      permissions: Number(permissions),
+      alapadatok_id: alapadatok_id ? Number(alapadatok_id) : null,
+    },
+  });
+
+  if (tableAccess && tableAccess.length > 0) {
+    await Promise.all(
+      tableAccess.map((access) =>
+        prisma.tableAccess.upsert({
+          where: {
+            userId_tableName: {
+              userId: user.id,
+              tableName: access.tableName,
+            },
+          },
+          create: {
+            userId: user.id,
+            tableName: access.tableName,
+            access: access.access,
+          },
+          update: {
+            access: access.access,
+          },
+        })
+      )
+    );
+  }
+
+  return user;
+}
