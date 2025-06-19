@@ -54,7 +54,7 @@ export async function create(
   szakirany,
   tanev_kezdete
 ) {
-  await deleteMany(alapadatok_id, tanev_kezdete);
+  // await deleteMany(alapadatok_id, tanev_kezdete);
 
   const szakiranyData = await prisma.szakirany.findUnique({
     where: {

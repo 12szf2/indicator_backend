@@ -36,15 +36,28 @@ export async function create(
   szoveg_int_p,
   kepzes_forma
 ) {
+  await deleteAllByAlapadatokId(alapadatok_id, tanev_kezdete);
+
   const data = await prisma.kompetencia.create({
     data: {
       alapadatok_id: alapadatok_id,
-      tanev_kezdete,
+      tanev_kezdete: Number(tanev_kezdete),
       mat_int_p,
       mat_orsz_p,
       szoveg_int_p,
       szoveg_orsz_p,
       kepzes_forma,
+    },
+  });
+
+  return data;
+}
+
+export async function deleteAllByAlapadatokId(alapadatok_id, year) {
+  const data = await prisma.kompetencia.deleteMany({
+    where: {
+      alapadatok_id: alapadatok_id,
+      tanev_kezdete: Number(year),
     },
   });
 
