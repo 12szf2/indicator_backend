@@ -14,9 +14,11 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.7.0",
+    "@quixo3/prisma-session-store": "^3.1.13",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "express-session": "^1.18.1",
     "jsonwebtoken": "^9.0.2",
     "prisma": "^6.7.0"
   },

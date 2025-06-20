@@ -1,6 +1,9 @@
 // External dependencies
 import express from "express";
 import cors from "cors";
+import expressSession from "express-session";
+import { PrismaSessionStore } from "@quixo3/prisma-session-store";
+import { PrismaClient } from "../generated/prisma/index.js";
 
 // Controllers
 import alapadatokRouter from "../controllers/alapadatok.controller.js";
@@ -28,4 +31,7 @@ export {
   authRouter,
   logMiddleware,
   authMiddleware,
+  expressSession,
+  PrismaSessionStore,
+  PrismaClient,
 };

@@ -1,6 +1,7 @@
 import bcrypt from "bcryptjs";
 import { generateToken } from "../utils/token.js";
 import { getByEmail } from "./user.service.js";
+import { refreshAccessToken } from "../utils/token.js";
 
 export async function login(email, password) {
   const user = await getByEmail(email);
@@ -20,6 +21,19 @@ export async function login(email, password) {
     id: user.id,
     email: user.email,
     name: user.name,
+    accessToken: token.accessToken,
+    refreshToken: token.refreshToken,
+  };
+}
+
+export async function refresh(refreshToken) {
+  if (!refreshToken) {
+    throw new Error("Refresh token is required");
+  }
+
+  const token = refreshAccessToken(refreshToken);
+
+  return {
     accessToken: token.accessToken,
     refreshToken: token.refreshToken,
   };
