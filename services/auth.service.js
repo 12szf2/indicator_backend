@@ -31,7 +31,11 @@ export async function refresh(refreshToken) {
     throw new Error("Refresh token is required");
   }
 
-  const token = refreshAccessToken(refreshToken);
+  const token = await refreshAccessToken(refreshToken);
+
+  if (!token) {
+    throw new Error("Invalid or expired refresh token");
+  }
 
   return {
     accessToken: token.accessToken,

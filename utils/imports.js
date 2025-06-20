@@ -17,6 +17,7 @@ import authRouter from "../controllers/auth.controller.js";
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
 import { authMiddleware } from "../middleware/auth.middleware.js";
+import endpointAccessMiddleware from "../middleware/endpointAccess.middleware.js";
 
 // Export everything for single import
 export {
@@ -34,4 +35,5 @@ export {
   expressSession,
   PrismaSessionStore,
   PrismaClient,
+  endpointAccessMiddleware,
 };

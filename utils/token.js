@@ -1,6 +1,10 @@
 import jwt from "jsonwebtoken";
 import { getByEmail } from "../services/user.service.js";
 
+const JWT_SECRET = process.env.JWT_SECRET || "default_secret_key";
+const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "5m";
+const REFRESH_TOKEN_EXPIRES_IN = process.env.REFRESH_TOKEN_EXPIRES_IN || "7d";
+
 export function generateToken(user) {
   const payload = {
     email: user.email,
@@ -21,8 +25,8 @@ export function generateToken(user) {
       : [],
   };
 
-  const accessToken = jwt.sign(payload, process.env.JWT_SECRET, {
-    expiresIn: "5m",
+  const accessToken = jwt.sign(payload, JWT_SECRET, {
+    expiresIn: JWT_EXPIRES_IN,
     algorithm: "HS512",
     issuer: "https://indicator-api.pollak.info",
     subject: String(user.id),
@@ -30,9 +34,9 @@ export function generateToken(user) {
 
   const refreshToken = jwt.sign(
     { email: user.email, name: user.name },
-    process.env.JWT_SECRET,
+    JWT_SECRET,
     {
-      expiresIn: "7d",
+      expiresIn: REFRESH_TOKEN_EXPIRES_IN,
       algorithm: "HS512",
       issuer: "https://indicator-api.pollak.info",
       subject: String(user.id),
@@ -46,7 +50,7 @@ export function generateToken(user) {
 }
 
 export function verifyToken(token) {
-  const decoded = jwt.verify(token, process.env.JWT_SECRET, {
+  const decoded = jwt.verify(token, JWT_SECRET, {
     algorithms: ["HS512"],
     issuer: "https://indicator-api.pollak.info",
   });
@@ -55,7 +59,7 @@ export function verifyToken(token) {
 
 export function verifyRefreshToken(token) {
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET, {
+    const decoded = jwt.verify(token, JWT_SECRET, {
       algorithms: ["HS512"],
       issuer: "https://indicator-api.pollak.info",
     });

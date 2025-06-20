@@ -37,11 +37,36 @@ app.use(i.cors(corsConfig));
 app.use(i.logMiddleware);
 
 app.use("/api/v1/alapadatok", i.authMiddleware, i.alapadatokRouter);
-app.use("/api/v1/tanugyi_adatok", i.authMiddleware, i.tanugyi_adatok);
-app.use("/api/v1/tanulo_letszam", i.authMiddleware, i.tanulo_letszam);
-app.use("/api/v1/kompetencia", i.authMiddleware, i.kompetencia);
-app.use("/api/v1/felvettek_szama", i.authMiddleware, i.felvettek_szama);
-app.use("/api/v1/user", i.authMiddleware, i.userRouter);
+app.use(
+  "/api/v1/tanugyi_adatok",
+  i.authMiddleware,
+  i.endpointAccessMiddleware,
+  i.tanugyi_adatok
+);
+app.use(
+  "/api/v1/tanulo_letszam",
+  i.authMiddleware,
+  i.endpointAccessMiddleware,
+  i.tanulo_letszam
+);
+app.use(
+  "/api/v1/kompetencia",
+  i.authMiddleware,
+  i.endpointAccessMiddleware,
+  i.kompetencia
+);
+app.use(
+  "/api/v1/felvettek_szama",
+  i.authMiddleware,
+  i.endpointAccessMiddleware,
+  i.felvettek_szama
+);
+app.use(
+  "/api/v1/users",
+  i.authMiddleware,
+  i.endpointAccessMiddleware,
+  i.userRouter
+);
 app.use("/api/v1/auth", i.authRouter);
 
 app.listen(port, () => {

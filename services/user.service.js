@@ -1,5 +1,5 @@
 import { PrismaClient } from "../generated/prisma/client.js";
-import { generateToken } from "../utils/token.js";
+import { hashPassword } from "../utils/hash.js";
 
 const prisma = new PrismaClient();
 
@@ -73,17 +73,25 @@ export async function create(
   email,
   name,
   password,
-  permissions = 0b00001,
+  permissions = 1,
   tableAccess = [],
   alapadatok_id = null
 ) {
+  const existingUser = await prisma.user.findUnique({
+    where: { email },
+  });
+
+  if (existingUser) {
+    throw new Error("User with this email already exists.");
+  }
+
   const user = await prisma.user.create({
     data: {
       email,
       name,
-      password,
-      permissions: Number(permissions),
-      alapadatok_id: alapadatok_id ? Number(alapadatok_id) : null,
+      password: await hashPassword(password),
+      permissions: permissions,
+      alapadatokId: alapadatok_id ? Number(alapadatok_id) : null,
     },
   });
 
