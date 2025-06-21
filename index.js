@@ -3,6 +3,7 @@ import "dotenv/config";
 import * as i from "./utils/imports.js";
 import prisma from "./utils/prisma.js";
 import compression from "compression";
+import process from "node:process";
 
 const corsConfig = {
   origin: [
@@ -67,6 +68,9 @@ apiRouter.use(i.authMiddleware);
 
 // Cache monitoring endpoint
 apiRouter.use("/cache", i.cacheRouter);
+
+// Log management endpoint
+apiRouter.use("/logs", i.logRouter);
 
 // Define API routes with their specific middleware
 apiRouter.use("/alapadatok", i.alapadatokRouter);

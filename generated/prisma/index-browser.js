@@ -152,11 +152,15 @@ exports.Prisma.LogScalarFieldEnum = {
   userId: 'userId',
   method: 'method',
   path: 'path',
+  statusCode: 'statusCode',
   body: 'body',
   query: 'query',
   headers: 'headers',
   ip: 'ip',
   userAgent: 'userAgent',
+  duration: 'duration',
+  level: 'level',
+  correlationId: 'correlationId',
   createdAt: 'createdAt'
 };
 

@@ -16,6 +16,7 @@ import felvettek_szama from "../controllers/felvettek_szama.controller.js";
 import userRouter from "../controllers/user.controller.js";
 import authRouter from "../controllers/auth.controller.js";
 import cacheRouter from "../controllers/cache.controller.js";
+import logRouter from "../controllers/log.controller.js";
 
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
@@ -35,6 +36,7 @@ export {
   userRouter,
   authRouter,
   cacheRouter,
+  logRouter,
   logMiddleware,
   authMiddleware,
   expressSession,

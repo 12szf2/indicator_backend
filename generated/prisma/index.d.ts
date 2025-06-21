@@ -5385,8 +5385,20 @@ export namespace Prisma {
 
   export type AggregateLog = {
     _count: LogCountAggregateOutputType | null
+    _avg: LogAvgAggregateOutputType | null
+    _sum: LogSumAggregateOutputType | null
     _min: LogMinAggregateOutputType | null
     _max: LogMaxAggregateOutputType | null
+  }
+
+  export type LogAvgAggregateOutputType = {
+    statusCode: number | null
+    duration: number | null
+  }
+
+  export type LogSumAggregateOutputType = {
+    statusCode: number | null
+    duration: number | null
   }
 
   export type LogMinAggregateOutputType = {
@@ -5394,8 +5406,12 @@ export namespace Prisma {
     userId: string | null
     method: string | null
     path: string | null
+    statusCode: number | null
     ip: string | null
     userAgent: string | null
+    duration: number | null
+    level: string | null
+    correlationId: string | null
     createdAt: Date | null
   }
 
@@ -5404,8 +5420,12 @@ export namespace Prisma {
     userId: string | null
     method: string | null
     path: string | null
+    statusCode: number | null
     ip: string | null
     userAgent: string | null
+    duration: number | null
+    level: string | null
+    correlationId: string | null
     createdAt: Date | null
   }
 
@@ -5414,23 +5434,41 @@ export namespace Prisma {
     userId: number
     method: number
     path: number
+    statusCode: number
     body: number
     query: number
     headers: number
     ip: number
     userAgent: number
+    duration: number
+    level: number
+    correlationId: number
     createdAt: number
     _all: number
   }
 
+
+  export type LogAvgAggregateInputType = {
+    statusCode?: true
+    duration?: true
+  }
+
+  export type LogSumAggregateInputType = {
+    statusCode?: true
+    duration?: true
+  }
 
   export type LogMinAggregateInputType = {
     id?: true
     userId?: true
     method?: true
     path?: true
+    statusCode?: true
     ip?: true
     userAgent?: true
+    duration?: true
+    level?: true
+    correlationId?: true
     createdAt?: true
   }
 
@@ -5439,8 +5477,12 @@ export namespace Prisma {
     userId?: true
     method?: true
     path?: true
+    statusCode?: true
     ip?: true
     userAgent?: true
+    duration?: true
+    level?: true
+    correlationId?: true
     createdAt?: true
   }
 
@@ -5449,11 +5491,15 @@ export namespace Prisma {
     userId?: true
     method?: true
     path?: true
+    statusCode?: true
     body?: true
     query?: true
     headers?: true
     ip?: true
     userAgent?: true
+    duration?: true
+    level?: true
+    correlationId?: true
     createdAt?: true
     _all?: true
   }
@@ -5496,6 +5542,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: LogAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LogSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: LogMinAggregateInputType
@@ -5526,6 +5584,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: LogCountAggregateInputType | true
+    _avg?: LogAvgAggregateInputType
+    _sum?: LogSumAggregateInputType
     _min?: LogMinAggregateInputType
     _max?: LogMaxAggregateInputType
   }
@@ -5535,13 +5595,19 @@ export namespace Prisma {
     userId: string | null
     method: string
     path: string
+    statusCode: number | null
     body: JsonValue | null
     query: JsonValue | null
     headers: JsonValue | null
     ip: string
     userAgent: string
+    duration: number | null
+    level: string
+    correlationId: string | null
     createdAt: Date
     _count: LogCountAggregateOutputType | null
+    _avg: LogAvgAggregateOutputType | null
+    _sum: LogSumAggregateOutputType | null
     _min: LogMinAggregateOutputType | null
     _max: LogMaxAggregateOutputType | null
   }
@@ -5565,11 +5631,15 @@ export namespace Prisma {
     userId?: boolean
     method?: boolean
     path?: boolean
+    statusCode?: boolean
     body?: boolean
     query?: boolean
     headers?: boolean
     ip?: boolean
     userAgent?: boolean
+    duration?: boolean
+    level?: boolean
+    correlationId?: boolean
     createdAt?: boolean
     user?: boolean | Log$userArgs<ExtArgs>
   }, ExtArgs["result"]["log"]>
@@ -5579,11 +5649,15 @@ export namespace Prisma {
     userId?: boolean
     method?: boolean
     path?: boolean
+    statusCode?: boolean
     body?: boolean
     query?: boolean
     headers?: boolean
     ip?: boolean
     userAgent?: boolean
+    duration?: boolean
+    level?: boolean
+    correlationId?: boolean
     createdAt?: boolean
     user?: boolean | Log$userArgs<ExtArgs>
   }, ExtArgs["result"]["log"]>
@@ -5593,11 +5667,15 @@ export namespace Prisma {
     userId?: boolean
     method?: boolean
     path?: boolean
+    statusCode?: boolean
     body?: boolean
     query?: boolean
     headers?: boolean
     ip?: boolean
     userAgent?: boolean
+    duration?: boolean
+    level?: boolean
+    correlationId?: boolean
     createdAt?: boolean
     user?: boolean | Log$userArgs<ExtArgs>
   }, ExtArgs["result"]["log"]>
@@ -5607,15 +5685,19 @@ export namespace Prisma {
     userId?: boolean
     method?: boolean
     path?: boolean
+    statusCode?: boolean
     body?: boolean
     query?: boolean
     headers?: boolean
     ip?: boolean
     userAgent?: boolean
+    duration?: boolean
+    level?: boolean
+    correlationId?: boolean
     createdAt?: boolean
   }
 
-  export type LogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "method" | "path" | "body" | "query" | "headers" | "ip" | "userAgent" | "createdAt", ExtArgs["result"]["log"]>
+  export type LogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "method" | "path" | "statusCode" | "body" | "query" | "headers" | "ip" | "userAgent" | "duration" | "level" | "correlationId" | "createdAt", ExtArgs["result"]["log"]>
   export type LogInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | Log$userArgs<ExtArgs>
   }
@@ -5636,11 +5718,15 @@ export namespace Prisma {
       userId: string | null
       method: string
       path: string
+      statusCode: number | null
       body: Prisma.JsonValue | null
       query: Prisma.JsonValue | null
       headers: Prisma.JsonValue | null
       ip: string
       userAgent: string
+      duration: number | null
+      level: string
+      correlationId: string | null
       createdAt: Date
     }, ExtArgs["result"]["log"]>
     composites: {}
@@ -6070,11 +6156,15 @@ export namespace Prisma {
     readonly userId: FieldRef<"Log", 'String'>
     readonly method: FieldRef<"Log", 'String'>
     readonly path: FieldRef<"Log", 'String'>
+    readonly statusCode: FieldRef<"Log", 'Int'>
     readonly body: FieldRef<"Log", 'Json'>
     readonly query: FieldRef<"Log", 'Json'>
     readonly headers: FieldRef<"Log", 'Json'>
     readonly ip: FieldRef<"Log", 'String'>
     readonly userAgent: FieldRef<"Log", 'String'>
+    readonly duration: FieldRef<"Log", 'Int'>
+    readonly level: FieldRef<"Log", 'String'>
+    readonly correlationId: FieldRef<"Log", 'String'>
     readonly createdAt: FieldRef<"Log", 'DateTime'>
   }
     
@@ -16636,11 +16726,15 @@ export namespace Prisma {
     userId: 'userId',
     method: 'method',
     path: 'path',
+    statusCode: 'statusCode',
     body: 'body',
     query: 'query',
     headers: 'headers',
     ip: 'ip',
     userAgent: 'userAgent',
+    duration: 'duration',
+    level: 'level',
+    correlationId: 'correlationId',
     createdAt: 'createdAt'
   };
 
@@ -17136,11 +17230,15 @@ export namespace Prisma {
     userId?: UuidNullableFilter<"Log"> | string | null
     method?: StringFilter<"Log"> | string
     path?: StringFilter<"Log"> | string
+    statusCode?: IntNullableFilter<"Log"> | number | null
     body?: JsonNullableFilter<"Log">
     query?: JsonNullableFilter<"Log">
     headers?: JsonNullableFilter<"Log">
     ip?: StringFilter<"Log"> | string
     userAgent?: StringFilter<"Log"> | string
+    duration?: IntNullableFilter<"Log"> | number | null
+    level?: StringFilter<"Log"> | string
+    correlationId?: StringNullableFilter<"Log"> | string | null
     createdAt?: DateTimeFilter<"Log"> | Date | string
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
@@ -17150,11 +17248,15 @@ export namespace Prisma {
     userId?: SortOrderInput | SortOrder
     method?: SortOrder
     path?: SortOrder
+    statusCode?: SortOrderInput | SortOrder
     body?: SortOrderInput | SortOrder
     query?: SortOrderInput | SortOrder
     headers?: SortOrderInput | SortOrder
     ip?: SortOrder
     userAgent?: SortOrder
+    duration?: SortOrderInput | SortOrder
+    level?: SortOrder
+    correlationId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     user?: UserOrderByWithRelationInput
   }
@@ -17167,11 +17269,15 @@ export namespace Prisma {
     userId?: UuidNullableFilter<"Log"> | string | null
     method?: StringFilter<"Log"> | string
     path?: StringFilter<"Log"> | string
+    statusCode?: IntNullableFilter<"Log"> | number | null
     body?: JsonNullableFilter<"Log">
     query?: JsonNullableFilter<"Log">
     headers?: JsonNullableFilter<"Log">
     ip?: StringFilter<"Log"> | string
     userAgent?: StringFilter<"Log"> | string
+    duration?: IntNullableFilter<"Log"> | number | null
+    level?: StringFilter<"Log"> | string
+    correlationId?: StringNullableFilter<"Log"> | string | null
     createdAt?: DateTimeFilter<"Log"> | Date | string
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id">
@@ -17181,15 +17287,21 @@ export namespace Prisma {
     userId?: SortOrderInput | SortOrder
     method?: SortOrder
     path?: SortOrder
+    statusCode?: SortOrderInput | SortOrder
     body?: SortOrderInput | SortOrder
     query?: SortOrderInput | SortOrder
     headers?: SortOrderInput | SortOrder
     ip?: SortOrder
     userAgent?: SortOrder
+    duration?: SortOrderInput | SortOrder
+    level?: SortOrder
+    correlationId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     _count?: LogCountOrderByAggregateInput
+    _avg?: LogAvgOrderByAggregateInput
     _max?: LogMaxOrderByAggregateInput
     _min?: LogMinOrderByAggregateInput
+    _sum?: LogSumOrderByAggregateInput
   }
 
   export type LogScalarWhereWithAggregatesInput = {
@@ -17200,11 +17312,15 @@ export namespace Prisma {
     userId?: UuidNullableWithAggregatesFilter<"Log"> | string | null
     method?: StringWithAggregatesFilter<"Log"> | string
     path?: StringWithAggregatesFilter<"Log"> | string
+    statusCode?: IntNullableWithAggregatesFilter<"Log"> | number | null
     body?: JsonNullableWithAggregatesFilter<"Log">
     query?: JsonNullableWithAggregatesFilter<"Log">
     headers?: JsonNullableWithAggregatesFilter<"Log">
     ip?: StringWithAggregatesFilter<"Log"> | string
     userAgent?: StringWithAggregatesFilter<"Log"> | string
+    duration?: IntNullableWithAggregatesFilter<"Log"> | number | null
+    level?: StringWithAggregatesFilter<"Log"> | string
+    correlationId?: StringNullableWithAggregatesFilter<"Log"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Log"> | Date | string
   }
 
@@ -18325,11 +18441,15 @@ export namespace Prisma {
     id?: string
     method: string
     path: string
+    statusCode?: number | null
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
     ip: string
     userAgent: string
+    duration?: number | null
+    level?: string
+    correlationId?: string | null
     createdAt?: Date | string
     user?: UserCreateNestedOneWithoutLogsInput
   }
@@ -18339,11 +18459,15 @@ export namespace Prisma {
     userId?: string | null
     method: string
     path: string
+    statusCode?: number | null
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
     ip: string
     userAgent: string
+    duration?: number | null
+    level?: string
+    correlationId?: string | null
     createdAt?: Date | string
   }
 
@@ -18351,11 +18475,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     method?: StringFieldUpdateOperationsInput | string
     path?: StringFieldUpdateOperationsInput | string
+    statusCode?: NullableIntFieldUpdateOperationsInput | number | null
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
     ip?: StringFieldUpdateOperationsInput | string
     userAgent?: StringFieldUpdateOperationsInput | string
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: StringFieldUpdateOperationsInput | string
+    correlationId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneWithoutLogsNestedInput
   }
@@ -18365,11 +18493,15 @@ export namespace Prisma {
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     method?: StringFieldUpdateOperationsInput | string
     path?: StringFieldUpdateOperationsInput | string
+    statusCode?: NullableIntFieldUpdateOperationsInput | number | null
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
     ip?: StringFieldUpdateOperationsInput | string
     userAgent?: StringFieldUpdateOperationsInput | string
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: StringFieldUpdateOperationsInput | string
+    correlationId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -18378,11 +18510,15 @@ export namespace Prisma {
     userId?: string | null
     method: string
     path: string
+    statusCode?: number | null
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
     ip: string
     userAgent: string
+    duration?: number | null
+    level?: string
+    correlationId?: string | null
     createdAt?: Date | string
   }
 
@@ -18390,11 +18526,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     method?: StringFieldUpdateOperationsInput | string
     path?: StringFieldUpdateOperationsInput | string
+    statusCode?: NullableIntFieldUpdateOperationsInput | number | null
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
     ip?: StringFieldUpdateOperationsInput | string
     userAgent?: StringFieldUpdateOperationsInput | string
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: StringFieldUpdateOperationsInput | string
+    correlationId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -18403,11 +18543,15 @@ export namespace Prisma {
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     method?: StringFieldUpdateOperationsInput | string
     path?: StringFieldUpdateOperationsInput | string
+    statusCode?: NullableIntFieldUpdateOperationsInput | number | null
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
     ip?: StringFieldUpdateOperationsInput | string
     userAgent?: StringFieldUpdateOperationsInput | string
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: StringFieldUpdateOperationsInput | string
+    correlationId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -19827,6 +19971,17 @@ export namespace Prisma {
   export type TableAccessSumOrderByAggregateInput = {
     access?: SortOrder
   }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
   export type JsonNullableFilter<$PrismaModel = never> =
     | PatchUndefined<
         Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
@@ -19856,12 +20011,21 @@ export namespace Prisma {
     userId?: SortOrder
     method?: SortOrder
     path?: SortOrder
+    statusCode?: SortOrder
     body?: SortOrder
     query?: SortOrder
     headers?: SortOrder
     ip?: SortOrder
     userAgent?: SortOrder
+    duration?: SortOrder
+    level?: SortOrder
+    correlationId?: SortOrder
     createdAt?: SortOrder
+  }
+
+  export type LogAvgOrderByAggregateInput = {
+    statusCode?: SortOrder
+    duration?: SortOrder
   }
 
   export type LogMaxOrderByAggregateInput = {
@@ -19869,8 +20033,12 @@ export namespace Prisma {
     userId?: SortOrder
     method?: SortOrder
     path?: SortOrder
+    statusCode?: SortOrder
     ip?: SortOrder
     userAgent?: SortOrder
+    duration?: SortOrder
+    level?: SortOrder
+    correlationId?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -19879,9 +20047,34 @@ export namespace Prisma {
     userId?: SortOrder
     method?: SortOrder
     path?: SortOrder
+    statusCode?: SortOrder
     ip?: SortOrder
     userAgent?: SortOrder
+    duration?: SortOrder
+    level?: SortOrder
+    correlationId?: SortOrder
     createdAt?: SortOrder
+  }
+
+  export type LogSumOrderByAggregateInput = {
+    statusCode?: SortOrder
+    duration?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
   export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
     | PatchUndefined<
@@ -20639,6 +20832,14 @@ export namespace Prisma {
     create?: XOR<UserCreateWithoutLogsInput, UserUncheckedCreateWithoutLogsInput>
     connectOrCreate?: UserCreateOrConnectWithoutLogsInput
     connect?: UserWhereUniqueInput
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type UserUpdateOneWithoutLogsNestedInput = {
@@ -21409,6 +21610,33 @@ export namespace Prisma {
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
   export type NestedJsonNullableFilter<$PrismaModel = never> =
     | PatchUndefined<
         Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
@@ -21490,11 +21718,15 @@ export namespace Prisma {
     id?: string
     method: string
     path: string
+    statusCode?: number | null
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
     ip: string
     userAgent: string
+    duration?: number | null
+    level?: string
+    correlationId?: string | null
     createdAt?: Date | string
   }
 
@@ -21502,11 +21734,15 @@ export namespace Prisma {
     id?: string
     method: string
     path: string
+    statusCode?: number | null
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
     ip: string
     userAgent: string
+    duration?: number | null
+    level?: string
+    correlationId?: string | null
     createdAt?: Date | string
   }
 
@@ -21605,11 +21841,15 @@ export namespace Prisma {
     userId?: UuidNullableFilter<"Log"> | string | null
     method?: StringFilter<"Log"> | string
     path?: StringFilter<"Log"> | string
+    statusCode?: IntNullableFilter<"Log"> | number | null
     body?: JsonNullableFilter<"Log">
     query?: JsonNullableFilter<"Log">
     headers?: JsonNullableFilter<"Log">
     ip?: StringFilter<"Log"> | string
     userAgent?: StringFilter<"Log"> | string
+    duration?: IntNullableFilter<"Log"> | number | null
+    level?: StringFilter<"Log"> | string
+    correlationId?: StringNullableFilter<"Log"> | string | null
     createdAt?: DateTimeFilter<"Log"> | Date | string
   }
 
@@ -23029,11 +23269,15 @@ export namespace Prisma {
     id?: string
     method: string
     path: string
+    statusCode?: number | null
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
     ip: string
     userAgent: string
+    duration?: number | null
+    level?: string
+    correlationId?: string | null
     createdAt?: Date | string
   }
 
@@ -23065,11 +23309,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     method?: StringFieldUpdateOperationsInput | string
     path?: StringFieldUpdateOperationsInput | string
+    statusCode?: NullableIntFieldUpdateOperationsInput | number | null
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
     ip?: StringFieldUpdateOperationsInput | string
     userAgent?: StringFieldUpdateOperationsInput | string
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: StringFieldUpdateOperationsInput | string
+    correlationId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -23077,11 +23325,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     method?: StringFieldUpdateOperationsInput | string
     path?: StringFieldUpdateOperationsInput | string
+    statusCode?: NullableIntFieldUpdateOperationsInput | number | null
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
     ip?: StringFieldUpdateOperationsInput | string
     userAgent?: StringFieldUpdateOperationsInput | string
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: StringFieldUpdateOperationsInput | string
+    correlationId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -23089,11 +23341,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     method?: StringFieldUpdateOperationsInput | string
     path?: StringFieldUpdateOperationsInput | string
+    statusCode?: NullableIntFieldUpdateOperationsInput | number | null
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
     ip?: StringFieldUpdateOperationsInput | string
     userAgent?: StringFieldUpdateOperationsInput | string
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: StringFieldUpdateOperationsInput | string
+    correlationId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
