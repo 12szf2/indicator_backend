@@ -1,13 +1,26 @@
-import { PrismaClient } from "../generated/prisma/client.js";
+import prisma from "../utils/prisma.js";
+import * as cache from "../utils/cache.js";
 
-const prisma = new PrismaClient();
+// Cache TTLs
+const CACHE_TTL = {
+  LIST: 5 * 60 * 1000, // 5 minutes for lists
+  DETAIL: 10 * 60 * 1000, // 10 minutes for details
+};
 
 export async function getAll() {
+  // Include year in cache key since results depend on current year
   let year = new Date().getFullYear();
   const month = new Date().getMonth();
 
   if (month < 6) {
     year -= 1;
+  }
+
+  const cacheKey = `tanulo_letszam:all:${year}`;
+  const cachedData = cache.get(cacheKey);
+
+  if (cachedData) {
+    return cachedData;
   }
 
   const data = await prisma.tanulo_Letszam.findMany({
@@ -19,6 +32,9 @@ export async function getAll() {
     },
   });
 
+  // Store in cache
+  cache.set(cacheKey, data, CACHE_TTL.LIST);
+
   return data;
 }
 
@@ -28,6 +44,13 @@ export async function getById(id) {
 
   if (month < 6) {
     year -= 1;
+  }
+
+  const cacheKey = `tanulo_letszam:id:${id}:year:${year}`;
+  const cachedData = cache.get(cacheKey);
+
+  if (cachedData) {
+    return cachedData;
   }
 
   const data = await prisma.tanulo_Letszam.findMany({
@@ -44,6 +67,9 @@ export async function getById(id) {
     },
   });
 
+  // Store in cache
+  cache.set(cacheKey, data, CACHE_TTL.DETAIL);
+
   return data;
 }
 
@@ -54,6 +80,11 @@ export async function create(
   szakirany,
   tanev_kezdete
 ) {
+  // Invalidate cache for this alapadatok and the main list
+  const year = Number(tanev_kezdete);
+  cache.delByPattern(`tanulo_letszam:all:.*`); // Clear all year variations
+  cache.delByPattern(`tanulo_letszam:id:${alapadatok_id}:.*`); // Clear all year variations
+
   // await deleteMany(alapadatok_id, tanev_kezdete);
 
   const szakiranyData = await prisma.szakirany.findUnique({
@@ -83,6 +114,9 @@ export async function create(
 }
 
 export async function deleteMany(alapadatok_id, year) {
+  // Invalidate cache for this alapadatok and the main list
+  cache.delByPattern(`tanulo_letszam:all:.*`); // Clear all year variations
+  cache.delByPattern(`tanulo_letszam:id:${alapadatok_id}:.*`); // Clear all year variations
   const ret = await prisma.tanulo_Letszam.deleteMany({
     where: {
       alapadatok_id,

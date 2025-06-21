@@ -1,5 +1,4 @@
-import { getByEmail } from "../services/user.service.js";
-import { verifyToken, refreshAccessToken } from "../utils/token.js";
+import { refreshAccessToken, getUserFromToken } from "../utils/token.js";
 
 export async function authMiddleware(req, res, next) {
   if (req.method === "OPTIONS") {
@@ -17,8 +16,12 @@ export async function authMiddleware(req, res, next) {
   }
 
   try {
-    const decodedToken = verifyToken(token);
-    const user = await getByEmail(decodedToken.email);
+    // Use getUserFromToken which has built-in caching
+    const user = await getUserFromToken(token);
+
+    if (!user) {
+      return res.status(401).json({ message: "Invalid user token" });
+    }
 
     req.user = user;
     next();
@@ -40,8 +43,8 @@ export async function authMiddleware(req, res, next) {
         res.setHeader("Authorization", `Bearer ${tokens.accessToken}`);
         res.setHeader("X-Refresh-Token", tokens.refreshToken);
 
-        const decodedToken = verifyToken(tokens.accessToken);
-        const user = await getByEmail(decodedToken.email);
+        // Use getUserFromToken with the new token
+        const user = await getUserFromToken(tokens.accessToken);
         req.user = user;
         next();
       } catch (error) {

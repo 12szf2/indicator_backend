@@ -1,5 +1,11 @@
-import { PrismaClient } from "../generated/prisma/client.js";
-const prisma = new PrismaClient();
+import prisma from "../utils/prisma.js";
+import * as cache from "../utils/cache.js";
+
+// Cache TTLs
+const CACHE_TTL = {
+  LIST: 5 * 60 * 1000, // 5 minutes for lists
+  DETAIL: 10 * 60 * 1000, // 10 minutes for details
+};
 
 export async function create(
   alapadatok_id,
@@ -10,6 +16,9 @@ export async function create(
   felveheto_letszam,
   felvett_letszam
 ) {
+  // Invalidate relevant caches
+  cache.del("felvettek_szama:all");
+  cache.del(`felvettek_szama:alapadatok_id:${alapadatok_id}`);
   const szakma = await prisma.szakma.findUnique({
     where: {
       szakmaNev,
@@ -44,11 +53,30 @@ export async function create(
 }
 
 export async function getAll() {
-  return await prisma.felvettek_Szama.findMany();
+  const cacheKey = "felvettek_szama:all";
+  const cachedData = cache.get(cacheKey);
+
+  if (cachedData) {
+    return cachedData;
+  }
+
+  const data = await prisma.felvettek_Szama.findMany();
+
+  // Store in cache
+  cache.set(cacheKey, data, CACHE_TTL.LIST);
+
+  return data;
 }
 
 export async function getById(alapadatok_id) {
-  return await prisma.felvettek_Szama.findMany({
+  const cacheKey = `felvettek_szama:alapadatok_id:${alapadatok_id}`;
+  const cachedData = cache.get(cacheKey);
+
+  if (cachedData) {
+    return cachedData;
+  }
+
+  const data = await prisma.felvettek_Szama.findMany({
     where: {
       alapadatok_id,
     },
@@ -57,4 +85,9 @@ export async function getById(alapadatok_id) {
       szakirany: true,
     },
   });
+
+  // Store in cache
+  cache.set(cacheKey, data, CACHE_TTL.DETAIL);
+
+  return data;
 }
