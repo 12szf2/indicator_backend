@@ -61,21 +61,25 @@ model Log {
   userId        String?  @db.Uuid
   method        String   @db.VarChar(10)
   path          String   @db.VarChar(255)
+  statusCode    Int?     @db.SmallInt  
   body          Json?
   query         Json?
   headers       Json?
   ip            String   @db.VarChar(45)
   userAgent     String   @db.VarChar(255)
+
+  duration      Int?     // Request duration in ms
+  level         String   @default("INFO") @db.VarChar(10) // INFO, WARN, ERROR
+  correlationId String?  @db.VarChar(50) // For tracking related requests
   createdAt     DateTime @default(now())
-  correlationId String?  @db.VarChar(50)
-  duration      Int?
-  level         String   @default("INFO") @db.VarChar(10)
-  statusCode    Int?     @db.SmallInt
+
   user          User?    @relation(fields: [userId], references: [id])
+
 
   @@index([createdAt, level])
   @@index([path])
   @@index([userId])
+
   @@map("logs")
 }
 

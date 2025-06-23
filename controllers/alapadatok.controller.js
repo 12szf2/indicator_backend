@@ -8,8 +8,75 @@ import {
 
 const router = express.Router();
 
-// http://localhost:3300/api/v1/alapadatok/
+/**
+ * @swagger
+ * tags:
+ *   name: Alapadatok
+ *   description: School basic information management
+ *
+ * components:
+ *   schemas:
+ *     Alapadatok:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           description: Unique identifier
+ *           example: 1
+ *         iskola_neve:
+ *           type: string
+ *           description: School name
+ *           example: "Pollák Antal Technikum"
+ *         intezmeny_tipus:
+ *           type: string
+ *           description: Institution type
+ *           example: "Technikum"
+ *         createdAt:
+ *           type: string
+ *           format: date-time
+ *           description: Creation timestamp
+ *         updatedAt:
+ *           type: string
+ *           format: date-time
+ *           description: Last update timestamp
+ *       required:
+ *         - iskola_neve
+ *         - intezmeny_tipus
+ */
 
+/**
+ * @swagger
+ * /alapadatok:
+ *   get:
+ *     summary: Get all schools data
+ *     description: Retrieve a list of all schools basic information
+ *     tags: [Alapadatok]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Success - List of school data
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Alapadatok'
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Szerver hiba!"
+ *                 error:
+ *                   type: object
+ */
 router.get("/", async (req, res) => {
   try {
     const data = await getAll();
@@ -20,6 +87,44 @@ router.get("/", async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /alapadatok/{id}:
+ *   get:
+ *     summary: Get school data by ID
+ *     description: Retrieve school information by its unique ID
+ *     tags: [Alapadatok]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: School unique identifier
+ *     responses:
+ *       200:
+ *         description: Success - School data
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Alapadatok'
+ *       400:
+ *         description: Invalid parameter
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "A paraméter nem megfelelő"
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
+ *       500:
+ *         description: Server error
+ */
 router.get("/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -35,6 +140,57 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /alapadatok:
+ *   post:
+ *     summary: Create new school record
+ *     description: Add a new school with basic information
+ *     tags: [Alapadatok]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - iskola_neve
+ *               - intezmeny_tipus
+ *             properties:
+ *               iskola_neve:
+ *                 type: string
+ *                 example: "Pollák Antal Technikum"
+ *               intezmeny_tipus:
+ *                 type: string
+ *                 example: "Technikum"
+ *     responses:
+ *       201:
+ *         description: Successfully created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Sikeresen létrehozva!"
+ *       400:
+ *         description: Missing data
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Hiányos adatok!"
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
+ *       500:
+ *         description: Server error
+ */
 router.post("/", async (req, res) => {
   try {
     const { iskola_neve, intezmeny_tipus } = req.body;
@@ -51,6 +207,64 @@ router.post("/", async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /alapadatok/{id}:
+ *   put:
+ *     summary: Update school data
+ *     description: Update an existing school record by ID
+ *     tags: [Alapadatok]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: School unique identifier
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - iskola_neve
+ *               - intezmeny_tipus
+ *             properties:
+ *               iskola_neve:
+ *                 type: string
+ *                 example: "Pollák Antal Technikum - Updated"
+ *               intezmeny_tipus:
+ *                 type: string
+ *                 example: "Technikum"
+ *     responses:
+ *       200:
+ *         description: Successfully updated
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Sikeresen frissítve!"
+ *       400:
+ *         description: Missing data
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Hiányos adatok!"
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
+ *       500:
+ *         description: Server error
+ */
 router.put("/:id", async (req, res) => {
   try {
     const id = req.params.id;

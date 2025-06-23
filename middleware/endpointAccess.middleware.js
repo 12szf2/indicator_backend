@@ -1,21 +1,12 @@
-import { getUserFromToken } from "../utils/token.js";
+export default function endpointAccessMiddleware(req, res, next) {
+  // By the time this middleware runs, the authMiddleware should have attached the user
+  const user = req.user;
 
-export default async function endpointAccessMiddleware(req, res, next) {
-  const token = req.headers.authorization?.split(" ")[1]; // Extract token from Authorization header
-
-  if (!token) {
+  if (!user) {
     return res.status(401).json({ message: "Unauthorized" });
   }
 
   try {
-    const user = await getUserFromToken(token);
-
-    if (!user) {
-      return res.status(401).json({ message: "Unauthorized" });
-    }
-
-    req.user = user; // Attach user to request object
-
     const endpoint = req.originalUrl;
     const method = req.method;
 

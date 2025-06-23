@@ -1,9 +1,22 @@
-import { PrismaClient } from "../generated/prisma/client.js";
 import { hashPassword } from "../utils/hash.js";
+import prisma from "../utils/prisma.js";
+import * as cache from "../utils/cache.js";
+import { enrichUserWithPermissions } from "../utils/permissions.js";
 
-const prisma = new PrismaClient();
+// Cache TTLs
+const CACHE_TTL = {
+  LIST: 5 * 60 * 1000, // 5 minutes for lists
+  DETAIL: 10 * 60 * 1000, // 10 minutes for details
+};
 
 export async function getAll() {
+  const cacheKey = "users:all";
+  const cachedData = cache.get(cacheKey);
+
+  if (cachedData) {
+    return cachedData;
+  }
+
   const data = await prisma.user.findMany({
     include: {
       tableAccess: {
@@ -14,6 +27,12 @@ export async function getAll() {
       alapadatok: true,
     },
   });
+  // Enrich each user with permission details
+  data.forEach((user) => enrichUserWithPermissions(user));
+
+
+  // Store in cache
+  cache.set(cacheKey, data, CACHE_TTL.LIST);
 
   data.forEach((user) => {
     user.permissionsDetails = {
@@ -35,12 +54,21 @@ export async function getAll() {
     });
   });
 
+
   return data;
 }
 
 export async function getByEmail(email) {
+  const cacheKey = `users:email:${email}`;
+  const cachedData = cache.get(cacheKey);
+
+  if (cachedData) {
+    return cachedData;
+  }
+
   const data = await prisma.user.findUnique({
     include: {
+      // Only include what's needed for login to optimize query
       tableAccess: {
         include: {
           table: true,
@@ -56,6 +84,12 @@ export async function getByEmail(email) {
   if (!data) {
     return null;
   }
+
+
+  // Store in cache
+  cache.set(cacheKey, data, CACHE_TTL.DETAIL);
+  // Enrich user with permission details
+  enrichUserWithPermissions(data);
 
   data.permissionsDetails = {
     isSuperadmin: Boolean(data.permissions & 0b10000),
@@ -104,7 +138,6 @@ export async function create(
       alapadatokId: alapadatok_id ? Number(alapadatok_id) : null,
     },
   });
-
   if (tableAccess && tableAccess.length > 0) {
     await Promise.all(
       tableAccess.map(async (access) => {
@@ -129,6 +162,9 @@ export async function create(
     );
   }
 
+  // Invalidate cache after creating a user
+  cache.invalidate("users:*");
+
   return user;
 }
 
@@ -151,7 +187,6 @@ export async function update(
       alapadatok_id: alapadatok_id ? Number(alapadatok_id) : null,
     },
   });
-
   if (tableAccess && tableAccess.length > 0) {
     await Promise.all(
       tableAccess.map(async (access) => {
@@ -184,6 +219,9 @@ export async function update(
       })
     );
   }
+
+  // Invalidate all user caches including specific user email and the users list
+  cache.invalidate("users:*");
 
   return user;
 }

@@ -1,4 +1,9 @@
+// Load environment variables
+import "dotenv/config";
 import * as i from "./utils/imports.js";
+import prisma from "./utils/prisma.js";
+import compression from "compression";
+import process from "node:process";
 
 const corsConfig = {
   origin: [
@@ -10,63 +15,88 @@ const corsConfig = {
 
 const app = i.express();
 const port = process.env.PORT || 5300;
+const SESSION_SECRET = process.env.SESSION_SECRET || "supersecretkey";
 
-// app.use(
-//   i.expressSession({
-//     cookie: {
-//       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-//       secure: false,
-//       sameSite: "none",
-//     },
-//     secret: process.env.SESSION_SECRET,
-//     resave: true,
-//     saveUninitialized: true,
-//     store: new i.PrismaSessionStore(new i.PrismaClient(), {
-//       checkPeriod: 2 * 60 * 1000, //ms
-//       dbRecordIdIsSessionId: true,
-//       dbRecordIdFunction: undefined,
-//     }),
-//   })
-// );
+// Add compression middleware to improve response time
+app.use(compression());
 
-app.use(i.express.json({ limit: "50mb" }));
-app.use(i.express.urlencoded({ limit: "50mb" }));
+
+app.use(
+  i.expressSession({
+    cookie: {
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      secure: false,
+      sameSite: "none",
+    },
+    secret: SESSION_SECRET,
+    resave: false, // Changed to false for better performance
+    saveUninitialized: false, // Changed to false for better performance
+    store: new i.PrismaSessionStore(prisma, {
+      checkPeriod: 2 * 60 * 1000, //ms
+      dbRecordIdIsSessionId: true,
+      dbRecordIdFunction: undefined,
+    }),
+  })
+);
+
+
 app.use(i.cors(corsConfig));
 
 // Middleware for logging requests
 app.use(i.logMiddleware);
 
-app.use("/api/v1/alapadatok", i.authMiddleware, i.alapadatokRouter);
+// Add HTTP caching middleware
 app.use(
-  "/api/v1/tanugyi_adatok",
-  i.authMiddleware,
-  i.endpointAccessMiddleware,
-  i.tanugyi_adatok
+  i.cacheMiddleware({
+    maxAge: 300, // 5 minutes
+    private: true,
+    staleWhileRevalidate: 60,
+  })
 );
-app.use(
-  "/api/v1/tanulo_letszam",
-  i.authMiddleware,
-  i.endpointAccessMiddleware,
-  i.tanulo_letszam
-);
-app.use(
-  "/api/v1/kompetencia",
-  i.authMiddleware,
-  i.endpointAccessMiddleware,
-  i.kompetencia
-);
-app.use(
-  "/api/v1/felvettek_szama",
-  i.authMiddleware,
-  i.endpointAccessMiddleware,
-  i.felvettek_szama
-);
-app.use(
-  "/api/v1/users",
-  i.authMiddleware,
-  i.endpointAccessMiddleware,
-  i.userRouter
-);
+
+
+// First, mount the auth routes separately to avoid middleware collision
+// For auth routes, we need the body parsers but not the authentication middleware
+app.use("/api/v1/auth", i.express.json());
+app.use("/api/v1/auth", i.express.urlencoded({ extended: false }));
+app.use("/api/v1/auth", i.authRouter); // Mount auth routes BEFORE the apiRouter
+
+// Apply middleware to all protected routes at once to reduce setup overhead
+const apiRouter = i.express.Router();
+
+// Only parse JSON for routes that need it
+apiRouter.use(i.express.json({ limit: "50mb" }));
+apiRouter.use(i.express.urlencoded({ limit: "50mb", extended: false }));
+apiRouter.use(i.authMiddleware);
+
+// Cache monitoring endpoint
+apiRouter.use("/cache", i.cacheRouter);
+
+// Log management endpoint
+apiRouter.use("/logs", i.logRouter);
+
+// Define API routes with their specific middleware
+apiRouter.use("/alapadatok", i.alapadatokRouter);
+
+// Apply endpoint access middleware to protected routes
+const protectedRouter = i.express.Router();
+protectedRouter.use(i.endpointAccessMiddleware);
+
+protectedRouter.use("/tanugyi_adatok", i.tanugyi_adatok);
+protectedRouter.use("/tanulo_letszam", i.tanulo_letszam);
+protectedRouter.use("/kompetencia", i.kompetencia);
+protectedRouter.use("/felvettek_szama", i.felvettek_szama);
+protectedRouter.use("/users", i.userRouter);
+
+// Mount the protected router under the API router
+apiRouter.use(protectedRouter);
+
+// Mount the api router with base prefix, excluding the /auth path which is already handled
+app.use("/api/v1", apiRouter);
+
+// Set up Swagger API documentation (requires authentication)
+i.setupSwagger(app);
+
 app.use(
   "/api/v1/tablelist",
   i.authMiddleware,
@@ -76,6 +106,10 @@ app.use(
 
 app.use("/api/v1/auth", i.authRouter);
 
+
 app.listen(port, () => {
-  console.log(`Elindult a http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
+  console.log(
+    `API documentation available at http://localhost:${port}/api-docs (requires authentication)`
+  );
 });
