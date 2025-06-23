@@ -20,7 +20,6 @@ const SESSION_SECRET = process.env.SESSION_SECRET || "supersecretkey";
 // Add compression middleware to improve response time
 app.use(compression());
 
-
 app.use(
   i.expressSession({
     cookie: {
@@ -39,7 +38,6 @@ app.use(
   })
 );
 
-
 app.use(i.cors(corsConfig));
 
 // Middleware for logging requests
@@ -53,7 +51,6 @@ app.use(
     staleWhileRevalidate: 60,
   })
 );
-
 
 // First, mount the auth routes separately to avoid middleware collision
 // For auth routes, we need the body parsers but not the authentication middleware
@@ -87,6 +84,7 @@ protectedRouter.use("/tanulo_letszam", i.tanulo_letszam);
 protectedRouter.use("/kompetencia", i.kompetencia);
 protectedRouter.use("/felvettek_szama", i.felvettek_szama);
 protectedRouter.use("/users", i.userRouter);
+protectedRouter.use("/tablelist", i.tableRouter);
 
 // Mount the protected router under the API router
 apiRouter.use(protectedRouter);
@@ -97,15 +95,7 @@ app.use("/api/v1", apiRouter);
 // Set up Swagger API documentation (requires authentication)
 i.setupSwagger(app);
 
-app.use(
-  "/api/v1/tablelist",
-  i.authMiddleware,
-  i.endpointAccessMiddleware,
-  i.tableRouter
-);
-
 app.use("/api/v1/auth", i.authRouter);
-
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
