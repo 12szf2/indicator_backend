@@ -132,16 +132,24 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   name: 'name',
   password: 'password',
-  permissions: 'permissions',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  alapadatokId: 'alapadatokId'
+  alapadatokId: 'alapadatokId',
+  permissions: 'permissions'
+};
+
+exports.Prisma.TableListScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  isAvailable: 'isAvailable',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.TableAccessScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  tableName: 'tableName',
+  tableId: 'tableId',
   access: 'access',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -157,7 +165,11 @@ exports.Prisma.LogScalarFieldEnum = {
   headers: 'headers',
   ip: 'ip',
   userAgent: 'userAgent',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  correlationId: 'correlationId',
+  duration: 'duration',
+  level: 'level',
+  statusCode: 'statusCode'
 };
 
 exports.Prisma.AlapadatokScalarFieldEnum = {
@@ -206,14 +218,14 @@ exports.Prisma.Felvettek_SzamaScalarFieldEnum = {
   alapadatok_id: 'alapadatok_id',
   tanev_kezdete: 'tanev_kezdete',
   szakma_id: 'szakma_id',
-  szakiranyId: 'szakiranyId',
   jelentkezo_letszam: 'jelentkezo_letszam',
   felveheto_letszam: 'felveheto_letszam',
   felvett_letszam: 'felvett_letszam',
   createAt: 'createAt',
   createBy: 'createBy',
   updatedAt: 'updatedAt',
-  updatedBy: 'updatedBy'
+  updatedBy: 'updatedBy',
+  szakiranyId: 'szakiranyId'
 };
 
 exports.Prisma.KompetenciaScalarFieldEnum = {
@@ -341,6 +353,7 @@ exports.Prisma.JsonNullValueFilter = {
 exports.Prisma.ModelName = {
   Session: 'Session',
   User: 'User',
+  TableList: 'TableList',
   TableAccess: 'TableAccess',
   Log: 'Log',
   Alapadatok: 'Alapadatok',

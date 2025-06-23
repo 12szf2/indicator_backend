@@ -24,6 +24,11 @@ export type Session = $Result.DefaultSelection<Prisma.$SessionPayload>
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
+ * Model TableList
+ * 
+ */
+export type TableList = $Result.DefaultSelection<Prisma.$TableListPayload>
+/**
  * Model TableAccess
  * 
  */
@@ -218,6 +223,16 @@ export class PrismaClient<
     * ```
     */
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.tableList`: Exposes CRUD operations for the **TableList** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TableLists
+    * const tableLists = await prisma.tableList.findMany()
+    * ```
+    */
+  get tableList(): Prisma.TableListDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.tableAccess`: Exposes CRUD operations for the **TableAccess** model.
@@ -760,6 +775,7 @@ export namespace Prisma {
   export const ModelName: {
     Session: 'Session',
     User: 'User',
+    TableList: 'TableList',
     TableAccess: 'TableAccess',
     Log: 'Log',
     Alapadatok: 'Alapadatok',
@@ -788,7 +804,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "session" | "user" | "tableAccess" | "log" | "alapadatok" | "szakirany" | "szakma" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "tanugyi_Adatok"
+      modelProps: "session" | "user" | "tableList" | "tableAccess" | "log" | "alapadatok" | "szakirany" | "szakma" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "tanugyi_Adatok"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -937,6 +953,80 @@ export namespace Prisma {
           count: {
             args: Prisma.UserCountArgs<ExtArgs>
             result: $Utils.Optional<UserCountAggregateOutputType> | number
+          }
+        }
+      }
+      TableList: {
+        payload: Prisma.$TableListPayload<ExtArgs>
+        fields: Prisma.TableListFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TableListFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TableListPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TableListFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TableListPayload>
+          }
+          findFirst: {
+            args: Prisma.TableListFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TableListPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TableListFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TableListPayload>
+          }
+          findMany: {
+            args: Prisma.TableListFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TableListPayload>[]
+          }
+          create: {
+            args: Prisma.TableListCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TableListPayload>
+          }
+          createMany: {
+            args: Prisma.TableListCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TableListCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TableListPayload>[]
+          }
+          delete: {
+            args: Prisma.TableListDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TableListPayload>
+          }
+          update: {
+            args: Prisma.TableListUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TableListPayload>
+          }
+          deleteMany: {
+            args: Prisma.TableListDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TableListUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TableListUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TableListPayload>[]
+          }
+          upsert: {
+            args: Prisma.TableListUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TableListPayload>
+          }
+          aggregate: {
+            args: Prisma.TableListAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTableList>
+          }
+          groupBy: {
+            args: Prisma.TableListGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TableListGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TableListCountArgs<ExtArgs>
+            result: $Utils.Optional<TableListCountAggregateOutputType> | number
           }
         }
       }
@@ -1766,6 +1856,7 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     session?: SessionOmit
     user?: UserOmit
+    tableList?: TableListOmit
     tableAccess?: TableAccessOmit
     log?: LogOmit
     alapadatok?: AlapadatokOmit
@@ -1870,13 +1961,13 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    tableAccess: number
     logs: number
+    tableAccess: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tableAccess?: boolean | UserCountOutputTypeCountTableAccessArgs
     logs?: boolean | UserCountOutputTypeCountLogsArgs
+    tableAccess?: boolean | UserCountOutputTypeCountTableAccessArgs
   }
 
   // Custom InputTypes
@@ -1893,15 +1984,46 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountTableAccessArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TableAccessWhereInput
+  export type UserCountOutputTypeCountLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LogWhereInput
   }
 
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LogWhereInput
+  export type UserCountOutputTypeCountTableAccessArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TableAccessWhereInput
+  }
+
+
+  /**
+   * Count Type TableListCountOutputType
+   */
+
+  export type TableListCountOutputType = {
+    access: number
+  }
+
+  export type TableListCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    access?: boolean | TableListCountOutputTypeCountAccessArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TableListCountOutputType without action
+   */
+  export type TableListCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableListCountOutputType
+     */
+    select?: TableListCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TableListCountOutputType without action
+   */
+  export type TableListCountOutputTypeCountAccessArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TableAccessWhereInput
   }
 
 
@@ -1911,19 +2033,19 @@ export namespace Prisma {
 
   export type AlapadatokCountOutputType = {
     felvettek_szama: number
+    kompetencia: number
     tanar_letszam: number
     tanugyiAdatok: number
     tanulo_letszam: number
-    kompetencia: number
     users: number
   }
 
   export type AlapadatokCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     felvettek_szama?: boolean | AlapadatokCountOutputTypeCountFelvettek_szamaArgs
+    kompetencia?: boolean | AlapadatokCountOutputTypeCountKompetenciaArgs
     tanar_letszam?: boolean | AlapadatokCountOutputTypeCountTanar_letszamArgs
     tanugyiAdatok?: boolean | AlapadatokCountOutputTypeCountTanugyiAdatokArgs
     tanulo_letszam?: boolean | AlapadatokCountOutputTypeCountTanulo_letszamArgs
-    kompetencia?: boolean | AlapadatokCountOutputTypeCountKompetenciaArgs
     users?: boolean | AlapadatokCountOutputTypeCountUsersArgs
   }
 
@@ -1943,6 +2065,13 @@ export namespace Prisma {
    */
   export type AlapadatokCountOutputTypeCountFelvettek_szamaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: Felvettek_SzamaWhereInput
+  }
+
+  /**
+   * AlapadatokCountOutputType without action
+   */
+  export type AlapadatokCountOutputTypeCountKompetenciaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: KompetenciaWhereInput
   }
 
   /**
@@ -1969,13 +2098,6 @@ export namespace Prisma {
   /**
    * AlapadatokCountOutputType without action
    */
-  export type AlapadatokCountOutputTypeCountKompetenciaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: KompetenciaWhereInput
-  }
-
-  /**
-   * AlapadatokCountOutputType without action
-   */
   export type AlapadatokCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserWhereInput
   }
@@ -1986,13 +2108,13 @@ export namespace Prisma {
    */
 
   export type SzakiranyCountOutputType = {
-    tanulo_letszam: number
     felvettek_szama: number
+    tanulo_letszam: number
   }
 
   export type SzakiranyCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tanulo_letszam?: boolean | SzakiranyCountOutputTypeCountTanulo_letszamArgs
     felvettek_szama?: boolean | SzakiranyCountOutputTypeCountFelvettek_szamaArgs
+    tanulo_letszam?: boolean | SzakiranyCountOutputTypeCountTanulo_letszamArgs
   }
 
   // Custom InputTypes
@@ -2009,15 +2131,15 @@ export namespace Prisma {
   /**
    * SzakiranyCountOutputType without action
    */
-  export type SzakiranyCountOutputTypeCountTanulo_letszamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Tanulo_LetszamWhereInput
+  export type SzakiranyCountOutputTypeCountFelvettek_szamaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Felvettek_SzamaWhereInput
   }
 
   /**
    * SzakiranyCountOutputType without action
    */
-  export type SzakiranyCountOutputTypeCountFelvettek_szamaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Felvettek_SzamaWhereInput
+  export type SzakiranyCountOutputTypeCountTanulo_letszamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Tanulo_LetszamWhereInput
   }
 
 
@@ -3072,10 +3194,10 @@ export namespace Prisma {
     email: string | null
     name: string | null
     password: string | null
-    permissions: number | null
     createdAt: Date | null
     updatedAt: Date | null
     alapadatokId: string | null
+    permissions: number | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -3083,10 +3205,10 @@ export namespace Prisma {
     email: string | null
     name: string | null
     password: string | null
-    permissions: number | null
     createdAt: Date | null
     updatedAt: Date | null
     alapadatokId: string | null
+    permissions: number | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -3094,10 +3216,10 @@ export namespace Prisma {
     email: number
     name: number
     password: number
-    permissions: number
     createdAt: number
     updatedAt: number
     alapadatokId: number
+    permissions: number
     _all: number
   }
 
@@ -3115,10 +3237,10 @@ export namespace Prisma {
     email?: true
     name?: true
     password?: true
-    permissions?: true
     createdAt?: true
     updatedAt?: true
     alapadatokId?: true
+    permissions?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -3126,10 +3248,10 @@ export namespace Prisma {
     email?: true
     name?: true
     password?: true
-    permissions?: true
     createdAt?: true
     updatedAt?: true
     alapadatokId?: true
+    permissions?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -3137,10 +3259,10 @@ export namespace Prisma {
     email?: true
     name?: true
     password?: true
-    permissions?: true
     createdAt?: true
     updatedAt?: true
     alapadatokId?: true
+    permissions?: true
     _all?: true
   }
 
@@ -3235,10 +3357,10 @@ export namespace Prisma {
     email: string
     name: string | null
     password: string | null
-    permissions: number
     createdAt: Date
     updatedAt: Date | null
     alapadatokId: string | null
+    permissions: number
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -3265,13 +3387,13 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     password?: boolean
-    permissions?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     alapadatokId?: boolean
+    permissions?: boolean
+    logs?: boolean | User$logsArgs<ExtArgs>
     tableAccess?: boolean | User$tableAccessArgs<ExtArgs>
     alapadatok?: boolean | User$alapadatokArgs<ExtArgs>
-    logs?: boolean | User$logsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -3280,10 +3402,10 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     password?: boolean
-    permissions?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     alapadatokId?: boolean
+    permissions?: boolean
     alapadatok?: boolean | User$alapadatokArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -3292,10 +3414,10 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     password?: boolean
-    permissions?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     alapadatokId?: boolean
+    permissions?: boolean
     alapadatok?: boolean | User$alapadatokArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -3304,17 +3426,17 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     password?: boolean
-    permissions?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     alapadatokId?: boolean
+    permissions?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "password" | "permissions" | "createdAt" | "updatedAt" | "alapadatokId", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "password" | "createdAt" | "updatedAt" | "alapadatokId" | "permissions", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    logs?: boolean | User$logsArgs<ExtArgs>
     tableAccess?: boolean | User$tableAccessArgs<ExtArgs>
     alapadatok?: boolean | User$alapadatokArgs<ExtArgs>
-    logs?: boolean | User$logsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3327,19 +3449,19 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
+      logs: Prisma.$LogPayload<ExtArgs>[]
       tableAccess: Prisma.$TableAccessPayload<ExtArgs>[]
       alapadatok: Prisma.$AlapadatokPayload<ExtArgs> | null
-      logs: Prisma.$LogPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       email: string
       name: string | null
       password: string | null
-      permissions: number
       createdAt: Date
       updatedAt: Date | null
       alapadatokId: string | null
+      permissions: number
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -3734,9 +3856,9 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    logs<T extends User$logsArgs<ExtArgs> = {}>(args?: Subset<T, User$logsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tableAccess<T extends User$tableAccessArgs<ExtArgs> = {}>(args?: Subset<T, User$tableAccessArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TableAccessPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     alapadatok<T extends User$alapadatokArgs<ExtArgs> = {}>(args?: Subset<T, User$alapadatokArgs<ExtArgs>>): Prisma__AlapadatokClient<$Result.GetResult<Prisma.$AlapadatokPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    logs<T extends User$logsArgs<ExtArgs> = {}>(args?: Subset<T, User$logsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3770,10 +3892,10 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
-    readonly permissions: FieldRef<"User", 'Int'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
     readonly alapadatokId: FieldRef<"User", 'String'>
+    readonly permissions: FieldRef<"User", 'Int'>
   }
     
 
@@ -4170,6 +4292,30 @@ export namespace Prisma {
   }
 
   /**
+   * User.logs
+   */
+  export type User$logsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Log
+     */
+    select?: LogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Log
+     */
+    omit?: LogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LogInclude<ExtArgs> | null
+    where?: LogWhereInput
+    orderBy?: LogOrderByWithRelationInput | LogOrderByWithRelationInput[]
+    cursor?: LogWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LogScalarFieldEnum | LogScalarFieldEnum[]
+  }
+
+  /**
    * User.tableAccess
    */
   export type User$tableAccessArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4213,30 +4359,6 @@ export namespace Prisma {
   }
 
   /**
-   * User.logs
-   */
-  export type User$logsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Log
-     */
-    select?: LogSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Log
-     */
-    omit?: LogOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LogInclude<ExtArgs> | null
-    where?: LogWhereInput
-    orderBy?: LogOrderByWithRelationInput | LogOrderByWithRelationInput[]
-    cursor?: LogWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: LogScalarFieldEnum | LogScalarFieldEnum[]
-  }
-
-  /**
    * User without action
    */
   export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4252,6 +4374,1076 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: UserInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model TableList
+   */
+
+  export type AggregateTableList = {
+    _count: TableListCountAggregateOutputType | null
+    _min: TableListMinAggregateOutputType | null
+    _max: TableListMaxAggregateOutputType | null
+  }
+
+  export type TableListMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    isAvailable: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TableListMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    isAvailable: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TableListCountAggregateOutputType = {
+    id: number
+    name: number
+    isAvailable: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type TableListMinAggregateInputType = {
+    id?: true
+    name?: true
+    isAvailable?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TableListMaxAggregateInputType = {
+    id?: true
+    name?: true
+    isAvailable?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type TableListCountAggregateInputType = {
+    id?: true
+    name?: true
+    isAvailable?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type TableListAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TableList to aggregate.
+     */
+    where?: TableListWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TableLists to fetch.
+     */
+    orderBy?: TableListOrderByWithRelationInput | TableListOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TableListWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TableLists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TableLists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TableLists
+    **/
+    _count?: true | TableListCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TableListMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TableListMaxAggregateInputType
+  }
+
+  export type GetTableListAggregateType<T extends TableListAggregateArgs> = {
+        [P in keyof T & keyof AggregateTableList]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTableList[P]>
+      : GetScalarType<T[P], AggregateTableList[P]>
+  }
+
+
+
+
+  export type TableListGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TableListWhereInput
+    orderBy?: TableListOrderByWithAggregationInput | TableListOrderByWithAggregationInput[]
+    by: TableListScalarFieldEnum[] | TableListScalarFieldEnum
+    having?: TableListScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TableListCountAggregateInputType | true
+    _min?: TableListMinAggregateInputType
+    _max?: TableListMaxAggregateInputType
+  }
+
+  export type TableListGroupByOutputType = {
+    id: string
+    name: string
+    isAvailable: boolean
+    createdAt: Date
+    updatedAt: Date | null
+    _count: TableListCountAggregateOutputType | null
+    _min: TableListMinAggregateOutputType | null
+    _max: TableListMaxAggregateOutputType | null
+  }
+
+  type GetTableListGroupByPayload<T extends TableListGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TableListGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TableListGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TableListGroupByOutputType[P]>
+            : GetScalarType<T[P], TableListGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TableListSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    isAvailable?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    access?: boolean | TableList$accessArgs<ExtArgs>
+    _count?: boolean | TableListCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tableList"]>
+
+  export type TableListSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    isAvailable?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["tableList"]>
+
+  export type TableListSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    isAvailable?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["tableList"]>
+
+  export type TableListSelectScalar = {
+    id?: boolean
+    name?: boolean
+    isAvailable?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type TableListOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "isAvailable" | "createdAt" | "updatedAt", ExtArgs["result"]["tableList"]>
+  export type TableListInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    access?: boolean | TableList$accessArgs<ExtArgs>
+    _count?: boolean | TableListCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type TableListIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type TableListIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $TableListPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TableList"
+    objects: {
+      access: Prisma.$TableAccessPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      isAvailable: boolean
+      createdAt: Date
+      updatedAt: Date | null
+    }, ExtArgs["result"]["tableList"]>
+    composites: {}
+  }
+
+  type TableListGetPayload<S extends boolean | null | undefined | TableListDefaultArgs> = $Result.GetResult<Prisma.$TableListPayload, S>
+
+  type TableListCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TableListFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TableListCountAggregateInputType | true
+    }
+
+  export interface TableListDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TableList'], meta: { name: 'TableList' } }
+    /**
+     * Find zero or one TableList that matches the filter.
+     * @param {TableListFindUniqueArgs} args - Arguments to find a TableList
+     * @example
+     * // Get one TableList
+     * const tableList = await prisma.tableList.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TableListFindUniqueArgs>(args: SelectSubset<T, TableListFindUniqueArgs<ExtArgs>>): Prisma__TableListClient<$Result.GetResult<Prisma.$TableListPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TableList that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TableListFindUniqueOrThrowArgs} args - Arguments to find a TableList
+     * @example
+     * // Get one TableList
+     * const tableList = await prisma.tableList.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TableListFindUniqueOrThrowArgs>(args: SelectSubset<T, TableListFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TableListClient<$Result.GetResult<Prisma.$TableListPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TableList that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TableListFindFirstArgs} args - Arguments to find a TableList
+     * @example
+     * // Get one TableList
+     * const tableList = await prisma.tableList.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TableListFindFirstArgs>(args?: SelectSubset<T, TableListFindFirstArgs<ExtArgs>>): Prisma__TableListClient<$Result.GetResult<Prisma.$TableListPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TableList that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TableListFindFirstOrThrowArgs} args - Arguments to find a TableList
+     * @example
+     * // Get one TableList
+     * const tableList = await prisma.tableList.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TableListFindFirstOrThrowArgs>(args?: SelectSubset<T, TableListFindFirstOrThrowArgs<ExtArgs>>): Prisma__TableListClient<$Result.GetResult<Prisma.$TableListPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TableLists that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TableListFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TableLists
+     * const tableLists = await prisma.tableList.findMany()
+     * 
+     * // Get first 10 TableLists
+     * const tableLists = await prisma.tableList.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const tableListWithIdOnly = await prisma.tableList.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TableListFindManyArgs>(args?: SelectSubset<T, TableListFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TableListPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TableList.
+     * @param {TableListCreateArgs} args - Arguments to create a TableList.
+     * @example
+     * // Create one TableList
+     * const TableList = await prisma.tableList.create({
+     *   data: {
+     *     // ... data to create a TableList
+     *   }
+     * })
+     * 
+     */
+    create<T extends TableListCreateArgs>(args: SelectSubset<T, TableListCreateArgs<ExtArgs>>): Prisma__TableListClient<$Result.GetResult<Prisma.$TableListPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TableLists.
+     * @param {TableListCreateManyArgs} args - Arguments to create many TableLists.
+     * @example
+     * // Create many TableLists
+     * const tableList = await prisma.tableList.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TableListCreateManyArgs>(args?: SelectSubset<T, TableListCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many TableLists and returns the data saved in the database.
+     * @param {TableListCreateManyAndReturnArgs} args - Arguments to create many TableLists.
+     * @example
+     * // Create many TableLists
+     * const tableList = await prisma.tableList.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many TableLists and only return the `id`
+     * const tableListWithIdOnly = await prisma.tableList.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TableListCreateManyAndReturnArgs>(args?: SelectSubset<T, TableListCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TableListPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a TableList.
+     * @param {TableListDeleteArgs} args - Arguments to delete one TableList.
+     * @example
+     * // Delete one TableList
+     * const TableList = await prisma.tableList.delete({
+     *   where: {
+     *     // ... filter to delete one TableList
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TableListDeleteArgs>(args: SelectSubset<T, TableListDeleteArgs<ExtArgs>>): Prisma__TableListClient<$Result.GetResult<Prisma.$TableListPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TableList.
+     * @param {TableListUpdateArgs} args - Arguments to update one TableList.
+     * @example
+     * // Update one TableList
+     * const tableList = await prisma.tableList.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TableListUpdateArgs>(args: SelectSubset<T, TableListUpdateArgs<ExtArgs>>): Prisma__TableListClient<$Result.GetResult<Prisma.$TableListPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TableLists.
+     * @param {TableListDeleteManyArgs} args - Arguments to filter TableLists to delete.
+     * @example
+     * // Delete a few TableLists
+     * const { count } = await prisma.tableList.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TableListDeleteManyArgs>(args?: SelectSubset<T, TableListDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TableLists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TableListUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TableLists
+     * const tableList = await prisma.tableList.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TableListUpdateManyArgs>(args: SelectSubset<T, TableListUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TableLists and returns the data updated in the database.
+     * @param {TableListUpdateManyAndReturnArgs} args - Arguments to update many TableLists.
+     * @example
+     * // Update many TableLists
+     * const tableList = await prisma.tableList.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more TableLists and only return the `id`
+     * const tableListWithIdOnly = await prisma.tableList.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TableListUpdateManyAndReturnArgs>(args: SelectSubset<T, TableListUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TableListPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one TableList.
+     * @param {TableListUpsertArgs} args - Arguments to update or create a TableList.
+     * @example
+     * // Update or create a TableList
+     * const tableList = await prisma.tableList.upsert({
+     *   create: {
+     *     // ... data to create a TableList
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TableList we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TableListUpsertArgs>(args: SelectSubset<T, TableListUpsertArgs<ExtArgs>>): Prisma__TableListClient<$Result.GetResult<Prisma.$TableListPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TableLists.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TableListCountArgs} args - Arguments to filter TableLists to count.
+     * @example
+     * // Count the number of TableLists
+     * const count = await prisma.tableList.count({
+     *   where: {
+     *     // ... the filter for the TableLists we want to count
+     *   }
+     * })
+    **/
+    count<T extends TableListCountArgs>(
+      args?: Subset<T, TableListCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TableListCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TableList.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TableListAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TableListAggregateArgs>(args: Subset<T, TableListAggregateArgs>): Prisma.PrismaPromise<GetTableListAggregateType<T>>
+
+    /**
+     * Group by TableList.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TableListGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TableListGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TableListGroupByArgs['orderBy'] }
+        : { orderBy?: TableListGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TableListGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTableListGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TableList model
+   */
+  readonly fields: TableListFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TableList.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TableListClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    access<T extends TableList$accessArgs<ExtArgs> = {}>(args?: Subset<T, TableList$accessArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TableAccessPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TableList model
+   */
+  interface TableListFieldRefs {
+    readonly id: FieldRef<"TableList", 'String'>
+    readonly name: FieldRef<"TableList", 'String'>
+    readonly isAvailable: FieldRef<"TableList", 'Boolean'>
+    readonly createdAt: FieldRef<"TableList", 'DateTime'>
+    readonly updatedAt: FieldRef<"TableList", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TableList findUnique
+   */
+  export type TableListFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableList
+     */
+    select?: TableListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TableList
+     */
+    omit?: TableListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableListInclude<ExtArgs> | null
+    /**
+     * Filter, which TableList to fetch.
+     */
+    where: TableListWhereUniqueInput
+  }
+
+  /**
+   * TableList findUniqueOrThrow
+   */
+  export type TableListFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableList
+     */
+    select?: TableListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TableList
+     */
+    omit?: TableListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableListInclude<ExtArgs> | null
+    /**
+     * Filter, which TableList to fetch.
+     */
+    where: TableListWhereUniqueInput
+  }
+
+  /**
+   * TableList findFirst
+   */
+  export type TableListFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableList
+     */
+    select?: TableListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TableList
+     */
+    omit?: TableListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableListInclude<ExtArgs> | null
+    /**
+     * Filter, which TableList to fetch.
+     */
+    where?: TableListWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TableLists to fetch.
+     */
+    orderBy?: TableListOrderByWithRelationInput | TableListOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TableLists.
+     */
+    cursor?: TableListWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TableLists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TableLists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TableLists.
+     */
+    distinct?: TableListScalarFieldEnum | TableListScalarFieldEnum[]
+  }
+
+  /**
+   * TableList findFirstOrThrow
+   */
+  export type TableListFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableList
+     */
+    select?: TableListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TableList
+     */
+    omit?: TableListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableListInclude<ExtArgs> | null
+    /**
+     * Filter, which TableList to fetch.
+     */
+    where?: TableListWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TableLists to fetch.
+     */
+    orderBy?: TableListOrderByWithRelationInput | TableListOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TableLists.
+     */
+    cursor?: TableListWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TableLists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TableLists.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TableLists.
+     */
+    distinct?: TableListScalarFieldEnum | TableListScalarFieldEnum[]
+  }
+
+  /**
+   * TableList findMany
+   */
+  export type TableListFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableList
+     */
+    select?: TableListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TableList
+     */
+    omit?: TableListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableListInclude<ExtArgs> | null
+    /**
+     * Filter, which TableLists to fetch.
+     */
+    where?: TableListWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TableLists to fetch.
+     */
+    orderBy?: TableListOrderByWithRelationInput | TableListOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TableLists.
+     */
+    cursor?: TableListWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TableLists from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TableLists.
+     */
+    skip?: number
+    distinct?: TableListScalarFieldEnum | TableListScalarFieldEnum[]
+  }
+
+  /**
+   * TableList create
+   */
+  export type TableListCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableList
+     */
+    select?: TableListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TableList
+     */
+    omit?: TableListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableListInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TableList.
+     */
+    data: XOR<TableListCreateInput, TableListUncheckedCreateInput>
+  }
+
+  /**
+   * TableList createMany
+   */
+  export type TableListCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TableLists.
+     */
+    data: TableListCreateManyInput | TableListCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TableList createManyAndReturn
+   */
+  export type TableListCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableList
+     */
+    select?: TableListSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TableList
+     */
+    omit?: TableListOmit<ExtArgs> | null
+    /**
+     * The data used to create many TableLists.
+     */
+    data: TableListCreateManyInput | TableListCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TableList update
+   */
+  export type TableListUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableList
+     */
+    select?: TableListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TableList
+     */
+    omit?: TableListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableListInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TableList.
+     */
+    data: XOR<TableListUpdateInput, TableListUncheckedUpdateInput>
+    /**
+     * Choose, which TableList to update.
+     */
+    where: TableListWhereUniqueInput
+  }
+
+  /**
+   * TableList updateMany
+   */
+  export type TableListUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TableLists.
+     */
+    data: XOR<TableListUpdateManyMutationInput, TableListUncheckedUpdateManyInput>
+    /**
+     * Filter which TableLists to update
+     */
+    where?: TableListWhereInput
+    /**
+     * Limit how many TableLists to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TableList updateManyAndReturn
+   */
+  export type TableListUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableList
+     */
+    select?: TableListSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TableList
+     */
+    omit?: TableListOmit<ExtArgs> | null
+    /**
+     * The data used to update TableLists.
+     */
+    data: XOR<TableListUpdateManyMutationInput, TableListUncheckedUpdateManyInput>
+    /**
+     * Filter which TableLists to update
+     */
+    where?: TableListWhereInput
+    /**
+     * Limit how many TableLists to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TableList upsert
+   */
+  export type TableListUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableList
+     */
+    select?: TableListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TableList
+     */
+    omit?: TableListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableListInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TableList to update in case it exists.
+     */
+    where: TableListWhereUniqueInput
+    /**
+     * In case the TableList found by the `where` argument doesn't exist, create a new TableList with this data.
+     */
+    create: XOR<TableListCreateInput, TableListUncheckedCreateInput>
+    /**
+     * In case the TableList was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TableListUpdateInput, TableListUncheckedUpdateInput>
+  }
+
+  /**
+   * TableList delete
+   */
+  export type TableListDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableList
+     */
+    select?: TableListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TableList
+     */
+    omit?: TableListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableListInclude<ExtArgs> | null
+    /**
+     * Filter which TableList to delete.
+     */
+    where: TableListWhereUniqueInput
+  }
+
+  /**
+   * TableList deleteMany
+   */
+  export type TableListDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TableLists to delete
+     */
+    where?: TableListWhereInput
+    /**
+     * Limit how many TableLists to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TableList.access
+   */
+  export type TableList$accessArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableAccess
+     */
+    select?: TableAccessSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TableAccess
+     */
+    omit?: TableAccessOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableAccessInclude<ExtArgs> | null
+    where?: TableAccessWhereInput
+    orderBy?: TableAccessOrderByWithRelationInput | TableAccessOrderByWithRelationInput[]
+    cursor?: TableAccessWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TableAccessScalarFieldEnum | TableAccessScalarFieldEnum[]
+  }
+
+  /**
+   * TableList without action
+   */
+  export type TableListDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TableList
+     */
+    select?: TableListSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TableList
+     */
+    omit?: TableListOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TableListInclude<ExtArgs> | null
   }
 
 
@@ -4278,7 +5470,7 @@ export namespace Prisma {
   export type TableAccessMinAggregateOutputType = {
     id: string | null
     userId: string | null
-    tableName: string | null
+    tableId: string | null
     access: number | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -4287,7 +5479,7 @@ export namespace Prisma {
   export type TableAccessMaxAggregateOutputType = {
     id: string | null
     userId: string | null
-    tableName: string | null
+    tableId: string | null
     access: number | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -4296,7 +5488,7 @@ export namespace Prisma {
   export type TableAccessCountAggregateOutputType = {
     id: number
     userId: number
-    tableName: number
+    tableId: number
     access: number
     createdAt: number
     updatedAt: number
@@ -4315,7 +5507,7 @@ export namespace Prisma {
   export type TableAccessMinAggregateInputType = {
     id?: true
     userId?: true
-    tableName?: true
+    tableId?: true
     access?: true
     createdAt?: true
     updatedAt?: true
@@ -4324,7 +5516,7 @@ export namespace Prisma {
   export type TableAccessMaxAggregateInputType = {
     id?: true
     userId?: true
-    tableName?: true
+    tableId?: true
     access?: true
     createdAt?: true
     updatedAt?: true
@@ -4333,7 +5525,7 @@ export namespace Prisma {
   export type TableAccessCountAggregateInputType = {
     id?: true
     userId?: true
-    tableName?: true
+    tableId?: true
     access?: true
     createdAt?: true
     updatedAt?: true
@@ -4429,7 +5621,7 @@ export namespace Prisma {
   export type TableAccessGroupByOutputType = {
     id: string
     userId: string | null
-    tableName: string
+    tableId: string
     access: number
     createdAt: Date
     updatedAt: Date | null
@@ -4457,62 +5649,69 @@ export namespace Prisma {
   export type TableAccessSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    tableName?: boolean
+    tableId?: boolean
     access?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | TableAccess$userArgs<ExtArgs>
+    table?: boolean | TableListDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tableAccess"]>
 
   export type TableAccessSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    tableName?: boolean
+    tableId?: boolean
     access?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | TableAccess$userArgs<ExtArgs>
+    table?: boolean | TableListDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tableAccess"]>
 
   export type TableAccessSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     userId?: boolean
-    tableName?: boolean
+    tableId?: boolean
     access?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | TableAccess$userArgs<ExtArgs>
+    table?: boolean | TableListDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tableAccess"]>
 
   export type TableAccessSelectScalar = {
     id?: boolean
     userId?: boolean
-    tableName?: boolean
+    tableId?: boolean
     access?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type TableAccessOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "tableName" | "access" | "createdAt" | "updatedAt", ExtArgs["result"]["tableAccess"]>
+  export type TableAccessOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "tableId" | "access" | "createdAt" | "updatedAt", ExtArgs["result"]["tableAccess"]>
   export type TableAccessInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | TableAccess$userArgs<ExtArgs>
+    table?: boolean | TableListDefaultArgs<ExtArgs>
   }
   export type TableAccessIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | TableAccess$userArgs<ExtArgs>
+    table?: boolean | TableListDefaultArgs<ExtArgs>
   }
   export type TableAccessIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | TableAccess$userArgs<ExtArgs>
+    table?: boolean | TableListDefaultArgs<ExtArgs>
   }
 
   export type $TableAccessPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "TableAccess"
     objects: {
       user: Prisma.$UserPayload<ExtArgs> | null
+      table: Prisma.$TableListPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       userId: string | null
-      tableName: string
+      tableId: string
       access: number
       createdAt: Date
       updatedAt: Date | null
@@ -4911,6 +6110,7 @@ export namespace Prisma {
   export interface Prisma__TableAccessClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends TableAccess$userArgs<ExtArgs> = {}>(args?: Subset<T, TableAccess$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    table<T extends TableListDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TableListDefaultArgs<ExtArgs>>): Prisma__TableListClient<$Result.GetResult<Prisma.$TableListPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4942,7 +6142,7 @@ export namespace Prisma {
   interface TableAccessFieldRefs {
     readonly id: FieldRef<"TableAccess", 'String'>
     readonly userId: FieldRef<"TableAccess", 'String'>
-    readonly tableName: FieldRef<"TableAccess", 'String'>
+    readonly tableId: FieldRef<"TableAccess", 'String'>
     readonly access: FieldRef<"TableAccess", 'Int'>
     readonly createdAt: FieldRef<"TableAccess", 'DateTime'>
     readonly updatedAt: FieldRef<"TableAccess", 'DateTime'>
@@ -5385,8 +6585,20 @@ export namespace Prisma {
 
   export type AggregateLog = {
     _count: LogCountAggregateOutputType | null
+    _avg: LogAvgAggregateOutputType | null
+    _sum: LogSumAggregateOutputType | null
     _min: LogMinAggregateOutputType | null
     _max: LogMaxAggregateOutputType | null
+  }
+
+  export type LogAvgAggregateOutputType = {
+    duration: number | null
+    statusCode: number | null
+  }
+
+  export type LogSumAggregateOutputType = {
+    duration: number | null
+    statusCode: number | null
   }
 
   export type LogMinAggregateOutputType = {
@@ -5397,6 +6609,10 @@ export namespace Prisma {
     ip: string | null
     userAgent: string | null
     createdAt: Date | null
+    correlationId: string | null
+    duration: number | null
+    level: string | null
+    statusCode: number | null
   }
 
   export type LogMaxAggregateOutputType = {
@@ -5407,6 +6623,10 @@ export namespace Prisma {
     ip: string | null
     userAgent: string | null
     createdAt: Date | null
+    correlationId: string | null
+    duration: number | null
+    level: string | null
+    statusCode: number | null
   }
 
   export type LogCountAggregateOutputType = {
@@ -5420,9 +6640,23 @@ export namespace Prisma {
     ip: number
     userAgent: number
     createdAt: number
+    correlationId: number
+    duration: number
+    level: number
+    statusCode: number
     _all: number
   }
 
+
+  export type LogAvgAggregateInputType = {
+    duration?: true
+    statusCode?: true
+  }
+
+  export type LogSumAggregateInputType = {
+    duration?: true
+    statusCode?: true
+  }
 
   export type LogMinAggregateInputType = {
     id?: true
@@ -5432,6 +6666,10 @@ export namespace Prisma {
     ip?: true
     userAgent?: true
     createdAt?: true
+    correlationId?: true
+    duration?: true
+    level?: true
+    statusCode?: true
   }
 
   export type LogMaxAggregateInputType = {
@@ -5442,6 +6680,10 @@ export namespace Prisma {
     ip?: true
     userAgent?: true
     createdAt?: true
+    correlationId?: true
+    duration?: true
+    level?: true
+    statusCode?: true
   }
 
   export type LogCountAggregateInputType = {
@@ -5455,6 +6697,10 @@ export namespace Prisma {
     ip?: true
     userAgent?: true
     createdAt?: true
+    correlationId?: true
+    duration?: true
+    level?: true
+    statusCode?: true
     _all?: true
   }
 
@@ -5496,6 +6742,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: LogAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LogSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: LogMinAggregateInputType
@@ -5526,6 +6784,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: LogCountAggregateInputType | true
+    _avg?: LogAvgAggregateInputType
+    _sum?: LogSumAggregateInputType
     _min?: LogMinAggregateInputType
     _max?: LogMaxAggregateInputType
   }
@@ -5541,7 +6801,13 @@ export namespace Prisma {
     ip: string
     userAgent: string
     createdAt: Date
+    correlationId: string | null
+    duration: number | null
+    level: string
+    statusCode: number | null
     _count: LogCountAggregateOutputType | null
+    _avg: LogAvgAggregateOutputType | null
+    _sum: LogSumAggregateOutputType | null
     _min: LogMinAggregateOutputType | null
     _max: LogMaxAggregateOutputType | null
   }
@@ -5571,6 +6837,10 @@ export namespace Prisma {
     ip?: boolean
     userAgent?: boolean
     createdAt?: boolean
+    correlationId?: boolean
+    duration?: boolean
+    level?: boolean
+    statusCode?: boolean
     user?: boolean | Log$userArgs<ExtArgs>
   }, ExtArgs["result"]["log"]>
 
@@ -5585,6 +6855,10 @@ export namespace Prisma {
     ip?: boolean
     userAgent?: boolean
     createdAt?: boolean
+    correlationId?: boolean
+    duration?: boolean
+    level?: boolean
+    statusCode?: boolean
     user?: boolean | Log$userArgs<ExtArgs>
   }, ExtArgs["result"]["log"]>
 
@@ -5599,6 +6873,10 @@ export namespace Prisma {
     ip?: boolean
     userAgent?: boolean
     createdAt?: boolean
+    correlationId?: boolean
+    duration?: boolean
+    level?: boolean
+    statusCode?: boolean
     user?: boolean | Log$userArgs<ExtArgs>
   }, ExtArgs["result"]["log"]>
 
@@ -5613,9 +6891,13 @@ export namespace Prisma {
     ip?: boolean
     userAgent?: boolean
     createdAt?: boolean
+    correlationId?: boolean
+    duration?: boolean
+    level?: boolean
+    statusCode?: boolean
   }
 
-  export type LogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "method" | "path" | "body" | "query" | "headers" | "ip" | "userAgent" | "createdAt", ExtArgs["result"]["log"]>
+  export type LogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "method" | "path" | "body" | "query" | "headers" | "ip" | "userAgent" | "createdAt" | "correlationId" | "duration" | "level" | "statusCode", ExtArgs["result"]["log"]>
   export type LogInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | Log$userArgs<ExtArgs>
   }
@@ -5642,6 +6924,10 @@ export namespace Prisma {
       ip: string
       userAgent: string
       createdAt: Date
+      correlationId: string | null
+      duration: number | null
+      level: string
+      statusCode: number | null
     }, ExtArgs["result"]["log"]>
     composites: {}
   }
@@ -6076,6 +7362,10 @@ export namespace Prisma {
     readonly ip: FieldRef<"Log", 'String'>
     readonly userAgent: FieldRef<"Log", 'String'>
     readonly createdAt: FieldRef<"Log", 'DateTime'>
+    readonly correlationId: FieldRef<"Log", 'String'>
+    readonly duration: FieldRef<"Log", 'Int'>
+    readonly level: FieldRef<"Log", 'String'>
+    readonly statusCode: FieldRef<"Log", 'Int'>
   }
     
 
@@ -6658,10 +7948,10 @@ export namespace Prisma {
     iskola_neve?: boolean
     intezmeny_tipus?: boolean
     felvettek_szama?: boolean | Alapadatok$felvettek_szamaArgs<ExtArgs>
+    kompetencia?: boolean | Alapadatok$kompetenciaArgs<ExtArgs>
     tanar_letszam?: boolean | Alapadatok$tanar_letszamArgs<ExtArgs>
     tanugyiAdatok?: boolean | Alapadatok$tanugyiAdatokArgs<ExtArgs>
     tanulo_letszam?: boolean | Alapadatok$tanulo_letszamArgs<ExtArgs>
-    kompetencia?: boolean | Alapadatok$kompetenciaArgs<ExtArgs>
     users?: boolean | Alapadatok$usersArgs<ExtArgs>
     _count?: boolean | AlapadatokCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["alapadatok"]>
@@ -6687,10 +7977,10 @@ export namespace Prisma {
   export type AlapadatokOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "iskola_neve" | "intezmeny_tipus", ExtArgs["result"]["alapadatok"]>
   export type AlapadatokInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     felvettek_szama?: boolean | Alapadatok$felvettek_szamaArgs<ExtArgs>
+    kompetencia?: boolean | Alapadatok$kompetenciaArgs<ExtArgs>
     tanar_letszam?: boolean | Alapadatok$tanar_letszamArgs<ExtArgs>
     tanugyiAdatok?: boolean | Alapadatok$tanugyiAdatokArgs<ExtArgs>
     tanulo_letszam?: boolean | Alapadatok$tanulo_letszamArgs<ExtArgs>
-    kompetencia?: boolean | Alapadatok$kompetenciaArgs<ExtArgs>
     users?: boolean | Alapadatok$usersArgs<ExtArgs>
     _count?: boolean | AlapadatokCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -6701,10 +7991,10 @@ export namespace Prisma {
     name: "Alapadatok"
     objects: {
       felvettek_szama: Prisma.$Felvettek_SzamaPayload<ExtArgs>[]
+      kompetencia: Prisma.$KompetenciaPayload<ExtArgs>[]
       tanar_letszam: Prisma.$Tanar_LetszamPayload<ExtArgs>[]
       tanugyiAdatok: Prisma.$Tanugyi_AdatokPayload<ExtArgs>[]
       tanulo_letszam: Prisma.$Tanulo_LetszamPayload<ExtArgs>[]
-      kompetencia: Prisma.$KompetenciaPayload<ExtArgs>[]
       users: Prisma.$UserPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -7106,10 +8396,10 @@ export namespace Prisma {
   export interface Prisma__AlapadatokClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     felvettek_szama<T extends Alapadatok$felvettek_szamaArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$felvettek_szamaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Felvettek_SzamaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    kompetencia<T extends Alapadatok$kompetenciaArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$kompetenciaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KompetenciaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tanar_letszam<T extends Alapadatok$tanar_letszamArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$tanar_letszamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanar_LetszamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tanugyiAdatok<T extends Alapadatok$tanugyiAdatokArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$tanugyiAdatokArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanugyi_AdatokPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tanulo_letszam<T extends Alapadatok$tanulo_letszamArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$tanulo_letszamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanulo_LetszamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    kompetencia<T extends Alapadatok$kompetenciaArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$kompetenciaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$KompetenciaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     users<T extends Alapadatok$usersArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -7555,6 +8845,30 @@ export namespace Prisma {
   }
 
   /**
+   * Alapadatok.kompetencia
+   */
+  export type Alapadatok$kompetenciaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Kompetencia
+     */
+    select?: KompetenciaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Kompetencia
+     */
+    omit?: KompetenciaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: KompetenciaInclude<ExtArgs> | null
+    where?: KompetenciaWhereInput
+    orderBy?: KompetenciaOrderByWithRelationInput | KompetenciaOrderByWithRelationInput[]
+    cursor?: KompetenciaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: KompetenciaScalarFieldEnum | KompetenciaScalarFieldEnum[]
+  }
+
+  /**
    * Alapadatok.tanar_letszam
    */
   export type Alapadatok$tanar_letszamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7624,30 +8938,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Tanulo_LetszamScalarFieldEnum | Tanulo_LetszamScalarFieldEnum[]
-  }
-
-  /**
-   * Alapadatok.kompetencia
-   */
-  export type Alapadatok$kompetenciaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Kompetencia
-     */
-    select?: KompetenciaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Kompetencia
-     */
-    omit?: KompetenciaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: KompetenciaInclude<ExtArgs> | null
-    where?: KompetenciaWhereInput
-    orderBy?: KompetenciaOrderByWithRelationInput | KompetenciaOrderByWithRelationInput[]
-    cursor?: KompetenciaWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: KompetenciaScalarFieldEnum | KompetenciaScalarFieldEnum[]
   }
 
   /**
@@ -7833,8 +9123,8 @@ export namespace Prisma {
   export type SzakiranySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nev?: boolean
-    tanulo_letszam?: boolean | Szakirany$tanulo_letszamArgs<ExtArgs>
     felvettek_szama?: boolean | Szakirany$felvettek_szamaArgs<ExtArgs>
+    tanulo_letszam?: boolean | Szakirany$tanulo_letszamArgs<ExtArgs>
     _count?: boolean | SzakiranyCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["szakirany"]>
 
@@ -7855,8 +9145,8 @@ export namespace Prisma {
 
   export type SzakiranyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nev", ExtArgs["result"]["szakirany"]>
   export type SzakiranyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tanulo_letszam?: boolean | Szakirany$tanulo_letszamArgs<ExtArgs>
     felvettek_szama?: boolean | Szakirany$felvettek_szamaArgs<ExtArgs>
+    tanulo_letszam?: boolean | Szakirany$tanulo_letszamArgs<ExtArgs>
     _count?: boolean | SzakiranyCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type SzakiranyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -7865,8 +9155,8 @@ export namespace Prisma {
   export type $SzakiranyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Szakirany"
     objects: {
-      tanulo_letszam: Prisma.$Tanulo_LetszamPayload<ExtArgs>[]
       felvettek_szama: Prisma.$Felvettek_SzamaPayload<ExtArgs>[]
+      tanulo_letszam: Prisma.$Tanulo_LetszamPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -8265,8 +9555,8 @@ export namespace Prisma {
    */
   export interface Prisma__SzakiranyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    tanulo_letszam<T extends Szakirany$tanulo_letszamArgs<ExtArgs> = {}>(args?: Subset<T, Szakirany$tanulo_letszamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanulo_LetszamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     felvettek_szama<T extends Szakirany$felvettek_szamaArgs<ExtArgs> = {}>(args?: Subset<T, Szakirany$felvettek_szamaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Felvettek_SzamaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    tanulo_letszam<T extends Szakirany$tanulo_letszamArgs<ExtArgs> = {}>(args?: Subset<T, Szakirany$tanulo_letszamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanulo_LetszamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8686,30 +9976,6 @@ export namespace Prisma {
   }
 
   /**
-   * Szakirany.tanulo_letszam
-   */
-  export type Szakirany$tanulo_letszamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tanulo_Letszam
-     */
-    select?: Tanulo_LetszamSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Tanulo_Letszam
-     */
-    omit?: Tanulo_LetszamOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: Tanulo_LetszamInclude<ExtArgs> | null
-    where?: Tanulo_LetszamWhereInput
-    orderBy?: Tanulo_LetszamOrderByWithRelationInput | Tanulo_LetszamOrderByWithRelationInput[]
-    cursor?: Tanulo_LetszamWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Tanulo_LetszamScalarFieldEnum | Tanulo_LetszamScalarFieldEnum[]
-  }
-
-  /**
    * Szakirany.felvettek_szama
    */
   export type Szakirany$felvettek_szamaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8731,6 +9997,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Felvettek_SzamaScalarFieldEnum | Felvettek_SzamaScalarFieldEnum[]
+  }
+
+  /**
+   * Szakirany.tanulo_letszam
+   */
+  export type Szakirany$tanulo_letszamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tanulo_Letszam
+     */
+    select?: Tanulo_LetszamSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Tanulo_Letszam
+     */
+    omit?: Tanulo_LetszamOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Tanulo_LetszamInclude<ExtArgs> | null
+    where?: Tanulo_LetszamWhereInput
+    orderBy?: Tanulo_LetszamOrderByWithRelationInput | Tanulo_LetszamOrderByWithRelationInput[]
+    cursor?: Tanulo_LetszamWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tanulo_LetszamScalarFieldEnum | Tanulo_LetszamScalarFieldEnum[]
   }
 
   /**
@@ -12171,7 +13461,6 @@ export namespace Prisma {
     alapadatok_id: string | null
     tanev_kezdete: number | null
     szakma_id: string | null
-    szakiranyId: string | null
     jelentkezo_letszam: number | null
     felveheto_letszam: number | null
     felvett_letszam: number | null
@@ -12179,6 +13468,7 @@ export namespace Prisma {
     createBy: string | null
     updatedAt: Date | null
     updatedBy: string | null
+    szakiranyId: string | null
   }
 
   export type Felvettek_SzamaMaxAggregateOutputType = {
@@ -12186,7 +13476,6 @@ export namespace Prisma {
     alapadatok_id: string | null
     tanev_kezdete: number | null
     szakma_id: string | null
-    szakiranyId: string | null
     jelentkezo_letszam: number | null
     felveheto_letszam: number | null
     felvett_letszam: number | null
@@ -12194,6 +13483,7 @@ export namespace Prisma {
     createBy: string | null
     updatedAt: Date | null
     updatedBy: string | null
+    szakiranyId: string | null
   }
 
   export type Felvettek_SzamaCountAggregateOutputType = {
@@ -12201,7 +13491,6 @@ export namespace Prisma {
     alapadatok_id: number
     tanev_kezdete: number
     szakma_id: number
-    szakiranyId: number
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
@@ -12209,6 +13498,7 @@ export namespace Prisma {
     createBy: number
     updatedAt: number
     updatedBy: number
+    szakiranyId: number
     _all: number
   }
 
@@ -12232,7 +13522,6 @@ export namespace Prisma {
     alapadatok_id?: true
     tanev_kezdete?: true
     szakma_id?: true
-    szakiranyId?: true
     jelentkezo_letszam?: true
     felveheto_letszam?: true
     felvett_letszam?: true
@@ -12240,6 +13529,7 @@ export namespace Prisma {
     createBy?: true
     updatedAt?: true
     updatedBy?: true
+    szakiranyId?: true
   }
 
   export type Felvettek_SzamaMaxAggregateInputType = {
@@ -12247,7 +13537,6 @@ export namespace Prisma {
     alapadatok_id?: true
     tanev_kezdete?: true
     szakma_id?: true
-    szakiranyId?: true
     jelentkezo_letszam?: true
     felveheto_letszam?: true
     felvett_letszam?: true
@@ -12255,6 +13544,7 @@ export namespace Prisma {
     createBy?: true
     updatedAt?: true
     updatedBy?: true
+    szakiranyId?: true
   }
 
   export type Felvettek_SzamaCountAggregateInputType = {
@@ -12262,7 +13552,6 @@ export namespace Prisma {
     alapadatok_id?: true
     tanev_kezdete?: true
     szakma_id?: true
-    szakiranyId?: true
     jelentkezo_letszam?: true
     felveheto_letszam?: true
     felvett_letszam?: true
@@ -12270,6 +13559,7 @@ export namespace Prisma {
     createBy?: true
     updatedAt?: true
     updatedBy?: true
+    szakiranyId?: true
     _all?: true
   }
 
@@ -12364,7 +13654,6 @@ export namespace Prisma {
     alapadatok_id: string
     tanev_kezdete: number
     szakma_id: string
-    szakiranyId: string | null
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
@@ -12372,6 +13661,7 @@ export namespace Prisma {
     createBy: string | null
     updatedAt: Date | null
     updatedBy: string | null
+    szakiranyId: string | null
     _count: Felvettek_SzamaCountAggregateOutputType | null
     _avg: Felvettek_SzamaAvgAggregateOutputType | null
     _sum: Felvettek_SzamaSumAggregateOutputType | null
@@ -12398,7 +13688,6 @@ export namespace Prisma {
     alapadatok_id?: boolean
     tanev_kezdete?: boolean
     szakma_id?: boolean
-    szakiranyId?: boolean
     jelentkezo_letszam?: boolean
     felveheto_letszam?: boolean
     felvett_letszam?: boolean
@@ -12406,9 +13695,10 @@ export namespace Prisma {
     createBy?: boolean
     updatedAt?: boolean
     updatedBy?: boolean
+    szakiranyId?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
-    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
     szakirany?: boolean | Felvettek_Szama$szakiranyArgs<ExtArgs>
+    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["felvettek_Szama"]>
 
   export type Felvettek_SzamaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -12416,7 +13706,6 @@ export namespace Prisma {
     alapadatok_id?: boolean
     tanev_kezdete?: boolean
     szakma_id?: boolean
-    szakiranyId?: boolean
     jelentkezo_letszam?: boolean
     felveheto_letszam?: boolean
     felvett_letszam?: boolean
@@ -12424,9 +13713,10 @@ export namespace Prisma {
     createBy?: boolean
     updatedAt?: boolean
     updatedBy?: boolean
+    szakiranyId?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
-    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
     szakirany?: boolean | Felvettek_Szama$szakiranyArgs<ExtArgs>
+    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["felvettek_Szama"]>
 
   export type Felvettek_SzamaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -12434,7 +13724,6 @@ export namespace Prisma {
     alapadatok_id?: boolean
     tanev_kezdete?: boolean
     szakma_id?: boolean
-    szakiranyId?: boolean
     jelentkezo_letszam?: boolean
     felveheto_letszam?: boolean
     felvett_letszam?: boolean
@@ -12442,9 +13731,10 @@ export namespace Prisma {
     createBy?: boolean
     updatedAt?: boolean
     updatedBy?: boolean
+    szakiranyId?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
-    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
     szakirany?: boolean | Felvettek_Szama$szakiranyArgs<ExtArgs>
+    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["felvettek_Szama"]>
 
   export type Felvettek_SzamaSelectScalar = {
@@ -12452,7 +13742,6 @@ export namespace Prisma {
     alapadatok_id?: boolean
     tanev_kezdete?: boolean
     szakma_id?: boolean
-    szakiranyId?: boolean
     jelentkezo_letszam?: boolean
     felveheto_letszam?: boolean
     felvett_letszam?: boolean
@@ -12460,38 +13749,38 @@ export namespace Prisma {
     createBy?: boolean
     updatedAt?: boolean
     updatedBy?: boolean
+    szakiranyId?: boolean
   }
 
-  export type Felvettek_SzamaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "szakma_id" | "szakiranyId" | "jelentkezo_letszam" | "felveheto_letszam" | "felvett_letszam" | "createAt" | "createBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["felvettek_Szama"]>
+  export type Felvettek_SzamaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "szakma_id" | "jelentkezo_letszam" | "felveheto_letszam" | "felvett_letszam" | "createAt" | "createBy" | "updatedAt" | "updatedBy" | "szakiranyId", ExtArgs["result"]["felvettek_Szama"]>
   export type Felvettek_SzamaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
-    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
     szakirany?: boolean | Felvettek_Szama$szakiranyArgs<ExtArgs>
+    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
   }
   export type Felvettek_SzamaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
-    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
     szakirany?: boolean | Felvettek_Szama$szakiranyArgs<ExtArgs>
+    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
   }
   export type Felvettek_SzamaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
-    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
     szakirany?: boolean | Felvettek_Szama$szakiranyArgs<ExtArgs>
+    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
   }
 
   export type $Felvettek_SzamaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Felvettek_Szama"
     objects: {
       alapadatok: Prisma.$AlapadatokPayload<ExtArgs>
-      szakma: Prisma.$SzakmaPayload<ExtArgs>
       szakirany: Prisma.$SzakiranyPayload<ExtArgs> | null
+      szakma: Prisma.$SzakmaPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       alapadatok_id: string
       tanev_kezdete: number
       szakma_id: string
-      szakiranyId: string | null
       jelentkezo_letszam: number
       felveheto_letszam: number
       felvett_letszam: number
@@ -12499,6 +13788,7 @@ export namespace Prisma {
       createBy: string | null
       updatedAt: Date | null
       updatedBy: string | null
+      szakiranyId: string | null
     }, ExtArgs["result"]["felvettek_Szama"]>
     composites: {}
   }
@@ -12894,8 +14184,8 @@ export namespace Prisma {
   export interface Prisma__Felvettek_SzamaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     alapadatok<T extends AlapadatokDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AlapadatokDefaultArgs<ExtArgs>>): Prisma__AlapadatokClient<$Result.GetResult<Prisma.$AlapadatokPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    szakma<T extends SzakmaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SzakmaDefaultArgs<ExtArgs>>): Prisma__SzakmaClient<$Result.GetResult<Prisma.$SzakmaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     szakirany<T extends Felvettek_Szama$szakiranyArgs<ExtArgs> = {}>(args?: Subset<T, Felvettek_Szama$szakiranyArgs<ExtArgs>>): Prisma__SzakiranyClient<$Result.GetResult<Prisma.$SzakiranyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    szakma<T extends SzakmaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SzakmaDefaultArgs<ExtArgs>>): Prisma__SzakmaClient<$Result.GetResult<Prisma.$SzakmaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12929,7 +14219,6 @@ export namespace Prisma {
     readonly alapadatok_id: FieldRef<"Felvettek_Szama", 'String'>
     readonly tanev_kezdete: FieldRef<"Felvettek_Szama", 'Int'>
     readonly szakma_id: FieldRef<"Felvettek_Szama", 'String'>
-    readonly szakiranyId: FieldRef<"Felvettek_Szama", 'String'>
     readonly jelentkezo_letszam: FieldRef<"Felvettek_Szama", 'Int'>
     readonly felveheto_letszam: FieldRef<"Felvettek_Szama", 'Int'>
     readonly felvett_letszam: FieldRef<"Felvettek_Szama", 'Int'>
@@ -12937,6 +14226,7 @@ export namespace Prisma {
     readonly createBy: FieldRef<"Felvettek_Szama", 'String'>
     readonly updatedAt: FieldRef<"Felvettek_Szama", 'DateTime'>
     readonly updatedBy: FieldRef<"Felvettek_Szama", 'String'>
+    readonly szakiranyId: FieldRef<"Felvettek_Szama", 'String'>
   }
     
 
@@ -16610,19 +17900,30 @@ export namespace Prisma {
     email: 'email',
     name: 'name',
     password: 'password',
-    permissions: 'permissions',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    alapadatokId: 'alapadatokId'
+    alapadatokId: 'alapadatokId',
+    permissions: 'permissions'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
+  export const TableListScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    isAvailable: 'isAvailable',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type TableListScalarFieldEnum = (typeof TableListScalarFieldEnum)[keyof typeof TableListScalarFieldEnum]
+
+
   export const TableAccessScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
-    tableName: 'tableName',
+    tableId: 'tableId',
     access: 'access',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -16641,7 +17942,11 @@ export namespace Prisma {
     headers: 'headers',
     ip: 'ip',
     userAgent: 'userAgent',
-    createdAt: 'createdAt'
+    createdAt: 'createdAt',
+    correlationId: 'correlationId',
+    duration: 'duration',
+    level: 'level',
+    statusCode: 'statusCode'
   };
 
   export type LogScalarFieldEnum = (typeof LogScalarFieldEnum)[keyof typeof LogScalarFieldEnum]
@@ -16708,14 +18013,14 @@ export namespace Prisma {
     alapadatok_id: 'alapadatok_id',
     tanev_kezdete: 'tanev_kezdete',
     szakma_id: 'szakma_id',
-    szakiranyId: 'szakiranyId',
     jelentkezo_letszam: 'jelentkezo_letszam',
     felveheto_letszam: 'felveheto_letszam',
     felvett_letszam: 'felvett_letszam',
     createAt: 'createAt',
     createBy: 'createBy',
     updatedAt: 'updatedAt',
-    updatedBy: 'updatedBy'
+    updatedBy: 'updatedBy',
+    szakiranyId: 'szakiranyId'
   };
 
   export type Felvettek_SzamaScalarFieldEnum = (typeof Felvettek_SzamaScalarFieldEnum)[keyof typeof Felvettek_SzamaScalarFieldEnum]
@@ -16911,6 +18216,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Json'
    */
   export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
@@ -16996,13 +18308,13 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     name?: StringNullableFilter<"User"> | string | null
     password?: StringNullableFilter<"User"> | string | null
-    permissions?: IntFilter<"User"> | number
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     alapadatokId?: UuidNullableFilter<"User"> | string | null
+    permissions?: IntFilter<"User"> | number
+    logs?: LogListRelationFilter
     tableAccess?: TableAccessListRelationFilter
     alapadatok?: XOR<AlapadatokNullableScalarRelationFilter, AlapadatokWhereInput> | null
-    logs?: LogListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -17010,13 +18322,13 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
-    permissions?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     alapadatokId?: SortOrderInput | SortOrder
+    permissions?: SortOrder
+    logs?: LogOrderByRelationAggregateInput
     tableAccess?: TableAccessOrderByRelationAggregateInput
     alapadatok?: AlapadatokOrderByWithRelationInput
-    logs?: LogOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -17027,13 +18339,13 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringNullableFilter<"User"> | string | null
     password?: StringNullableFilter<"User"> | string | null
-    permissions?: IntFilter<"User"> | number
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     alapadatokId?: UuidNullableFilter<"User"> | string | null
+    permissions?: IntFilter<"User"> | number
+    logs?: LogListRelationFilter
     tableAccess?: TableAccessListRelationFilter
     alapadatok?: XOR<AlapadatokNullableScalarRelationFilter, AlapadatokWhereInput> | null
-    logs?: LogListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -17041,10 +18353,10 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrderInput | SortOrder
     password?: SortOrderInput | SortOrder
-    permissions?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     alapadatokId?: SortOrderInput | SortOrder
+    permissions?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -17060,10 +18372,65 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     name?: StringNullableWithAggregatesFilter<"User"> | string | null
     password?: StringNullableWithAggregatesFilter<"User"> | string | null
-    permissions?: IntWithAggregatesFilter<"User"> | number
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     alapadatokId?: UuidNullableWithAggregatesFilter<"User"> | string | null
+    permissions?: IntWithAggregatesFilter<"User"> | number
+  }
+
+  export type TableListWhereInput = {
+    AND?: TableListWhereInput | TableListWhereInput[]
+    OR?: TableListWhereInput[]
+    NOT?: TableListWhereInput | TableListWhereInput[]
+    id?: UuidFilter<"TableList"> | string
+    name?: StringFilter<"TableList"> | string
+    isAvailable?: BoolFilter<"TableList"> | boolean
+    createdAt?: DateTimeFilter<"TableList"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"TableList"> | Date | string | null
+    access?: TableAccessListRelationFilter
+  }
+
+  export type TableListOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isAvailable?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    access?: TableAccessOrderByRelationAggregateInput
+  }
+
+  export type TableListWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    name?: string
+    AND?: TableListWhereInput | TableListWhereInput[]
+    OR?: TableListWhereInput[]
+    NOT?: TableListWhereInput | TableListWhereInput[]
+    isAvailable?: BoolFilter<"TableList"> | boolean
+    createdAt?: DateTimeFilter<"TableList"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"TableList"> | Date | string | null
+    access?: TableAccessListRelationFilter
+  }, "id" | "name">
+
+  export type TableListOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isAvailable?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    _count?: TableListCountOrderByAggregateInput
+    _max?: TableListMaxOrderByAggregateInput
+    _min?: TableListMinOrderByAggregateInput
+  }
+
+  export type TableListScalarWhereWithAggregatesInput = {
+    AND?: TableListScalarWhereWithAggregatesInput | TableListScalarWhereWithAggregatesInput[]
+    OR?: TableListScalarWhereWithAggregatesInput[]
+    NOT?: TableListScalarWhereWithAggregatesInput | TableListScalarWhereWithAggregatesInput[]
+    id?: UuidWithAggregatesFilter<"TableList"> | string
+    name?: StringWithAggregatesFilter<"TableList"> | string
+    isAvailable?: BoolWithAggregatesFilter<"TableList"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"TableList"> | Date | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"TableList"> | Date | string | null
   }
 
   export type TableAccessWhereInput = {
@@ -17072,21 +18439,23 @@ export namespace Prisma {
     NOT?: TableAccessWhereInput | TableAccessWhereInput[]
     id?: UuidFilter<"TableAccess"> | string
     userId?: UuidNullableFilter<"TableAccess"> | string | null
-    tableName?: StringFilter<"TableAccess"> | string
+    tableId?: UuidFilter<"TableAccess"> | string
     access?: IntFilter<"TableAccess"> | number
     createdAt?: DateTimeFilter<"TableAccess"> | Date | string
     updatedAt?: DateTimeNullableFilter<"TableAccess"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    table?: XOR<TableListScalarRelationFilter, TableListWhereInput>
   }
 
   export type TableAccessOrderByWithRelationInput = {
     id?: SortOrder
     userId?: SortOrderInput | SortOrder
-    tableName?: SortOrder
+    tableId?: SortOrder
     access?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
     user?: UserOrderByWithRelationInput
+    table?: TableListOrderByWithRelationInput
   }
 
   export type TableAccessWhereUniqueInput = Prisma.AtLeast<{
@@ -17095,17 +18464,18 @@ export namespace Prisma {
     OR?: TableAccessWhereInput[]
     NOT?: TableAccessWhereInput | TableAccessWhereInput[]
     userId?: UuidNullableFilter<"TableAccess"> | string | null
-    tableName?: StringFilter<"TableAccess"> | string
+    tableId?: UuidFilter<"TableAccess"> | string
     access?: IntFilter<"TableAccess"> | number
     createdAt?: DateTimeFilter<"TableAccess"> | Date | string
     updatedAt?: DateTimeNullableFilter<"TableAccess"> | Date | string | null
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    table?: XOR<TableListScalarRelationFilter, TableListWhereInput>
   }, "id">
 
   export type TableAccessOrderByWithAggregationInput = {
     id?: SortOrder
     userId?: SortOrderInput | SortOrder
-    tableName?: SortOrder
+    tableId?: SortOrder
     access?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -17122,7 +18492,7 @@ export namespace Prisma {
     NOT?: TableAccessScalarWhereWithAggregatesInput | TableAccessScalarWhereWithAggregatesInput[]
     id?: UuidWithAggregatesFilter<"TableAccess"> | string
     userId?: UuidNullableWithAggregatesFilter<"TableAccess"> | string | null
-    tableName?: StringWithAggregatesFilter<"TableAccess"> | string
+    tableId?: UuidWithAggregatesFilter<"TableAccess"> | string
     access?: IntWithAggregatesFilter<"TableAccess"> | number
     createdAt?: DateTimeWithAggregatesFilter<"TableAccess"> | Date | string
     updatedAt?: DateTimeNullableWithAggregatesFilter<"TableAccess"> | Date | string | null
@@ -17142,6 +18512,10 @@ export namespace Prisma {
     ip?: StringFilter<"Log"> | string
     userAgent?: StringFilter<"Log"> | string
     createdAt?: DateTimeFilter<"Log"> | Date | string
+    correlationId?: StringNullableFilter<"Log"> | string | null
+    duration?: IntNullableFilter<"Log"> | number | null
+    level?: StringFilter<"Log"> | string
+    statusCode?: IntNullableFilter<"Log"> | number | null
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
@@ -17156,6 +18530,10 @@ export namespace Prisma {
     ip?: SortOrder
     userAgent?: SortOrder
     createdAt?: SortOrder
+    correlationId?: SortOrderInput | SortOrder
+    duration?: SortOrderInput | SortOrder
+    level?: SortOrder
+    statusCode?: SortOrderInput | SortOrder
     user?: UserOrderByWithRelationInput
   }
 
@@ -17173,6 +18551,10 @@ export namespace Prisma {
     ip?: StringFilter<"Log"> | string
     userAgent?: StringFilter<"Log"> | string
     createdAt?: DateTimeFilter<"Log"> | Date | string
+    correlationId?: StringNullableFilter<"Log"> | string | null
+    duration?: IntNullableFilter<"Log"> | number | null
+    level?: StringFilter<"Log"> | string
+    statusCode?: IntNullableFilter<"Log"> | number | null
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id">
 
@@ -17187,9 +18569,15 @@ export namespace Prisma {
     ip?: SortOrder
     userAgent?: SortOrder
     createdAt?: SortOrder
+    correlationId?: SortOrderInput | SortOrder
+    duration?: SortOrderInput | SortOrder
+    level?: SortOrder
+    statusCode?: SortOrderInput | SortOrder
     _count?: LogCountOrderByAggregateInput
+    _avg?: LogAvgOrderByAggregateInput
     _max?: LogMaxOrderByAggregateInput
     _min?: LogMinOrderByAggregateInput
+    _sum?: LogSumOrderByAggregateInput
   }
 
   export type LogScalarWhereWithAggregatesInput = {
@@ -17206,6 +18594,10 @@ export namespace Prisma {
     ip?: StringWithAggregatesFilter<"Log"> | string
     userAgent?: StringWithAggregatesFilter<"Log"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Log"> | Date | string
+    correlationId?: StringNullableWithAggregatesFilter<"Log"> | string | null
+    duration?: IntNullableWithAggregatesFilter<"Log"> | number | null
+    level?: StringWithAggregatesFilter<"Log"> | string
+    statusCode?: IntNullableWithAggregatesFilter<"Log"> | number | null
   }
 
   export type AlapadatokWhereInput = {
@@ -17216,10 +18608,10 @@ export namespace Prisma {
     iskola_neve?: StringFilter<"Alapadatok"> | string
     intezmeny_tipus?: StringFilter<"Alapadatok"> | string
     felvettek_szama?: Felvettek_SzamaListRelationFilter
+    kompetencia?: KompetenciaListRelationFilter
     tanar_letszam?: Tanar_LetszamListRelationFilter
     tanugyiAdatok?: Tanugyi_AdatokListRelationFilter
     tanulo_letszam?: Tanulo_LetszamListRelationFilter
-    kompetencia?: KompetenciaListRelationFilter
     users?: UserListRelationFilter
   }
 
@@ -17228,10 +18620,10 @@ export namespace Prisma {
     iskola_neve?: SortOrder
     intezmeny_tipus?: SortOrder
     felvettek_szama?: Felvettek_SzamaOrderByRelationAggregateInput
+    kompetencia?: KompetenciaOrderByRelationAggregateInput
     tanar_letszam?: Tanar_LetszamOrderByRelationAggregateInput
     tanugyiAdatok?: Tanugyi_AdatokOrderByRelationAggregateInput
     tanulo_letszam?: Tanulo_LetszamOrderByRelationAggregateInput
-    kompetencia?: KompetenciaOrderByRelationAggregateInput
     users?: UserOrderByRelationAggregateInput
   }
 
@@ -17243,10 +18635,10 @@ export namespace Prisma {
     iskola_neve?: StringFilter<"Alapadatok"> | string
     intezmeny_tipus?: StringFilter<"Alapadatok"> | string
     felvettek_szama?: Felvettek_SzamaListRelationFilter
+    kompetencia?: KompetenciaListRelationFilter
     tanar_letszam?: Tanar_LetszamListRelationFilter
     tanugyiAdatok?: Tanugyi_AdatokListRelationFilter
     tanulo_letszam?: Tanulo_LetszamListRelationFilter
-    kompetencia?: KompetenciaListRelationFilter
     users?: UserListRelationFilter
   }, "id">
 
@@ -17274,15 +18666,15 @@ export namespace Prisma {
     NOT?: SzakiranyWhereInput | SzakiranyWhereInput[]
     id?: UuidFilter<"Szakirany"> | string
     nev?: StringFilter<"Szakirany"> | string
-    tanulo_letszam?: Tanulo_LetszamListRelationFilter
     felvettek_szama?: Felvettek_SzamaListRelationFilter
+    tanulo_letszam?: Tanulo_LetszamListRelationFilter
   }
 
   export type SzakiranyOrderByWithRelationInput = {
     id?: SortOrder
     nev?: SortOrder
-    tanulo_letszam?: Tanulo_LetszamOrderByRelationAggregateInput
     felvettek_szama?: Felvettek_SzamaOrderByRelationAggregateInput
+    tanulo_letszam?: Tanulo_LetszamOrderByRelationAggregateInput
   }
 
   export type SzakiranyWhereUniqueInput = Prisma.AtLeast<{
@@ -17291,8 +18683,8 @@ export namespace Prisma {
     AND?: SzakiranyWhereInput | SzakiranyWhereInput[]
     OR?: SzakiranyWhereInput[]
     NOT?: SzakiranyWhereInput | SzakiranyWhereInput[]
-    tanulo_letszam?: Tanulo_LetszamListRelationFilter
     felvettek_szama?: Felvettek_SzamaListRelationFilter
+    tanulo_letszam?: Tanulo_LetszamListRelationFilter
   }, "id" | "nev">
 
   export type SzakiranyOrderByWithAggregationInput = {
@@ -17527,7 +18919,6 @@ export namespace Prisma {
     alapadatok_id?: UuidFilter<"Felvettek_Szama"> | string
     tanev_kezdete?: IntFilter<"Felvettek_Szama"> | number
     szakma_id?: UuidFilter<"Felvettek_Szama"> | string
-    szakiranyId?: UuidNullableFilter<"Felvettek_Szama"> | string | null
     jelentkezo_letszam?: IntFilter<"Felvettek_Szama"> | number
     felveheto_letszam?: IntFilter<"Felvettek_Szama"> | number
     felvett_letszam?: IntFilter<"Felvettek_Szama"> | number
@@ -17535,9 +18926,10 @@ export namespace Prisma {
     createBy?: StringNullableFilter<"Felvettek_Szama"> | string | null
     updatedAt?: DateTimeNullableFilter<"Felvettek_Szama"> | Date | string | null
     updatedBy?: StringNullableFilter<"Felvettek_Szama"> | string | null
+    szakiranyId?: UuidNullableFilter<"Felvettek_Szama"> | string | null
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
-    szakma?: XOR<SzakmaScalarRelationFilter, SzakmaWhereInput>
     szakirany?: XOR<SzakiranyNullableScalarRelationFilter, SzakiranyWhereInput> | null
+    szakma?: XOR<SzakmaScalarRelationFilter, SzakmaWhereInput>
   }
 
   export type Felvettek_SzamaOrderByWithRelationInput = {
@@ -17545,7 +18937,6 @@ export namespace Prisma {
     alapadatok_id?: SortOrder
     tanev_kezdete?: SortOrder
     szakma_id?: SortOrder
-    szakiranyId?: SortOrderInput | SortOrder
     jelentkezo_letszam?: SortOrder
     felveheto_letszam?: SortOrder
     felvett_letszam?: SortOrder
@@ -17553,9 +18944,10 @@ export namespace Prisma {
     createBy?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
     updatedBy?: SortOrderInput | SortOrder
+    szakiranyId?: SortOrderInput | SortOrder
     alapadatok?: AlapadatokOrderByWithRelationInput
-    szakma?: SzakmaOrderByWithRelationInput
     szakirany?: SzakiranyOrderByWithRelationInput
+    szakma?: SzakmaOrderByWithRelationInput
   }
 
   export type Felvettek_SzamaWhereUniqueInput = Prisma.AtLeast<{
@@ -17566,7 +18958,6 @@ export namespace Prisma {
     alapadatok_id?: UuidFilter<"Felvettek_Szama"> | string
     tanev_kezdete?: IntFilter<"Felvettek_Szama"> | number
     szakma_id?: UuidFilter<"Felvettek_Szama"> | string
-    szakiranyId?: UuidNullableFilter<"Felvettek_Szama"> | string | null
     jelentkezo_letszam?: IntFilter<"Felvettek_Szama"> | number
     felveheto_letszam?: IntFilter<"Felvettek_Szama"> | number
     felvett_letszam?: IntFilter<"Felvettek_Szama"> | number
@@ -17574,9 +18965,10 @@ export namespace Prisma {
     createBy?: StringNullableFilter<"Felvettek_Szama"> | string | null
     updatedAt?: DateTimeNullableFilter<"Felvettek_Szama"> | Date | string | null
     updatedBy?: StringNullableFilter<"Felvettek_Szama"> | string | null
+    szakiranyId?: UuidNullableFilter<"Felvettek_Szama"> | string | null
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
-    szakma?: XOR<SzakmaScalarRelationFilter, SzakmaWhereInput>
     szakirany?: XOR<SzakiranyNullableScalarRelationFilter, SzakiranyWhereInput> | null
+    szakma?: XOR<SzakmaScalarRelationFilter, SzakmaWhereInput>
   }, "id">
 
   export type Felvettek_SzamaOrderByWithAggregationInput = {
@@ -17584,7 +18976,6 @@ export namespace Prisma {
     alapadatok_id?: SortOrder
     tanev_kezdete?: SortOrder
     szakma_id?: SortOrder
-    szakiranyId?: SortOrderInput | SortOrder
     jelentkezo_letszam?: SortOrder
     felveheto_letszam?: SortOrder
     felvett_letszam?: SortOrder
@@ -17592,6 +18983,7 @@ export namespace Prisma {
     createBy?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
     updatedBy?: SortOrderInput | SortOrder
+    szakiranyId?: SortOrderInput | SortOrder
     _count?: Felvettek_SzamaCountOrderByAggregateInput
     _avg?: Felvettek_SzamaAvgOrderByAggregateInput
     _max?: Felvettek_SzamaMaxOrderByAggregateInput
@@ -17607,7 +18999,6 @@ export namespace Prisma {
     alapadatok_id?: UuidWithAggregatesFilter<"Felvettek_Szama"> | string
     tanev_kezdete?: IntWithAggregatesFilter<"Felvettek_Szama"> | number
     szakma_id?: UuidWithAggregatesFilter<"Felvettek_Szama"> | string
-    szakiranyId?: UuidNullableWithAggregatesFilter<"Felvettek_Szama"> | string | null
     jelentkezo_letszam?: IntWithAggregatesFilter<"Felvettek_Szama"> | number
     felveheto_letszam?: IntWithAggregatesFilter<"Felvettek_Szama"> | number
     felvett_letszam?: IntWithAggregatesFilter<"Felvettek_Szama"> | number
@@ -17615,6 +19006,7 @@ export namespace Prisma {
     createBy?: StringNullableWithAggregatesFilter<"Felvettek_Szama"> | string | null
     updatedAt?: DateTimeNullableWithAggregatesFilter<"Felvettek_Szama"> | Date | string | null
     updatedBy?: StringNullableWithAggregatesFilter<"Felvettek_Szama"> | string | null
+    szakiranyId?: UuidNullableWithAggregatesFilter<"Felvettek_Szama"> | string | null
   }
 
   export type KompetenciaWhereInput = {
@@ -18180,12 +19572,12 @@ export namespace Prisma {
     email: string
     name?: string | null
     password?: string | null
-    permissions?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
+    permissions?: number
+    logs?: LogCreateNestedManyWithoutUserInput
     tableAccess?: TableAccessCreateNestedManyWithoutUserInput
     alapadatok?: AlapadatokCreateNestedOneWithoutUsersInput
-    logs?: LogCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -18193,12 +19585,12 @@ export namespace Prisma {
     email: string
     name?: string | null
     password?: string | null
-    permissions?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
     alapadatokId?: string | null
-    tableAccess?: TableAccessUncheckedCreateNestedManyWithoutUserInput
+    permissions?: number
     logs?: LogUncheckedCreateNestedManyWithoutUserInput
+    tableAccess?: TableAccessUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -18206,12 +19598,12 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    permissions?: IntFieldUpdateOperationsInput | number
+    logs?: LogUpdateManyWithoutUserNestedInput
     tableAccess?: TableAccessUpdateManyWithoutUserNestedInput
     alapadatok?: AlapadatokUpdateOneWithoutUsersNestedInput
-    logs?: LogUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -18219,12 +19611,12 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     alapadatokId?: NullableStringFieldUpdateOperationsInput | string | null
-    tableAccess?: TableAccessUncheckedUpdateManyWithoutUserNestedInput
+    permissions?: IntFieldUpdateOperationsInput | number
     logs?: LogUncheckedUpdateManyWithoutUserNestedInput
+    tableAccess?: TableAccessUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -18232,10 +19624,10 @@ export namespace Prisma {
     email: string
     name?: string | null
     password?: string | null
-    permissions?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
     alapadatokId?: string | null
+    permissions?: number
   }
 
   export type UserUpdateManyMutationInput = {
@@ -18243,9 +19635,9 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    permissions?: IntFieldUpdateOperationsInput | number
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -18253,25 +19645,85 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     alapadatokId?: NullableStringFieldUpdateOperationsInput | string | null
+    permissions?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type TableListCreateInput = {
+    id?: string
+    name: string
+    isAvailable?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    access?: TableAccessCreateNestedManyWithoutTableInput
+  }
+
+  export type TableListUncheckedCreateInput = {
+    id?: string
+    name: string
+    isAvailable?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    access?: TableAccessUncheckedCreateNestedManyWithoutTableInput
+  }
+
+  export type TableListUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    access?: TableAccessUpdateManyWithoutTableNestedInput
+  }
+
+  export type TableListUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    access?: TableAccessUncheckedUpdateManyWithoutTableNestedInput
+  }
+
+  export type TableListCreateManyInput = {
+    id?: string
+    name: string
+    isAvailable?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+  }
+
+  export type TableListUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type TableListUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type TableAccessCreateInput = {
     id?: string
-    tableName: string
     access?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
     user?: UserCreateNestedOneWithoutTableAccessInput
+    table: TableListCreateNestedOneWithoutAccessInput
   }
 
   export type TableAccessUncheckedCreateInput = {
     id?: string
     userId?: string | null
-    tableName: string
+    tableId: string
     access?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -18279,17 +19731,17 @@ export namespace Prisma {
 
   export type TableAccessUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tableName?: StringFieldUpdateOperationsInput | string
     access?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UserUpdateOneWithoutTableAccessNestedInput
+    table?: TableListUpdateOneRequiredWithoutAccessNestedInput
   }
 
   export type TableAccessUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
-    tableName?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
     access?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -18298,7 +19750,7 @@ export namespace Prisma {
   export type TableAccessCreateManyInput = {
     id?: string
     userId?: string | null
-    tableName: string
+    tableId: string
     access?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -18306,7 +19758,6 @@ export namespace Prisma {
 
   export type TableAccessUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tableName?: StringFieldUpdateOperationsInput | string
     access?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -18315,7 +19766,7 @@ export namespace Prisma {
   export type TableAccessUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
-    tableName?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
     access?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -18331,6 +19782,10 @@ export namespace Prisma {
     ip: string
     userAgent: string
     createdAt?: Date | string
+    correlationId?: string | null
+    duration?: number | null
+    level?: string
+    statusCode?: number | null
     user?: UserCreateNestedOneWithoutLogsInput
   }
 
@@ -18345,6 +19800,10 @@ export namespace Prisma {
     ip: string
     userAgent: string
     createdAt?: Date | string
+    correlationId?: string | null
+    duration?: number | null
+    level?: string
+    statusCode?: number | null
   }
 
   export type LogUpdateInput = {
@@ -18357,6 +19816,10 @@ export namespace Prisma {
     ip?: StringFieldUpdateOperationsInput | string
     userAgent?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    correlationId?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: StringFieldUpdateOperationsInput | string
+    statusCode?: NullableIntFieldUpdateOperationsInput | number | null
     user?: UserUpdateOneWithoutLogsNestedInput
   }
 
@@ -18371,6 +19834,10 @@ export namespace Prisma {
     ip?: StringFieldUpdateOperationsInput | string
     userAgent?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    correlationId?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: StringFieldUpdateOperationsInput | string
+    statusCode?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type LogCreateManyInput = {
@@ -18384,6 +19851,10 @@ export namespace Prisma {
     ip: string
     userAgent: string
     createdAt?: Date | string
+    correlationId?: string | null
+    duration?: number | null
+    level?: string
+    statusCode?: number | null
   }
 
   export type LogUpdateManyMutationInput = {
@@ -18396,6 +19867,10 @@ export namespace Prisma {
     ip?: StringFieldUpdateOperationsInput | string
     userAgent?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    correlationId?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: StringFieldUpdateOperationsInput | string
+    statusCode?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type LogUncheckedUpdateManyInput = {
@@ -18409,6 +19884,10 @@ export namespace Prisma {
     ip?: StringFieldUpdateOperationsInput | string
     userAgent?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    correlationId?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: StringFieldUpdateOperationsInput | string
+    statusCode?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type AlapadatokCreateInput = {
@@ -18416,10 +19895,10 @@ export namespace Prisma {
     iskola_neve: string
     intezmeny_tipus: string
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
-    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -18428,10 +19907,10 @@ export namespace Prisma {
     iskola_neve: string
     intezmeny_tipus: string
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
-    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -18440,10 +19919,10 @@ export namespace Prisma {
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
     tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
-    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -18452,10 +19931,10 @@ export namespace Prisma {
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
-    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -18480,29 +19959,29 @@ export namespace Prisma {
   export type SzakiranyCreateInput = {
     id?: string
     nev: string
-    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakiranyInput
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakiranyInput
+    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakiranyInput
   }
 
   export type SzakiranyUncheckedCreateInput = {
     id?: string
     nev: string
-    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakiranyInput
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakiranyInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakiranyInput
   }
 
   export type SzakiranyUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
-    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakiranyNestedInput
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakiranyNestedInput
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakiranyNestedInput
   }
 
   export type SzakiranyUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
-    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyNestedInput
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakiranyNestedInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyNestedInput
   }
 
   export type SzakiranyCreateManyInput = {
@@ -18745,8 +20224,8 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     updatedBy?: string | null
     alapadatok: AlapadatokCreateNestedOneWithoutFelvettek_szamaInput
-    szakma: SzakmaCreateNestedOneWithoutFelvettek_szamaInput
     szakirany?: SzakiranyCreateNestedOneWithoutFelvettek_szamaInput
+    szakma: SzakmaCreateNestedOneWithoutFelvettek_szamaInput
   }
 
   export type Felvettek_SzamaUncheckedCreateInput = {
@@ -18754,7 +20233,6 @@ export namespace Prisma {
     alapadatok_id: string
     tanev_kezdete: number
     szakma_id: string
-    szakiranyId?: string | null
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
@@ -18762,6 +20240,7 @@ export namespace Prisma {
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
+    szakiranyId?: string | null
   }
 
   export type Felvettek_SzamaUpdateInput = {
@@ -18775,8 +20254,8 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     alapadatok?: AlapadatokUpdateOneRequiredWithoutFelvettek_szamaNestedInput
-    szakma?: SzakmaUpdateOneRequiredWithoutFelvettek_szamaNestedInput
     szakirany?: SzakiranyUpdateOneWithoutFelvettek_szamaNestedInput
+    szakma?: SzakmaUpdateOneRequiredWithoutFelvettek_szamaNestedInput
   }
 
   export type Felvettek_SzamaUncheckedUpdateInput = {
@@ -18784,7 +20263,6 @@ export namespace Prisma {
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     szakma_id?: StringFieldUpdateOperationsInput | string
-    szakiranyId?: NullableStringFieldUpdateOperationsInput | string | null
     jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
     felveheto_letszam?: IntFieldUpdateOperationsInput | number
     felvett_letszam?: IntFieldUpdateOperationsInput | number
@@ -18792,6 +20270,7 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    szakiranyId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Felvettek_SzamaCreateManyInput = {
@@ -18799,7 +20278,6 @@ export namespace Prisma {
     alapadatok_id: string
     tanev_kezdete: number
     szakma_id: string
-    szakiranyId?: string | null
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
@@ -18807,6 +20285,7 @@ export namespace Prisma {
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
+    szakiranyId?: string | null
   }
 
   export type Felvettek_SzamaUpdateManyMutationInput = {
@@ -18826,7 +20305,6 @@ export namespace Prisma {
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     szakma_id?: StringFieldUpdateOperationsInput | string
-    szakiranyId?: NullableStringFieldUpdateOperationsInput | string | null
     jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
     felveheto_letszam?: IntFieldUpdateOperationsInput | number
     felvett_letszam?: IntFieldUpdateOperationsInput | number
@@ -18834,6 +20312,7 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    szakiranyId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type KompetenciaCreateInput = {
@@ -19605,17 +21084,6 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type DateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -19639,6 +21107,23 @@ export namespace Prisma {
     not?: NestedUuidNullableFilter<$PrismaModel> | string | null
   }
 
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type LogListRelationFilter = {
+    every?: LogWhereInput
+    some?: LogWhereInput
+    none?: LogWhereInput
+  }
+
   export type TableAccessListRelationFilter = {
     every?: TableAccessWhereInput
     some?: TableAccessWhereInput
@@ -19650,22 +21135,16 @@ export namespace Prisma {
     isNot?: AlapadatokWhereInput | null
   }
 
-  export type LogListRelationFilter = {
-    every?: LogWhereInput
-    some?: LogWhereInput
-    none?: LogWhereInput
-  }
-
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
   }
 
-  export type TableAccessOrderByRelationAggregateInput = {
+  export type LogOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type LogOrderByRelationAggregateInput = {
+  export type TableAccessOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -19674,10 +21153,10 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     password?: SortOrder
-    permissions?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     alapadatokId?: SortOrder
+    permissions?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -19689,10 +21168,10 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     password?: SortOrder
-    permissions?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     alapadatokId?: SortOrder
+    permissions?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -19700,10 +21179,10 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     password?: SortOrder
-    permissions?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     alapadatokId?: SortOrder
+    permissions?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -19743,22 +21222,6 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -19788,15 +21251,73 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type TableListCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isAvailable?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TableListMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isAvailable?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TableListMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isAvailable?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type UserNullableScalarRelationFilter = {
     is?: UserWhereInput | null
     isNot?: UserWhereInput | null
   }
 
+  export type TableListScalarRelationFilter = {
+    is?: TableListWhereInput
+    isNot?: TableListWhereInput
+  }
+
   export type TableAccessCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    tableName?: SortOrder
+    tableId?: SortOrder
     access?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -19809,7 +21330,7 @@ export namespace Prisma {
   export type TableAccessMaxOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    tableName?: SortOrder
+    tableId?: SortOrder
     access?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -19818,7 +21339,7 @@ export namespace Prisma {
   export type TableAccessMinOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
-    tableName?: SortOrder
+    tableId?: SortOrder
     access?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -19851,6 +21372,17 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type LogCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
@@ -19862,6 +21394,15 @@ export namespace Prisma {
     ip?: SortOrder
     userAgent?: SortOrder
     createdAt?: SortOrder
+    correlationId?: SortOrder
+    duration?: SortOrder
+    level?: SortOrder
+    statusCode?: SortOrder
+  }
+
+  export type LogAvgOrderByAggregateInput = {
+    duration?: SortOrder
+    statusCode?: SortOrder
   }
 
   export type LogMaxOrderByAggregateInput = {
@@ -19872,6 +21413,10 @@ export namespace Prisma {
     ip?: SortOrder
     userAgent?: SortOrder
     createdAt?: SortOrder
+    correlationId?: SortOrder
+    duration?: SortOrder
+    level?: SortOrder
+    statusCode?: SortOrder
   }
 
   export type LogMinOrderByAggregateInput = {
@@ -19882,6 +21427,15 @@ export namespace Prisma {
     ip?: SortOrder
     userAgent?: SortOrder
     createdAt?: SortOrder
+    correlationId?: SortOrder
+    duration?: SortOrder
+    level?: SortOrder
+    statusCode?: SortOrder
+  }
+
+  export type LogSumOrderByAggregateInput = {
+    duration?: SortOrder
+    statusCode?: SortOrder
   }
   export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
     | PatchUndefined<
@@ -19910,10 +21464,32 @@ export namespace Prisma {
     _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
   export type Felvettek_SzamaListRelationFilter = {
     every?: Felvettek_SzamaWhereInput
     some?: Felvettek_SzamaWhereInput
     none?: Felvettek_SzamaWhereInput
+  }
+
+  export type KompetenciaListRelationFilter = {
+    every?: KompetenciaWhereInput
+    some?: KompetenciaWhereInput
+    none?: KompetenciaWhereInput
   }
 
   export type Tanar_LetszamListRelationFilter = {
@@ -19934,12 +21510,6 @@ export namespace Prisma {
     none?: Tanulo_LetszamWhereInput
   }
 
-  export type KompetenciaListRelationFilter = {
-    every?: KompetenciaWhereInput
-    some?: KompetenciaWhereInput
-    none?: KompetenciaWhereInput
-  }
-
   export type UserListRelationFilter = {
     every?: UserWhereInput
     some?: UserWhereInput
@@ -19947,6 +21517,10 @@ export namespace Prisma {
   }
 
   export type Felvettek_SzamaOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type KompetenciaOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -19959,10 +21533,6 @@ export namespace Prisma {
   }
 
   export type Tanulo_LetszamOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type KompetenciaOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -20140,7 +21710,6 @@ export namespace Prisma {
     alapadatok_id?: SortOrder
     tanev_kezdete?: SortOrder
     szakma_id?: SortOrder
-    szakiranyId?: SortOrder
     jelentkezo_letszam?: SortOrder
     felveheto_letszam?: SortOrder
     felvett_letszam?: SortOrder
@@ -20148,6 +21717,7 @@ export namespace Prisma {
     createBy?: SortOrder
     updatedAt?: SortOrder
     updatedBy?: SortOrder
+    szakiranyId?: SortOrder
   }
 
   export type Felvettek_SzamaAvgOrderByAggregateInput = {
@@ -20162,7 +21732,6 @@ export namespace Prisma {
     alapadatok_id?: SortOrder
     tanev_kezdete?: SortOrder
     szakma_id?: SortOrder
-    szakiranyId?: SortOrder
     jelentkezo_letszam?: SortOrder
     felveheto_letszam?: SortOrder
     felvett_letszam?: SortOrder
@@ -20170,6 +21739,7 @@ export namespace Prisma {
     createBy?: SortOrder
     updatedAt?: SortOrder
     updatedBy?: SortOrder
+    szakiranyId?: SortOrder
   }
 
   export type Felvettek_SzamaMinOrderByAggregateInput = {
@@ -20177,7 +21747,6 @@ export namespace Prisma {
     alapadatok_id?: SortOrder
     tanev_kezdete?: SortOrder
     szakma_id?: SortOrder
-    szakiranyId?: SortOrder
     jelentkezo_letszam?: SortOrder
     felveheto_letszam?: SortOrder
     felvett_letszam?: SortOrder
@@ -20185,6 +21754,7 @@ export namespace Prisma {
     createBy?: SortOrder
     updatedAt?: SortOrder
     updatedBy?: SortOrder
+    szakiranyId?: SortOrder
   }
 
   export type Felvettek_SzamaSumOrderByAggregateInput = {
@@ -20503,6 +22073,13 @@ export namespace Prisma {
     set?: Date | string
   }
 
+  export type LogCreateNestedManyWithoutUserInput = {
+    create?: XOR<LogCreateWithoutUserInput, LogUncheckedCreateWithoutUserInput> | LogCreateWithoutUserInput[] | LogUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LogCreateOrConnectWithoutUserInput | LogCreateOrConnectWithoutUserInput[]
+    createMany?: LogCreateManyUserInputEnvelope
+    connect?: LogWhereUniqueInput | LogWhereUniqueInput[]
+  }
+
   export type TableAccessCreateNestedManyWithoutUserInput = {
     create?: XOR<TableAccessCreateWithoutUserInput, TableAccessUncheckedCreateWithoutUserInput> | TableAccessCreateWithoutUserInput[] | TableAccessUncheckedCreateWithoutUserInput[]
     connectOrCreate?: TableAccessCreateOrConnectWithoutUserInput | TableAccessCreateOrConnectWithoutUserInput[]
@@ -20516,7 +22093,7 @@ export namespace Prisma {
     connect?: AlapadatokWhereUniqueInput
   }
 
-  export type LogCreateNestedManyWithoutUserInput = {
+  export type LogUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<LogCreateWithoutUserInput, LogUncheckedCreateWithoutUserInput> | LogCreateWithoutUserInput[] | LogUncheckedCreateWithoutUserInput[]
     connectOrCreate?: LogCreateOrConnectWithoutUserInput | LogCreateOrConnectWithoutUserInput[]
     createMany?: LogCreateManyUserInputEnvelope
@@ -20530,15 +22107,12 @@ export namespace Prisma {
     connect?: TableAccessWhereUniqueInput | TableAccessWhereUniqueInput[]
   }
 
-  export type LogUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<LogCreateWithoutUserInput, LogUncheckedCreateWithoutUserInput> | LogCreateWithoutUserInput[] | LogUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: LogCreateOrConnectWithoutUserInput | LogCreateOrConnectWithoutUserInput[]
-    createMany?: LogCreateManyUserInputEnvelope
-    connect?: LogWhereUniqueInput | LogWhereUniqueInput[]
-  }
-
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -20549,8 +22123,18 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
+  export type LogUpdateManyWithoutUserNestedInput = {
+    create?: XOR<LogCreateWithoutUserInput, LogUncheckedCreateWithoutUserInput> | LogCreateWithoutUserInput[] | LogUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: LogCreateOrConnectWithoutUserInput | LogCreateOrConnectWithoutUserInput[]
+    upsert?: LogUpsertWithWhereUniqueWithoutUserInput | LogUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: LogCreateManyUserInputEnvelope
+    set?: LogWhereUniqueInput | LogWhereUniqueInput[]
+    disconnect?: LogWhereUniqueInput | LogWhereUniqueInput[]
+    delete?: LogWhereUniqueInput | LogWhereUniqueInput[]
+    connect?: LogWhereUniqueInput | LogWhereUniqueInput[]
+    update?: LogUpdateWithWhereUniqueWithoutUserInput | LogUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: LogUpdateManyWithWhereWithoutUserInput | LogUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: LogScalarWhereInput | LogScalarWhereInput[]
   }
 
   export type TableAccessUpdateManyWithoutUserNestedInput = {
@@ -20577,7 +22161,7 @@ export namespace Prisma {
     update?: XOR<XOR<AlapadatokUpdateToOneWithWhereWithoutUsersInput, AlapadatokUpdateWithoutUsersInput>, AlapadatokUncheckedUpdateWithoutUsersInput>
   }
 
-  export type LogUpdateManyWithoutUserNestedInput = {
+  export type LogUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<LogCreateWithoutUserInput, LogUncheckedCreateWithoutUserInput> | LogCreateWithoutUserInput[] | LogUncheckedCreateWithoutUserInput[]
     connectOrCreate?: LogCreateOrConnectWithoutUserInput | LogCreateOrConnectWithoutUserInput[]
     upsert?: LogUpsertWithWhereUniqueWithoutUserInput | LogUpsertWithWhereUniqueWithoutUserInput[]
@@ -20605,24 +22189,62 @@ export namespace Prisma {
     deleteMany?: TableAccessScalarWhereInput | TableAccessScalarWhereInput[]
   }
 
-  export type LogUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<LogCreateWithoutUserInput, LogUncheckedCreateWithoutUserInput> | LogCreateWithoutUserInput[] | LogUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: LogCreateOrConnectWithoutUserInput | LogCreateOrConnectWithoutUserInput[]
-    upsert?: LogUpsertWithWhereUniqueWithoutUserInput | LogUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: LogCreateManyUserInputEnvelope
-    set?: LogWhereUniqueInput | LogWhereUniqueInput[]
-    disconnect?: LogWhereUniqueInput | LogWhereUniqueInput[]
-    delete?: LogWhereUniqueInput | LogWhereUniqueInput[]
-    connect?: LogWhereUniqueInput | LogWhereUniqueInput[]
-    update?: LogUpdateWithWhereUniqueWithoutUserInput | LogUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: LogUpdateManyWithWhereWithoutUserInput | LogUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: LogScalarWhereInput | LogScalarWhereInput[]
+  export type TableAccessCreateNestedManyWithoutTableInput = {
+    create?: XOR<TableAccessCreateWithoutTableInput, TableAccessUncheckedCreateWithoutTableInput> | TableAccessCreateWithoutTableInput[] | TableAccessUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: TableAccessCreateOrConnectWithoutTableInput | TableAccessCreateOrConnectWithoutTableInput[]
+    createMany?: TableAccessCreateManyTableInputEnvelope
+    connect?: TableAccessWhereUniqueInput | TableAccessWhereUniqueInput[]
+  }
+
+  export type TableAccessUncheckedCreateNestedManyWithoutTableInput = {
+    create?: XOR<TableAccessCreateWithoutTableInput, TableAccessUncheckedCreateWithoutTableInput> | TableAccessCreateWithoutTableInput[] | TableAccessUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: TableAccessCreateOrConnectWithoutTableInput | TableAccessCreateOrConnectWithoutTableInput[]
+    createMany?: TableAccessCreateManyTableInputEnvelope
+    connect?: TableAccessWhereUniqueInput | TableAccessWhereUniqueInput[]
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type TableAccessUpdateManyWithoutTableNestedInput = {
+    create?: XOR<TableAccessCreateWithoutTableInput, TableAccessUncheckedCreateWithoutTableInput> | TableAccessCreateWithoutTableInput[] | TableAccessUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: TableAccessCreateOrConnectWithoutTableInput | TableAccessCreateOrConnectWithoutTableInput[]
+    upsert?: TableAccessUpsertWithWhereUniqueWithoutTableInput | TableAccessUpsertWithWhereUniqueWithoutTableInput[]
+    createMany?: TableAccessCreateManyTableInputEnvelope
+    set?: TableAccessWhereUniqueInput | TableAccessWhereUniqueInput[]
+    disconnect?: TableAccessWhereUniqueInput | TableAccessWhereUniqueInput[]
+    delete?: TableAccessWhereUniqueInput | TableAccessWhereUniqueInput[]
+    connect?: TableAccessWhereUniqueInput | TableAccessWhereUniqueInput[]
+    update?: TableAccessUpdateWithWhereUniqueWithoutTableInput | TableAccessUpdateWithWhereUniqueWithoutTableInput[]
+    updateMany?: TableAccessUpdateManyWithWhereWithoutTableInput | TableAccessUpdateManyWithWhereWithoutTableInput[]
+    deleteMany?: TableAccessScalarWhereInput | TableAccessScalarWhereInput[]
+  }
+
+  export type TableAccessUncheckedUpdateManyWithoutTableNestedInput = {
+    create?: XOR<TableAccessCreateWithoutTableInput, TableAccessUncheckedCreateWithoutTableInput> | TableAccessCreateWithoutTableInput[] | TableAccessUncheckedCreateWithoutTableInput[]
+    connectOrCreate?: TableAccessCreateOrConnectWithoutTableInput | TableAccessCreateOrConnectWithoutTableInput[]
+    upsert?: TableAccessUpsertWithWhereUniqueWithoutTableInput | TableAccessUpsertWithWhereUniqueWithoutTableInput[]
+    createMany?: TableAccessCreateManyTableInputEnvelope
+    set?: TableAccessWhereUniqueInput | TableAccessWhereUniqueInput[]
+    disconnect?: TableAccessWhereUniqueInput | TableAccessWhereUniqueInput[]
+    delete?: TableAccessWhereUniqueInput | TableAccessWhereUniqueInput[]
+    connect?: TableAccessWhereUniqueInput | TableAccessWhereUniqueInput[]
+    update?: TableAccessUpdateWithWhereUniqueWithoutTableInput | TableAccessUpdateWithWhereUniqueWithoutTableInput[]
+    updateMany?: TableAccessUpdateManyWithWhereWithoutTableInput | TableAccessUpdateManyWithWhereWithoutTableInput[]
+    deleteMany?: TableAccessScalarWhereInput | TableAccessScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutTableAccessInput = {
     create?: XOR<UserCreateWithoutTableAccessInput, UserUncheckedCreateWithoutTableAccessInput>
     connectOrCreate?: UserCreateOrConnectWithoutTableAccessInput
     connect?: UserWhereUniqueInput
+  }
+
+  export type TableListCreateNestedOneWithoutAccessInput = {
+    create?: XOR<TableListCreateWithoutAccessInput, TableListUncheckedCreateWithoutAccessInput>
+    connectOrCreate?: TableListCreateOrConnectWithoutAccessInput
+    connect?: TableListWhereUniqueInput
   }
 
   export type UserUpdateOneWithoutTableAccessNestedInput = {
@@ -20635,10 +22257,26 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutTableAccessInput, UserUpdateWithoutTableAccessInput>, UserUncheckedUpdateWithoutTableAccessInput>
   }
 
+  export type TableListUpdateOneRequiredWithoutAccessNestedInput = {
+    create?: XOR<TableListCreateWithoutAccessInput, TableListUncheckedCreateWithoutAccessInput>
+    connectOrCreate?: TableListCreateOrConnectWithoutAccessInput
+    upsert?: TableListUpsertWithoutAccessInput
+    connect?: TableListWhereUniqueInput
+    update?: XOR<XOR<TableListUpdateToOneWithWhereWithoutAccessInput, TableListUpdateWithoutAccessInput>, TableListUncheckedUpdateWithoutAccessInput>
+  }
+
   export type UserCreateNestedOneWithoutLogsInput = {
     create?: XOR<UserCreateWithoutLogsInput, UserUncheckedCreateWithoutLogsInput>
     connectOrCreate?: UserCreateOrConnectWithoutLogsInput
     connect?: UserWhereUniqueInput
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type UserUpdateOneWithoutLogsNestedInput = {
@@ -20656,6 +22294,13 @@ export namespace Prisma {
     connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput | Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput[]
     createMany?: Felvettek_SzamaCreateManyAlapadatokInputEnvelope
     connect?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
+  }
+
+  export type KompetenciaCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput> | KompetenciaCreateWithoutAlapadatokInput[] | KompetenciaUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: KompetenciaCreateOrConnectWithoutAlapadatokInput | KompetenciaCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: KompetenciaCreateManyAlapadatokInputEnvelope
+    connect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
   }
 
   export type Tanar_LetszamCreateNestedManyWithoutAlapadatokInput = {
@@ -20679,13 +22324,6 @@ export namespace Prisma {
     connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
   }
 
-  export type KompetenciaCreateNestedManyWithoutAlapadatokInput = {
-    create?: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput> | KompetenciaCreateWithoutAlapadatokInput[] | KompetenciaUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: KompetenciaCreateOrConnectWithoutAlapadatokInput | KompetenciaCreateOrConnectWithoutAlapadatokInput[]
-    createMany?: KompetenciaCreateManyAlapadatokInputEnvelope
-    connect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
-  }
-
   export type UserCreateNestedManyWithoutAlapadatokInput = {
     create?: XOR<UserCreateWithoutAlapadatokInput, UserUncheckedCreateWithoutAlapadatokInput> | UserCreateWithoutAlapadatokInput[] | UserUncheckedCreateWithoutAlapadatokInput[]
     connectOrCreate?: UserCreateOrConnectWithoutAlapadatokInput | UserCreateOrConnectWithoutAlapadatokInput[]
@@ -20698,6 +22336,13 @@ export namespace Prisma {
     connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput | Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput[]
     createMany?: Felvettek_SzamaCreateManyAlapadatokInputEnvelope
     connect?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
+  }
+
+  export type KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput> | KompetenciaCreateWithoutAlapadatokInput[] | KompetenciaUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: KompetenciaCreateOrConnectWithoutAlapadatokInput | KompetenciaCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: KompetenciaCreateManyAlapadatokInputEnvelope
+    connect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
   }
 
   export type Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput = {
@@ -20721,13 +22366,6 @@ export namespace Prisma {
     connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
   }
 
-  export type KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput = {
-    create?: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput> | KompetenciaCreateWithoutAlapadatokInput[] | KompetenciaUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: KompetenciaCreateOrConnectWithoutAlapadatokInput | KompetenciaCreateOrConnectWithoutAlapadatokInput[]
-    createMany?: KompetenciaCreateManyAlapadatokInputEnvelope
-    connect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
-  }
-
   export type UserUncheckedCreateNestedManyWithoutAlapadatokInput = {
     create?: XOR<UserCreateWithoutAlapadatokInput, UserUncheckedCreateWithoutAlapadatokInput> | UserCreateWithoutAlapadatokInput[] | UserUncheckedCreateWithoutAlapadatokInput[]
     connectOrCreate?: UserCreateOrConnectWithoutAlapadatokInput | UserCreateOrConnectWithoutAlapadatokInput[]
@@ -20747,6 +22385,20 @@ export namespace Prisma {
     update?: Felvettek_SzamaUpdateWithWhereUniqueWithoutAlapadatokInput | Felvettek_SzamaUpdateWithWhereUniqueWithoutAlapadatokInput[]
     updateMany?: Felvettek_SzamaUpdateManyWithWhereWithoutAlapadatokInput | Felvettek_SzamaUpdateManyWithWhereWithoutAlapadatokInput[]
     deleteMany?: Felvettek_SzamaScalarWhereInput | Felvettek_SzamaScalarWhereInput[]
+  }
+
+  export type KompetenciaUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput> | KompetenciaCreateWithoutAlapadatokInput[] | KompetenciaUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: KompetenciaCreateOrConnectWithoutAlapadatokInput | KompetenciaCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput | KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: KompetenciaCreateManyAlapadatokInputEnvelope
+    set?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    disconnect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    delete?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    connect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    update?: KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput | KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: KompetenciaUpdateManyWithWhereWithoutAlapadatokInput | KompetenciaUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: KompetenciaScalarWhereInput | KompetenciaScalarWhereInput[]
   }
 
   export type Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput = {
@@ -20791,20 +22443,6 @@ export namespace Prisma {
     deleteMany?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
   }
 
-  export type KompetenciaUpdateManyWithoutAlapadatokNestedInput = {
-    create?: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput> | KompetenciaCreateWithoutAlapadatokInput[] | KompetenciaUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: KompetenciaCreateOrConnectWithoutAlapadatokInput | KompetenciaCreateOrConnectWithoutAlapadatokInput[]
-    upsert?: KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput | KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput[]
-    createMany?: KompetenciaCreateManyAlapadatokInputEnvelope
-    set?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
-    disconnect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
-    delete?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
-    connect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
-    update?: KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput | KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput[]
-    updateMany?: KompetenciaUpdateManyWithWhereWithoutAlapadatokInput | KompetenciaUpdateManyWithWhereWithoutAlapadatokInput[]
-    deleteMany?: KompetenciaScalarWhereInput | KompetenciaScalarWhereInput[]
-  }
-
   export type UserUpdateManyWithoutAlapadatokNestedInput = {
     create?: XOR<UserCreateWithoutAlapadatokInput, UserUncheckedCreateWithoutAlapadatokInput> | UserCreateWithoutAlapadatokInput[] | UserUncheckedCreateWithoutAlapadatokInput[]
     connectOrCreate?: UserCreateOrConnectWithoutAlapadatokInput | UserCreateOrConnectWithoutAlapadatokInput[]
@@ -20831,6 +22469,20 @@ export namespace Prisma {
     update?: Felvettek_SzamaUpdateWithWhereUniqueWithoutAlapadatokInput | Felvettek_SzamaUpdateWithWhereUniqueWithoutAlapadatokInput[]
     updateMany?: Felvettek_SzamaUpdateManyWithWhereWithoutAlapadatokInput | Felvettek_SzamaUpdateManyWithWhereWithoutAlapadatokInput[]
     deleteMany?: Felvettek_SzamaScalarWhereInput | Felvettek_SzamaScalarWhereInput[]
+  }
+
+  export type KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput> | KompetenciaCreateWithoutAlapadatokInput[] | KompetenciaUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: KompetenciaCreateOrConnectWithoutAlapadatokInput | KompetenciaCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput | KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: KompetenciaCreateManyAlapadatokInputEnvelope
+    set?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    disconnect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    delete?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    connect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
+    update?: KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput | KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: KompetenciaUpdateManyWithWhereWithoutAlapadatokInput | KompetenciaUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: KompetenciaScalarWhereInput | KompetenciaScalarWhereInput[]
   }
 
   export type Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput = {
@@ -20875,20 +22527,6 @@ export namespace Prisma {
     deleteMany?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
   }
 
-  export type KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput = {
-    create?: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput> | KompetenciaCreateWithoutAlapadatokInput[] | KompetenciaUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: KompetenciaCreateOrConnectWithoutAlapadatokInput | KompetenciaCreateOrConnectWithoutAlapadatokInput[]
-    upsert?: KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput | KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput[]
-    createMany?: KompetenciaCreateManyAlapadatokInputEnvelope
-    set?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
-    disconnect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
-    delete?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
-    connect?: KompetenciaWhereUniqueInput | KompetenciaWhereUniqueInput[]
-    update?: KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput | KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput[]
-    updateMany?: KompetenciaUpdateManyWithWhereWithoutAlapadatokInput | KompetenciaUpdateManyWithWhereWithoutAlapadatokInput[]
-    deleteMany?: KompetenciaScalarWhereInput | KompetenciaScalarWhereInput[]
-  }
-
   export type UserUncheckedUpdateManyWithoutAlapadatokNestedInput = {
     create?: XOR<UserCreateWithoutAlapadatokInput, UserUncheckedCreateWithoutAlapadatokInput> | UserCreateWithoutAlapadatokInput[] | UserUncheckedCreateWithoutAlapadatokInput[]
     connectOrCreate?: UserCreateOrConnectWithoutAlapadatokInput | UserCreateOrConnectWithoutAlapadatokInput[]
@@ -20903,13 +22541,6 @@ export namespace Prisma {
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
-  export type Tanulo_LetszamCreateNestedManyWithoutSzakiranyInput = {
-    create?: XOR<Tanulo_LetszamCreateWithoutSzakiranyInput, Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput> | Tanulo_LetszamCreateWithoutSzakiranyInput[] | Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput[]
-    connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutSzakiranyInput | Tanulo_LetszamCreateOrConnectWithoutSzakiranyInput[]
-    createMany?: Tanulo_LetszamCreateManySzakiranyInputEnvelope
-    connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
-  }
-
   export type Felvettek_SzamaCreateNestedManyWithoutSzakiranyInput = {
     create?: XOR<Felvettek_SzamaCreateWithoutSzakiranyInput, Felvettek_SzamaUncheckedCreateWithoutSzakiranyInput> | Felvettek_SzamaCreateWithoutSzakiranyInput[] | Felvettek_SzamaUncheckedCreateWithoutSzakiranyInput[]
     connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutSzakiranyInput | Felvettek_SzamaCreateOrConnectWithoutSzakiranyInput[]
@@ -20917,7 +22548,7 @@ export namespace Prisma {
     connect?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
   }
 
-  export type Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakiranyInput = {
+  export type Tanulo_LetszamCreateNestedManyWithoutSzakiranyInput = {
     create?: XOR<Tanulo_LetszamCreateWithoutSzakiranyInput, Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput> | Tanulo_LetszamCreateWithoutSzakiranyInput[] | Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput[]
     connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutSzakiranyInput | Tanulo_LetszamCreateOrConnectWithoutSzakiranyInput[]
     createMany?: Tanulo_LetszamCreateManySzakiranyInputEnvelope
@@ -20931,18 +22562,11 @@ export namespace Prisma {
     connect?: Felvettek_SzamaWhereUniqueInput | Felvettek_SzamaWhereUniqueInput[]
   }
 
-  export type Tanulo_LetszamUpdateManyWithoutSzakiranyNestedInput = {
+  export type Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakiranyInput = {
     create?: XOR<Tanulo_LetszamCreateWithoutSzakiranyInput, Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput> | Tanulo_LetszamCreateWithoutSzakiranyInput[] | Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput[]
     connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutSzakiranyInput | Tanulo_LetszamCreateOrConnectWithoutSzakiranyInput[]
-    upsert?: Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakiranyInput | Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakiranyInput[]
     createMany?: Tanulo_LetszamCreateManySzakiranyInputEnvelope
-    set?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
-    disconnect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
-    delete?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
     connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
-    update?: Tanulo_LetszamUpdateWithWhereUniqueWithoutSzakiranyInput | Tanulo_LetszamUpdateWithWhereUniqueWithoutSzakiranyInput[]
-    updateMany?: Tanulo_LetszamUpdateManyWithWhereWithoutSzakiranyInput | Tanulo_LetszamUpdateManyWithWhereWithoutSzakiranyInput[]
-    deleteMany?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
   }
 
   export type Felvettek_SzamaUpdateManyWithoutSzakiranyNestedInput = {
@@ -20959,7 +22583,7 @@ export namespace Prisma {
     deleteMany?: Felvettek_SzamaScalarWhereInput | Felvettek_SzamaScalarWhereInput[]
   }
 
-  export type Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyNestedInput = {
+  export type Tanulo_LetszamUpdateManyWithoutSzakiranyNestedInput = {
     create?: XOR<Tanulo_LetszamCreateWithoutSzakiranyInput, Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput> | Tanulo_LetszamCreateWithoutSzakiranyInput[] | Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput[]
     connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutSzakiranyInput | Tanulo_LetszamCreateOrConnectWithoutSzakiranyInput[]
     upsert?: Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakiranyInput | Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakiranyInput[]
@@ -20985,6 +22609,20 @@ export namespace Prisma {
     update?: Felvettek_SzamaUpdateWithWhereUniqueWithoutSzakiranyInput | Felvettek_SzamaUpdateWithWhereUniqueWithoutSzakiranyInput[]
     updateMany?: Felvettek_SzamaUpdateManyWithWhereWithoutSzakiranyInput | Felvettek_SzamaUpdateManyWithWhereWithoutSzakiranyInput[]
     deleteMany?: Felvettek_SzamaScalarWhereInput | Felvettek_SzamaScalarWhereInput[]
+  }
+
+  export type Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyNestedInput = {
+    create?: XOR<Tanulo_LetszamCreateWithoutSzakiranyInput, Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput> | Tanulo_LetszamCreateWithoutSzakiranyInput[] | Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput[]
+    connectOrCreate?: Tanulo_LetszamCreateOrConnectWithoutSzakiranyInput | Tanulo_LetszamCreateOrConnectWithoutSzakiranyInput[]
+    upsert?: Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakiranyInput | Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakiranyInput[]
+    createMany?: Tanulo_LetszamCreateManySzakiranyInputEnvelope
+    set?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+    disconnect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+    delete?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+    connect?: Tanulo_LetszamWhereUniqueInput | Tanulo_LetszamWhereUniqueInput[]
+    update?: Tanulo_LetszamUpdateWithWhereUniqueWithoutSzakiranyInput | Tanulo_LetszamUpdateWithWhereUniqueWithoutSzakiranyInput[]
+    updateMany?: Tanulo_LetszamUpdateManyWithWhereWithoutSzakiranyInput | Tanulo_LetszamUpdateManyWithWhereWithoutSzakiranyInput[]
+    deleteMany?: Tanulo_LetszamScalarWhereInput | Tanulo_LetszamScalarWhereInput[]
   }
 
   export type Felvettek_SzamaCreateNestedManyWithoutSzakmaInput = {
@@ -21133,16 +22771,16 @@ export namespace Prisma {
     connect?: AlapadatokWhereUniqueInput
   }
 
-  export type SzakmaCreateNestedOneWithoutFelvettek_szamaInput = {
-    create?: XOR<SzakmaCreateWithoutFelvettek_szamaInput, SzakmaUncheckedCreateWithoutFelvettek_szamaInput>
-    connectOrCreate?: SzakmaCreateOrConnectWithoutFelvettek_szamaInput
-    connect?: SzakmaWhereUniqueInput
-  }
-
   export type SzakiranyCreateNestedOneWithoutFelvettek_szamaInput = {
     create?: XOR<SzakiranyCreateWithoutFelvettek_szamaInput, SzakiranyUncheckedCreateWithoutFelvettek_szamaInput>
     connectOrCreate?: SzakiranyCreateOrConnectWithoutFelvettek_szamaInput
     connect?: SzakiranyWhereUniqueInput
+  }
+
+  export type SzakmaCreateNestedOneWithoutFelvettek_szamaInput = {
+    create?: XOR<SzakmaCreateWithoutFelvettek_szamaInput, SzakmaUncheckedCreateWithoutFelvettek_szamaInput>
+    connectOrCreate?: SzakmaCreateOrConnectWithoutFelvettek_szamaInput
+    connect?: SzakmaWhereUniqueInput
   }
 
   export type AlapadatokUpdateOneRequiredWithoutFelvettek_szamaNestedInput = {
@@ -21153,14 +22791,6 @@ export namespace Prisma {
     update?: XOR<XOR<AlapadatokUpdateToOneWithWhereWithoutFelvettek_szamaInput, AlapadatokUpdateWithoutFelvettek_szamaInput>, AlapadatokUncheckedUpdateWithoutFelvettek_szamaInput>
   }
 
-  export type SzakmaUpdateOneRequiredWithoutFelvettek_szamaNestedInput = {
-    create?: XOR<SzakmaCreateWithoutFelvettek_szamaInput, SzakmaUncheckedCreateWithoutFelvettek_szamaInput>
-    connectOrCreate?: SzakmaCreateOrConnectWithoutFelvettek_szamaInput
-    upsert?: SzakmaUpsertWithoutFelvettek_szamaInput
-    connect?: SzakmaWhereUniqueInput
-    update?: XOR<XOR<SzakmaUpdateToOneWithWhereWithoutFelvettek_szamaInput, SzakmaUpdateWithoutFelvettek_szamaInput>, SzakmaUncheckedUpdateWithoutFelvettek_szamaInput>
-  }
-
   export type SzakiranyUpdateOneWithoutFelvettek_szamaNestedInput = {
     create?: XOR<SzakiranyCreateWithoutFelvettek_szamaInput, SzakiranyUncheckedCreateWithoutFelvettek_szamaInput>
     connectOrCreate?: SzakiranyCreateOrConnectWithoutFelvettek_szamaInput
@@ -21169,6 +22799,14 @@ export namespace Prisma {
     delete?: SzakiranyWhereInput | boolean
     connect?: SzakiranyWhereUniqueInput
     update?: XOR<XOR<SzakiranyUpdateToOneWithWhereWithoutFelvettek_szamaInput, SzakiranyUpdateWithoutFelvettek_szamaInput>, SzakiranyUncheckedUpdateWithoutFelvettek_szamaInput>
+  }
+
+  export type SzakmaUpdateOneRequiredWithoutFelvettek_szamaNestedInput = {
+    create?: XOR<SzakmaCreateWithoutFelvettek_szamaInput, SzakmaUncheckedCreateWithoutFelvettek_szamaInput>
+    connectOrCreate?: SzakmaCreateOrConnectWithoutFelvettek_szamaInput
+    upsert?: SzakmaUpsertWithoutFelvettek_szamaInput
+    connect?: SzakmaWhereUniqueInput
+    update?: XOR<XOR<SzakmaUpdateToOneWithWhereWithoutFelvettek_szamaInput, SzakmaUpdateWithoutFelvettek_szamaInput>, SzakmaUncheckedUpdateWithoutFelvettek_szamaInput>
   }
 
   export type AlapadatokCreateNestedOneWithoutKompetenciaInput = {
@@ -21355,33 +22993,6 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -21409,6 +23020,46 @@ export namespace Prisma {
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
   export type NestedJsonNullableFilter<$PrismaModel = never> =
     | PatchUndefined<
         Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
@@ -21433,17 +23084,86 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type LogCreateWithoutUserInput = {
+    id?: string
+    method: string
+    path: string
+    body?: NullableJsonNullValueInput | InputJsonValue
+    query?: NullableJsonNullValueInput | InputJsonValue
+    headers?: NullableJsonNullValueInput | InputJsonValue
+    ip: string
+    userAgent: string
+    createdAt?: Date | string
+    correlationId?: string | null
+    duration?: number | null
+    level?: string
+    statusCode?: number | null
+  }
+
+  export type LogUncheckedCreateWithoutUserInput = {
+    id?: string
+    method: string
+    path: string
+    body?: NullableJsonNullValueInput | InputJsonValue
+    query?: NullableJsonNullValueInput | InputJsonValue
+    headers?: NullableJsonNullValueInput | InputJsonValue
+    ip: string
+    userAgent: string
+    createdAt?: Date | string
+    correlationId?: string | null
+    duration?: number | null
+    level?: string
+    statusCode?: number | null
+  }
+
+  export type LogCreateOrConnectWithoutUserInput = {
+    where: LogWhereUniqueInput
+    create: XOR<LogCreateWithoutUserInput, LogUncheckedCreateWithoutUserInput>
+  }
+
+  export type LogCreateManyUserInputEnvelope = {
+    data: LogCreateManyUserInput | LogCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type TableAccessCreateWithoutUserInput = {
     id?: string
-    tableName: string
     access?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
+    table: TableListCreateNestedOneWithoutAccessInput
   }
 
   export type TableAccessUncheckedCreateWithoutUserInput = {
     id?: string
-    tableName: string
+    tableId: string
     access?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
@@ -21464,10 +23184,10 @@ export namespace Prisma {
     iskola_neve: string
     intezmeny_tipus: string
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
-    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutUsersInput = {
@@ -21475,110 +23195,15 @@ export namespace Prisma {
     iskola_neve: string
     intezmeny_tipus: string
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
-    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutUsersInput = {
     where: AlapadatokWhereUniqueInput
     create: XOR<AlapadatokCreateWithoutUsersInput, AlapadatokUncheckedCreateWithoutUsersInput>
-  }
-
-  export type LogCreateWithoutUserInput = {
-    id?: string
-    method: string
-    path: string
-    body?: NullableJsonNullValueInput | InputJsonValue
-    query?: NullableJsonNullValueInput | InputJsonValue
-    headers?: NullableJsonNullValueInput | InputJsonValue
-    ip: string
-    userAgent: string
-    createdAt?: Date | string
-  }
-
-  export type LogUncheckedCreateWithoutUserInput = {
-    id?: string
-    method: string
-    path: string
-    body?: NullableJsonNullValueInput | InputJsonValue
-    query?: NullableJsonNullValueInput | InputJsonValue
-    headers?: NullableJsonNullValueInput | InputJsonValue
-    ip: string
-    userAgent: string
-    createdAt?: Date | string
-  }
-
-  export type LogCreateOrConnectWithoutUserInput = {
-    where: LogWhereUniqueInput
-    create: XOR<LogCreateWithoutUserInput, LogUncheckedCreateWithoutUserInput>
-  }
-
-  export type LogCreateManyUserInputEnvelope = {
-    data: LogCreateManyUserInput | LogCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type TableAccessUpsertWithWhereUniqueWithoutUserInput = {
-    where: TableAccessWhereUniqueInput
-    update: XOR<TableAccessUpdateWithoutUserInput, TableAccessUncheckedUpdateWithoutUserInput>
-    create: XOR<TableAccessCreateWithoutUserInput, TableAccessUncheckedCreateWithoutUserInput>
-  }
-
-  export type TableAccessUpdateWithWhereUniqueWithoutUserInput = {
-    where: TableAccessWhereUniqueInput
-    data: XOR<TableAccessUpdateWithoutUserInput, TableAccessUncheckedUpdateWithoutUserInput>
-  }
-
-  export type TableAccessUpdateManyWithWhereWithoutUserInput = {
-    where: TableAccessScalarWhereInput
-    data: XOR<TableAccessUpdateManyMutationInput, TableAccessUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type TableAccessScalarWhereInput = {
-    AND?: TableAccessScalarWhereInput | TableAccessScalarWhereInput[]
-    OR?: TableAccessScalarWhereInput[]
-    NOT?: TableAccessScalarWhereInput | TableAccessScalarWhereInput[]
-    id?: UuidFilter<"TableAccess"> | string
-    userId?: UuidNullableFilter<"TableAccess"> | string | null
-    tableName?: StringFilter<"TableAccess"> | string
-    access?: IntFilter<"TableAccess"> | number
-    createdAt?: DateTimeFilter<"TableAccess"> | Date | string
-    updatedAt?: DateTimeNullableFilter<"TableAccess"> | Date | string | null
-  }
-
-  export type AlapadatokUpsertWithoutUsersInput = {
-    update: XOR<AlapadatokUpdateWithoutUsersInput, AlapadatokUncheckedUpdateWithoutUsersInput>
-    create: XOR<AlapadatokCreateWithoutUsersInput, AlapadatokUncheckedCreateWithoutUsersInput>
-    where?: AlapadatokWhereInput
-  }
-
-  export type AlapadatokUpdateToOneWithWhereWithoutUsersInput = {
-    where?: AlapadatokWhereInput
-    data: XOR<AlapadatokUpdateWithoutUsersInput, AlapadatokUncheckedUpdateWithoutUsersInput>
-  }
-
-  export type AlapadatokUpdateWithoutUsersInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    iskola_neve?: StringFieldUpdateOperationsInput | string
-    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
-    felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
-    tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
-    tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
-    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
-    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
-  }
-
-  export type AlapadatokUncheckedUpdateWithoutUsersInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    iskola_neve?: StringFieldUpdateOperationsInput | string
-    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
-    felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
-    tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
-    tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
-    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
-    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type LogUpsertWithWhereUniqueWithoutUserInput = {
@@ -21611,6 +23236,113 @@ export namespace Prisma {
     ip?: StringFilter<"Log"> | string
     userAgent?: StringFilter<"Log"> | string
     createdAt?: DateTimeFilter<"Log"> | Date | string
+    correlationId?: StringNullableFilter<"Log"> | string | null
+    duration?: IntNullableFilter<"Log"> | number | null
+    level?: StringFilter<"Log"> | string
+    statusCode?: IntNullableFilter<"Log"> | number | null
+  }
+
+  export type TableAccessUpsertWithWhereUniqueWithoutUserInput = {
+    where: TableAccessWhereUniqueInput
+    update: XOR<TableAccessUpdateWithoutUserInput, TableAccessUncheckedUpdateWithoutUserInput>
+    create: XOR<TableAccessCreateWithoutUserInput, TableAccessUncheckedCreateWithoutUserInput>
+  }
+
+  export type TableAccessUpdateWithWhereUniqueWithoutUserInput = {
+    where: TableAccessWhereUniqueInput
+    data: XOR<TableAccessUpdateWithoutUserInput, TableAccessUncheckedUpdateWithoutUserInput>
+  }
+
+  export type TableAccessUpdateManyWithWhereWithoutUserInput = {
+    where: TableAccessScalarWhereInput
+    data: XOR<TableAccessUpdateManyMutationInput, TableAccessUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type TableAccessScalarWhereInput = {
+    AND?: TableAccessScalarWhereInput | TableAccessScalarWhereInput[]
+    OR?: TableAccessScalarWhereInput[]
+    NOT?: TableAccessScalarWhereInput | TableAccessScalarWhereInput[]
+    id?: UuidFilter<"TableAccess"> | string
+    userId?: UuidNullableFilter<"TableAccess"> | string | null
+    tableId?: UuidFilter<"TableAccess"> | string
+    access?: IntFilter<"TableAccess"> | number
+    createdAt?: DateTimeFilter<"TableAccess"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"TableAccess"> | Date | string | null
+  }
+
+  export type AlapadatokUpsertWithoutUsersInput = {
+    update: XOR<AlapadatokUpdateWithoutUsersInput, AlapadatokUncheckedUpdateWithoutUsersInput>
+    create: XOR<AlapadatokCreateWithoutUsersInput, AlapadatokUncheckedCreateWithoutUsersInput>
+    where?: AlapadatokWhereInput
+  }
+
+  export type AlapadatokUpdateToOneWithWhereWithoutUsersInput = {
+    where?: AlapadatokWhereInput
+    data: XOR<AlapadatokUpdateWithoutUsersInput, AlapadatokUncheckedUpdateWithoutUsersInput>
+  }
+
+  export type AlapadatokUpdateWithoutUsersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    iskola_neve?: StringFieldUpdateOperationsInput | string
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
+    tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
+  }
+
+  export type AlapadatokUncheckedUpdateWithoutUsersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    iskola_neve?: StringFieldUpdateOperationsInput | string
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+  }
+
+  export type TableAccessCreateWithoutTableInput = {
+    id?: string
+    access?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+    user?: UserCreateNestedOneWithoutTableAccessInput
+  }
+
+  export type TableAccessUncheckedCreateWithoutTableInput = {
+    id?: string
+    userId?: string | null
+    access?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+  }
+
+  export type TableAccessCreateOrConnectWithoutTableInput = {
+    where: TableAccessWhereUniqueInput
+    create: XOR<TableAccessCreateWithoutTableInput, TableAccessUncheckedCreateWithoutTableInput>
+  }
+
+  export type TableAccessCreateManyTableInputEnvelope = {
+    data: TableAccessCreateManyTableInput | TableAccessCreateManyTableInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TableAccessUpsertWithWhereUniqueWithoutTableInput = {
+    where: TableAccessWhereUniqueInput
+    update: XOR<TableAccessUpdateWithoutTableInput, TableAccessUncheckedUpdateWithoutTableInput>
+    create: XOR<TableAccessCreateWithoutTableInput, TableAccessUncheckedCreateWithoutTableInput>
+  }
+
+  export type TableAccessUpdateWithWhereUniqueWithoutTableInput = {
+    where: TableAccessWhereUniqueInput
+    data: XOR<TableAccessUpdateWithoutTableInput, TableAccessUncheckedUpdateWithoutTableInput>
+  }
+
+  export type TableAccessUpdateManyWithWhereWithoutTableInput = {
+    where: TableAccessScalarWhereInput
+    data: XOR<TableAccessUpdateManyMutationInput, TableAccessUncheckedUpdateManyWithoutTableInput>
   }
 
   export type UserCreateWithoutTableAccessInput = {
@@ -21618,11 +23350,11 @@ export namespace Prisma {
     email: string
     name?: string | null
     password?: string | null
-    permissions?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    alapadatok?: AlapadatokCreateNestedOneWithoutUsersInput
+    permissions?: number
     logs?: LogCreateNestedManyWithoutUserInput
+    alapadatok?: AlapadatokCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateWithoutTableAccessInput = {
@@ -21630,16 +23362,37 @@ export namespace Prisma {
     email: string
     name?: string | null
     password?: string | null
-    permissions?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
     alapadatokId?: string | null
+    permissions?: number
     logs?: LogUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutTableAccessInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutTableAccessInput, UserUncheckedCreateWithoutTableAccessInput>
+  }
+
+  export type TableListCreateWithoutAccessInput = {
+    id?: string
+    name: string
+    isAvailable?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+  }
+
+  export type TableListUncheckedCreateWithoutAccessInput = {
+    id?: string
+    name: string
+    isAvailable?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+  }
+
+  export type TableListCreateOrConnectWithoutAccessInput = {
+    where: TableListWhereUniqueInput
+    create: XOR<TableListCreateWithoutAccessInput, TableListUncheckedCreateWithoutAccessInput>
   }
 
   export type UserUpsertWithoutTableAccessInput = {
@@ -21658,11 +23411,11 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    alapadatok?: AlapadatokUpdateOneWithoutUsersNestedInput
+    permissions?: IntFieldUpdateOperationsInput | number
     logs?: LogUpdateManyWithoutUserNestedInput
+    alapadatok?: AlapadatokUpdateOneWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateWithoutTableAccessInput = {
@@ -21670,11 +23423,38 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     alapadatokId?: NullableStringFieldUpdateOperationsInput | string | null
+    permissions?: IntFieldUpdateOperationsInput | number
     logs?: LogUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type TableListUpsertWithoutAccessInput = {
+    update: XOR<TableListUpdateWithoutAccessInput, TableListUncheckedUpdateWithoutAccessInput>
+    create: XOR<TableListCreateWithoutAccessInput, TableListUncheckedCreateWithoutAccessInput>
+    where?: TableListWhereInput
+  }
+
+  export type TableListUpdateToOneWithWhereWithoutAccessInput = {
+    where?: TableListWhereInput
+    data: XOR<TableListUpdateWithoutAccessInput, TableListUncheckedUpdateWithoutAccessInput>
+  }
+
+  export type TableListUpdateWithoutAccessInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type TableListUncheckedUpdateWithoutAccessInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    isAvailable?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type UserCreateWithoutLogsInput = {
@@ -21682,9 +23462,9 @@ export namespace Prisma {
     email: string
     name?: string | null
     password?: string | null
-    permissions?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
+    permissions?: number
     tableAccess?: TableAccessCreateNestedManyWithoutUserInput
     alapadatok?: AlapadatokCreateNestedOneWithoutUsersInput
   }
@@ -21694,10 +23474,10 @@ export namespace Prisma {
     email: string
     name?: string | null
     password?: string | null
-    permissions?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
     alapadatokId?: string | null
+    permissions?: number
     tableAccess?: TableAccessUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -21722,9 +23502,9 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    permissions?: IntFieldUpdateOperationsInput | number
     tableAccess?: TableAccessUpdateManyWithoutUserNestedInput
     alapadatok?: AlapadatokUpdateOneWithoutUsersNestedInput
   }
@@ -21734,10 +23514,10 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     alapadatokId?: NullableStringFieldUpdateOperationsInput | string | null
+    permissions?: IntFieldUpdateOperationsInput | number
     tableAccess?: TableAccessUncheckedUpdateManyWithoutUserNestedInput
   }
 
@@ -21751,15 +23531,14 @@ export namespace Prisma {
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
-    szakma: SzakmaCreateNestedOneWithoutFelvettek_szamaInput
     szakirany?: SzakiranyCreateNestedOneWithoutFelvettek_szamaInput
+    szakma: SzakmaCreateNestedOneWithoutFelvettek_szamaInput
   }
 
   export type Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput = {
     id?: string
     tanev_kezdete: number
     szakma_id: string
-    szakiranyId?: string | null
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
@@ -21767,6 +23546,7 @@ export namespace Prisma {
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
+    szakiranyId?: string | null
   }
 
   export type Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput = {
@@ -21776,6 +23556,44 @@ export namespace Prisma {
 
   export type Felvettek_SzamaCreateManyAlapadatokInputEnvelope = {
     data: Felvettek_SzamaCreateManyAlapadatokInput | Felvettek_SzamaCreateManyAlapadatokInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type KompetenciaCreateWithoutAlapadatokInput = {
+    id?: string
+    tanev_kezdete?: number
+    mat_orsz_p: string
+    szoveg_orsz_p: string
+    mat_int_p: string
+    szoveg_int_p: string
+    kepzes_forma: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type KompetenciaUncheckedCreateWithoutAlapadatokInput = {
+    id?: string
+    tanev_kezdete?: number
+    mat_orsz_p: string
+    szoveg_orsz_p: string
+    mat_int_p: string
+    szoveg_int_p: string
+    kepzes_forma: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type KompetenciaCreateOrConnectWithoutAlapadatokInput = {
+    where: KompetenciaWhereUniqueInput
+    create: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type KompetenciaCreateManyAlapadatokInputEnvelope = {
+    data: KompetenciaCreateManyAlapadatokInput | KompetenciaCreateManyAlapadatokInput[]
     skipDuplicates?: boolean
   }
 
@@ -22013,54 +23831,16 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type KompetenciaCreateWithoutAlapadatokInput = {
-    id?: string
-    tanev_kezdete?: number
-    mat_orsz_p: string
-    szoveg_orsz_p: string
-    mat_int_p: string
-    szoveg_int_p: string
-    kepzes_forma: string
-    createAt?: Date | string
-    createBy?: string | null
-    updatedAt?: Date | string | null
-    updatedBy?: string | null
-  }
-
-  export type KompetenciaUncheckedCreateWithoutAlapadatokInput = {
-    id?: string
-    tanev_kezdete?: number
-    mat_orsz_p: string
-    szoveg_orsz_p: string
-    mat_int_p: string
-    szoveg_int_p: string
-    kepzes_forma: string
-    createAt?: Date | string
-    createBy?: string | null
-    updatedAt?: Date | string | null
-    updatedBy?: string | null
-  }
-
-  export type KompetenciaCreateOrConnectWithoutAlapadatokInput = {
-    where: KompetenciaWhereUniqueInput
-    create: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput>
-  }
-
-  export type KompetenciaCreateManyAlapadatokInputEnvelope = {
-    data: KompetenciaCreateManyAlapadatokInput | KompetenciaCreateManyAlapadatokInput[]
-    skipDuplicates?: boolean
-  }
-
   export type UserCreateWithoutAlapadatokInput = {
     id?: string
     email: string
     name?: string | null
     password?: string | null
-    permissions?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    tableAccess?: TableAccessCreateNestedManyWithoutUserInput
+    permissions?: number
     logs?: LogCreateNestedManyWithoutUserInput
+    tableAccess?: TableAccessCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAlapadatokInput = {
@@ -22068,11 +23848,11 @@ export namespace Prisma {
     email: string
     name?: string | null
     password?: string | null
-    permissions?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
-    tableAccess?: TableAccessUncheckedCreateNestedManyWithoutUserInput
+    permissions?: number
     logs?: LogUncheckedCreateNestedManyWithoutUserInput
+    tableAccess?: TableAccessUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAlapadatokInput = {
@@ -22109,7 +23889,6 @@ export namespace Prisma {
     alapadatok_id?: UuidFilter<"Felvettek_Szama"> | string
     tanev_kezdete?: IntFilter<"Felvettek_Szama"> | number
     szakma_id?: UuidFilter<"Felvettek_Szama"> | string
-    szakiranyId?: UuidNullableFilter<"Felvettek_Szama"> | string | null
     jelentkezo_letszam?: IntFilter<"Felvettek_Szama"> | number
     felveheto_letszam?: IntFilter<"Felvettek_Szama"> | number
     felvett_letszam?: IntFilter<"Felvettek_Szama"> | number
@@ -22117,6 +23896,41 @@ export namespace Prisma {
     createBy?: StringNullableFilter<"Felvettek_Szama"> | string | null
     updatedAt?: DateTimeNullableFilter<"Felvettek_Szama"> | Date | string | null
     updatedBy?: StringNullableFilter<"Felvettek_Szama"> | string | null
+    szakiranyId?: UuidNullableFilter<"Felvettek_Szama"> | string | null
+  }
+
+  export type KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput = {
+    where: KompetenciaWhereUniqueInput
+    update: XOR<KompetenciaUpdateWithoutAlapadatokInput, KompetenciaUncheckedUpdateWithoutAlapadatokInput>
+    create: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput = {
+    where: KompetenciaWhereUniqueInput
+    data: XOR<KompetenciaUpdateWithoutAlapadatokInput, KompetenciaUncheckedUpdateWithoutAlapadatokInput>
+  }
+
+  export type KompetenciaUpdateManyWithWhereWithoutAlapadatokInput = {
+    where: KompetenciaScalarWhereInput
+    data: XOR<KompetenciaUpdateManyMutationInput, KompetenciaUncheckedUpdateManyWithoutAlapadatokInput>
+  }
+
+  export type KompetenciaScalarWhereInput = {
+    AND?: KompetenciaScalarWhereInput | KompetenciaScalarWhereInput[]
+    OR?: KompetenciaScalarWhereInput[]
+    NOT?: KompetenciaScalarWhereInput | KompetenciaScalarWhereInput[]
+    id?: UuidFilter<"Kompetencia"> | string
+    tanev_kezdete?: IntFilter<"Kompetencia"> | number
+    mat_orsz_p?: StringFilter<"Kompetencia"> | string
+    szoveg_orsz_p?: StringFilter<"Kompetencia"> | string
+    mat_int_p?: StringFilter<"Kompetencia"> | string
+    szoveg_int_p?: StringFilter<"Kompetencia"> | string
+    kepzes_forma?: StringFilter<"Kompetencia"> | string
+    alapadatok_id?: UuidFilter<"Kompetencia"> | string
+    createAt?: DateTimeFilter<"Kompetencia"> | Date | string
+    createBy?: StringNullableFilter<"Kompetencia"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Kompetencia"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Kompetencia"> | string | null
   }
 
   export type Tanar_LetszamUpsertWithWhereUniqueWithoutAlapadatokInput = {
@@ -22281,40 +24095,6 @@ export namespace Prisma {
     updatedBy?: StringNullableFilter<"Tanulo_Letszam"> | string | null
   }
 
-  export type KompetenciaUpsertWithWhereUniqueWithoutAlapadatokInput = {
-    where: KompetenciaWhereUniqueInput
-    update: XOR<KompetenciaUpdateWithoutAlapadatokInput, KompetenciaUncheckedUpdateWithoutAlapadatokInput>
-    create: XOR<KompetenciaCreateWithoutAlapadatokInput, KompetenciaUncheckedCreateWithoutAlapadatokInput>
-  }
-
-  export type KompetenciaUpdateWithWhereUniqueWithoutAlapadatokInput = {
-    where: KompetenciaWhereUniqueInput
-    data: XOR<KompetenciaUpdateWithoutAlapadatokInput, KompetenciaUncheckedUpdateWithoutAlapadatokInput>
-  }
-
-  export type KompetenciaUpdateManyWithWhereWithoutAlapadatokInput = {
-    where: KompetenciaScalarWhereInput
-    data: XOR<KompetenciaUpdateManyMutationInput, KompetenciaUncheckedUpdateManyWithoutAlapadatokInput>
-  }
-
-  export type KompetenciaScalarWhereInput = {
-    AND?: KompetenciaScalarWhereInput | KompetenciaScalarWhereInput[]
-    OR?: KompetenciaScalarWhereInput[]
-    NOT?: KompetenciaScalarWhereInput | KompetenciaScalarWhereInput[]
-    id?: UuidFilter<"Kompetencia"> | string
-    tanev_kezdete?: IntFilter<"Kompetencia"> | number
-    mat_orsz_p?: StringFilter<"Kompetencia"> | string
-    szoveg_orsz_p?: StringFilter<"Kompetencia"> | string
-    mat_int_p?: StringFilter<"Kompetencia"> | string
-    szoveg_int_p?: StringFilter<"Kompetencia"> | string
-    kepzes_forma?: StringFilter<"Kompetencia"> | string
-    alapadatok_id?: UuidFilter<"Kompetencia"> | string
-    createAt?: DateTimeFilter<"Kompetencia"> | Date | string
-    createBy?: StringNullableFilter<"Kompetencia"> | string | null
-    updatedAt?: DateTimeNullableFilter<"Kompetencia"> | Date | string | null
-    updatedBy?: StringNullableFilter<"Kompetencia"> | string | null
-  }
-
   export type UserUpsertWithWhereUniqueWithoutAlapadatokInput = {
     where: UserWhereUniqueInput
     update: XOR<UserUpdateWithoutAlapadatokInput, UserUncheckedUpdateWithoutAlapadatokInput>
@@ -22339,46 +24119,10 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     name?: StringNullableFilter<"User"> | string | null
     password?: StringNullableFilter<"User"> | string | null
-    permissions?: IntFilter<"User"> | number
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     alapadatokId?: UuidNullableFilter<"User"> | string | null
-  }
-
-  export type Tanulo_LetszamCreateWithoutSzakiranyInput = {
-    id?: string
-    tanev_kezdete: number
-    jogv_tipus: number
-    letszam: number
-    createAt?: Date | string
-    createBy?: string | null
-    updatedAt?: Date | string | null
-    updatedBy?: string | null
-    alapadatok: AlapadatokCreateNestedOneWithoutTanulo_letszamInput
-    szakma: SzakmaCreateNestedOneWithoutTanulo_letszamInput
-  }
-
-  export type Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput = {
-    id?: string
-    alapadatok_id: string
-    tanev_kezdete: number
-    jogv_tipus: number
-    letszam: number
-    szakma_id: string
-    createAt?: Date | string
-    createBy?: string | null
-    updatedAt?: Date | string | null
-    updatedBy?: string | null
-  }
-
-  export type Tanulo_LetszamCreateOrConnectWithoutSzakiranyInput = {
-    where: Tanulo_LetszamWhereUniqueInput
-    create: XOR<Tanulo_LetszamCreateWithoutSzakiranyInput, Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput>
-  }
-
-  export type Tanulo_LetszamCreateManySzakiranyInputEnvelope = {
-    data: Tanulo_LetszamCreateManySzakiranyInput | Tanulo_LetszamCreateManySzakiranyInput[]
-    skipDuplicates?: boolean
+    permissions?: IntFilter<"User"> | number
   }
 
   export type Felvettek_SzamaCreateWithoutSzakiranyInput = {
@@ -22419,20 +24163,40 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakiranyInput = {
+  export type Tanulo_LetszamCreateWithoutSzakiranyInput = {
+    id?: string
+    tanev_kezdete: number
+    jogv_tipus: number
+    letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    alapadatok: AlapadatokCreateNestedOneWithoutTanulo_letszamInput
+    szakma: SzakmaCreateNestedOneWithoutTanulo_letszamInput
+  }
+
+  export type Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput = {
+    id?: string
+    alapadatok_id: string
+    tanev_kezdete: number
+    jogv_tipus: number
+    letszam: number
+    szakma_id: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type Tanulo_LetszamCreateOrConnectWithoutSzakiranyInput = {
     where: Tanulo_LetszamWhereUniqueInput
-    update: XOR<Tanulo_LetszamUpdateWithoutSzakiranyInput, Tanulo_LetszamUncheckedUpdateWithoutSzakiranyInput>
     create: XOR<Tanulo_LetszamCreateWithoutSzakiranyInput, Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput>
   }
 
-  export type Tanulo_LetszamUpdateWithWhereUniqueWithoutSzakiranyInput = {
-    where: Tanulo_LetszamWhereUniqueInput
-    data: XOR<Tanulo_LetszamUpdateWithoutSzakiranyInput, Tanulo_LetszamUncheckedUpdateWithoutSzakiranyInput>
-  }
-
-  export type Tanulo_LetszamUpdateManyWithWhereWithoutSzakiranyInput = {
-    where: Tanulo_LetszamScalarWhereInput
-    data: XOR<Tanulo_LetszamUpdateManyMutationInput, Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyInput>
+  export type Tanulo_LetszamCreateManySzakiranyInputEnvelope = {
+    data: Tanulo_LetszamCreateManySzakiranyInput | Tanulo_LetszamCreateManySzakiranyInput[]
+    skipDuplicates?: boolean
   }
 
   export type Felvettek_SzamaUpsertWithWhereUniqueWithoutSzakiranyInput = {
@@ -22449,6 +24213,22 @@ export namespace Prisma {
   export type Felvettek_SzamaUpdateManyWithWhereWithoutSzakiranyInput = {
     where: Felvettek_SzamaScalarWhereInput
     data: XOR<Felvettek_SzamaUpdateManyMutationInput, Felvettek_SzamaUncheckedUpdateManyWithoutSzakiranyInput>
+  }
+
+  export type Tanulo_LetszamUpsertWithWhereUniqueWithoutSzakiranyInput = {
+    where: Tanulo_LetszamWhereUniqueInput
+    update: XOR<Tanulo_LetszamUpdateWithoutSzakiranyInput, Tanulo_LetszamUncheckedUpdateWithoutSzakiranyInput>
+    create: XOR<Tanulo_LetszamCreateWithoutSzakiranyInput, Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput>
+  }
+
+  export type Tanulo_LetszamUpdateWithWhereUniqueWithoutSzakiranyInput = {
+    where: Tanulo_LetszamWhereUniqueInput
+    data: XOR<Tanulo_LetszamUpdateWithoutSzakiranyInput, Tanulo_LetszamUncheckedUpdateWithoutSzakiranyInput>
+  }
+
+  export type Tanulo_LetszamUpdateManyWithWhereWithoutSzakiranyInput = {
+    where: Tanulo_LetszamScalarWhereInput
+    data: XOR<Tanulo_LetszamUpdateManyMutationInput, Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyInput>
   }
 
   export type Felvettek_SzamaCreateWithoutSzakmaInput = {
@@ -22469,7 +24249,6 @@ export namespace Prisma {
     id?: string
     alapadatok_id: string
     tanev_kezdete: number
-    szakiranyId?: string | null
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
@@ -22477,6 +24256,7 @@ export namespace Prisma {
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
+    szakiranyId?: string | null
   }
 
   export type Felvettek_SzamaCreateOrConnectWithoutSzakmaInput = {
@@ -22562,9 +24342,9 @@ export namespace Prisma {
     iskola_neve: string
     intezmeny_tipus: string
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
-    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -22573,9 +24353,9 @@ export namespace Prisma {
     iskola_neve: string
     intezmeny_tipus: string
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
-    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -22634,9 +24414,9 @@ export namespace Prisma {
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
     tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
-    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -22645,9 +24425,9 @@ export namespace Prisma {
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
-    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -22702,9 +24482,9 @@ export namespace Prisma {
     iskola_neve: string
     intezmeny_tipus: string
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
-    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -22713,9 +24493,9 @@ export namespace Prisma {
     iskola_neve: string
     intezmeny_tipus: string
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
-    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -22740,9 +24520,9 @@ export namespace Prisma {
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
-    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -22751,9 +24531,9 @@ export namespace Prisma {
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
-    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -22761,10 +24541,10 @@ export namespace Prisma {
     id?: string
     iskola_neve: string
     intezmeny_tipus: string
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
-    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -22772,33 +24552,16 @@ export namespace Prisma {
     id?: string
     iskola_neve: string
     intezmeny_tipus: string
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
-    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutFelvettek_szamaInput = {
     where: AlapadatokWhereUniqueInput
     create: XOR<AlapadatokCreateWithoutFelvettek_szamaInput, AlapadatokUncheckedCreateWithoutFelvettek_szamaInput>
-  }
-
-  export type SzakmaCreateWithoutFelvettek_szamaInput = {
-    id?: string
-    nev: string
-    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
-  }
-
-  export type SzakmaUncheckedCreateWithoutFelvettek_szamaInput = {
-    id?: string
-    nev: string
-    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
-  }
-
-  export type SzakmaCreateOrConnectWithoutFelvettek_szamaInput = {
-    where: SzakmaWhereUniqueInput
-    create: XOR<SzakmaCreateWithoutFelvettek_szamaInput, SzakmaUncheckedCreateWithoutFelvettek_szamaInput>
   }
 
   export type SzakiranyCreateWithoutFelvettek_szamaInput = {
@@ -22818,6 +24581,23 @@ export namespace Prisma {
     create: XOR<SzakiranyCreateWithoutFelvettek_szamaInput, SzakiranyUncheckedCreateWithoutFelvettek_szamaInput>
   }
 
+  export type SzakmaCreateWithoutFelvettek_szamaInput = {
+    id?: string
+    nev: string
+    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
+  }
+
+  export type SzakmaUncheckedCreateWithoutFelvettek_szamaInput = {
+    id?: string
+    nev: string
+    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
+  }
+
+  export type SzakmaCreateOrConnectWithoutFelvettek_szamaInput = {
+    where: SzakmaWhereUniqueInput
+    create: XOR<SzakmaCreateWithoutFelvettek_szamaInput, SzakmaUncheckedCreateWithoutFelvettek_szamaInput>
+  }
+
   export type AlapadatokUpsertWithoutFelvettek_szamaInput = {
     update: XOR<AlapadatokUpdateWithoutFelvettek_szamaInput, AlapadatokUncheckedUpdateWithoutFelvettek_szamaInput>
     create: XOR<AlapadatokCreateWithoutFelvettek_szamaInput, AlapadatokUncheckedCreateWithoutFelvettek_szamaInput>
@@ -22833,10 +24613,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
     tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
-    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -22844,34 +24624,11 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
-    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
-  }
-
-  export type SzakmaUpsertWithoutFelvettek_szamaInput = {
-    update: XOR<SzakmaUpdateWithoutFelvettek_szamaInput, SzakmaUncheckedUpdateWithoutFelvettek_szamaInput>
-    create: XOR<SzakmaCreateWithoutFelvettek_szamaInput, SzakmaUncheckedCreateWithoutFelvettek_szamaInput>
-    where?: SzakmaWhereInput
-  }
-
-  export type SzakmaUpdateToOneWithWhereWithoutFelvettek_szamaInput = {
-    where?: SzakmaWhereInput
-    data: XOR<SzakmaUpdateWithoutFelvettek_szamaInput, SzakmaUncheckedUpdateWithoutFelvettek_szamaInput>
-  }
-
-  export type SzakmaUpdateWithoutFelvettek_szamaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nev?: StringFieldUpdateOperationsInput | string
-    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
-  }
-
-  export type SzakmaUncheckedUpdateWithoutFelvettek_szamaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nev?: StringFieldUpdateOperationsInput | string
-    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakiranyUpsertWithoutFelvettek_szamaInput = {
@@ -22895,6 +24652,29 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyNestedInput
+  }
+
+  export type SzakmaUpsertWithoutFelvettek_szamaInput = {
+    update: XOR<SzakmaUpdateWithoutFelvettek_szamaInput, SzakmaUncheckedUpdateWithoutFelvettek_szamaInput>
+    create: XOR<SzakmaCreateWithoutFelvettek_szamaInput, SzakmaUncheckedCreateWithoutFelvettek_szamaInput>
+    where?: SzakmaWhereInput
+  }
+
+  export type SzakmaUpdateToOneWithWhereWithoutFelvettek_szamaInput = {
+    where?: SzakmaWhereInput
+    data: XOR<SzakmaUpdateWithoutFelvettek_szamaInput, SzakmaUncheckedUpdateWithoutFelvettek_szamaInput>
+  }
+
+  export type SzakmaUpdateWithoutFelvettek_szamaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nev?: StringFieldUpdateOperationsInput | string
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
+  }
+
+  export type SzakmaUncheckedUpdateWithoutFelvettek_szamaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nev?: StringFieldUpdateOperationsInput | string
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
   export type AlapadatokCreateWithoutKompetenciaInput = {
@@ -22962,9 +24742,9 @@ export namespace Prisma {
     iskola_neve: string
     intezmeny_tipus: string
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
-    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -22973,9 +24753,9 @@ export namespace Prisma {
     iskola_neve: string
     intezmeny_tipus: string
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
-    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -23000,9 +24780,9 @@ export namespace Prisma {
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
     tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
-    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -23011,18 +24791,10 @@ export namespace Prisma {
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
-    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
-  }
-
-  export type TableAccessCreateManyUserInput = {
-    id?: string
-    tableName: string
-    access?: number
-    createdAt?: Date | string
-    updatedAt?: Date | string | null
   }
 
   export type LogCreateManyUserInput = {
@@ -23035,30 +24807,18 @@ export namespace Prisma {
     ip: string
     userAgent: string
     createdAt?: Date | string
+    correlationId?: string | null
+    duration?: number | null
+    level?: string
+    statusCode?: number | null
   }
 
-  export type TableAccessUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tableName?: StringFieldUpdateOperationsInput | string
-    access?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type TableAccessUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tableName?: StringFieldUpdateOperationsInput | string
-    access?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type TableAccessUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tableName?: StringFieldUpdateOperationsInput | string
-    access?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  export type TableAccessCreateManyUserInput = {
+    id?: string
+    tableId: string
+    access?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
   }
 
   export type LogUpdateWithoutUserInput = {
@@ -23071,6 +24831,10 @@ export namespace Prisma {
     ip?: StringFieldUpdateOperationsInput | string
     userAgent?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    correlationId?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: StringFieldUpdateOperationsInput | string
+    statusCode?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type LogUncheckedUpdateWithoutUserInput = {
@@ -23083,6 +24847,10 @@ export namespace Prisma {
     ip?: StringFieldUpdateOperationsInput | string
     userAgent?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    correlationId?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: StringFieldUpdateOperationsInput | string
+    statusCode?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type LogUncheckedUpdateManyWithoutUserInput = {
@@ -23095,16 +24863,90 @@ export namespace Prisma {
     ip?: StringFieldUpdateOperationsInput | string
     userAgent?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    correlationId?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: NullableIntFieldUpdateOperationsInput | number | null
+    level?: StringFieldUpdateOperationsInput | string
+    statusCode?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type TableAccessUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    access?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    table?: TableListUpdateOneRequiredWithoutAccessNestedInput
+  }
+
+  export type TableAccessUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    access?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type TableAccessUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tableId?: StringFieldUpdateOperationsInput | string
+    access?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type TableAccessCreateManyTableInput = {
+    id?: string
+    userId?: string | null
+    access?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+  }
+
+  export type TableAccessUpdateWithoutTableInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    access?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    user?: UserUpdateOneWithoutTableAccessNestedInput
+  }
+
+  export type TableAccessUncheckedUpdateWithoutTableInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    access?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type TableAccessUncheckedUpdateManyWithoutTableInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    access?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type Felvettek_SzamaCreateManyAlapadatokInput = {
     id?: string
     tanev_kezdete: number
     szakma_id: string
-    szakiranyId?: string | null
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    szakiranyId?: string | null
+  }
+
+  export type KompetenciaCreateManyAlapadatokInput = {
+    id?: string
+    tanev_kezdete?: number
+    mat_orsz_p: string
+    szoveg_orsz_p: string
+    mat_int_p: string
+    szoveg_int_p: string
+    kepzes_forma: string
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -23213,28 +25055,14 @@ export namespace Prisma {
     updatedBy?: string | null
   }
 
-  export type KompetenciaCreateManyAlapadatokInput = {
-    id?: string
-    tanev_kezdete?: number
-    mat_orsz_p: string
-    szoveg_orsz_p: string
-    mat_int_p: string
-    szoveg_int_p: string
-    kepzes_forma: string
-    createAt?: Date | string
-    createBy?: string | null
-    updatedAt?: Date | string | null
-    updatedBy?: string | null
-  }
-
   export type UserCreateManyAlapadatokInput = {
     id?: string
     email: string
     name?: string | null
     password?: string | null
-    permissions?: number
     createdAt?: Date | string
     updatedAt?: Date | string | null
+    permissions?: number
   }
 
   export type Felvettek_SzamaUpdateWithoutAlapadatokInput = {
@@ -23247,15 +25075,14 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    szakma?: SzakmaUpdateOneRequiredWithoutFelvettek_szamaNestedInput
     szakirany?: SzakiranyUpdateOneWithoutFelvettek_szamaNestedInput
+    szakma?: SzakmaUpdateOneRequiredWithoutFelvettek_szamaNestedInput
   }
 
   export type Felvettek_SzamaUncheckedUpdateWithoutAlapadatokInput = {
     id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     szakma_id?: StringFieldUpdateOperationsInput | string
-    szakiranyId?: NullableStringFieldUpdateOperationsInput | string | null
     jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
     felveheto_letszam?: IntFieldUpdateOperationsInput | number
     felvett_letszam?: IntFieldUpdateOperationsInput | number
@@ -23263,16 +25090,59 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    szakiranyId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokInput = {
     id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     szakma_id?: StringFieldUpdateOperationsInput | string
-    szakiranyId?: NullableStringFieldUpdateOperationsInput | string | null
     jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
     felveheto_letszam?: IntFieldUpdateOperationsInput | number
     felvett_letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    szakiranyId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type KompetenciaUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    mat_orsz_p?: StringFieldUpdateOperationsInput | string
+    szoveg_orsz_p?: StringFieldUpdateOperationsInput | string
+    mat_int_p?: StringFieldUpdateOperationsInput | string
+    szoveg_int_p?: StringFieldUpdateOperationsInput | string
+    kepzes_forma?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type KompetenciaUncheckedUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    mat_orsz_p?: StringFieldUpdateOperationsInput | string
+    szoveg_orsz_p?: StringFieldUpdateOperationsInput | string
+    mat_int_p?: StringFieldUpdateOperationsInput | string
+    szoveg_int_p?: StringFieldUpdateOperationsInput | string
+    kepzes_forma?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type KompetenciaUncheckedUpdateManyWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    mat_orsz_p?: StringFieldUpdateOperationsInput | string
+    szoveg_orsz_p?: StringFieldUpdateOperationsInput | string
+    mat_int_p?: StringFieldUpdateOperationsInput | string
+    szoveg_int_p?: StringFieldUpdateOperationsInput | string
+    kepzes_forma?: StringFieldUpdateOperationsInput | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -23585,58 +25455,16 @@ export namespace Prisma {
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type KompetenciaUpdateWithoutAlapadatokInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    mat_orsz_p?: StringFieldUpdateOperationsInput | string
-    szoveg_orsz_p?: StringFieldUpdateOperationsInput | string
-    mat_int_p?: StringFieldUpdateOperationsInput | string
-    szoveg_int_p?: StringFieldUpdateOperationsInput | string
-    kepzes_forma?: StringFieldUpdateOperationsInput | string
-    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createBy?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type KompetenciaUncheckedUpdateWithoutAlapadatokInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    mat_orsz_p?: StringFieldUpdateOperationsInput | string
-    szoveg_orsz_p?: StringFieldUpdateOperationsInput | string
-    mat_int_p?: StringFieldUpdateOperationsInput | string
-    szoveg_int_p?: StringFieldUpdateOperationsInput | string
-    kepzes_forma?: StringFieldUpdateOperationsInput | string
-    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createBy?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type KompetenciaUncheckedUpdateManyWithoutAlapadatokInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    mat_orsz_p?: StringFieldUpdateOperationsInput | string
-    szoveg_orsz_p?: StringFieldUpdateOperationsInput | string
-    mat_int_p?: StringFieldUpdateOperationsInput | string
-    szoveg_int_p?: StringFieldUpdateOperationsInput | string
-    kepzes_forma?: StringFieldUpdateOperationsInput | string
-    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createBy?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
   export type UserUpdateWithoutAlapadatokInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    tableAccess?: TableAccessUpdateManyWithoutUserNestedInput
+    permissions?: IntFieldUpdateOperationsInput | number
     logs?: LogUpdateManyWithoutUserNestedInput
+    tableAccess?: TableAccessUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAlapadatokInput = {
@@ -23644,11 +25472,11 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    tableAccess?: TableAccessUncheckedUpdateManyWithoutUserNestedInput
+    permissions?: IntFieldUpdateOperationsInput | number
     logs?: LogUncheckedUpdateManyWithoutUserNestedInput
+    tableAccess?: TableAccessUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateManyWithoutAlapadatokInput = {
@@ -23656,22 +25484,9 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
     password?: NullableStringFieldUpdateOperationsInput | string | null
-    permissions?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type Tanulo_LetszamCreateManySzakiranyInput = {
-    id?: string
-    alapadatok_id: string
-    tanev_kezdete: number
-    jogv_tipus: number
-    letszam: number
-    szakma_id: string
-    createAt?: Date | string
-    createBy?: string | null
-    updatedAt?: Date | string | null
-    updatedBy?: string | null
+    permissions?: IntFieldUpdateOperationsInput | number
   }
 
   export type Felvettek_SzamaCreateManySzakiranyInput = {
@@ -23688,43 +25503,17 @@ export namespace Prisma {
     updatedBy?: string | null
   }
 
-  export type Tanulo_LetszamUpdateWithoutSzakiranyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    jogv_tipus?: IntFieldUpdateOperationsInput | number
-    letszam?: IntFieldUpdateOperationsInput | number
-    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createBy?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    alapadatok?: AlapadatokUpdateOneRequiredWithoutTanulo_letszamNestedInput
-    szakma?: SzakmaUpdateOneRequiredWithoutTanulo_letszamNestedInput
-  }
-
-  export type Tanulo_LetszamUncheckedUpdateWithoutSzakiranyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    alapadatok_id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    jogv_tipus?: IntFieldUpdateOperationsInput | number
-    letszam?: IntFieldUpdateOperationsInput | number
-    szakma_id?: StringFieldUpdateOperationsInput | string
-    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createBy?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    alapadatok_id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    jogv_tipus?: IntFieldUpdateOperationsInput | number
-    letszam?: IntFieldUpdateOperationsInput | number
-    szakma_id?: StringFieldUpdateOperationsInput | string
-    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createBy?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  export type Tanulo_LetszamCreateManySzakiranyInput = {
+    id?: string
+    alapadatok_id: string
+    tanev_kezdete: number
+    jogv_tipus: number
+    letszam: number
+    szakma_id: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
   }
 
   export type Felvettek_SzamaUpdateWithoutSzakiranyInput = {
@@ -23769,11 +25558,49 @@ export namespace Prisma {
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type Tanulo_LetszamUpdateWithoutSzakiranyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    jogv_tipus?: IntFieldUpdateOperationsInput | number
+    letszam?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    alapadatok?: AlapadatokUpdateOneRequiredWithoutTanulo_letszamNestedInput
+    szakma?: SzakmaUpdateOneRequiredWithoutTanulo_letszamNestedInput
+  }
+
+  export type Tanulo_LetszamUncheckedUpdateWithoutSzakiranyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    jogv_tipus?: IntFieldUpdateOperationsInput | number
+    letszam?: IntFieldUpdateOperationsInput | number
+    szakma_id?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    jogv_tipus?: IntFieldUpdateOperationsInput | number
+    letszam?: IntFieldUpdateOperationsInput | number
+    szakma_id?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type Felvettek_SzamaCreateManySzakmaInput = {
     id?: string
     alapadatok_id: string
     tanev_kezdete: number
-    szakiranyId?: string | null
     jelentkezo_letszam: number
     felveheto_letszam: number
     felvett_letszam: number
@@ -23781,6 +25608,7 @@ export namespace Prisma {
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
+    szakiranyId?: string | null
   }
 
   export type Tanulo_LetszamCreateManySzakmaInput = {
@@ -23814,7 +25642,6 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    szakiranyId?: NullableStringFieldUpdateOperationsInput | string | null
     jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
     felveheto_letszam?: IntFieldUpdateOperationsInput | number
     felvett_letszam?: IntFieldUpdateOperationsInput | number
@@ -23822,13 +25649,13 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    szakiranyId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaInput = {
     id?: StringFieldUpdateOperationsInput | string
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    szakiranyId?: NullableStringFieldUpdateOperationsInput | string | null
     jelentkezo_letszam?: IntFieldUpdateOperationsInput | number
     felveheto_letszam?: IntFieldUpdateOperationsInput | number
     felvett_letszam?: IntFieldUpdateOperationsInput | number
@@ -23836,6 +25663,7 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    szakiranyId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Tanulo_LetszamUpdateWithoutSzakmaInput = {

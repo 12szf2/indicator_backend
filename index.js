@@ -67,6 +67,13 @@ app.use(
   i.endpointAccessMiddleware,
   i.userRouter
 );
+app.use(
+  "/api/v1/tablelist",
+  i.authMiddleware,
+  i.endpointAccessMiddleware,
+  i.tableRouter
+);
+
 app.use("/api/v1/auth", i.authRouter);
 
 app.listen(port, () => {
