@@ -4,30 +4,30 @@ const corsConfig = {
   origin: [
     "http://localhost:5173",
     "http://172.16.0.100:5174",
-    "https://indicator.pollak.info",
+    "https://indikator.pollak.info",
   ],
 };
 
 const app = i.express();
 const port = process.env.PORT || 5300;
 
-app.use(
-  i.expressSession({
-    cookie: {
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-      secure: false,
-      sameSite: "none",
-    },
-    secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true,
-    store: new i.PrismaSessionStore(new i.PrismaClient(), {
-      checkPeriod: 2 * 60 * 1000, //ms
-      dbRecordIdIsSessionId: true,
-      dbRecordIdFunction: undefined,
-    }),
-  })
-);
+// app.use(
+//   i.expressSession({
+//     cookie: {
+//       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+//       secure: false,
+//       sameSite: "none",
+//     },
+//     secret: process.env.SESSION_SECRET,
+//     resave: true,
+//     saveUninitialized: true,
+//     store: new i.PrismaSessionStore(new i.PrismaClient(), {
+//       checkPeriod: 2 * 60 * 1000, //ms
+//       dbRecordIdIsSessionId: true,
+//       dbRecordIdFunction: undefined,
+//     }),
+//   })
+// );
 
 app.use(i.express.json({ limit: "50mb" }));
 app.use(i.express.urlencoded({ limit: "50mb" }));
