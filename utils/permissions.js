@@ -92,6 +92,7 @@ export function enrichUserWithPermissions(user) {
   // Add permission details to table access if available
   if (user.tableAccess && user.tableAccess.length > 0) {
     user.tableAccess.forEach((access) => {
+      access.tableName = access.table.name;
       access.permissionsDetails = mapTableAccess(access.access);
     });
   }
