@@ -19,15 +19,41 @@ export async function getAll() {
 
   const data = await prisma.user.findMany({
     include: {
-      tableAccess: true,
+      tableAccess: {
+        include: {
+          table: true,
+        },
+      },
       alapadatok: true,
     },
   });
   // Enrich each user with permission details
   data.forEach((user) => enrichUserWithPermissions(user));
 
+
   // Store in cache
   cache.set(cacheKey, data, CACHE_TTL.LIST);
+
+  data.forEach((user) => {
+    user.permissionsDetails = {
+      isSuperadmin: Boolean(user.permissions & 0b10000),
+      isHSZC: Boolean(user.permissions & 0b01000),
+      isAdmin: Boolean(user.permissions & 0b00100),
+      isPrivileged: Boolean(user.permissions & 0b00010),
+      isStandard: Boolean(user.permissions & 0b00001),
+    };
+
+    user.tableAccess.forEach((access) => {
+      access.tableName = access.table.name;
+      access.permissionsDetails = {
+        canDelete: Boolean(access.access & 0b01000),
+        canUpdate: Boolean(access.access & 0b00100),
+        canCreate: Boolean(access.access & 0b00010),
+        canRead: Boolean(access.access & 0b00001),
+      };
+    });
+  });
+
 
   return data;
 }
@@ -43,7 +69,11 @@ export async function getByEmail(email) {
   const data = await prisma.user.findUnique({
     include: {
       // Only include what's needed for login to optimize query
-      tableAccess: true,
+      tableAccess: {
+        include: {
+          table: true,
+        },
+      },
       alapadatok: true,
     },
     where: {
@@ -55,10 +85,30 @@ export async function getByEmail(email) {
     return null;
   }
 
+
   // Store in cache
   cache.set(cacheKey, data, CACHE_TTL.DETAIL);
   // Enrich user with permission details
   enrichUserWithPermissions(data);
+
+  data.permissionsDetails = {
+    isSuperadmin: Boolean(data.permissions & 0b10000),
+    isHSZC: Boolean(data.permissions & 0b01000),
+    isAdmin: Boolean(data.permissions & 0b00100),
+    isPrivileged: Boolean(data.permissions & 0b00010),
+    isStandard: Boolean(data.permissions & 0b00001),
+  };
+
+  if (data.tableAccess && data.tableAccess?.length > 0)
+    data.tableAccess.forEach((access) => {
+      access.tableName = access.table.name;
+      access.permissionsDetails = {
+        canDelete: Boolean(access.access & 0b01000),
+        canUpdate: Boolean(access.access & 0b00100),
+        canCreate: Boolean(access.access & 0b00010),
+        canRead: Boolean(access.access & 0b00001),
+      };
+    });
 
   return data;
 }
@@ -90,15 +140,25 @@ export async function create(
   });
   if (tableAccess && tableAccess.length > 0) {
     await Promise.all(
-      tableAccess.map((access) =>
+      tableAccess.map(async (access) => {
+        const table = await prisma.tableList.findUnique({
+          where: { name: access.tableName },
+        });
+
+        if (!table) {
+          throw new Error(
+            `Table with name ${access.tableName} does not exist.`
+          );
+        }
+
         prisma.tableAccess.create({
           data: {
             userId: user.id,
-            tableName: access.tableName,
+            tableId: table.id,
             access: access.access,
           },
-        })
-      )
+        });
+      })
     );
   }
 
@@ -129,24 +189,34 @@ export async function update(
   });
   if (tableAccess && tableAccess.length > 0) {
     await Promise.all(
-      tableAccess.map((access) =>
+      tableAccess.map(async (access) => {
+        const table = await prisma.tableList.findUnique({
+          where: { name: access.tableName },
+        });
+
+        if (!table) {
+          throw new Error(
+            `Table with name ${access.tableName} does not exist.`
+          );
+        }
+
         prisma.tableAccess.upsert({
           where: {
             userId_tableName: {
               userId: user.id,
-              tableName: access.tableName,
+              tableId: table.id,
             },
           },
           create: {
             userId: user.id,
-            tableName: access.tableName,
+            tableId: table.id,
             access: access.access,
           },
           update: {
             access: access.access,
           },
-        })
-      )
+        });
+      })
     );
   }
 

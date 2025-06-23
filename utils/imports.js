@@ -17,6 +17,7 @@ import userRouter from "../controllers/user.controller.js";
 import authRouter from "../controllers/auth.controller.js";
 import cacheRouter from "../controllers/cache.controller.js";
 import logRouter from "../controllers/log.controller.js";
+import tableRouter from "../controllers/tablelist.controller.js";
 
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
@@ -44,4 +45,5 @@ export {
   endpointAccessMiddleware,
   cacheMiddleware,
   setupSwagger,
+  tableRouter,
 };

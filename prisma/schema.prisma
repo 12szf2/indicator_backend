@@ -12,38 +12,46 @@ model Session {
   id        String   @id
   sid       String   @unique
   data      String
-  expiresAt   DateTime
+  expiresAt DateTime
 }
 
 model User {
-  id        String   @id @default(uuid()) @db.Uuid
-  email     String   @unique
-  name      String?
-  password  String?
-  permissions Int     @default(0)
-  
-  tableAccess TableAccess[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime? @updatedAt
-
-  alapadatokId String? @db.Uuid
-  alapadatok Alapadatok? @relation("AlapadatokUsers", fields: [alapadatokId], references: [id])
-
-  logs      Log[]    @relation()
+  id           String        @id @default(uuid()) @db.Uuid
+  email        String        @unique
+  name         String?
+  password     String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime?     @updatedAt
+  alapadatokId String?       @db.Uuid
+  permissions  Int           @default(0)
+  logs         Log[]
+  tableAccess  TableAccess[]
+  alapadatok   Alapadatok?   @relation("AlapadatokUsers", fields: [alapadatokId], references: [id])
 
   @@map("users")
 }
 
-model TableAccess {
-  id        String   @id @default(uuid()) @db.Uuid
-  userId    String?  @db.Uuid
-  tableName String   @db.VarChar(100)
-  access    Int      @default(0)
-
-  createdAt DateTime @default(now())
+model TableList {
+  id        String    @id @default(uuid()) @db.Uuid
+  name      String    @unique @db.VarChar(100)
+  isAvailable Boolean   @default(true)
+  createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
 
-  user      User?    @relation(fields: [userId], references: [id])
+  access    TableAccess[]
+
+  @@map("table_list")
+}
+
+model TableAccess {
+  id        String    @id @default(uuid()) @db.Uuid
+  userId    String?   @db.Uuid
+  tableId   String    @db.Uuid
+  access    Int       @default(0)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  user      User?     @relation(fields: [userId], references: [id])
+  table     TableList @relation(fields: [tableId], references: [id])
 
   @@map("table_access")
 }
@@ -59,6 +67,7 @@ model Log {
   headers       Json?
   ip            String   @db.VarChar(45)
   userAgent     String   @db.VarChar(255)
+
   duration      Int?     // Request duration in ms
   level         String   @default("INFO") @db.VarChar(10) // INFO, WARN, ERROR
   correlationId String?  @db.VarChar(50) // For tracking related requests
@@ -66,9 +75,11 @@ model Log {
 
   user          User?    @relation(fields: [userId], references: [id])
 
+
   @@index([createdAt, level])
-  @@index([userId])
   @@index([path])
+  @@index([userId])
+
   @@map("logs")
 }
 
@@ -77,24 +88,24 @@ model Alapadatok {
   iskola_neve     String            @db.VarChar(150)
   intezmeny_tipus String            @db.VarChar(50)
   felvettek_szama Felvettek_Szama[]
+  kompetencia     Kompetencia[]
   tanar_letszam   Tanar_Letszam[]
   tanugyiAdatok   Tanugyi_Adatok[]
+  alkalmazottakMunkaugy Alkalmazottak_Munkaugy[]
   tanulo_letszam  Tanulo_Letszam[]
-  kompetencia Kompetencia[]
-
-  users User[] @relation("AlapadatokUsers")
+  users           User[]            @relation("AlapadatokUsers")
 }
 
 model Szakirany {
-  id             String           @id @default(uuid()) @db.Uuid
-  nev            String           @db.VarChar(75) @unique
-  tanulo_letszam Tanulo_Letszam[]
+  id              String            @id @default(uuid()) @db.Uuid
+  nev             String            @unique @db.VarChar(75)
   felvettek_szama Felvettek_Szama[]
+  tanulo_letszam  Tanulo_Letszam[]
 }
 
 model Szakma {
   id              String            @id @default(uuid()) @db.Uuid
-  nev             String            @db.VarChar(75) @unique
+  nev             String            @unique @db.VarChar(75)
   felvettek_szama Felvettek_Szama[]
   tanulo_letszam  Tanulo_Letszam[]
 }
@@ -107,14 +118,13 @@ model Tanulo_Letszam {
   letszam       Int        @db.SmallInt
   szakirany_id  String     @db.Uuid
   szakma_id     String     @db.Uuid
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
   alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
   szakirany     Szakirany  @relation(fields: [szakirany_id], references: [id])
   szakma        Szakma     @relation(fields: [szakma_id], references: [id])
-
-  createAt                                                        DateTime   @default(now())
-  createBy                                                        String?
-  updatedAt                                                       DateTime?   @updatedAt
-  updatedBy                                                       String?
 }
 
 model Tanar_Letszam {
@@ -122,12 +132,11 @@ model Tanar_Letszam {
   alapadatok_id String     @db.Uuid
   tanev_kezdete Int        @db.SmallInt
   letszam       Int        @db.SmallInt
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
   alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
-
-  createAt                                                        DateTime   @default(now())
-  createBy                                                        String?
-  updatedAt                                                       DateTime?   @updatedAt
-  updatedBy                                                       String?
 }
 
 model Felvettek_Szama {
@@ -135,36 +144,33 @@ model Felvettek_Szama {
   alapadatok_id      String     @db.Uuid
   tanev_kezdete      Int        @db.SmallInt
   szakma_id          String     @db.Uuid
-  szakiranyId        String?    @db.Uuid
   jelentkezo_letszam Int        @db.SmallInt
   felveheto_letszam  Int        @db.SmallInt
   felvett_letszam    Int        @db.SmallInt
+  createAt           DateTime   @default(now())
+  createBy           String?
+  updatedAt          DateTime?  @updatedAt
+  updatedBy          String?
+  szakiranyId        String?    @db.Uuid
   alapadatok         Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakirany          Szakirany? @relation(fields: [szakiranyId], references: [id])
   szakma             Szakma     @relation(fields: [szakma_id], references: [id])
-  szakirany Szakirany? @relation(fields: [szakiranyId], references: [id])
-
-  createAt                                                        DateTime   @default(now())
-  createBy                                                        String?
-  updatedAt                                                       DateTime?   @updatedAt
-  updatedBy                                                       String?
 }
 
 model Kompetencia {
-  id                 String     @id @default(uuid()) @db.Uuid
-  tanev_kezdete      Int        @default(0) @db.SmallInt
-  mat_orsz_p         String
-  szoveg_orsz_p      String
-  mat_int_p          String
-  szoveg_int_p       String
-  kepzes_forma       String
-
-  alapadatok_id      String     @db.Uuid
-
-  alapadatok         Alapadatok @relation(fields: [alapadatok_id], references: [id])
-  createAt                                                        DateTime   @default(now())
-  createBy                                                        String?
-  updatedAt                                                       DateTime?   @updatedAt
-  updatedBy                                                       String?
+  id            String     @id @default(uuid()) @db.Uuid
+  tanev_kezdete Int        @default(0) @db.SmallInt
+  mat_orsz_p    String
+  szoveg_orsz_p String
+  mat_int_p     String
+  szoveg_int_p  String
+  kepzes_forma  String
+  alapadatok_id String     @db.Uuid
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
 }
 
 model Tanugyi_Adatok {
@@ -184,9 +190,9 @@ model Tanugyi_Adatok {
   tanulo_jogviszonya                                              String?
   jogviszony_kezdete                                              String?
   jogviszony_megszunesenek_varhato_datuma                         String?
-  jogviszonyátSzunetelteto                                        String?
+  jogviszonyátSzunetelteto                                       String?
   tankotelezettsegetTeljesito                                     String?
-  tankotelezettségVege                                            String?
+  tankotelezettségVege                                           String?
   bejaro                                                          String?
   Szakmai_gyakorlaton_tartozkodik                                 String?
   Egyeni_munkarend                                                String?
@@ -204,7 +210,7 @@ model Tanugyi_Adatok {
   osztaly1                                                        String?
   evfolyam                                                        String?
   bizonyitvany_sorszama                                           String?
-  okleveles_technikus_képzes                                      String?
+  okleveles_technikus_képzes                                     String?
   uj_Szkt_agazat_tipusa                                           String?
   uj_szkt_szakma_tipusa                                           String?
   uj_szkt_szakmairany_tipusa                                      String?
@@ -231,7 +237,7 @@ model Tanugyi_Adatok {
   nyelvi_elokeszito                                               String?
   ket_tanitasi_nyelvu                                             String?
   NemzetisegiNevelesOktatas                                       String?
-  NemzetisegiNevelesOktatásFajtaja                                String?
+  NemzetisegiNevelesOktatásFajtaja                               String?
   nemzetisegiNyelv                                                String?
   nemzetisegNyelvenFolyoSzakmaiOktatas                            String?
   sportosztaly                                                    String?
@@ -241,9 +247,54 @@ model Tanugyi_Adatok {
   alapadatok_id                                                   String     @db.Uuid
   createAt                                                        DateTime   @default(now())
   createBy                                                        String
-  updatedAt                                                       DateTime?   @updatedAt
+  updatedAt                                                       DateTime?  @updatedAt
   updatedBy                                                       String?
   a_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte String?
   tanev_kezdete                                                   Int        @default(0) @db.SmallInt
   alapadatok                                                      Alapadatok @relation(fields: [alapadatok_id], references: [id])
+}
+
+model Alkalmazottak_Munkaugy {
+  id            String     @id @default(uuid()) @db.Uuid
+  Elotag       String?
+  Vezeteknev   String?
+  Utonev       String?
+  AlkalmazottTeljesNeve String?
+  PedagogusOkatatasiAzonosito String?
+  TanevKezdete Int @default(0) @db.SmallInt
+  PedagogusFokozat String?
+  Munkakor String?
+  FoglalkoztatasiJogviszony String?
+  UtazoGyogypedagogus String?
+  FoglalkoztatasTipusa String?
+  VezetoiOraszamOka String?
+  KotelezoOraszama Int @default(0) @db.SmallInt
+  Oraszam Decimal @default(0.00) @db.Decimal(2, 2)
+  FeladattalTerheltOraszam Decimal @default(0.00) @db.Decimal(2, 2)
+  PedagogusHetiOraszama Decimal @default(0.00) @db.Decimal(2, 2)
+  CsokkentettMunkaidos String?
+  AlkalmazasKezdete DateTime @db.Date @default(now())
+  AlkalmazasVege DateTime @db.Date @default(now())
+  TartosanTavollevo String?
+  Nyugdijas String?
+  BetoltetlenAllashely String?
+  KulsoAlkalmazott String?
+  Foallasu String?
+  SzabadAllashely String?
+  SzakertoiVagyVizsgaelnokiTevekenysegu String?
+  Szakvizsga String?
+  SzakertoSzaktanacsado String?
+  SZTSZSzam String?
+  FeladatellatasiHely String?
+  Kepesites String?
+  InternetetOktatasiCelraHsznal String?
+  InformatikaiKepesitesselIsmeretekkelRendelkezik String?
+  IKTEszkozoketATanorajaLegalabb40abanHasznalja String?
+  ApaczaiMentor String?
+
+  alapadatok_id String @db.Uuid
+  
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@map("alkalmazottak_munkaugy")
 }

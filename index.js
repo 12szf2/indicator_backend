@@ -9,7 +9,7 @@ const corsConfig = {
   origin: [
     "http://localhost:5173",
     "http://172.16.0.100:5174",
-    "https://indicator.pollak.info",
+    "https://indikator.pollak.info",
   ],
 };
 
@@ -19,6 +19,7 @@ const SESSION_SECRET = process.env.SESSION_SECRET || "supersecretkey";
 
 // Add compression middleware to improve response time
 app.use(compression());
+
 
 app.use(
   i.expressSession({
@@ -38,6 +39,7 @@ app.use(
   })
 );
 
+
 app.use(i.cors(corsConfig));
 
 // Middleware for logging requests
@@ -51,6 +53,7 @@ app.use(
     staleWhileRevalidate: 60,
   })
 );
+
 
 // First, mount the auth routes separately to avoid middleware collision
 // For auth routes, we need the body parsers but not the authentication middleware
@@ -93,6 +96,16 @@ app.use("/api/v1", apiRouter);
 
 // Set up Swagger API documentation (requires authentication)
 i.setupSwagger(app);
+
+app.use(
+  "/api/v1/tablelist",
+  i.authMiddleware,
+  i.endpointAccessMiddleware,
+  i.tableRouter
+);
+
+app.use("/api/v1/auth", i.authRouter);
+
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
