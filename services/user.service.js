@@ -136,13 +136,13 @@ export async function update(
   alapadatok_id = null
 ) {
   const user = await prisma.user.update({
-    where: { id: Number(id) },
+    where: { id: id },
     data: {
       email,
       name,
       password,
       permissions: Number(permissions),
-      alapadatok_id: alapadatok_id ? Number(alapadatok_id) : null,
+      alapadatokId: alapadatok_id ? Number(alapadatok_id) : null,
     },
   });
   if (tableAccess && tableAccess.length > 0) {
@@ -158,9 +158,9 @@ export async function update(
           );
         }
 
-        prisma.tableAccess.upsert({
+        await prisma.tableAccess.upsert({
           where: {
-            userId_tableName: {
+            userId_tableId: {
               userId: user.id,
               tableId: table.id,
             },

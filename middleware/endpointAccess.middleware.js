@@ -64,6 +64,10 @@ export default function endpointAccessMiddleware(req, res, next) {
       }
     }
 
+    console.warn(
+      `User ${user.id} attempted to access ${method} ${endpoint} without permission`
+    );
+
     // If we get here, the user doesn't have permission to use this method
     return res.status(403).json({
       message: `Forbidden - You don't have permission to ${method} on this endpoint`,

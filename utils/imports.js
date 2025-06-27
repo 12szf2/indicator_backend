@@ -18,6 +18,7 @@ import authRouter from "../controllers/auth.controller.js";
 import cacheRouter from "../controllers/cache.controller.js";
 import logRouter from "../controllers/log.controller.js";
 import tableRouter from "../controllers/tablelist.controller.js";
+import egyOktatoraJutoTanuloRouter from "../controllers/egy_oktatora_juto_tanulo.controller.js";
 
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
@@ -46,4 +47,5 @@ export {
   cacheMiddleware,
   setupSwagger,
   tableRouter,
+  egyOktatoraJutoTanuloRouter,
 };

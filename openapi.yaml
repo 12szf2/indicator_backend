@@ -1,0 +1,395 @@
+openapi: 3.0.0
+info:
+  title: Indicator Backend API
+  version: 1.0.0
+  description: |
+    API documentation for the Indicator application backend.
+
+    This API provides endpoints for managing educational institutions' data including:
+    - User authentication and management
+    - School basic information (alapadatok)
+    - Student enrollment data (tanulo_letszam)
+    - Educational data (tanugyi_adatok)
+    - Competency measurements (kompetencia)
+    - Admission statistics (felvettek_szama)
+    - Table and data access management
+
+    ## Authentication
+
+    Most endpoints require JWT Bearer token authentication. To authenticate:
+    1. Use the `/auth/login` endpoint to obtain a token
+    2. Include the token in the Authorization header: `Bearer <token>`
+
+    ## Base URL
+
+    All API endpoints are prefixed with `/api/v1`
+
+  contact:
+    name: API Support
+    url: https://indicator.pollak.info
+    email: support@pollak.info
+  license:
+    name: Private
+    url: https://indicator.pollak.info/license
+
+servers:
+  - url: /api/v1
+    description: API v1
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT Bearer token for authentication
+
+  schemas:
+    # Common schemas
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        message:
+          type: string
+          description: Detailed error message
+      example:
+        error: "Invalid input data"
+        message: "The provided data does not meet the required format"
+
+    SuccessResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: "success"
+        message:
+          type: string
+          example: "Operation completed successfully"
+
+    # TableList schemas
+    TableList:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the table
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        name:
+          type: string
+          maxLength: 100
+          description: Name of the table
+          example: "tanugyi_adatok"
+        isAvailable:
+          type: boolean
+          description: Whether the table is available for access
+          example: true
+        createdAt:
+          type: string
+          format: date-time
+          description: When the table entry was created
+          example: "2024-01-01T00:00:00.000Z"
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: When the table entry was last updated
+          example: "2024-01-02T12:30:00.000Z"
+
+    TableListInput:
+      type: object
+      required:
+        - name
+        - isAvailable
+      properties:
+        name:
+          type: string
+          maxLength: 100
+          description: Name of the table
+          example: "tanugyi_adatok"
+        isAvailable:
+          type: boolean
+          description: Whether the table should be available for access
+          example: true
+
+    # User schemas
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: User ID
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        email:
+          type: string
+          format: email
+          description: User email
+          example: user@example.com
+        name:
+          type: string
+          description: User full name
+          example: John Doe
+        permissions:
+          type: integer
+          description: User permission bitfield
+          example: 1
+        createdAt:
+          type: string
+          format: date-time
+          description: Account creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+    # Authentication schemas
+    LoginRequest:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+          example: user@example.com
+        password:
+          type: string
+          format: password
+          example: "12345678"
+
+    LoginResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        email:
+          type: string
+          example: user@example.com
+        name:
+          type: string
+          example: John Doe
+        permissions:
+          type: integer
+          example: 1
+        token:
+          type: string
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        refreshToken:
+          type: string
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+
+    # Alapadatok schemas
+    Alapadatok:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier
+          example: "123e4567-e89b-12d3-a456-426614174000"
+        iskola_neve:
+          type: string
+          maxLength: 150
+          description: School name
+          example: "Pollák Antal Technikum"
+        intezmeny_tipus:
+          type: string
+          maxLength: 50
+          description: Institution type
+          example: "Technikum"
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+security:
+  - bearerAuth: []
+
+tags:
+  - name: Authentication
+    description: User authentication and token management
+  - name: TableList
+    description: Table list management endpoints for managing available data tables
+  - name: Users
+    description: User management endpoints
+  - name: Alapadatok
+    description: School basic information management
+  - name: EgyOktatoraJutoTanulo
+    description: Student-to-teacher ratio data management
+  - name: Cache
+    description: Cache management endpoints
+  - name: Logs
+    description: System logging and monitoring
+  - name: Kompetencia
+    description: Competency measurement data management
+  - name: Tanulo_letszam
+    description: Student enrollment data management
+  - name: Felvettek_szama
+    description: Student admission data management
+  - name: Tanugyi_adatok
+    description: Educational data management
+
+paths:
+  # Authentication endpoints
+  /auth/login:
+    post:
+      tags: [Authentication]
+      summary: User authentication
+      description: Authenticates a user and returns tokens for authorization
+      security: [] # No auth required for login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginRequest"
+      responses:
+        "200":
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginResponse"
+        "400":
+          description: Invalid credentials or missing data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Authentication failed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  # TableList endpoints
+  /tablelist:
+    get:
+      tags: [TableList]
+      summary: Get all tables
+      description: Retrieves a list of all available tables in the system
+      responses:
+        "200":
+          description: List of tables retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TableList"
+        "401":
+          description: Unauthorized - Invalid or missing authentication token
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    post:
+      tags: [TableList]
+      summary: Create a new table
+      description: Creates a new table entry in the system
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TableListInput"
+      responses:
+        "201":
+          description: Table created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TableList"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /tablelist/{id}:
+    put:
+      tags: [TableList]
+      summary: Update an existing table
+      description: Updates an existing table entry in the system
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: Unique identifier of the table to update
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TableListInput"
+      responses:
+        "200":
+          description: Table updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TableList"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Table not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  # Additional endpoints would be documented here
+  # Following the same pattern for other controllers

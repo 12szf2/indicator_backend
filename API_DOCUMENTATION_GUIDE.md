@@ -112,8 +112,11 @@ Our API uses JWT Bearer authentication:
 
 - `Authentication`: User authentication and token management
 - `Users`: User management endpoints
+- `TableList`: Table list management endpoints for managing available data tables
 - `Cache`: Cache management endpoints
+- `Logs`: System logging and monitoring
 - `Alapadatok`: Basic school information management
+- `EgyOktatoraJutoTanulo`: Student-to-teacher ratio data management
 - `Kompetencia`: Competency measurement data management
 - `Tanulo_letszam`: Student enrollment data management
 - `Felvettek_szama`: Student admission data management

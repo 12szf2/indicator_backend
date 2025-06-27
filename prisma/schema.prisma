@@ -44,8 +44,7 @@ model TableList {
 }
 
 model TableAccess {
-  id        String    @id @default(uuid()) @db.Uuid
-  userId    String?   @db.Uuid
+  userId    String   @db.Uuid
   tableId   String    @db.Uuid
   access    Int       @default(0)
   createdAt DateTime  @default(now())
@@ -53,6 +52,7 @@ model TableAccess {
   user      User?     @relation(fields: [userId], references: [id])
   table     TableList @relation(fields: [tableId], references: [id])
 
+  @@id([userId, tableId])
   @@map("table_access")
 }
 
@@ -93,6 +93,7 @@ model Alapadatok {
   tanugyiAdatok   Tanugyi_Adatok[]
   alkalmazottakMunkaugy Alkalmazottak_Munkaugy[]
   tanulo_letszam  Tanulo_Letszam[]
+  egyOktatoraJutoTanulo EgyOktatoraJutoTanulo[]
   users           User[]            @relation("AlapadatokUsers")
 }
 
@@ -172,6 +173,22 @@ model Kompetencia {
   updatedBy     String?
   alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
 }
+
+model EgyOktatoraJutoTanulo {
+  id            String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @default(0) @db.SmallInt
+  letszam       Int        @default(0) @db.SmallInt
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+}
+
+/*
+Excel table models
+*/
 
 model Tanugyi_Adatok {
   id                                                              String     @id @default(uuid()) @db.Uuid
