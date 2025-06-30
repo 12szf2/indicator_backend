@@ -12,7 +12,7 @@ export async function login(email, password) {
     } // Password comparison is inherently slow for security
     const isPasswordValid = await comparePassword(password, user.password);
     if (!isPasswordValid) {
-      throw new Error("Invalid password");
+      throw new Error("User not found");
     }
 
     // Generate token (optimized in token.js)

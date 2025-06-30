@@ -187,6 +187,16 @@ exports.Prisma.SzakmaScalarFieldEnum = {
   nev: 'nev'
 };
 
+exports.Prisma.Alapadatok_SzakmaScalarFieldEnum = {
+  alapadatok_id: 'alapadatok_id',
+  szakma_id: 'szakma_id'
+};
+
+exports.Prisma.Alapadatok_SzakiranyScalarFieldEnum = {
+  alapadatok_id: 'alapadatok_id',
+  szakirany_id: 'szakirany_id'
+};
+
 exports.Prisma.Tanulo_LetszamScalarFieldEnum = {
   id: 'id',
   alapadatok_id: 'alapadatok_id',
@@ -373,6 +383,54 @@ exports.Prisma.Alkalmazottak_MunkaugyScalarFieldEnum = {
   alapadatok_id: 'alapadatok_id'
 };
 
+exports.Prisma.SzakkepzesiStatisztikaScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  szakirany_id: 'szakirany_id',
+  szakma_id: 'szakma_id',
+  statisztika_tipus: 'statisztika_tipus',
+  letszam: 'letszam',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.VesenyKategoriaScalarFieldEnum = {
+  id: 'id',
+  nev: 'nev',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.VesenyNevekScalarFieldEnum = {
+  id: 'id',
+  nev: 'nev',
+  kategoria_id: 'kategoria_id',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.VersenyekScalarFieldEnum = {
+  id: 'id',
+  helyezett_1: 'helyezett_1',
+  helyezett_1_3: 'helyezett_1_3',
+  dontobeJutott: 'dontobeJutott',
+  nevezettekSzama: 'nevezettekSzama',
+  tanev_kezdete: 'tanev_kezdete',
+  alapadatok_id: 'alapadatok_id',
+  versenyNev_id: 'versenyNev_id',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -409,13 +467,19 @@ exports.Prisma.ModelName = {
   Alapadatok: 'Alapadatok',
   Szakirany: 'Szakirany',
   Szakma: 'Szakma',
+  Alapadatok_Szakma: 'Alapadatok_Szakma',
+  Alapadatok_Szakirany: 'Alapadatok_Szakirany',
   Tanulo_Letszam: 'Tanulo_Letszam',
   Tanar_Letszam: 'Tanar_Letszam',
   Felvettek_Szama: 'Felvettek_Szama',
   Kompetencia: 'Kompetencia',
   EgyOktatoraJutoTanulo: 'EgyOktatoraJutoTanulo',
   Tanugyi_Adatok: 'Tanugyi_Adatok',
-  Alkalmazottak_Munkaugy: 'Alkalmazottak_Munkaugy'
+  Alkalmazottak_Munkaugy: 'Alkalmazottak_Munkaugy',
+  SzakkepzesiStatisztika: 'SzakkepzesiStatisztika',
+  VesenyKategoria: 'VesenyKategoria',
+  VesenyNevek: 'VesenyNevek',
+  versenyek: 'versenyek'
 };
 
 /**

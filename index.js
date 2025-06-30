@@ -86,6 +86,8 @@ protectedRouter.use("/felvettek_szama", i.felvettek_szama);
 protectedRouter.use("/users", i.userRouter);
 protectedRouter.use("/tablelist", i.tableRouter);
 protectedRouter.use("/egy_oktatora_juto_tanulo", i.egyOktatoraJutoTanuloRouter);
+protectedRouter.use("/szmsz", i.szmszRouter);
+protectedRouter.use("/versenyek", i.versenyekRouter);
 
 // Mount the protected router under the API router
 apiRouter.use(protectedRouter);

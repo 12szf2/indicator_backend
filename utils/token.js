@@ -7,7 +7,7 @@ import process from "node:process";
 
 // Load configuration once
 const JWT_SECRET = process.env.JWT_SECRET || "default_secret_key";
-const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "5m";
+const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "1m";
 const REFRESH_TOKEN_EXPIRES_IN = process.env.REFRESH_TOKEN_EXPIRES_IN || "7d";
 
 // Default JWT options to avoid repeating them

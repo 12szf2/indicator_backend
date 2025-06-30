@@ -82,31 +82,63 @@ model Log {
 }
 
 model Alapadatok {
-  id                    String                   @id @default(uuid()) @db.Uuid
-  iskola_neve           String                   @db.VarChar(150)
-  intezmeny_tipus       String                   @db.VarChar(50)
-  felvettek_szama       Felvettek_Szama[]
-  kompetencia           Kompetencia[]
-  tanar_letszam         Tanar_Letszam[]
-  tanugyiAdatok         Tanugyi_Adatok[]
-  alkalmazottakMunkaugy Alkalmazottak_Munkaugy[]
-  tanulo_letszam        Tanulo_Letszam[]
-  egyOktatoraJutoTanulo EgyOktatoraJutoTanulo[]
-  users                 User[]                   @relation("AlapadatokUsers")
+  id                     String                   @id @default(uuid()) @db.Uuid
+  iskola_neve            String                   @db.VarChar(150)
+  intezmeny_tipus        String                   @db.VarChar(50)
+  felvettek_szama        Felvettek_Szama[]
+  kompetencia            Kompetencia[]
+  tanar_letszam          Tanar_Letszam[]
+  tanugyiAdatok          Tanugyi_Adatok[]
+  alkalmazottakMunkaugy  Alkalmazottak_Munkaugy[]
+  tanulo_letszam         Tanulo_Letszam[]
+  egyOktatoraJutoTanulo  EgyOktatoraJutoTanulo[]
+  szakkepzesiStatisztika SzakkepzesiStatisztika[]
+  versenyek              versenyek[]
+
+  alapadatok_szakma    Alapadatok_Szakma[]
+  alapadatok_szakirany Alapadatok_Szakirany[]
+
+  users User[] @relation("AlapadatokUsers")
 }
 
 model Szakirany {
-  id              String            @id @default(uuid()) @db.Uuid
-  nev             String            @unique @db.VarChar(75)
-  felvettek_szama Felvettek_Szama[]
-  tanulo_letszam  Tanulo_Letszam[]
+  id                     String                   @id @default(uuid()) @db.Uuid
+  nev                    String                   @unique @db.VarChar(75)
+  felvettek_szama        Felvettek_Szama[]
+  tanulo_letszam         Tanulo_Letszam[]
+  szakkepzesiStatisztika SzakkepzesiStatisztika[]
+
+  alapadatok_szakirany Alapadatok_Szakirany[]
 }
 
 model Szakma {
-  id              String            @id @default(uuid()) @db.Uuid
-  nev             String            @unique @db.VarChar(75)
-  felvettek_szama Felvettek_Szama[]
-  tanulo_letszam  Tanulo_Letszam[]
+  id                     String                   @id @default(uuid()) @db.Uuid
+  nev                    String                   @unique @db.VarChar(75)
+  felvettek_szama        Felvettek_Szama[]
+  tanulo_letszam         Tanulo_Letszam[]
+  szakkepzesiStatisztika SzakkepzesiStatisztika[]
+
+  alapadatok_szakma Alapadatok_Szakma[]
+}
+
+model Alapadatok_Szakma {
+  alapadatok_id String @db.Uuid
+  szakma_id     String @db.Uuid
+
+  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakma     Szakma     @relation(fields: [szakma_id], references: [id])
+
+  @@id([alapadatok_id, szakma_id])
+}
+
+model Alapadatok_Szakirany {
+  alapadatok_id String @db.Uuid
+  szakirany_id  String @db.Uuid
+
+  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakirany  Szakirany  @relation(fields: [szakirany_id], references: [id])
+
+  @@id([alapadatok_id, szakirany_id])
 }
 
 model Tanulo_Letszam {
@@ -312,4 +344,75 @@ model Alkalmazottak_Munkaugy {
   alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
 
   @@map("alkalmazottak_munkaugy")
+}
+
+model SzakkepzesiStatisztika {
+  id                String     @id @default(uuid()) @db.Uuid
+  alapadatok_id     String     @db.Uuid
+  tanev_kezdete     Int        @db.SmallInt
+  szakirany_id      String     @db.Uuid
+  szakma_id         String     @db.Uuid
+  statisztika_tipus String     @db.VarChar(50) // "munkaszerz_arany", "munkaszerz_tanulok", "szakiranyu_tanulok"
+  letszam           Int?       @db.Integer // Can store both percentages and counts
+  createAt          DateTime   @default(now())
+  createBy          String?
+  updatedAt         DateTime?  @updatedAt
+  updatedBy         String?
+  alapadatok        Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakirany         Szakirany  @relation(fields: [szakirany_id], references: [id])
+  szakma            Szakma     @relation(fields: [szakma_id], references: [id])
+
+  @@map("szakkepzesi_statisztika")
+}
+
+model VesenyKategoria {
+  id  String @id @default(uuid()) @db.Uuid
+  nev String @unique @db.VarChar(100)
+
+  createAt  DateTime  @default(now())
+  createBy  String?
+  updatedAt DateTime? @updatedAt
+  updatedBy String?
+
+  versenyNevek VesenyNevek[]
+
+  @@map("veseny_kategoria")
+}
+
+model VesenyNevek {
+  id           String @id @default(uuid()) @db.Uuid
+  nev          String @unique @db.VarChar(100)
+  kategoria_id String @db.Uuid
+
+  createAt  DateTime  @default(now())
+  createBy  String?
+  updatedAt DateTime? @updatedAt
+  updatedBy String?
+
+  kategoria VesenyKategoria @relation(fields: [kategoria_id], references: [id])
+  versenyek versenyek[]
+
+  @@map("veseny_nevek")
+}
+
+model versenyek {
+  id              String @id @default(uuid()) @db.Uuid
+  helyezett_1     Int    @db.Integer
+  helyezett_1_3   Int    @db.Integer
+  dontobeJutott   Int    @db.Integer
+  nevezettekSzama Int    @db.Integer
+  tanev_kezdete   Int    @db.SmallInt
+
+  alapadatok_id String @db.Uuid
+  versenyNev_id String @db.Uuid
+
+  createAt  DateTime  @default(now())
+  createBy  String?
+  updatedAt DateTime? @updatedAt
+  updatedBy String?
+
+  alapadatok Alapadatok  @relation(fields: [alapadatok_id], references: [id])
+  versenyNev VesenyNevek @relation(fields: [versenyNev_id], references: [id])
+
+  @@map("versenyek")
 }

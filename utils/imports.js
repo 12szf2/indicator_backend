@@ -19,6 +19,8 @@ import cacheRouter from "../controllers/cache.controller.js";
 import logRouter from "../controllers/log.controller.js";
 import tableRouter from "../controllers/tablelist.controller.js";
 import egyOktatoraJutoTanuloRouter from "../controllers/egy_oktatora_juto_tanulo.controller.js";
+import szmszRouter from "../controllers/szmsz.controller.js";
+import versenyekRouter from "../controllers/versenyek.controller.js";
 
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
@@ -48,4 +50,6 @@ export {
   setupSwagger,
   tableRouter,
   egyOktatoraJutoTanuloRouter,
+  szmszRouter,
+  versenyekRouter,
 };
