@@ -15,7 +15,23 @@ export async function getAll() {
     return cachedData;
   }
 
-  const data = await prisma.alapadatok.findMany();
+  const data = await prisma.alapadatok.findMany({
+    include: {
+      alapadatok_szakirany: {
+        include: {
+          szakirany: {
+            include: {
+              szakma: {
+                include: {
+                  szakma: true,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
 
   // Store in cache
   cache.set(cacheKey, data, CACHE_TTL.LIST);
@@ -43,27 +59,16 @@ export async function getById(id) {
       id: id,
     },
     include: {
-      felvettek_szama: {
-        where: {
-          AND: {
-            tanev_kezdete: { lte: year },
-            tanev_kezdete: { gte: year - 4 },
-          },
-        },
-      },
-      tanar_letszam: {
-        where: {
-          AND: {
-            tanev_kezdete: { lte: year },
-            tanev_kezdete: { gte: year - 4 },
-          },
-        },
-      },
-      tanulo_letszam: {
-        where: {
-          AND: {
-            tanev_kezdete: { lte: year },
-            tanev_kezdete: { gte: year - 4 },
+      alapadatok_szakirany: {
+        include: {
+          szakirany: {
+            include: {
+              szakma: {
+                include: {
+                  szakma: true,
+                },
+              },
+            },
           },
         },
       },

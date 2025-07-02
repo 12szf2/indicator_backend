@@ -54,10 +54,10 @@ export type Szakirany = $Result.DefaultSelection<Prisma.$SzakiranyPayload>
  */
 export type Szakma = $Result.DefaultSelection<Prisma.$SzakmaPayload>
 /**
- * Model Alapadatok_Szakma
+ * Model Szakirany_Szakma
  * 
  */
-export type Alapadatok_Szakma = $Result.DefaultSelection<Prisma.$Alapadatok_SzakmaPayload>
+export type Szakirany_Szakma = $Result.DefaultSelection<Prisma.$Szakirany_SzakmaPayload>
 /**
  * Model Alapadatok_Szakirany
  * 
@@ -325,14 +325,14 @@ export class PrismaClient<
   get szakma(): Prisma.SzakmaDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.alapadatok_Szakma`: Exposes CRUD operations for the **Alapadatok_Szakma** model.
+   * `prisma.szakirany_Szakma`: Exposes CRUD operations for the **Szakirany_Szakma** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Alapadatok_Szakmas
-    * const alapadatok_Szakmas = await prisma.alapadatok_Szakma.findMany()
+    * // Fetch zero or more Szakirany_Szakmas
+    * const szakirany_Szakmas = await prisma.szakirany_Szakma.findMany()
     * ```
     */
-  get alapadatok_Szakma(): Prisma.Alapadatok_SzakmaDelegate<ExtArgs, ClientOptions>;
+  get szakirany_Szakma(): Prisma.Szakirany_SzakmaDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.alapadatok_Szakirany`: Exposes CRUD operations for the **Alapadatok_Szakirany** model.
@@ -901,7 +901,7 @@ export namespace Prisma {
     Alapadatok: 'Alapadatok',
     Szakirany: 'Szakirany',
     Szakma: 'Szakma',
-    Alapadatok_Szakma: 'Alapadatok_Szakma',
+    Szakirany_Szakma: 'Szakirany_Szakma',
     Alapadatok_Szakirany: 'Alapadatok_Szakirany',
     Tanulo_Letszam: 'Tanulo_Letszam',
     Tanar_Letszam: 'Tanar_Letszam',
@@ -932,7 +932,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "session" | "user" | "tableList" | "tableAccess" | "log" | "alapadatok" | "szakirany" | "szakma" | "alapadatok_Szakma" | "alapadatok_Szakirany" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "egyOktatoraJutoTanulo" | "tanugyi_Adatok" | "alkalmazottak_Munkaugy" | "szakkepzesiStatisztika" | "vesenyKategoria" | "vesenyNevek" | "versenyek"
+      modelProps: "session" | "user" | "tableList" | "tableAccess" | "log" | "alapadatok" | "szakirany" | "szakma" | "szakirany_Szakma" | "alapadatok_Szakirany" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "egyOktatoraJutoTanulo" | "tanugyi_Adatok" | "alkalmazottak_Munkaugy" | "szakkepzesiStatisztika" | "vesenyKategoria" | "vesenyNevek" | "versenyek"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1528,77 +1528,77 @@ export namespace Prisma {
           }
         }
       }
-      Alapadatok_Szakma: {
-        payload: Prisma.$Alapadatok_SzakmaPayload<ExtArgs>
-        fields: Prisma.Alapadatok_SzakmaFieldRefs
+      Szakirany_Szakma: {
+        payload: Prisma.$Szakirany_SzakmaPayload<ExtArgs>
+        fields: Prisma.Szakirany_SzakmaFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.Alapadatok_SzakmaFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload> | null
+            args: Prisma.Szakirany_SzakmaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Szakirany_SzakmaPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.Alapadatok_SzakmaFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>
+            args: Prisma.Szakirany_SzakmaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Szakirany_SzakmaPayload>
           }
           findFirst: {
-            args: Prisma.Alapadatok_SzakmaFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload> | null
+            args: Prisma.Szakirany_SzakmaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Szakirany_SzakmaPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.Alapadatok_SzakmaFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>
+            args: Prisma.Szakirany_SzakmaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Szakirany_SzakmaPayload>
           }
           findMany: {
-            args: Prisma.Alapadatok_SzakmaFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>[]
+            args: Prisma.Szakirany_SzakmaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Szakirany_SzakmaPayload>[]
           }
           create: {
-            args: Prisma.Alapadatok_SzakmaCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>
+            args: Prisma.Szakirany_SzakmaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Szakirany_SzakmaPayload>
           }
           createMany: {
-            args: Prisma.Alapadatok_SzakmaCreateManyArgs<ExtArgs>
+            args: Prisma.Szakirany_SzakmaCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.Alapadatok_SzakmaCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>[]
+            args: Prisma.Szakirany_SzakmaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Szakirany_SzakmaPayload>[]
           }
           delete: {
-            args: Prisma.Alapadatok_SzakmaDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>
+            args: Prisma.Szakirany_SzakmaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Szakirany_SzakmaPayload>
           }
           update: {
-            args: Prisma.Alapadatok_SzakmaUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>
+            args: Prisma.Szakirany_SzakmaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Szakirany_SzakmaPayload>
           }
           deleteMany: {
-            args: Prisma.Alapadatok_SzakmaDeleteManyArgs<ExtArgs>
+            args: Prisma.Szakirany_SzakmaDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.Alapadatok_SzakmaUpdateManyArgs<ExtArgs>
+            args: Prisma.Szakirany_SzakmaUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.Alapadatok_SzakmaUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>[]
+            args: Prisma.Szakirany_SzakmaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Szakirany_SzakmaPayload>[]
           }
           upsert: {
-            args: Prisma.Alapadatok_SzakmaUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>
+            args: Prisma.Szakirany_SzakmaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Szakirany_SzakmaPayload>
           }
           aggregate: {
-            args: Prisma.Alapadatok_SzakmaAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateAlapadatok_Szakma>
+            args: Prisma.Szakirany_SzakmaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSzakirany_Szakma>
           }
           groupBy: {
-            args: Prisma.Alapadatok_SzakmaGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Alapadatok_SzakmaGroupByOutputType>[]
+            args: Prisma.Szakirany_SzakmaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Szakirany_SzakmaGroupByOutputType>[]
           }
           count: {
-            args: Prisma.Alapadatok_SzakmaCountArgs<ExtArgs>
-            result: $Utils.Optional<Alapadatok_SzakmaCountAggregateOutputType> | number
+            args: Prisma.Szakirany_SzakmaCountArgs<ExtArgs>
+            result: $Utils.Optional<Szakirany_SzakmaCountAggregateOutputType> | number
           }
         }
       }
@@ -2582,7 +2582,7 @@ export namespace Prisma {
     alapadatok?: AlapadatokOmit
     szakirany?: SzakiranyOmit
     szakma?: SzakmaOmit
-    alapadatok_Szakma?: Alapadatok_SzakmaOmit
+    szakirany_Szakma?: Szakirany_SzakmaOmit
     alapadatok_Szakirany?: Alapadatok_SzakiranyOmit
     tanulo_Letszam?: Tanulo_LetszamOmit
     tanar_Letszam?: Tanar_LetszamOmit
@@ -2769,7 +2769,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo: number
     szakkepzesiStatisztika: number
     versenyek: number
-    alapadatok_szakma: number
     alapadatok_szakirany: number
     users: number
   }
@@ -2784,7 +2783,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: boolean | AlapadatokCountOutputTypeCountEgyOktatoraJutoTanuloArgs
     szakkepzesiStatisztika?: boolean | AlapadatokCountOutputTypeCountSzakkepzesiStatisztikaArgs
     versenyek?: boolean | AlapadatokCountOutputTypeCountVersenyekArgs
-    alapadatok_szakma?: boolean | AlapadatokCountOutputTypeCountAlapadatok_szakmaArgs
     alapadatok_szakirany?: boolean | AlapadatokCountOutputTypeCountAlapadatok_szakiranyArgs
     users?: boolean | AlapadatokCountOutputTypeCountUsersArgs
   }
@@ -2866,13 +2864,6 @@ export namespace Prisma {
   /**
    * AlapadatokCountOutputType without action
    */
-  export type AlapadatokCountOutputTypeCountAlapadatok_szakmaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Alapadatok_SzakmaWhereInput
-  }
-
-  /**
-   * AlapadatokCountOutputType without action
-   */
   export type AlapadatokCountOutputTypeCountAlapadatok_szakiranyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: Alapadatok_SzakiranyWhereInput
   }
@@ -2894,6 +2885,7 @@ export namespace Prisma {
     tanulo_letszam: number
     szakkepzesiStatisztika: number
     alapadatok_szakirany: number
+    szakma: number
   }
 
   export type SzakiranyCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2901,6 +2893,7 @@ export namespace Prisma {
     tanulo_letszam?: boolean | SzakiranyCountOutputTypeCountTanulo_letszamArgs
     szakkepzesiStatisztika?: boolean | SzakiranyCountOutputTypeCountSzakkepzesiStatisztikaArgs
     alapadatok_szakirany?: boolean | SzakiranyCountOutputTypeCountAlapadatok_szakiranyArgs
+    szakma?: boolean | SzakiranyCountOutputTypeCountSzakmaArgs
   }
 
   // Custom InputTypes
@@ -2940,6 +2933,13 @@ export namespace Prisma {
    */
   export type SzakiranyCountOutputTypeCountAlapadatok_szakiranyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: Alapadatok_SzakiranyWhereInput
+  }
+
+  /**
+   * SzakiranyCountOutputType without action
+   */
+  export type SzakiranyCountOutputTypeCountSzakmaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Szakirany_SzakmaWhereInput
   }
 
 
@@ -2997,7 +2997,7 @@ export namespace Prisma {
    * SzakmaCountOutputType without action
    */
   export type SzakmaCountOutputTypeCountAlapadatok_szakmaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Alapadatok_SzakmaWhereInput
+    where?: Szakirany_SzakmaWhereInput
   }
 
 
@@ -8823,7 +8823,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: boolean | Alapadatok$egyOktatoraJutoTanuloArgs<ExtArgs>
     szakkepzesiStatisztika?: boolean | Alapadatok$szakkepzesiStatisztikaArgs<ExtArgs>
     versenyek?: boolean | Alapadatok$versenyekArgs<ExtArgs>
-    alapadatok_szakma?: boolean | Alapadatok$alapadatok_szakmaArgs<ExtArgs>
     alapadatok_szakirany?: boolean | Alapadatok$alapadatok_szakiranyArgs<ExtArgs>
     users?: boolean | Alapadatok$usersArgs<ExtArgs>
     _count?: boolean | AlapadatokCountOutputTypeDefaultArgs<ExtArgs>
@@ -8858,7 +8857,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: boolean | Alapadatok$egyOktatoraJutoTanuloArgs<ExtArgs>
     szakkepzesiStatisztika?: boolean | Alapadatok$szakkepzesiStatisztikaArgs<ExtArgs>
     versenyek?: boolean | Alapadatok$versenyekArgs<ExtArgs>
-    alapadatok_szakma?: boolean | Alapadatok$alapadatok_szakmaArgs<ExtArgs>
     alapadatok_szakirany?: boolean | Alapadatok$alapadatok_szakiranyArgs<ExtArgs>
     users?: boolean | Alapadatok$usersArgs<ExtArgs>
     _count?: boolean | AlapadatokCountOutputTypeDefaultArgs<ExtArgs>
@@ -8878,7 +8876,6 @@ export namespace Prisma {
       egyOktatoraJutoTanulo: Prisma.$EgyOktatoraJutoTanuloPayload<ExtArgs>[]
       szakkepzesiStatisztika: Prisma.$SzakkepzesiStatisztikaPayload<ExtArgs>[]
       versenyek: Prisma.$versenyekPayload<ExtArgs>[]
-      alapadatok_szakma: Prisma.$Alapadatok_SzakmaPayload<ExtArgs>[]
       alapadatok_szakirany: Prisma.$Alapadatok_SzakiranyPayload<ExtArgs>[]
       users: Prisma.$UserPayload<ExtArgs>[]
     }
@@ -9289,7 +9286,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo<T extends Alapadatok$egyOktatoraJutoTanuloArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$egyOktatoraJutoTanuloArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EgyOktatoraJutoTanuloPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     szakkepzesiStatisztika<T extends Alapadatok$szakkepzesiStatisztikaArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$szakkepzesiStatisztikaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SzakkepzesiStatisztikaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     versenyek<T extends Alapadatok$versenyekArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$versenyekArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$versenyekPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    alapadatok_szakma<T extends Alapadatok$alapadatok_szakmaArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$alapadatok_szakmaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     alapadatok_szakirany<T extends Alapadatok$alapadatok_szakiranyArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$alapadatok_szakiranyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Alapadatok_SzakiranyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     users<T extends Alapadatok$usersArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -9928,30 +9924,6 @@ export namespace Prisma {
   }
 
   /**
-   * Alapadatok.alapadatok_szakma
-   */
-  export type Alapadatok$alapadatok_szakmaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Alapadatok_Szakma
-     */
-    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Alapadatok_Szakma
-     */
-    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
-    where?: Alapadatok_SzakmaWhereInput
-    orderBy?: Alapadatok_SzakmaOrderByWithRelationInput | Alapadatok_SzakmaOrderByWithRelationInput[]
-    cursor?: Alapadatok_SzakmaWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Alapadatok_SzakmaScalarFieldEnum | Alapadatok_SzakmaScalarFieldEnum[]
-  }
-
-  /**
    * Alapadatok.alapadatok_szakirany
    */
   export type Alapadatok$alapadatok_szakiranyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10162,6 +10134,7 @@ export namespace Prisma {
     tanulo_letszam?: boolean | Szakirany$tanulo_letszamArgs<ExtArgs>
     szakkepzesiStatisztika?: boolean | Szakirany$szakkepzesiStatisztikaArgs<ExtArgs>
     alapadatok_szakirany?: boolean | Szakirany$alapadatok_szakiranyArgs<ExtArgs>
+    szakma?: boolean | Szakirany$szakmaArgs<ExtArgs>
     _count?: boolean | SzakiranyCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["szakirany"]>
 
@@ -10186,6 +10159,7 @@ export namespace Prisma {
     tanulo_letszam?: boolean | Szakirany$tanulo_letszamArgs<ExtArgs>
     szakkepzesiStatisztika?: boolean | Szakirany$szakkepzesiStatisztikaArgs<ExtArgs>
     alapadatok_szakirany?: boolean | Szakirany$alapadatok_szakiranyArgs<ExtArgs>
+    szakma?: boolean | Szakirany$szakmaArgs<ExtArgs>
     _count?: boolean | SzakiranyCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type SzakiranyIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -10198,6 +10172,7 @@ export namespace Prisma {
       tanulo_letszam: Prisma.$Tanulo_LetszamPayload<ExtArgs>[]
       szakkepzesiStatisztika: Prisma.$SzakkepzesiStatisztikaPayload<ExtArgs>[]
       alapadatok_szakirany: Prisma.$Alapadatok_SzakiranyPayload<ExtArgs>[]
+      szakma: Prisma.$Szakirany_SzakmaPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -10600,6 +10575,7 @@ export namespace Prisma {
     tanulo_letszam<T extends Szakirany$tanulo_letszamArgs<ExtArgs> = {}>(args?: Subset<T, Szakirany$tanulo_letszamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanulo_LetszamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     szakkepzesiStatisztika<T extends Szakirany$szakkepzesiStatisztikaArgs<ExtArgs> = {}>(args?: Subset<T, Szakirany$szakkepzesiStatisztikaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SzakkepzesiStatisztikaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     alapadatok_szakirany<T extends Szakirany$alapadatok_szakiranyArgs<ExtArgs> = {}>(args?: Subset<T, Szakirany$alapadatok_szakiranyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Alapadatok_SzakiranyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    szakma<T extends Szakirany$szakmaArgs<ExtArgs> = {}>(args?: Subset<T, Szakirany$szakmaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Szakirany_SzakmaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11115,6 +11091,30 @@ export namespace Prisma {
   }
 
   /**
+   * Szakirany.szakma
+   */
+  export type Szakirany$szakmaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Szakirany_Szakma
+     */
+    select?: Szakirany_SzakmaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Szakirany_Szakma
+     */
+    omit?: Szakirany_SzakmaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Szakirany_SzakmaInclude<ExtArgs> | null
+    where?: Szakirany_SzakmaWhereInput
+    orderBy?: Szakirany_SzakmaOrderByWithRelationInput | Szakirany_SzakmaOrderByWithRelationInput[]
+    cursor?: Szakirany_SzakmaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Szakirany_SzakmaScalarFieldEnum | Szakirany_SzakmaScalarFieldEnum[]
+  }
+
+  /**
    * Szakirany without action
    */
   export type SzakiranyDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11312,7 +11312,7 @@ export namespace Prisma {
       felvettek_szama: Prisma.$Felvettek_SzamaPayload<ExtArgs>[]
       tanulo_letszam: Prisma.$Tanulo_LetszamPayload<ExtArgs>[]
       szakkepzesiStatisztika: Prisma.$SzakkepzesiStatisztikaPayload<ExtArgs>[]
-      alapadatok_szakma: Prisma.$Alapadatok_SzakmaPayload<ExtArgs>[]
+      alapadatok_szakma: Prisma.$Szakirany_SzakmaPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -11714,7 +11714,7 @@ export namespace Prisma {
     felvettek_szama<T extends Szakma$felvettek_szamaArgs<ExtArgs> = {}>(args?: Subset<T, Szakma$felvettek_szamaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Felvettek_SzamaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tanulo_letszam<T extends Szakma$tanulo_letszamArgs<ExtArgs> = {}>(args?: Subset<T, Szakma$tanulo_letszamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Tanulo_LetszamPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     szakkepzesiStatisztika<T extends Szakma$szakkepzesiStatisztikaArgs<ExtArgs> = {}>(args?: Subset<T, Szakma$szakkepzesiStatisztikaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SzakkepzesiStatisztikaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    alapadatok_szakma<T extends Szakma$alapadatok_szakmaArgs<ExtArgs> = {}>(args?: Subset<T, Szakma$alapadatok_szakmaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    alapadatok_szakma<T extends Szakma$alapadatok_szakmaArgs<ExtArgs> = {}>(args?: Subset<T, Szakma$alapadatok_szakmaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Szakirany_SzakmaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12210,23 +12210,23 @@ export namespace Prisma {
    */
   export type Szakma$alapadatok_szakmaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Alapadatok_Szakma
+     * Select specific fields to fetch from the Szakirany_Szakma
      */
-    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    select?: Szakirany_SzakmaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Alapadatok_Szakma
+     * Omit specific fields from the Szakirany_Szakma
      */
-    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    omit?: Szakirany_SzakmaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
-    where?: Alapadatok_SzakmaWhereInput
-    orderBy?: Alapadatok_SzakmaOrderByWithRelationInput | Alapadatok_SzakmaOrderByWithRelationInput[]
-    cursor?: Alapadatok_SzakmaWhereUniqueInput
+    include?: Szakirany_SzakmaInclude<ExtArgs> | null
+    where?: Szakirany_SzakmaWhereInput
+    orderBy?: Szakirany_SzakmaOrderByWithRelationInput | Szakirany_SzakmaOrderByWithRelationInput[]
+    cursor?: Szakirany_SzakmaWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: Alapadatok_SzakmaScalarFieldEnum | Alapadatok_SzakmaScalarFieldEnum[]
+    distinct?: Szakirany_SzakmaScalarFieldEnum | Szakirany_SzakmaScalarFieldEnum[]
   }
 
   /**
@@ -12249,322 +12249,322 @@ export namespace Prisma {
 
 
   /**
-   * Model Alapadatok_Szakma
+   * Model Szakirany_Szakma
    */
 
-  export type AggregateAlapadatok_Szakma = {
-    _count: Alapadatok_SzakmaCountAggregateOutputType | null
-    _min: Alapadatok_SzakmaMinAggregateOutputType | null
-    _max: Alapadatok_SzakmaMaxAggregateOutputType | null
+  export type AggregateSzakirany_Szakma = {
+    _count: Szakirany_SzakmaCountAggregateOutputType | null
+    _min: Szakirany_SzakmaMinAggregateOutputType | null
+    _max: Szakirany_SzakmaMaxAggregateOutputType | null
   }
 
-  export type Alapadatok_SzakmaMinAggregateOutputType = {
-    alapadatok_id: string | null
+  export type Szakirany_SzakmaMinAggregateOutputType = {
+    szakirany_id: string | null
     szakma_id: string | null
   }
 
-  export type Alapadatok_SzakmaMaxAggregateOutputType = {
-    alapadatok_id: string | null
+  export type Szakirany_SzakmaMaxAggregateOutputType = {
+    szakirany_id: string | null
     szakma_id: string | null
   }
 
-  export type Alapadatok_SzakmaCountAggregateOutputType = {
-    alapadatok_id: number
+  export type Szakirany_SzakmaCountAggregateOutputType = {
+    szakirany_id: number
     szakma_id: number
     _all: number
   }
 
 
-  export type Alapadatok_SzakmaMinAggregateInputType = {
-    alapadatok_id?: true
+  export type Szakirany_SzakmaMinAggregateInputType = {
+    szakirany_id?: true
     szakma_id?: true
   }
 
-  export type Alapadatok_SzakmaMaxAggregateInputType = {
-    alapadatok_id?: true
+  export type Szakirany_SzakmaMaxAggregateInputType = {
+    szakirany_id?: true
     szakma_id?: true
   }
 
-  export type Alapadatok_SzakmaCountAggregateInputType = {
-    alapadatok_id?: true
+  export type Szakirany_SzakmaCountAggregateInputType = {
+    szakirany_id?: true
     szakma_id?: true
     _all?: true
   }
 
-  export type Alapadatok_SzakmaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Alapadatok_Szakma to aggregate.
+     * Filter which Szakirany_Szakma to aggregate.
      */
-    where?: Alapadatok_SzakmaWhereInput
+    where?: Szakirany_SzakmaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Alapadatok_Szakmas to fetch.
+     * Determine the order of Szakirany_Szakmas to fetch.
      */
-    orderBy?: Alapadatok_SzakmaOrderByWithRelationInput | Alapadatok_SzakmaOrderByWithRelationInput[]
+    orderBy?: Szakirany_SzakmaOrderByWithRelationInput | Szakirany_SzakmaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: Alapadatok_SzakmaWhereUniqueInput
+    cursor?: Szakirany_SzakmaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Alapadatok_Szakmas from the position of the cursor.
+     * Take `±n` Szakirany_Szakmas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Alapadatok_Szakmas.
+     * Skip the first `n` Szakirany_Szakmas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Alapadatok_Szakmas
+     * Count returned Szakirany_Szakmas
     **/
-    _count?: true | Alapadatok_SzakmaCountAggregateInputType
+    _count?: true | Szakirany_SzakmaCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: Alapadatok_SzakmaMinAggregateInputType
+    _min?: Szakirany_SzakmaMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: Alapadatok_SzakmaMaxAggregateInputType
+    _max?: Szakirany_SzakmaMaxAggregateInputType
   }
 
-  export type GetAlapadatok_SzakmaAggregateType<T extends Alapadatok_SzakmaAggregateArgs> = {
-        [P in keyof T & keyof AggregateAlapadatok_Szakma]: P extends '_count' | 'count'
+  export type GetSzakirany_SzakmaAggregateType<T extends Szakirany_SzakmaAggregateArgs> = {
+        [P in keyof T & keyof AggregateSzakirany_Szakma]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateAlapadatok_Szakma[P]>
-      : GetScalarType<T[P], AggregateAlapadatok_Szakma[P]>
+        : GetScalarType<T[P], AggregateSzakirany_Szakma[P]>
+      : GetScalarType<T[P], AggregateSzakirany_Szakma[P]>
   }
 
 
 
 
-  export type Alapadatok_SzakmaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: Alapadatok_SzakmaWhereInput
-    orderBy?: Alapadatok_SzakmaOrderByWithAggregationInput | Alapadatok_SzakmaOrderByWithAggregationInput[]
-    by: Alapadatok_SzakmaScalarFieldEnum[] | Alapadatok_SzakmaScalarFieldEnum
-    having?: Alapadatok_SzakmaScalarWhereWithAggregatesInput
+  export type Szakirany_SzakmaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Szakirany_SzakmaWhereInput
+    orderBy?: Szakirany_SzakmaOrderByWithAggregationInput | Szakirany_SzakmaOrderByWithAggregationInput[]
+    by: Szakirany_SzakmaScalarFieldEnum[] | Szakirany_SzakmaScalarFieldEnum
+    having?: Szakirany_SzakmaScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: Alapadatok_SzakmaCountAggregateInputType | true
-    _min?: Alapadatok_SzakmaMinAggregateInputType
-    _max?: Alapadatok_SzakmaMaxAggregateInputType
+    _count?: Szakirany_SzakmaCountAggregateInputType | true
+    _min?: Szakirany_SzakmaMinAggregateInputType
+    _max?: Szakirany_SzakmaMaxAggregateInputType
   }
 
-  export type Alapadatok_SzakmaGroupByOutputType = {
-    alapadatok_id: string
+  export type Szakirany_SzakmaGroupByOutputType = {
+    szakirany_id: string
     szakma_id: string
-    _count: Alapadatok_SzakmaCountAggregateOutputType | null
-    _min: Alapadatok_SzakmaMinAggregateOutputType | null
-    _max: Alapadatok_SzakmaMaxAggregateOutputType | null
+    _count: Szakirany_SzakmaCountAggregateOutputType | null
+    _min: Szakirany_SzakmaMinAggregateOutputType | null
+    _max: Szakirany_SzakmaMaxAggregateOutputType | null
   }
 
-  type GetAlapadatok_SzakmaGroupByPayload<T extends Alapadatok_SzakmaGroupByArgs> = Prisma.PrismaPromise<
+  type GetSzakirany_SzakmaGroupByPayload<T extends Szakirany_SzakmaGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<Alapadatok_SzakmaGroupByOutputType, T['by']> &
+      PickEnumerable<Szakirany_SzakmaGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof Alapadatok_SzakmaGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof Szakirany_SzakmaGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], Alapadatok_SzakmaGroupByOutputType[P]>
-            : GetScalarType<T[P], Alapadatok_SzakmaGroupByOutputType[P]>
+              : GetScalarType<T[P], Szakirany_SzakmaGroupByOutputType[P]>
+            : GetScalarType<T[P], Szakirany_SzakmaGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type Alapadatok_SzakmaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    alapadatok_id?: boolean
+  export type Szakirany_SzakmaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    szakirany_id?: boolean
     szakma_id?: boolean
-    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["alapadatok_Szakma"]>
+    szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["szakirany_Szakma"]>
 
-  export type Alapadatok_SzakmaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    alapadatok_id?: boolean
+  export type Szakirany_SzakmaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    szakirany_id?: boolean
     szakma_id?: boolean
-    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["alapadatok_Szakma"]>
+    szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["szakirany_Szakma"]>
 
-  export type Alapadatok_SzakmaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    alapadatok_id?: boolean
+  export type Szakirany_SzakmaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    szakirany_id?: boolean
     szakma_id?: boolean
-    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["alapadatok_Szakma"]>
+    szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["szakirany_Szakma"]>
 
-  export type Alapadatok_SzakmaSelectScalar = {
-    alapadatok_id?: boolean
+  export type Szakirany_SzakmaSelectScalar = {
+    szakirany_id?: boolean
     szakma_id?: boolean
   }
 
-  export type Alapadatok_SzakmaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"alapadatok_id" | "szakma_id", ExtArgs["result"]["alapadatok_Szakma"]>
-  export type Alapadatok_SzakmaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  export type Szakirany_SzakmaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"szakirany_id" | "szakma_id", ExtArgs["result"]["szakirany_Szakma"]>
+  export type Szakirany_SzakmaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+    szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
   }
-  export type Alapadatok_SzakmaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  export type Szakirany_SzakmaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+    szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
   }
-  export type Alapadatok_SzakmaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  export type Szakirany_SzakmaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+    szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
   }
 
-  export type $Alapadatok_SzakmaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Alapadatok_Szakma"
+  export type $Szakirany_SzakmaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Szakirany_Szakma"
     objects: {
-      alapadatok: Prisma.$AlapadatokPayload<ExtArgs>
       szakma: Prisma.$SzakmaPayload<ExtArgs>
+      szakirany: Prisma.$SzakiranyPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      alapadatok_id: string
+      szakirany_id: string
       szakma_id: string
-    }, ExtArgs["result"]["alapadatok_Szakma"]>
+    }, ExtArgs["result"]["szakirany_Szakma"]>
     composites: {}
   }
 
-  type Alapadatok_SzakmaGetPayload<S extends boolean | null | undefined | Alapadatok_SzakmaDefaultArgs> = $Result.GetResult<Prisma.$Alapadatok_SzakmaPayload, S>
+  type Szakirany_SzakmaGetPayload<S extends boolean | null | undefined | Szakirany_SzakmaDefaultArgs> = $Result.GetResult<Prisma.$Szakirany_SzakmaPayload, S>
 
-  type Alapadatok_SzakmaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<Alapadatok_SzakmaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: Alapadatok_SzakmaCountAggregateInputType | true
+  type Szakirany_SzakmaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<Szakirany_SzakmaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Szakirany_SzakmaCountAggregateInputType | true
     }
 
-  export interface Alapadatok_SzakmaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Alapadatok_Szakma'], meta: { name: 'Alapadatok_Szakma' } }
+  export interface Szakirany_SzakmaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Szakirany_Szakma'], meta: { name: 'Szakirany_Szakma' } }
     /**
-     * Find zero or one Alapadatok_Szakma that matches the filter.
-     * @param {Alapadatok_SzakmaFindUniqueArgs} args - Arguments to find a Alapadatok_Szakma
+     * Find zero or one Szakirany_Szakma that matches the filter.
+     * @param {Szakirany_SzakmaFindUniqueArgs} args - Arguments to find a Szakirany_Szakma
      * @example
-     * // Get one Alapadatok_Szakma
-     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.findUnique({
+     * // Get one Szakirany_Szakma
+     * const szakirany_Szakma = await prisma.szakirany_Szakma.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends Alapadatok_SzakmaFindUniqueArgs>(args: SelectSubset<T, Alapadatok_SzakmaFindUniqueArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends Szakirany_SzakmaFindUniqueArgs>(args: SelectSubset<T, Szakirany_SzakmaFindUniqueArgs<ExtArgs>>): Prisma__Szakirany_SzakmaClient<$Result.GetResult<Prisma.$Szakirany_SzakmaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Alapadatok_Szakma that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Szakirany_Szakma that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {Alapadatok_SzakmaFindUniqueOrThrowArgs} args - Arguments to find a Alapadatok_Szakma
+     * @param {Szakirany_SzakmaFindUniqueOrThrowArgs} args - Arguments to find a Szakirany_Szakma
      * @example
-     * // Get one Alapadatok_Szakma
-     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.findUniqueOrThrow({
+     * // Get one Szakirany_Szakma
+     * const szakirany_Szakma = await prisma.szakirany_Szakma.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends Alapadatok_SzakmaFindUniqueOrThrowArgs>(args: SelectSubset<T, Alapadatok_SzakmaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends Szakirany_SzakmaFindUniqueOrThrowArgs>(args: SelectSubset<T, Szakirany_SzakmaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__Szakirany_SzakmaClient<$Result.GetResult<Prisma.$Szakirany_SzakmaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Alapadatok_Szakma that matches the filter.
+     * Find the first Szakirany_Szakma that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Alapadatok_SzakmaFindFirstArgs} args - Arguments to find a Alapadatok_Szakma
+     * @param {Szakirany_SzakmaFindFirstArgs} args - Arguments to find a Szakirany_Szakma
      * @example
-     * // Get one Alapadatok_Szakma
-     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.findFirst({
+     * // Get one Szakirany_Szakma
+     * const szakirany_Szakma = await prisma.szakirany_Szakma.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends Alapadatok_SzakmaFindFirstArgs>(args?: SelectSubset<T, Alapadatok_SzakmaFindFirstArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends Szakirany_SzakmaFindFirstArgs>(args?: SelectSubset<T, Szakirany_SzakmaFindFirstArgs<ExtArgs>>): Prisma__Szakirany_SzakmaClient<$Result.GetResult<Prisma.$Szakirany_SzakmaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Alapadatok_Szakma that matches the filter or
+     * Find the first Szakirany_Szakma that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Alapadatok_SzakmaFindFirstOrThrowArgs} args - Arguments to find a Alapadatok_Szakma
+     * @param {Szakirany_SzakmaFindFirstOrThrowArgs} args - Arguments to find a Szakirany_Szakma
      * @example
-     * // Get one Alapadatok_Szakma
-     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.findFirstOrThrow({
+     * // Get one Szakirany_Szakma
+     * const szakirany_Szakma = await prisma.szakirany_Szakma.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends Alapadatok_SzakmaFindFirstOrThrowArgs>(args?: SelectSubset<T, Alapadatok_SzakmaFindFirstOrThrowArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends Szakirany_SzakmaFindFirstOrThrowArgs>(args?: SelectSubset<T, Szakirany_SzakmaFindFirstOrThrowArgs<ExtArgs>>): Prisma__Szakirany_SzakmaClient<$Result.GetResult<Prisma.$Szakirany_SzakmaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Alapadatok_Szakmas that matches the filter.
+     * Find zero or more Szakirany_Szakmas that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Alapadatok_SzakmaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {Szakirany_SzakmaFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Alapadatok_Szakmas
-     * const alapadatok_Szakmas = await prisma.alapadatok_Szakma.findMany()
+     * // Get all Szakirany_Szakmas
+     * const szakirany_Szakmas = await prisma.szakirany_Szakma.findMany()
      * 
-     * // Get first 10 Alapadatok_Szakmas
-     * const alapadatok_Szakmas = await prisma.alapadatok_Szakma.findMany({ take: 10 })
+     * // Get first 10 Szakirany_Szakmas
+     * const szakirany_Szakmas = await prisma.szakirany_Szakma.findMany({ take: 10 })
      * 
-     * // Only select the `alapadatok_id`
-     * const alapadatok_SzakmaWithAlapadatok_idOnly = await prisma.alapadatok_Szakma.findMany({ select: { alapadatok_id: true } })
+     * // Only select the `szakirany_id`
+     * const szakirany_SzakmaWithSzakirany_idOnly = await prisma.szakirany_Szakma.findMany({ select: { szakirany_id: true } })
      * 
      */
-    findMany<T extends Alapadatok_SzakmaFindManyArgs>(args?: SelectSubset<T, Alapadatok_SzakmaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends Szakirany_SzakmaFindManyArgs>(args?: SelectSubset<T, Szakirany_SzakmaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Szakirany_SzakmaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Alapadatok_Szakma.
-     * @param {Alapadatok_SzakmaCreateArgs} args - Arguments to create a Alapadatok_Szakma.
+     * Create a Szakirany_Szakma.
+     * @param {Szakirany_SzakmaCreateArgs} args - Arguments to create a Szakirany_Szakma.
      * @example
-     * // Create one Alapadatok_Szakma
-     * const Alapadatok_Szakma = await prisma.alapadatok_Szakma.create({
+     * // Create one Szakirany_Szakma
+     * const Szakirany_Szakma = await prisma.szakirany_Szakma.create({
      *   data: {
-     *     // ... data to create a Alapadatok_Szakma
+     *     // ... data to create a Szakirany_Szakma
      *   }
      * })
      * 
      */
-    create<T extends Alapadatok_SzakmaCreateArgs>(args: SelectSubset<T, Alapadatok_SzakmaCreateArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends Szakirany_SzakmaCreateArgs>(args: SelectSubset<T, Szakirany_SzakmaCreateArgs<ExtArgs>>): Prisma__Szakirany_SzakmaClient<$Result.GetResult<Prisma.$Szakirany_SzakmaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Alapadatok_Szakmas.
-     * @param {Alapadatok_SzakmaCreateManyArgs} args - Arguments to create many Alapadatok_Szakmas.
+     * Create many Szakirany_Szakmas.
+     * @param {Szakirany_SzakmaCreateManyArgs} args - Arguments to create many Szakirany_Szakmas.
      * @example
-     * // Create many Alapadatok_Szakmas
-     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.createMany({
+     * // Create many Szakirany_Szakmas
+     * const szakirany_Szakma = await prisma.szakirany_Szakma.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends Alapadatok_SzakmaCreateManyArgs>(args?: SelectSubset<T, Alapadatok_SzakmaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends Szakirany_SzakmaCreateManyArgs>(args?: SelectSubset<T, Szakirany_SzakmaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Alapadatok_Szakmas and returns the data saved in the database.
-     * @param {Alapadatok_SzakmaCreateManyAndReturnArgs} args - Arguments to create many Alapadatok_Szakmas.
+     * Create many Szakirany_Szakmas and returns the data saved in the database.
+     * @param {Szakirany_SzakmaCreateManyAndReturnArgs} args - Arguments to create many Szakirany_Szakmas.
      * @example
-     * // Create many Alapadatok_Szakmas
-     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.createManyAndReturn({
+     * // Create many Szakirany_Szakmas
+     * const szakirany_Szakma = await prisma.szakirany_Szakma.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Alapadatok_Szakmas and only return the `alapadatok_id`
-     * const alapadatok_SzakmaWithAlapadatok_idOnly = await prisma.alapadatok_Szakma.createManyAndReturn({
-     *   select: { alapadatok_id: true },
+     * // Create many Szakirany_Szakmas and only return the `szakirany_id`
+     * const szakirany_SzakmaWithSzakirany_idOnly = await prisma.szakirany_Szakma.createManyAndReturn({
+     *   select: { szakirany_id: true },
      *   data: [
      *     // ... provide data here
      *   ]
@@ -12573,28 +12573,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends Alapadatok_SzakmaCreateManyAndReturnArgs>(args?: SelectSubset<T, Alapadatok_SzakmaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends Szakirany_SzakmaCreateManyAndReturnArgs>(args?: SelectSubset<T, Szakirany_SzakmaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Szakirany_SzakmaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Alapadatok_Szakma.
-     * @param {Alapadatok_SzakmaDeleteArgs} args - Arguments to delete one Alapadatok_Szakma.
+     * Delete a Szakirany_Szakma.
+     * @param {Szakirany_SzakmaDeleteArgs} args - Arguments to delete one Szakirany_Szakma.
      * @example
-     * // Delete one Alapadatok_Szakma
-     * const Alapadatok_Szakma = await prisma.alapadatok_Szakma.delete({
+     * // Delete one Szakirany_Szakma
+     * const Szakirany_Szakma = await prisma.szakirany_Szakma.delete({
      *   where: {
-     *     // ... filter to delete one Alapadatok_Szakma
+     *     // ... filter to delete one Szakirany_Szakma
      *   }
      * })
      * 
      */
-    delete<T extends Alapadatok_SzakmaDeleteArgs>(args: SelectSubset<T, Alapadatok_SzakmaDeleteArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends Szakirany_SzakmaDeleteArgs>(args: SelectSubset<T, Szakirany_SzakmaDeleteArgs<ExtArgs>>): Prisma__Szakirany_SzakmaClient<$Result.GetResult<Prisma.$Szakirany_SzakmaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Alapadatok_Szakma.
-     * @param {Alapadatok_SzakmaUpdateArgs} args - Arguments to update one Alapadatok_Szakma.
+     * Update one Szakirany_Szakma.
+     * @param {Szakirany_SzakmaUpdateArgs} args - Arguments to update one Szakirany_Szakma.
      * @example
-     * // Update one Alapadatok_Szakma
-     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.update({
+     * // Update one Szakirany_Szakma
+     * const szakirany_Szakma = await prisma.szakirany_Szakma.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -12604,30 +12604,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends Alapadatok_SzakmaUpdateArgs>(args: SelectSubset<T, Alapadatok_SzakmaUpdateArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends Szakirany_SzakmaUpdateArgs>(args: SelectSubset<T, Szakirany_SzakmaUpdateArgs<ExtArgs>>): Prisma__Szakirany_SzakmaClient<$Result.GetResult<Prisma.$Szakirany_SzakmaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Alapadatok_Szakmas.
-     * @param {Alapadatok_SzakmaDeleteManyArgs} args - Arguments to filter Alapadatok_Szakmas to delete.
+     * Delete zero or more Szakirany_Szakmas.
+     * @param {Szakirany_SzakmaDeleteManyArgs} args - Arguments to filter Szakirany_Szakmas to delete.
      * @example
-     * // Delete a few Alapadatok_Szakmas
-     * const { count } = await prisma.alapadatok_Szakma.deleteMany({
+     * // Delete a few Szakirany_Szakmas
+     * const { count } = await prisma.szakirany_Szakma.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends Alapadatok_SzakmaDeleteManyArgs>(args?: SelectSubset<T, Alapadatok_SzakmaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends Szakirany_SzakmaDeleteManyArgs>(args?: SelectSubset<T, Szakirany_SzakmaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Alapadatok_Szakmas.
+     * Update zero or more Szakirany_Szakmas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Alapadatok_SzakmaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {Szakirany_SzakmaUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Alapadatok_Szakmas
-     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.updateMany({
+     * // Update many Szakirany_Szakmas
+     * const szakirany_Szakma = await prisma.szakirany_Szakma.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -12637,14 +12637,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends Alapadatok_SzakmaUpdateManyArgs>(args: SelectSubset<T, Alapadatok_SzakmaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends Szakirany_SzakmaUpdateManyArgs>(args: SelectSubset<T, Szakirany_SzakmaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Alapadatok_Szakmas and returns the data updated in the database.
-     * @param {Alapadatok_SzakmaUpdateManyAndReturnArgs} args - Arguments to update many Alapadatok_Szakmas.
+     * Update zero or more Szakirany_Szakmas and returns the data updated in the database.
+     * @param {Szakirany_SzakmaUpdateManyAndReturnArgs} args - Arguments to update many Szakirany_Szakmas.
      * @example
-     * // Update many Alapadatok_Szakmas
-     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.updateManyAndReturn({
+     * // Update many Szakirany_Szakmas
+     * const szakirany_Szakma = await prisma.szakirany_Szakma.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -12653,9 +12653,9 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Alapadatok_Szakmas and only return the `alapadatok_id`
-     * const alapadatok_SzakmaWithAlapadatok_idOnly = await prisma.alapadatok_Szakma.updateManyAndReturn({
-     *   select: { alapadatok_id: true },
+     * // Update zero or more Szakirany_Szakmas and only return the `szakirany_id`
+     * const szakirany_SzakmaWithSzakirany_idOnly = await prisma.szakirany_Szakma.updateManyAndReturn({
+     *   select: { szakirany_id: true },
      *   where: {
      *     // ... provide filter here
      *   },
@@ -12667,56 +12667,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends Alapadatok_SzakmaUpdateManyAndReturnArgs>(args: SelectSubset<T, Alapadatok_SzakmaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends Szakirany_SzakmaUpdateManyAndReturnArgs>(args: SelectSubset<T, Szakirany_SzakmaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Szakirany_SzakmaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Alapadatok_Szakma.
-     * @param {Alapadatok_SzakmaUpsertArgs} args - Arguments to update or create a Alapadatok_Szakma.
+     * Create or update one Szakirany_Szakma.
+     * @param {Szakirany_SzakmaUpsertArgs} args - Arguments to update or create a Szakirany_Szakma.
      * @example
-     * // Update or create a Alapadatok_Szakma
-     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.upsert({
+     * // Update or create a Szakirany_Szakma
+     * const szakirany_Szakma = await prisma.szakirany_Szakma.upsert({
      *   create: {
-     *     // ... data to create a Alapadatok_Szakma
+     *     // ... data to create a Szakirany_Szakma
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Alapadatok_Szakma we want to update
+     *     // ... the filter for the Szakirany_Szakma we want to update
      *   }
      * })
      */
-    upsert<T extends Alapadatok_SzakmaUpsertArgs>(args: SelectSubset<T, Alapadatok_SzakmaUpsertArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends Szakirany_SzakmaUpsertArgs>(args: SelectSubset<T, Szakirany_SzakmaUpsertArgs<ExtArgs>>): Prisma__Szakirany_SzakmaClient<$Result.GetResult<Prisma.$Szakirany_SzakmaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Alapadatok_Szakmas.
+     * Count the number of Szakirany_Szakmas.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Alapadatok_SzakmaCountArgs} args - Arguments to filter Alapadatok_Szakmas to count.
+     * @param {Szakirany_SzakmaCountArgs} args - Arguments to filter Szakirany_Szakmas to count.
      * @example
-     * // Count the number of Alapadatok_Szakmas
-     * const count = await prisma.alapadatok_Szakma.count({
+     * // Count the number of Szakirany_Szakmas
+     * const count = await prisma.szakirany_Szakma.count({
      *   where: {
-     *     // ... the filter for the Alapadatok_Szakmas we want to count
+     *     // ... the filter for the Szakirany_Szakmas we want to count
      *   }
      * })
     **/
-    count<T extends Alapadatok_SzakmaCountArgs>(
-      args?: Subset<T, Alapadatok_SzakmaCountArgs>,
+    count<T extends Szakirany_SzakmaCountArgs>(
+      args?: Subset<T, Szakirany_SzakmaCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], Alapadatok_SzakmaCountAggregateOutputType>
+          : GetScalarType<T['select'], Szakirany_SzakmaCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Alapadatok_Szakma.
+     * Allows you to perform aggregations operations on a Szakirany_Szakma.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Alapadatok_SzakmaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {Szakirany_SzakmaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -12736,13 +12736,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends Alapadatok_SzakmaAggregateArgs>(args: Subset<T, Alapadatok_SzakmaAggregateArgs>): Prisma.PrismaPromise<GetAlapadatok_SzakmaAggregateType<T>>
+    aggregate<T extends Szakirany_SzakmaAggregateArgs>(args: Subset<T, Szakirany_SzakmaAggregateArgs>): Prisma.PrismaPromise<GetSzakirany_SzakmaAggregateType<T>>
 
     /**
-     * Group by Alapadatok_Szakma.
+     * Group by Szakirany_Szakma.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {Alapadatok_SzakmaGroupByArgs} args - Group by arguments.
+     * @param {Szakirany_SzakmaGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -12757,14 +12757,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends Alapadatok_SzakmaGroupByArgs,
+      T extends Szakirany_SzakmaGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: Alapadatok_SzakmaGroupByArgs['orderBy'] }
-        : { orderBy?: Alapadatok_SzakmaGroupByArgs['orderBy'] },
+        ? { orderBy: Szakirany_SzakmaGroupByArgs['orderBy'] }
+        : { orderBy?: Szakirany_SzakmaGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -12813,23 +12813,23 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, Alapadatok_SzakmaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAlapadatok_SzakmaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, Szakirany_SzakmaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSzakirany_SzakmaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Alapadatok_Szakma model
+   * Fields of the Szakirany_Szakma model
    */
-  readonly fields: Alapadatok_SzakmaFieldRefs;
+  readonly fields: Szakirany_SzakmaFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Alapadatok_Szakma.
+   * The delegate class that acts as a "Promise-like" for Szakirany_Szakma.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__Alapadatok_SzakmaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__Szakirany_SzakmaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    alapadatok<T extends AlapadatokDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AlapadatokDefaultArgs<ExtArgs>>): Prisma__AlapadatokClient<$Result.GetResult<Prisma.$AlapadatokPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     szakma<T extends SzakmaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SzakmaDefaultArgs<ExtArgs>>): Prisma__SzakmaClient<$Result.GetResult<Prisma.$SzakmaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    szakirany<T extends SzakiranyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SzakiranyDefaultArgs<ExtArgs>>): Prisma__SzakiranyClient<$Result.GetResult<Prisma.$SzakiranyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12856,422 +12856,422 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Alapadatok_Szakma model
+   * Fields of the Szakirany_Szakma model
    */
-  interface Alapadatok_SzakmaFieldRefs {
-    readonly alapadatok_id: FieldRef<"Alapadatok_Szakma", 'String'>
-    readonly szakma_id: FieldRef<"Alapadatok_Szakma", 'String'>
+  interface Szakirany_SzakmaFieldRefs {
+    readonly szakirany_id: FieldRef<"Szakirany_Szakma", 'String'>
+    readonly szakma_id: FieldRef<"Szakirany_Szakma", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * Alapadatok_Szakma findUnique
+   * Szakirany_Szakma findUnique
    */
-  export type Alapadatok_SzakmaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Alapadatok_Szakma
+     * Select specific fields to fetch from the Szakirany_Szakma
      */
-    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    select?: Szakirany_SzakmaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Alapadatok_Szakma
+     * Omit specific fields from the Szakirany_Szakma
      */
-    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    omit?: Szakirany_SzakmaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    include?: Szakirany_SzakmaInclude<ExtArgs> | null
     /**
-     * Filter, which Alapadatok_Szakma to fetch.
+     * Filter, which Szakirany_Szakma to fetch.
      */
-    where: Alapadatok_SzakmaWhereUniqueInput
+    where: Szakirany_SzakmaWhereUniqueInput
   }
 
   /**
-   * Alapadatok_Szakma findUniqueOrThrow
+   * Szakirany_Szakma findUniqueOrThrow
    */
-  export type Alapadatok_SzakmaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Alapadatok_Szakma
+     * Select specific fields to fetch from the Szakirany_Szakma
      */
-    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    select?: Szakirany_SzakmaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Alapadatok_Szakma
+     * Omit specific fields from the Szakirany_Szakma
      */
-    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    omit?: Szakirany_SzakmaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    include?: Szakirany_SzakmaInclude<ExtArgs> | null
     /**
-     * Filter, which Alapadatok_Szakma to fetch.
+     * Filter, which Szakirany_Szakma to fetch.
      */
-    where: Alapadatok_SzakmaWhereUniqueInput
+    where: Szakirany_SzakmaWhereUniqueInput
   }
 
   /**
-   * Alapadatok_Szakma findFirst
+   * Szakirany_Szakma findFirst
    */
-  export type Alapadatok_SzakmaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Alapadatok_Szakma
+     * Select specific fields to fetch from the Szakirany_Szakma
      */
-    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    select?: Szakirany_SzakmaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Alapadatok_Szakma
+     * Omit specific fields from the Szakirany_Szakma
      */
-    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    omit?: Szakirany_SzakmaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    include?: Szakirany_SzakmaInclude<ExtArgs> | null
     /**
-     * Filter, which Alapadatok_Szakma to fetch.
+     * Filter, which Szakirany_Szakma to fetch.
      */
-    where?: Alapadatok_SzakmaWhereInput
+    where?: Szakirany_SzakmaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Alapadatok_Szakmas to fetch.
+     * Determine the order of Szakirany_Szakmas to fetch.
      */
-    orderBy?: Alapadatok_SzakmaOrderByWithRelationInput | Alapadatok_SzakmaOrderByWithRelationInput[]
+    orderBy?: Szakirany_SzakmaOrderByWithRelationInput | Szakirany_SzakmaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Alapadatok_Szakmas.
+     * Sets the position for searching for Szakirany_Szakmas.
      */
-    cursor?: Alapadatok_SzakmaWhereUniqueInput
+    cursor?: Szakirany_SzakmaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Alapadatok_Szakmas from the position of the cursor.
+     * Take `±n` Szakirany_Szakmas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Alapadatok_Szakmas.
+     * Skip the first `n` Szakirany_Szakmas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Alapadatok_Szakmas.
+     * Filter by unique combinations of Szakirany_Szakmas.
      */
-    distinct?: Alapadatok_SzakmaScalarFieldEnum | Alapadatok_SzakmaScalarFieldEnum[]
+    distinct?: Szakirany_SzakmaScalarFieldEnum | Szakirany_SzakmaScalarFieldEnum[]
   }
 
   /**
-   * Alapadatok_Szakma findFirstOrThrow
+   * Szakirany_Szakma findFirstOrThrow
    */
-  export type Alapadatok_SzakmaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Alapadatok_Szakma
+     * Select specific fields to fetch from the Szakirany_Szakma
      */
-    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    select?: Szakirany_SzakmaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Alapadatok_Szakma
+     * Omit specific fields from the Szakirany_Szakma
      */
-    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    omit?: Szakirany_SzakmaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    include?: Szakirany_SzakmaInclude<ExtArgs> | null
     /**
-     * Filter, which Alapadatok_Szakma to fetch.
+     * Filter, which Szakirany_Szakma to fetch.
      */
-    where?: Alapadatok_SzakmaWhereInput
+    where?: Szakirany_SzakmaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Alapadatok_Szakmas to fetch.
+     * Determine the order of Szakirany_Szakmas to fetch.
      */
-    orderBy?: Alapadatok_SzakmaOrderByWithRelationInput | Alapadatok_SzakmaOrderByWithRelationInput[]
+    orderBy?: Szakirany_SzakmaOrderByWithRelationInput | Szakirany_SzakmaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Alapadatok_Szakmas.
+     * Sets the position for searching for Szakirany_Szakmas.
      */
-    cursor?: Alapadatok_SzakmaWhereUniqueInput
+    cursor?: Szakirany_SzakmaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Alapadatok_Szakmas from the position of the cursor.
+     * Take `±n` Szakirany_Szakmas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Alapadatok_Szakmas.
+     * Skip the first `n` Szakirany_Szakmas.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Alapadatok_Szakmas.
+     * Filter by unique combinations of Szakirany_Szakmas.
      */
-    distinct?: Alapadatok_SzakmaScalarFieldEnum | Alapadatok_SzakmaScalarFieldEnum[]
+    distinct?: Szakirany_SzakmaScalarFieldEnum | Szakirany_SzakmaScalarFieldEnum[]
   }
 
   /**
-   * Alapadatok_Szakma findMany
+   * Szakirany_Szakma findMany
    */
-  export type Alapadatok_SzakmaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Alapadatok_Szakma
+     * Select specific fields to fetch from the Szakirany_Szakma
      */
-    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    select?: Szakirany_SzakmaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Alapadatok_Szakma
+     * Omit specific fields from the Szakirany_Szakma
      */
-    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    omit?: Szakirany_SzakmaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    include?: Szakirany_SzakmaInclude<ExtArgs> | null
     /**
-     * Filter, which Alapadatok_Szakmas to fetch.
+     * Filter, which Szakirany_Szakmas to fetch.
      */
-    where?: Alapadatok_SzakmaWhereInput
+    where?: Szakirany_SzakmaWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Alapadatok_Szakmas to fetch.
+     * Determine the order of Szakirany_Szakmas to fetch.
      */
-    orderBy?: Alapadatok_SzakmaOrderByWithRelationInput | Alapadatok_SzakmaOrderByWithRelationInput[]
+    orderBy?: Szakirany_SzakmaOrderByWithRelationInput | Szakirany_SzakmaOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Alapadatok_Szakmas.
+     * Sets the position for listing Szakirany_Szakmas.
      */
-    cursor?: Alapadatok_SzakmaWhereUniqueInput
+    cursor?: Szakirany_SzakmaWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Alapadatok_Szakmas from the position of the cursor.
+     * Take `±n` Szakirany_Szakmas from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Alapadatok_Szakmas.
+     * Skip the first `n` Szakirany_Szakmas.
      */
     skip?: number
-    distinct?: Alapadatok_SzakmaScalarFieldEnum | Alapadatok_SzakmaScalarFieldEnum[]
+    distinct?: Szakirany_SzakmaScalarFieldEnum | Szakirany_SzakmaScalarFieldEnum[]
   }
 
   /**
-   * Alapadatok_Szakma create
+   * Szakirany_Szakma create
    */
-  export type Alapadatok_SzakmaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Alapadatok_Szakma
+     * Select specific fields to fetch from the Szakirany_Szakma
      */
-    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    select?: Szakirany_SzakmaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Alapadatok_Szakma
+     * Omit specific fields from the Szakirany_Szakma
      */
-    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    omit?: Szakirany_SzakmaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    include?: Szakirany_SzakmaInclude<ExtArgs> | null
     /**
-     * The data needed to create a Alapadatok_Szakma.
+     * The data needed to create a Szakirany_Szakma.
      */
-    data: XOR<Alapadatok_SzakmaCreateInput, Alapadatok_SzakmaUncheckedCreateInput>
+    data: XOR<Szakirany_SzakmaCreateInput, Szakirany_SzakmaUncheckedCreateInput>
   }
 
   /**
-   * Alapadatok_Szakma createMany
+   * Szakirany_Szakma createMany
    */
-  export type Alapadatok_SzakmaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Alapadatok_Szakmas.
+     * The data used to create many Szakirany_Szakmas.
      */
-    data: Alapadatok_SzakmaCreateManyInput | Alapadatok_SzakmaCreateManyInput[]
+    data: Szakirany_SzakmaCreateManyInput | Szakirany_SzakmaCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Alapadatok_Szakma createManyAndReturn
+   * Szakirany_Szakma createManyAndReturn
    */
-  export type Alapadatok_SzakmaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Alapadatok_Szakma
+     * Select specific fields to fetch from the Szakirany_Szakma
      */
-    select?: Alapadatok_SzakmaSelectCreateManyAndReturn<ExtArgs> | null
+    select?: Szakirany_SzakmaSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Alapadatok_Szakma
+     * Omit specific fields from the Szakirany_Szakma
      */
-    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    omit?: Szakirany_SzakmaOmit<ExtArgs> | null
     /**
-     * The data used to create many Alapadatok_Szakmas.
+     * The data used to create many Szakirany_Szakmas.
      */
-    data: Alapadatok_SzakmaCreateManyInput | Alapadatok_SzakmaCreateManyInput[]
+    data: Szakirany_SzakmaCreateManyInput | Szakirany_SzakmaCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Alapadatok_SzakmaIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: Szakirany_SzakmaIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Alapadatok_Szakma update
+   * Szakirany_Szakma update
    */
-  export type Alapadatok_SzakmaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Alapadatok_Szakma
+     * Select specific fields to fetch from the Szakirany_Szakma
      */
-    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    select?: Szakirany_SzakmaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Alapadatok_Szakma
+     * Omit specific fields from the Szakirany_Szakma
      */
-    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    omit?: Szakirany_SzakmaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    include?: Szakirany_SzakmaInclude<ExtArgs> | null
     /**
-     * The data needed to update a Alapadatok_Szakma.
+     * The data needed to update a Szakirany_Szakma.
      */
-    data: XOR<Alapadatok_SzakmaUpdateInput, Alapadatok_SzakmaUncheckedUpdateInput>
+    data: XOR<Szakirany_SzakmaUpdateInput, Szakirany_SzakmaUncheckedUpdateInput>
     /**
-     * Choose, which Alapadatok_Szakma to update.
+     * Choose, which Szakirany_Szakma to update.
      */
-    where: Alapadatok_SzakmaWhereUniqueInput
+    where: Szakirany_SzakmaWhereUniqueInput
   }
 
   /**
-   * Alapadatok_Szakma updateMany
+   * Szakirany_Szakma updateMany
    */
-  export type Alapadatok_SzakmaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Alapadatok_Szakmas.
+     * The data used to update Szakirany_Szakmas.
      */
-    data: XOR<Alapadatok_SzakmaUpdateManyMutationInput, Alapadatok_SzakmaUncheckedUpdateManyInput>
+    data: XOR<Szakirany_SzakmaUpdateManyMutationInput, Szakirany_SzakmaUncheckedUpdateManyInput>
     /**
-     * Filter which Alapadatok_Szakmas to update
+     * Filter which Szakirany_Szakmas to update
      */
-    where?: Alapadatok_SzakmaWhereInput
+    where?: Szakirany_SzakmaWhereInput
     /**
-     * Limit how many Alapadatok_Szakmas to update.
+     * Limit how many Szakirany_Szakmas to update.
      */
     limit?: number
   }
 
   /**
-   * Alapadatok_Szakma updateManyAndReturn
+   * Szakirany_Szakma updateManyAndReturn
    */
-  export type Alapadatok_SzakmaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Alapadatok_Szakma
+     * Select specific fields to fetch from the Szakirany_Szakma
      */
-    select?: Alapadatok_SzakmaSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: Szakirany_SzakmaSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Alapadatok_Szakma
+     * Omit specific fields from the Szakirany_Szakma
      */
-    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    omit?: Szakirany_SzakmaOmit<ExtArgs> | null
     /**
-     * The data used to update Alapadatok_Szakmas.
+     * The data used to update Szakirany_Szakmas.
      */
-    data: XOR<Alapadatok_SzakmaUpdateManyMutationInput, Alapadatok_SzakmaUncheckedUpdateManyInput>
+    data: XOR<Szakirany_SzakmaUpdateManyMutationInput, Szakirany_SzakmaUncheckedUpdateManyInput>
     /**
-     * Filter which Alapadatok_Szakmas to update
+     * Filter which Szakirany_Szakmas to update
      */
-    where?: Alapadatok_SzakmaWhereInput
+    where?: Szakirany_SzakmaWhereInput
     /**
-     * Limit how many Alapadatok_Szakmas to update.
+     * Limit how many Szakirany_Szakmas to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Alapadatok_SzakmaIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: Szakirany_SzakmaIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Alapadatok_Szakma upsert
+   * Szakirany_Szakma upsert
    */
-  export type Alapadatok_SzakmaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Alapadatok_Szakma
+     * Select specific fields to fetch from the Szakirany_Szakma
      */
-    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    select?: Szakirany_SzakmaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Alapadatok_Szakma
+     * Omit specific fields from the Szakirany_Szakma
      */
-    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    omit?: Szakirany_SzakmaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    include?: Szakirany_SzakmaInclude<ExtArgs> | null
     /**
-     * The filter to search for the Alapadatok_Szakma to update in case it exists.
+     * The filter to search for the Szakirany_Szakma to update in case it exists.
      */
-    where: Alapadatok_SzakmaWhereUniqueInput
+    where: Szakirany_SzakmaWhereUniqueInput
     /**
-     * In case the Alapadatok_Szakma found by the `where` argument doesn't exist, create a new Alapadatok_Szakma with this data.
+     * In case the Szakirany_Szakma found by the `where` argument doesn't exist, create a new Szakirany_Szakma with this data.
      */
-    create: XOR<Alapadatok_SzakmaCreateInput, Alapadatok_SzakmaUncheckedCreateInput>
+    create: XOR<Szakirany_SzakmaCreateInput, Szakirany_SzakmaUncheckedCreateInput>
     /**
-     * In case the Alapadatok_Szakma was found with the provided `where` argument, update it with this data.
+     * In case the Szakirany_Szakma was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<Alapadatok_SzakmaUpdateInput, Alapadatok_SzakmaUncheckedUpdateInput>
+    update: XOR<Szakirany_SzakmaUpdateInput, Szakirany_SzakmaUncheckedUpdateInput>
   }
 
   /**
-   * Alapadatok_Szakma delete
+   * Szakirany_Szakma delete
    */
-  export type Alapadatok_SzakmaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Alapadatok_Szakma
+     * Select specific fields to fetch from the Szakirany_Szakma
      */
-    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    select?: Szakirany_SzakmaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Alapadatok_Szakma
+     * Omit specific fields from the Szakirany_Szakma
      */
-    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    omit?: Szakirany_SzakmaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    include?: Szakirany_SzakmaInclude<ExtArgs> | null
     /**
-     * Filter which Alapadatok_Szakma to delete.
+     * Filter which Szakirany_Szakma to delete.
      */
-    where: Alapadatok_SzakmaWhereUniqueInput
+    where: Szakirany_SzakmaWhereUniqueInput
   }
 
   /**
-   * Alapadatok_Szakma deleteMany
+   * Szakirany_Szakma deleteMany
    */
-  export type Alapadatok_SzakmaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Alapadatok_Szakmas to delete
+     * Filter which Szakirany_Szakmas to delete
      */
-    where?: Alapadatok_SzakmaWhereInput
+    where?: Szakirany_SzakmaWhereInput
     /**
-     * Limit how many Alapadatok_Szakmas to delete.
+     * Limit how many Szakirany_Szakmas to delete.
      */
     limit?: number
   }
 
   /**
-   * Alapadatok_Szakma without action
+   * Szakirany_Szakma without action
    */
-  export type Alapadatok_SzakmaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Szakirany_SzakmaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Alapadatok_Szakma
+     * Select specific fields to fetch from the Szakirany_Szakma
      */
-    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    select?: Szakirany_SzakmaSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Alapadatok_Szakma
+     * Omit specific fields from the Szakirany_Szakma
      */
-    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    omit?: Szakirany_SzakmaOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    include?: Szakirany_SzakmaInclude<ExtArgs> | null
   }
 
 
@@ -28430,12 +28430,12 @@ export namespace Prisma {
   export type SzakmaScalarFieldEnum = (typeof SzakmaScalarFieldEnum)[keyof typeof SzakmaScalarFieldEnum]
 
 
-  export const Alapadatok_SzakmaScalarFieldEnum: {
-    alapadatok_id: 'alapadatok_id',
+  export const Szakirany_SzakmaScalarFieldEnum: {
+    szakirany_id: 'szakirany_id',
     szakma_id: 'szakma_id'
   };
 
-  export type Alapadatok_SzakmaScalarFieldEnum = (typeof Alapadatok_SzakmaScalarFieldEnum)[keyof typeof Alapadatok_SzakmaScalarFieldEnum]
+  export type Szakirany_SzakmaScalarFieldEnum = (typeof Szakirany_SzakmaScalarFieldEnum)[keyof typeof Szakirany_SzakmaScalarFieldEnum]
 
 
   export const Alapadatok_SzakiranyScalarFieldEnum: {
@@ -29212,7 +29212,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloListRelationFilter
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaListRelationFilter
     versenyek?: VersenyekListRelationFilter
-    alapadatok_szakma?: Alapadatok_SzakmaListRelationFilter
     alapadatok_szakirany?: Alapadatok_SzakiranyListRelationFilter
     users?: UserListRelationFilter
   }
@@ -29230,7 +29229,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloOrderByRelationAggregateInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaOrderByRelationAggregateInput
     versenyek?: versenyekOrderByRelationAggregateInput
-    alapadatok_szakma?: Alapadatok_SzakmaOrderByRelationAggregateInput
     alapadatok_szakirany?: Alapadatok_SzakiranyOrderByRelationAggregateInput
     users?: UserOrderByRelationAggregateInput
   }
@@ -29251,7 +29249,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloListRelationFilter
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaListRelationFilter
     versenyek?: VersenyekListRelationFilter
-    alapadatok_szakma?: Alapadatok_SzakmaListRelationFilter
     alapadatok_szakirany?: Alapadatok_SzakiranyListRelationFilter
     users?: UserListRelationFilter
   }, "id">
@@ -29284,6 +29281,7 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamListRelationFilter
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaListRelationFilter
     alapadatok_szakirany?: Alapadatok_SzakiranyListRelationFilter
+    szakma?: Szakirany_SzakmaListRelationFilter
   }
 
   export type SzakiranyOrderByWithRelationInput = {
@@ -29293,6 +29291,7 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamOrderByRelationAggregateInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaOrderByRelationAggregateInput
     alapadatok_szakirany?: Alapadatok_SzakiranyOrderByRelationAggregateInput
+    szakma?: Szakirany_SzakmaOrderByRelationAggregateInput
   }
 
   export type SzakiranyWhereUniqueInput = Prisma.AtLeast<{
@@ -29305,6 +29304,7 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamListRelationFilter
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaListRelationFilter
     alapadatok_szakirany?: Alapadatok_SzakiranyListRelationFilter
+    szakma?: Szakirany_SzakmaListRelationFilter
   }, "id" | "nev">
 
   export type SzakiranyOrderByWithAggregationInput = {
@@ -29332,7 +29332,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaListRelationFilter
     tanulo_letszam?: Tanulo_LetszamListRelationFilter
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaListRelationFilter
-    alapadatok_szakma?: Alapadatok_SzakmaListRelationFilter
+    alapadatok_szakma?: Szakirany_SzakmaListRelationFilter
   }
 
   export type SzakmaOrderByWithRelationInput = {
@@ -29341,7 +29341,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaOrderByRelationAggregateInput
     tanulo_letszam?: Tanulo_LetszamOrderByRelationAggregateInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaOrderByRelationAggregateInput
-    alapadatok_szakma?: Alapadatok_SzakmaOrderByRelationAggregateInput
+    alapadatok_szakma?: Szakirany_SzakmaOrderByRelationAggregateInput
   }
 
   export type SzakmaWhereUniqueInput = Prisma.AtLeast<{
@@ -29353,7 +29353,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaListRelationFilter
     tanulo_letszam?: Tanulo_LetszamListRelationFilter
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaListRelationFilter
-    alapadatok_szakma?: Alapadatok_SzakmaListRelationFilter
+    alapadatok_szakma?: Szakirany_SzakmaListRelationFilter
   }, "id" | "nev">
 
   export type SzakmaOrderByWithAggregationInput = {
@@ -29372,48 +29372,48 @@ export namespace Prisma {
     nev?: StringWithAggregatesFilter<"Szakma"> | string
   }
 
-  export type Alapadatok_SzakmaWhereInput = {
-    AND?: Alapadatok_SzakmaWhereInput | Alapadatok_SzakmaWhereInput[]
-    OR?: Alapadatok_SzakmaWhereInput[]
-    NOT?: Alapadatok_SzakmaWhereInput | Alapadatok_SzakmaWhereInput[]
-    alapadatok_id?: UuidFilter<"Alapadatok_Szakma"> | string
-    szakma_id?: UuidFilter<"Alapadatok_Szakma"> | string
-    alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
+  export type Szakirany_SzakmaWhereInput = {
+    AND?: Szakirany_SzakmaWhereInput | Szakirany_SzakmaWhereInput[]
+    OR?: Szakirany_SzakmaWhereInput[]
+    NOT?: Szakirany_SzakmaWhereInput | Szakirany_SzakmaWhereInput[]
+    szakirany_id?: UuidFilter<"Szakirany_Szakma"> | string
+    szakma_id?: UuidFilter<"Szakirany_Szakma"> | string
     szakma?: XOR<SzakmaScalarRelationFilter, SzakmaWhereInput>
+    szakirany?: XOR<SzakiranyScalarRelationFilter, SzakiranyWhereInput>
   }
 
-  export type Alapadatok_SzakmaOrderByWithRelationInput = {
-    alapadatok_id?: SortOrder
+  export type Szakirany_SzakmaOrderByWithRelationInput = {
+    szakirany_id?: SortOrder
     szakma_id?: SortOrder
-    alapadatok?: AlapadatokOrderByWithRelationInput
     szakma?: SzakmaOrderByWithRelationInput
+    szakirany?: SzakiranyOrderByWithRelationInput
   }
 
-  export type Alapadatok_SzakmaWhereUniqueInput = Prisma.AtLeast<{
-    alapadatok_id_szakma_id?: Alapadatok_SzakmaAlapadatok_idSzakma_idCompoundUniqueInput
-    AND?: Alapadatok_SzakmaWhereInput | Alapadatok_SzakmaWhereInput[]
-    OR?: Alapadatok_SzakmaWhereInput[]
-    NOT?: Alapadatok_SzakmaWhereInput | Alapadatok_SzakmaWhereInput[]
-    alapadatok_id?: UuidFilter<"Alapadatok_Szakma"> | string
-    szakma_id?: UuidFilter<"Alapadatok_Szakma"> | string
-    alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
+  export type Szakirany_SzakmaWhereUniqueInput = Prisma.AtLeast<{
+    szakirany_id_szakma_id?: Szakirany_SzakmaSzakirany_idSzakma_idCompoundUniqueInput
+    AND?: Szakirany_SzakmaWhereInput | Szakirany_SzakmaWhereInput[]
+    OR?: Szakirany_SzakmaWhereInput[]
+    NOT?: Szakirany_SzakmaWhereInput | Szakirany_SzakmaWhereInput[]
+    szakirany_id?: UuidFilter<"Szakirany_Szakma"> | string
+    szakma_id?: UuidFilter<"Szakirany_Szakma"> | string
     szakma?: XOR<SzakmaScalarRelationFilter, SzakmaWhereInput>
-  }, "alapadatok_id_szakma_id">
+    szakirany?: XOR<SzakiranyScalarRelationFilter, SzakiranyWhereInput>
+  }, "szakirany_id_szakma_id">
 
-  export type Alapadatok_SzakmaOrderByWithAggregationInput = {
-    alapadatok_id?: SortOrder
+  export type Szakirany_SzakmaOrderByWithAggregationInput = {
+    szakirany_id?: SortOrder
     szakma_id?: SortOrder
-    _count?: Alapadatok_SzakmaCountOrderByAggregateInput
-    _max?: Alapadatok_SzakmaMaxOrderByAggregateInput
-    _min?: Alapadatok_SzakmaMinOrderByAggregateInput
+    _count?: Szakirany_SzakmaCountOrderByAggregateInput
+    _max?: Szakirany_SzakmaMaxOrderByAggregateInput
+    _min?: Szakirany_SzakmaMinOrderByAggregateInput
   }
 
-  export type Alapadatok_SzakmaScalarWhereWithAggregatesInput = {
-    AND?: Alapadatok_SzakmaScalarWhereWithAggregatesInput | Alapadatok_SzakmaScalarWhereWithAggregatesInput[]
-    OR?: Alapadatok_SzakmaScalarWhereWithAggregatesInput[]
-    NOT?: Alapadatok_SzakmaScalarWhereWithAggregatesInput | Alapadatok_SzakmaScalarWhereWithAggregatesInput[]
-    alapadatok_id?: UuidWithAggregatesFilter<"Alapadatok_Szakma"> | string
-    szakma_id?: UuidWithAggregatesFilter<"Alapadatok_Szakma"> | string
+  export type Szakirany_SzakmaScalarWhereWithAggregatesInput = {
+    AND?: Szakirany_SzakmaScalarWhereWithAggregatesInput | Szakirany_SzakmaScalarWhereWithAggregatesInput[]
+    OR?: Szakirany_SzakmaScalarWhereWithAggregatesInput[]
+    NOT?: Szakirany_SzakmaScalarWhereWithAggregatesInput | Szakirany_SzakmaScalarWhereWithAggregatesInput[]
+    szakirany_id?: UuidWithAggregatesFilter<"Szakirany_Szakma"> | string
+    szakma_id?: UuidWithAggregatesFilter<"Szakirany_Szakma"> | string
   }
 
   export type Alapadatok_SzakiranyWhereInput = {
@@ -31215,7 +31215,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
@@ -31233,7 +31232,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -31251,7 +31249,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
@@ -31269,7 +31266,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -31299,6 +31295,7 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakiranyInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakiranyInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutSzakiranyInput
+    szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakiranyInput
   }
 
   export type SzakiranyUncheckedCreateInput = {
@@ -31308,6 +31305,7 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakiranyInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakiranyInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutSzakiranyInput
+    szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakiranyInput
   }
 
   export type SzakiranyUpdateInput = {
@@ -31317,6 +31315,7 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakiranyNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakiranyNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutSzakiranyNestedInput
+    szakma?: Szakirany_SzakmaUpdateManyWithoutSzakiranyNestedInput
   }
 
   export type SzakiranyUncheckedUpdateInput = {
@@ -31326,6 +31325,7 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakiranyNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutSzakiranyNestedInput
+    szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakiranyNestedInput
   }
 
   export type SzakiranyCreateManyInput = {
@@ -31349,7 +31349,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakmaInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput
+    alapadatok_szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateInput = {
@@ -31358,7 +31358,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakmaInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok_szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUpdateInput = {
@@ -31367,7 +31367,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakmaNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput
+    alapadatok_szakma?: Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateInput = {
@@ -31376,7 +31376,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok_szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaCreateManyInput = {
@@ -31394,37 +31394,37 @@ export namespace Prisma {
     nev?: StringFieldUpdateOperationsInput | string
   }
 
-  export type Alapadatok_SzakmaCreateInput = {
-    alapadatok: AlapadatokCreateNestedOneWithoutAlapadatok_szakmaInput
+  export type Szakirany_SzakmaCreateInput = {
     szakma: SzakmaCreateNestedOneWithoutAlapadatok_szakmaInput
+    szakirany: SzakiranyCreateNestedOneWithoutSzakmaInput
   }
 
-  export type Alapadatok_SzakmaUncheckedCreateInput = {
-    alapadatok_id: string
+  export type Szakirany_SzakmaUncheckedCreateInput = {
+    szakirany_id: string
     szakma_id: string
   }
 
-  export type Alapadatok_SzakmaUpdateInput = {
-    alapadatok?: AlapadatokUpdateOneRequiredWithoutAlapadatok_szakmaNestedInput
+  export type Szakirany_SzakmaUpdateInput = {
     szakma?: SzakmaUpdateOneRequiredWithoutAlapadatok_szakmaNestedInput
+    szakirany?: SzakiranyUpdateOneRequiredWithoutSzakmaNestedInput
   }
 
-  export type Alapadatok_SzakmaUncheckedUpdateInput = {
-    alapadatok_id?: StringFieldUpdateOperationsInput | string
+  export type Szakirany_SzakmaUncheckedUpdateInput = {
+    szakirany_id?: StringFieldUpdateOperationsInput | string
     szakma_id?: StringFieldUpdateOperationsInput | string
   }
 
-  export type Alapadatok_SzakmaCreateManyInput = {
-    alapadatok_id: string
+  export type Szakirany_SzakmaCreateManyInput = {
+    szakirany_id: string
     szakma_id: string
   }
 
-  export type Alapadatok_SzakmaUpdateManyMutationInput = {
+  export type Szakirany_SzakmaUpdateManyMutationInput = {
 
   }
 
-  export type Alapadatok_SzakmaUncheckedUpdateManyInput = {
-    alapadatok_id?: StringFieldUpdateOperationsInput | string
+  export type Szakirany_SzakmaUncheckedUpdateManyInput = {
+    szakirany_id?: StringFieldUpdateOperationsInput | string
     szakma_id?: StringFieldUpdateOperationsInput | string
   }
 
@@ -33649,12 +33649,6 @@ export namespace Prisma {
     none?: versenyekWhereInput
   }
 
-  export type Alapadatok_SzakmaListRelationFilter = {
-    every?: Alapadatok_SzakmaWhereInput
-    some?: Alapadatok_SzakmaWhereInput
-    none?: Alapadatok_SzakmaWhereInput
-  }
-
   export type Alapadatok_SzakiranyListRelationFilter = {
     every?: Alapadatok_SzakiranyWhereInput
     some?: Alapadatok_SzakiranyWhereInput
@@ -33703,10 +33697,6 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type Alapadatok_SzakmaOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
   export type Alapadatok_SzakiranyOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -33731,6 +33721,16 @@ export namespace Prisma {
     id?: SortOrder
     iskola_neve?: SortOrder
     intezmeny_tipus?: SortOrder
+  }
+
+  export type Szakirany_SzakmaListRelationFilter = {
+    every?: Szakirany_SzakmaWhereInput
+    some?: Szakirany_SzakmaWhereInput
+    none?: Szakirany_SzakmaWhereInput
+  }
+
+  export type Szakirany_SzakmaOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type SzakiranyCountOrderByAggregateInput = {
@@ -33763,39 +33763,39 @@ export namespace Prisma {
     nev?: SortOrder
   }
 
-  export type AlapadatokScalarRelationFilter = {
-    is?: AlapadatokWhereInput
-    isNot?: AlapadatokWhereInput
-  }
-
   export type SzakmaScalarRelationFilter = {
     is?: SzakmaWhereInput
     isNot?: SzakmaWhereInput
   }
 
-  export type Alapadatok_SzakmaAlapadatok_idSzakma_idCompoundUniqueInput = {
-    alapadatok_id: string
-    szakma_id: string
-  }
-
-  export type Alapadatok_SzakmaCountOrderByAggregateInput = {
-    alapadatok_id?: SortOrder
-    szakma_id?: SortOrder
-  }
-
-  export type Alapadatok_SzakmaMaxOrderByAggregateInput = {
-    alapadatok_id?: SortOrder
-    szakma_id?: SortOrder
-  }
-
-  export type Alapadatok_SzakmaMinOrderByAggregateInput = {
-    alapadatok_id?: SortOrder
-    szakma_id?: SortOrder
-  }
-
   export type SzakiranyScalarRelationFilter = {
     is?: SzakiranyWhereInput
     isNot?: SzakiranyWhereInput
+  }
+
+  export type Szakirany_SzakmaSzakirany_idSzakma_idCompoundUniqueInput = {
+    szakirany_id: string
+    szakma_id: string
+  }
+
+  export type Szakirany_SzakmaCountOrderByAggregateInput = {
+    szakirany_id?: SortOrder
+    szakma_id?: SortOrder
+  }
+
+  export type Szakirany_SzakmaMaxOrderByAggregateInput = {
+    szakirany_id?: SortOrder
+    szakma_id?: SortOrder
+  }
+
+  export type Szakirany_SzakmaMinOrderByAggregateInput = {
+    szakirany_id?: SortOrder
+    szakma_id?: SortOrder
+  }
+
+  export type AlapadatokScalarRelationFilter = {
+    is?: AlapadatokWhereInput
+    isNot?: AlapadatokWhereInput
   }
 
   export type Alapadatok_SzakiranyAlapadatok_idSzakirany_idCompoundUniqueInput = {
@@ -34963,13 +34963,6 @@ export namespace Prisma {
     connect?: versenyekWhereUniqueInput | versenyekWhereUniqueInput[]
   }
 
-  export type Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput = {
-    create?: XOR<Alapadatok_SzakmaCreateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput> | Alapadatok_SzakmaCreateWithoutAlapadatokInput[] | Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput | Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput[]
-    createMany?: Alapadatok_SzakmaCreateManyAlapadatokInputEnvelope
-    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-  }
-
   export type Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput = {
     create?: XOR<Alapadatok_SzakiranyCreateWithoutAlapadatokInput, Alapadatok_SzakiranyUncheckedCreateWithoutAlapadatokInput> | Alapadatok_SzakiranyCreateWithoutAlapadatokInput[] | Alapadatok_SzakiranyUncheckedCreateWithoutAlapadatokInput[]
     connectOrCreate?: Alapadatok_SzakiranyCreateOrConnectWithoutAlapadatokInput | Alapadatok_SzakiranyCreateOrConnectWithoutAlapadatokInput[]
@@ -35045,13 +35038,6 @@ export namespace Prisma {
     connectOrCreate?: versenyekCreateOrConnectWithoutAlapadatokInput | versenyekCreateOrConnectWithoutAlapadatokInput[]
     createMany?: versenyekCreateManyAlapadatokInputEnvelope
     connect?: versenyekWhereUniqueInput | versenyekWhereUniqueInput[]
-  }
-
-  export type Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput = {
-    create?: XOR<Alapadatok_SzakmaCreateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput> | Alapadatok_SzakmaCreateWithoutAlapadatokInput[] | Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput | Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput[]
-    createMany?: Alapadatok_SzakmaCreateManyAlapadatokInputEnvelope
-    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
   }
 
   export type Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput = {
@@ -35192,20 +35178,6 @@ export namespace Prisma {
     update?: versenyekUpdateWithWhereUniqueWithoutAlapadatokInput | versenyekUpdateWithWhereUniqueWithoutAlapadatokInput[]
     updateMany?: versenyekUpdateManyWithWhereWithoutAlapadatokInput | versenyekUpdateManyWithWhereWithoutAlapadatokInput[]
     deleteMany?: versenyekScalarWhereInput | versenyekScalarWhereInput[]
-  }
-
-  export type Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput = {
-    create?: XOR<Alapadatok_SzakmaCreateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput> | Alapadatok_SzakmaCreateWithoutAlapadatokInput[] | Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput | Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput[]
-    upsert?: Alapadatok_SzakmaUpsertWithWhereUniqueWithoutAlapadatokInput | Alapadatok_SzakmaUpsertWithWhereUniqueWithoutAlapadatokInput[]
-    createMany?: Alapadatok_SzakmaCreateManyAlapadatokInputEnvelope
-    set?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    disconnect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    delete?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    update?: Alapadatok_SzakmaUpdateWithWhereUniqueWithoutAlapadatokInput | Alapadatok_SzakmaUpdateWithWhereUniqueWithoutAlapadatokInput[]
-    updateMany?: Alapadatok_SzakmaUpdateManyWithWhereWithoutAlapadatokInput | Alapadatok_SzakmaUpdateManyWithWhereWithoutAlapadatokInput[]
-    deleteMany?: Alapadatok_SzakmaScalarWhereInput | Alapadatok_SzakmaScalarWhereInput[]
   }
 
   export type Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput = {
@@ -35362,20 +35334,6 @@ export namespace Prisma {
     deleteMany?: versenyekScalarWhereInput | versenyekScalarWhereInput[]
   }
 
-  export type Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput = {
-    create?: XOR<Alapadatok_SzakmaCreateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput> | Alapadatok_SzakmaCreateWithoutAlapadatokInput[] | Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput | Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput[]
-    upsert?: Alapadatok_SzakmaUpsertWithWhereUniqueWithoutAlapadatokInput | Alapadatok_SzakmaUpsertWithWhereUniqueWithoutAlapadatokInput[]
-    createMany?: Alapadatok_SzakmaCreateManyAlapadatokInputEnvelope
-    set?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    disconnect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    delete?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    update?: Alapadatok_SzakmaUpdateWithWhereUniqueWithoutAlapadatokInput | Alapadatok_SzakmaUpdateWithWhereUniqueWithoutAlapadatokInput[]
-    updateMany?: Alapadatok_SzakmaUpdateManyWithWhereWithoutAlapadatokInput | Alapadatok_SzakmaUpdateManyWithWhereWithoutAlapadatokInput[]
-    deleteMany?: Alapadatok_SzakmaScalarWhereInput | Alapadatok_SzakmaScalarWhereInput[]
-  }
-
   export type Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput = {
     create?: XOR<Alapadatok_SzakiranyCreateWithoutAlapadatokInput, Alapadatok_SzakiranyUncheckedCreateWithoutAlapadatokInput> | Alapadatok_SzakiranyCreateWithoutAlapadatokInput[] | Alapadatok_SzakiranyUncheckedCreateWithoutAlapadatokInput[]
     connectOrCreate?: Alapadatok_SzakiranyCreateOrConnectWithoutAlapadatokInput | Alapadatok_SzakiranyCreateOrConnectWithoutAlapadatokInput[]
@@ -35432,6 +35390,13 @@ export namespace Prisma {
     connect?: Alapadatok_SzakiranyWhereUniqueInput | Alapadatok_SzakiranyWhereUniqueInput[]
   }
 
+  export type Szakirany_SzakmaCreateNestedManyWithoutSzakiranyInput = {
+    create?: XOR<Szakirany_SzakmaCreateWithoutSzakiranyInput, Szakirany_SzakmaUncheckedCreateWithoutSzakiranyInput> | Szakirany_SzakmaCreateWithoutSzakiranyInput[] | Szakirany_SzakmaUncheckedCreateWithoutSzakiranyInput[]
+    connectOrCreate?: Szakirany_SzakmaCreateOrConnectWithoutSzakiranyInput | Szakirany_SzakmaCreateOrConnectWithoutSzakiranyInput[]
+    createMany?: Szakirany_SzakmaCreateManySzakiranyInputEnvelope
+    connect?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+  }
+
   export type Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakiranyInput = {
     create?: XOR<Felvettek_SzamaCreateWithoutSzakiranyInput, Felvettek_SzamaUncheckedCreateWithoutSzakiranyInput> | Felvettek_SzamaCreateWithoutSzakiranyInput[] | Felvettek_SzamaUncheckedCreateWithoutSzakiranyInput[]
     connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutSzakiranyInput | Felvettek_SzamaCreateOrConnectWithoutSzakiranyInput[]
@@ -35458,6 +35423,13 @@ export namespace Prisma {
     connectOrCreate?: Alapadatok_SzakiranyCreateOrConnectWithoutSzakiranyInput | Alapadatok_SzakiranyCreateOrConnectWithoutSzakiranyInput[]
     createMany?: Alapadatok_SzakiranyCreateManySzakiranyInputEnvelope
     connect?: Alapadatok_SzakiranyWhereUniqueInput | Alapadatok_SzakiranyWhereUniqueInput[]
+  }
+
+  export type Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakiranyInput = {
+    create?: XOR<Szakirany_SzakmaCreateWithoutSzakiranyInput, Szakirany_SzakmaUncheckedCreateWithoutSzakiranyInput> | Szakirany_SzakmaCreateWithoutSzakiranyInput[] | Szakirany_SzakmaUncheckedCreateWithoutSzakiranyInput[]
+    connectOrCreate?: Szakirany_SzakmaCreateOrConnectWithoutSzakiranyInput | Szakirany_SzakmaCreateOrConnectWithoutSzakiranyInput[]
+    createMany?: Szakirany_SzakmaCreateManySzakiranyInputEnvelope
+    connect?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
   }
 
   export type Felvettek_SzamaUpdateManyWithoutSzakiranyNestedInput = {
@@ -35516,6 +35488,20 @@ export namespace Prisma {
     deleteMany?: Alapadatok_SzakiranyScalarWhereInput | Alapadatok_SzakiranyScalarWhereInput[]
   }
 
+  export type Szakirany_SzakmaUpdateManyWithoutSzakiranyNestedInput = {
+    create?: XOR<Szakirany_SzakmaCreateWithoutSzakiranyInput, Szakirany_SzakmaUncheckedCreateWithoutSzakiranyInput> | Szakirany_SzakmaCreateWithoutSzakiranyInput[] | Szakirany_SzakmaUncheckedCreateWithoutSzakiranyInput[]
+    connectOrCreate?: Szakirany_SzakmaCreateOrConnectWithoutSzakiranyInput | Szakirany_SzakmaCreateOrConnectWithoutSzakiranyInput[]
+    upsert?: Szakirany_SzakmaUpsertWithWhereUniqueWithoutSzakiranyInput | Szakirany_SzakmaUpsertWithWhereUniqueWithoutSzakiranyInput[]
+    createMany?: Szakirany_SzakmaCreateManySzakiranyInputEnvelope
+    set?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    disconnect?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    delete?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    connect?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    update?: Szakirany_SzakmaUpdateWithWhereUniqueWithoutSzakiranyInput | Szakirany_SzakmaUpdateWithWhereUniqueWithoutSzakiranyInput[]
+    updateMany?: Szakirany_SzakmaUpdateManyWithWhereWithoutSzakiranyInput | Szakirany_SzakmaUpdateManyWithWhereWithoutSzakiranyInput[]
+    deleteMany?: Szakirany_SzakmaScalarWhereInput | Szakirany_SzakmaScalarWhereInput[]
+  }
+
   export type Felvettek_SzamaUncheckedUpdateManyWithoutSzakiranyNestedInput = {
     create?: XOR<Felvettek_SzamaCreateWithoutSzakiranyInput, Felvettek_SzamaUncheckedCreateWithoutSzakiranyInput> | Felvettek_SzamaCreateWithoutSzakiranyInput[] | Felvettek_SzamaUncheckedCreateWithoutSzakiranyInput[]
     connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutSzakiranyInput | Felvettek_SzamaCreateOrConnectWithoutSzakiranyInput[]
@@ -35572,6 +35558,20 @@ export namespace Prisma {
     deleteMany?: Alapadatok_SzakiranyScalarWhereInput | Alapadatok_SzakiranyScalarWhereInput[]
   }
 
+  export type Szakirany_SzakmaUncheckedUpdateManyWithoutSzakiranyNestedInput = {
+    create?: XOR<Szakirany_SzakmaCreateWithoutSzakiranyInput, Szakirany_SzakmaUncheckedCreateWithoutSzakiranyInput> | Szakirany_SzakmaCreateWithoutSzakiranyInput[] | Szakirany_SzakmaUncheckedCreateWithoutSzakiranyInput[]
+    connectOrCreate?: Szakirany_SzakmaCreateOrConnectWithoutSzakiranyInput | Szakirany_SzakmaCreateOrConnectWithoutSzakiranyInput[]
+    upsert?: Szakirany_SzakmaUpsertWithWhereUniqueWithoutSzakiranyInput | Szakirany_SzakmaUpsertWithWhereUniqueWithoutSzakiranyInput[]
+    createMany?: Szakirany_SzakmaCreateManySzakiranyInputEnvelope
+    set?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    disconnect?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    delete?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    connect?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    update?: Szakirany_SzakmaUpdateWithWhereUniqueWithoutSzakiranyInput | Szakirany_SzakmaUpdateWithWhereUniqueWithoutSzakiranyInput[]
+    updateMany?: Szakirany_SzakmaUpdateManyWithWhereWithoutSzakiranyInput | Szakirany_SzakmaUpdateManyWithWhereWithoutSzakiranyInput[]
+    deleteMany?: Szakirany_SzakmaScalarWhereInput | Szakirany_SzakmaScalarWhereInput[]
+  }
+
   export type Felvettek_SzamaCreateNestedManyWithoutSzakmaInput = {
     create?: XOR<Felvettek_SzamaCreateWithoutSzakmaInput, Felvettek_SzamaUncheckedCreateWithoutSzakmaInput> | Felvettek_SzamaCreateWithoutSzakmaInput[] | Felvettek_SzamaUncheckedCreateWithoutSzakmaInput[]
     connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutSzakmaInput | Felvettek_SzamaCreateOrConnectWithoutSzakmaInput[]
@@ -35593,11 +35593,11 @@ export namespace Prisma {
     connect?: SzakkepzesiStatisztikaWhereUniqueInput | SzakkepzesiStatisztikaWhereUniqueInput[]
   }
 
-  export type Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput = {
-    create?: XOR<Alapadatok_SzakmaCreateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput> | Alapadatok_SzakmaCreateWithoutSzakmaInput[] | Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput[]
-    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput | Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput[]
-    createMany?: Alapadatok_SzakmaCreateManySzakmaInputEnvelope
-    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+  export type Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput = {
+    create?: XOR<Szakirany_SzakmaCreateWithoutSzakmaInput, Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput> | Szakirany_SzakmaCreateWithoutSzakmaInput[] | Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput[]
+    connectOrCreate?: Szakirany_SzakmaCreateOrConnectWithoutSzakmaInput | Szakirany_SzakmaCreateOrConnectWithoutSzakmaInput[]
+    createMany?: Szakirany_SzakmaCreateManySzakmaInputEnvelope
+    connect?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
   }
 
   export type Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput = {
@@ -35621,11 +35621,11 @@ export namespace Prisma {
     connect?: SzakkepzesiStatisztikaWhereUniqueInput | SzakkepzesiStatisztikaWhereUniqueInput[]
   }
 
-  export type Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput = {
-    create?: XOR<Alapadatok_SzakmaCreateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput> | Alapadatok_SzakmaCreateWithoutSzakmaInput[] | Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput[]
-    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput | Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput[]
-    createMany?: Alapadatok_SzakmaCreateManySzakmaInputEnvelope
-    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+  export type Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput = {
+    create?: XOR<Szakirany_SzakmaCreateWithoutSzakmaInput, Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput> | Szakirany_SzakmaCreateWithoutSzakmaInput[] | Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput[]
+    connectOrCreate?: Szakirany_SzakmaCreateOrConnectWithoutSzakmaInput | Szakirany_SzakmaCreateOrConnectWithoutSzakmaInput[]
+    createMany?: Szakirany_SzakmaCreateManySzakmaInputEnvelope
+    connect?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
   }
 
   export type Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput = {
@@ -35670,18 +35670,18 @@ export namespace Prisma {
     deleteMany?: SzakkepzesiStatisztikaScalarWhereInput | SzakkepzesiStatisztikaScalarWhereInput[]
   }
 
-  export type Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput = {
-    create?: XOR<Alapadatok_SzakmaCreateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput> | Alapadatok_SzakmaCreateWithoutSzakmaInput[] | Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput[]
-    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput | Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput[]
-    upsert?: Alapadatok_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput | Alapadatok_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput[]
-    createMany?: Alapadatok_SzakmaCreateManySzakmaInputEnvelope
-    set?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    disconnect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    delete?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    update?: Alapadatok_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput | Alapadatok_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput[]
-    updateMany?: Alapadatok_SzakmaUpdateManyWithWhereWithoutSzakmaInput | Alapadatok_SzakmaUpdateManyWithWhereWithoutSzakmaInput[]
-    deleteMany?: Alapadatok_SzakmaScalarWhereInput | Alapadatok_SzakmaScalarWhereInput[]
+  export type Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput = {
+    create?: XOR<Szakirany_SzakmaCreateWithoutSzakmaInput, Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput> | Szakirany_SzakmaCreateWithoutSzakmaInput[] | Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput[]
+    connectOrCreate?: Szakirany_SzakmaCreateOrConnectWithoutSzakmaInput | Szakirany_SzakmaCreateOrConnectWithoutSzakmaInput[]
+    upsert?: Szakirany_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput | Szakirany_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput[]
+    createMany?: Szakirany_SzakmaCreateManySzakmaInputEnvelope
+    set?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    disconnect?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    delete?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    connect?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    update?: Szakirany_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput | Szakirany_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput[]
+    updateMany?: Szakirany_SzakmaUpdateManyWithWhereWithoutSzakmaInput | Szakirany_SzakmaUpdateManyWithWhereWithoutSzakmaInput[]
+    deleteMany?: Szakirany_SzakmaScalarWhereInput | Szakirany_SzakmaScalarWhereInput[]
   }
 
   export type Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput = {
@@ -35726,24 +35726,18 @@ export namespace Prisma {
     deleteMany?: SzakkepzesiStatisztikaScalarWhereInput | SzakkepzesiStatisztikaScalarWhereInput[]
   }
 
-  export type Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput = {
-    create?: XOR<Alapadatok_SzakmaCreateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput> | Alapadatok_SzakmaCreateWithoutSzakmaInput[] | Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput[]
-    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput | Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput[]
-    upsert?: Alapadatok_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput | Alapadatok_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput[]
-    createMany?: Alapadatok_SzakmaCreateManySzakmaInputEnvelope
-    set?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    disconnect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    delete?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
-    update?: Alapadatok_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput | Alapadatok_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput[]
-    updateMany?: Alapadatok_SzakmaUpdateManyWithWhereWithoutSzakmaInput | Alapadatok_SzakmaUpdateManyWithWhereWithoutSzakmaInput[]
-    deleteMany?: Alapadatok_SzakmaScalarWhereInput | Alapadatok_SzakmaScalarWhereInput[]
-  }
-
-  export type AlapadatokCreateNestedOneWithoutAlapadatok_szakmaInput = {
-    create?: XOR<AlapadatokCreateWithoutAlapadatok_szakmaInput, AlapadatokUncheckedCreateWithoutAlapadatok_szakmaInput>
-    connectOrCreate?: AlapadatokCreateOrConnectWithoutAlapadatok_szakmaInput
-    connect?: AlapadatokWhereUniqueInput
+  export type Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput = {
+    create?: XOR<Szakirany_SzakmaCreateWithoutSzakmaInput, Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput> | Szakirany_SzakmaCreateWithoutSzakmaInput[] | Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput[]
+    connectOrCreate?: Szakirany_SzakmaCreateOrConnectWithoutSzakmaInput | Szakirany_SzakmaCreateOrConnectWithoutSzakmaInput[]
+    upsert?: Szakirany_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput | Szakirany_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput[]
+    createMany?: Szakirany_SzakmaCreateManySzakmaInputEnvelope
+    set?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    disconnect?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    delete?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    connect?: Szakirany_SzakmaWhereUniqueInput | Szakirany_SzakmaWhereUniqueInput[]
+    update?: Szakirany_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput | Szakirany_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput[]
+    updateMany?: Szakirany_SzakmaUpdateManyWithWhereWithoutSzakmaInput | Szakirany_SzakmaUpdateManyWithWhereWithoutSzakmaInput[]
+    deleteMany?: Szakirany_SzakmaScalarWhereInput | Szakirany_SzakmaScalarWhereInput[]
   }
 
   export type SzakmaCreateNestedOneWithoutAlapadatok_szakmaInput = {
@@ -35752,12 +35746,10 @@ export namespace Prisma {
     connect?: SzakmaWhereUniqueInput
   }
 
-  export type AlapadatokUpdateOneRequiredWithoutAlapadatok_szakmaNestedInput = {
-    create?: XOR<AlapadatokCreateWithoutAlapadatok_szakmaInput, AlapadatokUncheckedCreateWithoutAlapadatok_szakmaInput>
-    connectOrCreate?: AlapadatokCreateOrConnectWithoutAlapadatok_szakmaInput
-    upsert?: AlapadatokUpsertWithoutAlapadatok_szakmaInput
-    connect?: AlapadatokWhereUniqueInput
-    update?: XOR<XOR<AlapadatokUpdateToOneWithWhereWithoutAlapadatok_szakmaInput, AlapadatokUpdateWithoutAlapadatok_szakmaInput>, AlapadatokUncheckedUpdateWithoutAlapadatok_szakmaInput>
+  export type SzakiranyCreateNestedOneWithoutSzakmaInput = {
+    create?: XOR<SzakiranyCreateWithoutSzakmaInput, SzakiranyUncheckedCreateWithoutSzakmaInput>
+    connectOrCreate?: SzakiranyCreateOrConnectWithoutSzakmaInput
+    connect?: SzakiranyWhereUniqueInput
   }
 
   export type SzakmaUpdateOneRequiredWithoutAlapadatok_szakmaNestedInput = {
@@ -35766,6 +35758,14 @@ export namespace Prisma {
     upsert?: SzakmaUpsertWithoutAlapadatok_szakmaInput
     connect?: SzakmaWhereUniqueInput
     update?: XOR<XOR<SzakmaUpdateToOneWithWhereWithoutAlapadatok_szakmaInput, SzakmaUpdateWithoutAlapadatok_szakmaInput>, SzakmaUncheckedUpdateWithoutAlapadatok_szakmaInput>
+  }
+
+  export type SzakiranyUpdateOneRequiredWithoutSzakmaNestedInput = {
+    create?: XOR<SzakiranyCreateWithoutSzakmaInput, SzakiranyUncheckedCreateWithoutSzakmaInput>
+    connectOrCreate?: SzakiranyCreateOrConnectWithoutSzakmaInput
+    upsert?: SzakiranyUpsertWithoutSzakmaInput
+    connect?: SzakiranyWhereUniqueInput
+    update?: XOR<XOR<SzakiranyUpdateToOneWithWhereWithoutSzakmaInput, SzakiranyUpdateWithoutSzakmaInput>, SzakiranyUncheckedUpdateWithoutSzakmaInput>
   }
 
   export type AlapadatokCreateNestedOneWithoutAlapadatok_szakiranyInput = {
@@ -36508,7 +36508,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -36525,7 +36524,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -36621,7 +36619,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -36638,7 +36635,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -37360,24 +37356,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type Alapadatok_SzakmaCreateWithoutAlapadatokInput = {
-    szakma: SzakmaCreateNestedOneWithoutAlapadatok_szakmaInput
-  }
-
-  export type Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput = {
-    szakma_id: string
-  }
-
-  export type Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput = {
-    where: Alapadatok_SzakmaWhereUniqueInput
-    create: XOR<Alapadatok_SzakmaCreateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput>
-  }
-
-  export type Alapadatok_SzakmaCreateManyAlapadatokInputEnvelope = {
-    data: Alapadatok_SzakmaCreateManyAlapadatokInput | Alapadatok_SzakmaCreateManyAlapadatokInput[]
-    skipDuplicates?: boolean
-  }
-
   export type Alapadatok_SzakiranyCreateWithoutAlapadatokInput = {
     szakirany: SzakiranyCreateNestedOneWithoutAlapadatok_szakiranyInput
   }
@@ -37816,30 +37794,6 @@ export namespace Prisma {
     updatedBy?: StringNullableFilter<"versenyek"> | string | null
   }
 
-  export type Alapadatok_SzakmaUpsertWithWhereUniqueWithoutAlapadatokInput = {
-    where: Alapadatok_SzakmaWhereUniqueInput
-    update: XOR<Alapadatok_SzakmaUpdateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedUpdateWithoutAlapadatokInput>
-    create: XOR<Alapadatok_SzakmaCreateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput>
-  }
-
-  export type Alapadatok_SzakmaUpdateWithWhereUniqueWithoutAlapadatokInput = {
-    where: Alapadatok_SzakmaWhereUniqueInput
-    data: XOR<Alapadatok_SzakmaUpdateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedUpdateWithoutAlapadatokInput>
-  }
-
-  export type Alapadatok_SzakmaUpdateManyWithWhereWithoutAlapadatokInput = {
-    where: Alapadatok_SzakmaScalarWhereInput
-    data: XOR<Alapadatok_SzakmaUpdateManyMutationInput, Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokInput>
-  }
-
-  export type Alapadatok_SzakmaScalarWhereInput = {
-    AND?: Alapadatok_SzakmaScalarWhereInput | Alapadatok_SzakmaScalarWhereInput[]
-    OR?: Alapadatok_SzakmaScalarWhereInput[]
-    NOT?: Alapadatok_SzakmaScalarWhereInput | Alapadatok_SzakmaScalarWhereInput[]
-    alapadatok_id?: UuidFilter<"Alapadatok_Szakma"> | string
-    szakma_id?: UuidFilter<"Alapadatok_Szakma"> | string
-  }
-
   export type Alapadatok_SzakiranyUpsertWithWhereUniqueWithoutAlapadatokInput = {
     where: Alapadatok_SzakiranyWhereUniqueInput
     update: XOR<Alapadatok_SzakiranyUpdateWithoutAlapadatokInput, Alapadatok_SzakiranyUncheckedUpdateWithoutAlapadatokInput>
@@ -38022,6 +37976,24 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type Szakirany_SzakmaCreateWithoutSzakiranyInput = {
+    szakma: SzakmaCreateNestedOneWithoutAlapadatok_szakmaInput
+  }
+
+  export type Szakirany_SzakmaUncheckedCreateWithoutSzakiranyInput = {
+    szakma_id: string
+  }
+
+  export type Szakirany_SzakmaCreateOrConnectWithoutSzakiranyInput = {
+    where: Szakirany_SzakmaWhereUniqueInput
+    create: XOR<Szakirany_SzakmaCreateWithoutSzakiranyInput, Szakirany_SzakmaUncheckedCreateWithoutSzakiranyInput>
+  }
+
+  export type Szakirany_SzakmaCreateManySzakiranyInputEnvelope = {
+    data: Szakirany_SzakmaCreateManySzakiranyInput | Szakirany_SzakmaCreateManySzakiranyInput[]
+    skipDuplicates?: boolean
+  }
+
   export type Felvettek_SzamaUpsertWithWhereUniqueWithoutSzakiranyInput = {
     where: Felvettek_SzamaWhereUniqueInput
     update: XOR<Felvettek_SzamaUpdateWithoutSzakiranyInput, Felvettek_SzamaUncheckedUpdateWithoutSzakiranyInput>
@@ -38084,6 +38056,30 @@ export namespace Prisma {
   export type Alapadatok_SzakiranyUpdateManyWithWhereWithoutSzakiranyInput = {
     where: Alapadatok_SzakiranyScalarWhereInput
     data: XOR<Alapadatok_SzakiranyUpdateManyMutationInput, Alapadatok_SzakiranyUncheckedUpdateManyWithoutSzakiranyInput>
+  }
+
+  export type Szakirany_SzakmaUpsertWithWhereUniqueWithoutSzakiranyInput = {
+    where: Szakirany_SzakmaWhereUniqueInput
+    update: XOR<Szakirany_SzakmaUpdateWithoutSzakiranyInput, Szakirany_SzakmaUncheckedUpdateWithoutSzakiranyInput>
+    create: XOR<Szakirany_SzakmaCreateWithoutSzakiranyInput, Szakirany_SzakmaUncheckedCreateWithoutSzakiranyInput>
+  }
+
+  export type Szakirany_SzakmaUpdateWithWhereUniqueWithoutSzakiranyInput = {
+    where: Szakirany_SzakmaWhereUniqueInput
+    data: XOR<Szakirany_SzakmaUpdateWithoutSzakiranyInput, Szakirany_SzakmaUncheckedUpdateWithoutSzakiranyInput>
+  }
+
+  export type Szakirany_SzakmaUpdateManyWithWhereWithoutSzakiranyInput = {
+    where: Szakirany_SzakmaScalarWhereInput
+    data: XOR<Szakirany_SzakmaUpdateManyMutationInput, Szakirany_SzakmaUncheckedUpdateManyWithoutSzakiranyInput>
+  }
+
+  export type Szakirany_SzakmaScalarWhereInput = {
+    AND?: Szakirany_SzakmaScalarWhereInput | Szakirany_SzakmaScalarWhereInput[]
+    OR?: Szakirany_SzakmaScalarWhereInput[]
+    NOT?: Szakirany_SzakmaScalarWhereInput | Szakirany_SzakmaScalarWhereInput[]
+    szakirany_id?: UuidFilter<"Szakirany_Szakma"> | string
+    szakma_id?: UuidFilter<"Szakirany_Szakma"> | string
   }
 
   export type Felvettek_SzamaCreateWithoutSzakmaInput = {
@@ -38196,21 +38192,21 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type Alapadatok_SzakmaCreateWithoutSzakmaInput = {
-    alapadatok: AlapadatokCreateNestedOneWithoutAlapadatok_szakmaInput
+  export type Szakirany_SzakmaCreateWithoutSzakmaInput = {
+    szakirany: SzakiranyCreateNestedOneWithoutSzakmaInput
   }
 
-  export type Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput = {
-    alapadatok_id: string
+  export type Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput = {
+    szakirany_id: string
   }
 
-  export type Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput = {
-    where: Alapadatok_SzakmaWhereUniqueInput
-    create: XOR<Alapadatok_SzakmaCreateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput>
+  export type Szakirany_SzakmaCreateOrConnectWithoutSzakmaInput = {
+    where: Szakirany_SzakmaWhereUniqueInput
+    create: XOR<Szakirany_SzakmaCreateWithoutSzakmaInput, Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput>
   }
 
-  export type Alapadatok_SzakmaCreateManySzakmaInputEnvelope = {
-    data: Alapadatok_SzakmaCreateManySzakmaInput | Alapadatok_SzakmaCreateManySzakmaInput[]
+  export type Szakirany_SzakmaCreateManySzakmaInputEnvelope = {
+    data: Szakirany_SzakmaCreateManySzakmaInput | Szakirany_SzakmaCreateManySzakmaInput[]
     skipDuplicates?: boolean
   }
 
@@ -38262,59 +38258,20 @@ export namespace Prisma {
     data: XOR<SzakkepzesiStatisztikaUpdateManyMutationInput, SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaInput>
   }
 
-  export type Alapadatok_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput = {
-    where: Alapadatok_SzakmaWhereUniqueInput
-    update: XOR<Alapadatok_SzakmaUpdateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedUpdateWithoutSzakmaInput>
-    create: XOR<Alapadatok_SzakmaCreateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput>
+  export type Szakirany_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput = {
+    where: Szakirany_SzakmaWhereUniqueInput
+    update: XOR<Szakirany_SzakmaUpdateWithoutSzakmaInput, Szakirany_SzakmaUncheckedUpdateWithoutSzakmaInput>
+    create: XOR<Szakirany_SzakmaCreateWithoutSzakmaInput, Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput>
   }
 
-  export type Alapadatok_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput = {
-    where: Alapadatok_SzakmaWhereUniqueInput
-    data: XOR<Alapadatok_SzakmaUpdateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedUpdateWithoutSzakmaInput>
+  export type Szakirany_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput = {
+    where: Szakirany_SzakmaWhereUniqueInput
+    data: XOR<Szakirany_SzakmaUpdateWithoutSzakmaInput, Szakirany_SzakmaUncheckedUpdateWithoutSzakmaInput>
   }
 
-  export type Alapadatok_SzakmaUpdateManyWithWhereWithoutSzakmaInput = {
-    where: Alapadatok_SzakmaScalarWhereInput
-    data: XOR<Alapadatok_SzakmaUpdateManyMutationInput, Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaInput>
-  }
-
-  export type AlapadatokCreateWithoutAlapadatok_szakmaInput = {
-    id?: string
-    iskola_neve: string
-    intezmeny_tipus: string
-    felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
-    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
-    tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
-    tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
-    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyCreateNestedManyWithoutAlapadatokInput
-    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
-    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
-    szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
-    versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
-    users?: UserCreateNestedManyWithoutAlapadatokInput
-  }
-
-  export type AlapadatokUncheckedCreateWithoutAlapadatok_szakmaInput = {
-    id?: string
-    iskola_neve: string
-    intezmeny_tipus: string
-    felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
-    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
-    tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
-    tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
-    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUncheckedCreateNestedManyWithoutAlapadatokInput
-    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
-    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
-    szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
-    versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
-    users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
-  }
-
-  export type AlapadatokCreateOrConnectWithoutAlapadatok_szakmaInput = {
-    where: AlapadatokWhereUniqueInput
-    create: XOR<AlapadatokCreateWithoutAlapadatok_szakmaInput, AlapadatokUncheckedCreateWithoutAlapadatok_szakmaInput>
+  export type Szakirany_SzakmaUpdateManyWithWhereWithoutSzakmaInput = {
+    where: Szakirany_SzakmaScalarWhereInput
+    data: XOR<Szakirany_SzakmaUpdateManyMutationInput, Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaInput>
   }
 
   export type SzakmaCreateWithoutAlapadatok_szakmaInput = {
@@ -38338,49 +38295,27 @@ export namespace Prisma {
     create: XOR<SzakmaCreateWithoutAlapadatok_szakmaInput, SzakmaUncheckedCreateWithoutAlapadatok_szakmaInput>
   }
 
-  export type AlapadatokUpsertWithoutAlapadatok_szakmaInput = {
-    update: XOR<AlapadatokUpdateWithoutAlapadatok_szakmaInput, AlapadatokUncheckedUpdateWithoutAlapadatok_szakmaInput>
-    create: XOR<AlapadatokCreateWithoutAlapadatok_szakmaInput, AlapadatokUncheckedCreateWithoutAlapadatok_szakmaInput>
-    where?: AlapadatokWhereInput
+  export type SzakiranyCreateWithoutSzakmaInput = {
+    id?: string
+    nev: string
+    felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakiranyInput
+    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakiranyInput
+    szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakiranyInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutSzakiranyInput
   }
 
-  export type AlapadatokUpdateToOneWithWhereWithoutAlapadatok_szakmaInput = {
-    where?: AlapadatokWhereInput
-    data: XOR<AlapadatokUpdateWithoutAlapadatok_szakmaInput, AlapadatokUncheckedUpdateWithoutAlapadatok_szakmaInput>
+  export type SzakiranyUncheckedCreateWithoutSzakmaInput = {
+    id?: string
+    nev: string
+    felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakiranyInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakiranyInput
+    szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakiranyInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutSzakiranyInput
   }
 
-  export type AlapadatokUpdateWithoutAlapadatok_szakmaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    iskola_neve?: StringFieldUpdateOperationsInput | string
-    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
-    felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
-    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
-    tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
-    tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
-    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUpdateManyWithoutAlapadatokNestedInput
-    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
-    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
-    szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
-    versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
-    users?: UserUpdateManyWithoutAlapadatokNestedInput
-  }
-
-  export type AlapadatokUncheckedUpdateWithoutAlapadatok_szakmaInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    iskola_neve?: StringFieldUpdateOperationsInput | string
-    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
-    felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
-    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
-    tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
-    tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
-    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUncheckedUpdateManyWithoutAlapadatokNestedInput
-    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
-    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
-    szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
-    versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
-    users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+  export type SzakiranyCreateOrConnectWithoutSzakmaInput = {
+    where: SzakiranyWhereUniqueInput
+    create: XOR<SzakiranyCreateWithoutSzakmaInput, SzakiranyUncheckedCreateWithoutSzakmaInput>
   }
 
   export type SzakmaUpsertWithoutAlapadatok_szakmaInput = {
@@ -38410,6 +38345,35 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
+  export type SzakiranyUpsertWithoutSzakmaInput = {
+    update: XOR<SzakiranyUpdateWithoutSzakmaInput, SzakiranyUncheckedUpdateWithoutSzakmaInput>
+    create: XOR<SzakiranyCreateWithoutSzakmaInput, SzakiranyUncheckedCreateWithoutSzakmaInput>
+    where?: SzakiranyWhereInput
+  }
+
+  export type SzakiranyUpdateToOneWithWhereWithoutSzakmaInput = {
+    where?: SzakiranyWhereInput
+    data: XOR<SzakiranyUpdateWithoutSzakmaInput, SzakiranyUncheckedUpdateWithoutSzakmaInput>
+  }
+
+  export type SzakiranyUpdateWithoutSzakmaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nev?: StringFieldUpdateOperationsInput | string
+    felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakiranyNestedInput
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakiranyNestedInput
+    szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakiranyNestedInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutSzakiranyNestedInput
+  }
+
+  export type SzakiranyUncheckedUpdateWithoutSzakmaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nev?: StringFieldUpdateOperationsInput | string
+    felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakiranyNestedInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyNestedInput
+    szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakiranyNestedInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutSzakiranyNestedInput
+  }
+
   export type AlapadatokCreateWithoutAlapadatok_szakiranyInput = {
     id?: string
     iskola_neve: string
@@ -38423,7 +38387,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -38440,7 +38403,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -38455,6 +38417,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakiranyInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakiranyInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakiranyInput
+    szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakiranyInput
   }
 
   export type SzakiranyUncheckedCreateWithoutAlapadatok_szakiranyInput = {
@@ -38463,6 +38426,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakiranyInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakiranyInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakiranyInput
+    szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakiranyInput
   }
 
   export type SzakiranyCreateOrConnectWithoutAlapadatok_szakiranyInput = {
@@ -38494,7 +38458,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -38511,7 +38474,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -38532,6 +38494,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakiranyNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakiranyNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakiranyNestedInput
+    szakma?: Szakirany_SzakmaUpdateManyWithoutSzakiranyNestedInput
   }
 
   export type SzakiranyUncheckedUpdateWithoutAlapadatok_szakiranyInput = {
@@ -38540,6 +38503,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakiranyNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakiranyNestedInput
+    szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakiranyNestedInput
   }
 
   export type AlapadatokCreateWithoutTanulo_letszamInput = {
@@ -38554,7 +38518,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
@@ -38571,7 +38534,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -38587,6 +38549,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakiranyInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakiranyInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutSzakiranyInput
+    szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakiranyInput
   }
 
   export type SzakiranyUncheckedCreateWithoutTanulo_letszamInput = {
@@ -38595,6 +38558,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakiranyInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakiranyInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutSzakiranyInput
+    szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakiranyInput
   }
 
   export type SzakiranyCreateOrConnectWithoutTanulo_letszamInput = {
@@ -38607,7 +38571,7 @@ export namespace Prisma {
     nev: string
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakmaInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput
+    alapadatok_szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateWithoutTanulo_letszamInput = {
@@ -38615,7 +38579,7 @@ export namespace Prisma {
     nev: string
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakmaInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok_szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaCreateOrConnectWithoutTanulo_letszamInput = {
@@ -38646,7 +38610,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
@@ -38663,7 +38626,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -38685,6 +38647,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakiranyNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakiranyNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutSzakiranyNestedInput
+    szakma?: Szakirany_SzakmaUpdateManyWithoutSzakiranyNestedInput
   }
 
   export type SzakiranyUncheckedUpdateWithoutTanulo_letszamInput = {
@@ -38693,6 +38656,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakiranyNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakiranyNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutSzakiranyNestedInput
+    szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakiranyNestedInput
   }
 
   export type SzakmaUpsertWithoutTanulo_letszamInput = {
@@ -38711,7 +38675,7 @@ export namespace Prisma {
     nev?: StringFieldUpdateOperationsInput | string
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakmaNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput
+    alapadatok_szakma?: Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateWithoutTanulo_letszamInput = {
@@ -38719,7 +38683,7 @@ export namespace Prisma {
     nev?: StringFieldUpdateOperationsInput | string
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok_szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
   export type AlapadatokCreateWithoutTanar_letszamInput = {
@@ -38734,7 +38698,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
@@ -38751,7 +38714,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -38784,7 +38746,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
@@ -38801,7 +38762,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -38818,7 +38778,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
@@ -38835,7 +38794,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -38851,6 +38809,7 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakiranyInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakiranyInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutSzakiranyInput
+    szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakiranyInput
   }
 
   export type SzakiranyUncheckedCreateWithoutFelvettek_szamaInput = {
@@ -38859,6 +38818,7 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakiranyInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakiranyInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutSzakiranyInput
+    szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakiranyInput
   }
 
   export type SzakiranyCreateOrConnectWithoutFelvettek_szamaInput = {
@@ -38871,7 +38831,7 @@ export namespace Prisma {
     nev: string
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakmaInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput
+    alapadatok_szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateWithoutFelvettek_szamaInput = {
@@ -38879,7 +38839,7 @@ export namespace Prisma {
     nev: string
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakmaInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok_szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaCreateOrConnectWithoutFelvettek_szamaInput = {
@@ -38910,7 +38870,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
@@ -38927,7 +38886,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -38949,6 +38907,7 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakiranyNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakiranyNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutSzakiranyNestedInput
+    szakma?: Szakirany_SzakmaUpdateManyWithoutSzakiranyNestedInput
   }
 
   export type SzakiranyUncheckedUpdateWithoutFelvettek_szamaInput = {
@@ -38957,6 +38916,7 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakiranyNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutSzakiranyNestedInput
+    szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakiranyNestedInput
   }
 
   export type SzakmaUpsertWithoutFelvettek_szamaInput = {
@@ -38975,7 +38935,7 @@ export namespace Prisma {
     nev?: StringFieldUpdateOperationsInput | string
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakmaNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput
+    alapadatok_szakma?: Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateWithoutFelvettek_szamaInput = {
@@ -38983,7 +38943,7 @@ export namespace Prisma {
     nev?: StringFieldUpdateOperationsInput | string
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok_szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
   export type AlapadatokCreateWithoutKompetenciaInput = {
@@ -38998,7 +38958,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
@@ -39015,7 +38974,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -39048,7 +39006,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
@@ -39065,7 +39022,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -39082,7 +39038,6 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
@@ -39099,7 +39054,6 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -39132,7 +39086,6 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
@@ -39149,7 +39102,6 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -39166,7 +39118,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
@@ -39183,7 +39134,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -39216,7 +39166,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
@@ -39233,7 +39182,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -39250,7 +39198,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
@@ -39267,7 +39214,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -39300,7 +39246,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
@@ -39317,7 +39262,6 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -39334,7 +39278,6 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
@@ -39351,7 +39294,6 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -39367,6 +39309,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakiranyInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakiranyInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutSzakiranyInput
+    szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakiranyInput
   }
 
   export type SzakiranyUncheckedCreateWithoutSzakkepzesiStatisztikaInput = {
@@ -39375,6 +39318,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakiranyInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakiranyInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutSzakiranyInput
+    szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakiranyInput
   }
 
   export type SzakiranyCreateOrConnectWithoutSzakkepzesiStatisztikaInput = {
@@ -39387,7 +39331,7 @@ export namespace Prisma {
     nev: string
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput
+    alapadatok_szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateWithoutSzakkepzesiStatisztikaInput = {
@@ -39395,7 +39339,7 @@ export namespace Prisma {
     nev: string
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok_szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaCreateOrConnectWithoutSzakkepzesiStatisztikaInput = {
@@ -39426,7 +39370,6 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
@@ -39443,7 +39386,6 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -39465,6 +39407,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakiranyNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakiranyNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutSzakiranyNestedInput
+    szakma?: Szakirany_SzakmaUpdateManyWithoutSzakiranyNestedInput
   }
 
   export type SzakiranyUncheckedUpdateWithoutSzakkepzesiStatisztikaInput = {
@@ -39473,6 +39416,7 @@ export namespace Prisma {
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakiranyNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakiranyNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutSzakiranyNestedInput
+    szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakiranyNestedInput
   }
 
   export type SzakmaUpsertWithoutSzakkepzesiStatisztikaInput = {
@@ -39491,7 +39435,7 @@ export namespace Prisma {
     nev?: StringFieldUpdateOperationsInput | string
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput
+    alapadatok_szakma?: Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateWithoutSzakkepzesiStatisztikaInput = {
@@ -39499,7 +39443,7 @@ export namespace Prisma {
     nev?: StringFieldUpdateOperationsInput | string
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok_szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
   export type VesenyNevekCreateWithoutKategoriaInput = {
@@ -39679,7 +39623,6 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
@@ -39696,7 +39639,6 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -39754,7 +39696,6 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
@@ -39771,7 +39712,6 @@ export namespace Prisma {
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
-    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -40131,10 +40071,6 @@ export namespace Prisma {
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
-  }
-
-  export type Alapadatok_SzakmaCreateManyAlapadatokInput = {
-    szakma_id: string
   }
 
   export type Alapadatok_SzakiranyCreateManyAlapadatokInput = {
@@ -40769,18 +40705,6 @@ export namespace Prisma {
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type Alapadatok_SzakmaUpdateWithoutAlapadatokInput = {
-    szakma?: SzakmaUpdateOneRequiredWithoutAlapadatok_szakmaNestedInput
-  }
-
-  export type Alapadatok_SzakmaUncheckedUpdateWithoutAlapadatokInput = {
-    szakma_id?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokInput = {
-    szakma_id?: StringFieldUpdateOperationsInput | string
-  }
-
   export type Alapadatok_SzakiranyUpdateWithoutAlapadatokInput = {
     szakirany?: SzakiranyUpdateOneRequiredWithoutAlapadatok_szakiranyNestedInput
   }
@@ -40869,6 +40793,10 @@ export namespace Prisma {
 
   export type Alapadatok_SzakiranyCreateManySzakiranyInput = {
     alapadatok_id: string
+  }
+
+  export type Szakirany_SzakmaCreateManySzakiranyInput = {
+    szakma_id: string
   }
 
   export type Felvettek_SzamaUpdateWithoutSzakiranyInput = {
@@ -41003,6 +40931,18 @@ export namespace Prisma {
     alapadatok_id?: StringFieldUpdateOperationsInput | string
   }
 
+  export type Szakirany_SzakmaUpdateWithoutSzakiranyInput = {
+    szakma?: SzakmaUpdateOneRequiredWithoutAlapadatok_szakmaNestedInput
+  }
+
+  export type Szakirany_SzakmaUncheckedUpdateWithoutSzakiranyInput = {
+    szakma_id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type Szakirany_SzakmaUncheckedUpdateManyWithoutSzakiranyInput = {
+    szakma_id?: StringFieldUpdateOperationsInput | string
+  }
+
   export type Felvettek_SzamaCreateManySzakmaInput = {
     id?: string
     alapadatok_id: string
@@ -41043,8 +40983,8 @@ export namespace Prisma {
     updatedBy?: string | null
   }
 
-  export type Alapadatok_SzakmaCreateManySzakmaInput = {
-    alapadatok_id: string
+  export type Szakirany_SzakmaCreateManySzakmaInput = {
+    szakirany_id: string
   }
 
   export type Felvettek_SzamaUpdateWithoutSzakmaInput = {
@@ -41167,16 +41107,16 @@ export namespace Prisma {
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type Alapadatok_SzakmaUpdateWithoutSzakmaInput = {
-    alapadatok?: AlapadatokUpdateOneRequiredWithoutAlapadatok_szakmaNestedInput
+  export type Szakirany_SzakmaUpdateWithoutSzakmaInput = {
+    szakirany?: SzakiranyUpdateOneRequiredWithoutSzakmaNestedInput
   }
 
-  export type Alapadatok_SzakmaUncheckedUpdateWithoutSzakmaInput = {
-    alapadatok_id?: StringFieldUpdateOperationsInput | string
+  export type Szakirany_SzakmaUncheckedUpdateWithoutSzakmaInput = {
+    szakirany_id?: StringFieldUpdateOperationsInput | string
   }
 
-  export type Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaInput = {
-    alapadatok_id?: StringFieldUpdateOperationsInput | string
+  export type Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaInput = {
+    szakirany_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type VesenyNevekCreateManyKategoriaInput = {

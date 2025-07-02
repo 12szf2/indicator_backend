@@ -94,9 +94,7 @@ model Alapadatok {
   egyOktatoraJutoTanulo  EgyOktatoraJutoTanulo[]
   szakkepzesiStatisztika SzakkepzesiStatisztika[]
   versenyek              versenyek[]
-
-  alapadatok_szakma    Alapadatok_Szakma[]
-  alapadatok_szakirany Alapadatok_Szakirany[]
+  alapadatok_szakirany   Alapadatok_Szakirany[]
 
   users User[] @relation("AlapadatokUsers")
 }
@@ -109,6 +107,7 @@ model Szakirany {
   szakkepzesiStatisztika SzakkepzesiStatisztika[]
 
   alapadatok_szakirany Alapadatok_Szakirany[]
+  szakma               Szakirany_Szakma[]
 }
 
 model Szakma {
@@ -118,17 +117,17 @@ model Szakma {
   tanulo_letszam         Tanulo_Letszam[]
   szakkepzesiStatisztika SzakkepzesiStatisztika[]
 
-  alapadatok_szakma Alapadatok_Szakma[]
+  alapadatok_szakma Szakirany_Szakma[]
 }
 
-model Alapadatok_Szakma {
-  alapadatok_id String @db.Uuid
-  szakma_id     String @db.Uuid
+model Szakirany_Szakma {
+  szakirany_id String @db.Uuid
+  szakma_id    String @db.Uuid
 
-  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
-  szakma     Szakma     @relation(fields: [szakma_id], references: [id])
+  szakma    Szakma    @relation(fields: [szakma_id], references: [id])
+  szakirany Szakirany @relation(fields: [szakirany_id], references: [id])
 
-  @@id([alapadatok_id, szakma_id])
+  @@id([szakirany_id, szakma_id])
 }
 
 model Alapadatok_Szakirany {
