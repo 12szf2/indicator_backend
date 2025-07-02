@@ -16,7 +16,6 @@ const corsConfig = {
 const app = i.express();
 const port = process.env.PORT || 5300;
 const SESSION_SECRET = process.env.SESSION_SECRET || "supersecretkey";
-const isProduction = process.env.PRODUCTION === "true";
 
 // Add compression middleware to improve response time
 app.use(compression());
@@ -57,6 +56,7 @@ app.use(
 // For auth routes, we need the body parsers but not the authentication middleware
 app.use("/api/v1/auth", i.express.json());
 app.use("/api/v1/auth", i.express.urlencoded({ extended: false }));
+app.use("/api/v1/auth", i.authRouter); // Mount auth routes BEFORE the apiRouter
 
 // Apply middleware to all protected routes at once to reduce setup overhead
 const apiRouter = i.express.Router();
@@ -64,8 +64,7 @@ const apiRouter = i.express.Router();
 // Only parse JSON for routes that need it
 apiRouter.use(i.express.json({ limit: "50mb" }));
 apiRouter.use(i.express.urlencoded({ limit: "50mb", extended: false }));
-
-if (isProduction) app.use("/api/v1/auth", i.authMiddleware);
+apiRouter.use(i.authMiddleware);
 
 // Cache monitoring endpoint
 apiRouter.use("/cache", i.cacheRouter);
@@ -78,8 +77,7 @@ apiRouter.use("/alapadatok", i.alapadatokRouter);
 
 // Apply endpoint access middleware to protected routes
 const protectedRouter = i.express.Router();
-
-if (!isProduction) protectedRouter.use(i.endpointAccessMiddleware);
+protectedRouter.use(i.endpointAccessMiddleware);
 
 protectedRouter.use("/tanugyi_adatok", i.tanugyi_adatok);
 protectedRouter.use("/tanulo_letszam", i.tanulo_letszam);
