@@ -193,12 +193,12 @@ router.get("/:id", async (req, res) => {
  */
 router.post("/", async (req, res) => {
   try {
-    const { iskola_neve, intezmeny_tipus } = req.body;
+    const { iskola_neve, intezmeny_tipus, alapdatok_szakirany } = req.body;
 
-    if (!iskola_neve || !intezmeny_tipus)
+    if (!iskola_neve || !intezmeny_tipus || !alapdatok_szakirany)
       return res.status(400).json({ message: "Hiányos adatok!" });
 
-    await add(iskola_neve, intezmeny_tipus);
+    await add(iskola_neve, intezmeny_tipus, alapdatok_szakirany);
 
     res.status(201).json({ message: "Sikeresen létrehozva!" });
   } catch (error) {

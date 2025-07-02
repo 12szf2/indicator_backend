@@ -97,6 +97,7 @@ model Alapadatok {
   szakkepzesiStatisztika SzakkepzesiStatisztika[]
   versenyek       versenyek[]
   alapadatok_szakirany Alapadatok_Szakirany[]
+  nszfhMeresek    nszfhMeresek[]
 
   users           User[]            @relation("AlapadatokUsers")
 }
@@ -417,3 +418,39 @@ model versenyek {
 
   @@map("versenyek")
 }
+
+model nszfhMeresek {
+  id           String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+  kat_1_mat_bemeneti Int? @db.Integer
+  kat_1_mat_kimeneti Int? @db.Integer
+  kat_1_szoveg_bemeneti Int? @db.Integer
+  kat_1_szoveg_kimeneti Int? @db.Integer
+  kat_2_mat_bemeneti Int? @db.Integer
+  kat_2_mat_kimeneti Int? @db.Integer
+  kat_2_szoveg_bemeneti Int? @db.Integer
+  kat_2_szoveg_kimeneti Int? @db.Integer
+  kat_3_mat_bemeneti Int? @db.Integer
+  kat_3_mat_kimeneti Int? @db.Integer
+  kat_3_szoveg_bemeneti Int? @db.Integer
+  kat_3_szoveg_kimeneti Int? @db.Integer
+  kat_4_mat_bemeneti Int? @db.Integer
+  kat_4_mat_kimeneti Int? @db.Integer
+  kat_4_szoveg_bemeneti Int? @db.Integer
+  kat_4_szoveg_kimeneti Int? @db.Integer
+  kat_5_mat_bemeneti Int? @db.Integer
+  kat_5_mat_kimeneti Int? @db.Integer
+  kat_5_szoveg_bemeneti Int? @db.Integer
+  kat_5_szoveg_kimeneti Int? @db.Integer
+
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@map("nszfh_meresek")
+}
+

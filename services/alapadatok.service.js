@@ -81,16 +81,64 @@ export async function getById(id) {
   return data;
 }
 
-export async function add(iskola_neve, intezmeny_tipus) {
+export async function add(
+  iskola_neve,
+  intezmeny_tipus,
+  alapdatok_szakirany = []
+) {
   // Invalidate the list cache before adding
   cache.del("alapadatok:all");
+
+  const foundOrCreatedSzakirany = await Promise.all(
+    alapdatok_szakirany.map(async (szakirany) => {
+      const szakiranyNev = szakirany.szakirany.nev;
+
+      // Check if the szakirany already exists
+      const existingSzakirany = await prisma.szakirany.findUnique({
+        where: {
+          nev: szakiranyNev,
+        },
+      });
+      if (existingSzakirany) {
+        return existingSzakirany;
+      }
+
+      // If not, create it
+      return await prisma.szakirany.create({
+        data: {
+          nev: szakiranyNev,
+          leiras: szakirany.szakirany.leiras || null,
+          szakma: {
+            create: szakirany.szairany.szakma.map((szakma) => ({
+              szakma: {
+                connectOrCreate: {
+                  where: { nev: szakma.szakma.nev },
+                  create: {
+                    nev: szakma.szakma.nev,
+                    leiras: szakma.szakma.leiras || null,
+                  },
+                },
+              },
+            })),
+          },
+        },
+      });
+    })
+  );
 
   const result = await prisma.alapadatok.create({
     data: {
       iskola_neve: iskola_neve,
       intezmeny_tipus: intezmeny_tipus,
+      alapadatok_szakirany: {
+        create: foundOrCreatedSzakirany.map((szakirany) => ({
+          szakirany_id: szakirany.id,
+        })),
+      },
     },
   });
+
+  return result;
 }
 
 export async function update(id, iskola_neve, intezmeny_tipus) {
@@ -98,7 +146,7 @@ export async function update(id, iskola_neve, intezmeny_tipus) {
   cache.del("alapadatok:all");
   cache.del(`alapadatok:id:${id}`);
 
-  await prisma.alapadatok.update({
+  const szairany = await prisma.alapadatok.update({
     data: {
       iskola_neve: iskola_neve,
       intezmeny_tipus: intezmeny_tipus,
