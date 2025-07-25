@@ -215,6 +215,948 @@ components:
           nullable: true
           description: Last update timestamp
 
+    # Dobbanto schemas
+    Dobbanto:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        dobbanto_szama:
+          type: integer
+          description: Number of repeating students
+          example: 15
+        tanulok_osszesen:
+          type: integer
+          description: Total number of students
+          example: 500
+        datum:
+          type: string
+          format: date-time
+          description: Date of record
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+        alapadatok:
+          type: object
+          properties:
+            nev:
+              type: string
+              description: School name
+              example: "Pollák Antal Technikum"
+
+    DobbantoInput:
+      type: object
+      required:
+        - alapadatok_id
+        - tanev_kezdete
+        - dobbanto_szama
+        - tanulok_osszesen
+      properties:
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        dobbanto_szama:
+          type: integer
+          description: Number of repeating students
+          example: 15
+        tanulok_osszesen:
+          type: integer
+          description: Total number of students
+          example: 500
+
+    # Elegedettseg schemas
+    Elegedettseg:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier
+          example: 1
+        szakirany_id:
+          type: integer
+          nullable: true
+          description: Field of study identifier
+          example: 1
+        szakma_id:
+          type: integer
+          nullable: true
+          description: Profession identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        munkaadok_elegedettsege:
+          type: number
+          format: float
+          description: Employer satisfaction rating
+          example: 4.2
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+    ElegedettsegInput:
+      type: object
+      required:
+        - alapadatok_id
+        - tanev_kezdete
+        - munkaadok_elegedettsege
+      properties:
+        szakirany_id:
+          type: integer
+          nullable: true
+          description: Field of study identifier
+          example: 1
+        szakma_id:
+          type: integer
+          nullable: true
+          description: Profession identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        munkaadok_elegedettsege:
+          type: number
+          format: float
+          description: Employer satisfaction rating
+          example: 4.2
+
+    # Versenyek schemas
+    Versenyek:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier
+          example: 1
+        versenyKategoria:
+          type: string
+          description: Competition category
+          example: "Programozás"
+        versenyNev:
+          type: string
+          description: Competition name
+          example: "OKTV Informatika"
+        alapadatokId:
+          type: integer
+          description: School identifier reference
+          example: 1
+        helyezett1:
+          type: integer
+          description: Number of 1st place finishes
+          example: 2
+        helyezett1_3:
+          type: integer
+          description: Number of 1st-3rd place finishes
+          example: 5
+        dontobeJutott:
+          type: integer
+          description: Number of finalists
+          example: 8
+        nevezettekSzama:
+          type: integer
+          description: Number of participants
+          example: 25
+        tanevKezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+    VersenyekInput:
+      type: object
+      required:
+        - versenyKategoria
+        - versenyNev
+        - alapadatokId
+        - helyezett1
+        - helyezett1_3
+        - dontobeJutott
+        - nevezettekSzama
+        - tanevKezdete
+      properties:
+        versenyKategoria:
+          type: string
+          description: Competition category
+          example: "Programozás"
+        versenyNev:
+          type: string
+          description: Competition name
+          example: "OKTV Informatika"
+        alapadatokId:
+          type: integer
+          description: School identifier reference
+          example: 1
+        helyezett1:
+          type: integer
+          description: Number of 1st place finishes
+          example: 2
+        helyezett1_3:
+          type: integer
+          description: Number of 1st-3rd place finishes
+          example: 5
+        dontobeJutott:
+          type: integer
+          description: Number of finalists
+          example: 8
+        nevezettekSzama:
+          type: integer
+          description: Number of participants
+          example: 25
+        tanevKezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+
+    # ElegedettsegMeres schemas
+    ElegedettsegMeres:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        szulok_elegedettsege:
+          type: number
+          format: float
+          nullable: true
+          description: Parent satisfaction rating
+          example: 4.3
+        oktatok_elegedettsege:
+          type: number
+          format: float
+          nullable: true
+          description: Teacher satisfaction rating
+          example: 4.1
+        tanulok_elegedettsege:
+          type: number
+          format: float
+          nullable: true
+          description: Student satisfaction rating
+          example: 3.9
+        dualis_kepzohely_elegedettsege:
+          type: number
+          format: float
+          nullable: true
+          description: Dual training workplace satisfaction rating
+          example: 4.0
+        munkaero_piac_elegedettsege:
+          type: number
+          format: float
+          nullable: true
+          description: Labor market satisfaction rating
+          example: 4.2
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+    ElegedettsegMeresInput:
+      type: object
+      required:
+        - alapadatok_id
+        - tanev_kezdete
+      properties:
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        szulok_elegedettsege:
+          type: number
+          format: float
+          nullable: true
+          description: Parent satisfaction rating
+          example: 4.3
+        oktatok_elegedettsege:
+          type: number
+          format: float
+          nullable: true
+          description: Teacher satisfaction rating
+          example: 4.1
+        tanulok_elegedettsege:
+          type: number
+          format: float
+          nullable: true
+          description: Student satisfaction rating
+          example: 3.9
+        dualis_kepzohely_elegedettsege:
+          type: number
+          format: float
+          nullable: true
+          description: Dual training workplace satisfaction rating
+          example: 4.0
+        munkaero_piac_elegedettsege:
+          type: number
+          format: float
+          nullable: true
+          description: Labor market satisfaction rating
+          example: 4.2
+
+    # Lemorzsolodas schemas
+    Lemorzsolodas:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier
+          example: 1
+        szakirany_id:
+          type: integer
+          nullable: true
+          description: Field of study identifier
+          example: 1
+        szakma_id:
+          type: integer
+          nullable: true
+          description: Profession identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        lemorzsolodo_tanulok_szama:
+          type: integer
+          description: Number of dropout students
+          example: 12
+        oktober_es_belepett_tanulok_szama:
+          type: integer
+          description: Number of students enrolled in October
+          example: 450
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+    LemorzsolodasInput:
+      type: object
+      required:
+        - alapadatok_id
+        - tanev_kezdete
+        - lemorzsolodo_tanulok_szama
+        - oktober_es_belepett_tanulok_szama
+      properties:
+        szakirany_id:
+          type: integer
+          nullable: true
+          description: Field of study identifier
+          example: 1
+        szakma_id:
+          type: integer
+          nullable: true
+          description: Profession identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        lemorzsolodo_tanulok_szama:
+          type: integer
+          description: Number of dropout students
+          example: 12
+        oktober_es_belepett_tanulok_szama:
+          type: integer
+          description: Number of students enrolled in October
+          example: 450
+
+    # Elhelyezkedes schemas
+    Elhelyezkedes:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier
+          example: 1
+        szakirany_id:
+          type: integer
+          nullable: true
+          description: Field of study identifier
+          example: 1
+        szakma_id:
+          type: integer
+          nullable: true
+          description: Profession identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        vegzettek_szama:
+          type: integer
+          description: Number of graduates
+          example: 85
+        elhelyezkedett_hallgatok_szama:
+          type: integer
+          description: Number of placed graduates
+          example: 72
+        elhelyezkedesek_aranya:
+          type: number
+          format: float
+          description: Placement rate percentage
+          example: 84.7
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+    ElhelyezkedesInput:
+      type: object
+      required:
+        - alapadatok_id
+        - tanev_kezdete
+        - vegzettek_szama
+        - elhelyezkedett_hallgatok_szama
+      properties:
+        szakirany_id:
+          type: integer
+          nullable: true
+          description: Field of study identifier
+          example: 1
+        szakma_id:
+          type: integer
+          nullable: true
+          description: Profession identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        vegzettek_szama:
+          type: integer
+          description: Number of graduates
+          example: 85
+        elhelyezkedett_hallgatok_szama:
+          type: integer
+          description: Number of placed graduates
+          example: 72
+
+    # HHesHHHNeveluTanulok schemas
+    HHesHHHNeveluTanulok:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        hh_tanulok_szama:
+          type: integer
+          description: Number of disadvantaged students (HH)
+          example: 25
+        hhh_tanulok_szama:
+          type: integer
+          description: Number of multiply disadvantaged students (HHH)
+          example: 8
+        osszes_tanulo_szama:
+          type: integer
+          description: Total number of students
+          example: 450
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+    HHesHHHNeveluTanulokInput:
+      type: object
+      required:
+        - alapadatok_id
+        - tanev_kezdete
+        - hh_tanulok_szama
+        - hhh_tanulok_szama
+        - osszes_tanulo_szama
+      properties:
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        hh_tanulok_szama:
+          type: integer
+          description: Number of disadvantaged students (HH)
+          example: 25
+        hhh_tanulok_szama:
+          type: integer
+          description: Number of multiply disadvantaged students (HHH)
+          example: 8
+        osszes_tanulo_szama:
+          type: integer
+          description: Total number of students
+          example: 450
+
+    # Intezmenyi_neveltseg schemas
+    IntezmeniyNeveltseg:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        alacsony_neveltsegu_oktatok_szama:
+          type: integer
+          description: Number of low-education teachers
+          example: 2
+        kozepes_neveltsegu_oktatok_szama:
+          type: integer
+          description: Number of medium-education teachers
+          example: 15
+        magas_neveltsegu_oktatok_szama:
+          type: integer
+          description: Number of high-education teachers
+          example: 35
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+    # Muhelyiskola schemas
+    Muhelyiskola:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        muhelyiskola_nev:
+          type: string
+          description: Workshop school name
+          example: "Műhelyiskola Program"
+        resztvevo_tanulok_szama:
+          type: integer
+          description: Number of participating students
+          example: 45
+        sikeres_befejezok_szama:
+          type: integer
+          description: Number of successful completers
+          example: 38
+        reszszakmat_szerezok_szama:
+          type: integer
+          description: Number of students acquiring partial qualifications
+          example: 32
+        muhelyiskola_tanuloi_osszletszam:
+          type: integer
+          description: Total number of workshop school students
+          example: 45
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+    # NSZFH schemas
+    NSZFH:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        kat_1_mat_bemeneti:
+          type: number
+          format: float
+          description: Category 1 mathematics entry assessment
+          example: 3.5
+        kat_1_mat_kimeneti:
+          type: number
+          format: float
+          description: Category 1 mathematics exit assessment
+          example: 4.0
+        kat_1_szoveg_bemeneti:
+          type: number
+          format: float
+          description: Category 1 text comprehension entry assessment
+          example: 3.2
+        kat_1_szoveg_kimeneti:
+          type: number
+          format: float
+          description: Category 1 text comprehension exit assessment
+          example: 3.8
+        kat_2_mat_bemeneti:
+          type: number
+          format: float
+          description: Category 2 mathematics entry assessment
+          example: 3.5
+        kat_2_mat_kimeneti:
+          type: number
+          format: float
+          description: Category 2 mathematics exit assessment
+          example: 4.0
+        kat_2_szoveg_bemeneti:
+          type: number
+          format: float
+          description: Category 2 text comprehension entry assessment
+          example: 3.2
+        kat_2_szoveg_kimeneti:
+          type: number
+          format: float
+          description: Category 2 text comprehension exit assessment
+          example: 3.8
+        kat_3_mat_bemeneti:
+          type: number
+          format: float
+          description: Category 3 mathematics entry assessment
+          example: 3.5
+        kat_3_mat_kimeneti:
+          type: number
+          format: float
+          description: Category 3 mathematics exit assessment
+          example: 4.0
+        kat_3_szoveg_bemeneti:
+          type: number
+          format: float
+          description: Category 3 text comprehension entry assessment
+          example: 3.2
+        kat_3_szoveg_kimeneti:
+          type: number
+          format: float
+          description: Category 3 text comprehension exit assessment
+          example: 3.8
+        kat_4_mat_bemeneti:
+          type: number
+          format: float
+          description: Category 4 mathematics entry assessment
+          example: 3.5
+        kat_4_mat_kimeneti:
+          type: number
+          format: float
+          description: Category 4 mathematics exit assessment
+          example: 4.0
+        kat_4_szoveg_bemeneti:
+          type: number
+          format: float
+          description: Category 4 text comprehension entry assessment
+          example: 3.2
+        kat_4_szoveg_kimeneti:
+          type: number
+          format: float
+          description: Category 4 text comprehension exit assessment
+          example: 3.8
+        kat_5_mat_bemeneti:
+          type: number
+          format: float
+          description: Category 5 mathematics entry assessment
+          example: 3.5
+        kat_5_mat_kimeneti:
+          type: number
+          format: float
+          description: Category 5 mathematics exit assessment
+          example: 4.0
+        kat_5_szoveg_bemeneti:
+          type: number
+          format: float
+          description: Category 5 text comprehension entry assessment
+          example: 3.2
+        kat_5_szoveg_kimeneti:
+          type: number
+          format: float
+          description: Category 5 text comprehension exit assessment
+          example: 3.8
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+    # Sajatos_nevelesu_tanulok schemas
+    SajatosNeveluTanulok:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        sajatos_nevelesu_tanulok_szama:
+          type: integer
+          description: Number of students with special needs
+          example: 18
+        integralt_oktatas_tanulok_szama:
+          type: integer
+          description: Number of students in integrated education
+          example: 12
+        kulonleges_gondozas_tanulok_szama:
+          type: integer
+          description: Number of students receiving special care
+          example: 6
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+    # Szakmai_vizsga_eredmenyek schemas
+    SzakmaiVizsgaEredmenyek:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        szakirany_id:
+          type: integer
+          description: Field of study identifier
+          example: 1
+        szakma_id:
+          type: integer
+          description: Profession identifier
+          example: 1
+        vizsgara_bocsathatoak_szama:
+          type: integer
+          description: Number of students eligible for exam
+          example: 45
+        sikeres_vizsgazok_szama:
+          type: integer
+          description: Number of successful exam takers
+          example: 38
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+    # SZMSZ schemas
+    SZMSZ:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        szakirany_id:
+          type: integer
+          nullable: true
+          description: Field of study identifier
+          example: 1
+        szakma_id:
+          type: integer
+          nullable: true
+          description: Profession identifier
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        vegzettek_szama:
+          type: integer
+          description: Number of graduates
+          example: 85
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+    # Vizsgaeredmenyek schemas
+    Vizsgaeredmenyek:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev_kezdete:
+          type: integer
+          description: School year start year
+          example: 2023
+        vizsga_tipus:
+          type: string
+          description: Exam type
+          example: "Érettségi"
+        targy:
+          type: string
+          description: Subject
+          example: "Matematika"
+        atlag_eredmeny:
+          type: number
+          format: float
+          description: Average result
+          example: 3.8
+        resztvevok_szama:
+          type: integer
+          description: Number of participants
+          example: 85
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
 security:
   - bearerAuth: []
 
@@ -241,6 +1183,34 @@ tags:
     description: Student admission data management
   - name: Tanugyi_adatok
     description: Educational data management
+  - name: Dobbanto
+    description: Repeating students data management
+  - name: Elegedettseg
+    description: Employer satisfaction data management
+  - name: Versenyek
+    description: Competition data management
+  - name: Elegedettseg_meres
+    description: Satisfaction measurement data management
+  - name: Elhelyezkedes
+    description: Graduate placement data management
+  - name: HH_es_HHH_nevelesu_tanulok
+    description: Disadvantaged students data management
+  - name: Intezmenyi_neveltseg
+    description: Institutional education level data management
+  - name: Lemorzsolodas
+    description: Student dropout data management
+  - name: Muhelyiskola
+    description: Workshop school data management
+  - name: NSZFH
+    description: NSZFH data management
+  - name: Sajatos_nevelesu_tanulok
+    description: Students with special needs data management
+  - name: Szakmai_vizsga_eredmenyek
+    description: Professional exam results data management
+  - name: SZMSZ
+    description: SZMSZ data management
+  - name: Vizsgaeredmenyek
+    description: Exam results data management
 
 paths:
   # Authentication endpoints
@@ -391,5 +1361,1062 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
 
-  # Additional endpoints would be documented here
-  # Following the same pattern for other controllers
+  # Dobbanto endpoints
+  /dobbanto/{tanev}:
+    get:
+      tags: [Dobbanto]
+      summary: Get dobbanto data by school year
+      description: Retrieve dobbanto (repeating students) data for a specific school year and previous 4 years
+      parameters:
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end (e.g., 2024 for 2023-2024 school year)
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "200":
+          description: Dobbanto data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Dobbanto"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /dobbanto/{alapadatokId}/{tanev}:
+    get:
+      tags: [Dobbanto]
+      summary: Get dobbanto data by school and year
+      description: Retrieve dobbanto data for a specific school and school year
+      parameters:
+        - in: path
+          name: alapadatokId
+          required: true
+          description: The school identifier
+          schema:
+            type: integer
+            example: 1
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "200":
+          description: Dobbanto data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Dobbanto"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    delete:
+      tags: [Dobbanto]
+      summary: Delete dobbanto data by school and year
+      description: Delete all dobbanto data for a specific school and school year
+      parameters:
+        - in: path
+          name: alapadatokId
+          required: true
+          description: The school identifier
+          schema:
+            type: integer
+            example: 1
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "204":
+          description: Dobbanto data deleted successfully
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /dobbanto:
+    post:
+      tags: [Dobbanto]
+      summary: Create new dobbanto data
+      description: Create new dobbanto (repeating students) data entry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DobbantoInput"
+      responses:
+        "201":
+          description: Dobbanto data created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Dobbanto"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  # Elegedettseg endpoints
+  /elegedettseg/{tanev}:
+    get:
+      tags: [Elegedettseg]
+      summary: Get satisfaction data by school year
+      description: Retrieve employer satisfaction data for a specific school year
+      parameters:
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "200":
+          description: Satisfaction data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Elegedettseg"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /elegedettseg/{alapadatokId}/{tanev}:
+    get:
+      tags: [Elegedettseg]
+      summary: Get satisfaction data by school and year
+      description: Retrieve employer satisfaction data for a specific school and school year
+      parameters:
+        - in: path
+          name: alapadatokId
+          required: true
+          description: The school identifier
+          schema:
+            type: integer
+            example: 1
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "200":
+          description: Satisfaction data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Elegedettseg"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    delete:
+      tags: [Elegedettseg]
+      summary: Delete satisfaction data by school and year
+      description: Delete all satisfaction data for a specific school and school year
+      parameters:
+        - in: path
+          name: alapadatokId
+          required: true
+          description: The school identifier
+          schema:
+            type: integer
+            example: 1
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "204":
+          description: Satisfaction data deleted successfully
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /elegedettseg:
+    post:
+      tags: [Elegedettseg]
+      summary: Create new satisfaction data
+      description: Create new employer satisfaction data entry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ElegedettsegInput"
+      responses:
+        "201":
+          description: Satisfaction data created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Elegedettseg"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  # Versenyek endpoints
+  /versenyek/{tanev}:
+    get:
+      tags: [Versenyek]
+      summary: Get competition data by school year
+      description: Retrieve competition data for a specific school year
+      parameters:
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "200":
+          description: Competition data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Versenyek"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /versenyek/{alapadatokId}/{tanev}:
+    get:
+      tags: [Versenyek]
+      summary: Get competition data by school and year
+      description: Retrieve competition data for a specific school and school year
+      parameters:
+        - in: path
+          name: alapadatokId
+          required: true
+          description: The school identifier
+          schema:
+            type: integer
+            example: 1
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "200":
+          description: Competition data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Versenyek"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /versenyek:
+    post:
+      tags: [Versenyek]
+      summary: Create new competition data
+      description: Create new competition data entry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VersenyekInput"
+      responses:
+        "201":
+          description: Competition data created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Versenyek"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /versenyek/{id}:
+    put:
+      tags: [Versenyek]
+      summary: Update competition data
+      description: Update existing competition data entry
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The competition entry identifier
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VersenyekInput"
+      responses:
+        "200":
+          description: Competition data updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Versenyek"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Competition entry not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  # Elegedettseg_meres endpoints
+  /elegedettseg_meres/{tanev}:
+    get:
+      tags: [Elegedettseg_meres]
+      summary: Get satisfaction measurement data by school year
+      description: Retrieve satisfaction measurement data for a specific school year
+      parameters:
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "200":
+          description: Satisfaction measurement data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ElegedettsegMeres"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /elegedettseg_meres/{alapadatokId}/{tanev}:
+    get:
+      tags: [Elegedettseg_meres]
+      summary: Get satisfaction measurement data by school and year
+      description: Retrieve satisfaction measurement data for a specific school and school year
+      parameters:
+        - in: path
+          name: alapadatokId
+          required: true
+          description: The school identifier
+          schema:
+            type: integer
+            example: 1
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "200":
+          description: Satisfaction measurement data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ElegedettsegMeres"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    delete:
+      tags: [Elegedettseg_meres]
+      summary: Delete satisfaction measurement data by school and year
+      description: Delete all satisfaction measurement data for a specific school and school year
+      parameters:
+        - in: path
+          name: alapadatokId
+          required: true
+          description: The school identifier
+          schema:
+            type: integer
+            example: 1
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "204":
+          description: Satisfaction measurement data deleted successfully
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /elegedettseg_meres:
+    post:
+      tags: [Elegedettseg_meres]
+      summary: Create new satisfaction measurement data
+      description: Create new satisfaction measurement data entry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ElegedettsegMeresInput"
+      responses:
+        "201":
+          description: Satisfaction measurement data created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ElegedettsegMeres"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  # Lemorzsolodas endpoints
+  /lemorzsolodas/{tanev}:
+    get:
+      tags: [Lemorzsolodas]
+      summary: Get dropout data by school year
+      description: Retrieve student dropout data for a specific school year
+      parameters:
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "200":
+          description: Dropout data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Lemorzsolodas"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /lemorzsolodas/{alapadatokId}/{tanev}:
+    get:
+      tags: [Lemorzsolodas]
+      summary: Get dropout data by school and year
+      description: Retrieve student dropout data for a specific school and school year
+      parameters:
+        - in: path
+          name: alapadatokId
+          required: true
+          description: The school identifier
+          schema:
+            type: integer
+            example: 1
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "200":
+          description: Dropout data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Lemorzsolodas"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    delete:
+      tags: [Lemorzsolodas]
+      summary: Delete dropout data by school and year
+      description: Delete all dropout data for a specific school and school year
+      parameters:
+        - in: path
+          name: alapadatokId
+          required: true
+          description: The school identifier
+          schema:
+            type: integer
+            example: 1
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "204":
+          description: Dropout data deleted successfully
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /lemorzsolodas:
+    post:
+      tags: [Lemorzsolodas]
+      summary: Create new dropout data
+      description: Create new student dropout data entry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LemorzsolodasInput"
+      responses:
+        "201":
+          description: Dropout data created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Lemorzsolodas"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  # Elhelyezkedes endpoints
+  /elhelyezkedes/{tanev}:
+    get:
+      tags: [Elhelyezkedes]
+      summary: Get graduate placement data by school year
+      description: Retrieve graduate placement data for a specific school year
+      parameters:
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "200":
+          description: Placement data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Elhelyezkedes"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /elhelyezkedes/{alapadatokId}/{tanev}:
+    get:
+      tags: [Elhelyezkedes]
+      summary: Get placement data by school and year
+      description: Retrieve graduate placement data for a specific school and school year
+      parameters:
+        - in: path
+          name: alapadatokId
+          required: true
+          description: The school identifier
+          schema:
+            type: integer
+            example: 1
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "200":
+          description: Placement data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Elhelyezkedes"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    delete:
+      tags: [Elhelyezkedes]
+      summary: Delete placement data by school and year
+      description: Delete all placement data for a specific school and school year
+      parameters:
+        - in: path
+          name: alapadatokId
+          required: true
+          description: The school identifier
+          schema:
+            type: integer
+            example: 1
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "204":
+          description: Placement data deleted successfully
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /elhelyezkedes:
+    post:
+      tags: [Elhelyezkedes]
+      summary: Create new placement data
+      description: Create new graduate placement data entry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ElhelyezkedesInput"
+      responses:
+        "201":
+          description: Placement data created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Elhelyezkedes"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  # HH_es_HHH_nevelesu_tanulok endpoints
+  /hh_es_hhh_nevelesu_tanulok/{tanev}:
+    get:
+      tags: [HH_es_HHH_nevelesu_tanulok]
+      summary: Get disadvantaged students data by school year
+      description: Retrieve disadvantaged students data for a specific school year
+      parameters:
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "200":
+          description: Disadvantaged students data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/HHesHHHNeveluTanulok"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /hh_es_hhh_nevelesu_tanulok/{alapadatokId}/{tanev}:
+    get:
+      tags: [HH_es_HHH_nevelesu_tanulok]
+      summary: Get disadvantaged students data by school and year
+      description: Retrieve disadvantaged students data for a specific school and school year
+      parameters:
+        - in: path
+          name: alapadatokId
+          required: true
+          description: The school identifier
+          schema:
+            type: integer
+            example: 1
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "200":
+          description: Disadvantaged students data retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/HHesHHHNeveluTanulok"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    delete:
+      tags: [HH_es_HHH_nevelesu_tanulok]
+      summary: Delete disadvantaged students data by school and year
+      description: Delete all disadvantaged students data for a specific school and school year
+      parameters:
+        - in: path
+          name: alapadatokId
+          required: true
+          description: The school identifier
+          schema:
+            type: integer
+            example: 1
+        - in: path
+          name: tanev
+          required: true
+          description: The school year end
+          schema:
+            type: integer
+            example: 2024
+      responses:
+        "204":
+          description: Disadvantaged students data deleted successfully
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /hh_es_hhh_nevelesu_tanulok:
+    post:
+      tags: [HH_es_HHH_nevelesu_tanulok]
+      summary: Create new disadvantaged students data
+      description: Create new disadvantaged students data entry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HHesHHHNeveluTanulokInput"
+      responses:
+        "201":
+          description: Disadvantaged students data created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HHesHHHNeveluTanulok"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"

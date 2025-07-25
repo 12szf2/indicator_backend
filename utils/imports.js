@@ -21,6 +21,18 @@ import tableRouter from "../controllers/tablelist.controller.js";
 import egyOktatoraJutoTanuloRouter from "../controllers/egy_oktatora_juto_tanulo.controller.js";
 import szmszRouter from "../controllers/szmsz.controller.js";
 import versenyekRouter from "../controllers/versenyek.controller.js";
+import dobbantoRouter from "../controllers/dobbanto.controller.js";
+import elegedettsegRouter from "../controllers/elegedettseg.controller.js";
+import elegedettsegMeresRouter from "../controllers/elegedettseg_meres.controller.js";
+import elhelyezkedesRouter from "../controllers/elhelyezkedes.controller.js";
+import hhEsHHHRouter from "../controllers/hh_es_hhh_nevelesu_tanulok.controller.js";
+import lemorzsolodasRouter from "../controllers/lemorzsolodas.controller.js";
+import intezmenyiNeveltsegRouter from "../controllers/intezmenyi_neveltseg.controller.js";
+import muhelyiskolaRouter from "../controllers/muhelyiskola.controller.js";
+import nszfhRouter from "../controllers/nszfh.controller.js";
+import sajatosNevelesuTanulokRouter from "../controllers/sajatos_nevelesu_tanulok.controller.js";
+import szakmaiVizsgaEredmenyekRouter from "../controllers/szakmai_vizsga_eredmenyek.controller.js";
+import vizsgaeredmenyekRouter from "../controllers/vizsgaeredmenyek.controller.js";
 
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
@@ -52,4 +64,16 @@ export {
   egyOktatoraJutoTanuloRouter,
   szmszRouter,
   versenyekRouter,
+  dobbantoRouter,
+  elegedettsegRouter,
+  elegedettsegMeresRouter,
+  elhelyezkedesRouter,
+  hhEsHHHRouter,
+  lemorzsolodasRouter,
+  intezmenyiNeveltsegRouter,
+  muhelyiskolaRouter,
+  nszfhRouter,
+  sajatosNevelesuTanulokRouter,
+  szakmaiVizsgaEredmenyekRouter,
+  vizsgaeredmenyekRouter,
 };

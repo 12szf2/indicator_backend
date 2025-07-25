@@ -1,0 +1,805 @@
+{
+  "api": {
+    "name": "Indicator Backend API",
+    "version": "1.0.0",
+    "description": "Educational data management system API for managing school data, student analytics, satisfaction measurements, exam results, and administrative information.",
+    "baseUrl": "http://localhost:5300/api/v1",
+    "authentication": {
+      "type": "JWT Bearer Token",
+      "header": "Authorization: Bearer <token>",
+      "loginEndpoint": "/auth/login",
+      "description": "Most endpoints require JWT authentication. Use /auth/login to obtain a token."
+    },
+    "contentType": "application/json",
+    "swaggerUI": "http://localhost:5300/api-docs",
+    "openApiSpec": "http://localhost:5300/api-docs.json"
+  },
+  "endpoints": {
+    "authentication": {
+      "login": {
+        "method": "POST",
+        "path": "/auth/login",
+        "requiresAuth": false,
+        "description": "Authenticates a user and returns JWT tokens",
+        "requestBody": {
+          "email": "string (required)",
+          "password": "string (required)"
+        },
+        "responses": {
+          "200": "Authentication successful - returns JWT token",
+          "400": "Invalid credentials or missing data",
+          "401": "Authentication failed"
+        },
+        "example": {
+          "request": {
+            "email": "user@example.com",
+            "password": "userpassword"
+          },
+          "response": {
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+            "user": { "id": "uuid", "email": "user@example.com" }
+          }
+        }
+      }
+    },
+    "tableManagement": {
+      "getAllTables": {
+        "method": "GET",
+        "path": "/tablelist",
+        "requiresAuth": true,
+        "description": "Get all available tables in the system",
+        "responses": {
+          "200": "List of tables retrieved successfully",
+          "401": "Unauthorized - Invalid or missing token",
+          "500": "Internal server error"
+        }
+      },
+      "createTable": {
+        "method": "POST",
+        "path": "/tablelist",
+        "requiresAuth": true,
+        "description": "Create a new table entry",
+        "requestBody": {
+          "name": "string (required, max 100 chars)",
+          "isAvailable": "boolean (required)"
+        }
+      },
+      "getTableById": {
+        "method": "GET",
+        "path": "/tablelist/{id}",
+        "requiresAuth": true,
+        "description": "Get specific table by ID",
+        "parameters": {
+          "id": "string (path, required) - UUID of the table"
+        }
+      },
+      "updateTable": {
+        "method": "PUT",
+        "path": "/tablelist/{id}",
+        "requiresAuth": true,
+        "description": "Update specific table by ID"
+      },
+      "deleteTable": {
+        "method": "DELETE",
+        "path": "/tablelist/{id}",
+        "requiresAuth": true,
+        "description": "Delete specific table by ID"
+      }
+    },
+    "userManagement": {
+      "getAllUsers": {
+        "method": "GET",
+        "path": "/users",
+        "requiresAuth": true,
+        "description": "Get all users in the system"
+      },
+      "createUser": {
+        "method": "POST",
+        "path": "/users",
+        "requiresAuth": true,
+        "description": "Create a new user"
+      },
+      "getUserById": {
+        "method": "GET",
+        "path": "/users/{id}",
+        "requiresAuth": true,
+        "description": "Get user by ID"
+      },
+      "updateUser": {
+        "method": "PUT",
+        "path": "/users/{id}",
+        "requiresAuth": true,
+        "description": "Update user by ID"
+      },
+      "deleteUser": {
+        "method": "DELETE",
+        "path": "/users/{id}",
+        "requiresAuth": true,
+        "description": "Delete user by ID"
+      }
+    },
+    "schoolBasicData": {
+      "getAllSchools": {
+        "method": "GET",
+        "path": "/alapadatok",
+        "requiresAuth": true,
+        "description": "Get all school basic information"
+      },
+      "createSchool": {
+        "method": "POST",
+        "path": "/alapadatok",
+        "requiresAuth": true,
+        "description": "Create new school basic information"
+      },
+      "getSchoolById": {
+        "method": "GET",
+        "path": "/alapadatok/{id}",
+        "requiresAuth": true,
+        "description": "Get school basic information by ID"
+      },
+      "updateSchool": {
+        "method": "PUT",
+        "path": "/alapadatok/{id}",
+        "requiresAuth": true,
+        "description": "Update school basic information"
+      },
+      "deleteSchool": {
+        "method": "DELETE",
+        "path": "/alapadatok/{id}",
+        "requiresAuth": true,
+        "description": "Delete school basic information"
+      }
+    },
+    "studentData": {
+      "studentEnrollment": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/tanulo_letszam/{year}",
+          "requiresAuth": true,
+          "description": "Get student enrollment data by year",
+          "parameters": {
+            "year": "integer (path, required) - Academic year"
+          }
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/tanulo_letszam/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Get student enrollment data by school and year",
+          "parameters": {
+            "alapadatok_id": "string (path, required) - School UUID",
+            "year": "integer (path, required) - Academic year"
+          }
+        },
+        "create": {
+          "method": "POST",
+          "path": "/tanulo_letszam",
+          "requiresAuth": true,
+          "description": "Create new student enrollment record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/tanulo_letszam/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Delete student enrollment record"
+        }
+      },
+      "studentToTeacherRatio": {
+        "getAll": {
+          "method": "GET",
+          "path": "/egy_oktatora_juto_tanulo",
+          "requiresAuth": true,
+          "description": "Get all student-to-teacher ratio records"
+        },
+        "getBySchool": {
+          "method": "GET",
+          "path": "/egy_oktatora_juto_tanulo/{alapadatok_id}",
+          "requiresAuth": true,
+          "description": "Get student-to-teacher ratio by school"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/egy_oktatora_juto_tanulo",
+          "requiresAuth": true,
+          "description": "Create new student-to-teacher ratio record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/egy_oktatora_juto_tanulo/{id}",
+          "requiresAuth": true,
+          "description": "Delete student-to-teacher ratio record"
+        }
+      },
+      "admittedStudents": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/felvettek_szama/{year}",
+          "requiresAuth": true,
+          "description": "Get admitted students data by year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/felvettek_szama/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Get admitted students data by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/felvettek_szama",
+          "requiresAuth": true,
+          "description": "Create new admitted students record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/felvettek_szama/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Delete admitted students record"
+        }
+      },
+      "specialNeedsStudents": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/sajatos_nevelesi_tanulok/{year}",
+          "requiresAuth": true,
+          "description": "Get special needs students data by year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/sajatos_nevelesi_tanulok/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Get special needs students data by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/sajatos_nevelesi_tanulok",
+          "requiresAuth": true,
+          "description": "Create new special needs students record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/sajatos_nevelesi_tanulok/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Delete special needs students record"
+        }
+      },
+      "disadvantagedStudents": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/hh_es_hhh/{year}",
+          "requiresAuth": true,
+          "description": "Get disadvantaged students (HH/HHH) data by year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/hh_es_hhh/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Get disadvantaged students data by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/hh_es_hhh",
+          "requiresAuth": true,
+          "description": "Create new disadvantaged students record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/hh_es_hhh/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Delete disadvantaged students record"
+        }
+      },
+      "repeatingStudents": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/dobbanto/{tanev}",
+          "requiresAuth": true,
+          "description": "Get repeating students data by academic year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/dobbanto/{alapadatokId}/{tanev}",
+          "requiresAuth": true,
+          "description": "Get repeating students data by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/dobbanto",
+          "requiresAuth": true,
+          "description": "Create new repeating students record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/dobbanto/{alapadatokId}/{tanev}",
+          "requiresAuth": true,
+          "description": "Delete repeating students record"
+        }
+      },
+      "dropoutData": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/lemorzsolodas/{tanev}",
+          "requiresAuth": true,
+          "description": "Get student dropout data by academic year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/lemorzsolodas/{alapadatokId}/{tanev}",
+          "requiresAuth": true,
+          "description": "Get student dropout data by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/lemorzsolodas",
+          "requiresAuth": true,
+          "description": "Create new student dropout record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/lemorzsolodas/{alapadatokId}/{tanev}",
+          "requiresAuth": true,
+          "description": "Delete student dropout record"
+        }
+      }
+    },
+    "academicData": {
+      "academicRecords": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/tanugyi_adatok/{year}",
+          "requiresAuth": true,
+          "description": "Get academic records by year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/tanugyi_adatok/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Get academic records by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/tanugyi_adatok",
+          "requiresAuth": true,
+          "description": "Create new academic record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/tanugyi_adatok/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Delete academic record"
+        }
+      },
+      "examResults": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/vizsgaeredmenyek/{year}",
+          "requiresAuth": true,
+          "description": "Get exam results by year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/vizsgaeredmenyek/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Get exam results by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/vizsgaeredmenyek",
+          "requiresAuth": true,
+          "description": "Create new exam result record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/vizsgaeredmenyek/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Delete exam result record"
+        }
+      },
+      "professionalExamResults": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/szakmai_vizsga_eredmenyek/{year}",
+          "requiresAuth": true,
+          "description": "Get professional exam results by year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/szakmai_vizsga_eredmenyek/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Get professional exam results by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/szakmai_vizsga_eredmenyek",
+          "requiresAuth": true,
+          "description": "Create new professional exam result"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/szakmai_vizsga_eredmenyek/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Delete professional exam result"
+        }
+      },
+      "competencyAssessments": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/kompetencia/{year}",
+          "requiresAuth": true,
+          "description": "Get competency assessment data by year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/kompetencia/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Get competency assessment data by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/kompetencia",
+          "requiresAuth": true,
+          "description": "Create new competency assessment record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/kompetencia/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Delete competency assessment record"
+        }
+      }
+    },
+    "institutionalData": {
+      "institutionalEducation": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/intezmenyi_neveltseg/{year}",
+          "requiresAuth": true,
+          "description": "Get institutional education level data by year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/intezmenyi_neveltseg/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Get institutional education level data by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/intezmenyi_neveltseg",
+          "requiresAuth": true,
+          "description": "Create new institutional education record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/intezmenyi_neveltseg/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Delete institutional education record"
+        }
+      },
+      "workshopSchool": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/muhelyiskola/{year}",
+          "requiresAuth": true,
+          "description": "Get workshop school data by year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/muhelyiskola/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Get workshop school data by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/muhelyiskola",
+          "requiresAuth": true,
+          "description": "Create new workshop school record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/muhelyiskola/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Delete workshop school record"
+        }
+      },
+      "szmszData": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/szmsz/{year}",
+          "requiresAuth": true,
+          "description": "Get SZMSZ vocational statistics by year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/szmsz/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Get SZMSZ vocational statistics by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/szmsz",
+          "requiresAuth": true,
+          "description": "Create new SZMSZ record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/szmsz/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Delete SZMSZ record"
+        }
+      },
+      "nszfhData": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/nszfh/{year}",
+          "requiresAuth": true,
+          "description": "Get NSZFH competency assessment data by year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/nszfh/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Get NSZFH competency assessment data by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/nszfh",
+          "requiresAuth": true,
+          "description": "Create new NSZFH record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/nszfh/{alapadatok_id}/{year}",
+          "requiresAuth": true,
+          "description": "Delete NSZFH record"
+        }
+      }
+    },
+    "performanceData": {
+      "graduatePlacement": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/elhelyezkedes/{tanev}",
+          "requiresAuth": true,
+          "description": "Get graduate placement data by academic year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/elhelyezkedes/{alapadatokId}/{tanev}",
+          "requiresAuth": true,
+          "description": "Get graduate placement data by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/elhelyezkedes",
+          "requiresAuth": true,
+          "description": "Create new graduate placement record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/elhelyezkedes/{alapadatokId}/{tanev}",
+          "requiresAuth": true,
+          "description": "Delete graduate placement record"
+        }
+      },
+      "employerSatisfaction": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/elegedettseg/{tanev}",
+          "requiresAuth": true,
+          "description": "Get employer satisfaction data by academic year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/elegedettseg/{alapadatokId}/{tanev}",
+          "requiresAuth": true,
+          "description": "Get employer satisfaction data by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/elegedettseg",
+          "requiresAuth": true,
+          "description": "Create new employer satisfaction record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/elegedettseg/{alapadatokId}/{tanev}",
+          "requiresAuth": true,
+          "description": "Delete employer satisfaction record"
+        }
+      },
+      "satisfactionMeasurement": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/elegedettseg_meres/{tanev}",
+          "requiresAuth": true,
+          "description": "Get satisfaction measurement data by academic year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/elegedettseg_meres/{alapadatokId}/{tanev}",
+          "requiresAuth": true,
+          "description": "Get satisfaction measurement data by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/elegedettseg_meres",
+          "requiresAuth": true,
+          "description": "Create new satisfaction measurement record"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/elegedettseg_meres/{alapadatokId}/{tanev}",
+          "requiresAuth": true,
+          "description": "Delete satisfaction measurement record"
+        }
+      },
+      "competitions": {
+        "getByYear": {
+          "method": "GET",
+          "path": "/versenyek/{tanev}",
+          "requiresAuth": true,
+          "description": "Get competition data by academic year"
+        },
+        "getBySchoolAndYear": {
+          "method": "GET",
+          "path": "/versenyek/{alapadatokId}/{tanev}",
+          "requiresAuth": true,
+          "description": "Get competition data by school and year"
+        },
+        "create": {
+          "method": "POST",
+          "path": "/versenyek",
+          "requiresAuth": true,
+          "description": "Create new competition record"
+        },
+        "update": {
+          "method": "PUT",
+          "path": "/versenyek/{id}",
+          "requiresAuth": true,
+          "description": "Update competition record by ID"
+        },
+        "delete": {
+          "method": "DELETE",
+          "path": "/versenyek/{id}",
+          "requiresAuth": true,
+          "description": "Delete competition record by ID"
+        }
+      }
+    },
+    "systemManagement": {
+      "cache": {
+        "getStats": {
+          "method": "GET",
+          "path": "/cache/stats",
+          "requiresAuth": true,
+          "description": "Get cache statistics and performance metrics"
+        },
+        "clearCache": {
+          "method": "DELETE",
+          "path": "/cache/clear",
+          "requiresAuth": true,
+          "description": "Clear all cached data"
+        },
+        "clearSpecificCache": {
+          "method": "DELETE",
+          "path": "/cache/clear/{key}",
+          "requiresAuth": true,
+          "description": "Clear specific cache entry by key"
+        }
+      },
+      "logs": {
+        "getAllLogs": {
+          "method": "GET",
+          "path": "/logs",
+          "requiresAuth": true,
+          "description": "Get all system logs"
+        },
+        "getLogsByDateRange": {
+          "method": "GET",
+          "path": "/logs/{startDate}/{endDate}",
+          "requiresAuth": true,
+          "description": "Get logs by date range"
+        },
+        "clearLogs": {
+          "method": "DELETE",
+          "path": "/logs/clear",
+          "requiresAuth": true,
+          "description": "Clear all system logs"
+        }
+      }
+    }
+  },
+  "dataModels": {
+    "commonFields": {
+      "id": "string (UUID) - Unique identifier",
+      "alapadatok_id": "string (UUID) - Reference to school basic data",
+      "tanev": "integer - Academic year (e.g., 2024)",
+      "year": "integer - Academic year (e.g., 2024)",
+      "createdAt": "string (ISO 8601 datetime) - Creation timestamp",
+      "updatedAt": "string (ISO 8601 datetime) - Last update timestamp"
+    },
+    "examples": {
+      "uuid": "123e4567-e89b-12d3-a456-426614174000",
+      "dateTime": "2024-01-01T00:00:00.000Z",
+      "year": 2024
+    }
+  },
+  "commonPatterns": {
+    "urlPatterns": {
+      "byYear": "/{resource}/{year}",
+      "bySchoolAndYear": "/{resource}/{alapadatok_id}/{year}",
+      "byId": "/{resource}/{id}",
+      "create": "/{resource}",
+      "updateById": "/{resource}/{id}",
+      "deleteById": "/{resource}/{id}",
+      "deleteBySchoolAndYear": "/{resource}/{alapadatok_id}/{year}"
+    },
+    "httpMethods": {
+      "GET": "Retrieve data",
+      "POST": "Create new record",
+      "PUT": "Update existing record",
+      "DELETE": "Remove record"
+    },
+    "responseFormats": {
+      "success": {
+        "status": "success",
+        "data": "...",
+        "message": "Operation completed successfully"
+      },
+      "error": {
+        "error": "Error type",
+        "message": "Detailed error message"
+      }
+    }
+  },
+  "usage": {
+    "quickStart": {
+      "1": "Start server: npm run dev",
+      "2": "Login: POST /api/v1/auth/login with credentials",
+      "3": "Use returned JWT token in Authorization header",
+      "4": "Access any protected endpoint with Bearer token"
+    },
+    "exampleRequests": {
+      "login": {
+        "method": "POST",
+        "url": "http://localhost:5300/api/v1/auth/login",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "email": "user@example.com",
+          "password": "password123"
+        }
+      },
+      "getStudentData": {
+        "method": "GET",
+        "url": "http://localhost:5300/api/v1/tanulo_letszam/2024",
+        "headers": {
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+          "Content-Type": "application/json"
+        }
+      },
+      "createExamResult": {
+        "method": "POST",
+        "url": "http://localhost:5300/api/v1/vizsgaeredmenyek",
+        "headers": {
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "alapadatok_id": "123e4567-e89b-12d3-a456-426614174000",
+          "tanev": 2024,
+          "atlageredmeny": 85.5,
+          "reszvetelarany": 95.2
+        }
+      }
+    }
+  },
+  "notes": {
+    "authentication": "All endpoints except /auth/login require JWT Bearer token",
+    "errorHandling": "API returns appropriate HTTP status codes with descriptive error messages",
+    "dataValidation": "All input data is validated before processing",
+    "caching": "Response caching is implemented for performance optimization",
+    "logging": "All API requests are logged for monitoring and debugging",
+    "cors": "CORS is configured for specific origins including localhost and production domain"
+  }
+}

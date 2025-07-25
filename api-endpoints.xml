@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api>
+  <metadata>
+    <name>Indicator Backend API</name>
+    <version>1.0.0</version>
+    <description>Educational data management system API for managing school data, student analytics, satisfaction measurements, exam results, and administrative information.</description>
+    <baseUrl>http://localhost:5300/api/v1</baseUrl>
+    <contentType>application/json</contentType>
+    <swaggerUI>http://localhost:5300/api-docs</swaggerUI>
+    <openApiSpec>http://localhost:5300/api-docs.json</openApiSpec>
+  </metadata>
+
+  <authentication>
+    <type>JWT Bearer Token</type>
+    <header>Authorization: Bearer &lt;token&gt;</header>
+    <loginEndpoint>/auth/login</loginEndpoint>
+    <description>Most endpoints require JWT authentication. Use /auth/login to obtain a token.</description>
+  </authentication>
+
+  <endpoints>
+    <!-- Authentication Endpoints -->
+    <group name="authentication">
+      <endpoint>
+        <name>login</name>
+        <method>POST</method>
+        <path>/auth/login</path>
+        <requiresAuth>false</requiresAuth>
+        <description>Authenticates a user and returns JWT tokens</description>
+        <requestBody>
+          <field name="email" type="string" required="true"/>
+          <field name="password" type="string" required="true"/>
+        </requestBody>
+        <responses>
+          <response code="200">Authentication successful - returns JWT token</response>
+          <response code="400">Invalid credentials or missing data</response>
+          <response code="401">Authentication failed</response>
+        </responses>
+      </endpoint>
+    </group>
+
+    <!-- Table Management Endpoints -->
+    <group name="tableManagement">
+      <endpoint>
+        <name>getAllTables</name>
+        <method>GET</method>
+        <path>/tablelist</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Get all available tables in the system</description>
+      </endpoint>
+      <endpoint>
+        <name>createTable</name>
+        <method>POST</method>
+        <path>/tablelist</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Create a new table entry</description>
+        <requestBody>
+          <field name="name" type="string" required="true" maxLength="100"/>
+          <field name="isAvailable" type="boolean" required="true"/>
+        </requestBody>
+      </endpoint>
+      <endpoint>
+        <name>getTableById</name>
+        <method>GET</method>
+        <path>/tablelist/{id}</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Get specific table by ID</description>
+        <parameters>
+          <parameter name="id" in="path" type="string" required="true">UUID of the table</parameter>
+        </parameters>
+      </endpoint>
+      <endpoint>
+        <name>updateTable</name>
+        <method>PUT</method>
+        <path>/tablelist/{id}</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Update specific table by ID</description>
+      </endpoint>
+      <endpoint>
+        <name>deleteTable</name>
+        <method>DELETE</method>
+        <path>/tablelist/{id}</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Delete specific table by ID</description>
+      </endpoint>
+    </group>
+
+    <!-- User Management Endpoints -->
+    <group name="userManagement">
+      <endpoint>
+        <name>getAllUsers</name>
+        <method>GET</method>
+        <path>/users</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Get all users in the system</description>
+      </endpoint>
+      <endpoint>
+        <name>createUser</name>
+        <method>POST</method>
+        <path>/users</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Create a new user</description>
+      </endpoint>
+      <endpoint>
+        <name>getUserById</name>
+        <method>GET</method>
+        <path>/users/{id}</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Get user by ID</description>
+      </endpoint>
+      <endpoint>
+        <name>updateUser</name>
+        <method>PUT</method>
+        <path>/users/{id}</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Update user by ID</description>
+      </endpoint>
+      <endpoint>
+        <name>deleteUser</name>
+        <method>DELETE</method>
+        <path>/users/{id}</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Delete user by ID</description>
+      </endpoint>
+    </group>
+
+    <!-- School Basic Data Endpoints -->
+    <group name="schoolBasicData">
+      <endpoint>
+        <name>getAllSchools</name>
+        <method>GET</method>
+        <path>/alapadatok</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Get all school basic information</description>
+      </endpoint>
+      <endpoint>
+        <name>createSchool</name>
+        <method>POST</method>
+        <path>/alapadatok</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Create new school basic information</description>
+      </endpoint>
+      <endpoint>
+        <name>getSchoolById</name>
+        <method>GET</method>
+        <path>/alapadatok/{id}</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Get school basic information by ID</description>
+      </endpoint>
+      <endpoint>
+        <name>updateSchool</name>
+        <method>PUT</method>
+        <path>/alapadatok/{id}</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Update school basic information</description>
+      </endpoint>
+      <endpoint>
+        <name>deleteSchool</name>
+        <method>DELETE</method>
+        <path>/alapadatok/{id}</path>
+        <requiresAuth>true</requiresAuth>
+        <description>Delete school basic information</description>
+      </endpoint>
+    </group>
+
+    <!-- Student Data Endpoints -->
+    <group name="studentData">
+      <subgroup name="studentEnrollment">
+        <endpoint>
+          <name>getByYear</name>
+          <method>GET</method>
+          <path>/tanulo_letszam/{year}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get student enrollment data by year</description>
+          <parameters>
+            <parameter name="year" in="path" type="integer" required="true">Academic year</parameter>
+          </parameters>
+        </endpoint>
+        <endpoint>
+          <name>getBySchoolAndYear</name>
+          <method>GET</method>
+          <path>/tanulo_letszam/{alapadatok_id}/{year}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get student enrollment data by school and year</description>
+          <parameters>
+            <parameter name="alapadatok_id" in="path" type="string" required="true">School UUID</parameter>
+            <parameter name="year" in="path" type="integer" required="true">Academic year</parameter>
+          </parameters>
+        </endpoint>
+        <endpoint>
+          <name>create</name>
+          <method>POST</method>
+          <path>/tanulo_letszam</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Create new student enrollment record</description>
+        </endpoint>
+        <endpoint>
+          <name>delete</name>
+          <method>DELETE</method>
+          <path>/tanulo_letszam/{alapadatok_id}/{year}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Delete student enrollment record</description>
+        </endpoint>
+      </subgroup>
+
+      <subgroup name="studentToTeacherRatio">
+        <endpoint>
+          <name>getAll</name>
+          <method>GET</method>
+          <path>/egy_oktatora_juto_tanulo</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get all student-to-teacher ratio records</description>
+        </endpoint>
+        <endpoint>
+          <name>getBySchool</name>
+          <method>GET</method>
+          <path>/egy_oktatora_juto_tanulo/{alapadatok_id}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get student-to-teacher ratio by school</description>
+        </endpoint>
+        <endpoint>
+          <name>create</name>
+          <method>POST</method>
+          <path>/egy_oktatora_juto_tanulo</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Create new student-to-teacher ratio record</description>
+        </endpoint>
+        <endpoint>
+          <name>delete</name>
+          <method>DELETE</method>
+          <path>/egy_oktatora_juto_tanulo/{id}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Delete student-to-teacher ratio record</description>
+        </endpoint>
+      </subgroup>
+
+      <subgroup name="specialNeedsStudents">
+        <endpoint>
+          <name>getByYear</name>
+          <method>GET</method>
+          <path>/sajatos_nevelesi_tanulok/{year}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get special needs students data by year</description>
+        </endpoint>
+        <endpoint>
+          <name>getBySchoolAndYear</name>
+          <method>GET</method>
+          <path>/sajatos_nevelesi_tanulok/{alapadatok_id}/{year}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get special needs students data by school and year</description>
+        </endpoint>
+        <endpoint>
+          <name>create</name>
+          <method>POST</method>
+          <path>/sajatos_nevelesi_tanulok</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Create new special needs students record</description>
+        </endpoint>
+        <endpoint>
+          <name>delete</name>
+          <method>DELETE</method>
+          <path>/sajatos_nevelesi_tanulok/{alapadatok_id}/{year}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Delete special needs students record</description>
+        </endpoint>
+      </subgroup>
+    </group>
+
+    <!-- Academic Data Endpoints -->
+    <group name="academicData">
+      <subgroup name="examResults">
+        <endpoint>
+          <name>getByYear</name>
+          <method>GET</method>
+          <path>/vizsgaeredmenyek/{year}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get exam results by year</description>
+        </endpoint>
+        <endpoint>
+          <name>getBySchoolAndYear</name>
+          <method>GET</method>
+          <path>/vizsgaeredmenyek/{alapadatok_id}/{year}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get exam results by school and year</description>
+        </endpoint>
+        <endpoint>
+          <name>create</name>
+          <method>POST</method>
+          <path>/vizsgaeredmenyek</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Create new exam result record</description>
+        </endpoint>
+        <endpoint>
+          <name>delete</name>
+          <method>DELETE</method>
+          <path>/vizsgaeredmenyek/{alapadatok_id}/{year}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Delete exam result record</description>
+        </endpoint>
+      </subgroup>
+    </group>
+
+    <!-- Performance Data Endpoints -->
+    <group name="performanceData">
+      <subgroup name="graduatePlacement">
+        <endpoint>
+          <name>getByYear</name>
+          <method>GET</method>
+          <path>/elhelyezkedes/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get graduate placement data by academic year</description>
+        </endpoint>
+        <endpoint>
+          <name>getBySchoolAndYear</name>
+          <method>GET</method>
+          <path>/elhelyezkedes/{alapadatokId}/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get graduate placement data by school and year</description>
+        </endpoint>
+        <endpoint>
+          <name>create</name>
+          <method>POST</method>
+          <path>/elhelyezkedes</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Create new graduate placement record</description>
+        </endpoint>
+        <endpoint>
+          <name>delete</name>
+          <method>DELETE</method>
+          <path>/elhelyezkedes/{alapadatokId}/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Delete graduate placement record</description>
+        </endpoint>
+      </subgroup>
+
+      <subgroup name="competitions">
+        <endpoint>
+          <name>getByYear</name>
+          <method>GET</method>
+          <path>/versenyek/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get competition data by academic year</description>
+        </endpoint>
+        <endpoint>
+          <name>create</name>
+          <method>POST</method>
+          <path>/versenyek</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Create new competition record</description>
+        </endpoint>
+        <endpoint>
+          <name>update</name>
+          <method>PUT</method>
+          <path>/versenyek/{id}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Update competition record by ID</description>
+        </endpoint>
+        <endpoint>
+          <name>delete</name>
+          <method>DELETE</method>
+          <path>/versenyek/{id}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Delete competition record by ID</description>
+        </endpoint>
+      </subgroup>
+    </group>
+
+    <!-- System Management Endpoints -->
+    <group name="systemManagement">
+      <subgroup name="cache">
+        <endpoint>
+          <name>getStats</name>
+          <method>GET</method>
+          <path>/cache/stats</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get cache statistics and performance metrics</description>
+        </endpoint>
+        <endpoint>
+          <name>clearCache</name>
+          <method>DELETE</method>
+          <path>/cache/clear</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Clear all cached data</description>
+        </endpoint>
+      </subgroup>
+
+      <subgroup name="logs">
+        <endpoint>
+          <name>getAllLogs</name>
+          <method>GET</method>
+          <path>/logs</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get all system logs</description>
+        </endpoint>
+        <endpoint>
+          <name>clearLogs</name>
+          <method>DELETE</method>
+          <path>/logs/clear</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Clear all system logs</description>
+        </endpoint>
+      </subgroup>
+    </group>
+  </endpoints>
+
+  <dataModels>
+    <commonFields>
+      <field name="id" type="string" format="UUID">Unique identifier</field>
+      <field name="alapadatok_id" type="string" format="UUID">Reference to school basic data</field>
+      <field name="tanev" type="integer">Academic year (e.g., 2024)</field>
+      <field name="year" type="integer">Academic year (e.g., 2024)</field>
+      <field name="createdAt" type="string" format="ISO 8601 datetime">Creation timestamp</field>
+      <field name="updatedAt" type="string" format="ISO 8601 datetime">Last update timestamp</field>
+    </commonFields>
+    
+    <examples>
+      <uuid>123e4567-e89b-12d3-a456-426614174000</uuid>
+      <dateTime>2024-01-01T00:00:00.000Z</dateTime>
+      <year>2024</year>
+    </examples>
+  </dataModels>
+
+  <usage>
+    <quickStart>
+      <step number="1">Start server: npm run dev</step>
+      <step number="2">Login: POST /api/v1/auth/login with credentials</step>
+      <step number="3">Use returned JWT token in Authorization header</step>
+      <step number="4">Access any protected endpoint with Bearer token</step>
+    </quickStart>
+
+    <exampleRequests>
+      <request name="login">
+        <method>POST</method>
+        <url>http://localhost:5300/api/v1/auth/login</url>
+        <headers>
+          <header name="Content-Type">application/json</header>
+        </headers>
+        <body>
+          <![CDATA[
+          {
+            "email": "user@example.com",
+            "password": "password123"
+          }
+          ]]>
+        </body>
+      </request>
+
+      <request name="getStudentData">
+        <method>GET</method>
+        <url>http://localhost:5300/api/v1/tanulo_letszam/2024</url>
+        <headers>
+          <header name="Authorization">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...</header>
+          <header name="Content-Type">application/json</header>
+        </headers>
+      </request>
+    </exampleRequests>
+  </usage>
+
+  <notes>
+    <note>All endpoints except /auth/login require JWT Bearer token</note>
+    <note>API returns appropriate HTTP status codes with descriptive error messages</note>
+    <note>All input data is validated before processing</note>
+    <note>Response caching is implemented for performance optimization</note>
+    <note>All API requests are logged for monitoring and debugging</note>
+    <note>CORS is configured for specific origins including localhost and production domain</note>
+  </notes>
+</api>

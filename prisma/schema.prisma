@@ -98,6 +98,17 @@ model Alapadatok {
   versenyek       versenyek[]
   alapadatok_szakirany Alapadatok_Szakirany[]
   nszfhMeresek    nszfhMeresek[]
+  elhelyezkedes   Elhelyezkedes[]
+  elegedettseg   Elegedettseg[]
+  vizsgaeredmenyek VizsgaEredmenyek[]
+  szakmaiVizsgaEredmenyek SzakmaiVizsgaEredmenyek[]
+  lemorzsolodas  Lemorzsolodas[]
+  elegedettsegMeres ElegedettsegMeres[]
+  intezmenyiNeveltseg IntezmenyiNeveltseg[]
+  hhesHhhTanulok HHEsHHHTanulok[]
+  sajatosNevelesuTanulok SajatosNevelesuTanulok[]
+  dobbanto       Dobbanto[]
+  muhelyiskola   Muhelyiskola[]
 
   users           User[]            @relation("AlapadatokUsers")
 }
@@ -108,6 +119,11 @@ model Szakirany {
   felvettek_szama Felvettek_Szama[]
   tanulo_letszam  Tanulo_Letszam[]
   szakkepzesiStatisztika SzakkepzesiStatisztika[]
+  elhelyezkedes   Elhelyezkedes[]
+  elegedettseg    Elegedettseg[]
+  vizsgaeredmenyek VizsgaEredmenyek[]
+  szakmaiVizsgaEredmenyek SzakmaiVizsgaEredmenyek[]
+  lemorzsolodas  Lemorzsolodas[]
 
   alapadatok_szakirany Alapadatok_Szakirany[]
   szakma          Szakirany_Szakma[]
@@ -119,6 +135,11 @@ model Szakma {
   felvettek_szama Felvettek_Szama[]
   tanulo_letszam  Tanulo_Letszam[]
   szakkepzesiStatisztika SzakkepzesiStatisztika[]
+  elhelyezkedes   Elhelyezkedes[]
+  elegedettseg    Elegedettseg[]
+  vizsgaeredmenyek VizsgaEredmenyek[]
+  szakmaiVizsgaEredmenyek SzakmaiVizsgaEredmenyek[]
+  lemorzsolodas  Lemorzsolodas[]
 
   alapadatok_szakma Szakirany_Szakma[]
 }
@@ -454,3 +475,240 @@ model nszfhMeresek {
   @@map("nszfh_meresek")
 }
 
+model Elhelyezkedes {
+  id           String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+  szakirany_id  String     @db.Uuid
+  szakma_id     String     @db.Uuid
+  elhelyezkedok_szama Int? @db.Integer
+  szakmai_okatatasban_sikeresen_vegzettek_szama Int? @db.Integer
+
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakirany     Szakirany  @relation(fields: [szakirany_id], references: [id])
+  szakma        Szakma     @relation(fields: [szakma_id], references: [id])
+
+  @@map("elhelyezkedes")
+}
+
+model Elegedettseg {
+  id           String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+  szakirany_id  String     @db.Uuid
+  szakma_id     String     @db.Uuid
+  munkaadok_elegedettsege Decimal @default(0.00) @db.Decimal(5, 2)
+
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakirany     Szakirany  @relation(fields: [szakirany_id], references: [id])
+  szakma        Szakma     @relation(fields: [szakma_id], references: [id])
+
+  @@map("elegedettseg")
+}
+
+model VizsgaEredmenyek {
+  id           String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+  szakirany_id  String     @db.Uuid
+  szakma_id     String     @db.Uuid
+
+  szakmai_vizsga_eredmeny Decimal @default(0.00) @db.Decimal(5, 2)
+  agazati_alapvizsga_eredmeny Decimal @default(0.00) @db.Decimal(5, 2)
+  magyar_nyelv_eretsegi_eredmeny Decimal @default(0.00) @db.Decimal(5, 2)
+  matematika_eretsegi_eredmeny Decimal @default(0.00) @db.Decimal(5, 2)
+  tortenelem_eretsegi_eredmeny Decimal @default(0.00) @db.Decimal(5, 2)
+  angol_nyelv_eretsegi_eredmeny Decimal @default(0.00) @db.Decimal(5, 2)
+  agazati_szakmai_eretsegi_eredmeny Decimal @default(0.00) @db.Decimal(5, 2)
+
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakirany     Szakirany  @relation(fields: [szakirany_id], references: [id])
+  szakma        Szakma     @relation(fields: [szakma_id], references: [id])
+
+  @@map("vizsgaeredmenyek")
+}
+
+model SzakmaiVizsgaEredmenyek {
+  id           String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+  szakirany_id  String     @db.Uuid
+  szakma_id     String     @db.Uuid
+
+  vizsgara_bocsathatoak_szama Int? @db.Integer
+  sikeres_vizsgazok_szama Int? @db.Integer
+
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakirany     Szakirany  @relation(fields: [szakirany_id], references: [id])
+  szakma        Szakma     @relation(fields: [szakma_id], references: [id])
+
+  @@map("szakmai_vizsga_eredmenyek")
+}
+
+model Lemorzsolodas {
+  id           String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+  szakirany_id  String     @db.Uuid
+  szakma_id     String     @db.Uuid
+
+  lemorzsolodo_tanulok_szama Int? @db.Integer
+  oktober_es_belepett_tanulok_szama Int? @db.Integer
+
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakirany     Szakirany  @relation(fields: [szakirany_id], references: [id])
+  szakma        Szakma     @relation(fields: [szakma_id], references: [id])
+
+  @@map("lemorzsolodas")
+}
+
+model ElegedettsegMeres {
+  id           String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+
+  szulok_elegedettsege Decimal @default(0.00) @db.Decimal(5, 2)
+  oktatok_elegedettsege Decimal @default(0.00) @db.Decimal(5, 2)
+  tanulok_elegedettsege Decimal @default(0.00) @db.Decimal(5, 2)
+  dualis_kepzohely_elegedettsege Decimal @default(0.00) @db.Decimal(5, 2)
+  munkaero_piac_elegedettsege Decimal @default(0.00) @db.Decimal(5, 2)
+
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@map("elegedettseg_meres")
+}
+
+model IntezmenyiNeveltseg {
+  id           String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+
+  osztaly_jele String @db.VarChar(50)
+  igazolatlan_ora Int @db.Integer
+
+  oktato_testuleti_dicseret Int @db.Integer
+  oktatoi_dicseret Int @db.Integer
+  osztalyfonoki_dicseret Int @db.Integer
+  igazagatoi_dicseret Int @db.Integer
+
+  oktato_testuleti_figyelmeztetes Int @db.Integer
+  oktatoi_figyelmeztetes Int @db.Integer
+  osztalyfonoki_figyelmeztetes Int @db.Integer
+  osztalyfonoki_intes Int @db.Integer
+  osztalyfonoki_megrovas Int @db.Integer
+  igazgatoi_figyelmeztetes Int @db.Integer
+  igazgatoi_intes Int @db.Integer
+  igazgatoi_megrovas Int @db.Integer
+  fegyelmi_eljaras Int @db.Integer
+
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@map("intezmenyi_neveltseg")
+}
+
+model HHEsHHHTanulok {
+  id           String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+
+  hh_tanulo_letszam Int @db.Integer
+  tanuloi_osszletszam Int @db.Integer
+
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@map("hhes_hhh_tanulok")
+}
+
+model SajatosNevelesuTanulok {
+  id           String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+
+  sni_tanulok_szama Int @db.Integer
+  tanulok_osszesen Int @db.Integer
+
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@map("sajatos_nevelesu_tanulok")
+}
+
+model Dobbanto {
+  id           String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+
+  dobbanto_szama Int @db.Integer
+  tanulok_osszesen Int @db.Integer
+
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@map("dobbanto")
+}
+
+model Muhelyiskola {
+  id           String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+
+  reszszakmat_szerezok_szama Int @db.Integer
+  muhelyiskola_tanuloi_osszletszam Int @db.Integer
+
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@map("muhelyiskola")
+}

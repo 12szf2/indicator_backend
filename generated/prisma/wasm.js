@@ -20,12 +20,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.10.1
- * Query Engine version: 9b628578b3b7cae625e8c927178f15a170e74a9c
+ * Prisma Client JS version: 6.12.0
+ * Query Engine version: 8047c96bbd92db98a2abc7c9323ce77c02c89dbc
  */
 Prisma.prismaVersion = {
-  client: "6.10.1",
-  engine: "9b628578b3b7cae625e8c927178f15a170e74a9c"
+  client: "6.12.0",
+  engine: "8047c96bbd92db98a2abc7c9323ce77c02c89dbc"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -431,6 +431,198 @@ exports.Prisma.VersenyekScalarFieldEnum = {
   updatedBy: 'updatedBy'
 };
 
+exports.Prisma.NszfhMeresekScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  kat_1_mat_bemeneti: 'kat_1_mat_bemeneti',
+  kat_1_mat_kimeneti: 'kat_1_mat_kimeneti',
+  kat_1_szoveg_bemeneti: 'kat_1_szoveg_bemeneti',
+  kat_1_szoveg_kimeneti: 'kat_1_szoveg_kimeneti',
+  kat_2_mat_bemeneti: 'kat_2_mat_bemeneti',
+  kat_2_mat_kimeneti: 'kat_2_mat_kimeneti',
+  kat_2_szoveg_bemeneti: 'kat_2_szoveg_bemeneti',
+  kat_2_szoveg_kimeneti: 'kat_2_szoveg_kimeneti',
+  kat_3_mat_bemeneti: 'kat_3_mat_bemeneti',
+  kat_3_mat_kimeneti: 'kat_3_mat_kimeneti',
+  kat_3_szoveg_bemeneti: 'kat_3_szoveg_bemeneti',
+  kat_3_szoveg_kimeneti: 'kat_3_szoveg_kimeneti',
+  kat_4_mat_bemeneti: 'kat_4_mat_bemeneti',
+  kat_4_mat_kimeneti: 'kat_4_mat_kimeneti',
+  kat_4_szoveg_bemeneti: 'kat_4_szoveg_bemeneti',
+  kat_4_szoveg_kimeneti: 'kat_4_szoveg_kimeneti',
+  kat_5_mat_bemeneti: 'kat_5_mat_bemeneti',
+  kat_5_mat_kimeneti: 'kat_5_mat_kimeneti',
+  kat_5_szoveg_bemeneti: 'kat_5_szoveg_bemeneti',
+  kat_5_szoveg_kimeneti: 'kat_5_szoveg_kimeneti',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.ElhelyezkedesScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  szakirany_id: 'szakirany_id',
+  szakma_id: 'szakma_id',
+  elhelyezkedok_szama: 'elhelyezkedok_szama',
+  szakmai_okatatasban_sikeresen_vegzettek_szama: 'szakmai_okatatasban_sikeresen_vegzettek_szama',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.ElegedettsegScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  szakirany_id: 'szakirany_id',
+  szakma_id: 'szakma_id',
+  munkaadok_elegedettsege: 'munkaadok_elegedettsege',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.VizsgaEredmenyekScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  szakirany_id: 'szakirany_id',
+  szakma_id: 'szakma_id',
+  szakmai_vizsga_eredmeny: 'szakmai_vizsga_eredmeny',
+  agazati_alapvizsga_eredmeny: 'agazati_alapvizsga_eredmeny',
+  magyar_nyelv_eretsegi_eredmeny: 'magyar_nyelv_eretsegi_eredmeny',
+  matematika_eretsegi_eredmeny: 'matematika_eretsegi_eredmeny',
+  tortenelem_eretsegi_eredmeny: 'tortenelem_eretsegi_eredmeny',
+  angol_nyelv_eretsegi_eredmeny: 'angol_nyelv_eretsegi_eredmeny',
+  agazati_szakmai_eretsegi_eredmeny: 'agazati_szakmai_eretsegi_eredmeny',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.SzakmaiVizsgaEredmenyekScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  szakirany_id: 'szakirany_id',
+  szakma_id: 'szakma_id',
+  vizsgara_bocsathatoak_szama: 'vizsgara_bocsathatoak_szama',
+  sikeres_vizsgazok_szama: 'sikeres_vizsgazok_szama',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.LemorzsolodasScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  szakirany_id: 'szakirany_id',
+  szakma_id: 'szakma_id',
+  lemorzsolodo_tanulok_szama: 'lemorzsolodo_tanulok_szama',
+  oktober_es_belepett_tanulok_szama: 'oktober_es_belepett_tanulok_szama',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.ElegedettsegMeresScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  szulok_elegedettsege: 'szulok_elegedettsege',
+  oktatok_elegedettsege: 'oktatok_elegedettsege',
+  tanulok_elegedettsege: 'tanulok_elegedettsege',
+  dualis_kepzohely_elegedettsege: 'dualis_kepzohely_elegedettsege',
+  munkaero_piac_elegedettsege: 'munkaero_piac_elegedettsege',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.IntezmenyiNeveltsegScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  osztaly_jele: 'osztaly_jele',
+  igazolatlan_ora: 'igazolatlan_ora',
+  oktato_testuleti_dicseret: 'oktato_testuleti_dicseret',
+  oktatoi_dicseret: 'oktatoi_dicseret',
+  osztalyfonoki_dicseret: 'osztalyfonoki_dicseret',
+  igazagatoi_dicseret: 'igazagatoi_dicseret',
+  oktato_testuleti_figyelmeztetes: 'oktato_testuleti_figyelmeztetes',
+  oktatoi_figyelmeztetes: 'oktatoi_figyelmeztetes',
+  osztalyfonoki_figyelmeztetes: 'osztalyfonoki_figyelmeztetes',
+  osztalyfonoki_intes: 'osztalyfonoki_intes',
+  osztalyfonoki_megrovas: 'osztalyfonoki_megrovas',
+  igazgatoi_figyelmeztetes: 'igazgatoi_figyelmeztetes',
+  igazgatoi_intes: 'igazgatoi_intes',
+  igazgatoi_megrovas: 'igazgatoi_megrovas',
+  fegyelmi_eljaras: 'fegyelmi_eljaras',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.HHEsHHHTanulokScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  hh_tanulo_letszam: 'hh_tanulo_letszam',
+  tanuloi_osszletszam: 'tanuloi_osszletszam',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.SajatosNevelesuTanulokScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  sni_tanulok_szama: 'sni_tanulok_szama',
+  tanulok_osszesen: 'tanulok_osszesen',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.DobbantoScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  dobbanto_szama: 'dobbanto_szama',
+  tanulok_osszesen: 'tanulok_osszesen',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.MuhelyiskolaScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  reszszakmat_szerezok_szama: 'reszszakmat_szerezok_szama',
+  muhelyiskola_tanuloi_osszletszam: 'muhelyiskola_tanuloi_osszletszam',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -479,7 +671,19 @@ exports.Prisma.ModelName = {
   SzakkepzesiStatisztika: 'SzakkepzesiStatisztika',
   VesenyKategoria: 'VesenyKategoria',
   VesenyNevek: 'VesenyNevek',
-  versenyek: 'versenyek'
+  versenyek: 'versenyek',
+  nszfhMeresek: 'nszfhMeresek',
+  Elhelyezkedes: 'Elhelyezkedes',
+  Elegedettseg: 'Elegedettseg',
+  VizsgaEredmenyek: 'VizsgaEredmenyek',
+  SzakmaiVizsgaEredmenyek: 'SzakmaiVizsgaEredmenyek',
+  Lemorzsolodas: 'Lemorzsolodas',
+  ElegedettsegMeres: 'ElegedettsegMeres',
+  IntezmenyiNeveltseg: 'IntezmenyiNeveltseg',
+  HHEsHHHTanulok: 'HHEsHHHTanulok',
+  SajatosNevelesuTanulok: 'SajatosNevelesuTanulok',
+  Dobbanto: 'Dobbanto',
+  Muhelyiskola: 'Muhelyiskola'
 };
 
 /**

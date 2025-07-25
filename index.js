@@ -88,6 +88,24 @@ protectedRouter.use("/tablelist", i.tableRouter);
 protectedRouter.use("/egy_oktatora_juto_tanulo", i.egyOktatoraJutoTanuloRouter);
 protectedRouter.use("/szmsz", i.szmszRouter);
 protectedRouter.use("/versenyek", i.versenyekRouter);
+protectedRouter.use("/dobbanto", i.dobbantoRouter);
+protectedRouter.use("/elegedettseg_meres", i.elegedettsegMeresRouter);
+protectedRouter.use("/elegedettseg", i.elegedettsegRouter);
+protectedRouter.use("/elhelyezkedes", i.elhelyezkedesRouter);
+protectedRouter.use("/hh_es_hhh", i.hhEsHHHRouter);
+protectedRouter.use("/intezmenyi_neveltseg", i.intezmenyiNeveltsegRouter);
+protectedRouter.use("/lemorzsolodas", i.lemorzsolodasRouter);
+protectedRouter.use("/muhelyiskola", i.muhelyiskolaRouter);
+protectedRouter.use("/nszfh", i.nszfhRouter);
+protectedRouter.use(
+  "/sajatos_nevelesi_tanulok",
+  i.sajatosNevelesuTanulokRouter
+);
+protectedRouter.use(
+  "/szakmai_vizsga_eredmenyek",
+  i.szakmaiVizsgaEredmenyekRouter
+);
+protectedRouter.use("/vizsgaeredmenyek", i.vizsgaeredmenyekRouter);
 
 // Mount the protected router under the API router
 apiRouter.use(protectedRouter);
