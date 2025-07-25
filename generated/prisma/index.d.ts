@@ -32897,12 +32897,12 @@ export namespace Prisma {
 
   export type ElegedettsegAvgAggregateOutputType = {
     tanev_kezdete: number | null
-    munkaadok_elegedettsege: number | null
+    munkaadok_elegedettsege: Decimal | null
   }
 
   export type ElegedettsegSumAggregateOutputType = {
     tanev_kezdete: number | null
-    munkaadok_elegedettsege: number | null
+    munkaadok_elegedettsege: Decimal | null
   }
 
   export type ElegedettsegMinAggregateOutputType = {
@@ -32911,7 +32911,7 @@ export namespace Prisma {
     tanev_kezdete: number | null
     szakirany_id: string | null
     szakma_id: string | null
-    munkaadok_elegedettsege: number | null
+    munkaadok_elegedettsege: Decimal | null
     createAt: Date | null
     createBy: string | null
     updatedAt: Date | null
@@ -32924,7 +32924,7 @@ export namespace Prisma {
     tanev_kezdete: number | null
     szakirany_id: string | null
     szakma_id: string | null
-    munkaadok_elegedettsege: number | null
+    munkaadok_elegedettsege: Decimal | null
     createAt: Date | null
     createBy: string | null
     updatedAt: Date | null
@@ -33088,7 +33088,7 @@ export namespace Prisma {
     tanev_kezdete: number
     szakirany_id: string
     szakma_id: string
-    munkaadok_elegedettsege: number | null
+    munkaadok_elegedettsege: Decimal
     createAt: Date
     createBy: string | null
     updatedAt: Date | null
@@ -33205,7 +33205,7 @@ export namespace Prisma {
       tanev_kezdete: number
       szakirany_id: string
       szakma_id: string
-      munkaadok_elegedettsege: number | null
+      munkaadok_elegedettsege: Prisma.Decimal
       createAt: Date
       createBy: string | null
       updatedAt: Date | null
@@ -33641,7 +33641,7 @@ export namespace Prisma {
     readonly tanev_kezdete: FieldRef<"Elegedettseg", 'Int'>
     readonly szakirany_id: FieldRef<"Elegedettseg", 'String'>
     readonly szakma_id: FieldRef<"Elegedettseg", 'String'>
-    readonly munkaadok_elegedettsege: FieldRef<"Elegedettseg", 'Int'>
+    readonly munkaadok_elegedettsege: FieldRef<"Elegedettseg", 'Decimal'>
     readonly createAt: FieldRef<"Elegedettseg", 'DateTime'>
     readonly createBy: FieldRef<"Elegedettseg", 'String'>
     readonly updatedAt: FieldRef<"Elegedettseg", 'DateTime'>
@@ -47982,7 +47982,7 @@ export namespace Prisma {
     tanev_kezdete?: IntFilter<"Elegedettseg"> | number
     szakirany_id?: UuidFilter<"Elegedettseg"> | string
     szakma_id?: UuidFilter<"Elegedettseg"> | string
-    munkaadok_elegedettsege?: IntNullableFilter<"Elegedettseg"> | number | null
+    munkaadok_elegedettsege?: DecimalFilter<"Elegedettseg"> | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFilter<"Elegedettseg"> | Date | string
     createBy?: StringNullableFilter<"Elegedettseg"> | string | null
     updatedAt?: DateTimeNullableFilter<"Elegedettseg"> | Date | string | null
@@ -47998,7 +47998,7 @@ export namespace Prisma {
     tanev_kezdete?: SortOrder
     szakirany_id?: SortOrder
     szakma_id?: SortOrder
-    munkaadok_elegedettsege?: SortOrderInput | SortOrder
+    munkaadok_elegedettsege?: SortOrder
     createAt?: SortOrder
     createBy?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -48017,7 +48017,7 @@ export namespace Prisma {
     tanev_kezdete?: IntFilter<"Elegedettseg"> | number
     szakirany_id?: UuidFilter<"Elegedettseg"> | string
     szakma_id?: UuidFilter<"Elegedettseg"> | string
-    munkaadok_elegedettsege?: IntNullableFilter<"Elegedettseg"> | number | null
+    munkaadok_elegedettsege?: DecimalFilter<"Elegedettseg"> | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFilter<"Elegedettseg"> | Date | string
     createBy?: StringNullableFilter<"Elegedettseg"> | string | null
     updatedAt?: DateTimeNullableFilter<"Elegedettseg"> | Date | string | null
@@ -48033,7 +48033,7 @@ export namespace Prisma {
     tanev_kezdete?: SortOrder
     szakirany_id?: SortOrder
     szakma_id?: SortOrder
-    munkaadok_elegedettsege?: SortOrderInput | SortOrder
+    munkaadok_elegedettsege?: SortOrder
     createAt?: SortOrder
     createBy?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -48054,7 +48054,7 @@ export namespace Prisma {
     tanev_kezdete?: IntWithAggregatesFilter<"Elegedettseg"> | number
     szakirany_id?: UuidWithAggregatesFilter<"Elegedettseg"> | string
     szakma_id?: UuidWithAggregatesFilter<"Elegedettseg"> | string
-    munkaadok_elegedettsege?: IntNullableWithAggregatesFilter<"Elegedettseg"> | number | null
+    munkaadok_elegedettsege?: DecimalWithAggregatesFilter<"Elegedettseg"> | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeWithAggregatesFilter<"Elegedettseg"> | Date | string
     createBy?: StringNullableWithAggregatesFilter<"Elegedettseg"> | string | null
     updatedAt?: DateTimeNullableWithAggregatesFilter<"Elegedettseg"> | Date | string | null
@@ -51556,7 +51556,7 @@ export namespace Prisma {
   export type ElegedettsegCreateInput = {
     id?: string
     tanev_kezdete: number
-    munkaadok_elegedettsege?: number | null
+    munkaadok_elegedettsege?: Decimal | DecimalJsLike | number | string
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -51572,7 +51572,7 @@ export namespace Prisma {
     tanev_kezdete: number
     szakirany_id: string
     szakma_id: string
-    munkaadok_elegedettsege?: number | null
+    munkaadok_elegedettsege?: Decimal | DecimalJsLike | number | string
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -51582,7 +51582,7 @@ export namespace Prisma {
   export type ElegedettsegUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    munkaadok_elegedettsege?: NullableIntFieldUpdateOperationsInput | number | null
+    munkaadok_elegedettsege?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -51598,7 +51598,7 @@ export namespace Prisma {
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
     szakma_id?: StringFieldUpdateOperationsInput | string
-    munkaadok_elegedettsege?: NullableIntFieldUpdateOperationsInput | number | null
+    munkaadok_elegedettsege?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -51611,7 +51611,7 @@ export namespace Prisma {
     tanev_kezdete: number
     szakirany_id: string
     szakma_id: string
-    munkaadok_elegedettsege?: number | null
+    munkaadok_elegedettsege?: Decimal | DecimalJsLike | number | string
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -51621,7 +51621,7 @@ export namespace Prisma {
   export type ElegedettsegUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    munkaadok_elegedettsege?: NullableIntFieldUpdateOperationsInput | number | null
+    munkaadok_elegedettsege?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -51634,7 +51634,7 @@ export namespace Prisma {
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
     szakma_id?: StringFieldUpdateOperationsInput | string
-    munkaadok_elegedettsege?: NullableIntFieldUpdateOperationsInput | number | null
+    munkaadok_elegedettsege?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -59155,7 +59155,7 @@ export namespace Prisma {
   export type ElegedettsegCreateWithoutAlapadatokInput = {
     id?: string
     tanev_kezdete: number
-    munkaadok_elegedettsege?: number | null
+    munkaadok_elegedettsege?: Decimal | DecimalJsLike | number | string
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -59169,7 +59169,7 @@ export namespace Prisma {
     tanev_kezdete: number
     szakirany_id: string
     szakma_id: string
-    munkaadok_elegedettsege?: number | null
+    munkaadok_elegedettsege?: Decimal | DecimalJsLike | number | string
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -60079,7 +60079,7 @@ export namespace Prisma {
     tanev_kezdete?: IntFilter<"Elegedettseg"> | number
     szakirany_id?: UuidFilter<"Elegedettseg"> | string
     szakma_id?: UuidFilter<"Elegedettseg"> | string
-    munkaadok_elegedettsege?: IntNullableFilter<"Elegedettseg"> | number | null
+    munkaadok_elegedettsege?: DecimalFilter<"Elegedettseg"> | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFilter<"Elegedettseg"> | Date | string
     createBy?: StringNullableFilter<"Elegedettseg"> | string | null
     updatedAt?: DateTimeNullableFilter<"Elegedettseg"> | Date | string | null
@@ -60571,7 +60571,7 @@ export namespace Prisma {
   export type ElegedettsegCreateWithoutSzakiranyInput = {
     id?: string
     tanev_kezdete: number
-    munkaadok_elegedettsege?: number | null
+    munkaadok_elegedettsege?: Decimal | DecimalJsLike | number | string
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -60585,7 +60585,7 @@ export namespace Prisma {
     alapadatok_id: string
     tanev_kezdete: number
     szakma_id: string
-    munkaadok_elegedettsege?: number | null
+    munkaadok_elegedettsege?: Decimal | DecimalJsLike | number | string
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -61073,7 +61073,7 @@ export namespace Prisma {
   export type ElegedettsegCreateWithoutSzakmaInput = {
     id?: string
     tanev_kezdete: number
-    munkaadok_elegedettsege?: number | null
+    munkaadok_elegedettsege?: Decimal | DecimalJsLike | number | string
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -61087,7 +61087,7 @@ export namespace Prisma {
     alapadatok_id: string
     tanev_kezdete: number
     szakirany_id: string
-    munkaadok_elegedettsege?: number | null
+    munkaadok_elegedettsege?: Decimal | DecimalJsLike | number | string
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -66130,7 +66130,7 @@ export namespace Prisma {
     tanev_kezdete: number
     szakirany_id: string
     szakma_id: string
-    munkaadok_elegedettsege?: number | null
+    munkaadok_elegedettsege?: Decimal | DecimalJsLike | number | string
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -67032,7 +67032,7 @@ export namespace Prisma {
   export type ElegedettsegUpdateWithoutAlapadatokInput = {
     id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    munkaadok_elegedettsege?: NullableIntFieldUpdateOperationsInput | number | null
+    munkaadok_elegedettsege?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -67046,7 +67046,7 @@ export namespace Prisma {
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
     szakma_id?: StringFieldUpdateOperationsInput | string
-    munkaadok_elegedettsege?: NullableIntFieldUpdateOperationsInput | number | null
+    munkaadok_elegedettsege?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -67058,7 +67058,7 @@ export namespace Prisma {
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
     szakma_id?: StringFieldUpdateOperationsInput | string
-    munkaadok_elegedettsege?: NullableIntFieldUpdateOperationsInput | number | null
+    munkaadok_elegedettsege?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -67535,7 +67535,7 @@ export namespace Prisma {
     alapadatok_id: string
     tanev_kezdete: number
     szakma_id: string
-    munkaadok_elegedettsege?: number | null
+    munkaadok_elegedettsege?: Decimal | DecimalJsLike | number | string
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -67756,7 +67756,7 @@ export namespace Prisma {
   export type ElegedettsegUpdateWithoutSzakiranyInput = {
     id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    munkaadok_elegedettsege?: NullableIntFieldUpdateOperationsInput | number | null
+    munkaadok_elegedettsege?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -67770,7 +67770,7 @@ export namespace Prisma {
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     szakma_id?: StringFieldUpdateOperationsInput | string
-    munkaadok_elegedettsege?: NullableIntFieldUpdateOperationsInput | number | null
+    munkaadok_elegedettsege?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -67782,7 +67782,7 @@ export namespace Prisma {
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     szakma_id?: StringFieldUpdateOperationsInput | string
-    munkaadok_elegedettsege?: NullableIntFieldUpdateOperationsInput | number | null
+    munkaadok_elegedettsege?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -68003,7 +68003,7 @@ export namespace Prisma {
     alapadatok_id: string
     tanev_kezdete: number
     szakirany_id: string
-    munkaadok_elegedettsege?: number | null
+    munkaadok_elegedettsege?: Decimal | DecimalJsLike | number | string
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -68220,7 +68220,7 @@ export namespace Prisma {
   export type ElegedettsegUpdateWithoutSzakmaInput = {
     id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    munkaadok_elegedettsege?: NullableIntFieldUpdateOperationsInput | number | null
+    munkaadok_elegedettsege?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -68234,7 +68234,7 @@ export namespace Prisma {
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
-    munkaadok_elegedettsege?: NullableIntFieldUpdateOperationsInput | number | null
+    munkaadok_elegedettsege?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -68246,7 +68246,7 @@ export namespace Prisma {
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
-    munkaadok_elegedettsege?: NullableIntFieldUpdateOperationsInput | number | null
+    munkaadok_elegedettsege?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null

@@ -25,15 +25,11 @@ export async function getAll(tanev) {
       },
     },
     orderBy: {
-      datum: "asc",
+      tanev_kezdete: "asc",
     },
     include: {
       versenyNev: true,
-      alapadatok: {
-        select: {
-          nev: true,
-        },
-      },
+      alapadatok: true,
     },
   });
 
@@ -63,15 +59,11 @@ export async function getAllByAlapadatok(alapadatokId, tanev) {
       },
     },
     orderBy: {
-      datum: "asc",
+      tanev_kezdete: "asc",
     },
     include: {
       versenyNev: true,
-      alapadatok: {
-        select: {
-          nev: true,
-        },
-      },
+      alapadatok: true,
     },
   });
 
@@ -136,11 +128,7 @@ export async function create(
     },
     include: {
       versenyNev: true,
-      alapadatok: {
-        select: {
-          nev: true,
-        },
-      },
+      alapadatok: true,
     },
   });
   // Store in cache

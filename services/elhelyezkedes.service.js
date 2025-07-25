@@ -26,14 +26,10 @@ export async function getAll(tanev) {
       },
     },
     orderBy: {
-      datum: "asc",
+      tanev_kezdete: "asc",
     },
     include: {
-      alapadatok: {
-        select: {
-          nev: true,
-        },
-      },
+      alapadatok: true,
       szakirany: true,
       szakma: true,
     },
@@ -65,14 +61,10 @@ export async function getAllByAlapadatok(alapadatokId, tanev) {
       },
     },
     orderBy: {
-      datum: "asc",
+      tanev_kezdete: "asc",
     },
     include: {
-      alapadatok: {
-        select: {
-          nev: true,
-        },
-      },
+      alapadatok: true,
       szakirany: true,
       szakma: true,
     },
