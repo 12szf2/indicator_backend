@@ -91,3 +91,48 @@ export async function getById(alapadatok_id) {
 
   return data;
 }
+
+export async function update(
+  id,
+  alapadatok_id,
+  tanev_kezdete,
+  szakmaNev,
+  szakiranyNev,
+  jelentkezo_letszam,
+  felveheto_letszam,
+  felvett_letszam
+) {
+  // Invalidate relevant caches
+  cache.del("felvettek_szama:all");
+  cache.del(`felvettek_szama:alapadatok_id:${alapadatok_id}`);
+  const szakma = await prisma.szakma.findUnique({
+    where: {
+      szakmaNev,
+    },
+  });
+  if (!szakma) {
+    throw new Error(`Szakma with name ${szakmaNev} not found`);
+  }
+  const szakirany = await prisma.szakirany.findUnique({
+    where: {
+      szakiranyNev,
+    },
+  });
+  if (!szakirany) {
+    throw new Error(`Szakirany with name ${szakiranyNev} not found`);
+  }
+  return await prisma.felvettek_Szama.update({
+    where: {
+      id,
+    },
+    data: {
+      alapadatok_id,
+      tanev_kezdete,
+      szakma_id: szakma.id,
+      szakiranyId: szakirany.id,
+      jelentkezo_letszam,
+      felveheto_letszam,
+      felvett_letszam,
+    },
+  });
+}

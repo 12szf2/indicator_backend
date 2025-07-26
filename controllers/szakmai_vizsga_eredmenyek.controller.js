@@ -4,6 +4,7 @@ import {
   getAllByAlapadatok,
   create,
   deleteAllByAlapadatok,
+  update,
 } from "../services/szakmai_vizsga_eredmenyek.service.js";
 
 const router = e.Router();
@@ -266,6 +267,35 @@ router.post("/", async (req, res) => {
     return res.status(201).json(createdData);
   } catch (error) {
     console.error("Error creating szakmai vizsga eredmenyek data:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const {
+      szakirany_id,
+      szakma_id,
+      alapadatok_id,
+      tanev_kezdete,
+      vizsgara_bocsathatoak_szama,
+      sikeres_vizsgazok_szama,
+    } = req.body;
+
+    const updatedData = await update(
+      id,
+      szakirany_id,
+      szakma_id,
+      alapadatok_id,
+      tanev_kezdete,
+      vizsgara_bocsathatoak_szama,
+      sikeres_vizsgazok_szama
+    );
+
+    return res.status(200).json(updatedData);
+  } catch (error) {
+    console.error("Error updating szakmai vizsga eredmenyek data:", error);
     return res.status(500).json({ error: "Internal server error" });
   }
 });

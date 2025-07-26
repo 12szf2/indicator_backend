@@ -4,6 +4,7 @@ import {
   deleteAllByAlapadatok,
   getAll,
   getAllByAlapadatok,
+  update,
 } from "../services/nszfh.service.js";
 
 const router = e.Router();
@@ -256,6 +257,67 @@ router.post("/", async (req, res) => {
     return res.status(201).json(createdData);
   } catch (error) {
     console.error("Error creating NSZFH data:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const {
+      alapadatok_id,
+      tanev_kezdete,
+      kat_1_mat_bemeneti,
+      kat_1_mat_kimeneti,
+      kat_1_szoveg_bemeneti,
+      kat_1_szoveg_kimeneti,
+      kat_2_mat_bemeneti,
+      kat_2_mat_kimeneti,
+      kat_2_szoveg_bemeneti,
+      kat_2_szoveg_kimeneti,
+      kat_3_mat_bemeneti,
+      kat_3_mat_kimeneti,
+      kat_3_szoveg_bemeneti,
+      kat_3_szoveg_kimeneti,
+      kat_4_mat_bemeneti,
+      kat_4_mat_kimeneti,
+      kat_4_szoveg_bemeneti,
+      kat_4_szoveg_kimeneti,
+      kat_5_mat_bemeneti,
+      kat_5_mat_kimeneti,
+      kat_5_szoveg_bemeneti,
+      kat_5_szoveg_kimeneti,
+    } = req.body;
+
+    const updatedData = await update(
+      id,
+      alapadatok_id,
+      tanev_kezdete,
+      kat_1_mat_bemeneti,
+      kat_1_mat_kimeneti,
+      kat_1_szoveg_bemeneti,
+      kat_1_szoveg_kimeneti,
+      kat_2_mat_bemeneti,
+      kat_2_mat_kimeneti,
+      kat_2_szoveg_bemeneti,
+      kat_2_szoveg_kimeneti,
+      kat_3_mat_bemeneti,
+      kat_3_mat_kimeneti,
+      kat_3_szoveg_bemeneti,
+      kat_3_szoveg_kimeneti,
+      kat_4_mat_bemeneti,
+      kat_4_mat_kimeneti,
+      kat_4_szoveg_bemeneti,
+      kat_4_szoveg_kimeneti,
+      kat_5_mat_bemeneti,
+      kat_5_mat_kimeneti,
+      kat_5_szoveg_bemeneti,
+      kat_5_szoveg_kimeneti
+    );
+
+    return res.status(200).json(updatedData);
+  } catch (error) {
+    console.error("Error updating NSZFH data:", error);
     return res.status(500).json({ error: "Internal server error" });
   }
 });

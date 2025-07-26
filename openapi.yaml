@@ -1510,6 +1510,56 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
 
+  /dobbanto/{id}:
+    put:
+      tags: [Dobbanto]
+      summary: Update dobbanto data
+      description: Update existing dobbanto (repeating students) data entry
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: Dobbanto record ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DobbantoInput"
+      responses:
+        "200":
+          description: Dobbanto data updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Dobbanto"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Record not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
   # Elegedettseg endpoints
   /elegedettseg/{tanev}:
     get:
@@ -1648,6 +1698,56 @@ paths:
                 $ref: "#/components/schemas/Error"
         "401":
           description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /elegedettseg/{id}:
+    put:
+      tags: [Elegedettseg]
+      summary: Update satisfaction data
+      description: Update existing employer satisfaction data entry
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: Satisfaction record ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ElegedettsegInput"
+      responses:
+        "200":
+          description: Satisfaction data updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Elegedettseg"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Record not found
           content:
             application/json:
               schema:
@@ -1974,6 +2074,106 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
 
+  /elegedettseg_meres/{id}:
+    put:
+      tags: [Elegedettseg_meres]
+      summary: Update satisfaction measurement data
+      description: Update existing satisfaction measurement data entry
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: Satisfaction measurement record ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ElegedettsegMeresInput"
+      responses:
+        "200":
+          description: Satisfaction measurement data updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ElegedettsegMeres"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Record not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /elegedettseg_meres/{id}:
+    put:
+      tags: [Elegedettseg_meres]
+      summary: Update satisfaction measurement data
+      description: Update existing satisfaction measurement data entry
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: Satisfaction measurement record ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ElegedettsegMeresInput"
+      responses:
+        "200":
+          description: Satisfaction measurement data updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ElegedettsegMeres"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Record not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
   # Lemorzsolodas endpoints
   /lemorzsolodas/{tanev}:
     get:
@@ -2123,6 +2323,56 @@ paths:
               schema:
                 $ref: "#/components/schemas/Error"
 
+  /lemorzsolodas/{id}:
+    put:
+      tags: [Lemorzsolodas]
+      summary: Update dropout data
+      description: Update existing student dropout data entry
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: Dropout record ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LemorzsolodasInput"
+      responses:
+        "200":
+          description: Dropout data updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Lemorzsolodas"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Record not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
   # Elhelyezkedes endpoints
   /elhelyezkedes/{tanev}:
     get:
@@ -2261,6 +2511,56 @@ paths:
                 $ref: "#/components/schemas/Error"
         "401":
           description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /elhelyezkedes/{id}:
+    put:
+      tags: [Elhelyezkedes]
+      summary: Update placement data
+      description: Update existing graduate placement data entry
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: Placement record ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ElhelyezkedesInput"
+      responses:
+        "200":
+          description: Placement data updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Elhelyezkedes"
+        "400":
+          description: Bad request - Invalid input data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Record not found
           content:
             application/json:
               schema:

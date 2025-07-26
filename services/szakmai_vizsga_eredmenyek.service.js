@@ -103,6 +103,36 @@ export async function create(
   return newszakmaiVizsgaEredmenyek;
 }
 
+export async function update(
+  id,
+  szakirany_id,
+  szakma_id,
+  alapadatok_id,
+  tanev_kezdete,
+  vizsgara_bocsathatoak_szama,
+  sikeres_vizsgazok_szama
+) {
+  const updatedEredmenyek = await prisma.szakmaiVizsgaEredmenyek.update({
+    where: { id },
+    data: {
+      szakirany_id,
+      szakma_id,
+      alapadatok_id,
+      tanev_kezdete: parseInt(tanev_kezdete),
+      vizsgara_bocsathatoak_szama: parseInt(vizsgara_bocsathatoak_szama),
+      sikeres_vizsgazok_szama: parseInt(sikeres_vizsgazok_szama),
+    },
+  });
+
+  // Invalidate cache
+  cache.del(`szakmaiVizsgaEredmenyek:all:${tanev_kezdete}`);
+  cache.del(
+    `szakmaiVizsgaEredmenyek:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`
+  );
+
+  return updatedEredmenyek;
+}
+
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
   const firstYear = parseInt(tanev) - 4;
   const lastYear = parseInt(tanev);

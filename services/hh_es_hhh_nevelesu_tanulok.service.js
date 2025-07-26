@@ -94,6 +94,30 @@ export async function create(
   return newhHEsHHHTanulok;
 }
 
+export async function update(
+  id,
+  alapadatok_id,
+  tanev_kezdete,
+  hh_tanulo_letszam,
+  tanuloi_osszletszam
+) {
+  // Invalidate cache
+  cache.del(`hHEsHHHTanulok:all:${tanev_kezdete}`);
+  cache.del(`hHEsHHHTanulok:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
+
+  return await prisma.hHEsHHHTanulok.update({
+    where: {
+      id,
+    },
+    data: {
+      alapadatok_id,
+      tanev_kezdete,
+      hh_tanulo_letszam,
+      tanuloi_osszletszam,
+    },
+  });
+}
+
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
   const firstYear = parseInt(tanev) - 4;
   const lastYear = parseInt(tanev);

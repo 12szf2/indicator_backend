@@ -116,6 +116,48 @@ export async function create(
   return newvizsgaEredmenyek;
 }
 
+export async function update(
+  id,
+  szakirany_id,
+  szakma_id,
+  alapadatok_id,
+  tanev_kezdete,
+  szakmai_vizsga_eredmeny,
+  agazati_alapvizsga_eredmeny,
+  magyar_nyelv_eretsegi_eredmeny,
+  matematika_eretsegi_eredmeny,
+  tortenelem_eretsegi_eredmeny,
+  angol_nyelv_eretsegi_eredmeny,
+  agazati_szakmai_eretsegi_eredmeny
+) {
+  const updatedvizsgaEredmenyek = await prisma.vizsgaEredmenyek.update({
+    where: { id: parseInt(id) },
+    data: {
+      szakirany_id,
+      szakma_id,
+      alapadatok_id,
+      tanev_kezdete: parseInt(tanev_kezdete),
+      szakmai_vizsga_eredmeny: parseFloat(szakmai_vizsga_eredmeny),
+      agazati_alapvizsga_eredmeny: parseFloat(agazati_alapvizsga_eredmeny),
+      magyar_nyelv_eretsegi_eredmeny: parseFloat(
+        magyar_nyelv_eretsegi_eredmeny
+      ),
+      matematika_eretsegi_eredmeny: parseFloat(matematika_eretsegi_eredmeny),
+      tortenelem_eretsegi_eredmeny: parseFloat(tortenelem_eretsegi_eredmeny),
+      angol_nyelv_eretsegi_eredmeny: parseFloat(angol_nyelv_eretsegi_eredmeny),
+      agazati_szakmai_eretsegi_eredmeny: parseFloat(
+        agazati_szakmai_eretsegi_eredmeny
+      ),
+    },
+  });
+
+  // Invalidate cache
+  cache.del(`vizsgaEredmenyek:all:${tanev_kezdete}`);
+  cache.del(`vizsgaEredmenyek:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
+
+  return updatedvizsgaEredmenyek;
+}
+
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
   const firstYear = parseInt(tanev) - 4;
   const lastYear = parseInt(tanev);

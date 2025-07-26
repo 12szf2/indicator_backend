@@ -307,6 +307,12 @@
           "requiresAuth": true,
           "description": "Create new repeating students record"
         },
+        "update": {
+          "method": "PUT",
+          "path": "/dobbanto/{id}",
+          "requiresAuth": true,
+          "description": "Update existing repeating students record"
+        },
         "delete": {
           "method": "DELETE",
           "path": "/dobbanto/{alapadatokId}/{tanev}",
@@ -332,6 +338,12 @@
           "path": "/lemorzsolodas",
           "requiresAuth": true,
           "description": "Create new student dropout record"
+        },
+        "update": {
+          "method": "PUT",
+          "path": "/lemorzsolodas/{id}",
+          "requiresAuth": true,
+          "description": "Update existing student dropout record"
         },
         "delete": {
           "method": "DELETE",
@@ -573,6 +585,12 @@
           "requiresAuth": true,
           "description": "Create new graduate placement record"
         },
+        "update": {
+          "method": "PUT",
+          "path": "/elhelyezkedes/{id}",
+          "requiresAuth": true,
+          "description": "Update existing graduate placement record"
+        },
         "delete": {
           "method": "DELETE",
           "path": "/elhelyezkedes/{alapadatokId}/{tanev}",
@@ -599,6 +617,12 @@
           "requiresAuth": true,
           "description": "Create new employer satisfaction record"
         },
+        "update": {
+          "method": "PUT",
+          "path": "/elegedettseg/{id}",
+          "requiresAuth": true,
+          "description": "Update existing employer satisfaction record"
+        },
         "delete": {
           "method": "DELETE",
           "path": "/elegedettseg/{alapadatokId}/{tanev}",
@@ -624,6 +648,12 @@
           "path": "/elegedettseg_meres",
           "requiresAuth": true,
           "description": "Create new satisfaction measurement record"
+        },
+        "update": {
+          "method": "PUT",
+          "path": "/elegedettseg_meres/{id}",
+          "requiresAuth": true,
+          "description": "Update existing satisfaction measurement record"
         },
         "delete": {
           "method": "DELETE",

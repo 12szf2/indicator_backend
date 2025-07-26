@@ -4,6 +4,7 @@ import {
   getAllByAlapadatok,
   create,
   deleteAllByAlapadatok,
+  update,
 } from "../services/vizsgaeredmenyek.service.js";
 
 const router = e.Router();
@@ -250,6 +251,49 @@ router.post("/", async (req, res) => {
     return res.status(201).json(createdData);
   } catch (error) {
     console.error("Error creating vizsgaeredmenyek data:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const {
+      szakirany_id,
+      szakma_id,
+      alapadatok_id,
+      tanev_kezdete,
+      szakmai_vizsga_eredmeny,
+      agazati_alapvizsga_eredmeny,
+      magyar_nyelv_eretsegi_eredmeny,
+      matematika_eretsegi_eredmeny,
+      tortenelem_eretsegi_eredmeny,
+      angol_nyelv_eretsegi_eredmeny,
+      agazati_szakmai_eretsegi_eredmeny,
+    } = req.body;
+
+    const updatedData = await update(
+      id,
+      szakirany_id,
+      szakma_id,
+      alapadatok_id,
+      tanev_kezdete,
+      szakmai_vizsga_eredmeny,
+      agazati_alapvizsga_eredmeny,
+      magyar_nyelv_eretsegi_eredmeny,
+      matematika_eretsegi_eredmeny,
+      tortenelem_eretsegi_eredmeny,
+      angol_nyelv_eretsegi_eredmeny,
+      agazati_szakmai_eretsegi_eredmeny
+    );
+
+    if (!updatedData) {
+      return res.status(404).json({ error: "Vizsgaeredmenyek not found" });
+    }
+
+    return res.status(200).json(updatedData);
+  } catch (error) {
+    console.error("Error updating vizsgaeredmenyek data:", error);
     return res.status(500).json({ error: "Internal server error" });
   }
 });

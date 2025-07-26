@@ -94,6 +94,30 @@ export async function create(
   return newdobbanto;
 }
 
+export async function update(
+  id,
+  alapadatok_id,
+  tanev_kezdete,
+  dobbanto_szama,
+  tanulok_osszesen
+) {
+  const updatedDobbanto = await prisma.dobbanto.update({
+    where: { id: parseInt(id) },
+    data: {
+      alapadatok_id,
+      tanev_kezdete: parseInt(tanev_kezdete),
+      dobbanto_szama: parseInt(dobbanto_szama),
+      tanulok_osszesen: parseInt(tanulok_osszesen),
+    },
+  });
+
+  // Invalidate cache
+  cache.del(`dobbanto:all:${tanev_kezdete}`);
+  cache.del(`dobbanto:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
+
+  return updatedDobbanto;
+}
+
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
   const firstYear = parseInt(tanev) - 4;
   const lastYear = parseInt(tanev);

@@ -96,10 +96,38 @@ export async function create(
   });
 
   // Invalidate cache
-  cache.del(`elhelyezkedes:all:${tanev}`);
-  cache.del(`elhelyezkedes:alapadatok_id:${alapadatok_id}:${tanev}`);
+  cache.del(`elhelyezkedes:all:${tanev_kezdete}`);
+  cache.del(`elhelyezkedes:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
 
   return newElhelyezkedes;
+}
+
+export async function update(
+  id,
+  szakirany_id,
+  szakma_id,
+  alapadatok_id,
+  tanev_kezdete,
+  elhelyezkedok_szama,
+  szakmai_okatatasban_sikeresen_vegzettek_szama
+) {
+  const updatedElhelyezkedes = await prisma.elhelyezkedes.update({
+    where: { id },
+    data: {
+      szakirany_id,
+      szakma_id,
+      alapadatok_id,
+      tanev_kezdete: parseInt(tanev_kezdete),
+      elhelyezkedok_szama,
+      szakmai_okatatasban_sikeresen_vegzettek_szama,
+    },
+  });
+
+  // Invalidate cache
+  cache.del(`elhelyezkedes:all:${tanev_kezdete}`);
+  cache.del(`elhelyezkedes:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
+
+  return updatedElhelyezkedes;
 }
 
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {

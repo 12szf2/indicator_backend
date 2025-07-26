@@ -3,6 +3,7 @@ import {
   getAll,
   create,
   getById,
+  update,
 } from "../services/felvettek_szama.service.js";
 
 const router = e.Router();
@@ -209,6 +210,19 @@ router.post("/", async (req, res) => {
     res.status(201).json(data);
   } catch (error) {
     console.error("Error creating felvettek_szama:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedData = await update(req.params.id, req.body);
+    if (!updatedData) {
+      return res.status(404).json({ message: "Data not found" });
+    }
+    res.status(200).json(updatedData);
+  } catch (error) {
+    console.error("Error updating felvettek_szama:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 });

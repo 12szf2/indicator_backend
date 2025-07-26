@@ -96,6 +96,32 @@ export async function create(
   return newmuhelyiskola;
 }
 
+export async function update(
+  id,
+  alapadatok_id,
+  tanev_kezdete,
+  reszszakmat_szerezok_szama,
+  muhelyiskola_tanuloi_osszletszam
+) {
+  const updatedmuhelyiskola = await prisma.muhelyiskola.update({
+    where: { id: parseInt(id) },
+    data: {
+      alapadatok_id,
+      tanev_kezdete: parseInt(tanev_kezdete),
+      reszszakmat_szerezok_szama: parseInt(reszszakmat_szerezok_szama),
+      muhelyiskola_tanuloi_osszletszam: parseInt(
+        muhelyiskola_tanuloi_osszletszam
+      ),
+    },
+  });
+
+  // Invalidate cache
+  cache.del(`muhelyiskola:all:${tanev_kezdete}`);
+  cache.del(`muhelyiskola:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
+
+  return updatedmuhelyiskola;
+}
+
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
   const firstYear = parseInt(tanev) - 4;
   const lastYear = parseInt(tanev);

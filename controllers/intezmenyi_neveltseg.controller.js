@@ -4,6 +4,7 @@ import {
   getAllByAlapadatok,
   create,
   deleteAllByAlapadatok,
+  update,
 } from "../services/intezmenyi_neveltseg.service.js";
 
 const router = e.Router();
@@ -390,6 +391,55 @@ router.post("/", async (req, res) => {
     return res.status(201).json(createdData);
   } catch (error) {
     console.error("Error creating intezmenyi neveltseg data:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.put("/:alapadatokId/:tanev", async (req, res) => {
+  try {
+    const { alapadatokId, tanev } = req.params;
+    const {
+      osztaly_jele,
+      igazolatlan_ora,
+      oktato_testuleti_dicseret,
+      oktatoi_dicseret,
+      osztalyfonoki_dicseret,
+      igazagatoi_dicseret,
+      oktato_testuleti_figyelmeztetes,
+      oktatoi_figyelmeztetes,
+      osztalyfonoki_figyelmeztetes,
+      osztalyfonoki_intes,
+      osztalyfonoki_megrovas,
+      igazgatoi_figyelmeztetes,
+      igazgatoi_intes,
+      igazgatoi_megrovas,
+      fegyelmi_eljaras,
+    } = req.body;
+
+    // Assuming you have a service function to update the data
+    const updatedData = await update(
+      alapadatokId,
+      tanev,
+      osztaly_jele,
+      igazolatlan_ora,
+      oktato_testuleti_dicseret,
+      oktatoi_dicseret,
+      osztalyfonoki_dicseret,
+      igazagatoi_dicseret,
+      oktato_testuleti_figyelmeztetes,
+      oktatoi_figyelmeztetes,
+      osztalyfonoki_figyelmeztetes,
+      osztalyfonoki_intes,
+      osztalyfonoki_megrovas,
+      igazgatoi_figyelmeztetes,
+      igazgatoi_intes,
+      igazgatoi_megrovas,
+      fegyelmi_eljaras
+    );
+
+    return res.status(200).json(updatedData);
+  } catch (error) {
+    console.error("Error updating intezmenyi neveltseg data:", error);
     return res.status(500).json({ error: "Internal server error" });
   }
 });

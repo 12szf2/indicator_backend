@@ -104,6 +104,35 @@ export async function create(
   return newlemorzsolodas;
 }
 
+export async function update(
+  id,
+  szakirany_id,
+  szakma_id,
+  alapadatok_id,
+  tanev_kezdete,
+  lemorzsolodo_tanulok_szama,
+  oktober_es_belepett_tanulok_szama
+) {
+  const updatedlemorzsolodas = await prisma.lemorzsolodas.update({
+    where: { id: parseInt(id) },
+    data: {
+      szakirany_id,
+      szakma_id,
+      alapadatok_id,
+      tanev_kezdete: parseInt(tanev_kezdete),
+      lemorzsolodo_tanulok_szama: parseInt(lemorzsolodo_tanulok_szama),
+      oktober_es_belepett_tanulok_szama: parseInt(
+        oktober_es_belepett_tanulok_szama
+      ),
+    },
+  });
+  // Invalidate cache
+  cache.del(`lemorzsolodas:all:${tanev_kezdete}`);
+  cache.del(`lemorzsolodas:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
+
+  return updatedlemorzsolodas;
+}
+
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
   const firstYear = parseInt(tanev) - 4;
   const lastYear = parseInt(tanev);

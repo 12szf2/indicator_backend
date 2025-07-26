@@ -122,6 +122,58 @@ export async function create(
   return newintezmenyiNeveltseg;
 }
 
+export async function update(
+  id,
+  alapadatok_id,
+  tanev_kezdete,
+  osztaly_jele,
+  igazolatlan_ora,
+  oktato_testuleti_dicseret,
+  oktatoi_dicseret,
+  osztalyfonoki_dicseret,
+  igazagatoi_dicseret,
+  oktato_testuleti_figyelmeztetes,
+  oktatoi_figyelmeztetes,
+  osztalyfonoki_figyelmeztetes,
+  osztalyfonoki_intes,
+  osztalyfonoki_megrovas,
+  igazgatoi_figyelmeztetes,
+  igazgatoi_intes,
+  igazgatoi_megrovas,
+  fegyelmi_eljaras
+) {
+  // Invalidate cache
+  cache.del(`intezmenyiNeveltseg:all:${tanev_kezdete}`);
+  cache.del(
+    `intezmenyiNeveltseg:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`
+  );
+
+  return await prisma.intezmenyiNeveltseg.update({
+    where: {
+      id,
+    },
+    data: {
+      alapadatok_id,
+      tanev_kezdete,
+      osztaly_jele,
+      igazolatlan_ora,
+      oktato_testuleti_dicseret,
+      oktatoi_dicseret,
+      osztalyfonoki_dicseret,
+      igazagatoi_dicseret,
+      oktato_testuleti_figyelmeztetes,
+      oktatoi_figyelmeztetes,
+      osztalyfonoki_figyelmeztetes,
+      osztalyfonoki_intes,
+      osztalyfonoki_megrovas,
+      igazgatoi_figyelmeztetes,
+      igazgatoi_intes,
+      igazgatoi_megrovas,
+      fegyelmi_eljaras,
+    },
+  });
+}
+
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
   const firstYear = parseInt(tanev) - 4;
   const lastYear = parseInt(tanev);

@@ -94,6 +94,33 @@ export async function create(
   return newsajatosNevelesuTanulok;
 }
 
+export async function update(
+  id,
+  alapadatok_id,
+  tanev_kezdete,
+  sni_tanulok_szama,
+  tanulok_osszesen
+) {
+  const updatedSajatosNevelesuTanulok =
+    await prisma.sajatosNevelesuTanulok.update({
+      where: { id: parseInt(id) },
+      data: {
+        alapadatok_id,
+        tanev_kezdete: parseInt(tanev_kezdete),
+        sni_tanulok_szama: parseInt(sni_tanulok_szama),
+        tanulok_osszesen: parseInt(tanulok_osszesen),
+      },
+    });
+
+  // Invalidate cache
+  cache.del(`sajatosNevelesuTanulok:all:${tanev_kezdete}`);
+  cache.del(
+    `sajatosNevelesuTanulok:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`
+  );
+
+  return updatedSajatosNevelesuTanulok;
+}
+
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
   const firstYear = parseInt(tanev) - 4;
   const lastYear = parseInt(tanev);

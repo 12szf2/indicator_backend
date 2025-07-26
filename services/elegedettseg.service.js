@@ -100,6 +100,31 @@ export async function create(
   return newelegedettseg;
 }
 
+export async function update(
+  id,
+  szakirany_id,
+  szakma_id,
+  alapadatok_id,
+  tanev_kezdete,
+  munkaadok_elegedettsege
+) {
+  const updatedelegedettseg = await prisma.elegedettseg.update({
+    where: { id: parseInt(id) },
+    data: {
+      szakirany_id,
+      szakma_id,
+      alapadatok_id,
+      tanev_kezdete: parseInt(tanev_kezdete),
+      munkaadok_elegedettsege,
+    },
+  });
+  // Invalidate cache
+  cache.del(`elegedettseg:all:${tanev_kezdete}`);
+  cache.del(`elegedettseg:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
+
+  return updatedelegedettseg;
+}
+
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
   const firstYear = parseInt(tanev) - 4;
   const lastYear = parseInt(tanev);

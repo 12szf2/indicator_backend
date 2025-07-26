@@ -4,6 +4,7 @@ import {
   getAllByAlapadatok,
   create,
   deleteAllByAlapadatok,
+  update,
 } from "../services/sajatos_nevelesu_tanulok.service.js";
 
 const router = e.Router();
@@ -245,6 +246,31 @@ router.post("/", async (req, res) => {
     return res.status(201).json(createdData);
   } catch (error) {
     console.error("Error creating sajatos nevelesu tanulok data:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const {
+      alapadatok_id,
+      tanev_kezdete,
+      sni_tanulok_szama,
+      tanulok_osszesen,
+    } = req.body;
+
+    const updatedData = await update(
+      id,
+      alapadatok_id,
+      tanev_kezdete,
+      sni_tanulok_szama,
+      tanulok_osszesen
+    );
+
+    return res.status(200).json(updatedData);
+  } catch (error) {
+    console.error("Error updating sajatos nevelesu tanulok data:", error);
     return res.status(500).json({ error: "Internal server error" });
   }
 });

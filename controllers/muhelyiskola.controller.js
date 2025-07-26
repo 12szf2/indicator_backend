@@ -4,6 +4,7 @@ import {
   getAllByAlapadatok,
   create,
   deleteAllByAlapadatok,
+  update,
 } from "../services/muhelyiskola.service.js";
 
 const router = e.Router();
@@ -253,6 +254,31 @@ router.post("/", async (req, res) => {
     return res.status(201).json(createdData);
   } catch (error) {
     console.error("Error creating muhelyiskola data:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const {
+      alapadatok_id,
+      tanev_kezdete,
+      reszszakmat_szerezok_szama,
+      muhelyiskola_tanuloi_osszletszam,
+    } = req.body;
+
+    const updatedData = await update(
+      id,
+      alapadatok_id,
+      tanev_kezdete,
+      reszszakmat_szerezok_szama,
+      muhelyiskola_tanuloi_osszletszam
+    );
+
+    return res.status(200).json(updatedData);
+  } catch (error) {
+    console.error("Error updating muhelyiskola data:", error);
     return res.status(500).json({ error: "Internal server error" });
   }
 });

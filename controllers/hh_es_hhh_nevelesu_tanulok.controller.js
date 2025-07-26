@@ -4,6 +4,7 @@ import {
   getAllByAlapadatok,
   create,
   deleteAllByAlapadatok,
+  update,
 } from "../services/hh_es_hhh_nevelesu_tanulok.service.js";
 
 const router = e.Router();
@@ -278,6 +279,31 @@ router.post("/", async (req, res) => {
     return res.status(201).json(createdData);
   } catch (error) {
     console.error("Error creating elhelyezkedes data:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const {
+      alapadatok_id,
+      tanev_kezdete,
+      hh_tanulo_letszam,
+      tanuloi_osszletszam,
+    } = req.body;
+
+    const updatedData = await update(
+      id,
+      alapadatok_id,
+      tanev_kezdete,
+      hh_tanulo_letszam,
+      tanuloi_osszletszam
+    );
+
+    return res.status(200).json(updatedData);
+  } catch (error) {
+    console.error("Error updating elhelyezkedes data:", error);
     return res.status(500).json({ error: "Internal server error" });
   }
 });

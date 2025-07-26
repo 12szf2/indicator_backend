@@ -102,6 +102,39 @@ export async function create(
   return newelegedettsegMeres;
 }
 
+export async function update(
+  id,
+  alapadatok_id,
+  tanev_kezdete,
+  szulok_elegedettsege,
+  oktatok_elegedettsege,
+  tanulok_elegedettsege,
+  dualis_kepzohely_elegedettsege,
+  munkaero_piac_elegedettsege
+) {
+  const updatedelegedettsegMeres = await prisma.elegedettsegMeres.update({
+    where: { id: parseInt(id) },
+    data: {
+      alapadatok_id,
+      tanev_kezdete: parseInt(tanev_kezdete),
+      szulok_elegedettsege: parseFloat(szulok_elegedettsege),
+      oktatok_elegedettsege: parseFloat(oktatok_elegedettsege),
+      tanulok_elegedettsege: parseFloat(tanulok_elegedettsege),
+      dualis_kepzohely_elegedettsege: parseFloat(
+        dualis_kepzohely_elegedettsege
+      ),
+      munkaero_piac_elegedettsege: parseFloat(munkaero_piac_elegedettsege),
+    },
+  });
+
+  // Invalidate cache
+  cache.del(`elegedettsegMeres:all:${tanev_kezdete}`);
+  cache.del(`elegedettsegMeres:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
+  cache.del(`elegedettsegMeres:${id}`);
+
+  return updatedelegedettsegMeres;
+}
+
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
   const firstYear = parseInt(tanev) - 4;
   const lastYear = parseInt(tanev);

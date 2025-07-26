@@ -3,7 +3,195 @@
   <metadata>
     <name>Indicator Backend API</name>
     <version>1.0.0</version>
-    <description>Educational data management system API for managing school data, student analytics, satisfaction measurements, exam results, and administrative information.</description>
+    <description>Educational data management system API for managing school data, student analytics, satisfaction measurements        <endpoint>
+          <n>delete</n>
+          <method>DELETE</method>
+          <path>/sajatos_nevelesi_tanulok/{alapadatok_id}/{year}</path>
+          <requiresAuth>true</        <endpoint>
+          <n>delete</n>
+         <endpoint>
+          <n>create</n>
+          <method>POST</method>
+          <path>/elhelyezkedes</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Create new graduate placement record</description>
+        </endpoint>
+        <endpoint>
+          <name>update</name>
+          <method>PUT</method>
+          <path>/elhelyezkedes/{id}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Update existing graduate placement record</description>
+        </endpoint>
+        <endpoint>
+          <n>delete</n>
+          <method>DELETE</method>
+          <path>/elhelyezkedes/{alapadatokId}/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Delete graduate placement record</description>
+        </endpoint>od>DELETE</method>
+          <path>/versenyek/{id}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Delete competition record by ID</description>
+        </endpoint>
+      </subgroup>
+
+      <subgroup name="employerSatisfaction">
+        <endpoint>
+          <name>getByYear</name>
+          <method>GET</method>
+          <path>/elegedettseg/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get employer satisfaction data by academic year</description>
+        </endpoint>
+        <endpoint>
+          <name>getBySchoolAndYear</name>
+          <method>GET</method>
+          <path>/elegedettseg/{alapadatokId}/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get employer satisfaction data by school and year</description>
+        </endpoint>
+        <endpoint>
+          <name>create</name>
+          <method>POST</method>
+          <path>/elegedettseg</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Create new employer satisfaction record</description>
+        </endpoint>
+        <endpoint>
+          <name>update</name>
+          <method>PUT</method>
+          <path>/elegedettseg/{id}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Update existing employer satisfaction record</description>
+        </endpoint>
+        <endpoint>
+          <name>delete</name>
+          <method>DELETE</method>
+          <path>/elegedettseg/{alapadatokId}/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Delete employer satisfaction record</description>
+        </endpoint>
+      </subgroup>
+
+      <subgroup name="satisfactionMeasurement">
+        <endpoint>
+          <name>getByYear</name>
+          <method>GET</method>
+          <path>/elegedettseg_meres/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get satisfaction measurement data by academic year</description>
+        </endpoint>
+        <endpoint>
+          <name>getBySchoolAndYear</name>
+          <method>GET</method>
+          <path>/elegedettseg_meres/{alapadatokId}/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get satisfaction measurement data by school and year</description>
+        </endpoint>
+        <endpoint>
+          <name>create</name>
+          <method>POST</method>
+          <path>/elegedettseg_meres</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Create new satisfaction measurement record</description>
+        </endpoint>
+        <endpoint>
+          <name>update</name>
+          <method>PUT</method>
+          <path>/elegedettseg_meres/{id}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Update existing satisfaction measurement record</description>
+        </endpoint>
+        <endpoint>
+          <name>delete</name>
+          <method>DELETE</method>
+          <path>/elegedettseg_meres/{alapadatokId}/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Delete satisfaction measurement record</description>
+        </endpoint>
+      </subgroup>
+    </group>uth>
+          <description>Delete special needs students record</description>
+        </endpoint>
+      </subgroup>
+
+      <subgroup name="repeatingStudents">
+        <endpoint>
+          <name>getByYear</name>
+          <method>GET</method>
+          <path>/dobbanto/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get repeating students data by academic year</description>
+        </endpoint>
+        <endpoint>
+          <name>getBySchoolAndYear</name>
+          <method>GET</method>
+          <path>/dobbanto/{alapadatokId}/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get repeating students data by school and year</description>
+        </endpoint>
+        <endpoint>
+          <name>create</name>
+          <method>POST</method>
+          <path>/dobbanto</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Create new repeating students record</description>
+        </endpoint>
+        <endpoint>
+          <name>update</name>
+          <method>PUT</method>
+          <path>/dobbanto/{id}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Update existing repeating students record</description>
+        </endpoint>
+        <endpoint>
+          <name>delete</name>
+          <method>DELETE</method>
+          <path>/dobbanto/{alapadatokId}/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Delete repeating students record</description>
+        </endpoint>
+      </subgroup>
+
+      <subgroup name="dropoutData">
+        <endpoint>
+          <name>getByYear</name>
+          <method>GET</method>
+          <path>/lemorzsolodas/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get student dropout data by academic year</description>
+        </endpoint>
+        <endpoint>
+          <name>getBySchoolAndYear</name>
+          <method>GET</method>
+          <path>/lemorzsolodas/{alapadatokId}/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Get student dropout data by school and year</description>
+        </endpoint>
+        <endpoint>
+          <name>create</name>
+          <method>POST</method>
+          <path>/lemorzsolodas</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Create new student dropout record</description>
+        </endpoint>
+        <endpoint>
+          <name>update</name>
+          <method>PUT</method>
+          <path>/lemorzsolodas/{id}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Update existing student dropout record</description>
+        </endpoint>
+        <endpoint>
+          <name>delete</name>
+          <method>DELETE</method>
+          <path>/lemorzsolodas/{alapadatokId}/{tanev}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Delete student dropout record</description>
+        </endpoint>
+      </subgroup>
+    </group>sults, and administrative information.</description>
     <baseUrl>http://localhost:5300/api/v1</baseUrl>
     <contentType>application/json</contentType>
     <swaggerUI>http://localhost:5300/api-docs</swaggerUI>
