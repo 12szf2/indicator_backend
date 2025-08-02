@@ -82,47 +82,47 @@ model Log {
 }
 
 model Alapadatok {
-  id                      String                    @id @default(uuid()) @db.Uuid
-  iskola_neve             String                    @db.VarChar(150)
-  intezmeny_tipus         String                    @db.VarChar(50)
-  felvettek_szama         Felvettek_Szama[]
-  kompetencia             Kompetencia[]
-  tanar_letszam           Tanar_Letszam[]
-  tanugyiAdatok           Tanugyi_Adatok[]
-  alkalmazottakMunkaugy   Alkalmazottak_Munkaugy[]
-  tanulo_letszam          Tanulo_Letszam[]
-  egyOktatoraJutoTanulo   EgyOktatoraJutoTanulo[]
-  szakkepzesiStatisztika  SzakkepzesiStatisztika[]
-  versenyek               versenyek[]
-  alapadatok_szakirany    Alapadatok_Szakirany[]
-  alapadatok_szakma       Alapadatok_Szakma[]
-  nszfhMeresek            nszfhMeresek[]
-  elhelyezkedes           Elhelyezkedes[]
-  elegedettseg            Elegedettseg[]
-  vizsgaeredmenyek        VizsgaEredmenyek[]
-  szakmaiVizsgaEredmenyek SzakmaiVizsgaEredmenyek[]
-  lemorzsolodas           Lemorzsolodas[]
-  elegedettsegMeres       ElegedettsegMeres[]
-  intezmenyiNeveltseg     IntezmenyiNeveltseg[]
-  hhesHhhTanulok          HHEsHHHTanulok[]
-  sajatosNevelesuTanulok  SajatosNevelesuTanulok[]
-  dobbanto                Dobbanto[]
-  muhelyiskola            Muhelyiskola[]
+  id                              String                            @id @default(uuid()) @db.Uuid
+  iskola_neve                     String                            @db.VarChar(150)
+  intezmeny_tipus                 String                            @db.VarChar(50)
+  felvettek_szama                 Felvettek_Szama[]
+  kompetencia                     Kompetencia[]
+  tanar_letszam                   Tanar_Letszam[]
+  tanugyiAdatok                   Tanugyi_Adatok[]
+  alkalmazottakMunkaugy           Alkalmazottak_Munkaugy[]
+  tanulo_letszam                  Tanulo_Letszam[]
+  egyOktatoraJutoTanulo           EgyOktatoraJutoTanulo[]
+  szakkepzesiMunkaszerzodesAranya SzakkepzesiMunkaszerzodesAranya[]
+  versenyek                       versenyek[]
+  alapadatok_szakirany            Alapadatok_Szakirany[]
+  alapadatok_szakma               Alapadatok_Szakma[]
+  nszfhMeresek                    nszfhMeresek[]
+  elhelyezkedes                   Elhelyezkedes[]
+  elegedettseg                    Elegedettseg[]
+  vizsgaeredmenyek                VizsgaEredmenyek[]
+  szakmaiVizsgaEredmenyek         SzakmaiVizsgaEredmenyek[]
+  lemorzsolodas                   Lemorzsolodas[]
+  elegedettsegMeres               ElegedettsegMeres[]
+  intezmenyiNeveltseg             IntezmenyiNeveltseg[]
+  hhesHhhTanulok                  HHEsHHHTanulok[]
+  sajatosNevelesuTanulok          SajatosNevelesuTanulok[]
+  dobbanto                        Dobbanto[]
+  muhelyiskola                    Muhelyiskola[]
 
   users User[] @relation("AlapadatokUsers")
 }
 
 model Szakirany {
-  id                      String                    @id @default(uuid()) @db.Uuid
-  nev                     String                    @unique @db.VarChar(75)
-  felvettek_szama         Felvettek_Szama[]
-  tanulo_letszam          Tanulo_Letszam[]
-  szakkepzesiStatisztika  SzakkepzesiStatisztika[]
-  elhelyezkedes           Elhelyezkedes[]
-  elegedettseg            Elegedettseg[]
-  vizsgaeredmenyek        VizsgaEredmenyek[]
-  szakmaiVizsgaEredmenyek SzakmaiVizsgaEredmenyek[]
-  lemorzsolodas           Lemorzsolodas[]
+  id                              String                            @id @default(uuid()) @db.Uuid
+  nev                             String                            @unique @db.VarChar(75)
+  felvettek_szama                 Felvettek_Szama[]
+  tanulo_letszam                  Tanulo_Letszam[]
+  szakkepzesiMunkaszerzodesAranya SzakkepzesiMunkaszerzodesAranya[]
+  elhelyezkedes                   Elhelyezkedes[]
+  elegedettseg                    Elegedettseg[]
+  vizsgaeredmenyek                VizsgaEredmenyek[]
+  szakmaiVizsgaEredmenyek         SzakmaiVizsgaEredmenyek[]
+  lemorzsolodas                   Lemorzsolodas[]
 
   alapadatok_szakirany Alapadatok_Szakirany[]
   szakma               Szakirany_Szakma[]
@@ -133,14 +133,14 @@ model Szakma {
   nev   String  @unique @db.VarChar(75)
   tipus String? @db.VarChar(50)
 
-  felvettek_szama         Felvettek_Szama[]
-  tanulo_letszam          Tanulo_Letszam[]
-  szakkepzesiStatisztika  SzakkepzesiStatisztika[]
-  elhelyezkedes           Elhelyezkedes[]
-  elegedettseg            Elegedettseg[]
-  vizsgaeredmenyek        VizsgaEredmenyek[]
-  szakmaiVizsgaEredmenyek SzakmaiVizsgaEredmenyek[]
-  lemorzsolodas           Lemorzsolodas[]
+  felvettek_szama                 Felvettek_Szama[]
+  tanulo_letszam                  Tanulo_Letszam[]
+  szakkepzesiMunkaszerzodesAranya SzakkepzesiMunkaszerzodesAranya[]
+  elhelyezkedes                   Elhelyezkedes[]
+  elegedettseg                    Elegedettseg[]
+  vizsgaeredmenyek                VizsgaEredmenyek[]
+  szakmaiVizsgaEredmenyek         SzakmaiVizsgaEredmenyek[]
+  lemorzsolodas                   Lemorzsolodas[]
 
   alapadatok        Alapadatok_Szakma[]
   alapadatok_szakma Szakirany_Szakma[]
@@ -381,23 +381,23 @@ model Alkalmazottak_Munkaugy {
   @@map("alkalmazottak_munkaugy")
 }
 
-model SzakkepzesiStatisztika {
-  id                String     @id @default(uuid()) @db.Uuid
-  alapadatok_id     String     @db.Uuid
-  tanev_kezdete     Int        @db.SmallInt
-  szakirany_id      String     @db.Uuid
-  szakma_id         String     @db.Uuid
-  statisztika_tipus String     @db.VarChar(50) // "munkaszerz_arany", "munkaszerz_tanulok", "szakiranyu_tanulok"
-  letszam           Int?       @db.Integer // Can store both percentages and counts
-  createAt          DateTime   @default(now())
-  createBy          String?
-  updatedAt         DateTime?  @updatedAt
-  updatedBy         String?
-  alapadatok        Alapadatok @relation(fields: [alapadatok_id], references: [id])
-  szakirany         Szakirany  @relation(fields: [szakirany_id], references: [id])
-  szakma            Szakma     @relation(fields: [szakma_id], references: [id])
+model SzakkepzesiMunkaszerzodesAranya {
+  id                             String     @id @default(uuid()) @db.Uuid
+  alapadatok_id                  String     @db.Uuid
+  tanev_kezdete                  Int        @db.SmallInt
+  szakirany_id                   String?    @db.Uuid
+  szakma_id                      String?    @db.Uuid
+  tanulok_osszeletszam           Int?       @db.Integer
+  munkaszerzodeses_tanulok_szama Int?       @db.Integer
+  createAt                       DateTime   @default(now())
+  createBy                       String?
+  updatedAt                      DateTime?  @updatedAt
+  updatedBy                      String?
+  alapadatok                     Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakirany                      Szakirany? @relation(fields: [szakirany_id], references: [id])
+  szakma                         Szakma?    @relation(fields: [szakma_id], references: [id])
 
-  @@map("szakkepzesi_statisztika")
+  @@map("szakkepzesi_munkaszerzodes_aranya")
 }
 
 model VesenyKategoria {

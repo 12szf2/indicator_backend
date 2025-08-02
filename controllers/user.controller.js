@@ -166,6 +166,41 @@ router.get("/:email", async (req, res) => {
 
 /**
  * @swagger
+ * /users/filtered:
+ *   get:
+ *     summary: Get filtered users
+ *     description: Retrieves a filtered list of users based on specific criteria
+ *     tags: [Users]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: A filtered list of users
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/User'
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden - Insufficient permissions
+ *       500:
+ *         description: Internal server error
+ */
+router.get("/filtered", async (req, res) => {
+  try {
+    const data = await getAllFiltered();
+    res.status(200).json(data);
+  } catch (error) {
+    console.error("Error fetching filtered users:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+/**
+ * @swagger
  * /users:
  *   post:
  *     summary: Create new user

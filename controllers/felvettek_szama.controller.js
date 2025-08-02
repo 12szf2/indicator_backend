@@ -92,9 +92,9 @@ const router = e.Router();
  *       500:
  *         description: Internal server error
  */
-router.get("/", async (req, res) => {
+router.get("/:tanev", async (req, res) => {
   try {
-    const data = await getAll();
+    const data = await getAll(req.params.tanev);
     res.status(200).json(data);
   } catch (error) {
     console.error("Error fetching felvettek_szama:", error);
@@ -134,9 +134,9 @@ router.get("/", async (req, res) => {
  *       500:
  *         description: Internal server error
  */
-router.get("/:alapadatok_id", async (req, res) => {
+router.get("/:alapadatok_id/:tanev", async (req, res) => {
   try {
-    const data = await getById(req.params.alapadatok_id);
+    const data = await getById(req.params.alapadatok_id, req.params.tanev);
     if (!data) {
       return res.status(404).json({ message: "Data not found" });
     }

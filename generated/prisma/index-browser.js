@@ -389,14 +389,14 @@ exports.Prisma.Alkalmazottak_MunkaugyScalarFieldEnum = {
   alapadatok_id: 'alapadatok_id'
 };
 
-exports.Prisma.SzakkepzesiStatisztikaScalarFieldEnum = {
+exports.Prisma.SzakkepzesiMunkaszerzodesAranyaScalarFieldEnum = {
   id: 'id',
   alapadatok_id: 'alapadatok_id',
   tanev_kezdete: 'tanev_kezdete',
   szakirany_id: 'szakirany_id',
   szakma_id: 'szakma_id',
-  statisztika_tipus: 'statisztika_tipus',
-  letszam: 'letszam',
+  tanulok_osszeletszam: 'tanulok_osszeletszam',
+  munkaszerzodeses_tanulok_szama: 'munkaszerzodeses_tanulok_szama',
   createAt: 'createAt',
   createBy: 'createBy',
   updatedAt: 'updatedAt',
@@ -675,7 +675,7 @@ exports.Prisma.ModelName = {
   EgyOktatoraJutoTanulo: 'EgyOktatoraJutoTanulo',
   Tanugyi_Adatok: 'Tanugyi_Adatok',
   Alkalmazottak_Munkaugy: 'Alkalmazottak_Munkaugy',
-  SzakkepzesiStatisztika: 'SzakkepzesiStatisztika',
+  SzakkepzesiMunkaszerzodesAranya: 'SzakkepzesiMunkaszerzodesAranya',
   VesenyKategoria: 'VesenyKategoria',
   VesenyNevek: 'VesenyNevek',
   versenyek: 'versenyek',

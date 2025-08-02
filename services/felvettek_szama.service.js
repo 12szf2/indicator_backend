@@ -54,25 +54,12 @@ export async function create(data) {
   });
 }
 
-export async function getAll() {
-  const cacheKey = "felvettek_szama:all";
+export async function getAll(tanev) {
+  const cacheKey = `felvettek_szama:all:${tanev}`;
   const cachedData = cache.get(cacheKey);
 
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const data = await prisma.felvettek_Szama.findMany();
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function getById(alapadatok_id) {
-  const cacheKey = `felvettek_szama:alapadatok_id:${alapadatok_id}`;
-  const cachedData = cache.get(cacheKey);
+  const lastYear = parseInt(tanev);
+  const firstYear = lastYear - 4;
 
   if (cachedData) {
     return cachedData;
@@ -80,7 +67,36 @@ export async function getById(alapadatok_id) {
 
   const data = await prisma.felvettek_Szama.findMany({
     where: {
+      tanev_kezdete: { gte: firstYear, lte: lastYear },
+    },
+    include: {
+      szakma: true,
+      szakirany: true,
+    },
+    orderBy: { createAt: "desc" },
+  });
+
+  // Store in cache
+  cache.set(cacheKey, data, CACHE_TTL.LIST);
+
+  return data;
+}
+
+export async function getById(alapadatok_id, tanev) {
+  const cacheKey = `felvettek_szama:alapadatok_id:${alapadatok_id}:${tanev}`;
+  const cachedData = cache.get(cacheKey);
+
+  if (cachedData) {
+    return cachedData;
+  }
+
+  const lastYear = parseInt(tanev);
+  const firstYear = lastYear - 4;
+
+  const data = await prisma.felvettek_Szama.findMany({
+    where: {
       alapadatok_id,
+      tanev_kezdete: { gte: firstYear, lte: lastYear },
     },
     include: {
       szakma: true,

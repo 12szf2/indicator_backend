@@ -71,6 +71,28 @@ export async function getByEmail(email) {
   return data;
 }
 
+export async function getAllFiltered() {
+  const cacheKey = `users:all:filtered`;
+  const cachedData = cache.get(cacheKey);
+
+  if (cachedData) {
+    return cachedData;
+  }
+
+  const data = await prisma.user.findMany({
+    select: {
+      id: true,
+      email: true,
+      name: true,
+    },
+  });
+
+  // Store in cache
+  cache.set(cacheKey, data, CACHE_TTL.LIST);
+
+  return data;
+}
+
 export async function create(
   email,
   name,
