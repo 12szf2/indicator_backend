@@ -7,21 +7,23 @@ const CACHE_TTL = {
   DETAIL: 10 * 60 * 1000, // 10 minutes for details
 };
 
-export async function create(
-  alapadatok_id,
-  tanev_kezdete,
-  szakmaNev,
-  szakiranyNev,
-  jelentkezo_letszam,
-  felveheto_letszam,
-  felvett_letszam
-) {
+export async function create(data) {
+  const {
+    alapadatok_id,
+    tanev_kezdete,
+    szakmaNev,
+    szakiranyNev,
+    jelentkezo_letszam,
+    felveheto_letszam,
+    felvett_letszam,
+  } = data;
+
   // Invalidate relevant caches
   cache.del("felvettek_szama:all");
   cache.del(`felvettek_szama:alapadatok_id:${alapadatok_id}`);
   const szakma = await prisma.szakma.findUnique({
     where: {
-      szakmaNev,
+      nev: szakmaNev,
     },
   });
 
@@ -31,7 +33,7 @@ export async function create(
 
   const szakirany = await prisma.szakirany.findUnique({
     where: {
-      szakiranyNev,
+      nev: szakiranyNev,
     },
   });
 
@@ -92,22 +94,23 @@ export async function getById(alapadatok_id) {
   return data;
 }
 
-export async function update(
-  id,
-  alapadatok_id,
-  tanev_kezdete,
-  szakmaNev,
-  szakiranyNev,
-  jelentkezo_letszam,
-  felveheto_letszam,
-  felvett_letszam
-) {
+export async function update(id, data) {
+  const {
+    alapadatok_id,
+    tanev_kezdete,
+    szakmaNev,
+    szakiranyNev,
+    jelentkezo_letszam,
+    felveheto_letszam,
+    felvett_letszam,
+  } = data;
+
   // Invalidate relevant caches
   cache.del("felvettek_szama:all");
   cache.del(`felvettek_szama:alapadatok_id:${alapadatok_id}`);
   const szakma = await prisma.szakma.findUnique({
     where: {
-      szakmaNev,
+      nev: szakmaNev,
     },
   });
   if (!szakma) {
@@ -115,7 +118,7 @@ export async function update(
   }
   const szakirany = await prisma.szakirany.findUnique({
     where: {
-      szakiranyNev,
+      nev: szakiranyNev,
     },
   });
   if (!szakirany) {
