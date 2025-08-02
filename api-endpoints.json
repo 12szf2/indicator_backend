@@ -239,25 +239,25 @@
       "specialNeedsStudents": {
         "getByYear": {
           "method": "GET",
-          "path": "/sajatos_nevelesi_tanulok/{year}",
+          "path": "/sajatos_nevelesu_tanulok/{year}",
           "requiresAuth": true,
           "description": "Get special needs students data by year"
         },
         "getBySchoolAndYear": {
           "method": "GET",
-          "path": "/sajatos_nevelesi_tanulok/{alapadatok_id}/{year}",
+          "path": "/sajatos_nevelesu_tanulok/{alapadatok_id}/{year}",
           "requiresAuth": true,
           "description": "Get special needs students data by school and year"
         },
         "create": {
           "method": "POST",
-          "path": "/sajatos_nevelesi_tanulok",
+          "path": "/sajatos_nevelesu_tanulok",
           "requiresAuth": true,
           "description": "Create new special needs students record"
         },
         "delete": {
           "method": "DELETE",
-          "path": "/sajatos_nevelesi_tanulok/{alapadatok_id}/{year}",
+          "path": "/sajatos_nevelesu_tanulok/{alapadatok_id}/{year}",
           "requiresAuth": true,
           "description": "Delete special needs students record"
         }

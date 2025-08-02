@@ -78,18 +78,40 @@ export async function create(
   sni_tanulok_szama,
   tanulok_osszesen
 ) {
+  // Validate input parameters
+  if (!alapadatok_id) {
+    throw new Error("alapadatok_id is required");
+  }
+  if (!tanev_kezdete) {
+    throw new Error("tanev_kezdete is required");
+  }
+
+  // Parse and validate numeric values
+  const parsedTanevKezdete = parseInt(tanev_kezdete);
+  const parsedSniTanulokSzama = parseInt(sni_tanulok_szama) || 0;
+  const parsedTanulokOsszesen = parseInt(tanulok_osszesen) || 0;
+
+  if (isNaN(parsedTanevKezdete)) {
+    throw new Error("tanev_kezdete must be a valid number");
+  }
+  if (isNaN(parsedTanulokOsszesen) || parsedTanulokOsszesen === 0) {
+    throw new Error("tanulok_osszesen must be a valid positive number");
+  }
+
   const newsajatosNevelesuTanulok = await prisma.sajatosNevelesuTanulok.create({
     data: {
       alapadatok_id,
-      tanev_kezdete: parseInt(tanev_kezdete),
-      sni_tanulok_szama: parseInt(sni_tanulok_szama),
-      tanulok_osszesen: parseInt(tanulok_osszesen),
+      tanev_kezdete: parsedTanevKezdete,
+      sni_tanulok_szama: parsedSniTanulokSzama,
+      tanulok_osszesen: parsedTanulokOsszesen,
     },
   });
 
   // Invalidate cache
-  cache.del(`sajatosNevelesuTanulok:all:${tanev}`);
-  cache.del(`sajatosNevelesuTanulok:alapadatok_id:${alapadatok_id}:${tanev}`);
+  cache.del(`sajatosNevelesuTanulok:all:${parsedTanevKezdete + 1}`);
+  cache.del(
+    `sajatosNevelesuTanulok:alapadatok_id:${alapadatok_id}:${parsedTanevKezdete}`
+  );
 
   return newsajatosNevelesuTanulok;
 }

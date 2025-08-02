@@ -98,7 +98,7 @@ protectedRouter.use("/lemorzsolodas", i.lemorzsolodasRouter);
 protectedRouter.use("/muhelyiskola", i.muhelyiskolaRouter);
 protectedRouter.use("/nszfh", i.nszfhRouter);
 protectedRouter.use(
-  "/sajatos_nevelesi_tanulok",
+  "/sajatos_nevelesu_tanulok",
   i.sajatosNevelesuTanulokRouter
 );
 protectedRouter.use(

@@ -3,9 +3,6 @@
  * Script to add Swagger documentation to all remaining controllers
  */
 
-import fs from "fs";
-import path from "path";
-
 const controllersToDocument = [
   {
     file: "dobbanto.controller.js",
@@ -33,7 +30,7 @@ const controllersToDocument = [
     tag: "Sajatos_nevelesu_tanulok",
     description: "Students with special needs data management",
     schema: "SajatosNeveluTanulok",
-    routePrefix: "/sajatos_nevelesi_tanulok",
+    routePrefix: "/sajatos_nevelesu_tanulok",
   },
   {
     file: "szakmai_vizsga_eredmenyek.service.controller.js",

@@ -59,7 +59,7 @@ const router = e.Router();
 
 /**
  * @swagger
- * /sajatos_nevelesi_tanulok/{tanev}:
+ * /sajatos_nevelesu_tanulok/{tanev}:
  *   get:
  *     summary: Get special needs students data by school year
  *     description: Retrieve special needs students data for a specific school year and previous 4 years
@@ -102,7 +102,7 @@ router.get("/:tanev", async (req, res) => {
 
 /**
  * @swagger
- * /sajatos_nevelesi_tanulok/{alapadatokId}/{tanev}:
+ * /sajatos_nevelesu_tanulok/{alapadatokId}/{tanev}:
  *   get:
  *     summary: Get special needs students data by school and year
  *     description: Retrieve special needs students data for a specific school and year
@@ -181,7 +181,7 @@ router.get("/:alapadatokId/:tanev", async (req, res) => {
 
 /**
  * @swagger
- * /sajatos_nevelesi_tanulok:
+ * /sajatos_nevelesu_tanulok:
  *   post:
  *     summary: Create special needs students data
  *     tags: [Sajatos_nevelesu_tanulok]
@@ -210,6 +210,10 @@ router.get("/:alapadatokId/:tanev", async (req, res) => {
  *                 type: integer
  *                 description: Total number of students
  *                 example: 250
+ *               osszes_tanulo_szama:
+ *                 type: integer
+ *                 description: Total number of students (alternative field name)
+ *                 example: 250
  *             required:
  *               - alapadatok_id
  *               - tanev_kezdete
@@ -234,18 +238,46 @@ router.post("/", async (req, res) => {
       tanev_kezdete,
       sni_tanulok_szama,
       tanulok_osszesen,
+      osszes_tanulo_szama, // Alternative field name from client
     } = req.body;
+
+    // Validate required fields
+    if (!alapadatok_id) {
+      return res.status(400).json({ error: "alapadatok_id is required" });
+    }
+    if (!tanev_kezdete) {
+      return res.status(400).json({ error: "tanev_kezdete is required" });
+    }
+
+    // Handle different field names from client
+    const totalStudents = tanulok_osszesen || osszes_tanulo_szama;
+
+    if (!totalStudents && totalStudents !== 0) {
+      return res.status(400).json({
+        error:
+          "Total number of students is required (tanulok_osszesen or osszes_tanulo_szama)",
+      });
+    }
 
     const createdData = await create(
       alapadatok_id,
       tanev_kezdete,
       sni_tanulok_szama,
-      tanulok_osszesen
+      totalStudents
     );
 
     return res.status(201).json(createdData);
   } catch (error) {
     console.error("Error creating sajatos nevelesu tanulok data:", error);
+
+    // Return more specific error messages for validation errors
+    if (
+      error.message.includes("required") ||
+      error.message.includes("must be")
+    ) {
+      return res.status(400).json({ error: error.message });
+    }
+
     return res.status(500).json({ error: "Internal server error" });
   }
 });
@@ -258,14 +290,18 @@ router.put("/:id", async (req, res) => {
       tanev_kezdete,
       sni_tanulok_szama,
       tanulok_osszesen,
+      osszes_tanulo_szama, // Alternative field name from client
     } = req.body;
+
+    // Handle different field names from client
+    const totalStudents = tanulok_osszesen || osszes_tanulo_szama;
 
     const updatedData = await update(
       id,
       alapadatok_id,
       tanev_kezdete,
       sni_tanulok_szama,
-      tanulok_osszesen
+      totalStudents
     );
 
     return res.status(200).json(updatedData);
