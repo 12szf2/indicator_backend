@@ -184,7 +184,8 @@ exports.Prisma.SzakiranyScalarFieldEnum = {
 
 exports.Prisma.SzakmaScalarFieldEnum = {
   id: 'id',
-  nev: 'nev'
+  nev: 'nev',
+  tipus: 'tipus'
 };
 
 exports.Prisma.Szakirany_SzakmaScalarFieldEnum = {
@@ -195,6 +196,11 @@ exports.Prisma.Szakirany_SzakmaScalarFieldEnum = {
 exports.Prisma.Alapadatok_SzakiranyScalarFieldEnum = {
   alapadatok_id: 'alapadatok_id',
   szakirany_id: 'szakirany_id'
+};
+
+exports.Prisma.Alapadatok_SzakmaScalarFieldEnum = {
+  alapadatok_id: 'alapadatok_id',
+  szakma_id: 'szakma_id'
 };
 
 exports.Prisma.Tanulo_LetszamScalarFieldEnum = {
@@ -661,6 +667,7 @@ exports.Prisma.ModelName = {
   Szakma: 'Szakma',
   Szakirany_Szakma: 'Szakirany_Szakma',
   Alapadatok_Szakirany: 'Alapadatok_Szakirany',
+  Alapadatok_Szakma: 'Alapadatok_Szakma',
   Tanulo_Letszam: 'Tanulo_Letszam',
   Tanar_Letszam: 'Tanar_Letszam',
   Felvettek_Szama: 'Felvettek_Szama',

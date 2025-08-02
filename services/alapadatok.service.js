@@ -17,6 +17,11 @@ export async function getAll() {
 
   const data = await prisma.alapadatok.findMany({
     include: {
+      alapadatok_szakma: {
+        include: {
+          szakma: true,
+        },
+      },
       alapadatok_szakirany: {
         include: {
           szakirany: {
@@ -59,6 +64,11 @@ export async function getById(id) {
       id: id,
     },
     include: {
+      alapadatok_szakma: {
+        include: {
+          szakma: true,
+        },
+      },
       alapadatok_szakirany: {
         include: {
           szakirany: {
@@ -84,13 +94,90 @@ export async function getById(id) {
 export async function add(
   iskola_neve,
   intezmeny_tipus,
-  alapdatok_szakirany = []
+  alapadatok_szakirany = []
 ) {
   // Invalidate the list cache before adding
   cache.del("alapadatok:all");
 
   const foundOrCreatedSzakirany = await Promise.all(
-    alapdatok_szakirany.map(async (szakirany) => {
+    alapadatok_szakirany.map(async (szakirany) => {
+      const szakiranyNev = szakirany.szakirany.nev;
+
+      // Check if the szakirany already exists
+      const existingSzakirany = await prisma.szakirany.findUnique({
+        where: {
+          nev: szakiranyNev,
+        },
+      });
+
+      if (existingSzakirany) {
+        return existingSzakirany;
+      }
+
+      console.log(szakirany.szakirany);
+
+      // If not, create it
+      return await prisma.szakirany.create({
+        data: {
+          nev: szakiranyNev,
+          szakma: {
+            create: szakirany.szakirany.szakma.map((szakma) => ({
+              szakma: {
+                connectOrCreate: {
+                  where: { nev: szakma.szakma.nev },
+                  create: {
+                    nev: szakma.szakma.nev,
+                  },
+                },
+              },
+            })),
+          },
+        },
+      });
+    })
+  );
+
+  const szakmak = alapadatok_szakirany.flatMap((szakirany) =>
+    szakirany.szakirany.szakma.map((szakma) => ({
+      nev: szakma.szakma.nev,
+    }))
+  );
+
+  const result = await prisma.alapadatok.create({
+    data: {
+      iskola_neve: iskola_neve,
+      intezmeny_tipus: intezmeny_tipus,
+      alapadatok_szakirany: {
+        create: foundOrCreatedSzakirany.map((szakirany) => ({
+          szakirany_id: szakirany.id,
+        })),
+      },
+      alapadatok_szakma: {
+        connectOrCreate: szakmak.map((szakma) => ({
+          where: { nev: szakma.nev },
+          create: {
+            nev: szakma.nev,
+          },
+        })),
+      },
+    },
+  });
+
+  return result;
+}
+
+export async function update(
+  id,
+  iskola_neve,
+  intezmeny_tipus,
+  alapadatok_szakirany
+) {
+  // Invalidate both list and specific item cache
+  cache.del("alapadatok:all");
+  cache.del(`alapadatok:id:${id}`);
+
+  const foundOrCreatedSzakirany = await Promise.all(
+    alapadatok_szakirany.map(async (szakirany) => {
       const szakiranyNev = szakirany.szakirany.nev;
 
       // Check if the szakirany already exists
@@ -103,19 +190,19 @@ export async function add(
         return existingSzakirany;
       }
 
+      console.log(szakirany.szakirany);
+
       // If not, create it
       return await prisma.szakirany.create({
         data: {
           nev: szakiranyNev,
-          leiras: szakirany.szakirany.leiras || null,
           szakma: {
-            create: szakirany.szairany.szakma.map((szakma) => ({
+            create: szakirany.szakirany.szakma.map((szakma) => ({
               szakma: {
                 connectOrCreate: {
                   where: { nev: szakma.szakma.nev },
                   create: {
                     nev: szakma.szakma.nev,
-                    leiras: szakma.szakma.leiras || null,
                   },
                 },
               },
@@ -126,7 +213,13 @@ export async function add(
     })
   );
 
-  const result = await prisma.alapadatok.create({
+  const szakmak = alapadatok_szakirany.flatMap((szakirany) =>
+    szakirany.szakirany.szakma.map((szakma) => ({
+      nev: szakma.szakma.nev,
+    }))
+  );
+
+  const retData = await prisma.alapadatok.update({
     data: {
       iskola_neve: iskola_neve,
       intezmeny_tipus: intezmeny_tipus,
@@ -135,24 +228,19 @@ export async function add(
           szakirany_id: szakirany.id,
         })),
       },
-    },
-  });
-
-  return result;
-}
-
-export async function update(id, iskola_neve, intezmeny_tipus) {
-  // Invalidate both list and specific item cache
-  cache.del("alapadatok:all");
-  cache.del(`alapadatok:id:${id}`);
-
-  const szairany = await prisma.alapadatok.update({
-    data: {
-      iskola_neve: iskola_neve,
-      intezmeny_tipus: intezmeny_tipus,
+      alapadatok_szakma: {
+        connectOrCreate: szakmak.map((szakma) => ({
+          where: { nev: szakma.nev },
+          create: {
+            nev: szakma.nev,
+          },
+        })),
+      },
     },
     where: {
       id: id,
     },
   });
+
+  return retData;
 }

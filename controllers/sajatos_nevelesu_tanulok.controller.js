@@ -250,6 +250,65 @@ router.post("/", async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /sajatos_nevelesi_tanulok/{id}:
+ *   put:
+ *     summary: Update special needs students data
+ *     description: Update existing special needs students data record by ID
+ *     tags: [Sajatos_nevelesu_tanulok]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Record ID to update
+ *         schema:
+ *           type: integer
+ *           example: 1
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               alapadatok_id:
+ *                 type: string
+ *                 description: Basic data ID reference
+ *                 example: "60d5ecb74f0b2c1234567890"
+ *               tanev_kezdete:
+ *                 type: string
+ *                 description: Academic year start
+ *                 example: "2023"
+ *               sni_tanulok_szama:
+ *                 type: integer
+ *                 description: Number of students with special educational needs
+ *                 example: 18
+ *               tanulok_osszesen:
+ *                 type: integer
+ *                 description: Total number of students
+ *                 example: 250
+ *             required:
+ *               - alapadatok_id
+ *               - tanev_kezdete
+ *     responses:
+ *       200:
+ *         description: Special needs students data updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/SajatosNeveluTanulok'
+ *       400:
+ *         description: Bad request - Invalid input data
+ *       401:
+ *         description: Unauthorized - Invalid or missing authentication token
+ *       404:
+ *         description: Record not found
+ *       500:
+ *         description: Internal server error
+ */
 router.put("/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -275,6 +334,40 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /sajatos_nevelesi_tanulok/{alapadatokId}/{tanev}:
+ *   delete:
+ *     summary: Delete special needs students data by school and year
+ *     description: Delete all special needs students data for a specific school and school year
+ *     tags: [Sajatos_nevelesu_tanulok]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: alapadatokId
+ *         required: true
+ *         description: Basic data ID reference
+ *         schema:
+ *           type: string
+ *           example: "60d5ecb74f0b2c1234567890"
+ *       - in: path
+ *         name: tanev
+ *         required: true
+ *         description: The school year start (e.g., 2023 for 2023-2024 school year)
+ *         schema:
+ *           type: integer
+ *           example: 2023
+ *     responses:
+ *       204:
+ *         description: Special needs students data deleted successfully
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
+ *       404:
+ *         description: Record not found
+ *       500:
+ *         description: Internal server error
+ */
 router.delete("/:alapadatokId/:tanev", async (req, res) => {
   try {
     const { alapadatokId, tanev } = req.params;

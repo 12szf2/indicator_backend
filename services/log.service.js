@@ -25,6 +25,7 @@ async function processLogQueue() {
 
   try {
     // Use createMany for batch insertion
+    
     await prisma.log.createMany({
       data: logsToProcess,
       skipDuplicates: true,

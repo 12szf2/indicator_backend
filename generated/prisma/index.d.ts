@@ -64,6 +64,11 @@ export type Szakirany_Szakma = $Result.DefaultSelection<Prisma.$Szakirany_Szakma
  */
 export type Alapadatok_Szakirany = $Result.DefaultSelection<Prisma.$Alapadatok_SzakiranyPayload>
 /**
+ * Model Alapadatok_Szakma
+ * 
+ */
+export type Alapadatok_Szakma = $Result.DefaultSelection<Prisma.$Alapadatok_SzakmaPayload>
+/**
  * Model Tanulo_Letszam
  * 
  */
@@ -403,6 +408,16 @@ export class PrismaClient<
     * ```
     */
   get alapadatok_Szakirany(): Prisma.Alapadatok_SzakiranyDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.alapadatok_Szakma`: Exposes CRUD operations for the **Alapadatok_Szakma** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Alapadatok_Szakmas
+    * const alapadatok_Szakmas = await prisma.alapadatok_Szakma.findMany()
+    * ```
+    */
+  get alapadatok_Szakma(): Prisma.Alapadatok_SzakmaDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.tanulo_Letszam`: Exposes CRUD operations for the **Tanulo_Letszam** model.
@@ -1083,6 +1098,7 @@ export namespace Prisma {
     Szakma: 'Szakma',
     Szakirany_Szakma: 'Szakirany_Szakma',
     Alapadatok_Szakirany: 'Alapadatok_Szakirany',
+    Alapadatok_Szakma: 'Alapadatok_Szakma',
     Tanulo_Letszam: 'Tanulo_Letszam',
     Tanar_Letszam: 'Tanar_Letszam',
     Felvettek_Szama: 'Felvettek_Szama',
@@ -1124,7 +1140,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "session" | "user" | "tableList" | "tableAccess" | "log" | "alapadatok" | "szakirany" | "szakma" | "szakirany_Szakma" | "alapadatok_Szakirany" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "egyOktatoraJutoTanulo" | "tanugyi_Adatok" | "alkalmazottak_Munkaugy" | "szakkepzesiStatisztika" | "vesenyKategoria" | "vesenyNevek" | "versenyek" | "nszfhMeresek" | "elhelyezkedes" | "elegedettseg" | "vizsgaEredmenyek" | "szakmaiVizsgaEredmenyek" | "lemorzsolodas" | "elegedettsegMeres" | "intezmenyiNeveltseg" | "hHEsHHHTanulok" | "sajatosNevelesuTanulok" | "dobbanto" | "muhelyiskola"
+      modelProps: "session" | "user" | "tableList" | "tableAccess" | "log" | "alapadatok" | "szakirany" | "szakma" | "szakirany_Szakma" | "alapadatok_Szakirany" | "alapadatok_Szakma" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "egyOktatoraJutoTanulo" | "tanugyi_Adatok" | "alkalmazottak_Munkaugy" | "szakkepzesiStatisztika" | "vesenyKategoria" | "vesenyNevek" | "versenyek" | "nszfhMeresek" | "elhelyezkedes" | "elegedettseg" | "vizsgaEredmenyek" | "szakmaiVizsgaEredmenyek" | "lemorzsolodas" | "elegedettsegMeres" | "intezmenyiNeveltseg" | "hHEsHHHTanulok" | "sajatosNevelesuTanulok" | "dobbanto" | "muhelyiskola"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1865,6 +1881,80 @@ export namespace Prisma {
           count: {
             args: Prisma.Alapadatok_SzakiranyCountArgs<ExtArgs>
             result: $Utils.Optional<Alapadatok_SzakiranyCountAggregateOutputType> | number
+          }
+        }
+      }
+      Alapadatok_Szakma: {
+        payload: Prisma.$Alapadatok_SzakmaPayload<ExtArgs>
+        fields: Prisma.Alapadatok_SzakmaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.Alapadatok_SzakmaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.Alapadatok_SzakmaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>
+          }
+          findFirst: {
+            args: Prisma.Alapadatok_SzakmaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.Alapadatok_SzakmaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>
+          }
+          findMany: {
+            args: Prisma.Alapadatok_SzakmaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>[]
+          }
+          create: {
+            args: Prisma.Alapadatok_SzakmaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>
+          }
+          createMany: {
+            args: Prisma.Alapadatok_SzakmaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.Alapadatok_SzakmaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>[]
+          }
+          delete: {
+            args: Prisma.Alapadatok_SzakmaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>
+          }
+          update: {
+            args: Prisma.Alapadatok_SzakmaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>
+          }
+          deleteMany: {
+            args: Prisma.Alapadatok_SzakmaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.Alapadatok_SzakmaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.Alapadatok_SzakmaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>[]
+          }
+          upsert: {
+            args: Prisma.Alapadatok_SzakmaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Alapadatok_SzakmaPayload>
+          }
+          aggregate: {
+            args: Prisma.Alapadatok_SzakmaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAlapadatok_Szakma>
+          }
+          groupBy: {
+            args: Prisma.Alapadatok_SzakmaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Alapadatok_SzakmaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.Alapadatok_SzakmaCountArgs<ExtArgs>
+            result: $Utils.Optional<Alapadatok_SzakmaCountAggregateOutputType> | number
           }
         }
       }
@@ -3664,6 +3754,7 @@ export namespace Prisma {
     szakma?: SzakmaOmit
     szakirany_Szakma?: Szakirany_SzakmaOmit
     alapadatok_Szakirany?: Alapadatok_SzakiranyOmit
+    alapadatok_Szakma?: Alapadatok_SzakmaOmit
     tanulo_Letszam?: Tanulo_LetszamOmit
     tanar_Letszam?: Tanar_LetszamOmit
     felvettek_Szama?: Felvettek_SzamaOmit
@@ -3862,6 +3953,7 @@ export namespace Prisma {
     szakkepzesiStatisztika: number
     versenyek: number
     alapadatok_szakirany: number
+    alapadatok_szakma: number
     nszfhMeresek: number
     elhelyezkedes: number
     elegedettseg: number
@@ -3888,6 +3980,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: boolean | AlapadatokCountOutputTypeCountSzakkepzesiStatisztikaArgs
     versenyek?: boolean | AlapadatokCountOutputTypeCountVersenyekArgs
     alapadatok_szakirany?: boolean | AlapadatokCountOutputTypeCountAlapadatok_szakiranyArgs
+    alapadatok_szakma?: boolean | AlapadatokCountOutputTypeCountAlapadatok_szakmaArgs
     nszfhMeresek?: boolean | AlapadatokCountOutputTypeCountNszfhMeresekArgs
     elhelyezkedes?: boolean | AlapadatokCountOutputTypeCountElhelyezkedesArgs
     elegedettseg?: boolean | AlapadatokCountOutputTypeCountElegedettsegArgs
@@ -3982,6 +4075,13 @@ export namespace Prisma {
    */
   export type AlapadatokCountOutputTypeCountAlapadatok_szakiranyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: Alapadatok_SzakiranyWhereInput
+  }
+
+  /**
+   * AlapadatokCountOutputType without action
+   */
+  export type AlapadatokCountOutputTypeCountAlapadatok_szakmaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Alapadatok_SzakmaWhereInput
   }
 
   /**
@@ -4201,6 +4301,7 @@ export namespace Prisma {
     vizsgaeredmenyek: number
     szakmaiVizsgaEredmenyek: number
     lemorzsolodas: number
+    alapadatok: number
     alapadatok_szakma: number
   }
 
@@ -4213,6 +4314,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: boolean | SzakmaCountOutputTypeCountVizsgaeredmenyekArgs
     szakmaiVizsgaEredmenyek?: boolean | SzakmaCountOutputTypeCountSzakmaiVizsgaEredmenyekArgs
     lemorzsolodas?: boolean | SzakmaCountOutputTypeCountLemorzsolodasArgs
+    alapadatok?: boolean | SzakmaCountOutputTypeCountAlapadatokArgs
     alapadatok_szakma?: boolean | SzakmaCountOutputTypeCountAlapadatok_szakmaArgs
   }
 
@@ -4281,6 +4383,13 @@ export namespace Prisma {
    */
   export type SzakmaCountOutputTypeCountLemorzsolodasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: LemorzsolodasWhereInput
+  }
+
+  /**
+   * SzakmaCountOutputType without action
+   */
+  export type SzakmaCountOutputTypeCountAlapadatokArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Alapadatok_SzakmaWhereInput
   }
 
   /**
@@ -10114,6 +10223,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: boolean | Alapadatok$szakkepzesiStatisztikaArgs<ExtArgs>
     versenyek?: boolean | Alapadatok$versenyekArgs<ExtArgs>
     alapadatok_szakirany?: boolean | Alapadatok$alapadatok_szakiranyArgs<ExtArgs>
+    alapadatok_szakma?: boolean | Alapadatok$alapadatok_szakmaArgs<ExtArgs>
     nszfhMeresek?: boolean | Alapadatok$nszfhMeresekArgs<ExtArgs>
     elhelyezkedes?: boolean | Alapadatok$elhelyezkedesArgs<ExtArgs>
     elegedettseg?: boolean | Alapadatok$elegedettsegArgs<ExtArgs>
@@ -10160,6 +10270,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: boolean | Alapadatok$szakkepzesiStatisztikaArgs<ExtArgs>
     versenyek?: boolean | Alapadatok$versenyekArgs<ExtArgs>
     alapadatok_szakirany?: boolean | Alapadatok$alapadatok_szakiranyArgs<ExtArgs>
+    alapadatok_szakma?: boolean | Alapadatok$alapadatok_szakmaArgs<ExtArgs>
     nszfhMeresek?: boolean | Alapadatok$nszfhMeresekArgs<ExtArgs>
     elhelyezkedes?: boolean | Alapadatok$elhelyezkedesArgs<ExtArgs>
     elegedettseg?: boolean | Alapadatok$elegedettsegArgs<ExtArgs>
@@ -10191,6 +10302,7 @@ export namespace Prisma {
       szakkepzesiStatisztika: Prisma.$SzakkepzesiStatisztikaPayload<ExtArgs>[]
       versenyek: Prisma.$versenyekPayload<ExtArgs>[]
       alapadatok_szakirany: Prisma.$Alapadatok_SzakiranyPayload<ExtArgs>[]
+      alapadatok_szakma: Prisma.$Alapadatok_SzakmaPayload<ExtArgs>[]
       nszfhMeresek: Prisma.$nszfhMeresekPayload<ExtArgs>[]
       elhelyezkedes: Prisma.$ElhelyezkedesPayload<ExtArgs>[]
       elegedettseg: Prisma.$ElegedettsegPayload<ExtArgs>[]
@@ -10613,6 +10725,7 @@ export namespace Prisma {
     szakkepzesiStatisztika<T extends Alapadatok$szakkepzesiStatisztikaArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$szakkepzesiStatisztikaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SzakkepzesiStatisztikaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     versenyek<T extends Alapadatok$versenyekArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$versenyekArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$versenyekPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     alapadatok_szakirany<T extends Alapadatok$alapadatok_szakiranyArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$alapadatok_szakiranyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Alapadatok_SzakiranyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    alapadatok_szakma<T extends Alapadatok$alapadatok_szakmaArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$alapadatok_szakmaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     nszfhMeresek<T extends Alapadatok$nszfhMeresekArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$nszfhMeresekArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$nszfhMeresekPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     elhelyezkedes<T extends Alapadatok$elhelyezkedesArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$elhelyezkedesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ElhelyezkedesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     elegedettseg<T extends Alapadatok$elegedettsegArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$elegedettsegArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ElegedettsegPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -11283,6 +11396,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Alapadatok_SzakiranyScalarFieldEnum | Alapadatok_SzakiranyScalarFieldEnum[]
+  }
+
+  /**
+   * Alapadatok.alapadatok_szakma
+   */
+  export type Alapadatok$alapadatok_szakmaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Alapadatok_Szakma
+     */
+    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Alapadatok_Szakma
+     */
+    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    where?: Alapadatok_SzakmaWhereInput
+    orderBy?: Alapadatok_SzakmaOrderByWithRelationInput | Alapadatok_SzakmaOrderByWithRelationInput[]
+    cursor?: Alapadatok_SzakmaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Alapadatok_SzakmaScalarFieldEnum | Alapadatok_SzakmaScalarFieldEnum[]
   }
 
   /**
@@ -12912,16 +13049,19 @@ export namespace Prisma {
   export type SzakmaMinAggregateOutputType = {
     id: string | null
     nev: string | null
+    tipus: string | null
   }
 
   export type SzakmaMaxAggregateOutputType = {
     id: string | null
     nev: string | null
+    tipus: string | null
   }
 
   export type SzakmaCountAggregateOutputType = {
     id: number
     nev: number
+    tipus: number
     _all: number
   }
 
@@ -12929,16 +13069,19 @@ export namespace Prisma {
   export type SzakmaMinAggregateInputType = {
     id?: true
     nev?: true
+    tipus?: true
   }
 
   export type SzakmaMaxAggregateInputType = {
     id?: true
     nev?: true
+    tipus?: true
   }
 
   export type SzakmaCountAggregateInputType = {
     id?: true
     nev?: true
+    tipus?: true
     _all?: true
   }
 
@@ -13017,6 +13160,7 @@ export namespace Prisma {
   export type SzakmaGroupByOutputType = {
     id: string
     nev: string
+    tipus: string | null
     _count: SzakmaCountAggregateOutputType | null
     _min: SzakmaMinAggregateOutputType | null
     _max: SzakmaMaxAggregateOutputType | null
@@ -13039,6 +13183,7 @@ export namespace Prisma {
   export type SzakmaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nev?: boolean
+    tipus?: boolean
     felvettek_szama?: boolean | Szakma$felvettek_szamaArgs<ExtArgs>
     tanulo_letszam?: boolean | Szakma$tanulo_letszamArgs<ExtArgs>
     szakkepzesiStatisztika?: boolean | Szakma$szakkepzesiStatisztikaArgs<ExtArgs>
@@ -13047,6 +13192,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: boolean | Szakma$vizsgaeredmenyekArgs<ExtArgs>
     szakmaiVizsgaEredmenyek?: boolean | Szakma$szakmaiVizsgaEredmenyekArgs<ExtArgs>
     lemorzsolodas?: boolean | Szakma$lemorzsolodasArgs<ExtArgs>
+    alapadatok?: boolean | Szakma$alapadatokArgs<ExtArgs>
     alapadatok_szakma?: boolean | Szakma$alapadatok_szakmaArgs<ExtArgs>
     _count?: boolean | SzakmaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["szakma"]>
@@ -13054,19 +13200,22 @@ export namespace Prisma {
   export type SzakmaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nev?: boolean
+    tipus?: boolean
   }, ExtArgs["result"]["szakma"]>
 
   export type SzakmaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nev?: boolean
+    tipus?: boolean
   }, ExtArgs["result"]["szakma"]>
 
   export type SzakmaSelectScalar = {
     id?: boolean
     nev?: boolean
+    tipus?: boolean
   }
 
-  export type SzakmaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nev", ExtArgs["result"]["szakma"]>
+  export type SzakmaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nev" | "tipus", ExtArgs["result"]["szakma"]>
   export type SzakmaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     felvettek_szama?: boolean | Szakma$felvettek_szamaArgs<ExtArgs>
     tanulo_letszam?: boolean | Szakma$tanulo_letszamArgs<ExtArgs>
@@ -13076,6 +13225,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: boolean | Szakma$vizsgaeredmenyekArgs<ExtArgs>
     szakmaiVizsgaEredmenyek?: boolean | Szakma$szakmaiVizsgaEredmenyekArgs<ExtArgs>
     lemorzsolodas?: boolean | Szakma$lemorzsolodasArgs<ExtArgs>
+    alapadatok?: boolean | Szakma$alapadatokArgs<ExtArgs>
     alapadatok_szakma?: boolean | Szakma$alapadatok_szakmaArgs<ExtArgs>
     _count?: boolean | SzakmaCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -13093,11 +13243,13 @@ export namespace Prisma {
       vizsgaeredmenyek: Prisma.$VizsgaEredmenyekPayload<ExtArgs>[]
       szakmaiVizsgaEredmenyek: Prisma.$SzakmaiVizsgaEredmenyekPayload<ExtArgs>[]
       lemorzsolodas: Prisma.$LemorzsolodasPayload<ExtArgs>[]
+      alapadatok: Prisma.$Alapadatok_SzakmaPayload<ExtArgs>[]
       alapadatok_szakma: Prisma.$Szakirany_SzakmaPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       nev: string
+      tipus: string | null
     }, ExtArgs["result"]["szakma"]>
     composites: {}
   }
@@ -13500,6 +13652,7 @@ export namespace Prisma {
     vizsgaeredmenyek<T extends Szakma$vizsgaeredmenyekArgs<ExtArgs> = {}>(args?: Subset<T, Szakma$vizsgaeredmenyekArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VizsgaEredmenyekPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     szakmaiVizsgaEredmenyek<T extends Szakma$szakmaiVizsgaEredmenyekArgs<ExtArgs> = {}>(args?: Subset<T, Szakma$szakmaiVizsgaEredmenyekArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SzakmaiVizsgaEredmenyekPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     lemorzsolodas<T extends Szakma$lemorzsolodasArgs<ExtArgs> = {}>(args?: Subset<T, Szakma$lemorzsolodasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LemorzsolodasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    alapadatok<T extends Szakma$alapadatokArgs<ExtArgs> = {}>(args?: Subset<T, Szakma$alapadatokArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     alapadatok_szakma<T extends Szakma$alapadatok_szakmaArgs<ExtArgs> = {}>(args?: Subset<T, Szakma$alapadatok_szakmaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Szakirany_SzakmaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -13532,6 +13685,7 @@ export namespace Prisma {
   interface SzakmaFieldRefs {
     readonly id: FieldRef<"Szakma", 'String'>
     readonly nev: FieldRef<"Szakma", 'String'>
+    readonly tipus: FieldRef<"Szakma", 'String'>
   }
     
 
@@ -14109,6 +14263,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: LemorzsolodasScalarFieldEnum | LemorzsolodasScalarFieldEnum[]
+  }
+
+  /**
+   * Szakma.alapadatok
+   */
+  export type Szakma$alapadatokArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Alapadatok_Szakma
+     */
+    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Alapadatok_Szakma
+     */
+    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    where?: Alapadatok_SzakmaWhereInput
+    orderBy?: Alapadatok_SzakmaOrderByWithRelationInput | Alapadatok_SzakmaOrderByWithRelationInput[]
+    cursor?: Alapadatok_SzakmaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Alapadatok_SzakmaScalarFieldEnum | Alapadatok_SzakmaScalarFieldEnum[]
   }
 
   /**
@@ -16205,6 +16383,1033 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: Alapadatok_SzakiranyInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Alapadatok_Szakma
+   */
+
+  export type AggregateAlapadatok_Szakma = {
+    _count: Alapadatok_SzakmaCountAggregateOutputType | null
+    _min: Alapadatok_SzakmaMinAggregateOutputType | null
+    _max: Alapadatok_SzakmaMaxAggregateOutputType | null
+  }
+
+  export type Alapadatok_SzakmaMinAggregateOutputType = {
+    alapadatok_id: string | null
+    szakma_id: string | null
+  }
+
+  export type Alapadatok_SzakmaMaxAggregateOutputType = {
+    alapadatok_id: string | null
+    szakma_id: string | null
+  }
+
+  export type Alapadatok_SzakmaCountAggregateOutputType = {
+    alapadatok_id: number
+    szakma_id: number
+    _all: number
+  }
+
+
+  export type Alapadatok_SzakmaMinAggregateInputType = {
+    alapadatok_id?: true
+    szakma_id?: true
+  }
+
+  export type Alapadatok_SzakmaMaxAggregateInputType = {
+    alapadatok_id?: true
+    szakma_id?: true
+  }
+
+  export type Alapadatok_SzakmaCountAggregateInputType = {
+    alapadatok_id?: true
+    szakma_id?: true
+    _all?: true
+  }
+
+  export type Alapadatok_SzakmaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Alapadatok_Szakma to aggregate.
+     */
+    where?: Alapadatok_SzakmaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Alapadatok_Szakmas to fetch.
+     */
+    orderBy?: Alapadatok_SzakmaOrderByWithRelationInput | Alapadatok_SzakmaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: Alapadatok_SzakmaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Alapadatok_Szakmas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Alapadatok_Szakmas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Alapadatok_Szakmas
+    **/
+    _count?: true | Alapadatok_SzakmaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Alapadatok_SzakmaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Alapadatok_SzakmaMaxAggregateInputType
+  }
+
+  export type GetAlapadatok_SzakmaAggregateType<T extends Alapadatok_SzakmaAggregateArgs> = {
+        [P in keyof T & keyof AggregateAlapadatok_Szakma]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAlapadatok_Szakma[P]>
+      : GetScalarType<T[P], AggregateAlapadatok_Szakma[P]>
+  }
+
+
+
+
+  export type Alapadatok_SzakmaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Alapadatok_SzakmaWhereInput
+    orderBy?: Alapadatok_SzakmaOrderByWithAggregationInput | Alapadatok_SzakmaOrderByWithAggregationInput[]
+    by: Alapadatok_SzakmaScalarFieldEnum[] | Alapadatok_SzakmaScalarFieldEnum
+    having?: Alapadatok_SzakmaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Alapadatok_SzakmaCountAggregateInputType | true
+    _min?: Alapadatok_SzakmaMinAggregateInputType
+    _max?: Alapadatok_SzakmaMaxAggregateInputType
+  }
+
+  export type Alapadatok_SzakmaGroupByOutputType = {
+    alapadatok_id: string
+    szakma_id: string
+    _count: Alapadatok_SzakmaCountAggregateOutputType | null
+    _min: Alapadatok_SzakmaMinAggregateOutputType | null
+    _max: Alapadatok_SzakmaMaxAggregateOutputType | null
+  }
+
+  type GetAlapadatok_SzakmaGroupByPayload<T extends Alapadatok_SzakmaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Alapadatok_SzakmaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Alapadatok_SzakmaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Alapadatok_SzakmaGroupByOutputType[P]>
+            : GetScalarType<T[P], Alapadatok_SzakmaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type Alapadatok_SzakmaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    alapadatok_id?: boolean
+    szakma_id?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["alapadatok_Szakma"]>
+
+  export type Alapadatok_SzakmaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    alapadatok_id?: boolean
+    szakma_id?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["alapadatok_Szakma"]>
+
+  export type Alapadatok_SzakmaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    alapadatok_id?: boolean
+    szakma_id?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["alapadatok_Szakma"]>
+
+  export type Alapadatok_SzakmaSelectScalar = {
+    alapadatok_id?: boolean
+    szakma_id?: boolean
+  }
+
+  export type Alapadatok_SzakmaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"alapadatok_id" | "szakma_id", ExtArgs["result"]["alapadatok_Szakma"]>
+  export type Alapadatok_SzakmaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+  }
+  export type Alapadatok_SzakmaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+  }
+  export type Alapadatok_SzakmaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+  }
+
+  export type $Alapadatok_SzakmaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Alapadatok_Szakma"
+    objects: {
+      alapadatok: Prisma.$AlapadatokPayload<ExtArgs>
+      szakma: Prisma.$SzakmaPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      alapadatok_id: string
+      szakma_id: string
+    }, ExtArgs["result"]["alapadatok_Szakma"]>
+    composites: {}
+  }
+
+  type Alapadatok_SzakmaGetPayload<S extends boolean | null | undefined | Alapadatok_SzakmaDefaultArgs> = $Result.GetResult<Prisma.$Alapadatok_SzakmaPayload, S>
+
+  type Alapadatok_SzakmaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<Alapadatok_SzakmaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Alapadatok_SzakmaCountAggregateInputType | true
+    }
+
+  export interface Alapadatok_SzakmaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Alapadatok_Szakma'], meta: { name: 'Alapadatok_Szakma' } }
+    /**
+     * Find zero or one Alapadatok_Szakma that matches the filter.
+     * @param {Alapadatok_SzakmaFindUniqueArgs} args - Arguments to find a Alapadatok_Szakma
+     * @example
+     * // Get one Alapadatok_Szakma
+     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends Alapadatok_SzakmaFindUniqueArgs>(args: SelectSubset<T, Alapadatok_SzakmaFindUniqueArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Alapadatok_Szakma that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {Alapadatok_SzakmaFindUniqueOrThrowArgs} args - Arguments to find a Alapadatok_Szakma
+     * @example
+     * // Get one Alapadatok_Szakma
+     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends Alapadatok_SzakmaFindUniqueOrThrowArgs>(args: SelectSubset<T, Alapadatok_SzakmaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Alapadatok_Szakma that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Alapadatok_SzakmaFindFirstArgs} args - Arguments to find a Alapadatok_Szakma
+     * @example
+     * // Get one Alapadatok_Szakma
+     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends Alapadatok_SzakmaFindFirstArgs>(args?: SelectSubset<T, Alapadatok_SzakmaFindFirstArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Alapadatok_Szakma that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Alapadatok_SzakmaFindFirstOrThrowArgs} args - Arguments to find a Alapadatok_Szakma
+     * @example
+     * // Get one Alapadatok_Szakma
+     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends Alapadatok_SzakmaFindFirstOrThrowArgs>(args?: SelectSubset<T, Alapadatok_SzakmaFindFirstOrThrowArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Alapadatok_Szakmas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Alapadatok_SzakmaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Alapadatok_Szakmas
+     * const alapadatok_Szakmas = await prisma.alapadatok_Szakma.findMany()
+     * 
+     * // Get first 10 Alapadatok_Szakmas
+     * const alapadatok_Szakmas = await prisma.alapadatok_Szakma.findMany({ take: 10 })
+     * 
+     * // Only select the `alapadatok_id`
+     * const alapadatok_SzakmaWithAlapadatok_idOnly = await prisma.alapadatok_Szakma.findMany({ select: { alapadatok_id: true } })
+     * 
+     */
+    findMany<T extends Alapadatok_SzakmaFindManyArgs>(args?: SelectSubset<T, Alapadatok_SzakmaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Alapadatok_Szakma.
+     * @param {Alapadatok_SzakmaCreateArgs} args - Arguments to create a Alapadatok_Szakma.
+     * @example
+     * // Create one Alapadatok_Szakma
+     * const Alapadatok_Szakma = await prisma.alapadatok_Szakma.create({
+     *   data: {
+     *     // ... data to create a Alapadatok_Szakma
+     *   }
+     * })
+     * 
+     */
+    create<T extends Alapadatok_SzakmaCreateArgs>(args: SelectSubset<T, Alapadatok_SzakmaCreateArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Alapadatok_Szakmas.
+     * @param {Alapadatok_SzakmaCreateManyArgs} args - Arguments to create many Alapadatok_Szakmas.
+     * @example
+     * // Create many Alapadatok_Szakmas
+     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends Alapadatok_SzakmaCreateManyArgs>(args?: SelectSubset<T, Alapadatok_SzakmaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Alapadatok_Szakmas and returns the data saved in the database.
+     * @param {Alapadatok_SzakmaCreateManyAndReturnArgs} args - Arguments to create many Alapadatok_Szakmas.
+     * @example
+     * // Create many Alapadatok_Szakmas
+     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Alapadatok_Szakmas and only return the `alapadatok_id`
+     * const alapadatok_SzakmaWithAlapadatok_idOnly = await prisma.alapadatok_Szakma.createManyAndReturn({
+     *   select: { alapadatok_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends Alapadatok_SzakmaCreateManyAndReturnArgs>(args?: SelectSubset<T, Alapadatok_SzakmaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Alapadatok_Szakma.
+     * @param {Alapadatok_SzakmaDeleteArgs} args - Arguments to delete one Alapadatok_Szakma.
+     * @example
+     * // Delete one Alapadatok_Szakma
+     * const Alapadatok_Szakma = await prisma.alapadatok_Szakma.delete({
+     *   where: {
+     *     // ... filter to delete one Alapadatok_Szakma
+     *   }
+     * })
+     * 
+     */
+    delete<T extends Alapadatok_SzakmaDeleteArgs>(args: SelectSubset<T, Alapadatok_SzakmaDeleteArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Alapadatok_Szakma.
+     * @param {Alapadatok_SzakmaUpdateArgs} args - Arguments to update one Alapadatok_Szakma.
+     * @example
+     * // Update one Alapadatok_Szakma
+     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends Alapadatok_SzakmaUpdateArgs>(args: SelectSubset<T, Alapadatok_SzakmaUpdateArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Alapadatok_Szakmas.
+     * @param {Alapadatok_SzakmaDeleteManyArgs} args - Arguments to filter Alapadatok_Szakmas to delete.
+     * @example
+     * // Delete a few Alapadatok_Szakmas
+     * const { count } = await prisma.alapadatok_Szakma.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends Alapadatok_SzakmaDeleteManyArgs>(args?: SelectSubset<T, Alapadatok_SzakmaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Alapadatok_Szakmas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Alapadatok_SzakmaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Alapadatok_Szakmas
+     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends Alapadatok_SzakmaUpdateManyArgs>(args: SelectSubset<T, Alapadatok_SzakmaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Alapadatok_Szakmas and returns the data updated in the database.
+     * @param {Alapadatok_SzakmaUpdateManyAndReturnArgs} args - Arguments to update many Alapadatok_Szakmas.
+     * @example
+     * // Update many Alapadatok_Szakmas
+     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Alapadatok_Szakmas and only return the `alapadatok_id`
+     * const alapadatok_SzakmaWithAlapadatok_idOnly = await prisma.alapadatok_Szakma.updateManyAndReturn({
+     *   select: { alapadatok_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends Alapadatok_SzakmaUpdateManyAndReturnArgs>(args: SelectSubset<T, Alapadatok_SzakmaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Alapadatok_Szakma.
+     * @param {Alapadatok_SzakmaUpsertArgs} args - Arguments to update or create a Alapadatok_Szakma.
+     * @example
+     * // Update or create a Alapadatok_Szakma
+     * const alapadatok_Szakma = await prisma.alapadatok_Szakma.upsert({
+     *   create: {
+     *     // ... data to create a Alapadatok_Szakma
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Alapadatok_Szakma we want to update
+     *   }
+     * })
+     */
+    upsert<T extends Alapadatok_SzakmaUpsertArgs>(args: SelectSubset<T, Alapadatok_SzakmaUpsertArgs<ExtArgs>>): Prisma__Alapadatok_SzakmaClient<$Result.GetResult<Prisma.$Alapadatok_SzakmaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Alapadatok_Szakmas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Alapadatok_SzakmaCountArgs} args - Arguments to filter Alapadatok_Szakmas to count.
+     * @example
+     * // Count the number of Alapadatok_Szakmas
+     * const count = await prisma.alapadatok_Szakma.count({
+     *   where: {
+     *     // ... the filter for the Alapadatok_Szakmas we want to count
+     *   }
+     * })
+    **/
+    count<T extends Alapadatok_SzakmaCountArgs>(
+      args?: Subset<T, Alapadatok_SzakmaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Alapadatok_SzakmaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Alapadatok_Szakma.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Alapadatok_SzakmaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Alapadatok_SzakmaAggregateArgs>(args: Subset<T, Alapadatok_SzakmaAggregateArgs>): Prisma.PrismaPromise<GetAlapadatok_SzakmaAggregateType<T>>
+
+    /**
+     * Group by Alapadatok_Szakma.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Alapadatok_SzakmaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends Alapadatok_SzakmaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: Alapadatok_SzakmaGroupByArgs['orderBy'] }
+        : { orderBy?: Alapadatok_SzakmaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, Alapadatok_SzakmaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAlapadatok_SzakmaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Alapadatok_Szakma model
+   */
+  readonly fields: Alapadatok_SzakmaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Alapadatok_Szakma.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__Alapadatok_SzakmaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    alapadatok<T extends AlapadatokDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AlapadatokDefaultArgs<ExtArgs>>): Prisma__AlapadatokClient<$Result.GetResult<Prisma.$AlapadatokPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    szakma<T extends SzakmaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SzakmaDefaultArgs<ExtArgs>>): Prisma__SzakmaClient<$Result.GetResult<Prisma.$SzakmaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Alapadatok_Szakma model
+   */
+  interface Alapadatok_SzakmaFieldRefs {
+    readonly alapadatok_id: FieldRef<"Alapadatok_Szakma", 'String'>
+    readonly szakma_id: FieldRef<"Alapadatok_Szakma", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Alapadatok_Szakma findUnique
+   */
+  export type Alapadatok_SzakmaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Alapadatok_Szakma
+     */
+    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Alapadatok_Szakma
+     */
+    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    /**
+     * Filter, which Alapadatok_Szakma to fetch.
+     */
+    where: Alapadatok_SzakmaWhereUniqueInput
+  }
+
+  /**
+   * Alapadatok_Szakma findUniqueOrThrow
+   */
+  export type Alapadatok_SzakmaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Alapadatok_Szakma
+     */
+    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Alapadatok_Szakma
+     */
+    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    /**
+     * Filter, which Alapadatok_Szakma to fetch.
+     */
+    where: Alapadatok_SzakmaWhereUniqueInput
+  }
+
+  /**
+   * Alapadatok_Szakma findFirst
+   */
+  export type Alapadatok_SzakmaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Alapadatok_Szakma
+     */
+    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Alapadatok_Szakma
+     */
+    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    /**
+     * Filter, which Alapadatok_Szakma to fetch.
+     */
+    where?: Alapadatok_SzakmaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Alapadatok_Szakmas to fetch.
+     */
+    orderBy?: Alapadatok_SzakmaOrderByWithRelationInput | Alapadatok_SzakmaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Alapadatok_Szakmas.
+     */
+    cursor?: Alapadatok_SzakmaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Alapadatok_Szakmas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Alapadatok_Szakmas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Alapadatok_Szakmas.
+     */
+    distinct?: Alapadatok_SzakmaScalarFieldEnum | Alapadatok_SzakmaScalarFieldEnum[]
+  }
+
+  /**
+   * Alapadatok_Szakma findFirstOrThrow
+   */
+  export type Alapadatok_SzakmaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Alapadatok_Szakma
+     */
+    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Alapadatok_Szakma
+     */
+    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    /**
+     * Filter, which Alapadatok_Szakma to fetch.
+     */
+    where?: Alapadatok_SzakmaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Alapadatok_Szakmas to fetch.
+     */
+    orderBy?: Alapadatok_SzakmaOrderByWithRelationInput | Alapadatok_SzakmaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Alapadatok_Szakmas.
+     */
+    cursor?: Alapadatok_SzakmaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Alapadatok_Szakmas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Alapadatok_Szakmas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Alapadatok_Szakmas.
+     */
+    distinct?: Alapadatok_SzakmaScalarFieldEnum | Alapadatok_SzakmaScalarFieldEnum[]
+  }
+
+  /**
+   * Alapadatok_Szakma findMany
+   */
+  export type Alapadatok_SzakmaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Alapadatok_Szakma
+     */
+    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Alapadatok_Szakma
+     */
+    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    /**
+     * Filter, which Alapadatok_Szakmas to fetch.
+     */
+    where?: Alapadatok_SzakmaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Alapadatok_Szakmas to fetch.
+     */
+    orderBy?: Alapadatok_SzakmaOrderByWithRelationInput | Alapadatok_SzakmaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Alapadatok_Szakmas.
+     */
+    cursor?: Alapadatok_SzakmaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Alapadatok_Szakmas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Alapadatok_Szakmas.
+     */
+    skip?: number
+    distinct?: Alapadatok_SzakmaScalarFieldEnum | Alapadatok_SzakmaScalarFieldEnum[]
+  }
+
+  /**
+   * Alapadatok_Szakma create
+   */
+  export type Alapadatok_SzakmaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Alapadatok_Szakma
+     */
+    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Alapadatok_Szakma
+     */
+    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Alapadatok_Szakma.
+     */
+    data: XOR<Alapadatok_SzakmaCreateInput, Alapadatok_SzakmaUncheckedCreateInput>
+  }
+
+  /**
+   * Alapadatok_Szakma createMany
+   */
+  export type Alapadatok_SzakmaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Alapadatok_Szakmas.
+     */
+    data: Alapadatok_SzakmaCreateManyInput | Alapadatok_SzakmaCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Alapadatok_Szakma createManyAndReturn
+   */
+  export type Alapadatok_SzakmaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Alapadatok_Szakma
+     */
+    select?: Alapadatok_SzakmaSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Alapadatok_Szakma
+     */
+    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    /**
+     * The data used to create many Alapadatok_Szakmas.
+     */
+    data: Alapadatok_SzakmaCreateManyInput | Alapadatok_SzakmaCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Alapadatok_SzakmaIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Alapadatok_Szakma update
+   */
+  export type Alapadatok_SzakmaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Alapadatok_Szakma
+     */
+    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Alapadatok_Szakma
+     */
+    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Alapadatok_Szakma.
+     */
+    data: XOR<Alapadatok_SzakmaUpdateInput, Alapadatok_SzakmaUncheckedUpdateInput>
+    /**
+     * Choose, which Alapadatok_Szakma to update.
+     */
+    where: Alapadatok_SzakmaWhereUniqueInput
+  }
+
+  /**
+   * Alapadatok_Szakma updateMany
+   */
+  export type Alapadatok_SzakmaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Alapadatok_Szakmas.
+     */
+    data: XOR<Alapadatok_SzakmaUpdateManyMutationInput, Alapadatok_SzakmaUncheckedUpdateManyInput>
+    /**
+     * Filter which Alapadatok_Szakmas to update
+     */
+    where?: Alapadatok_SzakmaWhereInput
+    /**
+     * Limit how many Alapadatok_Szakmas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Alapadatok_Szakma updateManyAndReturn
+   */
+  export type Alapadatok_SzakmaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Alapadatok_Szakma
+     */
+    select?: Alapadatok_SzakmaSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Alapadatok_Szakma
+     */
+    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    /**
+     * The data used to update Alapadatok_Szakmas.
+     */
+    data: XOR<Alapadatok_SzakmaUpdateManyMutationInput, Alapadatok_SzakmaUncheckedUpdateManyInput>
+    /**
+     * Filter which Alapadatok_Szakmas to update
+     */
+    where?: Alapadatok_SzakmaWhereInput
+    /**
+     * Limit how many Alapadatok_Szakmas to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Alapadatok_SzakmaIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Alapadatok_Szakma upsert
+   */
+  export type Alapadatok_SzakmaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Alapadatok_Szakma
+     */
+    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Alapadatok_Szakma
+     */
+    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Alapadatok_Szakma to update in case it exists.
+     */
+    where: Alapadatok_SzakmaWhereUniqueInput
+    /**
+     * In case the Alapadatok_Szakma found by the `where` argument doesn't exist, create a new Alapadatok_Szakma with this data.
+     */
+    create: XOR<Alapadatok_SzakmaCreateInput, Alapadatok_SzakmaUncheckedCreateInput>
+    /**
+     * In case the Alapadatok_Szakma was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<Alapadatok_SzakmaUpdateInput, Alapadatok_SzakmaUncheckedUpdateInput>
+  }
+
+  /**
+   * Alapadatok_Szakma delete
+   */
+  export type Alapadatok_SzakmaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Alapadatok_Szakma
+     */
+    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Alapadatok_Szakma
+     */
+    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
+    /**
+     * Filter which Alapadatok_Szakma to delete.
+     */
+    where: Alapadatok_SzakmaWhereUniqueInput
+  }
+
+  /**
+   * Alapadatok_Szakma deleteMany
+   */
+  export type Alapadatok_SzakmaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Alapadatok_Szakmas to delete
+     */
+    where?: Alapadatok_SzakmaWhereInput
+    /**
+     * Limit how many Alapadatok_Szakmas to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Alapadatok_Szakma without action
+   */
+  export type Alapadatok_SzakmaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Alapadatok_Szakma
+     */
+    select?: Alapadatok_SzakmaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Alapadatok_Szakma
+     */
+    omit?: Alapadatok_SzakmaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Alapadatok_SzakmaInclude<ExtArgs> | null
   }
 
 
@@ -45006,7 +46211,8 @@ export namespace Prisma {
 
   export const SzakmaScalarFieldEnum: {
     id: 'id',
-    nev: 'nev'
+    nev: 'nev',
+    tipus: 'tipus'
   };
 
   export type SzakmaScalarFieldEnum = (typeof SzakmaScalarFieldEnum)[keyof typeof SzakmaScalarFieldEnum]
@@ -45026,6 +46232,14 @@ export namespace Prisma {
   };
 
   export type Alapadatok_SzakiranyScalarFieldEnum = (typeof Alapadatok_SzakiranyScalarFieldEnum)[keyof typeof Alapadatok_SzakiranyScalarFieldEnum]
+
+
+  export const Alapadatok_SzakmaScalarFieldEnum: {
+    alapadatok_id: 'alapadatok_id',
+    szakma_id: 'szakma_id'
+  };
+
+  export type Alapadatok_SzakmaScalarFieldEnum = (typeof Alapadatok_SzakmaScalarFieldEnum)[keyof typeof Alapadatok_SzakmaScalarFieldEnum]
 
 
   export const Tanulo_LetszamScalarFieldEnum: {
@@ -46023,6 +47237,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaListRelationFilter
     versenyek?: VersenyekListRelationFilter
     alapadatok_szakirany?: Alapadatok_SzakiranyListRelationFilter
+    alapadatok_szakma?: Alapadatok_SzakmaListRelationFilter
     nszfhMeresek?: NszfhMeresekListRelationFilter
     elhelyezkedes?: ElhelyezkedesListRelationFilter
     elegedettseg?: ElegedettsegListRelationFilter
@@ -46052,6 +47267,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaOrderByRelationAggregateInput
     versenyek?: versenyekOrderByRelationAggregateInput
     alapadatok_szakirany?: Alapadatok_SzakiranyOrderByRelationAggregateInput
+    alapadatok_szakma?: Alapadatok_SzakmaOrderByRelationAggregateInput
     nszfhMeresek?: nszfhMeresekOrderByRelationAggregateInput
     elhelyezkedes?: ElhelyezkedesOrderByRelationAggregateInput
     elegedettseg?: ElegedettsegOrderByRelationAggregateInput
@@ -46084,6 +47300,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaListRelationFilter
     versenyek?: VersenyekListRelationFilter
     alapadatok_szakirany?: Alapadatok_SzakiranyListRelationFilter
+    alapadatok_szakma?: Alapadatok_SzakmaListRelationFilter
     nszfhMeresek?: NszfhMeresekListRelationFilter
     elhelyezkedes?: ElhelyezkedesListRelationFilter
     elegedettseg?: ElegedettsegListRelationFilter
@@ -46190,6 +47407,7 @@ export namespace Prisma {
     NOT?: SzakmaWhereInput | SzakmaWhereInput[]
     id?: UuidFilter<"Szakma"> | string
     nev?: StringFilter<"Szakma"> | string
+    tipus?: StringNullableFilter<"Szakma"> | string | null
     felvettek_szama?: Felvettek_SzamaListRelationFilter
     tanulo_letszam?: Tanulo_LetszamListRelationFilter
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaListRelationFilter
@@ -46198,12 +47416,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekListRelationFilter
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekListRelationFilter
     lemorzsolodas?: LemorzsolodasListRelationFilter
+    alapadatok?: Alapadatok_SzakmaListRelationFilter
     alapadatok_szakma?: Szakirany_SzakmaListRelationFilter
   }
 
   export type SzakmaOrderByWithRelationInput = {
     id?: SortOrder
     nev?: SortOrder
+    tipus?: SortOrderInput | SortOrder
     felvettek_szama?: Felvettek_SzamaOrderByRelationAggregateInput
     tanulo_letszam?: Tanulo_LetszamOrderByRelationAggregateInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaOrderByRelationAggregateInput
@@ -46212,6 +47432,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekOrderByRelationAggregateInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekOrderByRelationAggregateInput
     lemorzsolodas?: LemorzsolodasOrderByRelationAggregateInput
+    alapadatok?: Alapadatok_SzakmaOrderByRelationAggregateInput
     alapadatok_szakma?: Szakirany_SzakmaOrderByRelationAggregateInput
   }
 
@@ -46221,6 +47442,7 @@ export namespace Prisma {
     AND?: SzakmaWhereInput | SzakmaWhereInput[]
     OR?: SzakmaWhereInput[]
     NOT?: SzakmaWhereInput | SzakmaWhereInput[]
+    tipus?: StringNullableFilter<"Szakma"> | string | null
     felvettek_szama?: Felvettek_SzamaListRelationFilter
     tanulo_letszam?: Tanulo_LetszamListRelationFilter
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaListRelationFilter
@@ -46229,12 +47451,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekListRelationFilter
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekListRelationFilter
     lemorzsolodas?: LemorzsolodasListRelationFilter
+    alapadatok?: Alapadatok_SzakmaListRelationFilter
     alapadatok_szakma?: Szakirany_SzakmaListRelationFilter
   }, "id" | "nev">
 
   export type SzakmaOrderByWithAggregationInput = {
     id?: SortOrder
     nev?: SortOrder
+    tipus?: SortOrderInput | SortOrder
     _count?: SzakmaCountOrderByAggregateInput
     _max?: SzakmaMaxOrderByAggregateInput
     _min?: SzakmaMinOrderByAggregateInput
@@ -46246,6 +47470,7 @@ export namespace Prisma {
     NOT?: SzakmaScalarWhereWithAggregatesInput | SzakmaScalarWhereWithAggregatesInput[]
     id?: UuidWithAggregatesFilter<"Szakma"> | string
     nev?: StringWithAggregatesFilter<"Szakma"> | string
+    tipus?: StringNullableWithAggregatesFilter<"Szakma"> | string | null
   }
 
   export type Szakirany_SzakmaWhereInput = {
@@ -46334,6 +47559,50 @@ export namespace Prisma {
     NOT?: Alapadatok_SzakiranyScalarWhereWithAggregatesInput | Alapadatok_SzakiranyScalarWhereWithAggregatesInput[]
     alapadatok_id?: UuidWithAggregatesFilter<"Alapadatok_Szakirany"> | string
     szakirany_id?: UuidWithAggregatesFilter<"Alapadatok_Szakirany"> | string
+  }
+
+  export type Alapadatok_SzakmaWhereInput = {
+    AND?: Alapadatok_SzakmaWhereInput | Alapadatok_SzakmaWhereInput[]
+    OR?: Alapadatok_SzakmaWhereInput[]
+    NOT?: Alapadatok_SzakmaWhereInput | Alapadatok_SzakmaWhereInput[]
+    alapadatok_id?: UuidFilter<"Alapadatok_Szakma"> | string
+    szakma_id?: UuidFilter<"Alapadatok_Szakma"> | string
+    alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
+    szakma?: XOR<SzakmaScalarRelationFilter, SzakmaWhereInput>
+  }
+
+  export type Alapadatok_SzakmaOrderByWithRelationInput = {
+    alapadatok_id?: SortOrder
+    szakma_id?: SortOrder
+    alapadatok?: AlapadatokOrderByWithRelationInput
+    szakma?: SzakmaOrderByWithRelationInput
+  }
+
+  export type Alapadatok_SzakmaWhereUniqueInput = Prisma.AtLeast<{
+    alapadatok_id_szakma_id?: Alapadatok_SzakmaAlapadatok_idSzakma_idCompoundUniqueInput
+    AND?: Alapadatok_SzakmaWhereInput | Alapadatok_SzakmaWhereInput[]
+    OR?: Alapadatok_SzakmaWhereInput[]
+    NOT?: Alapadatok_SzakmaWhereInput | Alapadatok_SzakmaWhereInput[]
+    alapadatok_id?: UuidFilter<"Alapadatok_Szakma"> | string
+    szakma_id?: UuidFilter<"Alapadatok_Szakma"> | string
+    alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
+    szakma?: XOR<SzakmaScalarRelationFilter, SzakmaWhereInput>
+  }, "alapadatok_id_szakma_id">
+
+  export type Alapadatok_SzakmaOrderByWithAggregationInput = {
+    alapadatok_id?: SortOrder
+    szakma_id?: SortOrder
+    _count?: Alapadatok_SzakmaCountOrderByAggregateInput
+    _max?: Alapadatok_SzakmaMaxOrderByAggregateInput
+    _min?: Alapadatok_SzakmaMinOrderByAggregateInput
+  }
+
+  export type Alapadatok_SzakmaScalarWhereWithAggregatesInput = {
+    AND?: Alapadatok_SzakmaScalarWhereWithAggregatesInput | Alapadatok_SzakmaScalarWhereWithAggregatesInput[]
+    OR?: Alapadatok_SzakmaScalarWhereWithAggregatesInput[]
+    NOT?: Alapadatok_SzakmaScalarWhereWithAggregatesInput | Alapadatok_SzakmaScalarWhereWithAggregatesInput[]
+    alapadatok_id?: UuidWithAggregatesFilter<"Alapadatok_Szakma"> | string
+    szakma_id?: UuidWithAggregatesFilter<"Alapadatok_Szakma"> | string
   }
 
   export type Tanulo_LetszamWhereInput = {
@@ -49162,7 +50431,7 @@ export namespace Prisma {
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
-    ip: string
+    ip?: string
     userAgent: string
     duration?: number | null
     level?: string
@@ -49180,7 +50449,7 @@ export namespace Prisma {
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
-    ip: string
+    ip?: string
     userAgent: string
     duration?: number | null
     level?: string
@@ -49231,7 +50500,7 @@ export namespace Prisma {
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
-    ip: string
+    ip?: string
     userAgent: string
     duration?: number | null
     level?: string
@@ -49286,6 +50555,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -49315,6 +50585,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -49344,6 +50615,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -49373,6 +50645,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -49484,6 +50757,7 @@ export namespace Prisma {
   export type SzakmaCreateInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakmaInput
@@ -49492,12 +50766,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakmaInput
@@ -49506,12 +50782,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakmaNestedInput
@@ -49520,12 +50798,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaNestedInput
@@ -49534,22 +50814,26 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaCreateManyInput = {
     id?: string
     nev: string
+    tipus?: string | null
   }
 
   export type SzakmaUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SzakmaUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type Szakirany_SzakmaCreateInput = {
@@ -49618,6 +50902,40 @@ export namespace Prisma {
   export type Alapadatok_SzakiranyUncheckedUpdateManyInput = {
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     szakirany_id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type Alapadatok_SzakmaCreateInput = {
+    alapadatok: AlapadatokCreateNestedOneWithoutAlapadatok_szakmaInput
+    szakma: SzakmaCreateNestedOneWithoutAlapadatokInput
+  }
+
+  export type Alapadatok_SzakmaUncheckedCreateInput = {
+    alapadatok_id: string
+    szakma_id: string
+  }
+
+  export type Alapadatok_SzakmaUpdateInput = {
+    alapadatok?: AlapadatokUpdateOneRequiredWithoutAlapadatok_szakmaNestedInput
+    szakma?: SzakmaUpdateOneRequiredWithoutAlapadatokNestedInput
+  }
+
+  export type Alapadatok_SzakmaUncheckedUpdateInput = {
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+    szakma_id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type Alapadatok_SzakmaCreateManyInput = {
+    alapadatok_id: string
+    szakma_id: string
+  }
+
+  export type Alapadatok_SzakmaUpdateManyMutationInput = {
+
+  }
+
+  export type Alapadatok_SzakmaUncheckedUpdateManyInput = {
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+    szakma_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type Tanulo_LetszamCreateInput = {
@@ -53135,6 +54453,12 @@ export namespace Prisma {
     none?: Alapadatok_SzakiranyWhereInput
   }
 
+  export type Alapadatok_SzakmaListRelationFilter = {
+    every?: Alapadatok_SzakmaWhereInput
+    some?: Alapadatok_SzakmaWhereInput
+    none?: Alapadatok_SzakmaWhereInput
+  }
+
   export type NszfhMeresekListRelationFilter = {
     every?: nszfhMeresekWhereInput
     some?: nszfhMeresekWhereInput
@@ -53253,6 +54577,10 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type Alapadatok_SzakmaOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type nszfhMeresekOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -53351,16 +54679,19 @@ export namespace Prisma {
   export type SzakmaCountOrderByAggregateInput = {
     id?: SortOrder
     nev?: SortOrder
+    tipus?: SortOrder
   }
 
   export type SzakmaMaxOrderByAggregateInput = {
     id?: SortOrder
     nev?: SortOrder
+    tipus?: SortOrder
   }
 
   export type SzakmaMinOrderByAggregateInput = {
     id?: SortOrder
     nev?: SortOrder
+    tipus?: SortOrder
   }
 
   export type SzakmaScalarRelationFilter = {
@@ -53416,6 +54747,26 @@ export namespace Prisma {
   export type Alapadatok_SzakiranyMinOrderByAggregateInput = {
     alapadatok_id?: SortOrder
     szakirany_id?: SortOrder
+  }
+
+  export type Alapadatok_SzakmaAlapadatok_idSzakma_idCompoundUniqueInput = {
+    alapadatok_id: string
+    szakma_id: string
+  }
+
+  export type Alapadatok_SzakmaCountOrderByAggregateInput = {
+    alapadatok_id?: SortOrder
+    szakma_id?: SortOrder
+  }
+
+  export type Alapadatok_SzakmaMaxOrderByAggregateInput = {
+    alapadatok_id?: SortOrder
+    szakma_id?: SortOrder
+  }
+
+  export type Alapadatok_SzakmaMinOrderByAggregateInput = {
+    alapadatok_id?: SortOrder
+    szakma_id?: SortOrder
   }
 
   export type Tanulo_LetszamCountOrderByAggregateInput = {
@@ -55364,6 +56715,13 @@ export namespace Prisma {
     connect?: Alapadatok_SzakiranyWhereUniqueInput | Alapadatok_SzakiranyWhereUniqueInput[]
   }
 
+  export type Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<Alapadatok_SzakmaCreateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput> | Alapadatok_SzakmaCreateWithoutAlapadatokInput[] | Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput | Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: Alapadatok_SzakmaCreateManyAlapadatokInputEnvelope
+    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+  }
+
   export type nszfhMeresekCreateNestedManyWithoutAlapadatokInput = {
     create?: XOR<nszfhMeresekCreateWithoutAlapadatokInput, nszfhMeresekUncheckedCreateWithoutAlapadatokInput> | nszfhMeresekCreateWithoutAlapadatokInput[] | nszfhMeresekUncheckedCreateWithoutAlapadatokInput[]
     connectOrCreate?: nszfhMeresekCreateOrConnectWithoutAlapadatokInput | nszfhMeresekCreateOrConnectWithoutAlapadatokInput[]
@@ -55523,6 +56881,13 @@ export namespace Prisma {
     connectOrCreate?: Alapadatok_SzakiranyCreateOrConnectWithoutAlapadatokInput | Alapadatok_SzakiranyCreateOrConnectWithoutAlapadatokInput[]
     createMany?: Alapadatok_SzakiranyCreateManyAlapadatokInputEnvelope
     connect?: Alapadatok_SzakiranyWhereUniqueInput | Alapadatok_SzakiranyWhereUniqueInput[]
+  }
+
+  export type Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<Alapadatok_SzakmaCreateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput> | Alapadatok_SzakmaCreateWithoutAlapadatokInput[] | Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput | Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: Alapadatok_SzakmaCreateManyAlapadatokInputEnvelope
+    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
   }
 
   export type nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput = {
@@ -55754,6 +57119,20 @@ export namespace Prisma {
     update?: Alapadatok_SzakiranyUpdateWithWhereUniqueWithoutAlapadatokInput | Alapadatok_SzakiranyUpdateWithWhereUniqueWithoutAlapadatokInput[]
     updateMany?: Alapadatok_SzakiranyUpdateManyWithWhereWithoutAlapadatokInput | Alapadatok_SzakiranyUpdateManyWithWhereWithoutAlapadatokInput[]
     deleteMany?: Alapadatok_SzakiranyScalarWhereInput | Alapadatok_SzakiranyScalarWhereInput[]
+  }
+
+  export type Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<Alapadatok_SzakmaCreateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput> | Alapadatok_SzakmaCreateWithoutAlapadatokInput[] | Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput | Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: Alapadatok_SzakmaUpsertWithWhereUniqueWithoutAlapadatokInput | Alapadatok_SzakmaUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: Alapadatok_SzakmaCreateManyAlapadatokInputEnvelope
+    set?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    disconnect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    delete?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    update?: Alapadatok_SzakmaUpdateWithWhereUniqueWithoutAlapadatokInput | Alapadatok_SzakmaUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: Alapadatok_SzakmaUpdateManyWithWhereWithoutAlapadatokInput | Alapadatok_SzakmaUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: Alapadatok_SzakmaScalarWhereInput | Alapadatok_SzakmaScalarWhereInput[]
   }
 
   export type nszfhMeresekUpdateManyWithoutAlapadatokNestedInput = {
@@ -56076,6 +57455,20 @@ export namespace Prisma {
     update?: Alapadatok_SzakiranyUpdateWithWhereUniqueWithoutAlapadatokInput | Alapadatok_SzakiranyUpdateWithWhereUniqueWithoutAlapadatokInput[]
     updateMany?: Alapadatok_SzakiranyUpdateManyWithWhereWithoutAlapadatokInput | Alapadatok_SzakiranyUpdateManyWithWhereWithoutAlapadatokInput[]
     deleteMany?: Alapadatok_SzakiranyScalarWhereInput | Alapadatok_SzakiranyScalarWhereInput[]
+  }
+
+  export type Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<Alapadatok_SzakmaCreateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput> | Alapadatok_SzakmaCreateWithoutAlapadatokInput[] | Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput | Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: Alapadatok_SzakmaUpsertWithWhereUniqueWithoutAlapadatokInput | Alapadatok_SzakmaUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: Alapadatok_SzakmaCreateManyAlapadatokInputEnvelope
+    set?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    disconnect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    delete?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    update?: Alapadatok_SzakmaUpdateWithWhereUniqueWithoutAlapadatokInput | Alapadatok_SzakmaUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: Alapadatok_SzakmaUpdateManyWithWhereWithoutAlapadatokInput | Alapadatok_SzakmaUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: Alapadatok_SzakmaScalarWhereInput | Alapadatok_SzakmaScalarWhereInput[]
   }
 
   export type nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput = {
@@ -56736,6 +58129,13 @@ export namespace Prisma {
     connect?: LemorzsolodasWhereUniqueInput | LemorzsolodasWhereUniqueInput[]
   }
 
+  export type Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput = {
+    create?: XOR<Alapadatok_SzakmaCreateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput> | Alapadatok_SzakmaCreateWithoutSzakmaInput[] | Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput[]
+    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput | Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput[]
+    createMany?: Alapadatok_SzakmaCreateManySzakmaInputEnvelope
+    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+  }
+
   export type Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput = {
     create?: XOR<Szakirany_SzakmaCreateWithoutSzakmaInput, Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput> | Szakirany_SzakmaCreateWithoutSzakmaInput[] | Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput[]
     connectOrCreate?: Szakirany_SzakmaCreateOrConnectWithoutSzakmaInput | Szakirany_SzakmaCreateOrConnectWithoutSzakmaInput[]
@@ -56797,6 +58197,13 @@ export namespace Prisma {
     connectOrCreate?: LemorzsolodasCreateOrConnectWithoutSzakmaInput | LemorzsolodasCreateOrConnectWithoutSzakmaInput[]
     createMany?: LemorzsolodasCreateManySzakmaInputEnvelope
     connect?: LemorzsolodasWhereUniqueInput | LemorzsolodasWhereUniqueInput[]
+  }
+
+  export type Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput = {
+    create?: XOR<Alapadatok_SzakmaCreateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput> | Alapadatok_SzakmaCreateWithoutSzakmaInput[] | Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput[]
+    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput | Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput[]
+    createMany?: Alapadatok_SzakmaCreateManySzakmaInputEnvelope
+    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
   }
 
   export type Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput = {
@@ -56916,6 +58323,20 @@ export namespace Prisma {
     update?: LemorzsolodasUpdateWithWhereUniqueWithoutSzakmaInput | LemorzsolodasUpdateWithWhereUniqueWithoutSzakmaInput[]
     updateMany?: LemorzsolodasUpdateManyWithWhereWithoutSzakmaInput | LemorzsolodasUpdateManyWithWhereWithoutSzakmaInput[]
     deleteMany?: LemorzsolodasScalarWhereInput | LemorzsolodasScalarWhereInput[]
+  }
+
+  export type Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput = {
+    create?: XOR<Alapadatok_SzakmaCreateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput> | Alapadatok_SzakmaCreateWithoutSzakmaInput[] | Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput[]
+    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput | Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput[]
+    upsert?: Alapadatok_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput | Alapadatok_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput[]
+    createMany?: Alapadatok_SzakmaCreateManySzakmaInputEnvelope
+    set?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    disconnect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    delete?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    update?: Alapadatok_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput | Alapadatok_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput[]
+    updateMany?: Alapadatok_SzakmaUpdateManyWithWhereWithoutSzakmaInput | Alapadatok_SzakmaUpdateManyWithWhereWithoutSzakmaInput[]
+    deleteMany?: Alapadatok_SzakmaScalarWhereInput | Alapadatok_SzakmaScalarWhereInput[]
   }
 
   export type Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput = {
@@ -57044,6 +58465,20 @@ export namespace Prisma {
     deleteMany?: LemorzsolodasScalarWhereInput | LemorzsolodasScalarWhereInput[]
   }
 
+  export type Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput = {
+    create?: XOR<Alapadatok_SzakmaCreateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput> | Alapadatok_SzakmaCreateWithoutSzakmaInput[] | Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput[]
+    connectOrCreate?: Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput | Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput[]
+    upsert?: Alapadatok_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput | Alapadatok_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput[]
+    createMany?: Alapadatok_SzakmaCreateManySzakmaInputEnvelope
+    set?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    disconnect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    delete?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    connect?: Alapadatok_SzakmaWhereUniqueInput | Alapadatok_SzakmaWhereUniqueInput[]
+    update?: Alapadatok_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput | Alapadatok_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput[]
+    updateMany?: Alapadatok_SzakmaUpdateManyWithWhereWithoutSzakmaInput | Alapadatok_SzakmaUpdateManyWithWhereWithoutSzakmaInput[]
+    deleteMany?: Alapadatok_SzakmaScalarWhereInput | Alapadatok_SzakmaScalarWhereInput[]
+  }
+
   export type Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput = {
     create?: XOR<Szakirany_SzakmaCreateWithoutSzakmaInput, Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput> | Szakirany_SzakmaCreateWithoutSzakmaInput[] | Szakirany_SzakmaUncheckedCreateWithoutSzakmaInput[]
     connectOrCreate?: Szakirany_SzakmaCreateOrConnectWithoutSzakmaInput | Szakirany_SzakmaCreateOrConnectWithoutSzakmaInput[]
@@ -57112,6 +58547,34 @@ export namespace Prisma {
     upsert?: SzakiranyUpsertWithoutAlapadatok_szakiranyInput
     connect?: SzakiranyWhereUniqueInput
     update?: XOR<XOR<SzakiranyUpdateToOneWithWhereWithoutAlapadatok_szakiranyInput, SzakiranyUpdateWithoutAlapadatok_szakiranyInput>, SzakiranyUncheckedUpdateWithoutAlapadatok_szakiranyInput>
+  }
+
+  export type AlapadatokCreateNestedOneWithoutAlapadatok_szakmaInput = {
+    create?: XOR<AlapadatokCreateWithoutAlapadatok_szakmaInput, AlapadatokUncheckedCreateWithoutAlapadatok_szakmaInput>
+    connectOrCreate?: AlapadatokCreateOrConnectWithoutAlapadatok_szakmaInput
+    connect?: AlapadatokWhereUniqueInput
+  }
+
+  export type SzakmaCreateNestedOneWithoutAlapadatokInput = {
+    create?: XOR<SzakmaCreateWithoutAlapadatokInput, SzakmaUncheckedCreateWithoutAlapadatokInput>
+    connectOrCreate?: SzakmaCreateOrConnectWithoutAlapadatokInput
+    connect?: SzakmaWhereUniqueInput
+  }
+
+  export type AlapadatokUpdateOneRequiredWithoutAlapadatok_szakmaNestedInput = {
+    create?: XOR<AlapadatokCreateWithoutAlapadatok_szakmaInput, AlapadatokUncheckedCreateWithoutAlapadatok_szakmaInput>
+    connectOrCreate?: AlapadatokCreateOrConnectWithoutAlapadatok_szakmaInput
+    upsert?: AlapadatokUpsertWithoutAlapadatok_szakmaInput
+    connect?: AlapadatokWhereUniqueInput
+    update?: XOR<XOR<AlapadatokUpdateToOneWithWhereWithoutAlapadatok_szakmaInput, AlapadatokUpdateWithoutAlapadatok_szakmaInput>, AlapadatokUncheckedUpdateWithoutAlapadatok_szakmaInput>
+  }
+
+  export type SzakmaUpdateOneRequiredWithoutAlapadatokNestedInput = {
+    create?: XOR<SzakmaCreateWithoutAlapadatokInput, SzakmaUncheckedCreateWithoutAlapadatokInput>
+    connectOrCreate?: SzakmaCreateOrConnectWithoutAlapadatokInput
+    upsert?: SzakmaUpsertWithoutAlapadatokInput
+    connect?: SzakmaWhereUniqueInput
+    update?: XOR<XOR<SzakmaUpdateToOneWithWhereWithoutAlapadatokInput, SzakmaUpdateWithoutAlapadatokInput>, SzakmaUncheckedUpdateWithoutAlapadatokInput>
   }
 
   export type AlapadatokCreateNestedOneWithoutTanulo_letszamInput = {
@@ -58063,7 +59526,7 @@ export namespace Prisma {
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
-    ip: string
+    ip?: string
     userAgent: string
     duration?: number | null
     level?: string
@@ -58079,7 +59542,7 @@ export namespace Prisma {
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
-    ip: string
+    ip?: string
     userAgent: string
     duration?: number | null
     level?: string
@@ -58135,6 +59598,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -58163,6 +59627,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -58270,6 +59735,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -58298,6 +59764,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -59045,6 +60512,24 @@ export namespace Prisma {
 
   export type Alapadatok_SzakiranyCreateManyAlapadatokInputEnvelope = {
     data: Alapadatok_SzakiranyCreateManyAlapadatokInput | Alapadatok_SzakiranyCreateManyAlapadatokInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type Alapadatok_SzakmaCreateWithoutAlapadatokInput = {
+    szakma: SzakmaCreateNestedOneWithoutAlapadatokInput
+  }
+
+  export type Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput = {
+    szakma_id: string
+  }
+
+  export type Alapadatok_SzakmaCreateOrConnectWithoutAlapadatokInput = {
+    where: Alapadatok_SzakmaWhereUniqueInput
+    create: XOR<Alapadatok_SzakmaCreateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type Alapadatok_SzakmaCreateManyAlapadatokInputEnvelope = {
+    data: Alapadatok_SzakmaCreateManyAlapadatokInput | Alapadatok_SzakmaCreateManyAlapadatokInput[]
     skipDuplicates?: boolean
   }
 
@@ -59970,6 +61455,30 @@ export namespace Prisma {
     NOT?: Alapadatok_SzakiranyScalarWhereInput | Alapadatok_SzakiranyScalarWhereInput[]
     alapadatok_id?: UuidFilter<"Alapadatok_Szakirany"> | string
     szakirany_id?: UuidFilter<"Alapadatok_Szakirany"> | string
+  }
+
+  export type Alapadatok_SzakmaUpsertWithWhereUniqueWithoutAlapadatokInput = {
+    where: Alapadatok_SzakmaWhereUniqueInput
+    update: XOR<Alapadatok_SzakmaUpdateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedUpdateWithoutAlapadatokInput>
+    create: XOR<Alapadatok_SzakmaCreateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type Alapadatok_SzakmaUpdateWithWhereUniqueWithoutAlapadatokInput = {
+    where: Alapadatok_SzakmaWhereUniqueInput
+    data: XOR<Alapadatok_SzakmaUpdateWithoutAlapadatokInput, Alapadatok_SzakmaUncheckedUpdateWithoutAlapadatokInput>
+  }
+
+  export type Alapadatok_SzakmaUpdateManyWithWhereWithoutAlapadatokInput = {
+    where: Alapadatok_SzakmaScalarWhereInput
+    data: XOR<Alapadatok_SzakmaUpdateManyMutationInput, Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokInput>
+  }
+
+  export type Alapadatok_SzakmaScalarWhereInput = {
+    AND?: Alapadatok_SzakmaScalarWhereInput | Alapadatok_SzakmaScalarWhereInput[]
+    OR?: Alapadatok_SzakmaScalarWhereInput[]
+    NOT?: Alapadatok_SzakmaScalarWhereInput | Alapadatok_SzakmaScalarWhereInput[]
+    alapadatok_id?: UuidFilter<"Alapadatok_Szakma"> | string
+    szakma_id?: UuidFilter<"Alapadatok_Szakma"> | string
   }
 
   export type nszfhMeresekUpsertWithWhereUniqueWithoutAlapadatokInput = {
@@ -61222,6 +62731,24 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type Alapadatok_SzakmaCreateWithoutSzakmaInput = {
+    alapadatok: AlapadatokCreateNestedOneWithoutAlapadatok_szakmaInput
+  }
+
+  export type Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput = {
+    alapadatok_id: string
+  }
+
+  export type Alapadatok_SzakmaCreateOrConnectWithoutSzakmaInput = {
+    where: Alapadatok_SzakmaWhereUniqueInput
+    create: XOR<Alapadatok_SzakmaCreateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput>
+  }
+
+  export type Alapadatok_SzakmaCreateManySzakmaInputEnvelope = {
+    data: Alapadatok_SzakmaCreateManySzakmaInput | Alapadatok_SzakmaCreateManySzakmaInput[]
+    skipDuplicates?: boolean
+  }
+
   export type Szakirany_SzakmaCreateWithoutSzakmaInput = {
     szakirany: SzakiranyCreateNestedOneWithoutSzakmaInput
   }
@@ -61368,6 +62895,22 @@ export namespace Prisma {
     data: XOR<LemorzsolodasUpdateManyMutationInput, LemorzsolodasUncheckedUpdateManyWithoutSzakmaInput>
   }
 
+  export type Alapadatok_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput = {
+    where: Alapadatok_SzakmaWhereUniqueInput
+    update: XOR<Alapadatok_SzakmaUpdateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedUpdateWithoutSzakmaInput>
+    create: XOR<Alapadatok_SzakmaCreateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedCreateWithoutSzakmaInput>
+  }
+
+  export type Alapadatok_SzakmaUpdateWithWhereUniqueWithoutSzakmaInput = {
+    where: Alapadatok_SzakmaWhereUniqueInput
+    data: XOR<Alapadatok_SzakmaUpdateWithoutSzakmaInput, Alapadatok_SzakmaUncheckedUpdateWithoutSzakmaInput>
+  }
+
+  export type Alapadatok_SzakmaUpdateManyWithWhereWithoutSzakmaInput = {
+    where: Alapadatok_SzakmaScalarWhereInput
+    data: XOR<Alapadatok_SzakmaUpdateManyMutationInput, Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaInput>
+  }
+
   export type Szakirany_SzakmaUpsertWithWhereUniqueWithoutSzakmaInput = {
     where: Szakirany_SzakmaWhereUniqueInput
     update: XOR<Szakirany_SzakmaUpdateWithoutSzakmaInput, Szakirany_SzakmaUncheckedUpdateWithoutSzakmaInput>
@@ -61387,6 +62930,7 @@ export namespace Prisma {
   export type SzakmaCreateWithoutAlapadatok_szakmaInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakmaInput
@@ -61395,11 +62939,13 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateWithoutAlapadatok_szakmaInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakmaInput
@@ -61408,6 +62954,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaCreateOrConnectWithoutAlapadatok_szakmaInput = {
@@ -61462,6 +63009,7 @@ export namespace Prisma {
   export type SzakmaUpdateWithoutAlapadatok_szakmaInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakmaNestedInput
@@ -61470,11 +63018,13 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateWithoutAlapadatok_szakmaInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaNestedInput
@@ -61483,6 +63033,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakiranyUpsertWithoutSzakmaInput = {
@@ -61537,6 +63088,7 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -61565,6 +63117,7 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -61642,6 +63195,7 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -61670,6 +63224,7 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -61724,6 +63279,214 @@ export namespace Prisma {
     szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakiranyNestedInput
   }
 
+  export type AlapadatokCreateWithoutAlapadatok_szakmaInput = {
+    id?: string
+    iskola_neve: string
+    intezmeny_tipus: string
+    felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
+    tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
+    szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
+    versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
+    elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
+    elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
+    vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
+    lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
+    elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
+    dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
+    muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
+    users?: UserCreateNestedManyWithoutAlapadatokInput
+  }
+
+  export type AlapadatokUncheckedCreateWithoutAlapadatok_szakmaInput = {
+    id?: string
+    iskola_neve: string
+    intezmeny_tipus: string
+    felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
+    versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
+    elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
+    elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
+    lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
+    elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
+    dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
+    muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
+    users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+  }
+
+  export type AlapadatokCreateOrConnectWithoutAlapadatok_szakmaInput = {
+    where: AlapadatokWhereUniqueInput
+    create: XOR<AlapadatokCreateWithoutAlapadatok_szakmaInput, AlapadatokUncheckedCreateWithoutAlapadatok_szakmaInput>
+  }
+
+  export type SzakmaCreateWithoutAlapadatokInput = {
+    id?: string
+    nev: string
+    tipus?: string | null
+    felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakmaInput
+    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
+    szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakmaInput
+    elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutSzakmaInput
+    elegedettseg?: ElegedettsegCreateNestedManyWithoutSzakmaInput
+    vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
+    lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutSzakmaInput
+    alapadatok_szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput
+  }
+
+  export type SzakmaUncheckedCreateWithoutAlapadatokInput = {
+    id?: string
+    nev: string
+    tipus?: string | null
+    felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
+    szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakmaInput
+    elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutSzakmaInput
+    elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutSzakmaInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
+    lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok_szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
+  }
+
+  export type SzakmaCreateOrConnectWithoutAlapadatokInput = {
+    where: SzakmaWhereUniqueInput
+    create: XOR<SzakmaCreateWithoutAlapadatokInput, SzakmaUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type AlapadatokUpsertWithoutAlapadatok_szakmaInput = {
+    update: XOR<AlapadatokUpdateWithoutAlapadatok_szakmaInput, AlapadatokUncheckedUpdateWithoutAlapadatok_szakmaInput>
+    create: XOR<AlapadatokCreateWithoutAlapadatok_szakmaInput, AlapadatokUncheckedCreateWithoutAlapadatok_szakmaInput>
+    where?: AlapadatokWhereInput
+  }
+
+  export type AlapadatokUpdateToOneWithWhereWithoutAlapadatok_szakmaInput = {
+    where?: AlapadatokWhereInput
+    data: XOR<AlapadatokUpdateWithoutAlapadatok_szakmaInput, AlapadatokUncheckedUpdateWithoutAlapadatok_szakmaInput>
+  }
+
+  export type AlapadatokUpdateWithoutAlapadatok_szakmaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    iskola_neve?: StringFieldUpdateOperationsInput | string
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
+    tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
+    szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
+    versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
+    elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
+    elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
+    lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
+    elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
+    dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
+    muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
+    users?: UserUpdateManyWithoutAlapadatokNestedInput
+  }
+
+  export type AlapadatokUncheckedUpdateWithoutAlapadatok_szakmaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    iskola_neve?: StringFieldUpdateOperationsInput | string
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
+    elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
+    muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+  }
+
+  export type SzakmaUpsertWithoutAlapadatokInput = {
+    update: XOR<SzakmaUpdateWithoutAlapadatokInput, SzakmaUncheckedUpdateWithoutAlapadatokInput>
+    create: XOR<SzakmaCreateWithoutAlapadatokInput, SzakmaUncheckedCreateWithoutAlapadatokInput>
+    where?: SzakmaWhereInput
+  }
+
+  export type SzakmaUpdateToOneWithWhereWithoutAlapadatokInput = {
+    where?: SzakmaWhereInput
+    data: XOR<SzakmaUpdateWithoutAlapadatokInput, SzakmaUncheckedUpdateWithoutAlapadatokInput>
+  }
+
+  export type SzakmaUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
+    felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
+    szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakmaNestedInput
+    elhelyezkedes?: ElhelyezkedesUpdateManyWithoutSzakmaNestedInput
+    elegedettseg?: ElegedettsegUpdateManyWithoutSzakmaNestedInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
+    lemorzsolodas?: LemorzsolodasUpdateManyWithoutSzakmaNestedInput
+    alapadatok_szakma?: Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput
+  }
+
+  export type SzakmaUncheckedUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
+    felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
+    szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaNestedInput
+    elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutSzakmaNestedInput
+    elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutSzakmaNestedInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
+    lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok_szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
+  }
+
   export type AlapadatokCreateWithoutTanulo_letszamInput = {
     id?: string
     iskola_neve: string
@@ -61737,6 +63500,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -61765,6 +63529,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -61821,6 +63586,7 @@ export namespace Prisma {
   export type SzakmaCreateWithoutTanulo_letszamInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakmaInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutSzakmaInput
@@ -61828,12 +63594,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateWithoutTanulo_letszamInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakmaInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutSzakmaInput
@@ -61841,6 +63609,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
@@ -61873,6 +63642,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -61901,6 +63671,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -61969,6 +63740,7 @@ export namespace Prisma {
   export type SzakmaUpdateWithoutTanulo_letszamInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakmaNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutSzakmaNestedInput
@@ -61976,12 +63748,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateWithoutTanulo_letszamInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutSzakmaNestedInput
@@ -61989,6 +63763,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
@@ -62005,6 +63780,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -62033,6 +63809,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -62077,6 +63854,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -62105,6 +63883,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -62133,6 +63912,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -62161,6 +63941,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -62217,6 +63998,7 @@ export namespace Prisma {
   export type SzakmaCreateWithoutFelvettek_szamaInput = {
     id?: string
     nev: string
+    tipus?: string | null
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakmaInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutSzakmaInput
@@ -62224,12 +64006,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateWithoutFelvettek_szamaInput = {
     id?: string
     nev: string
+    tipus?: string | null
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakmaInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutSzakmaInput
@@ -62237,6 +64021,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
@@ -62269,6 +64054,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -62297,6 +64083,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -62365,6 +64152,7 @@ export namespace Prisma {
   export type SzakmaUpdateWithoutFelvettek_szamaInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakmaNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutSzakmaNestedInput
@@ -62372,12 +64160,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateWithoutFelvettek_szamaInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutSzakmaNestedInput
@@ -62385,6 +64175,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
@@ -62401,6 +64192,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -62429,6 +64221,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -62473,6 +64266,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -62501,6 +64295,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -62529,6 +64324,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -62557,6 +64353,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -62601,6 +64398,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -62629,6 +64427,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -62657,6 +64456,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -62685,6 +64485,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -62729,6 +64530,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -62757,6 +64559,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -62785,6 +64588,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -62813,6 +64617,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -62857,6 +64662,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -62885,6 +64691,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -62913,6 +64720,7 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -62941,6 +64749,7 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -62997,6 +64806,7 @@ export namespace Prisma {
   export type SzakmaCreateWithoutSzakkepzesiStatisztikaInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutSzakmaInput
@@ -63004,12 +64814,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateWithoutSzakkepzesiStatisztikaInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutSzakmaInput
@@ -63017,6 +64829,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
@@ -63049,6 +64862,7 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -63077,6 +64891,7 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -63145,6 +64960,7 @@ export namespace Prisma {
   export type SzakmaUpdateWithoutSzakkepzesiStatisztikaInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutSzakmaNestedInput
@@ -63152,12 +64968,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateWithoutSzakkepzesiStatisztikaInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutSzakmaNestedInput
@@ -63165,6 +64983,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
@@ -63346,6 +65165,7 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -63374,6 +65194,7 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -63443,6 +65264,7 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -63471,6 +65293,7 @@ export namespace Prisma {
     egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -63531,6 +65354,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
@@ -63559,6 +65383,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -63603,6 +65428,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
@@ -63631,6 +65457,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -63659,6 +65486,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
@@ -63687,6 +65515,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -63742,6 +65571,7 @@ export namespace Prisma {
   export type SzakmaCreateWithoutElhelyezkedesInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakmaInput
@@ -63749,12 +65579,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateWithoutElhelyezkedesInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakmaInput
@@ -63762,6 +65594,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
@@ -63795,6 +65628,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
@@ -63823,6 +65657,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -63890,6 +65725,7 @@ export namespace Prisma {
   export type SzakmaUpdateWithoutElhelyezkedesInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakmaNestedInput
@@ -63897,12 +65733,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateWithoutElhelyezkedesInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaNestedInput
@@ -63910,6 +65748,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
@@ -63927,6 +65766,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
@@ -63955,6 +65795,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -64010,6 +65851,7 @@ export namespace Prisma {
   export type SzakmaCreateWithoutElegedettsegInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakmaInput
@@ -64017,12 +65859,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateWithoutElegedettsegInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakmaInput
@@ -64030,6 +65874,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
@@ -64063,6 +65908,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
@@ -64091,6 +65937,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -64158,6 +66005,7 @@ export namespace Prisma {
   export type SzakmaUpdateWithoutElegedettsegInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakmaNestedInput
@@ -64165,12 +66013,14 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateWithoutElegedettsegInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaNestedInput
@@ -64178,6 +66028,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
@@ -64195,6 +66046,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -64223,6 +66075,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -64278,6 +66131,7 @@ export namespace Prisma {
   export type SzakmaCreateWithoutVizsgaeredmenyekInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakmaInput
@@ -64285,12 +66139,14 @@ export namespace Prisma {
     elegedettseg?: ElegedettsegCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateWithoutVizsgaeredmenyekInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakmaInput
@@ -64298,6 +66154,7 @@ export namespace Prisma {
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
@@ -64331,6 +66188,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -64359,6 +66217,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -64426,6 +66285,7 @@ export namespace Prisma {
   export type SzakmaUpdateWithoutVizsgaeredmenyekInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakmaNestedInput
@@ -64433,12 +66293,14 @@ export namespace Prisma {
     elegedettseg?: ElegedettsegUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateWithoutVizsgaeredmenyekInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaNestedInput
@@ -64446,6 +66308,7 @@ export namespace Prisma {
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
@@ -64463,6 +66326,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -64491,6 +66355,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -64546,6 +66411,7 @@ export namespace Prisma {
   export type SzakmaCreateWithoutSzakmaiVizsgaEredmenyekInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakmaInput
@@ -64553,12 +66419,14 @@ export namespace Prisma {
     elegedettseg?: ElegedettsegCreateNestedManyWithoutSzakmaInput
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateWithoutSzakmaiVizsgaEredmenyekInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakmaInput
@@ -64566,6 +66434,7 @@ export namespace Prisma {
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutSzakmaInput
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
@@ -64599,6 +66468,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -64627,6 +66497,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -64694,6 +66565,7 @@ export namespace Prisma {
   export type SzakmaUpdateWithoutSzakmaiVizsgaEredmenyekInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakmaNestedInput
@@ -64701,12 +66573,14 @@ export namespace Prisma {
     elegedettseg?: ElegedettsegUpdateManyWithoutSzakmaNestedInput
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateWithoutSzakmaiVizsgaEredmenyekInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaNestedInput
@@ -64714,6 +66588,7 @@ export namespace Prisma {
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutSzakmaNestedInput
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
@@ -64731,6 +66606,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -64759,6 +66635,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -64814,6 +66691,7 @@ export namespace Prisma {
   export type SzakmaCreateWithoutLemorzsolodasInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutSzakmaInput
@@ -64821,12 +66699,14 @@ export namespace Prisma {
     elegedettseg?: ElegedettsegCreateNestedManyWithoutSzakmaInput
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaCreateNestedManyWithoutSzakmaInput
   }
 
   export type SzakmaUncheckedCreateWithoutLemorzsolodasInput = {
     id?: string
     nev: string
+    tipus?: string | null
     felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutSzakmaInput
     tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutSzakmaInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutSzakmaInput
@@ -64834,6 +66714,7 @@ export namespace Prisma {
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutSzakmaInput
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutSzakmaInput
+    alapadatok?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedCreateNestedManyWithoutSzakmaInput
   }
 
@@ -64867,6 +66748,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -64895,6 +66777,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -64962,6 +66845,7 @@ export namespace Prisma {
   export type SzakmaUpdateWithoutLemorzsolodasInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutSzakmaNestedInput
@@ -64969,12 +66853,14 @@ export namespace Prisma {
     elegedettseg?: ElegedettsegUpdateManyWithoutSzakmaNestedInput
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUpdateManyWithoutSzakmaNestedInput
   }
 
   export type SzakmaUncheckedUpdateWithoutLemorzsolodasInput = {
     id?: StringFieldUpdateOperationsInput | string
     nev?: StringFieldUpdateOperationsInput | string
+    tipus?: NullableStringFieldUpdateOperationsInput | string | null
     felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutSzakmaNestedInput
     tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutSzakmaNestedInput
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutSzakmaNestedInput
@@ -64982,6 +66868,7 @@ export namespace Prisma {
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutSzakmaNestedInput
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutSzakmaNestedInput
+    alapadatok?: Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
     alapadatok_szakma?: Szakirany_SzakmaUncheckedUpdateManyWithoutSzakmaNestedInput
   }
 
@@ -64999,6 +66886,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -65027,6 +66915,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -65071,6 +66960,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -65099,6 +66989,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -65127,6 +67018,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -65155,6 +67047,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -65199,6 +67092,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -65227,6 +67121,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -65255,6 +67150,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -65283,6 +67179,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -65327,6 +67224,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -65355,6 +67253,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -65383,6 +67282,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -65411,6 +67311,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -65455,6 +67356,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -65483,6 +67385,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -65511,6 +67414,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -65539,6 +67443,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -65583,6 +67488,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -65611,6 +67517,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -65639,6 +67546,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
@@ -65667,6 +67575,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedCreateNestedManyWithoutAlapadatokInput
     versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
     nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
     elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -65711,6 +67620,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
@@ -65739,6 +67649,7 @@ export namespace Prisma {
     szakkepzesiStatisztika?: SzakkepzesiStatisztikaUncheckedUpdateManyWithoutAlapadatokNestedInput
     versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
     nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -65761,7 +67672,7 @@ export namespace Prisma {
     body?: NullableJsonNullValueInput | InputJsonValue
     query?: NullableJsonNullValueInput | InputJsonValue
     headers?: NullableJsonNullValueInput | InputJsonValue
-    ip: string
+    ip?: string
     userAgent: string
     duration?: number | null
     level?: string
@@ -66081,6 +67992,10 @@ export namespace Prisma {
 
   export type Alapadatok_SzakiranyCreateManyAlapadatokInput = {
     szakirany_id: string
+  }
+
+  export type Alapadatok_SzakmaCreateManyAlapadatokInput = {
+    szakma_id: string
   }
 
   export type nszfhMeresekCreateManyAlapadatokInput = {
@@ -66901,6 +68816,18 @@ export namespace Prisma {
 
   export type Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokInput = {
     szakirany_id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type Alapadatok_SzakmaUpdateWithoutAlapadatokInput = {
+    szakma?: SzakmaUpdateOneRequiredWithoutAlapadatokNestedInput
+  }
+
+  export type Alapadatok_SzakmaUncheckedUpdateWithoutAlapadatokInput = {
+    szakma_id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokInput = {
+    szakma_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type nszfhMeresekUpdateWithoutAlapadatokInput = {
@@ -68054,6 +69981,10 @@ export namespace Prisma {
     updatedBy?: string | null
   }
 
+  export type Alapadatok_SzakmaCreateManySzakmaInput = {
+    alapadatok_id: string
+  }
+
   export type Szakirany_SzakmaCreateManySzakmaInput = {
     szakirany_id: string
   }
@@ -68383,6 +70314,18 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type Alapadatok_SzakmaUpdateWithoutSzakmaInput = {
+    alapadatok?: AlapadatokUpdateOneRequiredWithoutAlapadatok_szakmaNestedInput
+  }
+
+  export type Alapadatok_SzakmaUncheckedUpdateWithoutSzakmaInput = {
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type Alapadatok_SzakmaUncheckedUpdateManyWithoutSzakmaInput = {
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
   }
 
   export type Szakirany_SzakmaUpdateWithoutSzakmaInput = {

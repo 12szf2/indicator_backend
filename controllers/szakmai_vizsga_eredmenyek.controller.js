@@ -299,7 +299,44 @@ router.put("/:id", async (req, res) => {
     return res.status(500).json({ error: "Internal server error" });
   }
 });
-
+/**
+ * @swagger
+ * /szakmai_vizsga_eredmenyek/{id}:
+ *   put:
+ *     summary: Update professional exam results by ID
+ *     tags: [Szakmai_vizsga_eredmenyek]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Unique identifier of the exam result
+ *         schema:
+ *           type: integer
+ *           example: 1
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/SzakmaiVizsgaEredmenyek'
+ *     responses:
+ *       200:
+ *         description: Professional exam result updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/SzakmaiVizsgaEredmenyek'
+ *       400:
+ *         description: Bad request - Invalid input data
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
+ *       404:
+ *         description: Not found - Exam result does not exist
+ *       500:
+ *         description: Internal server error
+ */
 router.delete("/:alapadatokId/:tanev", async (req, res) => {
   try {
     const { alapadatokId, tanev } = req.params;

@@ -7,9 +7,47 @@
           <n>delete</n>
           <method>DELETE</method>
           <path>/sajatos_nevelesi_tanulok/{alapadatok_id}/{year}</path>
-          <requiresAuth>true</        <endpoint>
+          <requiresAuth>true</        <endpoint        <endpoint>
+          <n>create</n>
+          <method>POST</method>
+          <path>/sajatos_nevelesi_tanulok</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Create new special needs students record</description>
+        </endpoint>
+        <endpoint>
+          <n>update</n>
+          <method>PUT</method>
+          <path>/sajatos_nevelesi_tanulok/{id}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Update special needs students record by ID</description>
+        </endpoint>
+        <endpoint>
           <n>delete</n>
-         <endpoint>
+          <method>DELETE</method>
+          <path>/sajatos_nevelesi_tanulok/{alapadatok_id}/{year}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Delete special needs students record</description>
+        </endpoint>n        <endpoint>
+          <n>create</n>
+          <method>POST</method>
+          <path>/vizsgaeredmenyek</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Create new exam result record</description>
+        </endpoint>
+        <endpoint>
+          <name>update</name>
+          <method>PUT</method>
+          <path>/vizsgaeredmenyek/{id}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Update existing exam result record</description>
+        </endpoint>
+        <endpoint>
+          <n>delete</n>
+          <method>DELETE</method>
+          <path>/vizsgaeredmenyek/{alapadatok_id}/{year}</path>
+          <requiresAuth>true</requiresAuth>
+          <description>Delete exam result record</description>
+        </endpoint>        <endpoint>
           <n>create</n>
           <method>POST</method>
           <path>/elhelyezkedes</path>

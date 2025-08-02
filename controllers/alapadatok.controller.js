@@ -193,12 +193,18 @@ router.get("/:id", async (req, res) => {
  */
 router.post("/", async (req, res) => {
   try {
-    const { iskola_neve, intezmeny_tipus, alapdatok_szakirany } = req.body;
+    const { iskola_neve, intezmeny_tipus, alapadatok_szakirany } = req.body;
 
-    if (!iskola_neve || !intezmeny_tipus || !alapdatok_szakirany)
+    console.log("Adding alapadatok:", {
+      iskola_neve,
+      intezmeny_tipus,
+      alapadatok_szakirany,
+    });
+
+    if (!iskola_neve || !intezmeny_tipus || !alapadatok_szakirany)
       return res.status(400).json({ message: "Hiányos adatok!" });
 
-    await add(iskola_neve, intezmeny_tipus, alapdatok_szakirany);
+    await add(iskola_neve, intezmeny_tipus, alapadatok_szakirany);
 
     res.status(201).json({ message: "Sikeresen létrehozva!" });
   } catch (error) {
@@ -272,6 +278,17 @@ router.put("/:id", async (req, res) => {
 
     if (!id || !iskola_neve || !intezmeny_tipus)
       return res.status(400).json({ message: "Hiányos adatok!" });
+
+    if (
+      intezmeny_tipus != "Technikum" &&
+      intezmeny_tipus != "Szakképző iskola" &&
+      intezmeny_tipus != "Technikum és Szakképző iskola"
+    ) {
+      return res.status(400).json({
+        message:
+          "Az intézmény típusa csak Technikum vagy Szakképző iskola lehet vagy Technikum és Szakképző iskola!",
+      });
+    }
 
     await update(id, iskola_neve, intezmeny_tipus);
 
