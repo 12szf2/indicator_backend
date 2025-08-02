@@ -36,6 +36,188 @@ servers:
   - url: /api/v1
     description: API v1
 
+  /vizsgaeredmenyek/{tanev}/{iskola_kod}:
+    get:
+      summary: Get exam results by year and school
+      description: Get exam results for a specific year and school
+      tags:
+        - Vizsgaeredmenyek
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: tanev
+          in: path
+          required: true
+          schema:
+            type: string
+          description: School year (e.g., 2023/2024)
+        - name: iskola_kod
+          in: path
+          required: true
+          schema:
+            type: string
+          description: School code
+      responses:
+        "200":
+          description: Exam results data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VizsgaeredmenyekRecord"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+  /vizsgaeredmenyek:
+    post:
+      summary: Create new exam results
+      description: Create new exam results record
+      tags:
+        - Vizsgaeredmenyek
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VizsgaeredmenyekRecord"
+      responses:
+        "201":
+          description: Exam results created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VizsgaeredmenyekRecord"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    put:
+      summary: Update exam results
+      description: Update existing exam results record
+      tags:
+        - Vizsgaeredmenyek
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VizsgaeredmenyekRecord"
+      responses:
+        "200":
+          description: Exam results updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VizsgaeredmenyekRecord"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+    delete:
+      summary: Delete exam results
+      description: Delete exam results by school and year
+      tags:
+        - Vizsgaeredmenyek
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: iskola_kod
+          in: query
+          required: true
+          schema:
+            type: string
+          description: School code
+        - name: tanev
+          in: query
+          required: true
+          schema:
+            type: string
+          description: School year
+      responses:
+        "200":
+          description: Exam results deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Record deleted successfully"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
 components:
   securitySchemes:
     bearerAuth:
@@ -1126,27 +1308,133 @@ components:
           type: integer
           description: School identifier reference
           example: 1
-        tanev_kezdete:
-          type: integer
-          description: School year start year
-          example: 2023
-        vizsga_tipus:
+        tanev:
           type: string
-          description: Exam type
-          example: "Érettségi"
-        targy:
+          description: School year (e.g., 2023/2024)
+          example: "2023/2024"
+        iskola_kod:
           type: string
-          description: Subject
-          example: "Matematika"
-        atlag_eredmeny:
+          description: School code
+          example: "01234567"
+        szakmai_vizsga_eredmeny:
           type: number
           format: float
-          description: Average result
+          description: Professional exam result percentage
+          example: 85.5
+        kozep_szakmai_eredmeny:
+          type: number
+          format: float
+          description: Middle professional exam result percentage
+          example: 78.2
+        agazati_alapvizsga_eredmeny:
+          type: number
+          format: float
+          description: Sectoral basic exam result percentage
+          example: 82.1
+        magyar_nyelv_es_irodalom:
+          type: number
+          format: float
+          description: Hungarian language and literature exam result
+          example: 4.2
+        idegen_nyelv:
+          type: number
+          format: float
+          description: Foreign language exam result
           example: 3.8
-        resztvevok_szama:
+        matematika:
+          type: number
+          format: float
+          description: Mathematics exam result
+          example: 3.5
+        tortenelem:
+          type: number
+          format: float
+          description: History exam result
+          example: 4.0
+        valasztott_kotelezok:
+          type: number
+          format: float
+          description: Selected mandatory subjects exam result
+          example: 3.9
+        erettsegi_osszesitett:
+          type: number
+          format: float
+          description: Combined matriculation exam result
+          example: 3.88
+        createdAt:
+          type: string
+          format: date-time
+          description: Creation timestamp
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+          description: Last update timestamp
+
+    VizsgaeredmenyekRecord:
+      type: object
+      properties:
+        id:
           type: integer
-          description: Number of participants
-          example: 85
+          description: Unique identifier
+          example: 1
+        alapadatok_id:
+          type: integer
+          description: School identifier reference
+          example: 1
+        tanev:
+          type: string
+          description: School year (e.g., 2023/2024)
+          example: "2023/2024"
+        iskola_kod:
+          type: string
+          description: School code
+          example: "01234567"
+        szakmai_vizsga_eredmeny:
+          type: number
+          format: float
+          description: Professional exam result percentage
+          example: 85.5
+        kozep_szakmai_eredmeny:
+          type: number
+          format: float
+          description: Middle professional exam result percentage
+          example: 78.2
+        agazati_alapvizsga_eredmeny:
+          type: number
+          format: float
+          description: Sectoral basic exam result percentage
+          example: 82.1
+        magyar_nyelv_es_irodalom:
+          type: number
+          format: float
+          description: Hungarian language and literature exam result
+          example: 4.2
+        idegen_nyelv:
+          type: number
+          format: float
+          description: Foreign language exam result
+          example: 3.8
+        matematika:
+          type: number
+          format: float
+          description: Mathematics exam result
+          example: 3.5
+        tortenelem:
+          type: number
+          format: float
+          description: History exam result
+          example: 4.0
+        valasztott_kotelezok:
+          type: number
+          format: float
+          description: Selected mandatory subjects exam result
+          example: 3.9
+        erettsegi_osszesitett:
+          type: number
+          format: float
+          description: Combined matriculation exam result
+          example: 3.88
         createdAt:
           type: string
           format: date-time

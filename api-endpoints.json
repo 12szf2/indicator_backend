@@ -255,6 +255,12 @@
           "requiresAuth": true,
           "description": "Create new special needs students record"
         },
+        "update": {
+          "method": "PUT",
+          "path": "/sajatos_nevelesi_tanulok/{id}",
+          "requiresAuth": true,
+          "description": "Update special needs students record by ID"
+        },
         "delete": {
           "method": "DELETE",
           "path": "/sajatos_nevelesu_tanulok/{alapadatok_id}/{year}",
@@ -398,6 +404,12 @@
           "path": "/vizsgaeredmenyek",
           "requiresAuth": true,
           "description": "Create new exam result record"
+        },
+        "update": {
+          "method": "PUT",
+          "path": "/vizsgaeredmenyek/{id}",
+          "requiresAuth": true,
+          "description": "Update existing exam result record"
         },
         "delete": {
           "method": "DELETE",
@@ -556,6 +568,12 @@
           "path": "/nszfh",
           "requiresAuth": true,
           "description": "Create new NSZFH record"
+        },
+        "update": {
+          "method": "PUT",
+          "path": "/nszfh/{id}",
+          "requiresAuth": true,
+          "description": "Update NSZFH record by ID"
         },
         "delete": {
           "method": "DELETE",

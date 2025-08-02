@@ -24,6 +24,16 @@ const router = e.Router();
  *           type: integer
  *           description: Unique identifier
  *           example: 1
+ *         szakirany_id:
+ *           type: integer
+ *           nullable: true
+ *           description: Field of study identifier
+ *           example: 1
+ *         szakma_id:
+ *           type: integer
+ *           nullable: true
+ *           description: Profession identifier
+ *           example: 1
  *         alapadatok_id:
  *           type: integer
  *           description: School identifier reference
@@ -32,23 +42,41 @@ const router = e.Router();
  *           type: integer
  *           description: School year start year
  *           example: 2023
- *         vizsga_tipus:
- *           type: string
- *           description: Exam type
- *           example: "Érettségi"
- *         targy:
- *           type: string
- *           description: Subject
- *           example: "Matematika"
- *         atlag_eredmeny:
+ *         szakmai_vizsga_eredmeny:
  *           type: number
  *           format: float
- *           description: Average result
+ *           description: Professional exam result
+ *           example: 4.2
+ *         agazati_alapvizsga_eredmeny:
+ *           type: number
+ *           format: float
+ *           description: Sectoral basic exam result
  *           example: 3.8
- *         resztvevok_szama:
- *           type: integer
- *           description: Number of participants
- *           example: 85
+ *         magyar_nyelv_eretsegi_eredmeny:
+ *           type: number
+ *           format: float
+ *           description: Hungarian language matriculation exam result
+ *           example: 4.0
+ *         matematika_eretsegi_eredmeny:
+ *           type: number
+ *           format: float
+ *           description: Mathematics matriculation exam result
+ *           example: 3.5
+ *         tortenelem_eretsegi_eredmeny:
+ *           type: number
+ *           format: float
+ *           description: History matriculation exam result
+ *           example: 3.9
+ *         angol_nyelv_eretsegi_eredmeny:
+ *           type: number
+ *           format: float
+ *           description: English language matriculation exam result
+ *           example: 4.1
+ *         agazati_szakmai_eretsegi_eredmeny:
+ *           type: number
+ *           format: float
+ *           description: Sectoral professional matriculation exam result
+ *           example: 4.3
  *         createdAt:
  *           type: string
  *           format: date-time
@@ -189,6 +217,7 @@ router.get("/:alapadatokId/:tanev", async (req, res) => {
  * /vizsgaeredmenyek:
  *   post:
  *     summary: Create exam results data
+ *     description: Create a new exam results record
  *     tags: [Vizsgaeredmenyek]
  *     security:
  *       - bearerAuth: []
@@ -198,15 +227,18 @@ router.get("/:alapadatokId/:tanev", async (req, res) => {
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *               - alapadatok_id
+ *               - tanev_kezdete
  *             properties:
  *               alapadatok_id:
- *                 type: string
- *                 description: Basic data ID reference
- *                 example: "60d5ecb74f0b2c1234567890"
+ *                 type: integer
+ *                 description: School identifier reference
+ *                 example: 1
  *               tanev_kezdete:
- *                 type: string
- *                 description: Academic year start
- *                 example: "2023"
+ *                 type: integer
+ *                 description: School year start year
+ *                 example: 2023
  *               reszszakmat_szerezok_szama:
  *                 type: integer
  *                 description: Number of students acquiring partial qualifications
@@ -215,9 +247,6 @@ router.get("/:alapadatokId/:tanev", async (req, res) => {
  *                 type: integer
  *                 description: Total number of students taking exams
  *                 example: 85
- *             required:
- *               - alapadatok_id
- *               - tanev_kezdete
  *     responses:
  *       201:
  *         description: Exam results data created successfully
@@ -225,12 +254,20 @@ router.get("/:alapadatokId/:tanev", async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Vizsgaeredmenyek'
- *       401:
- *         description: Unauthorized - Invalid or missing authentication token
  *       400:
  *         description: Bad request - Invalid input data
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
  *       500:
- *         description: Internal server error
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Internal server error"
  */
 router.post("/", async (req, res) => {
   try {
@@ -255,6 +292,105 @@ router.post("/", async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /vizsgaeredmenyek/{id}:
+ *   put:
+ *     summary: Update exam results data
+ *     description: Update an existing exam results record
+ *     tags: [Vizsgaeredmenyek]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The exam results record identifier
+ *         schema:
+ *           type: integer
+ *           example: 1
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               szakirany_id:
+ *                 type: integer
+ *                 nullable: true
+ *                 description: Field of study identifier
+ *                 example: 1
+ *               szakma_id:
+ *                 type: integer
+ *                 nullable: true
+ *                 description: Profession identifier
+ *                 example: 1
+ *               alapadatok_id:
+ *                 type: integer
+ *                 description: School identifier reference
+ *                 example: 1
+ *               tanev_kezdete:
+ *                 type: integer
+ *                 description: School year start year
+ *                 example: 2023
+ *               szakmai_vizsga_eredmeny:
+ *                 type: number
+ *                 format: float
+ *                 description: Professional exam result
+ *                 example: 4.2
+ *               agazati_alapvizsga_eredmeny:
+ *                 type: number
+ *                 format: float
+ *                 description: Sectoral basic exam result
+ *                 example: 3.8
+ *               magyar_nyelv_eretsegi_eredmeny:
+ *                 type: number
+ *                 format: float
+ *                 description: Hungarian language matriculation exam result
+ *                 example: 4.0
+ *               matematika_eretsegi_eredmeny:
+ *                 type: number
+ *                 format: float
+ *                 description: Mathematics matriculation exam result
+ *                 example: 3.5
+ *               tortenelem_eretsegi_eredmeny:
+ *                 type: number
+ *                 format: float
+ *                 description: History matriculation exam result
+ *                 example: 3.9
+ *               angol_nyelv_eretsegi_eredmeny:
+ *                 type: number
+ *                 format: float
+ *                 description: English language matriculation exam result
+ *                 example: 4.1
+ *               agazati_szakmai_eretsegi_eredmeny:
+ *                 type: number
+ *                 format: float
+ *                 description: Sectoral professional matriculation exam result
+ *                 example: 4.3
+ *     responses:
+ *       200:
+ *         description: Exam results data updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Vizsgaeredmenyek'
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
+ *       404:
+ *         description: Record not found
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Internal server error"
+ */
 router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;

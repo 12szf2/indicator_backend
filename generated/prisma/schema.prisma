@@ -65,7 +65,7 @@ model Log {
   body       Json?
   query      Json?
   headers    Json?
-  ip         String  @db.VarChar(45)
+  ip         String  @default("") @db.VarChar(45)
   userAgent  String  @db.VarChar(255)
 
   duration      Int? // Request duration in ms
@@ -95,6 +95,7 @@ model Alapadatok {
   szakkepzesiStatisztika  SzakkepzesiStatisztika[]
   versenyek               versenyek[]
   alapadatok_szakirany    Alapadatok_Szakirany[]
+  alapadatok_szakma       Alapadatok_Szakma[]
   nszfhMeresek            nszfhMeresek[]
   elhelyezkedes           Elhelyezkedes[]
   elegedettseg            Elegedettseg[]
@@ -128,8 +129,10 @@ model Szakirany {
 }
 
 model Szakma {
-  id                      String                    @id @default(uuid()) @db.Uuid
-  nev                     String                    @unique @db.VarChar(75)
+  id    String  @id @default(uuid()) @db.Uuid
+  nev   String  @unique @db.VarChar(75)
+  tipus String? @db.VarChar(50)
+
   felvettek_szama         Felvettek_Szama[]
   tanulo_letszam          Tanulo_Letszam[]
   szakkepzesiStatisztika  SzakkepzesiStatisztika[]
@@ -139,6 +142,7 @@ model Szakma {
   szakmaiVizsgaEredmenyek SzakmaiVizsgaEredmenyek[]
   lemorzsolodas           Lemorzsolodas[]
 
+  alapadatok        Alapadatok_Szakma[]
   alapadatok_szakma Szakirany_Szakma[]
 }
 
@@ -160,6 +164,16 @@ model Alapadatok_Szakirany {
   szakirany  Szakirany  @relation(fields: [szakirany_id], references: [id])
 
   @@id([alapadatok_id, szakirany_id])
+}
+
+model Alapadatok_Szakma {
+  alapadatok_id String @db.Uuid
+  szakma_id     String @db.Uuid
+
+  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakma     Szakma     @relation(fields: [szakma_id], references: [id])
+
+  @@id([alapadatok_id, szakma_id])
 }
 
 model Tanulo_Letszam {
@@ -495,12 +509,12 @@ model Elhelyezkedes {
 }
 
 model Elegedettseg {
-  id                      String @id @default(uuid()) @db.Uuid
-  alapadatok_id           String @db.Uuid
-  tanev_kezdete           Int    @db.SmallInt
-  szakirany_id            String @db.Uuid
-  szakma_id               String @db.Uuid
-  munkaadok_elegedettsege Int?   @db.Integer
+  id                      String  @id @default(uuid()) @db.Uuid
+  alapadatok_id           String  @db.Uuid
+  tanev_kezdete           Int     @db.SmallInt
+  szakirany_id            String  @db.Uuid
+  szakma_id               String  @db.Uuid
+  munkaadok_elegedettsege Decimal @default(0.00) @db.Decimal(5, 2)
 
   createAt  DateTime  @default(now())
   createBy  String?
