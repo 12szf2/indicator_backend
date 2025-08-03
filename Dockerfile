@@ -12,18 +12,13 @@ USER node
 
 RUN npm install
 
-ARG DATABASE_URL
-ARG JWT_SECRET
-ARG SESSION_SECRET
-
-ENV NODE_ENV=production
-ENV PORT=5300
-ENV DATABASE_URL=$DATABASE_URL
-ENV JWT_SECRET=$JWT_SECRET
-ENV SESSION_SECRET=$SESSION_SECRET
-
 COPY --chown=node:node . .
 
+# Set environment variables for runtime
+ENV NODE_ENV=production
+ENV PORT=5300
+
+# Generate Prisma client (this doesn't need DATABASE_URL at build time)
 RUN npx prisma generate
 RUN npm ci --only=production
 
