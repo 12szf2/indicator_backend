@@ -78,37 +78,86 @@ export async function create(
   alapadatok_id,
   jogv_tipus,
   szakirany,
+  szakma,
   tanev_kezdete
 ) {
   // Invalidate cache for this alapadatok and the main list
-  const year = Number(tanev_kezdete);
   cache.delByPattern(`tanulo_letszam:all:.*`); // Clear all year variations
   cache.delByPattern(`tanulo_letszam:id:${alapadatok_id}:.*`); // Clear all year variations
+  cache.delByPattern(
+    `tanulo_letszam:id:${alapadatok_id}:year:${tanev_kezdete}`
+  ); // Clear all year variations
 
-  // await deleteMany(alapadatok_id, tanev_kezdete);
+  let ret;
 
-  const szakiranyData = await prisma.szakirany.findUnique({
-    where: {
-      nev: szakirany,
-    },
-  });
+  if (szakma && szakma !== "Nincs meghatározva") {
+    ret = await prisma.tanulo_Letszam.create({
+      data: {
+        tanev_kezdete: Number(tanev_kezdete),
+        szakirany: { connect: { nev: szakirany } },
+        szakma: { connect: { nev: szakma } },
+        alapadatok: { connect: { id: alapadatok_id } },
+        jogv_tipus: Number(jogv_tipus),
+        letszam: Number(letszam),
+      },
+    });
+  } else {
+    ret = await prisma.tanulo_Letszam.create({
+      data: {
+        tanev_kezdete: Number(tanev_kezdete),
+        szakirany: { connect: { nev: szakirany } },
+        alapadatok: { connect: { id: alapadatok_id } },
+        jogv_tipus: Number(jogv_tipus),
+        letszam: Number(letszam),
+      },
+    });
+  }
 
-  const szakmaData = await prisma.szakma.findUnique({
-    where: {
-      nev: "Na",
-    },
-  });
+  return ret;
+}
 
-  const ret = await prisma.tanulo_Letszam.create({
-    data: {
-      tanev_kezdete: Number(tanev_kezdete),
-      szakirany_id: szakiranyData.id,
-      szakma_id: szakmaData.id,
-      alapadatok_id: alapadatok_id,
-      jogv_tipus: Number(jogv_tipus),
-      letszam: Number(letszam),
-    },
-  });
+export async function update(
+  id,
+  letszam,
+  alapadatok_id,
+  jogv_tipus,
+  szakirany,
+  szakma,
+  tanev_kezdete
+) {
+  // Invalidate cache for this alapadatok and the main list
+  cache.delByPattern(`tanulo_letszam:all:.*`); // Clear all year variations
+  cache.delByPattern(`tanulo_letszam:id:${alapadatok_id}:.*`); // Clear all year variations
+  cache.delByPattern(
+    `tanulo_letszam:id:${alapadatok_id}:year:${tanev_kezdete}`
+  ); // Clear all year variations
+
+  let ret;
+
+  if (szakma && szakma !== "Nincs meghatározva") {
+    ret = await prisma.tanulo_Letszam.update({
+      where: { id: id },
+      data: {
+        letszam: Number(letszam),
+        alapadatok: { connect: { id: alapadatok_id } },
+        jogv_tipus: Number(jogv_tipus),
+        szakirany: { connect: { nev: szakirany } },
+        szakma: { connect: { nev: szakma } },
+        tanev_kezdete: Number(tanev_kezdete),
+      },
+    });
+  } else {
+    ret = await prisma.tanulo_Letszam.update({
+      where: { id: id },
+      data: {
+        letszam: Number(letszam),
+        alapadatok: { connect: { id: alapadatok_id } },
+        jogv_tipus: Number(jogv_tipus),
+        szakirany: { connect: { nev: szakirany } },
+        tanev_kezdete: Number(tanev_kezdete),
+      },
+    });
+  }
 
   return ret;
 }
@@ -117,6 +166,10 @@ export async function deleteMany(alapadatok_id, year) {
   // Invalidate cache for this alapadatok and the main list
   cache.delByPattern(`tanulo_letszam:all:.*`); // Clear all year variations
   cache.delByPattern(`tanulo_letszam:id:${alapadatok_id}:.*`); // Clear all year variations
+  cache.delByPattern(
+    `tanulo_letszam:id:${alapadatok_id}:year:${tanev_kezdete}`
+  ); // Clear all year variations
+
   const ret = await prisma.tanulo_Letszam.deleteMany({
     where: {
       alapadatok_id,

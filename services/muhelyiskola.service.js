@@ -80,7 +80,7 @@ export async function create(
 ) {
   const newmuhelyiskola = await prisma.muhelyiskola.create({
     data: {
-      alapadatok_id,
+      alapadatok: { connect: { id: alapadatok_id } },
       tanev_kezdete: parseInt(tanev_kezdete),
       reszszakmat_szerezok_szama: parseInt(reszszakmat_szerezok_szama),
       muhelyiskola_tanuloi_osszletszam: parseInt(
@@ -104,9 +104,9 @@ export async function update(
   muhelyiskola_tanuloi_osszletszam
 ) {
   const updatedmuhelyiskola = await prisma.muhelyiskola.update({
-    where: { id: parseInt(id) },
+    where: { id: id },
     data: {
-      alapadatok_id,
+      alapadatok: { connect: { id: alapadatok_id } },
       tanev_kezdete: parseInt(tanev_kezdete),
       reszszakmat_szerezok_szama: parseInt(reszszakmat_szerezok_szama),
       muhelyiskola_tanuloi_osszletszam: parseInt(

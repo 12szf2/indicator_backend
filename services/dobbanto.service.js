@@ -7,16 +7,16 @@ const CACHE_TTL = {
   DETAIL: 10 * 60 * 1000, // 10 minutes for details
 };
 
-export async function getAll(tanev) {
-  const cacheKey = `dobbanto:all:${tanev}`;
+export async function getAll(tanev_kezdete) {
+  const cacheKey = `dobbanto:all:${tanev_kezdete}`;
   const cachedData = cache.get(cacheKey);
 
   if (cachedData) {
     return cachedData;
   }
 
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
+  const firstYear = parseInt(tanev_kezdete) - 4;
+  const lastYear = parseInt(tanev_kezdete);
 
   const data = await prisma.dobbanto.findMany({
     where: {
@@ -39,16 +39,16 @@ export async function getAll(tanev) {
   return data;
 }
 
-export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `dobbanto:alapadatok_id:${alapadatokId}:${tanev}`;
+export async function getAllByAlapadatok(alapadatokId, tanev_kezdete) {
+  const cacheKey = `dobbanto:alapadatok_id:${alapadatokId}:${tanev_kezdete}`;
   const cachedData = cache.get(cacheKey);
 
   if (cachedData) {
     return cachedData;
   }
 
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
+  const firstYear = parseInt(tanev_kezdete) - 4;
+  const lastYear = parseInt(tanev_kezdete);
 
   const data = await prisma.dobbanto.findMany({
     where: {
@@ -80,7 +80,7 @@ export async function create(
 ) {
   const newdobbanto = await prisma.dobbanto.create({
     data: {
-      alapadatok_id,
+      alapadatok: { connect: { id: alapadatok_id } },
       tanev_kezdete: parseInt(tanev_kezdete),
       dobbanto_szama: parseInt(dobbanto_szama),
       tanulok_osszesen: parseInt(tanulok_osszesen),
@@ -88,8 +88,8 @@ export async function create(
   });
 
   // Invalidate cache
-  cache.del(`dobbanto:all:${tanev}`);
-  cache.del(`dobbanto:alapadatok_id:${alapadatok_id}:${tanev}`);
+  cache.del(`dobbanto:all:${tanev_kezdete}`);
+  cache.del(`dobbanto:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
 
   return newdobbanto;
 }
@@ -102,7 +102,7 @@ export async function update(
   tanulok_osszesen
 ) {
   const updatedDobbanto = await prisma.dobbanto.update({
-    where: { id: parseInt(id) },
+    where: { id: id },
     data: {
       alapadatok_id,
       tanev_kezdete: parseInt(tanev_kezdete),
@@ -118,9 +118,9 @@ export async function update(
   return updatedDobbanto;
 }
 
-export async function deleteAllByAlapadatok(alapadatokId, tanev) {
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
+export async function deleteAllByAlapadatok(alapadatokId, tanev_kezdete) {
+  const firstYear = parseInt(tanev_kezdete) - 4;
+  const lastYear = parseInt(tanev_kezdete);
 
   const deletedCount = await prisma.dobbanto.deleteMany({
     where: {
@@ -133,8 +133,8 @@ export async function deleteAllByAlapadatok(alapadatokId, tanev) {
   });
 
   // Invalidate cache
-  cache.del(`dobbanto:all:${tanev}`);
-  cache.del(`dobbanto:alapadatok_id:${alapadatokId}:${tanev}`);
+  cache.del(`dobbanto:all:${tanev_kezdete}`);
+  cache.del(`dobbanto:alapadatok_id:${alapadatokId}:${tanev_kezdete}`);
 
   return deletedCount;
 }

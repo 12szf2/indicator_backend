@@ -183,14 +183,14 @@ model Tanulo_Letszam {
   jogv_tipus    Int        @db.SmallInt
   letszam       Int        @db.SmallInt
   szakirany_id  String     @db.Uuid
-  szakma_id     String     @db.Uuid
+  szakma_id     String?    @db.Uuid
   createAt      DateTime   @default(now())
   createBy      String?
   updatedAt     DateTime?  @updatedAt
   updatedBy     String?
   alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
   szakirany     Szakirany  @relation(fields: [szakirany_id], references: [id])
-  szakma        Szakma     @relation(fields: [szakma_id], references: [id])
+  szakma        Szakma?    @relation(fields: [szakma_id], references: [id])
 }
 
 model Tanar_Letszam {

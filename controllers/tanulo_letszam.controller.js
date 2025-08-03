@@ -3,6 +3,7 @@ import {
   getById,
   create,
   deleteMany,
+  update,
 } from "../services/tanulo_letszam.service.js";
 import e from "express";
 
@@ -195,8 +196,14 @@ router.get("/:id", async (req, res) => {
  *         description: Internal Server Error
  */
 router.post("/", async (req, res) => {
-  const { letszam, alapadatok_id, jogv_tipus, szakirany, tanev_kezdete } =
-    req.body;
+  const {
+    letszam,
+    alapadatok_id,
+    jogv_tipus,
+    szakirany,
+    szakma,
+    tanev_kezdete,
+  } = req.body;
 
   if (
     isNaN(letszam) ||
@@ -214,9 +221,48 @@ router.post("/", async (req, res) => {
       alapadatok_id,
       jogv_tipus,
       szakirany,
+      szakma,
       tanev_kezdete
     );
     res.status(201).json(newEntry);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  const id = req.params.id;
+  const {
+    letszam,
+    alapadatok_id,
+    jogv_tipus,
+    szakirany,
+    szakma,
+    tanev_kezdete,
+  } = req.body;
+
+  if (
+    isNaN(letszam) ||
+    !alapadatok_id ||
+    isNaN(jogv_tipus) ||
+    !szakirany ||
+    isNaN(tanev_kezdete)
+  ) {
+    return res.status(400).json({ error: "All fields are required" });
+  }
+
+  try {
+    const updatedEntry = await update(
+      id,
+      letszam,
+      alapadatok_id,
+      jogv_tipus,
+      szakirany,
+      szakma,
+      tanev_kezdete
+    );
+    res.status(200).json(updatedEntry);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Internal Server Error" });

@@ -56,24 +56,17 @@ export async function createSzakkepzesiMunkaszerzodesAranya(
   szakmaNev,
   tanulok_osszeletszam,
   munkaszerzodeses_tanulok_szama,
-  createBy = null
+  createBy = null,
+  tanev_kezdete
 ) {
-  console.log(
-    alapadatok_id,
-    szakiranyNev,
-    szakmaNev,
-    tanulok_osszeletszam,
-    munkaszerzodeses_tanulok_szama
-  );
-
   let newRecord;
-  if (szakmaNev !== "Nincs meghatározva") {
+  if (szakmaNev && szakmaNev !== "Nincs meghatározva") {
     newRecord = await prisma.szakkepzesiMunkaszerzodesAranya.create({
       data: {
         alapadatok: { connect: { id: alapadatok_id } },
         szakirany: { connect: { nev: szakiranyNev } },
         szakma: { connect: { nev: szakmaNev } },
-        tanev_kezdete: new Date().getFullYear(),
+        tanev_kezdete: tanev_kezdete,
         tanulok_osszeletszam: Number(tanulok_osszeletszam),
         munkaszerzodeses_tanulok_szama: Number(munkaszerzodeses_tanulok_szama),
         createAt: new Date(),
@@ -85,7 +78,7 @@ export async function createSzakkepzesiMunkaszerzodesAranya(
       data: {
         alapadatok: { connect: { id: alapadatok_id } },
         szakirany: { connect: { nev: szakiranyNev } },
-        tanev_kezdete: new Date().getFullYear(),
+        tanev_kezdete: tanev_kezdete,
         tanulok_osszeletszam: Number(tanulok_osszeletszam),
         munkaszerzodeses_tanulok_szama: Number(munkaszerzodeses_tanulok_szama),
         createAt: new Date(),
@@ -103,22 +96,42 @@ export async function createSzakkepzesiMunkaszerzodesAranya(
 export async function updateSzakkepzesiMunkaszerzodesAranya(
   id,
   alapadatok_id,
-  szakirany_id,
-  szakma_id,
-  statisztika_tipus,
-  letszam
+  szakiranyNev,
+  szakmaNev,
+  tanulok_osszeletszam,
+  munkaszerzodeses_tanulok_szama,
+  createBy = null,
+  tanev_kezdete
 ) {
-  const updatedRecord = await prisma.szakkepzesiMunkaszerzodesAranya.update({
-    where: { id },
-    data: {
-      alapadatok_id: alapadatok_id,
-      szakirany_id: szakirany_id,
-      szakma_id: szakma_id,
-      statisztika_tipus: statisztika_tipus,
-      letszam: Number(letszam),
-      updatedAt: new Date(),
-    },
-  });
+  let updatedRecord;
+  if (szakmaNev && szakmaNev !== "Nincs meghatározva") {
+    updatedRecord = await prisma.szakkepzesiMunkaszerzodesAranya.update({
+      where: { id },
+      data: {
+        alapadatok: { connect: { id: alapadatok_id } },
+        szakirany: { connect: { nev: szakiranyNev } },
+        szakma: { connect: { nev: szakmaNev } },
+        tanulok_osszeletszam: Number(tanulok_osszeletszam),
+        munkaszerzodeses_tanulok_szama: Number(munkaszerzodeses_tanulok_szama),
+        createAt: new Date(),
+        createBy: createBy,
+        tanev_kezdete: tanev_kezdete,
+      },
+    });
+  } else {
+    updatedRecord = await prisma.szakkepzesiMunkaszerzodesAranya.update({
+      where: { id },
+      data: {
+        alapadatok: { connect: { id: alapadatok_id } },
+        szakirany: { connect: { nev: szakiranyNev } },
+        tanulok_osszeletszam: Number(tanulok_osszeletszam),
+        munkaszerzodeses_tanulok_szama: Number(munkaszerzodeses_tanulok_szama),
+        createAt: new Date(),
+        createBy: createBy,
+        tanev_kezdete: tanev_kezdete,
+      },
+    });
+  }
 
   // Invalidate cache for the specific alapadatokId
   cache.del(`szakkepzesiMunkaszerzodesAranya:${updatedRecord.alapadatok_id}`);

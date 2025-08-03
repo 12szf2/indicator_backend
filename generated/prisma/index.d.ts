@@ -17629,7 +17629,7 @@ export namespace Prisma {
     jogv_tipus: number
     letszam: number
     szakirany_id: string
-    szakma_id: string
+    szakma_id: string | null
     createAt: Date
     createBy: string | null
     updatedAt: Date | null
@@ -17669,7 +17669,7 @@ export namespace Prisma {
     updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
-    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+    szakma?: boolean | Tanulo_Letszam$szakmaArgs<ExtArgs>
   }, ExtArgs["result"]["tanulo_Letszam"]>
 
   export type Tanulo_LetszamSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -17686,7 +17686,7 @@ export namespace Prisma {
     updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
-    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+    szakma?: boolean | Tanulo_Letszam$szakmaArgs<ExtArgs>
   }, ExtArgs["result"]["tanulo_Letszam"]>
 
   export type Tanulo_LetszamSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -17703,7 +17703,7 @@ export namespace Prisma {
     updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
-    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+    szakma?: boolean | Tanulo_Letszam$szakmaArgs<ExtArgs>
   }, ExtArgs["result"]["tanulo_Letszam"]>
 
   export type Tanulo_LetszamSelectScalar = {
@@ -17724,17 +17724,17 @@ export namespace Prisma {
   export type Tanulo_LetszamInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
-    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+    szakma?: boolean | Tanulo_Letszam$szakmaArgs<ExtArgs>
   }
   export type Tanulo_LetszamIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
-    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+    szakma?: boolean | Tanulo_Letszam$szakmaArgs<ExtArgs>
   }
   export type Tanulo_LetszamIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
     szakirany?: boolean | SzakiranyDefaultArgs<ExtArgs>
-    szakma?: boolean | SzakmaDefaultArgs<ExtArgs>
+    szakma?: boolean | Tanulo_Letszam$szakmaArgs<ExtArgs>
   }
 
   export type $Tanulo_LetszamPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -17742,7 +17742,7 @@ export namespace Prisma {
     objects: {
       alapadatok: Prisma.$AlapadatokPayload<ExtArgs>
       szakirany: Prisma.$SzakiranyPayload<ExtArgs>
-      szakma: Prisma.$SzakmaPayload<ExtArgs>
+      szakma: Prisma.$SzakmaPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -17751,7 +17751,7 @@ export namespace Prisma {
       jogv_tipus: number
       letszam: number
       szakirany_id: string
-      szakma_id: string
+      szakma_id: string | null
       createAt: Date
       createBy: string | null
       updatedAt: Date | null
@@ -18152,7 +18152,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     alapadatok<T extends AlapadatokDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AlapadatokDefaultArgs<ExtArgs>>): Prisma__AlapadatokClient<$Result.GetResult<Prisma.$AlapadatokPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     szakirany<T extends SzakiranyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SzakiranyDefaultArgs<ExtArgs>>): Prisma__SzakiranyClient<$Result.GetResult<Prisma.$SzakiranyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    szakma<T extends SzakmaDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SzakmaDefaultArgs<ExtArgs>>): Prisma__SzakmaClient<$Result.GetResult<Prisma.$SzakmaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    szakma<T extends Tanulo_Letszam$szakmaArgs<ExtArgs> = {}>(args?: Subset<T, Tanulo_Letszam$szakmaArgs<ExtArgs>>): Prisma__SzakmaClient<$Result.GetResult<Prisma.$SzakmaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -18586,6 +18586,25 @@ export namespace Prisma {
      * Limit how many Tanulo_Letszams to delete.
      */
     limit?: number
+  }
+
+  /**
+   * Tanulo_Letszam.szakma
+   */
+  export type Tanulo_Letszam$szakmaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Szakma
+     */
+    select?: SzakmaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Szakma
+     */
+    omit?: SzakmaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SzakmaInclude<ExtArgs> | null
+    where?: SzakmaWhereInput
   }
 
   /**
@@ -47657,14 +47676,14 @@ export namespace Prisma {
     jogv_tipus?: IntFilter<"Tanulo_Letszam"> | number
     letszam?: IntFilter<"Tanulo_Letszam"> | number
     szakirany_id?: UuidFilter<"Tanulo_Letszam"> | string
-    szakma_id?: UuidFilter<"Tanulo_Letszam"> | string
+    szakma_id?: UuidNullableFilter<"Tanulo_Letszam"> | string | null
     createAt?: DateTimeFilter<"Tanulo_Letszam"> | Date | string
     createBy?: StringNullableFilter<"Tanulo_Letszam"> | string | null
     updatedAt?: DateTimeNullableFilter<"Tanulo_Letszam"> | Date | string | null
     updatedBy?: StringNullableFilter<"Tanulo_Letszam"> | string | null
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
     szakirany?: XOR<SzakiranyScalarRelationFilter, SzakiranyWhereInput>
-    szakma?: XOR<SzakmaScalarRelationFilter, SzakmaWhereInput>
+    szakma?: XOR<SzakmaNullableScalarRelationFilter, SzakmaWhereInput> | null
   }
 
   export type Tanulo_LetszamOrderByWithRelationInput = {
@@ -47674,7 +47693,7 @@ export namespace Prisma {
     jogv_tipus?: SortOrder
     letszam?: SortOrder
     szakirany_id?: SortOrder
-    szakma_id?: SortOrder
+    szakma_id?: SortOrderInput | SortOrder
     createAt?: SortOrder
     createBy?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -47694,14 +47713,14 @@ export namespace Prisma {
     jogv_tipus?: IntFilter<"Tanulo_Letszam"> | number
     letszam?: IntFilter<"Tanulo_Letszam"> | number
     szakirany_id?: UuidFilter<"Tanulo_Letszam"> | string
-    szakma_id?: UuidFilter<"Tanulo_Letszam"> | string
+    szakma_id?: UuidNullableFilter<"Tanulo_Letszam"> | string | null
     createAt?: DateTimeFilter<"Tanulo_Letszam"> | Date | string
     createBy?: StringNullableFilter<"Tanulo_Letszam"> | string | null
     updatedAt?: DateTimeNullableFilter<"Tanulo_Letszam"> | Date | string | null
     updatedBy?: StringNullableFilter<"Tanulo_Letszam"> | string | null
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
     szakirany?: XOR<SzakiranyScalarRelationFilter, SzakiranyWhereInput>
-    szakma?: XOR<SzakmaScalarRelationFilter, SzakmaWhereInput>
+    szakma?: XOR<SzakmaNullableScalarRelationFilter, SzakmaWhereInput> | null
   }, "id">
 
   export type Tanulo_LetszamOrderByWithAggregationInput = {
@@ -47711,7 +47730,7 @@ export namespace Prisma {
     jogv_tipus?: SortOrder
     letszam?: SortOrder
     szakirany_id?: SortOrder
-    szakma_id?: SortOrder
+    szakma_id?: SortOrderInput | SortOrder
     createAt?: SortOrder
     createBy?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -47733,7 +47752,7 @@ export namespace Prisma {
     jogv_tipus?: IntWithAggregatesFilter<"Tanulo_Letszam"> | number
     letszam?: IntWithAggregatesFilter<"Tanulo_Letszam"> | number
     szakirany_id?: UuidWithAggregatesFilter<"Tanulo_Letszam"> | string
-    szakma_id?: UuidWithAggregatesFilter<"Tanulo_Letszam"> | string
+    szakma_id?: UuidNullableWithAggregatesFilter<"Tanulo_Letszam"> | string | null
     createAt?: DateTimeWithAggregatesFilter<"Tanulo_Letszam"> | Date | string
     createBy?: StringNullableWithAggregatesFilter<"Tanulo_Letszam"> | string | null
     updatedAt?: DateTimeNullableWithAggregatesFilter<"Tanulo_Letszam"> | Date | string | null
@@ -50991,7 +51010,7 @@ export namespace Prisma {
     updatedBy?: string | null
     alapadatok: AlapadatokCreateNestedOneWithoutTanulo_letszamInput
     szakirany: SzakiranyCreateNestedOneWithoutTanulo_letszamInput
-    szakma: SzakmaCreateNestedOneWithoutTanulo_letszamInput
+    szakma?: SzakmaCreateNestedOneWithoutTanulo_letszamInput
   }
 
   export type Tanulo_LetszamUncheckedCreateInput = {
@@ -51001,7 +51020,7 @@ export namespace Prisma {
     jogv_tipus: number
     letszam: number
     szakirany_id: string
-    szakma_id: string
+    szakma_id?: string | null
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -51019,7 +51038,7 @@ export namespace Prisma {
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     alapadatok?: AlapadatokUpdateOneRequiredWithoutTanulo_letszamNestedInput
     szakirany?: SzakiranyUpdateOneRequiredWithoutTanulo_letszamNestedInput
-    szakma?: SzakmaUpdateOneRequiredWithoutTanulo_letszamNestedInput
+    szakma?: SzakmaUpdateOneWithoutTanulo_letszamNestedInput
   }
 
   export type Tanulo_LetszamUncheckedUpdateInput = {
@@ -51029,7 +51048,7 @@ export namespace Prisma {
     jogv_tipus?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
-    szakma_id?: StringFieldUpdateOperationsInput | string
+    szakma_id?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -51043,7 +51062,7 @@ export namespace Prisma {
     jogv_tipus: number
     letszam: number
     szakirany_id: string
-    szakma_id: string
+    szakma_id?: string | null
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -51068,7 +51087,7 @@ export namespace Prisma {
     jogv_tipus?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
-    szakma_id?: StringFieldUpdateOperationsInput | string
+    szakma_id?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -54811,6 +54830,11 @@ export namespace Prisma {
     szakma_id?: SortOrder
   }
 
+  export type SzakmaNullableScalarRelationFilter = {
+    is?: SzakmaWhereInput | null
+    isNot?: SzakmaWhereInput | null
+  }
+
   export type Tanulo_LetszamCountOrderByAggregateInput = {
     id?: SortOrder
     alapadatok_id?: SortOrder
@@ -55477,11 +55501,6 @@ export namespace Prisma {
     _sum?: NestedDecimalFilter<$PrismaModel>
     _min?: NestedDecimalFilter<$PrismaModel>
     _max?: NestedDecimalFilter<$PrismaModel>
-  }
-
-  export type SzakmaNullableScalarRelationFilter = {
-    is?: SzakmaWhereInput | null
-    isNot?: SzakmaWhereInput | null
   }
 
   export type SzakkepzesiMunkaszerzodesAranyaCountOrderByAggregateInput = {
@@ -58660,10 +58679,12 @@ export namespace Prisma {
     update?: XOR<XOR<SzakiranyUpdateToOneWithWhereWithoutTanulo_letszamInput, SzakiranyUpdateWithoutTanulo_letszamInput>, SzakiranyUncheckedUpdateWithoutTanulo_letszamInput>
   }
 
-  export type SzakmaUpdateOneRequiredWithoutTanulo_letszamNestedInput = {
+  export type SzakmaUpdateOneWithoutTanulo_letszamNestedInput = {
     create?: XOR<SzakmaCreateWithoutTanulo_letszamInput, SzakmaUncheckedCreateWithoutTanulo_letszamInput>
     connectOrCreate?: SzakmaCreateOrConnectWithoutTanulo_letszamInput
     upsert?: SzakmaUpsertWithoutTanulo_letszamInput
+    disconnect?: SzakmaWhereInput | boolean
+    delete?: SzakmaWhereInput | boolean
     connect?: SzakmaWhereUniqueInput
     update?: XOR<XOR<SzakmaUpdateToOneWithWhereWithoutTanulo_letszamInput, SzakmaUpdateWithoutTanulo_letszamInput>, SzakmaUncheckedUpdateWithoutTanulo_letszamInput>
   }
@@ -60420,7 +60441,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     updatedBy?: string | null
     szakirany: SzakiranyCreateNestedOneWithoutTanulo_letszamInput
-    szakma: SzakmaCreateNestedOneWithoutTanulo_letszamInput
+    szakma?: SzakmaCreateNestedOneWithoutTanulo_letszamInput
   }
 
   export type Tanulo_LetszamUncheckedCreateWithoutAlapadatokInput = {
@@ -60429,7 +60450,7 @@ export namespace Prisma {
     jogv_tipus: number
     letszam: number
     szakirany_id: string
-    szakma_id: string
+    szakma_id?: string | null
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -61382,7 +61403,7 @@ export namespace Prisma {
     jogv_tipus?: IntFilter<"Tanulo_Letszam"> | number
     letszam?: IntFilter<"Tanulo_Letszam"> | number
     szakirany_id?: UuidFilter<"Tanulo_Letszam"> | string
-    szakma_id?: UuidFilter<"Tanulo_Letszam"> | string
+    szakma_id?: UuidNullableFilter<"Tanulo_Letszam"> | string | null
     createAt?: DateTimeFilter<"Tanulo_Letszam"> | Date | string
     createBy?: StringNullableFilter<"Tanulo_Letszam"> | string | null
     updatedAt?: DateTimeNullableFilter<"Tanulo_Letszam"> | Date | string | null
@@ -62032,7 +62053,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     updatedBy?: string | null
     alapadatok: AlapadatokCreateNestedOneWithoutTanulo_letszamInput
-    szakma: SzakmaCreateNestedOneWithoutTanulo_letszamInput
+    szakma?: SzakmaCreateNestedOneWithoutTanulo_letszamInput
   }
 
   export type Tanulo_LetszamUncheckedCreateWithoutSzakiranyInput = {
@@ -62041,7 +62062,7 @@ export namespace Prisma {
     tanev_kezdete: number
     jogv_tipus: number
     letszam: number
-    szakma_id: string
+    szakma_id?: string | null
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -67999,7 +68020,7 @@ export namespace Prisma {
     jogv_tipus: number
     letszam: number
     szakirany_id: string
-    szakma_id: string
+    szakma_id?: string | null
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -68719,7 +68740,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     szakirany?: SzakiranyUpdateOneRequiredWithoutTanulo_letszamNestedInput
-    szakma?: SzakmaUpdateOneRequiredWithoutTanulo_letszamNestedInput
+    szakma?: SzakmaUpdateOneWithoutTanulo_letszamNestedInput
   }
 
   export type Tanulo_LetszamUncheckedUpdateWithoutAlapadatokInput = {
@@ -68728,7 +68749,7 @@ export namespace Prisma {
     jogv_tipus?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
-    szakma_id?: StringFieldUpdateOperationsInput | string
+    szakma_id?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -68741,7 +68762,7 @@ export namespace Prisma {
     jogv_tipus?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
     szakirany_id?: StringFieldUpdateOperationsInput | string
-    szakma_id?: StringFieldUpdateOperationsInput | string
+    szakma_id?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -69477,7 +69498,7 @@ export namespace Prisma {
     tanev_kezdete: number
     jogv_tipus: number
     letszam: number
-    szakma_id: string
+    szakma_id?: string | null
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -69626,7 +69647,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
     alapadatok?: AlapadatokUpdateOneRequiredWithoutTanulo_letszamNestedInput
-    szakma?: SzakmaUpdateOneRequiredWithoutTanulo_letszamNestedInput
+    szakma?: SzakmaUpdateOneWithoutTanulo_letszamNestedInput
   }
 
   export type Tanulo_LetszamUncheckedUpdateWithoutSzakiranyInput = {
@@ -69635,7 +69656,7 @@ export namespace Prisma {
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     jogv_tipus?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
-    szakma_id?: StringFieldUpdateOperationsInput | string
+    szakma_id?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -69648,7 +69669,7 @@ export namespace Prisma {
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     jogv_tipus?: IntFieldUpdateOperationsInput | number
     letszam?: IntFieldUpdateOperationsInput | number
-    szakma_id?: StringFieldUpdateOperationsInput | string
+    szakma_id?: NullableStringFieldUpdateOperationsInput | string | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null

@@ -220,9 +220,10 @@ router.post("/", async (req, res) => {
       tanulok_osszeletszam,
       munkaszerzodeses_tanulok_szama,
       createBy,
+      tanev_kezdete,
     } = req.body;
 
-    if (!alapadatok_id || !szakiranyNev || !szakmaNev) {
+    if (!alapadatok_id || !szakiranyNev || !tanev_kezdete) {
       return res.status(400).json({ error: "Missing required fields" });
     }
 
@@ -232,7 +233,8 @@ router.post("/", async (req, res) => {
       szakmaNev,
       tanulok_osszeletszam,
       munkaszerzodeses_tanulok_szama,
-      createBy
+      createBy,
+      tanev_kezdete
     );
 
     res.status(201).json(szakkepzesiStatisztika);
@@ -316,20 +318,15 @@ router.put("/:id", async (req, res) => {
     const { id } = req.params;
     const {
       alapadatok_id,
-      szakirany_id,
-      szakma_id,
-      statisztika_tipus,
-      letszam,
+      szakiranyNev,
+      szakmaNev,
+      tanulok_osszeletszam,
+      munkaszerzodeses_tanulok_szama,
       createBy,
+      tanev_kezdete,
     } = req.body;
 
-    if (
-      !alapadatok_id ||
-      !szakirany_id ||
-      !szakma_id ||
-      !statisztika_tipus ||
-      letszam === undefined
-    ) {
+    if (!alapadatok_id || !szakiranyNev || !tanev_kezdete) {
       return res.status(400).json({ error: "Missing required fields" });
     }
 
@@ -337,15 +334,17 @@ router.put("/:id", async (req, res) => {
       await updateSzakkepzesiMunkaszerzodesAranya(
         id,
         alapadatok_id,
-        szakirany_id,
-        szakma_id,
-        statisztika_tipus,
-        letszam,
-        createBy
+        szakiranyNev,
+        szakmaNev,
+        tanulok_osszeletszam,
+        munkaszerzodeses_tanulok_szama,
+        createBy,
+        tanev_kezdete
       );
 
     res.status(200).json(updatedSzakkepzesiStatisztika);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Failed to update data" });
   }
 });
