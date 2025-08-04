@@ -629,6 +629,30 @@ exports.Prisma.MuhelyiskolaScalarFieldEnum = {
   updatedBy: 'updatedBy'
 };
 
+exports.Prisma.OktatoEgyebTevScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy',
+  szakkepzesi_szakerto: 'szakkepzesi_szakerto',
+  koznevelesi_szakerto: 'koznevelesi_szakerto',
+  koznevelesi_szaktanacsado: 'koznevelesi_szaktanacsado',
+  vizsgafelugyelo: 'vizsgafelugyelo',
+  agazati_alapvizsgan_elnok: 'agazati_alapvizsgan_elnok',
+  feladatkeszito_lektor: 'feladatkeszito_lektor',
+  erettsegi_elnok: 'erettsegi_elnok',
+  emelt_erettsegi_vb_tag: 'emelt_erettsegi_vb_tag',
+  emelt_erettsegi_vb_elnok: 'emelt_erettsegi_vb_elnok',
+  erettsegi_vizsgaztato: 'erettsegi_vizsgaztato',
+  tanterviro: 'tanterviro',
+  tananyagfejleszto: 'tananyagfejleszto',
+  tankonyv_jegyzetiro: 'tankonyv_jegyzetiro',
+  szakmai_tisztsegviselo: 'szakmai_tisztsegviselo'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -690,7 +714,8 @@ exports.Prisma.ModelName = {
   HHEsHHHTanulok: 'HHEsHHHTanulok',
   SajatosNevelesuTanulok: 'SajatosNevelesuTanulok',
   Dobbanto: 'Dobbanto',
-  Muhelyiskola: 'Muhelyiskola'
+  Muhelyiskola: 'Muhelyiskola',
+  OktatoEgyebTev: 'OktatoEgyebTev'
 };
 
 /**

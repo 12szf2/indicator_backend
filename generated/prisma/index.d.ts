@@ -183,6 +183,11 @@ export type Dobbanto = $Result.DefaultSelection<Prisma.$DobbantoPayload>
  * 
  */
 export type Muhelyiskola = $Result.DefaultSelection<Prisma.$MuhelyiskolaPayload>
+/**
+ * Model OktatoEgyebTev
+ * 
+ */
+export type OktatoEgyebTev = $Result.DefaultSelection<Prisma.$OktatoEgyebTevPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -648,6 +653,16 @@ export class PrismaClient<
     * ```
     */
   get muhelyiskola(): Prisma.MuhelyiskolaDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.oktatoEgyebTev`: Exposes CRUD operations for the **OktatoEgyebTev** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more OktatoEgyebTevs
+    * const oktatoEgyebTevs = await prisma.oktatoEgyebTev.findMany()
+    * ```
+    */
+  get oktatoEgyebTev(): Prisma.OktatoEgyebTevDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -1121,7 +1136,8 @@ export namespace Prisma {
     HHEsHHHTanulok: 'HHEsHHHTanulok',
     SajatosNevelesuTanulok: 'SajatosNevelesuTanulok',
     Dobbanto: 'Dobbanto',
-    Muhelyiskola: 'Muhelyiskola'
+    Muhelyiskola: 'Muhelyiskola',
+    OktatoEgyebTev: 'OktatoEgyebTev'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1140,7 +1156,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "session" | "user" | "tableList" | "tableAccess" | "log" | "alapadatok" | "szakirany" | "szakma" | "szakirany_Szakma" | "alapadatok_Szakirany" | "alapadatok_Szakma" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "egyOktatoraJutoTanulo" | "tanugyi_Adatok" | "alkalmazottak_Munkaugy" | "szakkepzesiMunkaszerzodesAranya" | "vesenyKategoria" | "vesenyNevek" | "versenyek" | "nszfhMeresek" | "elhelyezkedes" | "elegedettseg" | "vizsgaEredmenyek" | "szakmaiVizsgaEredmenyek" | "lemorzsolodas" | "elegedettsegMeres" | "intezmenyiNeveltseg" | "hHEsHHHTanulok" | "sajatosNevelesuTanulok" | "dobbanto" | "muhelyiskola"
+      modelProps: "session" | "user" | "tableList" | "tableAccess" | "log" | "alapadatok" | "szakirany" | "szakma" | "szakirany_Szakma" | "alapadatok_Szakirany" | "alapadatok_Szakma" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "egyOktatoraJutoTanulo" | "tanugyi_Adatok" | "alkalmazottak_Munkaugy" | "szakkepzesiMunkaszerzodesAranya" | "vesenyKategoria" | "vesenyNevek" | "versenyek" | "nszfhMeresek" | "elhelyezkedes" | "elegedettseg" | "vizsgaEredmenyek" | "szakmaiVizsgaEredmenyek" | "lemorzsolodas" | "elegedettsegMeres" | "intezmenyiNeveltseg" | "hHEsHHHTanulok" | "sajatosNevelesuTanulok" | "dobbanto" | "muhelyiskola" | "oktatoEgyebTev"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3660,6 +3676,80 @@ export namespace Prisma {
           }
         }
       }
+      OktatoEgyebTev: {
+        payload: Prisma.$OktatoEgyebTevPayload<ExtArgs>
+        fields: Prisma.OktatoEgyebTevFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.OktatoEgyebTevFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OktatoEgyebTevPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.OktatoEgyebTevFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OktatoEgyebTevPayload>
+          }
+          findFirst: {
+            args: Prisma.OktatoEgyebTevFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OktatoEgyebTevPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.OktatoEgyebTevFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OktatoEgyebTevPayload>
+          }
+          findMany: {
+            args: Prisma.OktatoEgyebTevFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OktatoEgyebTevPayload>[]
+          }
+          create: {
+            args: Prisma.OktatoEgyebTevCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OktatoEgyebTevPayload>
+          }
+          createMany: {
+            args: Prisma.OktatoEgyebTevCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.OktatoEgyebTevCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OktatoEgyebTevPayload>[]
+          }
+          delete: {
+            args: Prisma.OktatoEgyebTevDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OktatoEgyebTevPayload>
+          }
+          update: {
+            args: Prisma.OktatoEgyebTevUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OktatoEgyebTevPayload>
+          }
+          deleteMany: {
+            args: Prisma.OktatoEgyebTevDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.OktatoEgyebTevUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.OktatoEgyebTevUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OktatoEgyebTevPayload>[]
+          }
+          upsert: {
+            args: Prisma.OktatoEgyebTevUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OktatoEgyebTevPayload>
+          }
+          aggregate: {
+            args: Prisma.OktatoEgyebTevAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOktatoEgyebTev>
+          }
+          groupBy: {
+            args: Prisma.OktatoEgyebTevGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OktatoEgyebTevGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.OktatoEgyebTevCountArgs<ExtArgs>
+            result: $Utils.Optional<OktatoEgyebTevCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3778,6 +3868,7 @@ export namespace Prisma {
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokOmit
     dobbanto?: DobbantoOmit
     muhelyiskola?: MuhelyiskolaOmit
+    oktatoEgyebTev?: OktatoEgyebTevOmit
   }
 
   /* Types for Logging */
@@ -3967,6 +4058,7 @@ export namespace Prisma {
     dobbanto: number
     muhelyiskola: number
     users: number
+    OktatoEgyebTev: number
   }
 
   export type AlapadatokCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3994,6 +4086,7 @@ export namespace Prisma {
     dobbanto?: boolean | AlapadatokCountOutputTypeCountDobbantoArgs
     muhelyiskola?: boolean | AlapadatokCountOutputTypeCountMuhelyiskolaArgs
     users?: boolean | AlapadatokCountOutputTypeCountUsersArgs
+    OktatoEgyebTev?: boolean | AlapadatokCountOutputTypeCountOktatoEgyebTevArgs
   }
 
   // Custom InputTypes
@@ -4173,6 +4266,13 @@ export namespace Prisma {
    */
   export type AlapadatokCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserWhereInput
+  }
+
+  /**
+   * AlapadatokCountOutputType without action
+   */
+  export type AlapadatokCountOutputTypeCountOktatoEgyebTevArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OktatoEgyebTevWhereInput
   }
 
 
@@ -10237,6 +10337,7 @@ export namespace Prisma {
     dobbanto?: boolean | Alapadatok$dobbantoArgs<ExtArgs>
     muhelyiskola?: boolean | Alapadatok$muhelyiskolaArgs<ExtArgs>
     users?: boolean | Alapadatok$usersArgs<ExtArgs>
+    OktatoEgyebTev?: boolean | Alapadatok$OktatoEgyebTevArgs<ExtArgs>
     _count?: boolean | AlapadatokCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["alapadatok"]>
 
@@ -10284,6 +10385,7 @@ export namespace Prisma {
     dobbanto?: boolean | Alapadatok$dobbantoArgs<ExtArgs>
     muhelyiskola?: boolean | Alapadatok$muhelyiskolaArgs<ExtArgs>
     users?: boolean | Alapadatok$usersArgs<ExtArgs>
+    OktatoEgyebTev?: boolean | Alapadatok$OktatoEgyebTevArgs<ExtArgs>
     _count?: boolean | AlapadatokCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type AlapadatokIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -10316,6 +10418,7 @@ export namespace Prisma {
       dobbanto: Prisma.$DobbantoPayload<ExtArgs>[]
       muhelyiskola: Prisma.$MuhelyiskolaPayload<ExtArgs>[]
       users: Prisma.$UserPayload<ExtArgs>[]
+      OktatoEgyebTev: Prisma.$OktatoEgyebTevPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -10739,6 +10842,7 @@ export namespace Prisma {
     dobbanto<T extends Alapadatok$dobbantoArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$dobbantoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DobbantoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     muhelyiskola<T extends Alapadatok$muhelyiskolaArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$muhelyiskolaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MuhelyiskolaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     users<T extends Alapadatok$usersArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    OktatoEgyebTev<T extends Alapadatok$OktatoEgyebTevArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$OktatoEgyebTevArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OktatoEgyebTevPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11732,6 +11836,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+  }
+
+  /**
+   * Alapadatok.OktatoEgyebTev
+   */
+  export type Alapadatok$OktatoEgyebTevArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OktatoEgyebTev
+     */
+    select?: OktatoEgyebTevSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OktatoEgyebTev
+     */
+    omit?: OktatoEgyebTevOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OktatoEgyebTevInclude<ExtArgs> | null
+    where?: OktatoEgyebTevWhereInput
+    orderBy?: OktatoEgyebTevOrderByWithRelationInput | OktatoEgyebTevOrderByWithRelationInput[]
+    cursor?: OktatoEgyebTevWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OktatoEgyebTevScalarFieldEnum | OktatoEgyebTevScalarFieldEnum[]
   }
 
   /**
@@ -46174,6 +46302,1362 @@ export namespace Prisma {
 
 
   /**
+   * Model OktatoEgyebTev
+   */
+
+  export type AggregateOktatoEgyebTev = {
+    _count: OktatoEgyebTevCountAggregateOutputType | null
+    _avg: OktatoEgyebTevAvgAggregateOutputType | null
+    _sum: OktatoEgyebTevSumAggregateOutputType | null
+    _min: OktatoEgyebTevMinAggregateOutputType | null
+    _max: OktatoEgyebTevMaxAggregateOutputType | null
+  }
+
+  export type OktatoEgyebTevAvgAggregateOutputType = {
+    tanev_kezdete: number | null
+    szakkepzesi_szakerto: number | null
+    koznevelesi_szakerto: number | null
+    koznevelesi_szaktanacsado: number | null
+    vizsgafelugyelo: number | null
+    agazati_alapvizsgan_elnok: number | null
+    feladatkeszito_lektor: number | null
+    erettsegi_elnok: number | null
+    emelt_erettsegi_vb_tag: number | null
+    emelt_erettsegi_vb_elnok: number | null
+    erettsegi_vizsgaztato: number | null
+    tanterviro: number | null
+    tananyagfejleszto: number | null
+    tankonyv_jegyzetiro: number | null
+    szakmai_tisztsegviselo: number | null
+  }
+
+  export type OktatoEgyebTevSumAggregateOutputType = {
+    tanev_kezdete: number | null
+    szakkepzesi_szakerto: number | null
+    koznevelesi_szakerto: number | null
+    koznevelesi_szaktanacsado: number | null
+    vizsgafelugyelo: number | null
+    agazati_alapvizsgan_elnok: number | null
+    feladatkeszito_lektor: number | null
+    erettsegi_elnok: number | null
+    emelt_erettsegi_vb_tag: number | null
+    emelt_erettsegi_vb_elnok: number | null
+    erettsegi_vizsgaztato: number | null
+    tanterviro: number | null
+    tananyagfejleszto: number | null
+    tankonyv_jegyzetiro: number | null
+    szakmai_tisztsegviselo: number | null
+  }
+
+  export type OktatoEgyebTevMinAggregateOutputType = {
+    id: string | null
+    alapadatok_id: string | null
+    tanev_kezdete: number | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
+    szakkepzesi_szakerto: number | null
+    koznevelesi_szakerto: number | null
+    koznevelesi_szaktanacsado: number | null
+    vizsgafelugyelo: number | null
+    agazati_alapvizsgan_elnok: number | null
+    feladatkeszito_lektor: number | null
+    erettsegi_elnok: number | null
+    emelt_erettsegi_vb_tag: number | null
+    emelt_erettsegi_vb_elnok: number | null
+    erettsegi_vizsgaztato: number | null
+    tanterviro: number | null
+    tananyagfejleszto: number | null
+    tankonyv_jegyzetiro: number | null
+    szakmai_tisztsegviselo: number | null
+  }
+
+  export type OktatoEgyebTevMaxAggregateOutputType = {
+    id: string | null
+    alapadatok_id: string | null
+    tanev_kezdete: number | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
+    szakkepzesi_szakerto: number | null
+    koznevelesi_szakerto: number | null
+    koznevelesi_szaktanacsado: number | null
+    vizsgafelugyelo: number | null
+    agazati_alapvizsgan_elnok: number | null
+    feladatkeszito_lektor: number | null
+    erettsegi_elnok: number | null
+    emelt_erettsegi_vb_tag: number | null
+    emelt_erettsegi_vb_elnok: number | null
+    erettsegi_vizsgaztato: number | null
+    tanterviro: number | null
+    tananyagfejleszto: number | null
+    tankonyv_jegyzetiro: number | null
+    szakmai_tisztsegviselo: number | null
+  }
+
+  export type OktatoEgyebTevCountAggregateOutputType = {
+    id: number
+    alapadatok_id: number
+    tanev_kezdete: number
+    createAt: number
+    createBy: number
+    updatedAt: number
+    updatedBy: number
+    szakkepzesi_szakerto: number
+    koznevelesi_szakerto: number
+    koznevelesi_szaktanacsado: number
+    vizsgafelugyelo: number
+    agazati_alapvizsgan_elnok: number
+    feladatkeszito_lektor: number
+    erettsegi_elnok: number
+    emelt_erettsegi_vb_tag: number
+    emelt_erettsegi_vb_elnok: number
+    erettsegi_vizsgaztato: number
+    tanterviro: number
+    tananyagfejleszto: number
+    tankonyv_jegyzetiro: number
+    szakmai_tisztsegviselo: number
+    _all: number
+  }
+
+
+  export type OktatoEgyebTevAvgAggregateInputType = {
+    tanev_kezdete?: true
+    szakkepzesi_szakerto?: true
+    koznevelesi_szakerto?: true
+    koznevelesi_szaktanacsado?: true
+    vizsgafelugyelo?: true
+    agazati_alapvizsgan_elnok?: true
+    feladatkeszito_lektor?: true
+    erettsegi_elnok?: true
+    emelt_erettsegi_vb_tag?: true
+    emelt_erettsegi_vb_elnok?: true
+    erettsegi_vizsgaztato?: true
+    tanterviro?: true
+    tananyagfejleszto?: true
+    tankonyv_jegyzetiro?: true
+    szakmai_tisztsegviselo?: true
+  }
+
+  export type OktatoEgyebTevSumAggregateInputType = {
+    tanev_kezdete?: true
+    szakkepzesi_szakerto?: true
+    koznevelesi_szakerto?: true
+    koznevelesi_szaktanacsado?: true
+    vizsgafelugyelo?: true
+    agazati_alapvizsgan_elnok?: true
+    feladatkeszito_lektor?: true
+    erettsegi_elnok?: true
+    emelt_erettsegi_vb_tag?: true
+    emelt_erettsegi_vb_elnok?: true
+    erettsegi_vizsgaztato?: true
+    tanterviro?: true
+    tananyagfejleszto?: true
+    tankonyv_jegyzetiro?: true
+    szakmai_tisztsegviselo?: true
+  }
+
+  export type OktatoEgyebTevMinAggregateInputType = {
+    id?: true
+    alapadatok_id?: true
+    tanev_kezdete?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
+    szakkepzesi_szakerto?: true
+    koznevelesi_szakerto?: true
+    koznevelesi_szaktanacsado?: true
+    vizsgafelugyelo?: true
+    agazati_alapvizsgan_elnok?: true
+    feladatkeszito_lektor?: true
+    erettsegi_elnok?: true
+    emelt_erettsegi_vb_tag?: true
+    emelt_erettsegi_vb_elnok?: true
+    erettsegi_vizsgaztato?: true
+    tanterviro?: true
+    tananyagfejleszto?: true
+    tankonyv_jegyzetiro?: true
+    szakmai_tisztsegviselo?: true
+  }
+
+  export type OktatoEgyebTevMaxAggregateInputType = {
+    id?: true
+    alapadatok_id?: true
+    tanev_kezdete?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
+    szakkepzesi_szakerto?: true
+    koznevelesi_szakerto?: true
+    koznevelesi_szaktanacsado?: true
+    vizsgafelugyelo?: true
+    agazati_alapvizsgan_elnok?: true
+    feladatkeszito_lektor?: true
+    erettsegi_elnok?: true
+    emelt_erettsegi_vb_tag?: true
+    emelt_erettsegi_vb_elnok?: true
+    erettsegi_vizsgaztato?: true
+    tanterviro?: true
+    tananyagfejleszto?: true
+    tankonyv_jegyzetiro?: true
+    szakmai_tisztsegviselo?: true
+  }
+
+  export type OktatoEgyebTevCountAggregateInputType = {
+    id?: true
+    alapadatok_id?: true
+    tanev_kezdete?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
+    szakkepzesi_szakerto?: true
+    koznevelesi_szakerto?: true
+    koznevelesi_szaktanacsado?: true
+    vizsgafelugyelo?: true
+    agazati_alapvizsgan_elnok?: true
+    feladatkeszito_lektor?: true
+    erettsegi_elnok?: true
+    emelt_erettsegi_vb_tag?: true
+    emelt_erettsegi_vb_elnok?: true
+    erettsegi_vizsgaztato?: true
+    tanterviro?: true
+    tananyagfejleszto?: true
+    tankonyv_jegyzetiro?: true
+    szakmai_tisztsegviselo?: true
+    _all?: true
+  }
+
+  export type OktatoEgyebTevAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which OktatoEgyebTev to aggregate.
+     */
+    where?: OktatoEgyebTevWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OktatoEgyebTevs to fetch.
+     */
+    orderBy?: OktatoEgyebTevOrderByWithRelationInput | OktatoEgyebTevOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: OktatoEgyebTevWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OktatoEgyebTevs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OktatoEgyebTevs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned OktatoEgyebTevs
+    **/
+    _count?: true | OktatoEgyebTevCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: OktatoEgyebTevAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: OktatoEgyebTevSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: OktatoEgyebTevMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: OktatoEgyebTevMaxAggregateInputType
+  }
+
+  export type GetOktatoEgyebTevAggregateType<T extends OktatoEgyebTevAggregateArgs> = {
+        [P in keyof T & keyof AggregateOktatoEgyebTev]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateOktatoEgyebTev[P]>
+      : GetScalarType<T[P], AggregateOktatoEgyebTev[P]>
+  }
+
+
+
+
+  export type OktatoEgyebTevGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OktatoEgyebTevWhereInput
+    orderBy?: OktatoEgyebTevOrderByWithAggregationInput | OktatoEgyebTevOrderByWithAggregationInput[]
+    by: OktatoEgyebTevScalarFieldEnum[] | OktatoEgyebTevScalarFieldEnum
+    having?: OktatoEgyebTevScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: OktatoEgyebTevCountAggregateInputType | true
+    _avg?: OktatoEgyebTevAvgAggregateInputType
+    _sum?: OktatoEgyebTevSumAggregateInputType
+    _min?: OktatoEgyebTevMinAggregateInputType
+    _max?: OktatoEgyebTevMaxAggregateInputType
+  }
+
+  export type OktatoEgyebTevGroupByOutputType = {
+    id: string
+    alapadatok_id: string
+    tanev_kezdete: number
+    createAt: Date
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
+    szakkepzesi_szakerto: number | null
+    koznevelesi_szakerto: number | null
+    koznevelesi_szaktanacsado: number | null
+    vizsgafelugyelo: number | null
+    agazati_alapvizsgan_elnok: number | null
+    feladatkeszito_lektor: number | null
+    erettsegi_elnok: number | null
+    emelt_erettsegi_vb_tag: number | null
+    emelt_erettsegi_vb_elnok: number | null
+    erettsegi_vizsgaztato: number | null
+    tanterviro: number | null
+    tananyagfejleszto: number | null
+    tankonyv_jegyzetiro: number | null
+    szakmai_tisztsegviselo: number | null
+    _count: OktatoEgyebTevCountAggregateOutputType | null
+    _avg: OktatoEgyebTevAvgAggregateOutputType | null
+    _sum: OktatoEgyebTevSumAggregateOutputType | null
+    _min: OktatoEgyebTevMinAggregateOutputType | null
+    _max: OktatoEgyebTevMaxAggregateOutputType | null
+  }
+
+  type GetOktatoEgyebTevGroupByPayload<T extends OktatoEgyebTevGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<OktatoEgyebTevGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof OktatoEgyebTevGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], OktatoEgyebTevGroupByOutputType[P]>
+            : GetScalarType<T[P], OktatoEgyebTevGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type OktatoEgyebTevSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alapadatok_id?: boolean
+    tanev_kezdete?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    szakkepzesi_szakerto?: boolean
+    koznevelesi_szakerto?: boolean
+    koznevelesi_szaktanacsado?: boolean
+    vizsgafelugyelo?: boolean
+    agazati_alapvizsgan_elnok?: boolean
+    feladatkeszito_lektor?: boolean
+    erettsegi_elnok?: boolean
+    emelt_erettsegi_vb_tag?: boolean
+    emelt_erettsegi_vb_elnok?: boolean
+    erettsegi_vizsgaztato?: boolean
+    tanterviro?: boolean
+    tananyagfejleszto?: boolean
+    tankonyv_jegyzetiro?: boolean
+    szakmai_tisztsegviselo?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["oktatoEgyebTev"]>
+
+  export type OktatoEgyebTevSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alapadatok_id?: boolean
+    tanev_kezdete?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    szakkepzesi_szakerto?: boolean
+    koznevelesi_szakerto?: boolean
+    koznevelesi_szaktanacsado?: boolean
+    vizsgafelugyelo?: boolean
+    agazati_alapvizsgan_elnok?: boolean
+    feladatkeszito_lektor?: boolean
+    erettsegi_elnok?: boolean
+    emelt_erettsegi_vb_tag?: boolean
+    emelt_erettsegi_vb_elnok?: boolean
+    erettsegi_vizsgaztato?: boolean
+    tanterviro?: boolean
+    tananyagfejleszto?: boolean
+    tankonyv_jegyzetiro?: boolean
+    szakmai_tisztsegviselo?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["oktatoEgyebTev"]>
+
+  export type OktatoEgyebTevSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alapadatok_id?: boolean
+    tanev_kezdete?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    szakkepzesi_szakerto?: boolean
+    koznevelesi_szakerto?: boolean
+    koznevelesi_szaktanacsado?: boolean
+    vizsgafelugyelo?: boolean
+    agazati_alapvizsgan_elnok?: boolean
+    feladatkeszito_lektor?: boolean
+    erettsegi_elnok?: boolean
+    emelt_erettsegi_vb_tag?: boolean
+    emelt_erettsegi_vb_elnok?: boolean
+    erettsegi_vizsgaztato?: boolean
+    tanterviro?: boolean
+    tananyagfejleszto?: boolean
+    tankonyv_jegyzetiro?: boolean
+    szakmai_tisztsegviselo?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["oktatoEgyebTev"]>
+
+  export type OktatoEgyebTevSelectScalar = {
+    id?: boolean
+    alapadatok_id?: boolean
+    tanev_kezdete?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    szakkepzesi_szakerto?: boolean
+    koznevelesi_szakerto?: boolean
+    koznevelesi_szaktanacsado?: boolean
+    vizsgafelugyelo?: boolean
+    agazati_alapvizsgan_elnok?: boolean
+    feladatkeszito_lektor?: boolean
+    erettsegi_elnok?: boolean
+    emelt_erettsegi_vb_tag?: boolean
+    emelt_erettsegi_vb_elnok?: boolean
+    erettsegi_vizsgaztato?: boolean
+    tanterviro?: boolean
+    tananyagfejleszto?: boolean
+    tankonyv_jegyzetiro?: boolean
+    szakmai_tisztsegviselo?: boolean
+  }
+
+  export type OktatoEgyebTevOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "createAt" | "createBy" | "updatedAt" | "updatedBy" | "szakkepzesi_szakerto" | "koznevelesi_szakerto" | "koznevelesi_szaktanacsado" | "vizsgafelugyelo" | "agazati_alapvizsgan_elnok" | "feladatkeszito_lektor" | "erettsegi_elnok" | "emelt_erettsegi_vb_tag" | "emelt_erettsegi_vb_elnok" | "erettsegi_vizsgaztato" | "tanterviro" | "tananyagfejleszto" | "tankonyv_jegyzetiro" | "szakmai_tisztsegviselo", ExtArgs["result"]["oktatoEgyebTev"]>
+  export type OktatoEgyebTevInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }
+  export type OktatoEgyebTevIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }
+  export type OktatoEgyebTevIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }
+
+  export type $OktatoEgyebTevPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "OktatoEgyebTev"
+    objects: {
+      alapadatok: Prisma.$AlapadatokPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      alapadatok_id: string
+      tanev_kezdete: number
+      createAt: Date
+      createBy: string | null
+      updatedAt: Date | null
+      updatedBy: string | null
+      szakkepzesi_szakerto: number | null
+      koznevelesi_szakerto: number | null
+      koznevelesi_szaktanacsado: number | null
+      vizsgafelugyelo: number | null
+      agazati_alapvizsgan_elnok: number | null
+      feladatkeszito_lektor: number | null
+      erettsegi_elnok: number | null
+      emelt_erettsegi_vb_tag: number | null
+      emelt_erettsegi_vb_elnok: number | null
+      erettsegi_vizsgaztato: number | null
+      tanterviro: number | null
+      tananyagfejleszto: number | null
+      tankonyv_jegyzetiro: number | null
+      szakmai_tisztsegviselo: number | null
+    }, ExtArgs["result"]["oktatoEgyebTev"]>
+    composites: {}
+  }
+
+  type OktatoEgyebTevGetPayload<S extends boolean | null | undefined | OktatoEgyebTevDefaultArgs> = $Result.GetResult<Prisma.$OktatoEgyebTevPayload, S>
+
+  type OktatoEgyebTevCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<OktatoEgyebTevFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: OktatoEgyebTevCountAggregateInputType | true
+    }
+
+  export interface OktatoEgyebTevDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['OktatoEgyebTev'], meta: { name: 'OktatoEgyebTev' } }
+    /**
+     * Find zero or one OktatoEgyebTev that matches the filter.
+     * @param {OktatoEgyebTevFindUniqueArgs} args - Arguments to find a OktatoEgyebTev
+     * @example
+     * // Get one OktatoEgyebTev
+     * const oktatoEgyebTev = await prisma.oktatoEgyebTev.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends OktatoEgyebTevFindUniqueArgs>(args: SelectSubset<T, OktatoEgyebTevFindUniqueArgs<ExtArgs>>): Prisma__OktatoEgyebTevClient<$Result.GetResult<Prisma.$OktatoEgyebTevPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one OktatoEgyebTev that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {OktatoEgyebTevFindUniqueOrThrowArgs} args - Arguments to find a OktatoEgyebTev
+     * @example
+     * // Get one OktatoEgyebTev
+     * const oktatoEgyebTev = await prisma.oktatoEgyebTev.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends OktatoEgyebTevFindUniqueOrThrowArgs>(args: SelectSubset<T, OktatoEgyebTevFindUniqueOrThrowArgs<ExtArgs>>): Prisma__OktatoEgyebTevClient<$Result.GetResult<Prisma.$OktatoEgyebTevPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first OktatoEgyebTev that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OktatoEgyebTevFindFirstArgs} args - Arguments to find a OktatoEgyebTev
+     * @example
+     * // Get one OktatoEgyebTev
+     * const oktatoEgyebTev = await prisma.oktatoEgyebTev.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends OktatoEgyebTevFindFirstArgs>(args?: SelectSubset<T, OktatoEgyebTevFindFirstArgs<ExtArgs>>): Prisma__OktatoEgyebTevClient<$Result.GetResult<Prisma.$OktatoEgyebTevPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first OktatoEgyebTev that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OktatoEgyebTevFindFirstOrThrowArgs} args - Arguments to find a OktatoEgyebTev
+     * @example
+     * // Get one OktatoEgyebTev
+     * const oktatoEgyebTev = await prisma.oktatoEgyebTev.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends OktatoEgyebTevFindFirstOrThrowArgs>(args?: SelectSubset<T, OktatoEgyebTevFindFirstOrThrowArgs<ExtArgs>>): Prisma__OktatoEgyebTevClient<$Result.GetResult<Prisma.$OktatoEgyebTevPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more OktatoEgyebTevs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OktatoEgyebTevFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all OktatoEgyebTevs
+     * const oktatoEgyebTevs = await prisma.oktatoEgyebTev.findMany()
+     * 
+     * // Get first 10 OktatoEgyebTevs
+     * const oktatoEgyebTevs = await prisma.oktatoEgyebTev.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const oktatoEgyebTevWithIdOnly = await prisma.oktatoEgyebTev.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends OktatoEgyebTevFindManyArgs>(args?: SelectSubset<T, OktatoEgyebTevFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OktatoEgyebTevPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a OktatoEgyebTev.
+     * @param {OktatoEgyebTevCreateArgs} args - Arguments to create a OktatoEgyebTev.
+     * @example
+     * // Create one OktatoEgyebTev
+     * const OktatoEgyebTev = await prisma.oktatoEgyebTev.create({
+     *   data: {
+     *     // ... data to create a OktatoEgyebTev
+     *   }
+     * })
+     * 
+     */
+    create<T extends OktatoEgyebTevCreateArgs>(args: SelectSubset<T, OktatoEgyebTevCreateArgs<ExtArgs>>): Prisma__OktatoEgyebTevClient<$Result.GetResult<Prisma.$OktatoEgyebTevPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many OktatoEgyebTevs.
+     * @param {OktatoEgyebTevCreateManyArgs} args - Arguments to create many OktatoEgyebTevs.
+     * @example
+     * // Create many OktatoEgyebTevs
+     * const oktatoEgyebTev = await prisma.oktatoEgyebTev.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends OktatoEgyebTevCreateManyArgs>(args?: SelectSubset<T, OktatoEgyebTevCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many OktatoEgyebTevs and returns the data saved in the database.
+     * @param {OktatoEgyebTevCreateManyAndReturnArgs} args - Arguments to create many OktatoEgyebTevs.
+     * @example
+     * // Create many OktatoEgyebTevs
+     * const oktatoEgyebTev = await prisma.oktatoEgyebTev.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many OktatoEgyebTevs and only return the `id`
+     * const oktatoEgyebTevWithIdOnly = await prisma.oktatoEgyebTev.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends OktatoEgyebTevCreateManyAndReturnArgs>(args?: SelectSubset<T, OktatoEgyebTevCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OktatoEgyebTevPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a OktatoEgyebTev.
+     * @param {OktatoEgyebTevDeleteArgs} args - Arguments to delete one OktatoEgyebTev.
+     * @example
+     * // Delete one OktatoEgyebTev
+     * const OktatoEgyebTev = await prisma.oktatoEgyebTev.delete({
+     *   where: {
+     *     // ... filter to delete one OktatoEgyebTev
+     *   }
+     * })
+     * 
+     */
+    delete<T extends OktatoEgyebTevDeleteArgs>(args: SelectSubset<T, OktatoEgyebTevDeleteArgs<ExtArgs>>): Prisma__OktatoEgyebTevClient<$Result.GetResult<Prisma.$OktatoEgyebTevPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one OktatoEgyebTev.
+     * @param {OktatoEgyebTevUpdateArgs} args - Arguments to update one OktatoEgyebTev.
+     * @example
+     * // Update one OktatoEgyebTev
+     * const oktatoEgyebTev = await prisma.oktatoEgyebTev.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends OktatoEgyebTevUpdateArgs>(args: SelectSubset<T, OktatoEgyebTevUpdateArgs<ExtArgs>>): Prisma__OktatoEgyebTevClient<$Result.GetResult<Prisma.$OktatoEgyebTevPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more OktatoEgyebTevs.
+     * @param {OktatoEgyebTevDeleteManyArgs} args - Arguments to filter OktatoEgyebTevs to delete.
+     * @example
+     * // Delete a few OktatoEgyebTevs
+     * const { count } = await prisma.oktatoEgyebTev.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends OktatoEgyebTevDeleteManyArgs>(args?: SelectSubset<T, OktatoEgyebTevDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more OktatoEgyebTevs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OktatoEgyebTevUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many OktatoEgyebTevs
+     * const oktatoEgyebTev = await prisma.oktatoEgyebTev.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends OktatoEgyebTevUpdateManyArgs>(args: SelectSubset<T, OktatoEgyebTevUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more OktatoEgyebTevs and returns the data updated in the database.
+     * @param {OktatoEgyebTevUpdateManyAndReturnArgs} args - Arguments to update many OktatoEgyebTevs.
+     * @example
+     * // Update many OktatoEgyebTevs
+     * const oktatoEgyebTev = await prisma.oktatoEgyebTev.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more OktatoEgyebTevs and only return the `id`
+     * const oktatoEgyebTevWithIdOnly = await prisma.oktatoEgyebTev.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends OktatoEgyebTevUpdateManyAndReturnArgs>(args: SelectSubset<T, OktatoEgyebTevUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OktatoEgyebTevPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one OktatoEgyebTev.
+     * @param {OktatoEgyebTevUpsertArgs} args - Arguments to update or create a OktatoEgyebTev.
+     * @example
+     * // Update or create a OktatoEgyebTev
+     * const oktatoEgyebTev = await prisma.oktatoEgyebTev.upsert({
+     *   create: {
+     *     // ... data to create a OktatoEgyebTev
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the OktatoEgyebTev we want to update
+     *   }
+     * })
+     */
+    upsert<T extends OktatoEgyebTevUpsertArgs>(args: SelectSubset<T, OktatoEgyebTevUpsertArgs<ExtArgs>>): Prisma__OktatoEgyebTevClient<$Result.GetResult<Prisma.$OktatoEgyebTevPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of OktatoEgyebTevs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OktatoEgyebTevCountArgs} args - Arguments to filter OktatoEgyebTevs to count.
+     * @example
+     * // Count the number of OktatoEgyebTevs
+     * const count = await prisma.oktatoEgyebTev.count({
+     *   where: {
+     *     // ... the filter for the OktatoEgyebTevs we want to count
+     *   }
+     * })
+    **/
+    count<T extends OktatoEgyebTevCountArgs>(
+      args?: Subset<T, OktatoEgyebTevCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], OktatoEgyebTevCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a OktatoEgyebTev.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OktatoEgyebTevAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends OktatoEgyebTevAggregateArgs>(args: Subset<T, OktatoEgyebTevAggregateArgs>): Prisma.PrismaPromise<GetOktatoEgyebTevAggregateType<T>>
+
+    /**
+     * Group by OktatoEgyebTev.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OktatoEgyebTevGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends OktatoEgyebTevGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: OktatoEgyebTevGroupByArgs['orderBy'] }
+        : { orderBy?: OktatoEgyebTevGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, OktatoEgyebTevGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOktatoEgyebTevGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the OktatoEgyebTev model
+   */
+  readonly fields: OktatoEgyebTevFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for OktatoEgyebTev.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__OktatoEgyebTevClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    alapadatok<T extends AlapadatokDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AlapadatokDefaultArgs<ExtArgs>>): Prisma__AlapadatokClient<$Result.GetResult<Prisma.$AlapadatokPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the OktatoEgyebTev model
+   */
+  interface OktatoEgyebTevFieldRefs {
+    readonly id: FieldRef<"OktatoEgyebTev", 'String'>
+    readonly alapadatok_id: FieldRef<"OktatoEgyebTev", 'String'>
+    readonly tanev_kezdete: FieldRef<"OktatoEgyebTev", 'Int'>
+    readonly createAt: FieldRef<"OktatoEgyebTev", 'DateTime'>
+    readonly createBy: FieldRef<"OktatoEgyebTev", 'String'>
+    readonly updatedAt: FieldRef<"OktatoEgyebTev", 'DateTime'>
+    readonly updatedBy: FieldRef<"OktatoEgyebTev", 'String'>
+    readonly szakkepzesi_szakerto: FieldRef<"OktatoEgyebTev", 'Int'>
+    readonly koznevelesi_szakerto: FieldRef<"OktatoEgyebTev", 'Int'>
+    readonly koznevelesi_szaktanacsado: FieldRef<"OktatoEgyebTev", 'Int'>
+    readonly vizsgafelugyelo: FieldRef<"OktatoEgyebTev", 'Int'>
+    readonly agazati_alapvizsgan_elnok: FieldRef<"OktatoEgyebTev", 'Int'>
+    readonly feladatkeszito_lektor: FieldRef<"OktatoEgyebTev", 'Int'>
+    readonly erettsegi_elnok: FieldRef<"OktatoEgyebTev", 'Int'>
+    readonly emelt_erettsegi_vb_tag: FieldRef<"OktatoEgyebTev", 'Int'>
+    readonly emelt_erettsegi_vb_elnok: FieldRef<"OktatoEgyebTev", 'Int'>
+    readonly erettsegi_vizsgaztato: FieldRef<"OktatoEgyebTev", 'Int'>
+    readonly tanterviro: FieldRef<"OktatoEgyebTev", 'Int'>
+    readonly tananyagfejleszto: FieldRef<"OktatoEgyebTev", 'Int'>
+    readonly tankonyv_jegyzetiro: FieldRef<"OktatoEgyebTev", 'Int'>
+    readonly szakmai_tisztsegviselo: FieldRef<"OktatoEgyebTev", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * OktatoEgyebTev findUnique
+   */
+  export type OktatoEgyebTevFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OktatoEgyebTev
+     */
+    select?: OktatoEgyebTevSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OktatoEgyebTev
+     */
+    omit?: OktatoEgyebTevOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OktatoEgyebTevInclude<ExtArgs> | null
+    /**
+     * Filter, which OktatoEgyebTev to fetch.
+     */
+    where: OktatoEgyebTevWhereUniqueInput
+  }
+
+  /**
+   * OktatoEgyebTev findUniqueOrThrow
+   */
+  export type OktatoEgyebTevFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OktatoEgyebTev
+     */
+    select?: OktatoEgyebTevSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OktatoEgyebTev
+     */
+    omit?: OktatoEgyebTevOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OktatoEgyebTevInclude<ExtArgs> | null
+    /**
+     * Filter, which OktatoEgyebTev to fetch.
+     */
+    where: OktatoEgyebTevWhereUniqueInput
+  }
+
+  /**
+   * OktatoEgyebTev findFirst
+   */
+  export type OktatoEgyebTevFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OktatoEgyebTev
+     */
+    select?: OktatoEgyebTevSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OktatoEgyebTev
+     */
+    omit?: OktatoEgyebTevOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OktatoEgyebTevInclude<ExtArgs> | null
+    /**
+     * Filter, which OktatoEgyebTev to fetch.
+     */
+    where?: OktatoEgyebTevWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OktatoEgyebTevs to fetch.
+     */
+    orderBy?: OktatoEgyebTevOrderByWithRelationInput | OktatoEgyebTevOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for OktatoEgyebTevs.
+     */
+    cursor?: OktatoEgyebTevWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OktatoEgyebTevs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OktatoEgyebTevs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of OktatoEgyebTevs.
+     */
+    distinct?: OktatoEgyebTevScalarFieldEnum | OktatoEgyebTevScalarFieldEnum[]
+  }
+
+  /**
+   * OktatoEgyebTev findFirstOrThrow
+   */
+  export type OktatoEgyebTevFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OktatoEgyebTev
+     */
+    select?: OktatoEgyebTevSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OktatoEgyebTev
+     */
+    omit?: OktatoEgyebTevOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OktatoEgyebTevInclude<ExtArgs> | null
+    /**
+     * Filter, which OktatoEgyebTev to fetch.
+     */
+    where?: OktatoEgyebTevWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OktatoEgyebTevs to fetch.
+     */
+    orderBy?: OktatoEgyebTevOrderByWithRelationInput | OktatoEgyebTevOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for OktatoEgyebTevs.
+     */
+    cursor?: OktatoEgyebTevWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OktatoEgyebTevs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OktatoEgyebTevs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of OktatoEgyebTevs.
+     */
+    distinct?: OktatoEgyebTevScalarFieldEnum | OktatoEgyebTevScalarFieldEnum[]
+  }
+
+  /**
+   * OktatoEgyebTev findMany
+   */
+  export type OktatoEgyebTevFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OktatoEgyebTev
+     */
+    select?: OktatoEgyebTevSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OktatoEgyebTev
+     */
+    omit?: OktatoEgyebTevOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OktatoEgyebTevInclude<ExtArgs> | null
+    /**
+     * Filter, which OktatoEgyebTevs to fetch.
+     */
+    where?: OktatoEgyebTevWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OktatoEgyebTevs to fetch.
+     */
+    orderBy?: OktatoEgyebTevOrderByWithRelationInput | OktatoEgyebTevOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing OktatoEgyebTevs.
+     */
+    cursor?: OktatoEgyebTevWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OktatoEgyebTevs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OktatoEgyebTevs.
+     */
+    skip?: number
+    distinct?: OktatoEgyebTevScalarFieldEnum | OktatoEgyebTevScalarFieldEnum[]
+  }
+
+  /**
+   * OktatoEgyebTev create
+   */
+  export type OktatoEgyebTevCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OktatoEgyebTev
+     */
+    select?: OktatoEgyebTevSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OktatoEgyebTev
+     */
+    omit?: OktatoEgyebTevOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OktatoEgyebTevInclude<ExtArgs> | null
+    /**
+     * The data needed to create a OktatoEgyebTev.
+     */
+    data: XOR<OktatoEgyebTevCreateInput, OktatoEgyebTevUncheckedCreateInput>
+  }
+
+  /**
+   * OktatoEgyebTev createMany
+   */
+  export type OktatoEgyebTevCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many OktatoEgyebTevs.
+     */
+    data: OktatoEgyebTevCreateManyInput | OktatoEgyebTevCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * OktatoEgyebTev createManyAndReturn
+   */
+  export type OktatoEgyebTevCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OktatoEgyebTev
+     */
+    select?: OktatoEgyebTevSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the OktatoEgyebTev
+     */
+    omit?: OktatoEgyebTevOmit<ExtArgs> | null
+    /**
+     * The data used to create many OktatoEgyebTevs.
+     */
+    data: OktatoEgyebTevCreateManyInput | OktatoEgyebTevCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OktatoEgyebTevIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * OktatoEgyebTev update
+   */
+  export type OktatoEgyebTevUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OktatoEgyebTev
+     */
+    select?: OktatoEgyebTevSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OktatoEgyebTev
+     */
+    omit?: OktatoEgyebTevOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OktatoEgyebTevInclude<ExtArgs> | null
+    /**
+     * The data needed to update a OktatoEgyebTev.
+     */
+    data: XOR<OktatoEgyebTevUpdateInput, OktatoEgyebTevUncheckedUpdateInput>
+    /**
+     * Choose, which OktatoEgyebTev to update.
+     */
+    where: OktatoEgyebTevWhereUniqueInput
+  }
+
+  /**
+   * OktatoEgyebTev updateMany
+   */
+  export type OktatoEgyebTevUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update OktatoEgyebTevs.
+     */
+    data: XOR<OktatoEgyebTevUpdateManyMutationInput, OktatoEgyebTevUncheckedUpdateManyInput>
+    /**
+     * Filter which OktatoEgyebTevs to update
+     */
+    where?: OktatoEgyebTevWhereInput
+    /**
+     * Limit how many OktatoEgyebTevs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * OktatoEgyebTev updateManyAndReturn
+   */
+  export type OktatoEgyebTevUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OktatoEgyebTev
+     */
+    select?: OktatoEgyebTevSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the OktatoEgyebTev
+     */
+    omit?: OktatoEgyebTevOmit<ExtArgs> | null
+    /**
+     * The data used to update OktatoEgyebTevs.
+     */
+    data: XOR<OktatoEgyebTevUpdateManyMutationInput, OktatoEgyebTevUncheckedUpdateManyInput>
+    /**
+     * Filter which OktatoEgyebTevs to update
+     */
+    where?: OktatoEgyebTevWhereInput
+    /**
+     * Limit how many OktatoEgyebTevs to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OktatoEgyebTevIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * OktatoEgyebTev upsert
+   */
+  export type OktatoEgyebTevUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OktatoEgyebTev
+     */
+    select?: OktatoEgyebTevSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OktatoEgyebTev
+     */
+    omit?: OktatoEgyebTevOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OktatoEgyebTevInclude<ExtArgs> | null
+    /**
+     * The filter to search for the OktatoEgyebTev to update in case it exists.
+     */
+    where: OktatoEgyebTevWhereUniqueInput
+    /**
+     * In case the OktatoEgyebTev found by the `where` argument doesn't exist, create a new OktatoEgyebTev with this data.
+     */
+    create: XOR<OktatoEgyebTevCreateInput, OktatoEgyebTevUncheckedCreateInput>
+    /**
+     * In case the OktatoEgyebTev was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<OktatoEgyebTevUpdateInput, OktatoEgyebTevUncheckedUpdateInput>
+  }
+
+  /**
+   * OktatoEgyebTev delete
+   */
+  export type OktatoEgyebTevDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OktatoEgyebTev
+     */
+    select?: OktatoEgyebTevSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OktatoEgyebTev
+     */
+    omit?: OktatoEgyebTevOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OktatoEgyebTevInclude<ExtArgs> | null
+    /**
+     * Filter which OktatoEgyebTev to delete.
+     */
+    where: OktatoEgyebTevWhereUniqueInput
+  }
+
+  /**
+   * OktatoEgyebTev deleteMany
+   */
+  export type OktatoEgyebTevDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which OktatoEgyebTevs to delete
+     */
+    where?: OktatoEgyebTevWhereInput
+    /**
+     * Limit how many OktatoEgyebTevs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * OktatoEgyebTev without action
+   */
+  export type OktatoEgyebTevDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OktatoEgyebTev
+     */
+    select?: OktatoEgyebTevSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OktatoEgyebTev
+     */
+    omit?: OktatoEgyebTevOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OktatoEgyebTevInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -46798,6 +48282,33 @@ export namespace Prisma {
   export type MuhelyiskolaScalarFieldEnum = (typeof MuhelyiskolaScalarFieldEnum)[keyof typeof MuhelyiskolaScalarFieldEnum]
 
 
+  export const OktatoEgyebTevScalarFieldEnum: {
+    id: 'id',
+    alapadatok_id: 'alapadatok_id',
+    tanev_kezdete: 'tanev_kezdete',
+    createAt: 'createAt',
+    createBy: 'createBy',
+    updatedAt: 'updatedAt',
+    updatedBy: 'updatedBy',
+    szakkepzesi_szakerto: 'szakkepzesi_szakerto',
+    koznevelesi_szakerto: 'koznevelesi_szakerto',
+    koznevelesi_szaktanacsado: 'koznevelesi_szaktanacsado',
+    vizsgafelugyelo: 'vizsgafelugyelo',
+    agazati_alapvizsgan_elnok: 'agazati_alapvizsgan_elnok',
+    feladatkeszito_lektor: 'feladatkeszito_lektor',
+    erettsegi_elnok: 'erettsegi_elnok',
+    emelt_erettsegi_vb_tag: 'emelt_erettsegi_vb_tag',
+    emelt_erettsegi_vb_elnok: 'emelt_erettsegi_vb_elnok',
+    erettsegi_vizsgaztato: 'erettsegi_vizsgaztato',
+    tanterviro: 'tanterviro',
+    tananyagfejleszto: 'tananyagfejleszto',
+    tankonyv_jegyzetiro: 'tankonyv_jegyzetiro',
+    szakmai_tisztsegviselo: 'szakmai_tisztsegviselo'
+  };
+
+  export type OktatoEgyebTevScalarFieldEnum = (typeof OktatoEgyebTevScalarFieldEnum)[keyof typeof OktatoEgyebTevScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -47312,6 +48823,7 @@ export namespace Prisma {
     dobbanto?: DobbantoListRelationFilter
     muhelyiskola?: MuhelyiskolaListRelationFilter
     users?: UserListRelationFilter
+    OktatoEgyebTev?: OktatoEgyebTevListRelationFilter
   }
 
   export type AlapadatokOrderByWithRelationInput = {
@@ -47342,6 +48854,7 @@ export namespace Prisma {
     dobbanto?: DobbantoOrderByRelationAggregateInput
     muhelyiskola?: MuhelyiskolaOrderByRelationAggregateInput
     users?: UserOrderByRelationAggregateInput
+    OktatoEgyebTev?: OktatoEgyebTevOrderByRelationAggregateInput
   }
 
   export type AlapadatokWhereUniqueInput = Prisma.AtLeast<{
@@ -47375,6 +48888,7 @@ export namespace Prisma {
     dobbanto?: DobbantoListRelationFilter
     muhelyiskola?: MuhelyiskolaListRelationFilter
     users?: UserListRelationFilter
+    OktatoEgyebTev?: OktatoEgyebTevListRelationFilter
   }, "id">
 
   export type AlapadatokOrderByWithAggregationInput = {
@@ -50237,6 +51751,143 @@ export namespace Prisma {
     updatedBy?: StringNullableWithAggregatesFilter<"Muhelyiskola"> | string | null
   }
 
+  export type OktatoEgyebTevWhereInput = {
+    AND?: OktatoEgyebTevWhereInput | OktatoEgyebTevWhereInput[]
+    OR?: OktatoEgyebTevWhereInput[]
+    NOT?: OktatoEgyebTevWhereInput | OktatoEgyebTevWhereInput[]
+    id?: UuidFilter<"OktatoEgyebTev"> | string
+    alapadatok_id?: UuidFilter<"OktatoEgyebTev"> | string
+    tanev_kezdete?: IntFilter<"OktatoEgyebTev"> | number
+    createAt?: DateTimeFilter<"OktatoEgyebTev"> | Date | string
+    createBy?: StringNullableFilter<"OktatoEgyebTev"> | string | null
+    updatedAt?: DateTimeNullableFilter<"OktatoEgyebTev"> | Date | string | null
+    updatedBy?: StringNullableFilter<"OktatoEgyebTev"> | string | null
+    szakkepzesi_szakerto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    koznevelesi_szakerto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    koznevelesi_szaktanacsado?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    vizsgafelugyelo?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    agazati_alapvizsgan_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    feladatkeszito_lektor?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    erettsegi_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    emelt_erettsegi_vb_tag?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    emelt_erettsegi_vb_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    erettsegi_vizsgaztato?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    tanterviro?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    tananyagfejleszto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    tankonyv_jegyzetiro?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    szakmai_tisztsegviselo?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
+  }
+
+  export type OktatoEgyebTevOrderByWithRelationInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
+    szakkepzesi_szakerto?: SortOrderInput | SortOrder
+    koznevelesi_szakerto?: SortOrderInput | SortOrder
+    koznevelesi_szaktanacsado?: SortOrderInput | SortOrder
+    vizsgafelugyelo?: SortOrderInput | SortOrder
+    agazati_alapvizsgan_elnok?: SortOrderInput | SortOrder
+    feladatkeszito_lektor?: SortOrderInput | SortOrder
+    erettsegi_elnok?: SortOrderInput | SortOrder
+    emelt_erettsegi_vb_tag?: SortOrderInput | SortOrder
+    emelt_erettsegi_vb_elnok?: SortOrderInput | SortOrder
+    erettsegi_vizsgaztato?: SortOrderInput | SortOrder
+    tanterviro?: SortOrderInput | SortOrder
+    tananyagfejleszto?: SortOrderInput | SortOrder
+    tankonyv_jegyzetiro?: SortOrderInput | SortOrder
+    szakmai_tisztsegviselo?: SortOrderInput | SortOrder
+    alapadatok?: AlapadatokOrderByWithRelationInput
+  }
+
+  export type OktatoEgyebTevWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: OktatoEgyebTevWhereInput | OktatoEgyebTevWhereInput[]
+    OR?: OktatoEgyebTevWhereInput[]
+    NOT?: OktatoEgyebTevWhereInput | OktatoEgyebTevWhereInput[]
+    alapadatok_id?: UuidFilter<"OktatoEgyebTev"> | string
+    tanev_kezdete?: IntFilter<"OktatoEgyebTev"> | number
+    createAt?: DateTimeFilter<"OktatoEgyebTev"> | Date | string
+    createBy?: StringNullableFilter<"OktatoEgyebTev"> | string | null
+    updatedAt?: DateTimeNullableFilter<"OktatoEgyebTev"> | Date | string | null
+    updatedBy?: StringNullableFilter<"OktatoEgyebTev"> | string | null
+    szakkepzesi_szakerto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    koznevelesi_szakerto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    koznevelesi_szaktanacsado?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    vizsgafelugyelo?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    agazati_alapvizsgan_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    feladatkeszito_lektor?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    erettsegi_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    emelt_erettsegi_vb_tag?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    emelt_erettsegi_vb_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    erettsegi_vizsgaztato?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    tanterviro?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    tananyagfejleszto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    tankonyv_jegyzetiro?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    szakmai_tisztsegviselo?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
+  }, "id">
+
+  export type OktatoEgyebTevOrderByWithAggregationInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
+    szakkepzesi_szakerto?: SortOrderInput | SortOrder
+    koznevelesi_szakerto?: SortOrderInput | SortOrder
+    koznevelesi_szaktanacsado?: SortOrderInput | SortOrder
+    vizsgafelugyelo?: SortOrderInput | SortOrder
+    agazati_alapvizsgan_elnok?: SortOrderInput | SortOrder
+    feladatkeszito_lektor?: SortOrderInput | SortOrder
+    erettsegi_elnok?: SortOrderInput | SortOrder
+    emelt_erettsegi_vb_tag?: SortOrderInput | SortOrder
+    emelt_erettsegi_vb_elnok?: SortOrderInput | SortOrder
+    erettsegi_vizsgaztato?: SortOrderInput | SortOrder
+    tanterviro?: SortOrderInput | SortOrder
+    tananyagfejleszto?: SortOrderInput | SortOrder
+    tankonyv_jegyzetiro?: SortOrderInput | SortOrder
+    szakmai_tisztsegviselo?: SortOrderInput | SortOrder
+    _count?: OktatoEgyebTevCountOrderByAggregateInput
+    _avg?: OktatoEgyebTevAvgOrderByAggregateInput
+    _max?: OktatoEgyebTevMaxOrderByAggregateInput
+    _min?: OktatoEgyebTevMinOrderByAggregateInput
+    _sum?: OktatoEgyebTevSumOrderByAggregateInput
+  }
+
+  export type OktatoEgyebTevScalarWhereWithAggregatesInput = {
+    AND?: OktatoEgyebTevScalarWhereWithAggregatesInput | OktatoEgyebTevScalarWhereWithAggregatesInput[]
+    OR?: OktatoEgyebTevScalarWhereWithAggregatesInput[]
+    NOT?: OktatoEgyebTevScalarWhereWithAggregatesInput | OktatoEgyebTevScalarWhereWithAggregatesInput[]
+    id?: UuidWithAggregatesFilter<"OktatoEgyebTev"> | string
+    alapadatok_id?: UuidWithAggregatesFilter<"OktatoEgyebTev"> | string
+    tanev_kezdete?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
+    createAt?: DateTimeWithAggregatesFilter<"OktatoEgyebTev"> | Date | string
+    createBy?: StringNullableWithAggregatesFilter<"OktatoEgyebTev"> | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"OktatoEgyebTev"> | Date | string | null
+    updatedBy?: StringNullableWithAggregatesFilter<"OktatoEgyebTev"> | string | null
+    szakkepzesi_szakerto?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+    koznevelesi_szakerto?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+    koznevelesi_szaktanacsado?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+    vizsgafelugyelo?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+    agazati_alapvizsgan_elnok?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+    feladatkeszito_lektor?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+    erettsegi_elnok?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+    emelt_erettsegi_vb_tag?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+    emelt_erettsegi_vb_elnok?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+    erettsegi_vizsgaztato?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+    tanterviro?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+    tananyagfejleszto?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+    tankonyv_jegyzetiro?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+    szakmai_tisztsegviselo?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+  }
+
   export type SessionCreateInput = {
     id: string
     sid: string
@@ -50630,6 +52281,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateInput = {
@@ -50660,6 +52312,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUpdateInput = {
@@ -50690,6 +52343,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateInput = {
@@ -50720,6 +52374,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateManyInput = {
@@ -53950,6 +55605,173 @@ export namespace Prisma {
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type OktatoEgyebTevCreateInput = {
+    id?: string
+    tanev_kezdete: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    szakkepzesi_szakerto?: number | null
+    koznevelesi_szakerto?: number | null
+    koznevelesi_szaktanacsado?: number | null
+    vizsgafelugyelo?: number | null
+    agazati_alapvizsgan_elnok?: number | null
+    feladatkeszito_lektor?: number | null
+    erettsegi_elnok?: number | null
+    emelt_erettsegi_vb_tag?: number | null
+    emelt_erettsegi_vb_elnok?: number | null
+    erettsegi_vizsgaztato?: number | null
+    tanterviro?: number | null
+    tananyagfejleszto?: number | null
+    tankonyv_jegyzetiro?: number | null
+    szakmai_tisztsegviselo?: number | null
+    alapadatok: AlapadatokCreateNestedOneWithoutOktatoEgyebTevInput
+  }
+
+  export type OktatoEgyebTevUncheckedCreateInput = {
+    id?: string
+    alapadatok_id: string
+    tanev_kezdete: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    szakkepzesi_szakerto?: number | null
+    koznevelesi_szakerto?: number | null
+    koznevelesi_szaktanacsado?: number | null
+    vizsgafelugyelo?: number | null
+    agazati_alapvizsgan_elnok?: number | null
+    feladatkeszito_lektor?: number | null
+    erettsegi_elnok?: number | null
+    emelt_erettsegi_vb_tag?: number | null
+    emelt_erettsegi_vb_elnok?: number | null
+    erettsegi_vizsgaztato?: number | null
+    tanterviro?: number | null
+    tananyagfejleszto?: number | null
+    tankonyv_jegyzetiro?: number | null
+    szakmai_tisztsegviselo?: number | null
+  }
+
+  export type OktatoEgyebTevUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    szakkepzesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
+    koznevelesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
+    koznevelesi_szaktanacsado?: NullableIntFieldUpdateOperationsInput | number | null
+    vizsgafelugyelo?: NullableIntFieldUpdateOperationsInput | number | null
+    agazati_alapvizsgan_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    feladatkeszito_lektor?: NullableIntFieldUpdateOperationsInput | number | null
+    erettsegi_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    emelt_erettsegi_vb_tag?: NullableIntFieldUpdateOperationsInput | number | null
+    emelt_erettsegi_vb_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    erettsegi_vizsgaztato?: NullableIntFieldUpdateOperationsInput | number | null
+    tanterviro?: NullableIntFieldUpdateOperationsInput | number | null
+    tananyagfejleszto?: NullableIntFieldUpdateOperationsInput | number | null
+    tankonyv_jegyzetiro?: NullableIntFieldUpdateOperationsInput | number | null
+    szakmai_tisztsegviselo?: NullableIntFieldUpdateOperationsInput | number | null
+    alapadatok?: AlapadatokUpdateOneRequiredWithoutOktatoEgyebTevNestedInput
+  }
+
+  export type OktatoEgyebTevUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    szakkepzesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
+    koznevelesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
+    koznevelesi_szaktanacsado?: NullableIntFieldUpdateOperationsInput | number | null
+    vizsgafelugyelo?: NullableIntFieldUpdateOperationsInput | number | null
+    agazati_alapvizsgan_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    feladatkeszito_lektor?: NullableIntFieldUpdateOperationsInput | number | null
+    erettsegi_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    emelt_erettsegi_vb_tag?: NullableIntFieldUpdateOperationsInput | number | null
+    emelt_erettsegi_vb_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    erettsegi_vizsgaztato?: NullableIntFieldUpdateOperationsInput | number | null
+    tanterviro?: NullableIntFieldUpdateOperationsInput | number | null
+    tananyagfejleszto?: NullableIntFieldUpdateOperationsInput | number | null
+    tankonyv_jegyzetiro?: NullableIntFieldUpdateOperationsInput | number | null
+    szakmai_tisztsegviselo?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type OktatoEgyebTevCreateManyInput = {
+    id?: string
+    alapadatok_id: string
+    tanev_kezdete: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    szakkepzesi_szakerto?: number | null
+    koznevelesi_szakerto?: number | null
+    koznevelesi_szaktanacsado?: number | null
+    vizsgafelugyelo?: number | null
+    agazati_alapvizsgan_elnok?: number | null
+    feladatkeszito_lektor?: number | null
+    erettsegi_elnok?: number | null
+    emelt_erettsegi_vb_tag?: number | null
+    emelt_erettsegi_vb_elnok?: number | null
+    erettsegi_vizsgaztato?: number | null
+    tanterviro?: number | null
+    tananyagfejleszto?: number | null
+    tankonyv_jegyzetiro?: number | null
+    szakmai_tisztsegviselo?: number | null
+  }
+
+  export type OktatoEgyebTevUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    szakkepzesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
+    koznevelesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
+    koznevelesi_szaktanacsado?: NullableIntFieldUpdateOperationsInput | number | null
+    vizsgafelugyelo?: NullableIntFieldUpdateOperationsInput | number | null
+    agazati_alapvizsgan_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    feladatkeszito_lektor?: NullableIntFieldUpdateOperationsInput | number | null
+    erettsegi_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    emelt_erettsegi_vb_tag?: NullableIntFieldUpdateOperationsInput | number | null
+    emelt_erettsegi_vb_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    erettsegi_vizsgaztato?: NullableIntFieldUpdateOperationsInput | number | null
+    tanterviro?: NullableIntFieldUpdateOperationsInput | number | null
+    tananyagfejleszto?: NullableIntFieldUpdateOperationsInput | number | null
+    tankonyv_jegyzetiro?: NullableIntFieldUpdateOperationsInput | number | null
+    szakmai_tisztsegviselo?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type OktatoEgyebTevUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    szakkepzesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
+    koznevelesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
+    koznevelesi_szaktanacsado?: NullableIntFieldUpdateOperationsInput | number | null
+    vizsgafelugyelo?: NullableIntFieldUpdateOperationsInput | number | null
+    agazati_alapvizsgan_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    feladatkeszito_lektor?: NullableIntFieldUpdateOperationsInput | number | null
+    erettsegi_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    emelt_erettsegi_vb_tag?: NullableIntFieldUpdateOperationsInput | number | null
+    emelt_erettsegi_vb_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    erettsegi_vizsgaztato?: NullableIntFieldUpdateOperationsInput | number | null
+    tanterviro?: NullableIntFieldUpdateOperationsInput | number | null
+    tananyagfejleszto?: NullableIntFieldUpdateOperationsInput | number | null
+    tankonyv_jegyzetiro?: NullableIntFieldUpdateOperationsInput | number | null
+    szakmai_tisztsegviselo?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -54598,6 +56420,12 @@ export namespace Prisma {
     none?: UserWhereInput
   }
 
+  export type OktatoEgyebTevListRelationFilter = {
+    every?: OktatoEgyebTevWhereInput
+    some?: OktatoEgyebTevWhereInput
+    none?: OktatoEgyebTevWhereInput
+  }
+
   export type Felvettek_SzamaOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -54691,6 +56519,10 @@ export namespace Prisma {
   }
 
   export type UserOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type OktatoEgyebTevOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -56489,6 +58321,114 @@ export namespace Prisma {
     muhelyiskola_tanuloi_osszletszam?: SortOrder
   }
 
+  export type OktatoEgyebTevCountOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+    szakkepzesi_szakerto?: SortOrder
+    koznevelesi_szakerto?: SortOrder
+    koznevelesi_szaktanacsado?: SortOrder
+    vizsgafelugyelo?: SortOrder
+    agazati_alapvizsgan_elnok?: SortOrder
+    feladatkeszito_lektor?: SortOrder
+    erettsegi_elnok?: SortOrder
+    emelt_erettsegi_vb_tag?: SortOrder
+    emelt_erettsegi_vb_elnok?: SortOrder
+    erettsegi_vizsgaztato?: SortOrder
+    tanterviro?: SortOrder
+    tananyagfejleszto?: SortOrder
+    tankonyv_jegyzetiro?: SortOrder
+    szakmai_tisztsegviselo?: SortOrder
+  }
+
+  export type OktatoEgyebTevAvgOrderByAggregateInput = {
+    tanev_kezdete?: SortOrder
+    szakkepzesi_szakerto?: SortOrder
+    koznevelesi_szakerto?: SortOrder
+    koznevelesi_szaktanacsado?: SortOrder
+    vizsgafelugyelo?: SortOrder
+    agazati_alapvizsgan_elnok?: SortOrder
+    feladatkeszito_lektor?: SortOrder
+    erettsegi_elnok?: SortOrder
+    emelt_erettsegi_vb_tag?: SortOrder
+    emelt_erettsegi_vb_elnok?: SortOrder
+    erettsegi_vizsgaztato?: SortOrder
+    tanterviro?: SortOrder
+    tananyagfejleszto?: SortOrder
+    tankonyv_jegyzetiro?: SortOrder
+    szakmai_tisztsegviselo?: SortOrder
+  }
+
+  export type OktatoEgyebTevMaxOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+    szakkepzesi_szakerto?: SortOrder
+    koznevelesi_szakerto?: SortOrder
+    koznevelesi_szaktanacsado?: SortOrder
+    vizsgafelugyelo?: SortOrder
+    agazati_alapvizsgan_elnok?: SortOrder
+    feladatkeszito_lektor?: SortOrder
+    erettsegi_elnok?: SortOrder
+    emelt_erettsegi_vb_tag?: SortOrder
+    emelt_erettsegi_vb_elnok?: SortOrder
+    erettsegi_vizsgaztato?: SortOrder
+    tanterviro?: SortOrder
+    tananyagfejleszto?: SortOrder
+    tankonyv_jegyzetiro?: SortOrder
+    szakmai_tisztsegviselo?: SortOrder
+  }
+
+  export type OktatoEgyebTevMinOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+    szakkepzesi_szakerto?: SortOrder
+    koznevelesi_szakerto?: SortOrder
+    koznevelesi_szaktanacsado?: SortOrder
+    vizsgafelugyelo?: SortOrder
+    agazati_alapvizsgan_elnok?: SortOrder
+    feladatkeszito_lektor?: SortOrder
+    erettsegi_elnok?: SortOrder
+    emelt_erettsegi_vb_tag?: SortOrder
+    emelt_erettsegi_vb_elnok?: SortOrder
+    erettsegi_vizsgaztato?: SortOrder
+    tanterviro?: SortOrder
+    tananyagfejleszto?: SortOrder
+    tankonyv_jegyzetiro?: SortOrder
+    szakmai_tisztsegviselo?: SortOrder
+  }
+
+  export type OktatoEgyebTevSumOrderByAggregateInput = {
+    tanev_kezdete?: SortOrder
+    szakkepzesi_szakerto?: SortOrder
+    koznevelesi_szakerto?: SortOrder
+    koznevelesi_szaktanacsado?: SortOrder
+    vizsgafelugyelo?: SortOrder
+    agazati_alapvizsgan_elnok?: SortOrder
+    feladatkeszito_lektor?: SortOrder
+    erettsegi_elnok?: SortOrder
+    emelt_erettsegi_vb_tag?: SortOrder
+    emelt_erettsegi_vb_elnok?: SortOrder
+    erettsegi_vizsgaztato?: SortOrder
+    tanterviro?: SortOrder
+    tananyagfejleszto?: SortOrder
+    tankonyv_jegyzetiro?: SortOrder
+    szakmai_tisztsegviselo?: SortOrder
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -56881,6 +58821,13 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
   }
 
+  export type OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<OktatoEgyebTevCreateWithoutAlapadatokInput, OktatoEgyebTevUncheckedCreateWithoutAlapadatokInput> | OktatoEgyebTevCreateWithoutAlapadatokInput[] | OktatoEgyebTevUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: OktatoEgyebTevCreateOrConnectWithoutAlapadatokInput | OktatoEgyebTevCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: OktatoEgyebTevCreateManyAlapadatokInputEnvelope
+    connect?: OktatoEgyebTevWhereUniqueInput | OktatoEgyebTevWhereUniqueInput[]
+  }
+
   export type Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput = {
     create?: XOR<Felvettek_SzamaCreateWithoutAlapadatokInput, Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput> | Felvettek_SzamaCreateWithoutAlapadatokInput[] | Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput[]
     connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput | Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput[]
@@ -57047,6 +58994,13 @@ export namespace Prisma {
     connectOrCreate?: UserCreateOrConnectWithoutAlapadatokInput | UserCreateOrConnectWithoutAlapadatokInput[]
     createMany?: UserCreateManyAlapadatokInputEnvelope
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  }
+
+  export type OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<OktatoEgyebTevCreateWithoutAlapadatokInput, OktatoEgyebTevUncheckedCreateWithoutAlapadatokInput> | OktatoEgyebTevCreateWithoutAlapadatokInput[] | OktatoEgyebTevUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: OktatoEgyebTevCreateOrConnectWithoutAlapadatokInput | OktatoEgyebTevCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: OktatoEgyebTevCreateManyAlapadatokInputEnvelope
+    connect?: OktatoEgyebTevWhereUniqueInput | OktatoEgyebTevWhereUniqueInput[]
   }
 
   export type Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput = {
@@ -57385,6 +59339,20 @@ export namespace Prisma {
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
+  export type OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<OktatoEgyebTevCreateWithoutAlapadatokInput, OktatoEgyebTevUncheckedCreateWithoutAlapadatokInput> | OktatoEgyebTevCreateWithoutAlapadatokInput[] | OktatoEgyebTevUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: OktatoEgyebTevCreateOrConnectWithoutAlapadatokInput | OktatoEgyebTevCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: OktatoEgyebTevUpsertWithWhereUniqueWithoutAlapadatokInput | OktatoEgyebTevUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: OktatoEgyebTevCreateManyAlapadatokInputEnvelope
+    set?: OktatoEgyebTevWhereUniqueInput | OktatoEgyebTevWhereUniqueInput[]
+    disconnect?: OktatoEgyebTevWhereUniqueInput | OktatoEgyebTevWhereUniqueInput[]
+    delete?: OktatoEgyebTevWhereUniqueInput | OktatoEgyebTevWhereUniqueInput[]
+    connect?: OktatoEgyebTevWhereUniqueInput | OktatoEgyebTevWhereUniqueInput[]
+    update?: OktatoEgyebTevUpdateWithWhereUniqueWithoutAlapadatokInput | OktatoEgyebTevUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: OktatoEgyebTevUpdateManyWithWhereWithoutAlapadatokInput | OktatoEgyebTevUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: OktatoEgyebTevScalarWhereInput | OktatoEgyebTevScalarWhereInput[]
+  }
+
   export type Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput = {
     create?: XOR<Felvettek_SzamaCreateWithoutAlapadatokInput, Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput> | Felvettek_SzamaCreateWithoutAlapadatokInput[] | Felvettek_SzamaUncheckedCreateWithoutAlapadatokInput[]
     connectOrCreate?: Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput | Felvettek_SzamaCreateOrConnectWithoutAlapadatokInput[]
@@ -57719,6 +59687,20 @@ export namespace Prisma {
     update?: UserUpdateWithWhereUniqueWithoutAlapadatokInput | UserUpdateWithWhereUniqueWithoutAlapadatokInput[]
     updateMany?: UserUpdateManyWithWhereWithoutAlapadatokInput | UserUpdateManyWithWhereWithoutAlapadatokInput[]
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  }
+
+  export type OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<OktatoEgyebTevCreateWithoutAlapadatokInput, OktatoEgyebTevUncheckedCreateWithoutAlapadatokInput> | OktatoEgyebTevCreateWithoutAlapadatokInput[] | OktatoEgyebTevUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: OktatoEgyebTevCreateOrConnectWithoutAlapadatokInput | OktatoEgyebTevCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: OktatoEgyebTevUpsertWithWhereUniqueWithoutAlapadatokInput | OktatoEgyebTevUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: OktatoEgyebTevCreateManyAlapadatokInputEnvelope
+    set?: OktatoEgyebTevWhereUniqueInput | OktatoEgyebTevWhereUniqueInput[]
+    disconnect?: OktatoEgyebTevWhereUniqueInput | OktatoEgyebTevWhereUniqueInput[]
+    delete?: OktatoEgyebTevWhereUniqueInput | OktatoEgyebTevWhereUniqueInput[]
+    connect?: OktatoEgyebTevWhereUniqueInput | OktatoEgyebTevWhereUniqueInput[]
+    update?: OktatoEgyebTevUpdateWithWhereUniqueWithoutAlapadatokInput | OktatoEgyebTevUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: OktatoEgyebTevUpdateManyWithWhereWithoutAlapadatokInput | OktatoEgyebTevUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: OktatoEgyebTevScalarWhereInput | OktatoEgyebTevScalarWhereInput[]
   }
 
   export type Felvettek_SzamaCreateNestedManyWithoutSzakiranyInput = {
@@ -59291,6 +61273,20 @@ export namespace Prisma {
     update?: XOR<XOR<AlapadatokUpdateToOneWithWhereWithoutMuhelyiskolaInput, AlapadatokUpdateWithoutMuhelyiskolaInput>, AlapadatokUncheckedUpdateWithoutMuhelyiskolaInput>
   }
 
+  export type AlapadatokCreateNestedOneWithoutOktatoEgyebTevInput = {
+    create?: XOR<AlapadatokCreateWithoutOktatoEgyebTevInput, AlapadatokUncheckedCreateWithoutOktatoEgyebTevInput>
+    connectOrCreate?: AlapadatokCreateOrConnectWithoutOktatoEgyebTevInput
+    connect?: AlapadatokWhereUniqueInput
+  }
+
+  export type AlapadatokUpdateOneRequiredWithoutOktatoEgyebTevNestedInput = {
+    create?: XOR<AlapadatokCreateWithoutOktatoEgyebTevInput, AlapadatokUncheckedCreateWithoutOktatoEgyebTevInput>
+    connectOrCreate?: AlapadatokCreateOrConnectWithoutOktatoEgyebTevInput
+    upsert?: AlapadatokUpsertWithoutOktatoEgyebTevInput
+    connect?: AlapadatokWhereUniqueInput
+    update?: XOR<XOR<AlapadatokUpdateToOneWithWhereWithoutOktatoEgyebTevInput, AlapadatokUpdateWithoutOktatoEgyebTevInput>, AlapadatokUncheckedUpdateWithoutOktatoEgyebTevInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -59685,6 +61681,7 @@ export namespace Prisma {
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutUsersInput = {
@@ -59714,6 +61711,7 @@ export namespace Prisma {
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutUsersInput = {
@@ -59822,6 +61820,7 @@ export namespace Prisma {
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutUsersInput = {
@@ -59851,6 +61850,7 @@ export namespace Prisma {
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type TableAccessCreateWithoutTableInput = {
@@ -61121,6 +63121,62 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type OktatoEgyebTevCreateWithoutAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    szakkepzesi_szakerto?: number | null
+    koznevelesi_szakerto?: number | null
+    koznevelesi_szaktanacsado?: number | null
+    vizsgafelugyelo?: number | null
+    agazati_alapvizsgan_elnok?: number | null
+    feladatkeszito_lektor?: number | null
+    erettsegi_elnok?: number | null
+    emelt_erettsegi_vb_tag?: number | null
+    emelt_erettsegi_vb_elnok?: number | null
+    erettsegi_vizsgaztato?: number | null
+    tanterviro?: number | null
+    tananyagfejleszto?: number | null
+    tankonyv_jegyzetiro?: number | null
+    szakmai_tisztsegviselo?: number | null
+  }
+
+  export type OktatoEgyebTevUncheckedCreateWithoutAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    szakkepzesi_szakerto?: number | null
+    koznevelesi_szakerto?: number | null
+    koznevelesi_szaktanacsado?: number | null
+    vizsgafelugyelo?: number | null
+    agazati_alapvizsgan_elnok?: number | null
+    feladatkeszito_lektor?: number | null
+    erettsegi_elnok?: number | null
+    emelt_erettsegi_vb_tag?: number | null
+    emelt_erettsegi_vb_elnok?: number | null
+    erettsegi_vizsgaztato?: number | null
+    tanterviro?: number | null
+    tananyagfejleszto?: number | null
+    tankonyv_jegyzetiro?: number | null
+    szakmai_tisztsegviselo?: number | null
+  }
+
+  export type OktatoEgyebTevCreateOrConnectWithoutAlapadatokInput = {
+    where: OktatoEgyebTevWhereUniqueInput
+    create: XOR<OktatoEgyebTevCreateWithoutAlapadatokInput, OktatoEgyebTevUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type OktatoEgyebTevCreateManyAlapadatokInputEnvelope = {
+    data: OktatoEgyebTevCreateManyAlapadatokInput | OktatoEgyebTevCreateManyAlapadatokInput[]
+    skipDuplicates?: boolean
+  }
+
   export type Felvettek_SzamaUpsertWithWhereUniqueWithoutAlapadatokInput = {
     where: Felvettek_SzamaWhereUniqueInput
     update: XOR<Felvettek_SzamaUpdateWithoutAlapadatokInput, Felvettek_SzamaUncheckedUpdateWithoutAlapadatokInput>
@@ -62003,6 +64059,49 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     alapadatokId?: UuidNullableFilter<"User"> | string | null
     permissions?: IntFilter<"User"> | number
+  }
+
+  export type OktatoEgyebTevUpsertWithWhereUniqueWithoutAlapadatokInput = {
+    where: OktatoEgyebTevWhereUniqueInput
+    update: XOR<OktatoEgyebTevUpdateWithoutAlapadatokInput, OktatoEgyebTevUncheckedUpdateWithoutAlapadatokInput>
+    create: XOR<OktatoEgyebTevCreateWithoutAlapadatokInput, OktatoEgyebTevUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type OktatoEgyebTevUpdateWithWhereUniqueWithoutAlapadatokInput = {
+    where: OktatoEgyebTevWhereUniqueInput
+    data: XOR<OktatoEgyebTevUpdateWithoutAlapadatokInput, OktatoEgyebTevUncheckedUpdateWithoutAlapadatokInput>
+  }
+
+  export type OktatoEgyebTevUpdateManyWithWhereWithoutAlapadatokInput = {
+    where: OktatoEgyebTevScalarWhereInput
+    data: XOR<OktatoEgyebTevUpdateManyMutationInput, OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokInput>
+  }
+
+  export type OktatoEgyebTevScalarWhereInput = {
+    AND?: OktatoEgyebTevScalarWhereInput | OktatoEgyebTevScalarWhereInput[]
+    OR?: OktatoEgyebTevScalarWhereInput[]
+    NOT?: OktatoEgyebTevScalarWhereInput | OktatoEgyebTevScalarWhereInput[]
+    id?: UuidFilter<"OktatoEgyebTev"> | string
+    alapadatok_id?: UuidFilter<"OktatoEgyebTev"> | string
+    tanev_kezdete?: IntFilter<"OktatoEgyebTev"> | number
+    createAt?: DateTimeFilter<"OktatoEgyebTev"> | Date | string
+    createBy?: StringNullableFilter<"OktatoEgyebTev"> | string | null
+    updatedAt?: DateTimeNullableFilter<"OktatoEgyebTev"> | Date | string | null
+    updatedBy?: StringNullableFilter<"OktatoEgyebTev"> | string | null
+    szakkepzesi_szakerto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    koznevelesi_szakerto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    koznevelesi_szaktanacsado?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    vizsgafelugyelo?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    agazati_alapvizsgan_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    feladatkeszito_lektor?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    erettsegi_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    emelt_erettsegi_vb_tag?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    emelt_erettsegi_vb_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    erettsegi_vizsgaztato?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    tanterviro?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    tananyagfejleszto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    tankonyv_jegyzetiro?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    szakmai_tisztsegviselo?: IntNullableFilter<"OktatoEgyebTev"> | number | null
   }
 
   export type Felvettek_SzamaCreateWithoutSzakiranyInput = {
@@ -63176,6 +65275,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutAlapadatok_szakiranyInput = {
@@ -63205,6 +65305,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutAlapadatok_szakiranyInput = {
@@ -63283,6 +65384,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutAlapadatok_szakiranyInput = {
@@ -63312,6 +65414,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type SzakiranyUpsertWithoutAlapadatok_szakiranyInput = {
@@ -63380,6 +65483,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutAlapadatok_szakmaInput = {
@@ -63409,6 +65513,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutAlapadatok_szakmaInput = {
@@ -63489,6 +65594,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutAlapadatok_szakmaInput = {
@@ -63518,6 +65624,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type SzakmaUpsertWithoutAlapadatokInput = {
@@ -63588,6 +65695,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutTanulo_letszamInput = {
@@ -63617,6 +65725,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutTanulo_letszamInput = {
@@ -63730,6 +65839,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutTanulo_letszamInput = {
@@ -63759,6 +65869,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type SzakiranyUpsertWithoutTanulo_letszamInput = {
@@ -63868,6 +65979,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutTanar_letszamInput = {
@@ -63897,6 +66009,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutTanar_letszamInput = {
@@ -63942,6 +66055,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutTanar_letszamInput = {
@@ -63971,6 +66085,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateWithoutFelvettek_szamaInput = {
@@ -64000,6 +66115,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutFelvettek_szamaInput = {
@@ -64029,6 +66145,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutFelvettek_szamaInput = {
@@ -64142,6 +66259,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutFelvettek_szamaInput = {
@@ -64171,6 +66289,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type SzakiranyUpsertWithoutFelvettek_szamaInput = {
@@ -64280,6 +66399,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutKompetenciaInput = {
@@ -64309,6 +66429,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutKompetenciaInput = {
@@ -64354,6 +66475,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutKompetenciaInput = {
@@ -64383,6 +66505,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateWithoutEgyOktatoraJutoTanuloInput = {
@@ -64412,6 +66535,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutEgyOktatoraJutoTanuloInput = {
@@ -64441,6 +66565,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutEgyOktatoraJutoTanuloInput = {
@@ -64486,6 +66611,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutEgyOktatoraJutoTanuloInput = {
@@ -64515,6 +66641,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateWithoutTanugyiAdatokInput = {
@@ -64544,6 +66671,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutTanugyiAdatokInput = {
@@ -64573,6 +66701,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutTanugyiAdatokInput = {
@@ -64618,6 +66747,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutTanugyiAdatokInput = {
@@ -64647,6 +66777,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateWithoutAlkalmazottakMunkaugyInput = {
@@ -64676,6 +66807,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutAlkalmazottakMunkaugyInput = {
@@ -64705,6 +66837,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutAlkalmazottakMunkaugyInput = {
@@ -64750,6 +66883,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutAlkalmazottakMunkaugyInput = {
@@ -64779,6 +66913,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateWithoutSzakkepzesiMunkaszerzodesAranyaInput = {
@@ -64808,6 +66943,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutSzakkepzesiMunkaszerzodesAranyaInput = {
@@ -64837,6 +66973,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutSzakkepzesiMunkaszerzodesAranyaInput = {
@@ -64950,6 +67087,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutSzakkepzesiMunkaszerzodesAranyaInput = {
@@ -64979,6 +67117,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type SzakiranyUpsertWithoutSzakkepzesiMunkaszerzodesAranyaInput = {
@@ -65253,6 +67392,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutVersenyekInput = {
@@ -65282,6 +67422,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutVersenyekInput = {
@@ -65352,6 +67493,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutVersenyekInput = {
@@ -65381,6 +67523,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type VesenyNevekUpsertWithoutVersenyekInput = {
@@ -65441,6 +67584,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutNszfhMeresekInput = {
@@ -65470,6 +67614,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutNszfhMeresekInput = {
@@ -65515,6 +67660,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutNszfhMeresekInput = {
@@ -65544,6 +67690,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateWithoutElhelyezkedesInput = {
@@ -65573,6 +67720,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutElhelyezkedesInput = {
@@ -65602,6 +67750,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutElhelyezkedesInput = {
@@ -65715,6 +67864,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutElhelyezkedesInput = {
@@ -65744,6 +67894,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type SzakiranyUpsertWithoutElhelyezkedesInput = {
@@ -65853,6 +68004,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutElegedettsegInput = {
@@ -65882,6 +68034,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutElegedettsegInput = {
@@ -65995,6 +68148,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutElegedettsegInput = {
@@ -66024,6 +68178,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type SzakiranyUpsertWithoutElegedettsegInput = {
@@ -66133,6 +68288,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutVizsgaeredmenyekInput = {
@@ -66162,6 +68318,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutVizsgaeredmenyekInput = {
@@ -66275,6 +68432,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutVizsgaeredmenyekInput = {
@@ -66304,6 +68462,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type SzakiranyUpsertWithoutVizsgaeredmenyekInput = {
@@ -66413,6 +68572,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutSzakmaiVizsgaEredmenyekInput = {
@@ -66442,6 +68602,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutSzakmaiVizsgaEredmenyekInput = {
@@ -66555,6 +68716,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutSzakmaiVizsgaEredmenyekInput = {
@@ -66584,6 +68746,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type SzakiranyUpsertWithoutSzakmaiVizsgaEredmenyekInput = {
@@ -66693,6 +68856,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutLemorzsolodasInput = {
@@ -66722,6 +68886,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutLemorzsolodasInput = {
@@ -66835,6 +69000,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutLemorzsolodasInput = {
@@ -66864,6 +69030,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type SzakiranyUpsertWithoutLemorzsolodasInput = {
@@ -66973,6 +69140,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutElegedettsegMeresInput = {
@@ -67002,6 +69170,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutElegedettsegMeresInput = {
@@ -67047,6 +69216,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutElegedettsegMeresInput = {
@@ -67076,6 +69246,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateWithoutIntezmenyiNeveltsegInput = {
@@ -67105,6 +69276,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutIntezmenyiNeveltsegInput = {
@@ -67134,6 +69306,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutIntezmenyiNeveltsegInput = {
@@ -67179,6 +69352,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutIntezmenyiNeveltsegInput = {
@@ -67208,6 +69382,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateWithoutHhesHhhTanulokInput = {
@@ -67237,6 +69412,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutHhesHhhTanulokInput = {
@@ -67266,6 +69442,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutHhesHhhTanulokInput = {
@@ -67311,6 +69488,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutHhesHhhTanulokInput = {
@@ -67340,6 +69518,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateWithoutSajatosNevelesuTanulokInput = {
@@ -67369,6 +69548,7 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutSajatosNevelesuTanulokInput = {
@@ -67398,6 +69578,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutSajatosNevelesuTanulokInput = {
@@ -67443,6 +69624,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutSajatosNevelesuTanulokInput = {
@@ -67472,6 +69654,7 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateWithoutDobbantoInput = {
@@ -67501,6 +69684,7 @@ export namespace Prisma {
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutDobbantoInput = {
@@ -67530,6 +69714,7 @@ export namespace Prisma {
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutDobbantoInput = {
@@ -67575,6 +69760,7 @@ export namespace Prisma {
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutDobbantoInput = {
@@ -67604,6 +69790,7 @@ export namespace Prisma {
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateWithoutMuhelyiskolaInput = {
@@ -67633,6 +69820,7 @@ export namespace Prisma {
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokUncheckedCreateWithoutMuhelyiskolaInput = {
@@ -67662,6 +69850,7 @@ export namespace Prisma {
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
   export type AlapadatokCreateOrConnectWithoutMuhelyiskolaInput = {
@@ -67707,6 +69896,7 @@ export namespace Prisma {
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokUncheckedUpdateWithoutMuhelyiskolaInput = {
@@ -67735,6 +69925,143 @@ export namespace Prisma {
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
+    users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
+  }
+
+  export type AlapadatokCreateWithoutOktatoEgyebTevInput = {
+    id?: string
+    iskola_neve: string
+    intezmeny_tipus: string
+    felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
+    tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
+    szakkepzesiMunkaszerzodesAranya?: SzakkepzesiMunkaszerzodesAranyaCreateNestedManyWithoutAlapadatokInput
+    versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
+    nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
+    elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
+    elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
+    vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
+    lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
+    elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
+    dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
+    muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
+    users?: UserCreateNestedManyWithoutAlapadatokInput
+  }
+
+  export type AlapadatokUncheckedCreateWithoutOktatoEgyebTevInput = {
+    id?: string
+    iskola_neve: string
+    intezmeny_tipus: string
+    felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakkepzesiMunkaszerzodesAranya?: SzakkepzesiMunkaszerzodesAranyaUncheckedCreateNestedManyWithoutAlapadatokInput
+    versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
+    nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
+    elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
+    elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
+    lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
+    elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
+    dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
+    muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
+    users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+  }
+
+  export type AlapadatokCreateOrConnectWithoutOktatoEgyebTevInput = {
+    where: AlapadatokWhereUniqueInput
+    create: XOR<AlapadatokCreateWithoutOktatoEgyebTevInput, AlapadatokUncheckedCreateWithoutOktatoEgyebTevInput>
+  }
+
+  export type AlapadatokUpsertWithoutOktatoEgyebTevInput = {
+    update: XOR<AlapadatokUpdateWithoutOktatoEgyebTevInput, AlapadatokUncheckedUpdateWithoutOktatoEgyebTevInput>
+    create: XOR<AlapadatokCreateWithoutOktatoEgyebTevInput, AlapadatokUncheckedCreateWithoutOktatoEgyebTevInput>
+    where?: AlapadatokWhereInput
+  }
+
+  export type AlapadatokUpdateToOneWithWhereWithoutOktatoEgyebTevInput = {
+    where?: AlapadatokWhereInput
+    data: XOR<AlapadatokUpdateWithoutOktatoEgyebTevInput, AlapadatokUncheckedUpdateWithoutOktatoEgyebTevInput>
+  }
+
+  export type AlapadatokUpdateWithoutOktatoEgyebTevInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    iskola_neve?: StringFieldUpdateOperationsInput | string
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
+    tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
+    szakkepzesiMunkaszerzodesAranya?: SzakkepzesiMunkaszerzodesAranyaUpdateManyWithoutAlapadatokNestedInput
+    versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
+    nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
+    elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
+    elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
+    lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
+    elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
+    dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
+    muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
+    users?: UserUpdateManyWithoutAlapadatokNestedInput
+  }
+
+  export type AlapadatokUncheckedUpdateWithoutOktatoEgyebTevInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    iskola_neve?: StringFieldUpdateOperationsInput | string
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakkepzesiMunkaszerzodesAranya?: SzakkepzesiMunkaszerzodesAranyaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
+    elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
+    muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -68260,6 +70587,29 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string | null
     permissions?: number
+  }
+
+  export type OktatoEgyebTevCreateManyAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    szakkepzesi_szakerto?: number | null
+    koznevelesi_szakerto?: number | null
+    koznevelesi_szaktanacsado?: number | null
+    vizsgafelugyelo?: number | null
+    agazati_alapvizsgan_elnok?: number | null
+    feladatkeszito_lektor?: number | null
+    erettsegi_elnok?: number | null
+    emelt_erettsegi_vb_tag?: number | null
+    emelt_erettsegi_vb_elnok?: number | null
+    erettsegi_vizsgaztato?: number | null
+    tanterviro?: number | null
+    tananyagfejleszto?: number | null
+    tankonyv_jegyzetiro?: number | null
+    szakmai_tisztsegviselo?: number | null
   }
 
   export type Felvettek_SzamaUpdateWithoutAlapadatokInput = {
@@ -69476,6 +71826,75 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     permissions?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type OktatoEgyebTevUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    szakkepzesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
+    koznevelesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
+    koznevelesi_szaktanacsado?: NullableIntFieldUpdateOperationsInput | number | null
+    vizsgafelugyelo?: NullableIntFieldUpdateOperationsInput | number | null
+    agazati_alapvizsgan_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    feladatkeszito_lektor?: NullableIntFieldUpdateOperationsInput | number | null
+    erettsegi_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    emelt_erettsegi_vb_tag?: NullableIntFieldUpdateOperationsInput | number | null
+    emelt_erettsegi_vb_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    erettsegi_vizsgaztato?: NullableIntFieldUpdateOperationsInput | number | null
+    tanterviro?: NullableIntFieldUpdateOperationsInput | number | null
+    tananyagfejleszto?: NullableIntFieldUpdateOperationsInput | number | null
+    tankonyv_jegyzetiro?: NullableIntFieldUpdateOperationsInput | number | null
+    szakmai_tisztsegviselo?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type OktatoEgyebTevUncheckedUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    szakkepzesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
+    koznevelesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
+    koznevelesi_szaktanacsado?: NullableIntFieldUpdateOperationsInput | number | null
+    vizsgafelugyelo?: NullableIntFieldUpdateOperationsInput | number | null
+    agazati_alapvizsgan_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    feladatkeszito_lektor?: NullableIntFieldUpdateOperationsInput | number | null
+    erettsegi_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    emelt_erettsegi_vb_tag?: NullableIntFieldUpdateOperationsInput | number | null
+    emelt_erettsegi_vb_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    erettsegi_vizsgaztato?: NullableIntFieldUpdateOperationsInput | number | null
+    tanterviro?: NullableIntFieldUpdateOperationsInput | number | null
+    tananyagfejleszto?: NullableIntFieldUpdateOperationsInput | number | null
+    tankonyv_jegyzetiro?: NullableIntFieldUpdateOperationsInput | number | null
+    szakmai_tisztsegviselo?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    szakkepzesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
+    koznevelesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
+    koznevelesi_szaktanacsado?: NullableIntFieldUpdateOperationsInput | number | null
+    vizsgafelugyelo?: NullableIntFieldUpdateOperationsInput | number | null
+    agazati_alapvizsgan_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    feladatkeszito_lektor?: NullableIntFieldUpdateOperationsInput | number | null
+    erettsegi_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    emelt_erettsegi_vb_tag?: NullableIntFieldUpdateOperationsInput | number | null
+    emelt_erettsegi_vb_elnok?: NullableIntFieldUpdateOperationsInput | number | null
+    erettsegi_vizsgaztato?: NullableIntFieldUpdateOperationsInput | number | null
+    tanterviro?: NullableIntFieldUpdateOperationsInput | number | null
+    tananyagfejleszto?: NullableIntFieldUpdateOperationsInput | number | null
+    tankonyv_jegyzetiro?: NullableIntFieldUpdateOperationsInput | number | null
+    szakmai_tisztsegviselo?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type Felvettek_SzamaCreateManySzakiranyInput = {

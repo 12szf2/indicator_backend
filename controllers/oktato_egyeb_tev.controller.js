@@ -360,19 +360,25 @@ const router = e.Router();
  *                   example: "Internal server error"
  */
 router.get("/", async (req, res) => {
+  console.log("=== GET /oktato-egyeb-tev ===");
+  console.log("Request query:", req.query);
   try {
     const { tanev } = req.query;
 
     if (!tanev) {
+      console.log("Error: Missing tanev parameter");
       return res.status(400).json({ error: "tanev parameter is required" });
     }
 
     const tanev_int = parseInt(tanev);
     if (isNaN(tanev_int)) {
+      console.log("Error: Invalid tanev parameter:", tanev);
       return res.status(400).json({ error: "tanev must be a valid integer" });
     }
 
+    console.log("Calling getAll service with tanev:", tanev_int);
     const data = await getAll(tanev_int);
+    console.log("Service returned", data.length, "records");
     res.json(data);
   } catch (error) {
     console.error("Error fetching teachers' other activities data:", error);
@@ -435,20 +441,30 @@ router.get("/", async (req, res) => {
  *                   example: "Internal server error"
  */
 router.get("/alapadatok/:alapadatokId", async (req, res) => {
+  console.log("=== GET /oktato-egyeb-tev/alapadatok/:alapadatokId ===");
+  console.log("Request params:", req.params);
+  console.log("Request query:", req.query);
   try {
     const { alapadatokId } = req.params;
     const { tanev } = req.query;
 
     if (!tanev) {
+      console.log("Error: Missing tanev parameter");
       return res.status(400).json({ error: "tanev parameter is required" });
     }
 
     const tanev_int = parseInt(tanev);
     if (isNaN(tanev_int)) {
+      console.log("Error: Invalid tanev parameter:", tanev);
       return res.status(400).json({ error: "tanev must be a valid integer" });
     }
 
+    console.log("Calling getAllByAlapadatok service with:", {
+      alapadatokId,
+      tanev: tanev_int,
+    });
     const data = await getAllByAlapadatok(alapadatokId, tanev_int);
+    console.log("Service returned", data.length, "records");
     res.json(data);
   } catch (error) {
     console.error(
@@ -503,14 +519,19 @@ router.get("/alapadatok/:alapadatokId", async (req, res) => {
  *                   example: "Internal server error"
  */
 router.get("/:id", async (req, res) => {
+  console.log("=== GET /oktato-egyeb-tev/:id ===");
+  console.log("Request params:", req.params);
   try {
     const { id } = req.params;
+    console.log("Calling getById service with id:", id);
     const data = await getById(id);
 
     if (!data) {
+      console.log("Record not found for id:", id);
       return res.status(404).json({ error: "Record not found" });
     }
 
+    console.log("Service returned record:", data.id);
     res.json(data);
   } catch (error) {
     console.error(
@@ -562,18 +583,90 @@ router.get("/:id", async (req, res) => {
  *                   example: "Internal server error"
  */
 router.post("/", async (req, res) => {
+  console.log("=== POST /oktato-egyeb-tev ===");
+  console.log("Request body:", req.body);
+  console.log("Request headers:", req.headers);
   try {
-    const data = req.body;
+    const {
+      alapadatok_id,
+      tanev_kezdete,
+      szakkepzesi_szakerto,
+      koznevelesi_szakerto,
+      koznevelesi_szaktanacsado,
+      vizsgafelugyelo,
+      agazati_alapvizsgan_elnok,
+      feladatkeszito_lektor,
+      erettsegi_elnok,
+      emelt_erettsegi_vb_tag,
+      emelt_erettsegi_vb_elnok,
+      erettsegi_vizsgaztato,
+      tanterviro,
+      tananyagfejleszto,
+      tankonyv_jegyzetiro,
+      szakmai_tisztsegviselo,
+      createBy,
+    } = req.body;
 
-    if (!data.alapadatok_id || !data.tanev_kezdete) {
+    console.log("Extracted data:", {
+      alapadatok_id,
+      tanev_kezdete,
+      szakkepzesi_szakerto,
+      koznevelesi_szakerto,
+      koznevelesi_szaktanacsado,
+      vizsgafelugyelo,
+      agazati_alapvizsgan_elnok,
+      feladatkeszito_lektor,
+      erettsegi_elnok,
+      emelt_erettsegi_vb_tag,
+      emelt_erettsegi_vb_elnok,
+      erettsegi_vizsgaztato,
+      tanterviro,
+      tananyagfejleszto,
+      tankonyv_jegyzetiro,
+      szakmai_tisztsegviselo,
+      createBy,
+    });
+
+    // Validate required fields
+    if (!alapadatok_id || !tanev_kezdete) {
+      console.log("Validation error: Missing required fields");
       return res.status(400).json({
         error: "alapadatok_id and tanev_kezdete are required",
       });
     }
 
-    const newEntry = await create(data);
+    console.log("Calling create service...");
+    const newEntry = await create(
+      alapadatok_id,
+      tanev_kezdete,
+      szakkepzesi_szakerto,
+      koznevelesi_szakerto,
+      koznevelesi_szaktanacsado,
+      vizsgafelugyelo,
+      agazati_alapvizsgan_elnok,
+      feladatkeszito_lektor,
+      erettsegi_elnok,
+      emelt_erettsegi_vb_tag,
+      emelt_erettsegi_vb_elnok,
+      erettsegi_vizsgaztato,
+      tanterviro,
+      tananyagfejleszto,
+      tankonyv_jegyzetiro,
+      szakmai_tisztsegviselo,
+      createBy
+    );
+    console.log("Service created new record with id:", newEntry.id);
     res.status(201).json(newEntry);
   } catch (error) {
+    console.error("Create error details:", error);
+    // Handle validation errors from service
+    if (
+      error.message.includes("is required") ||
+      error.message.includes("must be a valid")
+    ) {
+      console.log("Validation error from service:", error.message);
+      return res.status(400).json({ error: error.message });
+    }
     console.error("Error creating teachers' other activities data:", error);
     res.status(500).json({ error: "Internal server error" });
   }
@@ -639,20 +732,74 @@ router.post("/", async (req, res) => {
  *                   example: "Internal server error"
  */
 router.put("/:id", async (req, res) => {
+  console.log("=== PUT /oktato-egyeb-tev/:id ===");
+  console.log("Request params:", req.params);
+  console.log("Request body:", req.body);
   try {
     const { id } = req.params;
-    const data = req.body;
+    const {
+      alapadatok_id,
+      tanev_kezdete,
+      szakkepzesi_szakerto,
+      koznevelesi_szakerto,
+      koznevelesi_szaktanacsado,
+      vizsgafelugyelo,
+      agazati_alapvizsgan_elnok,
+      feladatkeszito_lektor,
+      erettsegi_elnok,
+      emelt_erettsegi_vb_tag,
+      emelt_erettsegi_vb_elnok,
+      erettsegi_vizsgaztato,
+      tanterviro,
+      tananyagfejleszto,
+      tankonyv_jegyzetiro,
+      szakmai_tisztsegviselo,
+      updatedBy,
+    } = req.body;
 
-    if (!data.alapadatok_id || !data.tanev_kezdete) {
+    // Validate required fields
+    if (!alapadatok_id || !tanev_kezdete) {
+      console.log("Validation error: Missing required fields");
       return res.status(400).json({
         error: "alapadatok_id and tanev_kezdete are required",
       });
     }
 
-    const updatedEntry = await update(id, data);
+    console.log("Calling update service with id:", id);
+    const updatedEntry = await update(
+      id,
+      alapadatok_id,
+      tanev_kezdete,
+      szakkepzesi_szakerto,
+      koznevelesi_szakerto,
+      koznevelesi_szaktanacsado,
+      vizsgafelugyelo,
+      agazati_alapvizsgan_elnok,
+      feladatkeszito_lektor,
+      erettsegi_elnok,
+      emelt_erettsegi_vb_tag,
+      emelt_erettsegi_vb_elnok,
+      erettsegi_vizsgaztato,
+      tanterviro,
+      tananyagfejleszto,
+      tankonyv_jegyzetiro,
+      szakmai_tisztsegviselo,
+      updatedBy
+    );
+    console.log("Service updated record:", updatedEntry.id);
     res.json(updatedEntry);
   } catch (error) {
+    console.error("Update error details:", error);
+    // Handle validation errors from service
+    if (
+      error.message.includes("is required") ||
+      error.message.includes("must be a valid")
+    ) {
+      console.log("Validation error from service:", error.message);
+      return res.status(400).json({ error: error.message });
+    }
     if (error.code === "P2025") {
+      console.log("Record not found for update, id:", req.params.id);
       return res.status(404).json({ error: "Record not found" });
     }
     console.error("Error updating teachers' other activities data:", error);
@@ -710,15 +857,21 @@ router.put("/:id", async (req, res) => {
  *                   example: "Internal server error"
  */
 router.delete("/:id", async (req, res) => {
+  console.log("=== DELETE /oktato-egyeb-tev/:id ===");
+  console.log("Request params:", req.params);
   try {
     const { id } = req.params;
+    console.log("Calling deleteById service with id:", id);
     const deletedEntry = await deleteById(id);
+    console.log("Service deleted record:", deletedEntry.id);
     res.json({
       message: "Record deleted successfully",
       deletedRecord: deletedEntry,
     });
   } catch (error) {
+    console.error("Delete error details:", error);
     if (error.message === "Entry not found") {
+      console.log("Record not found for deletion, id:", req.params.id);
       return res.status(404).json({ error: "Record not found" });
     }
     console.error("Error deleting teachers' other activities data:", error);

@@ -58,121 +58,140 @@ export async function getById(id) {
   return data;
 }
 
-export async function create(data) {
+export async function create(
+  alapadatok_id,
+  tanev_kezdete,
+  szakkepzesi_szakerto = 0,
+  koznevelesi_szakerto = 0,
+  koznevelesi_szaktanacsado = 0,
+  vizsgafelugyelo = 0,
+  agazati_alapvizsgan_elnok = 0,
+  feladatkeszito_lektor = 0,
+  erettsegi_elnok = 0,
+  emelt_erettsegi_vb_tag = 0,
+  emelt_erettsegi_vb_elnok = 0,
+  erettsegi_vizsgaztato = 0,
+  tanterviro = 0,
+  tananyagfejleszto = 0,
+  tankonyv_jegyzetiro = 0,
+  szakmai_tisztsegviselo = 0,
+  createBy = null
+) {
+  // Validate required fields
+  if (!alapadatok_id) {
+    throw new Error("alapadatok_id is required");
+  }
+
+  if (!tanev_kezdete) {
+    throw new Error("tanev_kezdete is required");
+  }
+
+  // Validate tanev_kezdete is a valid year
+  const tanev_int = parseInt(tanev_kezdete);
+  if (isNaN(tanev_int) || tanev_int < 1900 || tanev_int > 2100) {
+    throw new Error("tanev_kezdete must be a valid year between 1900 and 2100");
+  }
+
   const newEntry = await prisma.oktatoEgyebTev.create({
     data: {
-      alapadatok_id: data.alapadatok_id,
-      tanev_kezdete: parseInt(data.tanev_kezdete),
-      szakkepzesi_szakerto: data.szakkepzesi_szakerto
-        ? parseInt(data.szakkepzesi_szakerto)
-        : null,
-      koznevelesi_szakerto: data.koznevelesi_szakerto
-        ? parseInt(data.koznevelesi_szakerto)
-        : null,
-      koznevelesi_szaktanacsado: data.koznevelesi_szaktanacsado
-        ? parseInt(data.koznevelesi_szaktanacsado)
-        : null,
-      vizsgafelugyelo: data.vizsgafelugyelo
-        ? parseInt(data.vizsgafelugyelo)
-        : null,
-      agazati_alapvizsgan_elnok: data.agazati_alapvizsgan_elnok
-        ? parseInt(data.agazati_alapvizsgan_elnok)
-        : null,
-      feladatkeszito_lektor: data.feladatkeszito_lektor
-        ? parseInt(data.feladatkeszito_lektor)
-        : null,
-      erettsegi_elnok: data.erettsegi_elnok
-        ? parseInt(data.erettsegi_elnok)
-        : null,
-      emelt_erettsegi_vb_tag: data.emelt_erettsegi_vb_tag
-        ? parseInt(data.emelt_erettsegi_vb_tag)
-        : null,
-      emelt_erettsegi_vb_elnok: data.emelt_erettsegi_vb_elnok
-        ? parseInt(data.emelt_erettsegi_vb_elnok)
-        : null,
-      erettsegi_vizsgaztato: data.erettsegi_vizsgaztato
-        ? parseInt(data.erettsegi_vizsgaztato)
-        : null,
-      tanterviro: data.tanterviro ? parseInt(data.tanterviro) : null,
-      tananyagfejleszto: data.tananyagfejleszto
-        ? parseInt(data.tananyagfejleszto)
-        : null,
-      tankonyv_jegyzetiro: data.tankonyv_jegyzetiro
-        ? parseInt(data.tankonyv_jegyzetiro)
-        : null,
-      szakmai_tisztsegviselo: data.szakmai_tisztsegviselo
-        ? parseInt(data.szakmai_tisztsegviselo)
-        : null,
-      createBy: data.createBy || null,
+      alapadatok_id,
+      tanev_kezdete: tanev_int,
+      szakkepzesi_szakerto: parseInt(szakkepzesi_szakerto) || 0,
+      koznevelesi_szakerto: parseInt(koznevelesi_szakerto) || 0,
+      koznevelesi_szaktanacsado: parseInt(koznevelesi_szaktanacsado) || 0,
+      vizsgafelugyelo: parseInt(vizsgafelugyelo) || 0,
+      agazati_alapvizsgan_elnok: parseInt(agazati_alapvizsgan_elnok) || 0,
+      feladatkeszito_lektor: parseInt(feladatkeszito_lektor) || 0,
+      erettsegi_elnok: parseInt(erettsegi_elnok) || 0,
+      emelt_erettsegi_vb_tag: parseInt(emelt_erettsegi_vb_tag) || 0,
+      emelt_erettsegi_vb_elnok: parseInt(emelt_erettsegi_vb_elnok) || 0,
+      erettsegi_vizsgaztato: parseInt(erettsegi_vizsgaztato) || 0,
+      tanterviro: parseInt(tanterviro) || 0,
+      tananyagfejleszto: parseInt(tananyagfejleszto) || 0,
+      tankonyv_jegyzetiro: parseInt(tankonyv_jegyzetiro) || 0,
+      szakmai_tisztsegviselo: parseInt(szakmai_tisztsegviselo) || 0,
+      createBy,
     },
   });
 
   // Invalidate cache
-  await cache.invalidate(`oktatoEgyebTev:all:${data.tanev_kezdete}`);
+  await cache.invalidate(`oktatoEgyebTev:all:${tanev_int}`);
   await cache.invalidate(
-    `oktatoEgyebTev:alapadatok_id:${data.alapadatok_id}:${data.tanev_kezdete}`
+    `oktatoEgyebTev:alapadatok_id:${alapadatok_id}:${tanev_int}`
   );
 
   return newEntry;
 }
 
-export async function update(id, data) {
+export async function update(
+  id,
+  alapadatok_id,
+  tanev_kezdete,
+  szakkepzesi_szakerto = 0,
+  koznevelesi_szakerto = 0,
+  koznevelesi_szaktanacsado = 0,
+  vizsgafelugyelo = 0,
+  agazati_alapvizsgan_elnok = 0,
+  feladatkeszito_lektor = 0,
+  erettsegi_elnok = 0,
+  emelt_erettsegi_vb_tag = 0,
+  emelt_erettsegi_vb_elnok = 0,
+  erettsegi_vizsgaztato = 0,
+  tanterviro = 0,
+  tananyagfejleszto = 0,
+  tankonyv_jegyzetiro = 0,
+  szakmai_tisztsegviselo = 0,
+  updatedBy = null
+) {
+  // Validate required fields
+  if (!id) {
+    throw new Error("id is required");
+  }
+
+  if (!alapadatok_id) {
+    throw new Error("alapadatok_id is required");
+  }
+
+  if (!tanev_kezdete) {
+    throw new Error("tanev_kezdete is required");
+  }
+
+  // Validate tanev_kezdete is a valid year
+  const tanev_int = parseInt(tanev_kezdete);
+  if (isNaN(tanev_int) || tanev_int < 1900 || tanev_int > 2100) {
+    throw new Error("tanev_kezdete must be a valid year between 1900 and 2100");
+  }
+
   const updatedEntry = await prisma.oktatoEgyebTev.update({
     where: {
       id: id,
     },
     data: {
-      alapadatok_id: data.alapadatok_id,
-      tanev_kezdete: parseInt(data.tanev_kezdete),
-      szakkepzesi_szakerto: data.szakkepzesi_szakerto
-        ? parseInt(data.szakkepzesi_szakerto)
-        : null,
-      koznevelesi_szakerto: data.koznevelesi_szakerto
-        ? parseInt(data.koznevelesi_szakerto)
-        : null,
-      koznevelesi_szaktanacsado: data.koznevelesi_szaktanacsado
-        ? parseInt(data.koznevelesi_szaktanacsado)
-        : null,
-      vizsgafelugyelo: data.vizsgafelugyelo
-        ? parseInt(data.vizsgafelugyelo)
-        : null,
-      agazati_alapvizsgan_elnok: data.agazati_alapvizsgan_elnok
-        ? parseInt(data.agazati_alapvizsgan_elnok)
-        : null,
-      feladatkeszito_lektor: data.feladatkeszito_lektor
-        ? parseInt(data.feladatkeszito_lektor)
-        : null,
-      erettsegi_elnok: data.erettsegi_elnok
-        ? parseInt(data.erettsegi_elnok)
-        : null,
-      emelt_erettsegi_vb_tag: data.emelt_erettsegi_vb_tag
-        ? parseInt(data.emelt_erettsegi_vb_tag)
-        : null,
-      emelt_erettsegi_vb_elnok: data.emelt_erettsegi_vb_elnok
-        ? parseInt(data.emelt_erettsegi_vb_elnok)
-        : null,
-      erettsegi_vizsgaztato: data.erettsegi_vizsgaztato
-        ? parseInt(data.erettsegi_vizsgaztato)
-        : null,
-      tanterviro: data.tanterviro ? parseInt(data.tanterviro) : null,
-      tananyagfejleszto: data.tananyagfejleszto
-        ? parseInt(data.tananyagfejleszto)
-        : null,
-      tankonyv_jegyzetiro: data.tankonyv_jegyzetiro
-        ? parseInt(data.tankonyv_jegyzetiro)
-        : null,
-      szakmai_tisztsegviselo: data.szakmai_tisztsegviselo
-        ? parseInt(data.szakmai_tisztsegviselo)
-        : null,
-      updatedBy: data.updatedBy || null,
+      alapadatok_id,
+      tanev_kezdete: tanev_int,
+      szakkepzesi_szakerto: parseInt(szakkepzesi_szakerto) || 0,
+      koznevelesi_szakerto: parseInt(koznevelesi_szakerto) || 0,
+      koznevelesi_szaktanacsado: parseInt(koznevelesi_szaktanacsado) || 0,
+      vizsgafelugyelo: parseInt(vizsgafelugyelo) || 0,
+      agazati_alapvizsgan_elnok: parseInt(agazati_alapvizsgan_elnok) || 0,
+      feladatkeszito_lektor: parseInt(feladatkeszito_lektor) || 0,
+      erettsegi_elnok: parseInt(erettsegi_elnok) || 0,
+      emelt_erettsegi_vb_tag: parseInt(emelt_erettsegi_vb_tag) || 0,
+      emelt_erettsegi_vb_elnok: parseInt(emelt_erettsegi_vb_elnok) || 0,
+      erettsegi_vizsgaztato: parseInt(erettsegi_vizsgaztato) || 0,
+      tanterviro: parseInt(tanterviro) || 0,
+      tananyagfejleszto: parseInt(tananyagfejleszto) || 0,
+      tankonyv_jegyzetiro: parseInt(tankonyv_jegyzetiro) || 0,
+      szakmai_tisztsegviselo: parseInt(szakmai_tisztsegviselo) || 0,
+      updatedBy,
     },
   });
 
   // Invalidate cache
   await cache.invalidate(`oktatoEgyebTev:id:${id}`);
-  await cache.invalidate(`oktatoEgyebTev:all:${data.tanev_kezdete}`);
+  await cache.invalidate(`oktatoEgyebTev:all:${tanev_int}`);
   await cache.invalidate(
-    `oktatoEgyebTev:alapadatok_id:${data.alapadatok_id}:${data.tanev_kezdete}`
+    `oktatoEgyebTev:alapadatok_id:${alapadatok_id}:${tanev_int}`
   );
 
   return updatedEntry;
