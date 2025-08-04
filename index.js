@@ -106,6 +106,7 @@ protectedRouter.use(
   i.szakmaiVizsgaEredmenyekRouter
 );
 protectedRouter.use("/vizsgaeredmenyek", i.vizsgaeredmenyekRouter);
+protectedRouter.use("/oktato_egyeb_tev", i.oktatoEgyebTevRouter);
 
 // Mount the protected router under the API router
 apiRouter.use(protectedRouter);

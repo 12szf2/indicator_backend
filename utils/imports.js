@@ -33,6 +33,7 @@ import nszfhRouter from "../controllers/nszfh.controller.js";
 import sajatosNevelesuTanulokRouter from "../controllers/sajatos_nevelesu_tanulok.controller.js";
 import szakmaiVizsgaEredmenyekRouter from "../controllers/szakmai_vizsga_eredmenyek.controller.js";
 import vizsgaeredmenyekRouter from "../controllers/vizsgaeredmenyek.controller.js";
+import oktatoEgyebTevRouter from "../controllers/oktato_egyeb_tev.controller.js";
 
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
@@ -76,4 +77,5 @@ export {
   sajatosNevelesuTanulokRouter,
   szakmaiVizsgaEredmenyekRouter,
   vizsgaeredmenyekRouter,
+  oktatoEgyebTevRouter,
 };
