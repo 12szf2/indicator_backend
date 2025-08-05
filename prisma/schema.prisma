@@ -355,9 +355,9 @@ model Alkalmazottak_Munkaugy {
   FoglalkoztatasTipusa String?
   VezetoiOraszamOka String?
   KotelezoOraszama Int @default(0) @db.SmallInt
-  Oraszam Decimal @default(0.00) @db.Decimal(2, 2)
-  FeladattalTerheltOraszam Decimal @default(0.00) @db.Decimal(2, 2)
-  PedagogusHetiOraszama Decimal @default(0.00) @db.Decimal(2, 2)
+  Oraszam Decimal @default(0.00) @db.Decimal(5, 2)
+  FeladattalTerheltOraszam Decimal @default(0.00) @db.Decimal(5, 2)
+  PedagogusHetiOraszama Decimal @default(0.00) @db.Decimal(5, 2)
   CsokkentettMunkaidos String?
   AlkalmazasKezdete DateTime @db.Date @default(now())
   AlkalmazasVege DateTime @db.Date @default(now())

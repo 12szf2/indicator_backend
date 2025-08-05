@@ -34,6 +34,7 @@ import sajatosNevelesuTanulokRouter from "../controllers/sajatos_nevelesu_tanulo
 import szakmaiVizsgaEredmenyekRouter from "../controllers/szakmai_vizsga_eredmenyek.controller.js";
 import vizsgaeredmenyekRouter from "../controllers/vizsgaeredmenyek.controller.js";
 import oktatoEgyebTevRouter from "../controllers/oktato_egyeb_tev.controller.js";
+import alkalmazottakMunkauyRouter from "../controllers/alkalmazottak_munkaugy.controller.js";
 
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
@@ -78,4 +79,5 @@ export {
   szakmaiVizsgaEredmenyekRouter,
   vizsgaeredmenyekRouter,
   oktatoEgyebTevRouter,
+  alkalmazottakMunkauyRouter,
 };
