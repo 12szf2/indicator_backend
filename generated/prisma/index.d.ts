@@ -46626,20 +46626,20 @@ export namespace Prisma {
     createBy: string | null
     updatedAt: Date | null
     updatedBy: string | null
-    szakkepzesi_szakerto: number | null
-    koznevelesi_szakerto: number | null
-    koznevelesi_szaktanacsado: number | null
-    vizsgafelugyelo: number | null
-    agazati_alapvizsgan_elnok: number | null
-    feladatkeszito_lektor: number | null
-    erettsegi_elnok: number | null
-    emelt_erettsegi_vb_tag: number | null
-    emelt_erettsegi_vb_elnok: number | null
-    erettsegi_vizsgaztato: number | null
-    tanterviro: number | null
-    tananyagfejleszto: number | null
-    tankonyv_jegyzetiro: number | null
-    szakmai_tisztsegviselo: number | null
+    szakkepzesi_szakerto: number
+    koznevelesi_szakerto: number
+    koznevelesi_szaktanacsado: number
+    vizsgafelugyelo: number
+    agazati_alapvizsgan_elnok: number
+    feladatkeszito_lektor: number
+    erettsegi_elnok: number
+    emelt_erettsegi_vb_tag: number
+    emelt_erettsegi_vb_elnok: number
+    erettsegi_vizsgaztato: number
+    tanterviro: number
+    tananyagfejleszto: number
+    tankonyv_jegyzetiro: number
+    szakmai_tisztsegviselo: number
     _count: OktatoEgyebTevCountAggregateOutputType | null
     _avg: OktatoEgyebTevAvgAggregateOutputType | null
     _sum: OktatoEgyebTevSumAggregateOutputType | null
@@ -46784,20 +46784,20 @@ export namespace Prisma {
       createBy: string | null
       updatedAt: Date | null
       updatedBy: string | null
-      szakkepzesi_szakerto: number | null
-      koznevelesi_szakerto: number | null
-      koznevelesi_szaktanacsado: number | null
-      vizsgafelugyelo: number | null
-      agazati_alapvizsgan_elnok: number | null
-      feladatkeszito_lektor: number | null
-      erettsegi_elnok: number | null
-      emelt_erettsegi_vb_tag: number | null
-      emelt_erettsegi_vb_elnok: number | null
-      erettsegi_vizsgaztato: number | null
-      tanterviro: number | null
-      tananyagfejleszto: number | null
-      tankonyv_jegyzetiro: number | null
-      szakmai_tisztsegviselo: number | null
+      szakkepzesi_szakerto: number
+      koznevelesi_szakerto: number
+      koznevelesi_szaktanacsado: number
+      vizsgafelugyelo: number
+      agazati_alapvizsgan_elnok: number
+      feladatkeszito_lektor: number
+      erettsegi_elnok: number
+      emelt_erettsegi_vb_tag: number
+      emelt_erettsegi_vb_elnok: number
+      erettsegi_vizsgaztato: number
+      tanterviro: number
+      tananyagfejleszto: number
+      tankonyv_jegyzetiro: number
+      szakmai_tisztsegviselo: number
     }, ExtArgs["result"]["oktatoEgyebTev"]>
     composites: {}
   }
@@ -51762,20 +51762,20 @@ export namespace Prisma {
     createBy?: StringNullableFilter<"OktatoEgyebTev"> | string | null
     updatedAt?: DateTimeNullableFilter<"OktatoEgyebTev"> | Date | string | null
     updatedBy?: StringNullableFilter<"OktatoEgyebTev"> | string | null
-    szakkepzesi_szakerto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    koznevelesi_szakerto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    koznevelesi_szaktanacsado?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    vizsgafelugyelo?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    agazati_alapvizsgan_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    feladatkeszito_lektor?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    erettsegi_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    emelt_erettsegi_vb_tag?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    emelt_erettsegi_vb_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    erettsegi_vizsgaztato?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    tanterviro?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    tananyagfejleszto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    tankonyv_jegyzetiro?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    szakmai_tisztsegviselo?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    szakkepzesi_szakerto?: IntFilter<"OktatoEgyebTev"> | number
+    koznevelesi_szakerto?: IntFilter<"OktatoEgyebTev"> | number
+    koznevelesi_szaktanacsado?: IntFilter<"OktatoEgyebTev"> | number
+    vizsgafelugyelo?: IntFilter<"OktatoEgyebTev"> | number
+    agazati_alapvizsgan_elnok?: IntFilter<"OktatoEgyebTev"> | number
+    feladatkeszito_lektor?: IntFilter<"OktatoEgyebTev"> | number
+    erettsegi_elnok?: IntFilter<"OktatoEgyebTev"> | number
+    emelt_erettsegi_vb_tag?: IntFilter<"OktatoEgyebTev"> | number
+    emelt_erettsegi_vb_elnok?: IntFilter<"OktatoEgyebTev"> | number
+    erettsegi_vizsgaztato?: IntFilter<"OktatoEgyebTev"> | number
+    tanterviro?: IntFilter<"OktatoEgyebTev"> | number
+    tananyagfejleszto?: IntFilter<"OktatoEgyebTev"> | number
+    tankonyv_jegyzetiro?: IntFilter<"OktatoEgyebTev"> | number
+    szakmai_tisztsegviselo?: IntFilter<"OktatoEgyebTev"> | number
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
   }
 
@@ -51787,20 +51787,20 @@ export namespace Prisma {
     createBy?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
     updatedBy?: SortOrderInput | SortOrder
-    szakkepzesi_szakerto?: SortOrderInput | SortOrder
-    koznevelesi_szakerto?: SortOrderInput | SortOrder
-    koznevelesi_szaktanacsado?: SortOrderInput | SortOrder
-    vizsgafelugyelo?: SortOrderInput | SortOrder
-    agazati_alapvizsgan_elnok?: SortOrderInput | SortOrder
-    feladatkeszito_lektor?: SortOrderInput | SortOrder
-    erettsegi_elnok?: SortOrderInput | SortOrder
-    emelt_erettsegi_vb_tag?: SortOrderInput | SortOrder
-    emelt_erettsegi_vb_elnok?: SortOrderInput | SortOrder
-    erettsegi_vizsgaztato?: SortOrderInput | SortOrder
-    tanterviro?: SortOrderInput | SortOrder
-    tananyagfejleszto?: SortOrderInput | SortOrder
-    tankonyv_jegyzetiro?: SortOrderInput | SortOrder
-    szakmai_tisztsegviselo?: SortOrderInput | SortOrder
+    szakkepzesi_szakerto?: SortOrder
+    koznevelesi_szakerto?: SortOrder
+    koznevelesi_szaktanacsado?: SortOrder
+    vizsgafelugyelo?: SortOrder
+    agazati_alapvizsgan_elnok?: SortOrder
+    feladatkeszito_lektor?: SortOrder
+    erettsegi_elnok?: SortOrder
+    emelt_erettsegi_vb_tag?: SortOrder
+    emelt_erettsegi_vb_elnok?: SortOrder
+    erettsegi_vizsgaztato?: SortOrder
+    tanterviro?: SortOrder
+    tananyagfejleszto?: SortOrder
+    tankonyv_jegyzetiro?: SortOrder
+    szakmai_tisztsegviselo?: SortOrder
     alapadatok?: AlapadatokOrderByWithRelationInput
   }
 
@@ -51815,20 +51815,20 @@ export namespace Prisma {
     createBy?: StringNullableFilter<"OktatoEgyebTev"> | string | null
     updatedAt?: DateTimeNullableFilter<"OktatoEgyebTev"> | Date | string | null
     updatedBy?: StringNullableFilter<"OktatoEgyebTev"> | string | null
-    szakkepzesi_szakerto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    koznevelesi_szakerto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    koznevelesi_szaktanacsado?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    vizsgafelugyelo?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    agazati_alapvizsgan_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    feladatkeszito_lektor?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    erettsegi_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    emelt_erettsegi_vb_tag?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    emelt_erettsegi_vb_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    erettsegi_vizsgaztato?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    tanterviro?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    tananyagfejleszto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    tankonyv_jegyzetiro?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    szakmai_tisztsegviselo?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    szakkepzesi_szakerto?: IntFilter<"OktatoEgyebTev"> | number
+    koznevelesi_szakerto?: IntFilter<"OktatoEgyebTev"> | number
+    koznevelesi_szaktanacsado?: IntFilter<"OktatoEgyebTev"> | number
+    vizsgafelugyelo?: IntFilter<"OktatoEgyebTev"> | number
+    agazati_alapvizsgan_elnok?: IntFilter<"OktatoEgyebTev"> | number
+    feladatkeszito_lektor?: IntFilter<"OktatoEgyebTev"> | number
+    erettsegi_elnok?: IntFilter<"OktatoEgyebTev"> | number
+    emelt_erettsegi_vb_tag?: IntFilter<"OktatoEgyebTev"> | number
+    emelt_erettsegi_vb_elnok?: IntFilter<"OktatoEgyebTev"> | number
+    erettsegi_vizsgaztato?: IntFilter<"OktatoEgyebTev"> | number
+    tanterviro?: IntFilter<"OktatoEgyebTev"> | number
+    tananyagfejleszto?: IntFilter<"OktatoEgyebTev"> | number
+    tankonyv_jegyzetiro?: IntFilter<"OktatoEgyebTev"> | number
+    szakmai_tisztsegviselo?: IntFilter<"OktatoEgyebTev"> | number
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
   }, "id">
 
@@ -51840,20 +51840,20 @@ export namespace Prisma {
     createBy?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
     updatedBy?: SortOrderInput | SortOrder
-    szakkepzesi_szakerto?: SortOrderInput | SortOrder
-    koznevelesi_szakerto?: SortOrderInput | SortOrder
-    koznevelesi_szaktanacsado?: SortOrderInput | SortOrder
-    vizsgafelugyelo?: SortOrderInput | SortOrder
-    agazati_alapvizsgan_elnok?: SortOrderInput | SortOrder
-    feladatkeszito_lektor?: SortOrderInput | SortOrder
-    erettsegi_elnok?: SortOrderInput | SortOrder
-    emelt_erettsegi_vb_tag?: SortOrderInput | SortOrder
-    emelt_erettsegi_vb_elnok?: SortOrderInput | SortOrder
-    erettsegi_vizsgaztato?: SortOrderInput | SortOrder
-    tanterviro?: SortOrderInput | SortOrder
-    tananyagfejleszto?: SortOrderInput | SortOrder
-    tankonyv_jegyzetiro?: SortOrderInput | SortOrder
-    szakmai_tisztsegviselo?: SortOrderInput | SortOrder
+    szakkepzesi_szakerto?: SortOrder
+    koznevelesi_szakerto?: SortOrder
+    koznevelesi_szaktanacsado?: SortOrder
+    vizsgafelugyelo?: SortOrder
+    agazati_alapvizsgan_elnok?: SortOrder
+    feladatkeszito_lektor?: SortOrder
+    erettsegi_elnok?: SortOrder
+    emelt_erettsegi_vb_tag?: SortOrder
+    emelt_erettsegi_vb_elnok?: SortOrder
+    erettsegi_vizsgaztato?: SortOrder
+    tanterviro?: SortOrder
+    tananyagfejleszto?: SortOrder
+    tankonyv_jegyzetiro?: SortOrder
+    szakmai_tisztsegviselo?: SortOrder
     _count?: OktatoEgyebTevCountOrderByAggregateInput
     _avg?: OktatoEgyebTevAvgOrderByAggregateInput
     _max?: OktatoEgyebTevMaxOrderByAggregateInput
@@ -51872,20 +51872,20 @@ export namespace Prisma {
     createBy?: StringNullableWithAggregatesFilter<"OktatoEgyebTev"> | string | null
     updatedAt?: DateTimeNullableWithAggregatesFilter<"OktatoEgyebTev"> | Date | string | null
     updatedBy?: StringNullableWithAggregatesFilter<"OktatoEgyebTev"> | string | null
-    szakkepzesi_szakerto?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
-    koznevelesi_szakerto?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
-    koznevelesi_szaktanacsado?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
-    vizsgafelugyelo?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
-    agazati_alapvizsgan_elnok?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
-    feladatkeszito_lektor?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
-    erettsegi_elnok?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
-    emelt_erettsegi_vb_tag?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
-    emelt_erettsegi_vb_elnok?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
-    erettsegi_vizsgaztato?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
-    tanterviro?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
-    tananyagfejleszto?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
-    tankonyv_jegyzetiro?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
-    szakmai_tisztsegviselo?: IntNullableWithAggregatesFilter<"OktatoEgyebTev"> | number | null
+    szakkepzesi_szakerto?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
+    koznevelesi_szakerto?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
+    koznevelesi_szaktanacsado?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
+    vizsgafelugyelo?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
+    agazati_alapvizsgan_elnok?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
+    feladatkeszito_lektor?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
+    erettsegi_elnok?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
+    emelt_erettsegi_vb_tag?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
+    emelt_erettsegi_vb_elnok?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
+    erettsegi_vizsgaztato?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
+    tanterviro?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
+    tananyagfejleszto?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
+    tankonyv_jegyzetiro?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
+    szakmai_tisztsegviselo?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
   }
 
   export type SessionCreateInput = {
@@ -55612,20 +55612,20 @@ export namespace Prisma {
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
-    szakkepzesi_szakerto?: number | null
-    koznevelesi_szakerto?: number | null
-    koznevelesi_szaktanacsado?: number | null
-    vizsgafelugyelo?: number | null
-    agazati_alapvizsgan_elnok?: number | null
-    feladatkeszito_lektor?: number | null
-    erettsegi_elnok?: number | null
-    emelt_erettsegi_vb_tag?: number | null
-    emelt_erettsegi_vb_elnok?: number | null
-    erettsegi_vizsgaztato?: number | null
-    tanterviro?: number | null
-    tananyagfejleszto?: number | null
-    tankonyv_jegyzetiro?: number | null
-    szakmai_tisztsegviselo?: number | null
+    szakkepzesi_szakerto?: number
+    koznevelesi_szakerto?: number
+    koznevelesi_szaktanacsado?: number
+    vizsgafelugyelo?: number
+    agazati_alapvizsgan_elnok?: number
+    feladatkeszito_lektor?: number
+    erettsegi_elnok?: number
+    emelt_erettsegi_vb_tag?: number
+    emelt_erettsegi_vb_elnok?: number
+    erettsegi_vizsgaztato?: number
+    tanterviro?: number
+    tananyagfejleszto?: number
+    tankonyv_jegyzetiro?: number
+    szakmai_tisztsegviselo?: number
     alapadatok: AlapadatokCreateNestedOneWithoutOktatoEgyebTevInput
   }
 
@@ -55637,20 +55637,20 @@ export namespace Prisma {
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
-    szakkepzesi_szakerto?: number | null
-    koznevelesi_szakerto?: number | null
-    koznevelesi_szaktanacsado?: number | null
-    vizsgafelugyelo?: number | null
-    agazati_alapvizsgan_elnok?: number | null
-    feladatkeszito_lektor?: number | null
-    erettsegi_elnok?: number | null
-    emelt_erettsegi_vb_tag?: number | null
-    emelt_erettsegi_vb_elnok?: number | null
-    erettsegi_vizsgaztato?: number | null
-    tanterviro?: number | null
-    tananyagfejleszto?: number | null
-    tankonyv_jegyzetiro?: number | null
-    szakmai_tisztsegviselo?: number | null
+    szakkepzesi_szakerto?: number
+    koznevelesi_szakerto?: number
+    koznevelesi_szaktanacsado?: number
+    vizsgafelugyelo?: number
+    agazati_alapvizsgan_elnok?: number
+    feladatkeszito_lektor?: number
+    erettsegi_elnok?: number
+    emelt_erettsegi_vb_tag?: number
+    emelt_erettsegi_vb_elnok?: number
+    erettsegi_vizsgaztato?: number
+    tanterviro?: number
+    tananyagfejleszto?: number
+    tankonyv_jegyzetiro?: number
+    szakmai_tisztsegviselo?: number
   }
 
   export type OktatoEgyebTevUpdateInput = {
@@ -55660,20 +55660,20 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    szakkepzesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
-    koznevelesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
-    koznevelesi_szaktanacsado?: NullableIntFieldUpdateOperationsInput | number | null
-    vizsgafelugyelo?: NullableIntFieldUpdateOperationsInput | number | null
-    agazati_alapvizsgan_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    feladatkeszito_lektor?: NullableIntFieldUpdateOperationsInput | number | null
-    erettsegi_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    emelt_erettsegi_vb_tag?: NullableIntFieldUpdateOperationsInput | number | null
-    emelt_erettsegi_vb_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    erettsegi_vizsgaztato?: NullableIntFieldUpdateOperationsInput | number | null
-    tanterviro?: NullableIntFieldUpdateOperationsInput | number | null
-    tananyagfejleszto?: NullableIntFieldUpdateOperationsInput | number | null
-    tankonyv_jegyzetiro?: NullableIntFieldUpdateOperationsInput | number | null
-    szakmai_tisztsegviselo?: NullableIntFieldUpdateOperationsInput | number | null
+    szakkepzesi_szakerto?: IntFieldUpdateOperationsInput | number
+    koznevelesi_szakerto?: IntFieldUpdateOperationsInput | number
+    koznevelesi_szaktanacsado?: IntFieldUpdateOperationsInput | number
+    vizsgafelugyelo?: IntFieldUpdateOperationsInput | number
+    agazati_alapvizsgan_elnok?: IntFieldUpdateOperationsInput | number
+    feladatkeszito_lektor?: IntFieldUpdateOperationsInput | number
+    erettsegi_elnok?: IntFieldUpdateOperationsInput | number
+    emelt_erettsegi_vb_tag?: IntFieldUpdateOperationsInput | number
+    emelt_erettsegi_vb_elnok?: IntFieldUpdateOperationsInput | number
+    erettsegi_vizsgaztato?: IntFieldUpdateOperationsInput | number
+    tanterviro?: IntFieldUpdateOperationsInput | number
+    tananyagfejleszto?: IntFieldUpdateOperationsInput | number
+    tankonyv_jegyzetiro?: IntFieldUpdateOperationsInput | number
+    szakmai_tisztsegviselo?: IntFieldUpdateOperationsInput | number
     alapadatok?: AlapadatokUpdateOneRequiredWithoutOktatoEgyebTevNestedInput
   }
 
@@ -55685,20 +55685,20 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    szakkepzesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
-    koznevelesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
-    koznevelesi_szaktanacsado?: NullableIntFieldUpdateOperationsInput | number | null
-    vizsgafelugyelo?: NullableIntFieldUpdateOperationsInput | number | null
-    agazati_alapvizsgan_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    feladatkeszito_lektor?: NullableIntFieldUpdateOperationsInput | number | null
-    erettsegi_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    emelt_erettsegi_vb_tag?: NullableIntFieldUpdateOperationsInput | number | null
-    emelt_erettsegi_vb_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    erettsegi_vizsgaztato?: NullableIntFieldUpdateOperationsInput | number | null
-    tanterviro?: NullableIntFieldUpdateOperationsInput | number | null
-    tananyagfejleszto?: NullableIntFieldUpdateOperationsInput | number | null
-    tankonyv_jegyzetiro?: NullableIntFieldUpdateOperationsInput | number | null
-    szakmai_tisztsegviselo?: NullableIntFieldUpdateOperationsInput | number | null
+    szakkepzesi_szakerto?: IntFieldUpdateOperationsInput | number
+    koznevelesi_szakerto?: IntFieldUpdateOperationsInput | number
+    koznevelesi_szaktanacsado?: IntFieldUpdateOperationsInput | number
+    vizsgafelugyelo?: IntFieldUpdateOperationsInput | number
+    agazati_alapvizsgan_elnok?: IntFieldUpdateOperationsInput | number
+    feladatkeszito_lektor?: IntFieldUpdateOperationsInput | number
+    erettsegi_elnok?: IntFieldUpdateOperationsInput | number
+    emelt_erettsegi_vb_tag?: IntFieldUpdateOperationsInput | number
+    emelt_erettsegi_vb_elnok?: IntFieldUpdateOperationsInput | number
+    erettsegi_vizsgaztato?: IntFieldUpdateOperationsInput | number
+    tanterviro?: IntFieldUpdateOperationsInput | number
+    tananyagfejleszto?: IntFieldUpdateOperationsInput | number
+    tankonyv_jegyzetiro?: IntFieldUpdateOperationsInput | number
+    szakmai_tisztsegviselo?: IntFieldUpdateOperationsInput | number
   }
 
   export type OktatoEgyebTevCreateManyInput = {
@@ -55709,20 +55709,20 @@ export namespace Prisma {
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
-    szakkepzesi_szakerto?: number | null
-    koznevelesi_szakerto?: number | null
-    koznevelesi_szaktanacsado?: number | null
-    vizsgafelugyelo?: number | null
-    agazati_alapvizsgan_elnok?: number | null
-    feladatkeszito_lektor?: number | null
-    erettsegi_elnok?: number | null
-    emelt_erettsegi_vb_tag?: number | null
-    emelt_erettsegi_vb_elnok?: number | null
-    erettsegi_vizsgaztato?: number | null
-    tanterviro?: number | null
-    tananyagfejleszto?: number | null
-    tankonyv_jegyzetiro?: number | null
-    szakmai_tisztsegviselo?: number | null
+    szakkepzesi_szakerto?: number
+    koznevelesi_szakerto?: number
+    koznevelesi_szaktanacsado?: number
+    vizsgafelugyelo?: number
+    agazati_alapvizsgan_elnok?: number
+    feladatkeszito_lektor?: number
+    erettsegi_elnok?: number
+    emelt_erettsegi_vb_tag?: number
+    emelt_erettsegi_vb_elnok?: number
+    erettsegi_vizsgaztato?: number
+    tanterviro?: number
+    tananyagfejleszto?: number
+    tankonyv_jegyzetiro?: number
+    szakmai_tisztsegviselo?: number
   }
 
   export type OktatoEgyebTevUpdateManyMutationInput = {
@@ -55732,20 +55732,20 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    szakkepzesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
-    koznevelesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
-    koznevelesi_szaktanacsado?: NullableIntFieldUpdateOperationsInput | number | null
-    vizsgafelugyelo?: NullableIntFieldUpdateOperationsInput | number | null
-    agazati_alapvizsgan_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    feladatkeszito_lektor?: NullableIntFieldUpdateOperationsInput | number | null
-    erettsegi_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    emelt_erettsegi_vb_tag?: NullableIntFieldUpdateOperationsInput | number | null
-    emelt_erettsegi_vb_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    erettsegi_vizsgaztato?: NullableIntFieldUpdateOperationsInput | number | null
-    tanterviro?: NullableIntFieldUpdateOperationsInput | number | null
-    tananyagfejleszto?: NullableIntFieldUpdateOperationsInput | number | null
-    tankonyv_jegyzetiro?: NullableIntFieldUpdateOperationsInput | number | null
-    szakmai_tisztsegviselo?: NullableIntFieldUpdateOperationsInput | number | null
+    szakkepzesi_szakerto?: IntFieldUpdateOperationsInput | number
+    koznevelesi_szakerto?: IntFieldUpdateOperationsInput | number
+    koznevelesi_szaktanacsado?: IntFieldUpdateOperationsInput | number
+    vizsgafelugyelo?: IntFieldUpdateOperationsInput | number
+    agazati_alapvizsgan_elnok?: IntFieldUpdateOperationsInput | number
+    feladatkeszito_lektor?: IntFieldUpdateOperationsInput | number
+    erettsegi_elnok?: IntFieldUpdateOperationsInput | number
+    emelt_erettsegi_vb_tag?: IntFieldUpdateOperationsInput | number
+    emelt_erettsegi_vb_elnok?: IntFieldUpdateOperationsInput | number
+    erettsegi_vizsgaztato?: IntFieldUpdateOperationsInput | number
+    tanterviro?: IntFieldUpdateOperationsInput | number
+    tananyagfejleszto?: IntFieldUpdateOperationsInput | number
+    tankonyv_jegyzetiro?: IntFieldUpdateOperationsInput | number
+    szakmai_tisztsegviselo?: IntFieldUpdateOperationsInput | number
   }
 
   export type OktatoEgyebTevUncheckedUpdateManyInput = {
@@ -55756,20 +55756,20 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    szakkepzesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
-    koznevelesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
-    koznevelesi_szaktanacsado?: NullableIntFieldUpdateOperationsInput | number | null
-    vizsgafelugyelo?: NullableIntFieldUpdateOperationsInput | number | null
-    agazati_alapvizsgan_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    feladatkeszito_lektor?: NullableIntFieldUpdateOperationsInput | number | null
-    erettsegi_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    emelt_erettsegi_vb_tag?: NullableIntFieldUpdateOperationsInput | number | null
-    emelt_erettsegi_vb_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    erettsegi_vizsgaztato?: NullableIntFieldUpdateOperationsInput | number | null
-    tanterviro?: NullableIntFieldUpdateOperationsInput | number | null
-    tananyagfejleszto?: NullableIntFieldUpdateOperationsInput | number | null
-    tankonyv_jegyzetiro?: NullableIntFieldUpdateOperationsInput | number | null
-    szakmai_tisztsegviselo?: NullableIntFieldUpdateOperationsInput | number | null
+    szakkepzesi_szakerto?: IntFieldUpdateOperationsInput | number
+    koznevelesi_szakerto?: IntFieldUpdateOperationsInput | number
+    koznevelesi_szaktanacsado?: IntFieldUpdateOperationsInput | number
+    vizsgafelugyelo?: IntFieldUpdateOperationsInput | number
+    agazati_alapvizsgan_elnok?: IntFieldUpdateOperationsInput | number
+    feladatkeszito_lektor?: IntFieldUpdateOperationsInput | number
+    erettsegi_elnok?: IntFieldUpdateOperationsInput | number
+    emelt_erettsegi_vb_tag?: IntFieldUpdateOperationsInput | number
+    emelt_erettsegi_vb_elnok?: IntFieldUpdateOperationsInput | number
+    erettsegi_vizsgaztato?: IntFieldUpdateOperationsInput | number
+    tanterviro?: IntFieldUpdateOperationsInput | number
+    tananyagfejleszto?: IntFieldUpdateOperationsInput | number
+    tankonyv_jegyzetiro?: IntFieldUpdateOperationsInput | number
+    szakmai_tisztsegviselo?: IntFieldUpdateOperationsInput | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -63128,20 +63128,20 @@ export namespace Prisma {
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
-    szakkepzesi_szakerto?: number | null
-    koznevelesi_szakerto?: number | null
-    koznevelesi_szaktanacsado?: number | null
-    vizsgafelugyelo?: number | null
-    agazati_alapvizsgan_elnok?: number | null
-    feladatkeszito_lektor?: number | null
-    erettsegi_elnok?: number | null
-    emelt_erettsegi_vb_tag?: number | null
-    emelt_erettsegi_vb_elnok?: number | null
-    erettsegi_vizsgaztato?: number | null
-    tanterviro?: number | null
-    tananyagfejleszto?: number | null
-    tankonyv_jegyzetiro?: number | null
-    szakmai_tisztsegviselo?: number | null
+    szakkepzesi_szakerto?: number
+    koznevelesi_szakerto?: number
+    koznevelesi_szaktanacsado?: number
+    vizsgafelugyelo?: number
+    agazati_alapvizsgan_elnok?: number
+    feladatkeszito_lektor?: number
+    erettsegi_elnok?: number
+    emelt_erettsegi_vb_tag?: number
+    emelt_erettsegi_vb_elnok?: number
+    erettsegi_vizsgaztato?: number
+    tanterviro?: number
+    tananyagfejleszto?: number
+    tankonyv_jegyzetiro?: number
+    szakmai_tisztsegviselo?: number
   }
 
   export type OktatoEgyebTevUncheckedCreateWithoutAlapadatokInput = {
@@ -63151,20 +63151,20 @@ export namespace Prisma {
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
-    szakkepzesi_szakerto?: number | null
-    koznevelesi_szakerto?: number | null
-    koznevelesi_szaktanacsado?: number | null
-    vizsgafelugyelo?: number | null
-    agazati_alapvizsgan_elnok?: number | null
-    feladatkeszito_lektor?: number | null
-    erettsegi_elnok?: number | null
-    emelt_erettsegi_vb_tag?: number | null
-    emelt_erettsegi_vb_elnok?: number | null
-    erettsegi_vizsgaztato?: number | null
-    tanterviro?: number | null
-    tananyagfejleszto?: number | null
-    tankonyv_jegyzetiro?: number | null
-    szakmai_tisztsegviselo?: number | null
+    szakkepzesi_szakerto?: number
+    koznevelesi_szakerto?: number
+    koznevelesi_szaktanacsado?: number
+    vizsgafelugyelo?: number
+    agazati_alapvizsgan_elnok?: number
+    feladatkeszito_lektor?: number
+    erettsegi_elnok?: number
+    emelt_erettsegi_vb_tag?: number
+    emelt_erettsegi_vb_elnok?: number
+    erettsegi_vizsgaztato?: number
+    tanterviro?: number
+    tananyagfejleszto?: number
+    tankonyv_jegyzetiro?: number
+    szakmai_tisztsegviselo?: number
   }
 
   export type OktatoEgyebTevCreateOrConnectWithoutAlapadatokInput = {
@@ -64088,20 +64088,20 @@ export namespace Prisma {
     createBy?: StringNullableFilter<"OktatoEgyebTev"> | string | null
     updatedAt?: DateTimeNullableFilter<"OktatoEgyebTev"> | Date | string | null
     updatedBy?: StringNullableFilter<"OktatoEgyebTev"> | string | null
-    szakkepzesi_szakerto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    koznevelesi_szakerto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    koznevelesi_szaktanacsado?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    vizsgafelugyelo?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    agazati_alapvizsgan_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    feladatkeszito_lektor?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    erettsegi_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    emelt_erettsegi_vb_tag?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    emelt_erettsegi_vb_elnok?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    erettsegi_vizsgaztato?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    tanterviro?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    tananyagfejleszto?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    tankonyv_jegyzetiro?: IntNullableFilter<"OktatoEgyebTev"> | number | null
-    szakmai_tisztsegviselo?: IntNullableFilter<"OktatoEgyebTev"> | number | null
+    szakkepzesi_szakerto?: IntFilter<"OktatoEgyebTev"> | number
+    koznevelesi_szakerto?: IntFilter<"OktatoEgyebTev"> | number
+    koznevelesi_szaktanacsado?: IntFilter<"OktatoEgyebTev"> | number
+    vizsgafelugyelo?: IntFilter<"OktatoEgyebTev"> | number
+    agazati_alapvizsgan_elnok?: IntFilter<"OktatoEgyebTev"> | number
+    feladatkeszito_lektor?: IntFilter<"OktatoEgyebTev"> | number
+    erettsegi_elnok?: IntFilter<"OktatoEgyebTev"> | number
+    emelt_erettsegi_vb_tag?: IntFilter<"OktatoEgyebTev"> | number
+    emelt_erettsegi_vb_elnok?: IntFilter<"OktatoEgyebTev"> | number
+    erettsegi_vizsgaztato?: IntFilter<"OktatoEgyebTev"> | number
+    tanterviro?: IntFilter<"OktatoEgyebTev"> | number
+    tananyagfejleszto?: IntFilter<"OktatoEgyebTev"> | number
+    tankonyv_jegyzetiro?: IntFilter<"OktatoEgyebTev"> | number
+    szakmai_tisztsegviselo?: IntFilter<"OktatoEgyebTev"> | number
   }
 
   export type Felvettek_SzamaCreateWithoutSzakiranyInput = {
@@ -70596,20 +70596,20 @@ export namespace Prisma {
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
-    szakkepzesi_szakerto?: number | null
-    koznevelesi_szakerto?: number | null
-    koznevelesi_szaktanacsado?: number | null
-    vizsgafelugyelo?: number | null
-    agazati_alapvizsgan_elnok?: number | null
-    feladatkeszito_lektor?: number | null
-    erettsegi_elnok?: number | null
-    emelt_erettsegi_vb_tag?: number | null
-    emelt_erettsegi_vb_elnok?: number | null
-    erettsegi_vizsgaztato?: number | null
-    tanterviro?: number | null
-    tananyagfejleszto?: number | null
-    tankonyv_jegyzetiro?: number | null
-    szakmai_tisztsegviselo?: number | null
+    szakkepzesi_szakerto?: number
+    koznevelesi_szakerto?: number
+    koznevelesi_szaktanacsado?: number
+    vizsgafelugyelo?: number
+    agazati_alapvizsgan_elnok?: number
+    feladatkeszito_lektor?: number
+    erettsegi_elnok?: number
+    emelt_erettsegi_vb_tag?: number
+    emelt_erettsegi_vb_elnok?: number
+    erettsegi_vizsgaztato?: number
+    tanterviro?: number
+    tananyagfejleszto?: number
+    tankonyv_jegyzetiro?: number
+    szakmai_tisztsegviselo?: number
   }
 
   export type Felvettek_SzamaUpdateWithoutAlapadatokInput = {
@@ -71835,20 +71835,20 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    szakkepzesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
-    koznevelesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
-    koznevelesi_szaktanacsado?: NullableIntFieldUpdateOperationsInput | number | null
-    vizsgafelugyelo?: NullableIntFieldUpdateOperationsInput | number | null
-    agazati_alapvizsgan_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    feladatkeszito_lektor?: NullableIntFieldUpdateOperationsInput | number | null
-    erettsegi_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    emelt_erettsegi_vb_tag?: NullableIntFieldUpdateOperationsInput | number | null
-    emelt_erettsegi_vb_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    erettsegi_vizsgaztato?: NullableIntFieldUpdateOperationsInput | number | null
-    tanterviro?: NullableIntFieldUpdateOperationsInput | number | null
-    tananyagfejleszto?: NullableIntFieldUpdateOperationsInput | number | null
-    tankonyv_jegyzetiro?: NullableIntFieldUpdateOperationsInput | number | null
-    szakmai_tisztsegviselo?: NullableIntFieldUpdateOperationsInput | number | null
+    szakkepzesi_szakerto?: IntFieldUpdateOperationsInput | number
+    koznevelesi_szakerto?: IntFieldUpdateOperationsInput | number
+    koznevelesi_szaktanacsado?: IntFieldUpdateOperationsInput | number
+    vizsgafelugyelo?: IntFieldUpdateOperationsInput | number
+    agazati_alapvizsgan_elnok?: IntFieldUpdateOperationsInput | number
+    feladatkeszito_lektor?: IntFieldUpdateOperationsInput | number
+    erettsegi_elnok?: IntFieldUpdateOperationsInput | number
+    emelt_erettsegi_vb_tag?: IntFieldUpdateOperationsInput | number
+    emelt_erettsegi_vb_elnok?: IntFieldUpdateOperationsInput | number
+    erettsegi_vizsgaztato?: IntFieldUpdateOperationsInput | number
+    tanterviro?: IntFieldUpdateOperationsInput | number
+    tananyagfejleszto?: IntFieldUpdateOperationsInput | number
+    tankonyv_jegyzetiro?: IntFieldUpdateOperationsInput | number
+    szakmai_tisztsegviselo?: IntFieldUpdateOperationsInput | number
   }
 
   export type OktatoEgyebTevUncheckedUpdateWithoutAlapadatokInput = {
@@ -71858,20 +71858,20 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    szakkepzesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
-    koznevelesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
-    koznevelesi_szaktanacsado?: NullableIntFieldUpdateOperationsInput | number | null
-    vizsgafelugyelo?: NullableIntFieldUpdateOperationsInput | number | null
-    agazati_alapvizsgan_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    feladatkeszito_lektor?: NullableIntFieldUpdateOperationsInput | number | null
-    erettsegi_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    emelt_erettsegi_vb_tag?: NullableIntFieldUpdateOperationsInput | number | null
-    emelt_erettsegi_vb_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    erettsegi_vizsgaztato?: NullableIntFieldUpdateOperationsInput | number | null
-    tanterviro?: NullableIntFieldUpdateOperationsInput | number | null
-    tananyagfejleszto?: NullableIntFieldUpdateOperationsInput | number | null
-    tankonyv_jegyzetiro?: NullableIntFieldUpdateOperationsInput | number | null
-    szakmai_tisztsegviselo?: NullableIntFieldUpdateOperationsInput | number | null
+    szakkepzesi_szakerto?: IntFieldUpdateOperationsInput | number
+    koznevelesi_szakerto?: IntFieldUpdateOperationsInput | number
+    koznevelesi_szaktanacsado?: IntFieldUpdateOperationsInput | number
+    vizsgafelugyelo?: IntFieldUpdateOperationsInput | number
+    agazati_alapvizsgan_elnok?: IntFieldUpdateOperationsInput | number
+    feladatkeszito_lektor?: IntFieldUpdateOperationsInput | number
+    erettsegi_elnok?: IntFieldUpdateOperationsInput | number
+    emelt_erettsegi_vb_tag?: IntFieldUpdateOperationsInput | number
+    emelt_erettsegi_vb_elnok?: IntFieldUpdateOperationsInput | number
+    erettsegi_vizsgaztato?: IntFieldUpdateOperationsInput | number
+    tanterviro?: IntFieldUpdateOperationsInput | number
+    tananyagfejleszto?: IntFieldUpdateOperationsInput | number
+    tankonyv_jegyzetiro?: IntFieldUpdateOperationsInput | number
+    szakmai_tisztsegviselo?: IntFieldUpdateOperationsInput | number
   }
 
   export type OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokInput = {
@@ -71881,20 +71881,20 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    szakkepzesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
-    koznevelesi_szakerto?: NullableIntFieldUpdateOperationsInput | number | null
-    koznevelesi_szaktanacsado?: NullableIntFieldUpdateOperationsInput | number | null
-    vizsgafelugyelo?: NullableIntFieldUpdateOperationsInput | number | null
-    agazati_alapvizsgan_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    feladatkeszito_lektor?: NullableIntFieldUpdateOperationsInput | number | null
-    erettsegi_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    emelt_erettsegi_vb_tag?: NullableIntFieldUpdateOperationsInput | number | null
-    emelt_erettsegi_vb_elnok?: NullableIntFieldUpdateOperationsInput | number | null
-    erettsegi_vizsgaztato?: NullableIntFieldUpdateOperationsInput | number | null
-    tanterviro?: NullableIntFieldUpdateOperationsInput | number | null
-    tananyagfejleszto?: NullableIntFieldUpdateOperationsInput | number | null
-    tankonyv_jegyzetiro?: NullableIntFieldUpdateOperationsInput | number | null
-    szakmai_tisztsegviselo?: NullableIntFieldUpdateOperationsInput | number | null
+    szakkepzesi_szakerto?: IntFieldUpdateOperationsInput | number
+    koznevelesi_szakerto?: IntFieldUpdateOperationsInput | number
+    koznevelesi_szaktanacsado?: IntFieldUpdateOperationsInput | number
+    vizsgafelugyelo?: IntFieldUpdateOperationsInput | number
+    agazati_alapvizsgan_elnok?: IntFieldUpdateOperationsInput | number
+    feladatkeszito_lektor?: IntFieldUpdateOperationsInput | number
+    erettsegi_elnok?: IntFieldUpdateOperationsInput | number
+    emelt_erettsegi_vb_tag?: IntFieldUpdateOperationsInput | number
+    emelt_erettsegi_vb_elnok?: IntFieldUpdateOperationsInput | number
+    erettsegi_vizsgaztato?: IntFieldUpdateOperationsInput | number
+    tanterviro?: IntFieldUpdateOperationsInput | number
+    tananyagfejleszto?: IntFieldUpdateOperationsInput | number
+    tankonyv_jegyzetiro?: IntFieldUpdateOperationsInput | number
+    szakmai_tisztsegviselo?: IntFieldUpdateOperationsInput | number
   }
 
   export type Felvettek_SzamaCreateManySzakiranyInput = {

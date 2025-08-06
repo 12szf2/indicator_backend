@@ -607,26 +607,6 @@ router.post("/", async (req, res) => {
       createBy,
     } = req.body;
 
-    console.log("Extracted data:", {
-      alapadatok_id,
-      tanev_kezdete,
-      szakkepzesi_szakerto,
-      koznevelesi_szakerto,
-      koznevelesi_szaktanacsado,
-      vizsgafelugyelo,
-      agazati_alapvizsgan_elnok,
-      feladatkeszito_lektor,
-      erettsegi_elnok,
-      emelt_erettsegi_vb_tag,
-      emelt_erettsegi_vb_elnok,
-      erettsegi_vizsgaztato,
-      tanterviro,
-      tananyagfejleszto,
-      tankonyv_jegyzetiro,
-      szakmai_tisztsegviselo,
-      createBy,
-    });
-
     // Validate required fields
     if (!alapadatok_id || !tanev_kezdete) {
       console.log("Validation error: Missing required fields");
@@ -635,7 +615,6 @@ router.post("/", async (req, res) => {
       });
     }
 
-    console.log("Calling create service...");
     const newEntry = await create(
       alapadatok_id,
       tanev_kezdete,
@@ -655,7 +634,7 @@ router.post("/", async (req, res) => {
       szakmai_tisztsegviselo,
       createBy
     );
-    console.log("Service created new record with id:", newEntry.id);
+
     res.status(201).json(newEntry);
   } catch (error) {
     console.error("Create error details:", error);
@@ -765,7 +744,6 @@ router.put("/:id", async (req, res) => {
       });
     }
 
-    console.log("Calling update service with id:", id);
     const updatedEntry = await update(
       id,
       alapadatok_id,
@@ -786,7 +764,7 @@ router.put("/:id", async (req, res) => {
       szakmai_tisztsegviselo,
       updatedBy
     );
-    console.log("Service updated record:", updatedEntry.id);
+
     res.json(updatedEntry);
   } catch (error) {
     console.error("Update error details:", error);

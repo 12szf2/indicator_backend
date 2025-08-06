@@ -739,20 +739,20 @@ model OktatoEgyebTev{
   updatedAt     DateTime?  @updatedAt
   updatedBy     String?
 
-  szakkepzesi_szakerto Int? @db.Integer
-  koznevelesi_szakerto Int? @db.Integer
-  koznevelesi_szaktanacsado Int? @db.Integer
-  vizsgafelugyelo Int? @db.Integer
-  agazati_alapvizsgan_elnok Int? @db.Integer
-  feladatkeszito_lektor Int? @db.Integer
-  erettsegi_elnok Int? @db.Integer
-  emelt_erettsegi_vb_tag Int? @db.Integer
-  emelt_erettsegi_vb_elnok Int? @db.Integer
-  erettsegi_vizsgaztato Int? @db.Integer
-  tanterviro Int? @db.Integer
-  tananyagfejleszto Int? @db.Integer
-  tankonyv_jegyzetiro Int? @db.Integer
-  szakmai_tisztsegviselo Int? @db.Integer
+  szakkepzesi_szakerto Int @db.Integer @default(0)
+  koznevelesi_szakerto Int @db.Integer @default(0)
+  koznevelesi_szaktanacsado Int @db.Integer @default(0)
+  vizsgafelugyelo Int @db.Integer @default(0)
+  agazati_alapvizsgan_elnok Int @db.Integer @default(0)
+  feladatkeszito_lektor Int @db.Integer @default(0)
+  erettsegi_elnok Int @db.Integer @default(0)
+  emelt_erettsegi_vb_tag Int @db.Integer @default(0)
+  emelt_erettsegi_vb_elnok Int @db.Integer @default(0)
+  erettsegi_vizsgaztato Int @db.Integer @default(0)
+  tanterviro Int @db.Integer @default(0)
+  tananyagfejleszto Int @db.Integer @default(0)
+  tankonyv_jegyzetiro Int @db.Integer @default(0)
+  szakmai_tisztsegviselo Int @db.Integer @default(0)
 
   alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
 
