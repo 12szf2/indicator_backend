@@ -1,157 +1,164 @@
 import prisma from "../utils/prisma.js";
 import * as cache from "../utils/cache.js";
+import {
+  ServiceCache,
+  CACHE_TTL,
+  withPerformanceMonitoring,
+} from "../utils/serviceUtils.js";
+import { queryOptimizations } from "../utils/queryOptimizations.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize service cache
+const serviceCache = new ServiceCache("felvettek_szama");
 
-export async function create(data) {
-  const {
-    alapadatok_id,
-    tanev_kezdete,
-    szakmaNev,
-    szakiranyNev,
-    jelentkezo_letszam,
-    felveheto_letszam,
-    felvett_letszam,
-  } = data;
-
-  // Invalidate relevant caches
-  cache.del("felvettek_szama:all");
-  cache.del(`felvettek_szama:alapadatok_id:${alapadatok_id}`);
-  const szakma = await prisma.szakma.findUnique({
-    where: {
-      nev: szakmaNev,
-    },
-  });
-
-  if (!szakma) {
-    throw new Error(`Szakma with name ${szakmaNev} not found`);
-  }
-
-  const szakirany = await prisma.szakirany.findUnique({
-    where: {
-      nev: szakiranyNev,
-    },
-  });
-
-  if (!szakirany) {
-    throw new Error(`Szakirany with name ${szakiranyNev} not found`);
-  }
-
-  return await prisma.felvettek_Szama.create({
-    data: {
+export const create = withPerformanceMonitoring(
+  async function create(data) {
+    const {
       alapadatok_id,
       tanev_kezdete,
-      szakma_id: szakma.id,
-      szakiranyId: szakirany.id,
+      szakmaNev,
+      szakiranyNev,
       jelentkezo_letszam,
       felveheto_letszam,
       felvett_letszam,
-    },
-  });
-}
+    } = data;
 
-export async function getAll(tanev) {
-  const cacheKey = `felvettek_szama:all:${tanev}`;
-  const cachedData = cache.get(cacheKey);
+    const szakma = await prisma.szakma.findUnique({
+      where: {
+        nev: szakmaNev,
+      },
+    });
 
-  const lastYear = parseInt(tanev);
-  const firstYear = lastYear - 4;
+    if (!szakma) {
+      throw new Error(`Szakma with name ${szakmaNev} not found`);
+    }
 
-  if (cachedData) {
-    return cachedData;
+    const szakirany = await prisma.szakirany.findUnique({
+      where: {
+        nev: szakiranyNev,
+      },
+    });
+
+    if (!szakirany) {
+      throw new Error(`Szakirany with name ${szakiranyNev} not found`);
+    }
+
+    const result = await prisma.felvettek_Szama.create({
+      data: {
+        alapadatok_id,
+        tanev_kezdete,
+        szakma_id: szakma.id,
+        szakiranyId: szakirany.id,
+        jelentkezo_letszam,
+        felveheto_letszam,
+        felvett_letszam,
+      },
+    });
+
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(['all', 'by_id']);
+
+    return result;
   }
+);
 
-  const data = await prisma.felvettek_Szama.findMany({
-    where: {
-      tanev_kezdete: { gte: firstYear, lte: lastYear },
-    },
-    include: {
-      szakma: true,
-      szakirany: true,
-    },
-    orderBy: { createAt: "desc" },
-  });
+export const getAll = withPerformanceMonitoring(
+  async function getAll(tanev) {
+    return serviceCache.get(
+      "all",
+      async () => {
+        const lastYear = parseInt(tanev);
+        const firstYear = lastYear - 4;
 
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function getById(alapadatok_id, tanev) {
-  const cacheKey = `felvettek_szama:alapadatok_id:${alapadatok_id}:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
+        return await prisma.felvettek_Szama.findMany({
+          where: {
+            tanev_kezdete: { gte: firstYear, lte: lastYear },
+          },
+          include: {
+            szakma: true,
+            szakirany: true,
+          },
+          orderBy: { createAt: "desc" },
+        });
+      },
+      CACHE_TTL.LIST,
+      tanev
+    );
   }
+);
 
-  const lastYear = parseInt(tanev);
-  const firstYear = lastYear - 4;
+export const getById = withPerformanceMonitoring(
+  async function getById(alapadatok_id, tanev) {
+    return serviceCache.get(
+      "by_id",
+      async () => {
+        const lastYear = parseInt(tanev);
+        const firstYear = lastYear - 4;
 
-  const data = await prisma.felvettek_Szama.findMany({
-    where: {
+        return await prisma.felvettek_Szama.findMany({
+          where: {
+            alapadatok_id,
+            tanev_kezdete: { gte: firstYear, lte: lastYear },
+          },
+          include: {
+            szakma: true,
+            szakirany: true,
+          },
+        });
+      },
+      CACHE_TTL.DETAIL,
       alapadatok_id,
-      tanev_kezdete: { gte: firstYear, lte: lastYear },
-    },
-    include: {
-      szakma: true,
-      szakirany: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.DETAIL);
-
-  return data;
-}
-
-export async function update(id, data) {
-  const {
-    alapadatok_id,
-    tanev_kezdete,
-    szakmaNev,
-    szakiranyNev,
-    jelentkezo_letszam,
-    felveheto_letszam,
-    felvett_letszam,
-  } = data;
-
-  // Invalidate relevant caches
-  cache.del("felvettek_szama:all");
-  cache.del(`felvettek_szama:alapadatok_id:${alapadatok_id}`);
-  const szakma = await prisma.szakma.findUnique({
-    where: {
-      nev: szakmaNev,
-    },
-  });
-  if (!szakma) {
-    throw new Error(`Szakma with name ${szakmaNev} not found`);
+      tanev
+    );
   }
-  const szakirany = await prisma.szakirany.findUnique({
-    where: {
-      nev: szakiranyNev,
-    },
-  });
-  if (!szakirany) {
-    throw new Error(`Szakirany with name ${szakiranyNev} not found`);
-  }
-  return await prisma.felvettek_Szama.update({
-    where: {
-      id,
-    },
-    data: {
+);
+
+export const update = withPerformanceMonitoring(
+  async function update(id, data) {
+    const {
       alapadatok_id,
       tanev_kezdete,
-      szakma_id: szakma.id,
-      szakiranyId: szakirany.id,
+      szakmaNev,
+      szakiranyNev,
       jelentkezo_letszam,
       felveheto_letszam,
       felvett_letszam,
-    },
-  });
-}
+    } = data;
+
+    const szakma = await prisma.szakma.findUnique({
+      where: {
+        nev: szakmaNev,
+      },
+    });
+    if (!szakma) {
+      throw new Error(`Szakma with name ${szakmaNev} not found`);
+    }
+    const szakirany = await prisma.szakirany.findUnique({
+      where: {
+        nev: szakiranyNev,
+      },
+    });
+    if (!szakirany) {
+      throw new Error(`Szakirany with name ${szakiranyNev} not found`);
+    }
+    
+    const result = await prisma.felvettek_Szama.update({
+      where: {
+        id,
+      },
+      data: {
+        alapadatok_id,
+        tanev_kezdete,
+        szakma_id: szakma.id,
+        szakiranyId: szakirany.id,
+        jelentkezo_letszam,
+        felveheto_letszam,
+        felvett_letszam,
+      },
+    });
+
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(['all', 'by_id']);
+
+    return result;
+  }
+);

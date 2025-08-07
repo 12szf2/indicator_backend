@@ -1,223 +1,136 @@
 import prisma from "../utils/prisma.js";
 import * as cache from "../utils/cache.js";
+import {
+  ServiceCache,
+  CACHE_TTL,
+  withPerformanceMonitoring,
+} from "../utils/serviceUtils.js";
+import { queryOptimizations } from "../utils/queryOptimizations.js";
 
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize service cache
+const serviceCache = new ServiceCache("oktato_egyeb_tev");
 
-export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `oktatoEgyebTev:alapadatok_id:${alapadatokId}:${tanev}`;
-  const cachedData = await cache.get(cacheKey);
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const data = await prisma.oktatoEgyebTev.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: tanev,
-    },
-  });
-
-  await cache.set(cacheKey, data, CACHE_TTL.LIST);
-  return data;
-}
-
-export async function getAll(tanev) {
-  const cacheKey = `oktatoEgyebTev:all:${tanev}`;
-  const cachedData = await cache.get(cacheKey);
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const data = await prisma.oktatoEgyebTev.findMany({
-    where: {
-      tanev_kezdete: tanev,
-    },
-  });
-
-  await cache.set(cacheKey, data, CACHE_TTL.LIST);
-  return data;
-}
-
-export async function getById(id) {
-  const cacheKey = `oktatoEgyebTev:id:${id}`;
-  const cachedData = await cache.get(cacheKey);
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const data = await prisma.oktatoEgyebTev.findUnique({
-    where: {
-      id: id,
-    },
-  });
-
-  await cache.set(cacheKey, data, CACHE_TTL.DETAIL);
-  return data;
-}
-
-export async function create(
-  alapadatok_id,
-  tanev_kezdete,
-  szakkepzesi_szakerto = 0,
-  koznevelesi_szakerto = 0,
-  koznevelesi_szaktanacsado = 0,
-  vizsgafelugyelo = 0,
-  agazati_alapvizsgan_elnok = 0,
-  feladatkeszito_lektor = 0,
-  erettsegi_elnok = 0,
-  emelt_erettsegi_vb_tag = 0,
-  emelt_erettsegi_vb_elnok = 0,
-  erettsegi_vizsgaztato = 0,
-  tanterviro = 0,
-  tananyagfejleszto = 0,
-  tankonyv_jegyzetiro = 0,
-  szakmai_tisztsegviselo = 0,
-  createBy = null
-) {
-  // Validate required fields
-  if (!alapadatok_id) {
-    throw new Error("alapadatok_id is required");
-  }
-
-  if (!tanev_kezdete) {
-    throw new Error("tanev_kezdete is required");
-  }
-
-  // Validate tanev_kezdete is a valid year
-  const tanev_int = parseInt(tanev_kezdete);
-  if (isNaN(tanev_int) || tanev_int < 1900 || tanev_int > 2100) {
-    throw new Error("tanev_kezdete must be a valid year between 1900 and 2100");
-  }
-
-  const newEntry = await prisma.oktatoEgyebTev.create({
-    data: {
+export const create = withPerformanceMonitoring(
+  async function create(data) {
+    const {
       alapadatok_id,
-      tanev_kezdete: tanev_int,
-      szakkepzesi_szakerto: parseInt(szakkepzesi_szakerto) || 0,
-      koznevelesi_szakerto: parseInt(koznevelesi_szakerto) || 0,
-      koznevelesi_szaktanacsado: parseInt(koznevelesi_szaktanacsado) || 0,
-      vizsgafelugyelo: parseInt(vizsgafelugyelo) || 0,
-      agazati_alapvizsgan_elnok: parseInt(agazati_alapvizsgan_elnok) || 0,
-      feladatkeszito_lektor: parseInt(feladatkeszito_lektor) || 0,
-      erettsegi_elnok: parseInt(erettsegi_elnok) || 0,
-      emelt_erettsegi_vb_tag: parseInt(emelt_erettsegi_vb_tag) || 0,
-      emelt_erettsegi_vb_elnok: parseInt(emelt_erettsegi_vb_elnok) || 0,
-      erettsegi_vizsgaztato: parseInt(erettsegi_vizsgaztato) || 0,
-      tanterviro: parseInt(tanterviro) || 0,
-      tananyagfejleszto: parseInt(tananyagfejleszto) || 0,
-      tankonyv_jegyzetiro: parseInt(tankonyv_jegyzetiro) || 0,
-      szakmai_tisztsegviselo: parseInt(szakmai_tisztsegviselo) || 0,
-      createBy,
-    },
-  });
+      tanev_kezdete,
+      tevekenysegNev,
+      oktato_neme,
+      oktato_letszam,
+    } = data;
 
-  // Invalidate cache
-  await cache.invalidate(`oktatoEgyebTev:all:${tanev_int}`);
-  await cache.invalidate(
-    `oktatoEgyebTev:alapadatok_id:${alapadatok_id}:${tanev_int}`
-  );
+    const tevekenyseg = await prisma.tevekenyseg.findUnique({
+      where: {
+        nev: tevekenysegNev,
+      },
+    });
 
-  return newEntry;
-}
+    if (!tevekenyseg) {
+      throw new Error(`Tevekenyseg with name ${tevekenysegNev} not found`);
+    }
 
-export async function update(
-  id,
-  alapadatok_id,
-  tanev_kezdete,
-  szakkepzesi_szakerto = 0,
-  koznevelesi_szakerto = 0,
-  koznevelesi_szaktanacsado = 0,
-  vizsgafelugyelo = 0,
-  agazati_alapvizsgan_elnok = 0,
-  feladatkeszito_lektor = 0,
-  erettsegi_elnok = 0,
-  emelt_erettsegi_vb_tag = 0,
-  emelt_erettsegi_vb_elnok = 0,
-  erettsegi_vizsgaztato = 0,
-  tanterviro = 0,
-  tananyagfejleszto = 0,
-  tankonyv_jegyzetiro = 0,
-  szakmai_tisztsegviselo = 0,
-  updatedBy = null
-) {
-  // Validate required fields
-  if (!id) {
-    throw new Error("id is required");
+    const result = await prisma.oktato_egyeb_tev.create({
+      data: {
+        alapadatok_id,
+        tanev_kezdete,
+        tevekenyseg_id: tevekenyseg.id,
+        oktato_neme,
+        oktato_letszam,
+      },
+    });
+
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(['all', 'by_id']);
+
+    return result;
   }
+);
 
-  if (!alapadatok_id) {
-    throw new Error("alapadatok_id is required");
+export const getAll = withPerformanceMonitoring(
+  async function getAll(tanev) {
+    return serviceCache.get(
+      "all",
+      async () => {
+        const lastYear = parseInt(tanev);
+        const firstYear = lastYear - 4;
+
+        return await prisma.oktato_egyeb_tev.findMany({
+          where: {
+            tanev_kezdete: { gte: firstYear, lte: lastYear },
+          },
+          include: {
+            tevekenyseg: true,
+          },
+          orderBy: { createAt: "desc" },
+        });
+      },
+      CACHE_TTL.LIST,
+      tanev
+    );
   }
+);
 
-  if (!tanev_kezdete) {
-    throw new Error("tanev_kezdete is required");
-  }
+export const getById = withPerformanceMonitoring(
+  async function getById(alapadatok_id, tanev) {
+    return serviceCache.get(
+      "by_id",
+      async () => {
+        const lastYear = parseInt(tanev);
+        const firstYear = lastYear - 4;
 
-  // Validate tanev_kezdete is a valid year
-  const tanev_int = parseInt(tanev_kezdete);
-  if (isNaN(tanev_int) || tanev_int < 1900 || tanev_int > 2100) {
-    throw new Error("tanev_kezdete must be a valid year between 1900 and 2100");
-  }
-
-  const updatedEntry = await prisma.oktatoEgyebTev.update({
-    where: {
-      id: id,
-    },
-    data: {
+        return await prisma.oktato_egyeb_tev.findMany({
+          where: {
+            alapadatok_id,
+            tanev_kezdete: { gte: firstYear, lte: lastYear },
+          },
+          include: {
+            tevekenyseg: true,
+          },
+        });
+      },
+      CACHE_TTL.DETAIL,
       alapadatok_id,
-      tanev_kezdete: tanev_int,
-      szakkepzesi_szakerto: parseInt(szakkepzesi_szakerto) || 0,
-      koznevelesi_szakerto: parseInt(koznevelesi_szakerto) || 0,
-      koznevelesi_szaktanacsado: parseInt(koznevelesi_szaktanacsado) || 0,
-      vizsgafelugyelo: parseInt(vizsgafelugyelo) || 0,
-      agazati_alapvizsgan_elnok: parseInt(agazati_alapvizsgan_elnok) || 0,
-      feladatkeszito_lektor: parseInt(feladatkeszito_lektor) || 0,
-      erettsegi_elnok: parseInt(erettsegi_elnok) || 0,
-      emelt_erettsegi_vb_tag: parseInt(emelt_erettsegi_vb_tag) || 0,
-      emelt_erettsegi_vb_elnok: parseInt(emelt_erettsegi_vb_elnok) || 0,
-      erettsegi_vizsgaztato: parseInt(erettsegi_vizsgaztato) || 0,
-      tanterviro: parseInt(tanterviro) || 0,
-      tananyagfejleszto: parseInt(tananyagfejleszto) || 0,
-      tankonyv_jegyzetiro: parseInt(tankonyv_jegyzetiro) || 0,
-      szakmai_tisztsegviselo: parseInt(szakmai_tisztsegviselo) || 0,
-      updatedBy,
-    },
-  });
-
-  // Invalidate cache
-  await cache.invalidate(`oktatoEgyebTev:id:${id}`);
-  await cache.invalidate(`oktatoEgyebTev:all:${tanev_int}`);
-  await cache.invalidate(
-    `oktatoEgyebTev:alapadatok_id:${alapadatok_id}:${tanev_int}`
-  );
-
-  return updatedEntry;
-}
-
-export async function deleteById(id) {
-  const entry = await prisma.oktatoEgyebTev.findUnique({
-    where: { id: id },
-  });
-
-  if (!entry) {
-    throw new Error("Entry not found");
+      tanev
+    );
   }
+);
 
-  const deletedEntry = await prisma.oktatoEgyebTev.delete({
-    where: {
-      id: id,
-    },
-  });
+export const update = withPerformanceMonitoring(
+  async function update(id, data) {
+    const {
+      alapadatok_id,
+      tanev_kezdete,
+      tevekenysegNev,
+      oktato_neme,
+      oktato_letszam,
+    } = data;
 
-  // Invalidate cache
-  await cache.invalidate(`oktatoEgyebTev:id:${id}`);
-  await cache.invalidate(`oktatoEgyebTev:all:${entry.tanev_kezdete}`);
-  await cache.invalidate(
-    `oktatoEgyebTev:alapadatok_id:${entry.alapadatok_id}:${entry.tanev_kezdete}`
-  );
+    const tevekenyseg = await prisma.tevekenyseg.findUnique({
+      where: {
+        nev: tevekenysegNev,
+      },
+    });
+    if (!tevekenyseg) {
+      throw new Error(`Tevekenyseg with name ${tevekenysegNev} not found`);
+    }
 
-  return deletedEntry;
-}
+    const result = await prisma.oktato_egyeb_tev.update({
+      where: {
+        id,
+      },
+      data: {
+        alapadatok_id,
+        tanev_kezdete,
+        tevekenyseg_id: tevekenyseg.id,
+        oktato_neme,
+        oktato_letszam,
+      },
+    });
+
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(['all', 'by_id']);
+
+    return result;
+  }
+);

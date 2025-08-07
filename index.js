@@ -5,65 +5,145 @@ import prisma from "./utils/prisma.js";
 import compression from "compression";
 import process from "node:process";
 
+// Enhanced CORS configuration with optimization
 const corsConfig = {
   origin: [
     "http://localhost:5173",
     "http://172.16.0.100:5174",
     "https://indikator.pollak.info",
   ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
+  exposedHeaders: ["X-Total-Count"],
+  credentials: true,
+  maxAge: 86400, // 24 hours for preflight cache
 };
 
 const app = i.express();
 const port = process.env.PORT || 5300;
 const SESSION_SECRET = process.env.SESSION_SECRET || "supersecretkey";
 
-// Add compression middleware to improve response time
-app.use(compression());
+// Trust proxy for better performance behind reverse proxy
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
+}
 
+// Optimize compression with better settings
+app.use(
+  compression({
+    level: 6, // Good balance between compression and CPU usage
+    threshold: 1024, // Only compress responses > 1KB
+    filter: (req, res) => {
+      // Don't compress if the client doesn't support it
+      if (req.headers["x-no-compression"]) {
+        return false;
+      }
+      // Fallback to standard filter function
+      return compression.filter(req, res);
+    },
+  })
+);
+
+// Optimize CORS
+app.use(i.cors(corsConfig));
+
+// Security and performance headers
+app.use((req, res, next) => {
+  res.set({
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "X-XSS-Protection": "1; mode=block",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+  });
+  next();
+});
+
+// Enhanced session configuration
 app.use(
   i.expressSession({
     cookie: {
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-      secure: false,
-      sameSite: "none",
+      secure: process.env.NODE_ENV === "production", // Only secure in production
+      httpOnly: true, // Prevent XSS attacks
+      sameSite: process.env.NODE_ENV === "production" ? "strict" : "none",
     },
     secret: SESSION_SECRET,
-    resave: false, // Changed to false for better performance
-    saveUninitialized: false, // Changed to false for better performance
+    resave: false, // Don't save session if unmodified
+    saveUninitialized: false, // Don't save empty sessions
+    rolling: true, // Reset expiry on activity
     store: new i.PrismaSessionStore(prisma, {
-      checkPeriod: 2 * 60 * 1000, //ms
+      checkPeriod: 2 * 60 * 1000, // Check every 2 minutes
       dbRecordIdIsSessionId: true,
       dbRecordIdFunction: undefined,
     }),
+    name: "sessionId", // Change default session name for security
   })
 );
 
-app.use(i.cors(corsConfig));
-
-// Middleware for logging requests
+// Middleware for logging requests (optimized)
 app.use(i.logMiddleware);
 
-// Add HTTP caching middleware
+// Enhanced HTTP caching middleware with conditional settings
 app.use(
   i.cacheMiddleware({
-    maxAge: 300, // 5 minutes
+    maxAge: process.env.NODE_ENV === "production" ? 600 : 300, // 10 min prod, 5 min dev
     private: true,
-    staleWhileRevalidate: 60,
+    staleWhileRevalidate: 120, // 2 minutes stale-while-revalidate
   })
 );
 
-// First, mount the auth routes separately to avoid middleware collision
-// For auth routes, we need the body parsers but not the authentication middleware
-app.use("/api/v1/auth", i.express.json());
-app.use("/api/v1/auth", i.express.urlencoded({ extended: false }));
-app.use("/api/v1/auth", i.authRouter); // Mount auth routes BEFORE the apiRouter
+// Import rate limiting
+import {
+  apiRateLimit,
+  authRateLimit,
+} from "./middleware/rateLimit.middleware.js";
 
-// Apply middleware to all protected routes at once to reduce setup overhead
+// Apply global rate limiting
+app.use(apiRateLimit);
+
+// Optimized body parser with size limits
+const jsonParserOptions = {
+  limit: process.env.NODE_ENV === "production" ? "10mb" : "50mb",
+  type: ["application/json", "application/json-patch+json"],
+  verify: (req, res, buf) => {
+    // Store raw body for webhooks if needed
+    req.rawBody = buf;
+  },
+};
+
+const urlencodedParserOptions = {
+  limit: process.env.NODE_ENV === "production" ? "10mb" : "50mb",
+  extended: false,
+  parameterLimit: 1000,
+};
+
+// First, mount the auth routes separately with rate limiting
+app.use("/api/v1/auth", authRateLimit);
+app.use("/api/v1/auth", i.express.json(jsonParserOptions));
+app.use("/api/v1/auth", i.express.urlencoded(urlencodedParserOptions));
+app.use("/api/v1/auth", i.authRouter);
+
+// Apply middleware to all protected routes with optimized parsing
 const apiRouter = i.express.Router();
 
-// Only parse JSON for routes that need it
-apiRouter.use(i.express.json({ limit: "50mb" }));
-apiRouter.use(i.express.urlencoded({ limit: "50mb", extended: false }));
+// Conditional body parsing - only for routes that need it
+apiRouter.use((req, res, next) => {
+  // Skip body parsing for GET requests
+  if (req.method === "GET") {
+    return next();
+  }
+
+  // Apply JSON parser
+  i.express.json(jsonParserOptions)(req, res, (err) => {
+    if (err) {
+      return res.status(400).json({ error: "Invalid JSON payload" });
+    }
+
+    // Apply URL-encoded parser
+    i.express.urlencoded(urlencodedParserOptions)(req, res, next);
+  });
+});
+
 apiRouter.use(i.authMiddleware);
 
 // Cache monitoring endpoint
@@ -115,14 +195,49 @@ apiRouter.use(protectedRouter);
 // Mount the api router with base prefix, excluding the /auth path which is already handled
 app.use("/api/v1", apiRouter);
 
+// Import response optimization and monitoring
+import {
+  responseOptimizer,
+  errorHandler,
+  notFoundHandler,
+  requestLogger,
+} from "./middleware/responseOptimizer.middleware.js";
+import { performanceMonitoringMiddleware } from "./utils/monitoring.js";
+import systemRouter from "./controllers/system.controller.js";
+
+// Apply response optimization and monitoring
+app.use(requestLogger());
+app.use(responseOptimizer());
+app.use(performanceMonitoringMiddleware());
+
+// System endpoints (health, metrics, etc.) - no auth required
+app.use("/system", systemRouter);
+
+// Health check endpoint at root for load balancers
+app.get("/health", async (req, res) => {
+  const { getHealthCheck } = await import("./utils/monitoring.js");
+  const health = await getHealthCheck();
+  const statusCode = health.status === "healthy" ? 200 : 503;
+  res.status(statusCode).json(health);
+});
+
 // Set up Swagger API documentation (requires authentication)
 i.setupSwagger(app);
 
-app.use("/api/v1/auth", i.authRouter);
+// 404 handler for unknown routes
+app.use(notFoundHandler());
+
+// Global error handler
+app.use(errorHandler());
+
+// Note: Graceful shutdown for database is handled in utils/prisma.js
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
+  console.log(`Health check available at http://localhost:${port}/health`);
+  console.log(`Metrics available at http://localhost:${port}/system/metrics`);
   console.log(
     `API documentation available at http://localhost:${port}/api-docs (requires authentication)`
   );
+  console.log(`Environment: ${process.env.NODE_ENV}`);
 });

@@ -1,78 +1,77 @@
 import prisma from "../utils/prisma.js";
 import * as cache from "../utils/cache.js";
+import {
+  ServiceCache,
+  CACHE_TTL,
+  withPerformanceMonitoring,
+} from "../utils/serviceUtils.js";
+import { queryOptimizations } from "../utils/queryOptimizations.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize service cache
+const serviceCache = new ServiceCache("dobbanto");
 
-export async function getAll(tanev_kezdete) {
-  const cacheKey = `dobbanto:all:${tanev_kezdete}`;
-  const cachedData = cache.get(cacheKey);
+export const getAll = withPerformanceMonitoring(
+  "dobbanto.getAll",
+  async function (tanev_kezdete) {
+    return serviceCache.get(
+      "all",
+      async () => {
+        const firstYear = parseInt(tanev_kezdete) - 4;
+        const lastYear = parseInt(tanev_kezdete);
 
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev_kezdete) - 4;
-  const lastYear = parseInt(tanev_kezdete);
-
-  const data = await prisma.dobbanto.findMany({
-    where: {
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+        return await prisma.dobbanto.findMany({
+          where: {
+            tanev_kezdete: {
+              gte: firstYear,
+              lte: lastYear,
+            },
+          },
+          orderBy: {
+            tanev_kezdete: "asc",
+          },
+          include: {
+            alapadatok: true,
+          },
+        });
       },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function getAllByAlapadatok(alapadatokId, tanev_kezdete) {
-  const cacheKey = `dobbanto:alapadatok_id:${alapadatokId}:${tanev_kezdete}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
+      CACHE_TTL.MEDIUM,
+      tanev_kezdete
+    );
   }
+);
 
-  const firstYear = parseInt(tanev_kezdete) - 4;
-  const lastYear = parseInt(tanev_kezdete);
+export const getAllByAlapadatok = withPerformanceMonitoring(
+  async function getAllByAlapadatok(alapadatokId, tanev_kezdete) {
+    return serviceCache.get(
+      "by_alapadatok",
+      async () => {
+        const firstYear = parseInt(tanev_kezdete) - 4;
+        const lastYear = parseInt(tanev_kezdete);
 
-  const data = await prisma.dobbanto.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+        return await prisma.dobbanto.findMany({
+          where: {
+            alapadatok_id: alapadatokId,
+            tanev_kezdete: {
+              gte: firstYear,
+              lte: lastYear,
+            },
+          },
+          orderBy: {
+            tanev_kezdete: "asc",
+          },
+          include: {
+            alapadatok: true,
+          },
+        });
       },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
+      CACHE_TTL.LIST,
+      alapadatokId,
+      tanev_kezdete
+    );
+  }
+);
 
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function create(
+export const create = withPerformanceMonitoring(async function create(
   alapadatok_id,
   tanev_kezdete,
   dobbanto_szama,
@@ -87,14 +86,13 @@ export async function create(
     },
   });
 
-  // Invalidate cache
-  cache.del(`dobbanto:all:${tanev_kezdete}`);
-  cache.del(`dobbanto:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
+  // Invalidate ServiceCache
+  serviceCache.invalidateByTags(["all", "by_alapadatok"]);
 
   return newdobbanto;
-}
+});
 
-export async function update(
+export const update = withPerformanceMonitoring(async function update(
   id,
   alapadatok_id,
   tanev_kezdete,
@@ -111,30 +109,30 @@ export async function update(
     },
   });
 
-  // Invalidate cache
-  cache.del(`dobbanto:all:${tanev_kezdete}`);
-  cache.del(`dobbanto:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
+  // Invalidate ServiceCache
+  serviceCache.invalidateByTags(["all", "by_alapadatok"]);
 
   return updatedDobbanto;
-}
+});
 
-export async function deleteAllByAlapadatok(alapadatokId, tanev_kezdete) {
-  const firstYear = parseInt(tanev_kezdete) - 4;
-  const lastYear = parseInt(tanev_kezdete);
+export const deleteAllByAlapadatok = withPerformanceMonitoring(
+  async function deleteAllByAlapadatok(alapadatokId, tanev_kezdete) {
+    const firstYear = parseInt(tanev_kezdete) - 4;
+    const lastYear = parseInt(tanev_kezdete);
 
-  const deletedCount = await prisma.dobbanto.deleteMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+    const deletedCount = await prisma.dobbanto.deleteMany({
+      where: {
+        alapadatok_id: alapadatokId,
+        tanev_kezdete: {
+          gte: firstYear,
+          lte: lastYear,
+        },
       },
-    },
-  });
+    });
 
-  // Invalidate cache
-  cache.del(`dobbanto:all:${tanev_kezdete}`);
-  cache.del(`dobbanto:alapadatok_id:${alapadatokId}:${tanev_kezdete}`);
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(["all", "by_alapadatok"]);
 
-  return deletedCount;
-}
+    return deletedCount;
+  }
+);

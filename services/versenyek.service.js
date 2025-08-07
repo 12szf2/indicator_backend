@@ -1,163 +1,181 @@
 import prisma from "../utils/prisma.js";
 import * as cache from "../utils/cache.js";
+import {
+  ServiceCache,
+  CACHE_TTL,
+  withPerformanceMonitoring,
+} from "../utils/serviceUtils.js";
+import { queryOptimizations } from "../utils/queryOptimizations.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize service cache
+const serviceCache = new ServiceCache("versenyek");
 
-export async function getAll(tanev) {
-  const cacheKey = "versenyek:all";
-  const cachedData = cache.get(cacheKey);
+export const getAll = withPerformanceMonitoring(
+  "versenyek.getAll",
+  async function (tanev) {
+    return serviceCache.get(
+      "all",
+      async () => {
+        const firstYear = parseInt(tanev) - 4;
+        const lastYear = parseInt(tanev);
 
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.versenyek.findMany({
-    where: {
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+        return await prisma.versenyek.findMany({
+          where: {
+            tanev_kezdete: {
+              gte: firstYear,
+              lte: lastYear,
+            },
+          },
+          orderBy: {
+            tanev_kezdete: "asc",
+          },
+          include: {
+            versenyNev: true,
+            alapadatok: true,
+          },
+        });
       },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      versenyNev: true,
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `felvettek_szama:alapadatok_id:${alapadatokId}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
+      CACHE_TTL.MEDIUM,
+      tanev
+    );
   }
+);
 
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
+export const getAllByAlapadatok = withPerformanceMonitoring(
+  "versenyek.getAllByAlapadatok",
+  async function (alapadatokId, tanev) {
+    return serviceCache.get(
+      "alapadatok_id",
+      async () => {
+        const firstYear = parseInt(tanev) - 4;
+        const lastYear = parseInt(tanev);
 
-  const data = await prisma.versenyek.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+        return await prisma.versenyek.findMany({
+          where: {
+            alapadatok_id: alapadatokId,
+            tanev_kezdete: {
+              gte: firstYear,
+              lte: lastYear,
+            },
+          },
+          orderBy: {
+            tanev_kezdete: "asc",
+          },
+          include: {
+            versenyNev: true,
+            alapadatok: true,
+          },
+        });
       },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      versenyNev: true,
-      alapadatok: true,
-    },
-  });
+      CACHE_TTL.MEDIUM,
+      alapadatokId,
+      tanev
+    );
+  }
+);
 
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
+export const create = withPerformanceMonitoring(
+  "versenyek.create",
+  async function (
+    versenyKategoria,
+    versenyNev,
+    helyezett_1,
+    helyezett_1_3,
+    dontobeJutott,
+    nevezettekSzama,
+    tanev_kezdete,
+    alapadatokId
+  ) {
+    // Smart cache invalidation
+    serviceCache.invalidateRelated("create", alapadatokId);
 
-  return data;
-}
-
-export async function create(
-  versenyKategoria,
-  versenyNev,
-  helyezett_1,
-  helyezett_1_3,
-  dontobeJutott,
-  nevezettekSzama,
-  tanev_kezdete,
-  alapadatokId
-) {
-  // Invalidate relevant caches
-  cache.del("felvettek_szama:all");
-  cache.del(`felvettek_szama:alapadatok_id:${alapadatokId}`);
-
-  const data = await prisma.versenyek.create({
-    data: {
-      helyezett_1,
-      helyezett_1_3,
-      dontobeJutott,
-      nevezettekSzama,
-      tanev_kezdete,
-      alapadatok_id: alapadatokId,
-      versenyNev: {
-        connectOrCreate: {
-          id: versenyNev,
-          create: {
-            nev: versenyNev,
-            versenyKategoria: {
-              connectOrCreate: {
-                id: versenyKategoria,
-                create: {
-                  nev: versenyKategoria,
+    const data = await prisma.versenyek.create({
+      data: {
+        helyezett_1,
+        helyezett_1_3,
+        dontobeJutott,
+        nevezettekSzama,
+        tanev_kezdete,
+        alapadatok_id: alapadatokId,
+        versenyNev: {
+          connectOrCreate: {
+            id: versenyNev,
+            create: {
+              nev: versenyNev,
+              versenyKategoria: {
+                connectOrCreate: {
+                  id: versenyKategoria,
+                  create: {
+                    nev: versenyKategoria,
+                  },
                 },
               },
             },
           },
         },
       },
-    },
-  });
+    });
 
-  return data;
-}
+    return data;
+  }
+);
 
-export async function update(
-  id,
-  versenyKategoria,
-  versenyNev,
-  helyezett_1,
-  helyezett_1_3,
-  dontobeJutott,
-  nevezettekSzama,
-  tanev_kezdete
-) {
-  // Invalidate relevant caches
-  cache.del("felvettek_szama:all");
-  cache.del(`felvettek_szama:alapadatok_id:${alapadatokId}`);
+export const update = withPerformanceMonitoring(
+  "versenyek.update",
+  async function (
+    id,
+    versenyKategoria,
+    versenyNev,
+    helyezett_1,
+    helyezett_1_3,
+    dontobeJutott,
+    nevezettekSzama,
+    tanev_kezdete
+  ) {
+    // Smart cache invalidation
+    serviceCache.invalidateRelated("update", id);
 
-  const data = await prisma.versenyek.update({
-    where: { id },
-    data: {
-      helyezett_1,
-      helyezett_1_3,
-      dontobeJutott,
-      nevezettekSzama,
-      tanev_kezdete,
-      versenyNev: {
-        connectOrCreate: {
-          id: versenyNev,
-          create: {
-            nev: versenyNev,
-            versenyKategoria: {
-              connectOrCreate: {
-                id: versenyKategoria,
-                create: {
-                  nev: versenyKategoria,
+    const data = await prisma.versenyek.update({
+      where: { id },
+      data: {
+        helyezett_1,
+        helyezett_1_3,
+        dontobeJutott,
+        nevezettekSzama,
+        tanev_kezdete,
+        versenyNev: {
+          connectOrCreate: {
+            id: versenyNev,
+            create: {
+              nev: versenyNev,
+              versenyKategoria: {
+                connectOrCreate: {
+                  id: versenyKategoria,
+                  create: {
+                    nev: versenyKategoria,
+                  },
                 },
               },
             },
           },
         },
       },
-    },
-  });
+    });
 
-  return data;
-}
+    return data;
+  }
+);
+
+export const deleteVerseny = withPerformanceMonitoring(
+  "versenyek.delete",
+  async function (id) {
+    // Smart cache invalidation
+    serviceCache.invalidateRelated("delete", id);
+
+    const data = await prisma.versenyek.delete({
+      where: { id },
+    });
+
+    return data;
+  }
+);

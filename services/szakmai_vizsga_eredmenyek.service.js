@@ -1,13 +1,16 @@
 import prisma from "../utils/prisma.js";
 import * as cache from "../utils/cache.js";
+import {
+  ServiceCache,
+  CACHE_TTL,
+  withPerformanceMonitoring,
+} from "../utils/serviceUtils.js";
+import { queryOptimizations } from "../utils/queryOptimizations.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize service cache
+const serviceCache = new ServiceCache("szakmai_vizsga_eredmenyek");
 
-export async function getAll(tanev) {
+export const getAll = withPerformanceMonitoring(async function getAll(tanev) {
   const cacheKey = `szakmaiVizsgaEredmenyek:all:${tanev}`;
   const cachedData = cache.get(cacheKey);
 
@@ -39,44 +42,46 @@ export async function getAll(tanev) {
   cache.set(cacheKey, data, CACHE_TTL.LIST);
 
   return data;
-}
+});
 
-export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `szakmaiVizsgaEredmenyek:alapadatok_id:${alapadatokId}:${tanev}`;
-  const cachedData = cache.get(cacheKey);
+export const getAllByAlapadatok = withPerformanceMonitoring(
+  async function getAllByAlapadatok(alapadatokId, tanev) {
+    const cacheKey = `szakmaiVizsgaEredmenyek:alapadatok_id:${alapadatokId}:${tanev}`;
+    const cachedData = cache.get(cacheKey);
 
-  if (cachedData) {
-    return cachedData;
-  }
+    if (cachedData) {
+      return cachedData;
+    }
 
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
+    const firstYear = parseInt(tanev) - 4;
+    const lastYear = parseInt(tanev);
 
-  const data = await prisma.szakmaiVizsgaEredmenyek.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+    const data = await prisma.szakmaiVizsgaEredmenyek.findMany({
+      where: {
+        alapadatok_id: alapadatokId,
+        tanev_kezdete: {
+          gte: firstYear,
+          lte: lastYear,
+        },
       },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-      szakirany: true,
-      szakma: true,
-    },
-  });
+      orderBy: {
+        tanev_kezdete: "asc",
+      },
+      include: {
+        alapadatok: true,
+        szakirany: true,
+        szakma: true,
+      },
+    });
 
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
+    // Store in cache
+    cache.set(cacheKey, data, CACHE_TTL.LIST);
 
-  return data;
-}
+    return data;
+  }
+);
 
-export async function create(
+export const create = withPerformanceMonitoring(async function create(
   szakirany_id,
   szakma_id,
   alapadatok_id,
@@ -97,13 +102,15 @@ export async function create(
     });
 
   // Invalidate cache
-  cache.del(`szakmaiVizsgaEredmenyek:all:${tanev}`);
-  cache.del(`szakmaiVizsgaEredmenyek:alapadatok_id:${alapadatok_id}:${tanev}`);
+  cache.del(`szakmaiVizsgaEredmenyek:all:${tanev_kezdete}`);
+  cache.del(
+    `szakmaiVizsgaEredmenyek:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`
+  );
 
   return newszakmaiVizsgaEredmenyek;
-}
+});
 
-export async function update(
+export const update = withPerformanceMonitoring(async function update(
   id,
   szakirany_id,
   szakma_id,
@@ -131,25 +138,27 @@ export async function update(
   );
 
   return updatedEredmenyek;
-}
+});
 
-export async function deleteAllByAlapadatok(alapadatokId, tanev) {
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
+export const deleteAllByAlapadatok = withPerformanceMonitoring(
+  async function deleteAllByAlapadatok(alapadatokId, tanev) {
+    const firstYear = parseInt(tanev) - 4;
+    const lastYear = parseInt(tanev);
 
-  const deletedCount = await prisma.szakmaiVizsgaEredmenyek.deleteMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+    const deletedCount = await prisma.szakmaiVizsgaEredmenyek.deleteMany({
+      where: {
+        alapadatok_id: alapadatokId,
+        tanev_kezdete: {
+          gte: firstYear,
+          lte: lastYear,
+        },
       },
-    },
-  });
+    });
 
-  // Invalidate cache
-  cache.del(`szakmaiVizsgaEredmenyek:all:${tanev}`);
-  cache.del(`szakmaiVizsgaEredmenyek:alapadatok_id:${alapadatokId}:${tanev}`);
+    // Invalidate cache
+    cache.del(`szakmaiVizsgaEredmenyek:all:${tanev}`);
+    cache.del(`szakmaiVizsgaEredmenyek:alapadatok_id:${alapadatokId}:${tanev}`);
 
-  return deletedCount;
-}
+    return deletedCount;
+  }
+);

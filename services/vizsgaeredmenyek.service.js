@@ -1,180 +1,160 @@
 import prisma from "../utils/prisma.js";
 import * as cache from "../utils/cache.js";
+import {
+  ServiceCache,
+  CACHE_TTL,
+  withPerformanceMonitoring,
+} from "../utils/serviceUtils.js";
+import { queryOptimizations } from "../utils/queryOptimizations.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize service cache
+const serviceCache = new ServiceCache("vizsgaeredmenyek");
 
-export async function getAll(tanev) {
-  const cacheKey = `vizsgaEredmenyek:all:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.vizsgaEredmenyek.findMany({
-    where: {
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-      szakirany: true,
-      szakma: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `vizsgaEredmenyek:alapadatok_id:${alapadatokId}:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.vizsgaEredmenyek.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-      szakirany: true,
-      szakma: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function create(
-  szakirany_id,
-  szakma_id,
-  alapadatok_id,
-  tanev_kezdete,
-  szakmai_vizsga_eredmeny,
-  agazati_alapvizsga_eredmeny,
-  magyar_nyelv_eretsegi_eredmeny,
-  matematika_eretsegi_eredmeny,
-  tortenelem_eretsegi_eredmeny,
-  angol_nyelv_eretsegi_eredmeny,
-  agazati_szakmai_eretsegi_eredmeny
-) {
-  const newvizsgaEredmenyek = await prisma.vizsgaEredmenyek.create({
-    data: {
-      szakirany_id,
-      szakma_id,
+export const create = withPerformanceMonitoring(
+  async function create(data) {
+    const {
       alapadatok_id,
-      tanev_kezdete: parseInt(tanev_kezdete),
-      szakmai_vizsga_eredmeny: parseFloat(szakmai_vizsga_eredmeny),
-      agazati_alapvizsga_eredmeny: parseFloat(agazati_alapvizsga_eredmeny),
-      magyar_nyelv_eretsegi_eredmeny: parseFloat(
-        magyar_nyelv_eretsegi_eredmeny
-      ),
-      matematika_eretsegi_eredmeny: parseFloat(matematika_eretsegi_eredmeny),
-      tortenelem_eretsegi_eredmeny: parseFloat(tortenelem_eretsegi_eredmeny),
-      angol_nyelv_eretsegi_eredmeny: parseFloat(angol_nyelv_eretsegi_eredmeny),
-      agazati_szakmai_eretsegi_eredmeny: parseFloat(
-        agazati_szakmai_eretsegi_eredmeny
-      ),
-    },
-  });
+      tanev_kezdete,
+      szakmaNev,
+      vizsgatipusNev,
+      vizsgaba_lent_tanulok_szama,
+      sikeres_vizsgat_tett_tanulok_szama,
+    } = data;
 
-  // Invalidate cache
-  cache.del(`vizsgaEredmenyek:all:${tanev}`);
-  cache.del(`vizsgaEredmenyek:alapadatok_id:${alapadatok_id}:${tanev}`);
-
-  return newvizsgaEredmenyek;
-}
-
-export async function update(
-  id,
-  szakirany_id,
-  szakma_id,
-  alapadatok_id,
-  tanev_kezdete,
-  szakmai_vizsga_eredmeny,
-  agazati_alapvizsga_eredmeny,
-  magyar_nyelv_eretsegi_eredmeny,
-  matematika_eretsegi_eredmeny,
-  tortenelem_eretsegi_eredmeny,
-  angol_nyelv_eretsegi_eredmeny,
-  agazati_szakmai_eretsegi_eredmeny
-) {
-  const updatedvizsgaEredmenyek = await prisma.vizsgaEredmenyek.update({
-    where: { id: parseInt(id) },
-    data: {
-      szakirany_id,
-      szakma_id,
-      alapadatok_id,
-      tanev_kezdete: parseInt(tanev_kezdete),
-      szakmai_vizsga_eredmeny: parseFloat(szakmai_vizsga_eredmeny),
-      agazati_alapvizsga_eredmeny: parseFloat(agazati_alapvizsga_eredmeny),
-      magyar_nyelv_eretsegi_eredmeny: parseFloat(
-        magyar_nyelv_eretsegi_eredmeny
-      ),
-      matematika_eretsegi_eredmeny: parseFloat(matematika_eretsegi_eredmeny),
-      tortenelem_eretsegi_eredmeny: parseFloat(tortenelem_eretsegi_eredmeny),
-      angol_nyelv_eretsegi_eredmeny: parseFloat(angol_nyelv_eretsegi_eredmeny),
-      agazati_szakmai_eretsegi_eredmeny: parseFloat(
-        agazati_szakmai_eretsegi_eredmeny
-      ),
-    },
-  });
-
-  // Invalidate cache
-  cache.del(`vizsgaEredmenyek:all:${tanev_kezdete}`);
-  cache.del(`vizsgaEredmenyek:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
-
-  return updatedvizsgaEredmenyek;
-}
-
-export async function deleteAllByAlapadatok(alapadatokId, tanev) {
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const deletedCount = await prisma.vizsgaEredmenyek.deleteMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+    const szakma = await prisma.szakma.findUnique({
+      where: {
+        nev: szakmaNev,
       },
-    },
-  });
+    });
 
-  // Invalidate cache
-  cache.del(`vizsgaEredmenyek:all:${tanev}`);
-  cache.del(`vizsgaEredmenyek:alapadatok_id:${alapadatokId}:${tanev}`);
+    if (!szakma) {
+      throw new Error(`Szakma with name ${szakmaNev} not found`);
+    }
 
-  return deletedCount;
-}
+    const vizsgatipus = await prisma.vizsgatipus.findUnique({
+      where: {
+        nev: vizsgatipusNev,
+      },
+    });
+
+    if (!vizsgatipus) {
+      throw new Error(`Vizsgatipus with name ${vizsgatipusNev} not found`);
+    }
+
+    const result = await prisma.vizsgaeredmenyek.create({
+      data: {
+        alapadatok_id,
+        tanev_kezdete,
+        szakma_id: szakma.id,
+        vizsgatipus_id: vizsgatipus.id,
+        vizsgaba_lent_tanulok_szama,
+        sikeres_vizsgat_tett_tanulok_szama,
+      },
+    });
+
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(['all', 'by_id']);
+
+    return result;
+  }
+);
+
+export const getAll = withPerformanceMonitoring(
+  async function getAll(tanev) {
+    return serviceCache.get(
+      "all",
+      async () => {
+        const lastYear = parseInt(tanev);
+        const firstYear = lastYear - 4;
+
+        return await prisma.vizsgaeredmenyek.findMany({
+          where: {
+            tanev_kezdete: { gte: firstYear, lte: lastYear },
+          },
+          include: {
+            szakma: true,
+            vizsgatipus: true,
+          },
+          orderBy: { createAt: "desc" },
+        });
+      },
+      CACHE_TTL.LIST,
+      tanev
+    );
+  }
+);
+
+export const getById = withPerformanceMonitoring(
+  async function getById(alapadatok_id, tanev) {
+    return serviceCache.get(
+      "by_id",
+      async () => {
+        const lastYear = parseInt(tanev);
+        const firstYear = lastYear - 4;
+
+        return await prisma.vizsgaeredmenyek.findMany({
+          where: {
+            alapadatok_id,
+            tanev_kezdete: { gte: firstYear, lte: lastYear },
+          },
+          include: {
+            szakma: true,
+            vizsgatipus: true,
+          },
+        });
+      },
+      CACHE_TTL.DETAIL,
+      alapadatok_id,
+      tanev
+    );
+  }
+);
+
+export const update = withPerformanceMonitoring(
+  async function update(id, data) {
+    const {
+      alapadatok_id,
+      tanev_kezdete,
+      szakmaNev,
+      vizsgatipusNev,
+      vizsgaba_lent_tanulok_szama,
+      sikeres_vizsgat_tett_tanulok_szama,
+    } = data;
+
+    const szakma = await prisma.szakma.findUnique({
+      where: {
+        nev: szakmaNev,
+      },
+    });
+    if (!szakma) {
+      throw new Error(`Szakma with name ${szakmaNev} not found`);
+    }
+    const vizsgatipus = await prisma.vizsgatipus.findUnique({
+      where: {
+        nev: vizsgatipusNev,
+      },
+    });
+    if (!vizsgatipus) {
+      throw new Error(`Vizsgatipus with name ${vizsgatipusNev} not found`);
+    }
+
+    const result = await prisma.vizsgaeredmenyek.update({
+      where: {
+        id,
+      },
+      data: {
+        alapadatok_id,
+        tanev_kezdete,
+        szakma_id: szakma.id,
+        vizsgatipus_id: vizsgatipus.id,
+        vizsgaba_lent_tanulok_szama,
+        sikeres_vizsgat_tett_tanulok_szama,
+      },
+    });
+
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(['all', 'by_id']);
+
+    return result;
+  }
+);

@@ -1,155 +1,140 @@
 import prisma from "../utils/prisma.js";
 import * as cache from "../utils/cache.js";
+import {
+  ServiceCache,
+  CACHE_TTL,
+  withPerformanceMonitoring,
+} from "../utils/serviceUtils.js";
+import { queryOptimizations } from "../utils/queryOptimizations.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize service cache
+const serviceCache = new ServiceCache("lemorzsolodas");
 
-export async function getAll(tanev) {
-  const cacheKey = `lemorzsolodas:all:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.lemorzsolodas.findMany({
-    where: {
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-      szakirany: true,
-      szakma: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `lemorzsolodas:alapadatok_id:${alapadatokId}:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.lemorzsolodas.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-      szakirany: true,
-      szakma: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function create(
-  szakirany_id,
-  szakma_id,
-  alapadatok_id,
-  tanev_kezdete,
-  lemorzsolodo_tanulok_szama,
-  oktober_es_belepett_tanulok_szama
-) {
-  const newlemorzsolodas = await prisma.lemorzsolodas.create({
-    data: {
-      szakirany_id,
-      szakma_id,
+export const create = withPerformanceMonitoring(
+  async function create(data) {
+    const {
       alapadatok_id,
-      tanev_kezdete: parseInt(tanev_kezdete),
-      lemorzsolodo_tanulok_szama: parseInt(lemorzsolodo_tanulok_szama),
-      oktober_es_belepett_tanulok_szama: parseInt(
-        oktober_es_belepett_tanulok_szama
-      ),
-    },
-  });
+      tanev_kezdete,
+      szakmaNev,
+      evfolyam,
+      beiratkozott_tanulok_szama,
+      kiesett_tanulok_szama,
+    } = data;
 
-  // Invalidate cache
-  cache.del(`lemorzsolodas:all:${tanev}`);
-  cache.del(`lemorzsolodas:alapadatok_id:${alapadatok_id}:${tanev}`);
-
-  return newlemorzsolodas;
-}
-
-export async function update(
-  id,
-  szakirany_id,
-  szakma_id,
-  alapadatok_id,
-  tanev_kezdete,
-  lemorzsolodo_tanulok_szama,
-  oktober_es_belepett_tanulok_szama
-) {
-  const updatedlemorzsolodas = await prisma.lemorzsolodas.update({
-    where: { id: parseInt(id) },
-    data: {
-      szakirany_id,
-      szakma_id,
-      alapadatok_id,
-      tanev_kezdete: parseInt(tanev_kezdete),
-      lemorzsolodo_tanulok_szama: parseInt(lemorzsolodo_tanulok_szama),
-      oktober_es_belepett_tanulok_szama: parseInt(
-        oktober_es_belepett_tanulok_szama
-      ),
-    },
-  });
-  // Invalidate cache
-  cache.del(`lemorzsolodas:all:${tanev_kezdete}`);
-  cache.del(`lemorzsolodas:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
-
-  return updatedlemorzsolodas;
-}
-
-export async function deleteAllByAlapadatok(alapadatokId, tanev) {
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const deletedCount = await prisma.lemorzsolodas.deleteMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+    const szakma = await prisma.szakma.findUnique({
+      where: {
+        nev: szakmaNev,
       },
-    },
-  });
+    });
 
-  // Invalidate cache
-  cache.del(`lemorzsolodas:all:${tanev}`);
-  cache.del(`lemorzsolodas:alapadatok_id:${alapadatokId}:${tanev}`);
+    if (!szakma) {
+      throw new Error(`Szakma with name ${szakmaNev} not found`);
+    }
 
-  return deletedCount;
-}
+    const result = await prisma.lemorzsolodas.create({
+      data: {
+        alapadatok_id,
+        tanev_kezdete,
+        szakma_id: szakma.id,
+        evfolyam,
+        beiratkozott_tanulok_szama,
+        kiesett_tanulok_szama,
+      },
+    });
+
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(['all', 'by_id']);
+
+    return result;
+  }
+);
+
+export const getAll = withPerformanceMonitoring(
+  async function getAll(tanev) {
+    return serviceCache.get(
+      "all",
+      async () => {
+        const lastYear = parseInt(tanev);
+        const firstYear = lastYear - 4;
+
+        return await prisma.lemorzsolodas.findMany({
+          where: {
+            tanev_kezdete: { gte: firstYear, lte: lastYear },
+          },
+          include: {
+            szakma: true,
+          },
+          orderBy: { createAt: "desc" },
+        });
+      },
+      CACHE_TTL.LIST,
+      tanev
+    );
+  }
+);
+
+export const getById = withPerformanceMonitoring(
+  async function getById(alapadatok_id, tanev) {
+    return serviceCache.get(
+      "by_id",
+      async () => {
+        const lastYear = parseInt(tanev);
+        const firstYear = lastYear - 4;
+
+        return await prisma.lemorzsolodas.findMany({
+          where: {
+            alapadatok_id,
+            tanev_kezdete: { gte: firstYear, lte: lastYear },
+          },
+          include: {
+            szakma: true,
+          },
+        });
+      },
+      CACHE_TTL.DETAIL,
+      alapadatok_id,
+      tanev
+    );
+  }
+);
+
+export const update = withPerformanceMonitoring(
+  async function update(id, data) {
+    const {
+      alapadatok_id,
+      tanev_kezdete,
+      szakmaNev,
+      evfolyam,
+      beiratkozott_tanulok_szama,
+      kiesett_tanulok_szama,
+    } = data;
+
+    const szakma = await prisma.szakma.findUnique({
+      where: {
+        nev: szakmaNev,
+      },
+    });
+    if (!szakma) {
+      throw new Error(`Szakma with name ${szakmaNev} not found`);
+    }
+
+    const result = await prisma.lemorzsolodas.update({
+      where: {
+        id,
+      },
+      data: {
+        alapadatok_id,
+        tanev_kezdete,
+        szakma_id: szakma.id,
+        evfolyam,
+        beiratkozott_tanulok_szama,
+        kiesett_tanulok_szama,
+      },
+    });
+
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(['all', 'by_id']);
+
+    return result;
+  }
+);

@@ -1,13 +1,16 @@
 import prisma from "../utils/prisma.js";
 import * as cache from "../utils/cache.js";
+import {
+  ServiceCache,
+  CACHE_TTL,
+  withPerformanceMonitoring,
+} from "../utils/serviceUtils.js";
+import { queryOptimizations } from "../utils/queryOptimizations.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize service cache
+const serviceCache = new ServiceCache("nszfh");
 
-export async function getAll(tanev) {
+export const getAll = withPerformanceMonitoring(async function getAll(tanev) {
   const cacheKey = "nszfh:all";
   const cachedData = cache.get(cacheKey);
 
@@ -37,43 +40,45 @@ export async function getAll(tanev) {
   cache.set(cacheKey, data, CACHE_TTL.LIST);
 
   return data;
-}
+});
 
-export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `nszfh:alapadatok_id:${alapadatokId}`;
-  const cachedData = cache.get(cacheKey);
+export const getAllByAlapadatok = withPerformanceMonitoring(
+  async function getAllByAlapadatok(alapadatokId, tanev) {
+    const cacheKey = `nszfh:alapadatok_id:${alapadatokId}`;
+    const cachedData = cache.get(cacheKey);
 
-  if (cachedData) {
-    return cachedData;
-  }
+    if (cachedData) {
+      return cachedData;
+    }
 
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
+    const firstYear = parseInt(tanev) - 4;
+    const lastYear = parseInt(tanev);
 
-  const data = await prisma.versenyek.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+    const data = await prisma.versenyek.findMany({
+      where: {
+        alapadatok_id: alapadatokId,
+        tanev_kezdete: {
+          gte: firstYear,
+          lte: lastYear,
+        },
       },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      versenyNev: true,
-      alapadatok: true,
-    },
-  });
+      orderBy: {
+        tanev_kezdete: "asc",
+      },
+      include: {
+        versenyNev: true,
+        alapadatok: true,
+      },
+    });
 
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
+    // Store in cache
+    cache.set(cacheKey, data, CACHE_TTL.LIST);
 
-  return data;
-}
+    return data;
+  }
+);
 
-export async function create(
+export const create = withPerformanceMonitoring(async function create(
   alapadatok_id,
   tanev_kezdete,
   kat_1_mat_bemeneti,
@@ -135,9 +140,9 @@ export async function create(
   cache.set(`nszfh:alapadatok_id:${alapadatok_id}`, data, CACHE_TTL.LIST);
 
   return data;
-}
+});
 
-export async function update(
+export const update = withPerformanceMonitoring(async function update(
   id,
   alapadatok_id,
   tanev_kezdete,
@@ -202,19 +207,21 @@ export async function update(
   cache.set(`nszfh:alapadatok_id:${alapadatok_id}`, data, CACHE_TTL.LIST);
 
   return data;
-}
+});
 
-export async function deleteAllByAlapadatok(alapadatokId, tanev) {
-  // Invalidate relevant caches
-  cache.del("nszfh:all");
-  cache.del(`nszfh:alapadatok_id:${alapadatokId}`);
+export const deleteAllByAlapadatok = withPerformanceMonitoring(
+  async function deleteAllByAlapadatok(alapadatokId, tanev) {
+    // Invalidate relevant caches
+    cache.del("nszfh:all");
+    cache.del(`nszfh:alapadatok_id:${alapadatokId}`);
 
-  const data = await prisma.versenyek.deleteMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: tanev,
-    },
-  });
+    const data = await prisma.versenyek.deleteMany({
+      where: {
+        alapadatok_id: alapadatokId,
+        tanev_kezdete: tanev,
+      },
+    });
 
-  return data;
-}
+    return data;
+  }
+);

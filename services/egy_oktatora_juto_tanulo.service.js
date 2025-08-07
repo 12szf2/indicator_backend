@@ -1,50 +1,51 @@
 import prisma from "../utils/prisma.js";
 import * as cache from "../utils/cache.js";
+import {
+  ServiceCache,
+  CACHE_TTL,
+  withPerformanceMonitoring,
+} from "../utils/serviceUtils.js";
+import { queryOptimizations } from "../utils/queryOptimizations.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize service cache
+const serviceCache = new ServiceCache("egy_oktatora_juto_tanulo");
 
-export async function getAll() {
-  const cacheKey = "egyOktatoraJutoTanulo:all";
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
+export const getAll = withPerformanceMonitoring(
+  "egy_oktatora_juto_tanulo.getAll",
+  async function () {
+    return serviceCache.get(
+      "all",
+      async () => {
+        return await prisma.egyOktatoraJutoTanulo.findMany();
+      },
+      CACHE_TTL.MEDIUM
+    );
   }
+);
 
-  const data = await prisma.egyOktatoraJutoTanulo.findMany();
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function getById(alapadatok_id) {
-  const cacheKey = `egyOktatoraJutoTanulo:id:${alapadatok_id}`;
-
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
+export const getById = withPerformanceMonitoring(
+  "egy_oktatora_juto_tanulo.getById",
+  async function (alapadatok_id) {
+    return serviceCache.get(
+      "by_id",
+      async () => {
+        return await prisma.egyOktatoraJutoTanulo.findMany({
+          where: {
+            alapadatok_id: alapadatok_id,
+          },
+        });
+      },
+      CACHE_TTL.MEDIUM,
+      alapadatok_id
+    );
   }
+);
 
-  const data = await prisma.egyOktatoraJutoTanulo.findMany({
-    where: {
-      alapadatok_id: alapadatok_id,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.DETAIL);
-
-  return data;
-}
-
-export async function create(tanev_kezdete, letszam, alapadatok_id) {
+export const create = withPerformanceMonitoring(async function create(
+  tanev_kezdete,
+  letszam,
+  alapadatok_id
+) {
   const newEntry = await prisma.egyOktatoraJutoTanulo.create({
     data: {
       tanev_kezdete: tanev_kezdete,
@@ -57,9 +58,14 @@ export async function create(tanev_kezdete, letszam, alapadatok_id) {
   cache.invalidate("egyOktatoraJutoTanulo:all");
 
   return newEntry;
-}
+});
 
-export async function update(id, tanev_kezdete, letszam, alapadatok_id) {
+export const update = withPerformanceMonitoring(async function update(
+  id,
+  tanev_kezdete,
+  letszam,
+  alapadatok_id
+) {
   const updatedEntry = await prisma.egyOktatoraJutoTanulo.update({
     where: {
       id: id,
@@ -76,4 +82,4 @@ export async function update(id, tanev_kezdete, letszam, alapadatok_id) {
   cache.invalidate(`egyOktatoraJutoTanulo:id:${id}`);
 
   return updatedEntry;
-}
+});

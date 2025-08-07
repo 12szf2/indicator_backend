@@ -1,140 +1,107 @@
 import prisma from "../utils/prisma.js";
 import * as cache from "../utils/cache.js";
+import {
+  ServiceCache,
+  CACHE_TTL,
+  withPerformanceMonitoring,
+} from "../utils/serviceUtils.js";
+import { queryOptimizations } from "../utils/queryOptimizations.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize service cache
+const serviceCache = new ServiceCache("hh_es_hhh_nevelesu_tanulok");
 
-export async function getAll(tanev) {
-  const cacheKey = `hHEsHHHTanulok:all:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.hHEsHHHTanulok.findMany({
-    where: {
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `hHEsHHHTanulok:alapadatok_id:${alapadatokId}:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.hHEsHHHTanulok.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function create(
-  alapadatok_id,
-  tanev_kezdete,
-  hh_tanulo_letszam,
-  tanuloi_osszletszam
-) {
-  const newhHEsHHHTanulok = await prisma.hHEsHHHTanulok.create({
-    data: {
-      alapadatok_id,
-      tanev_kezdete: parseInt(tanev_kezdete),
-      hh_tanulo_letszam: parseInt(hh_tanulo_letszam),
-      tanuloi_osszletszam: parseInt(tanuloi_osszletszam),
-    },
-  });
-
-  // Invalidate cache
-  cache.del(`hHEsHHHTanulok:all:${tanev}`);
-  cache.del(`hHEsHHHTanulok:alapadatok_id:${alapadatok_id}:${tanev}`);
-
-  return newhHEsHHHTanulok;
-}
-
-export async function update(
-  id,
-  alapadatok_id,
-  tanev_kezdete,
-  hh_tanulo_letszam,
-  tanuloi_osszletszam
-) {
-  // Invalidate cache
-  cache.del(`hHEsHHHTanulok:all:${tanev_kezdete}`);
-  cache.del(`hHEsHHHTanulok:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
-
-  return await prisma.hHEsHHHTanulok.update({
-    where: {
-      id,
-    },
-    data: {
+export const create = withPerformanceMonitoring(
+  async function create(data) {
+    const {
       alapadatok_id,
       tanev_kezdete,
-      hh_tanulo_letszam,
-      tanuloi_osszletszam,
-    },
-  });
-}
+      hh_nevelesu_tanulok_szama,
+      hhh_nevelesu_tanulok_szama,
+    } = data;
 
-export async function deleteAllByAlapadatok(alapadatokId, tanev) {
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const deletedCount = await prisma.hHEsHHHTanulok.deleteMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+    const result = await prisma.hh_es_hhh_nevelesu_tanulok.create({
+      data: {
+        alapadatok_id,
+        tanev_kezdete,
+        hh_nevelesu_tanulok_szama,
+        hhh_nevelesu_tanulok_szama,
       },
-    },
-  });
+    });
 
-  // Invalidate cache
-  cache.del(`hHEsHHHTanulok:all:${tanev}`);
-  cache.del(`hHEsHHHTanulok:alapadatok_id:${alapadatokId}:${tanev}`);
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(['all', 'by_id']);
 
-  return deletedCount;
-}
+    return result;
+  }
+);
+
+export const getAll = withPerformanceMonitoring(
+  async function getAll(tanev) {
+    return serviceCache.get(
+      "all",
+      async () => {
+        const lastYear = parseInt(tanev);
+        const firstYear = lastYear - 4;
+
+        return await prisma.hh_es_hhh_nevelesu_tanulok.findMany({
+          where: {
+            tanev_kezdete: { gte: firstYear, lte: lastYear },
+          },
+          orderBy: { createAt: "desc" },
+        });
+      },
+      CACHE_TTL.LIST,
+      tanev
+    );
+  }
+);
+
+export const getById = withPerformanceMonitoring(
+  async function getById(alapadatok_id, tanev) {
+    return serviceCache.get(
+      "by_id",
+      async () => {
+        const lastYear = parseInt(tanev);
+        const firstYear = lastYear - 4;
+
+        return await prisma.hh_es_hhh_nevelesu_tanulok.findMany({
+          where: {
+            alapadatok_id,
+            tanev_kezdete: { gte: firstYear, lte: lastYear },
+          },
+        });
+      },
+      CACHE_TTL.DETAIL,
+      alapadatok_id,
+      tanev
+    );
+  }
+);
+
+export const update = withPerformanceMonitoring(
+  async function update(id, data) {
+    const {
+      alapadatok_id,
+      tanev_kezdete,
+      hh_nevelesu_tanulok_szama,
+      hhh_nevelesu_tanulok_szama,
+    } = data;
+
+    const result = await prisma.hh_es_hhh_nevelesu_tanulok.update({
+      where: {
+        id,
+      },
+      data: {
+        alapadatok_id,
+        tanev_kezdete,
+        hh_nevelesu_tanulok_szama,
+        hhh_nevelesu_tanulok_szama,
+      },
+    });
+
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(['all', 'by_id']);
+
+    return result;
+  }
+);

@@ -1,165 +1,107 @@
 import prisma from "../utils/prisma.js";
 import * as cache from "../utils/cache.js";
+import {
+  ServiceCache,
+  CACHE_TTL,
+  withPerformanceMonitoring,
+} from "../utils/serviceUtils.js";
+import { queryOptimizations } from "../utils/queryOptimizations.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize service cache
+const serviceCache = new ServiceCache("sajatos_nevelesu_tanulok");
 
-export async function getAll(tanev) {
-  const cacheKey = `sajatosNevelesuTanulok:all:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.sajatosNevelesuTanulok.findMany({
-    where: {
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `sajatosNevelesuTanulok:alapadatok_id:${alapadatokId}:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.sajatosNevelesuTanulok.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function create(
-  alapadatok_id,
-  tanev_kezdete,
-  sni_tanulok_szama,
-  tanulok_osszesen
-) {
-  // Validate input parameters
-  if (!alapadatok_id) {
-    throw new Error("alapadatok_id is required");
-  }
-  if (!tanev_kezdete) {
-    throw new Error("tanev_kezdete is required");
-  }
-
-  // Parse and validate numeric values
-  const parsedTanevKezdete = parseInt(tanev_kezdete);
-  const parsedSniTanulokSzama = parseInt(sni_tanulok_szama) || 0;
-  const parsedTanulokOsszesen = parseInt(tanulok_osszesen) || 0;
-
-  if (isNaN(parsedTanevKezdete)) {
-    throw new Error("tanev_kezdete must be a valid number");
-  }
-  if (isNaN(parsedTanulokOsszesen) || parsedTanulokOsszesen === 0) {
-    throw new Error("tanulok_osszesen must be a valid positive number");
-  }
-
-  const newsajatosNevelesuTanulok = await prisma.sajatosNevelesuTanulok.create({
-    data: {
+export const create = withPerformanceMonitoring(
+  async function create(data) {
+    const {
       alapadatok_id,
-      tanev_kezdete: parsedTanevKezdete,
-      sni_tanulok_szama: parsedSniTanulokSzama,
-      tanulok_osszesen: parsedTanulokOsszesen,
-    },
-  });
+      tanev_kezdete,
+      sni_tanulok_szama,
+      btmn_tanulok_szama,
+    } = data;
 
-  // Invalidate cache
-  cache.del(`sajatosNevelesuTanulok:all:${parsedTanevKezdete + 1}`);
-  cache.del(
-    `sajatosNevelesuTanulok:alapadatok_id:${alapadatok_id}:${parsedTanevKezdete}`
-  );
-
-  return newsajatosNevelesuTanulok;
-}
-
-export async function update(
-  id,
-  alapadatok_id,
-  tanev_kezdete,
-  sni_tanulok_szama,
-  tanulok_osszesen
-) {
-  const updatedSajatosNevelesuTanulok =
-    await prisma.sajatosNevelesuTanulok.update({
-      where: { id: parseInt(id) },
+    const result = await prisma.sajatos_nevelesu_tanulok.create({
       data: {
         alapadatok_id,
-        tanev_kezdete: parseInt(tanev_kezdete),
-        sni_tanulok_szama: parseInt(sni_tanulok_szama),
-        tanulok_osszesen: parseInt(tanulok_osszesen),
+        tanev_kezdete,
+        sni_tanulok_szama,
+        btmn_tanulok_szama,
       },
     });
 
-  // Invalidate cache
-  cache.del(`sajatosNevelesuTanulok:all:${tanev_kezdete}`);
-  cache.del(
-    `sajatosNevelesuTanulok:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`
-  );
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(['all', 'by_id']);
 
-  return updatedSajatosNevelesuTanulok;
-}
+    return result;
+  }
+);
 
-export async function deleteAllByAlapadatok(alapadatokId, tanev) {
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
+export const getAll = withPerformanceMonitoring(
+  async function getAll(tanev) {
+    return serviceCache.get(
+      "all",
+      async () => {
+        const lastYear = parseInt(tanev);
+        const firstYear = lastYear - 4;
 
-  const deletedCount = await prisma.sajatosNevelesuTanulok.deleteMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+        return await prisma.sajatos_nevelesu_tanulok.findMany({
+          where: {
+            tanev_kezdete: { gte: firstYear, lte: lastYear },
+          },
+          orderBy: { createAt: "desc" },
+        });
       },
-    },
-  });
+      CACHE_TTL.LIST,
+      tanev
+    );
+  }
+);
 
-  // Invalidate cache
-  cache.del(`sajatosNevelesuTanulok:all:${tanev}`);
-  cache.del(`sajatosNevelesuTanulok:alapadatok_id:${alapadatokId}:${tanev}`);
+export const getById = withPerformanceMonitoring(
+  async function getById(alapadatok_id, tanev) {
+    return serviceCache.get(
+      "by_id",
+      async () => {
+        const lastYear = parseInt(tanev);
+        const firstYear = lastYear - 4;
 
-  return deletedCount;
-}
+        return await prisma.sajatos_nevelesu_tanulok.findMany({
+          where: {
+            alapadatok_id,
+            tanev_kezdete: { gte: firstYear, lte: lastYear },
+          },
+        });
+      },
+      CACHE_TTL.DETAIL,
+      alapadatok_id,
+      tanev
+    );
+  }
+);
+
+export const update = withPerformanceMonitoring(
+  async function update(id, data) {
+    const {
+      alapadatok_id,
+      tanev_kezdete,
+      sni_tanulok_szama,
+      btmn_tanulok_szama,
+    } = data;
+
+    const result = await prisma.sajatos_nevelesu_tanulok.update({
+      where: {
+        id,
+      },
+      data: {
+        alapadatok_id,
+        tanev_kezdete,
+        sni_tanulok_szama,
+        btmn_tanulok_szama,
+      },
+    });
+
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(['all', 'by_id']);
+
+    return result;
+  }
+);

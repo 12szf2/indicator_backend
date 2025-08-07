@@ -6,8 +6,17 @@
   "scripts": {
     "dev": "nodemon ./index.js",
     "start": "node ./index.js",
+    "start:prod": "NODE_ENV=production node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "validate-docs": "node validate-docs.js"
+    "validate-docs": "node validate-docs.js",
+    "health": "curl http://localhost:5300/health",
+    "metrics": "curl http://localhost:5300/system/metrics",
+    "cache:clear": "curl -X POST http://localhost:5300/system/cache/clear",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [],
   "author": "",

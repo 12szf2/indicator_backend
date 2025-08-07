@@ -1,13 +1,19 @@
 import prisma from "../utils/prisma.js";
 import * as cache from "../utils/cache.js";
+import {
+  ServiceCache,
+  CACHE_TTL,
+  withPerformanceMonitoring,
+} from "../utils/serviceUtils.js";
+import { queryOptimizations } from "../utils/queryOptimizations.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize service cache
+const serviceCache = new ServiceCache("tanugyi_adatok");
 
-export async function getAll(alapadatok_id, ev) {
+export const getAll = withPerformanceMonitoring(async function getAll(
+  alapadatok_id,
+  ev
+) {
   const cacheKey = `tanugyi_adatok:alapadatok_id:${alapadatok_id}${
     ev ? `:ev:${ev}` : ""
   }`;
@@ -27,9 +33,12 @@ export async function getAll(alapadatok_id, ev) {
   cache.set(cacheKey, data, CACHE_TTL.LIST);
 
   return data;
-}
+});
 
-export async function createMany(alapadatok_id, data) {
+export const createMany = withPerformanceMonitoring(async function createMany(
+  alapadatok_id,
+  data
+) {
   // Invalidate cache
   cache.delByPattern(`tanugyi_adatok:alapadatok_id:${alapadatok_id}.*`);
 
@@ -62,4 +71,4 @@ export async function createMany(alapadatok_id, data) {
   });
 
   return createdData;
-}
+});

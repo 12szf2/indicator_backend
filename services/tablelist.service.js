@@ -1,32 +1,60 @@
 import { PrismaClient } from "../generated/prisma/client.js";
+import {
+  ServiceCache,
+  CACHE_TTL,
+  withPerformanceMonitoring,
+} from "../utils/serviceUtils.js";
+import { queryOptimizations } from "../utils/queryOptimizations.js";
 
 const prisma = new PrismaClient();
 
-export async function getAll() {
-  const data = await prisma.tableList.findMany();
+// Initialize service cache
+const serviceCache = new ServiceCache("tablelist");
 
-  return data;
-}
+export const getAll = withPerformanceMonitoring(
+  "tablelist.getAll",
+  async function () {
+    return serviceCache.get(
+      "all",
+      async () => {
+        return await prisma.tableList.findMany();
+      },
+      CACHE_TTL.MEDIUM
+    );
+  }
+);
 
-export async function create(name, isAvailable) {
-  const newTable = await prisma.tableList.create({
-    data: {
-      name,
-      isAvailable,
-    },
-  });
+export const create = withPerformanceMonitoring(
+  "tablelist.create",
+  async function (name, isAvailable) {
+    // Smart cache invalidation
+    serviceCache.invalidateRelated("create");
 
-  return newTable;
-}
+    const newTable = await prisma.tableList.create({
+      data: {
+        name,
+        isAvailable,
+      },
+    });
 
-export async function update(id, name, isAvailable) {
-  const updatedTable = await prisma.tableList.update({
-    where: { id: Number(id) },
-    data: {
-      name,
-      isAvailable,
-    },
-  });
+    return newTable;
+  }
+);
 
-  return updatedTable;
-}
+export const update = withPerformanceMonitoring(
+  "tablelist.update",
+  async function (id, name, isAvailable) {
+    // Smart cache invalidation
+    serviceCache.invalidateRelated("update", id);
+
+    const updatedTable = await prisma.tableList.update({
+      where: { id: Number(id) },
+      data: {
+        name,
+        isAvailable,
+      },
+    });
+
+    return updatedTable;
+  }
+);

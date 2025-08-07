@@ -1,144 +1,136 @@
 import prisma from "../utils/prisma.js";
 import * as cache from "../utils/cache.js";
+import {
+  ServiceCache,
+  CACHE_TTL,
+  withPerformanceMonitoring,
+} from "../utils/serviceUtils.js";
+import { queryOptimizations } from "../utils/queryOptimizations.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize service cache
+const serviceCache = new ServiceCache("muhelyiskola");
 
-export async function getAll(tanev) {
-  const cacheKey = `muhelyiskola:all:${tanev}`;
-  const cachedData = cache.get(cacheKey);
+export const create = withPerformanceMonitoring(
+  async function create(data) {
+    const {
+      alapadatok_id,
+      tanev_kezdete,
+      szakmaNev,
+      tanulo_letszam,
+      orak_szama,
+    } = data;
 
-  if (cachedData) {
-    return cachedData;
+    const szakma = await prisma.szakma.findUnique({
+      where: {
+        nev: szakmaNev,
+      },
+    });
+
+    if (!szakma) {
+      throw new Error(`Szakma with name ${szakmaNev} not found`);
+    }
+
+    const result = await prisma.muhelyiskola.create({
+      data: {
+        alapadatok_id,
+        tanev_kezdete,
+        szakma_id: szakma.id,
+        tanulo_letszam,
+        orak_szama,
+      },
+    });
+
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(['all', 'by_id']);
+
+    return result;
   }
+);
 
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
+export const getAll = withPerformanceMonitoring(
+  async function getAll(tanev) {
+    return serviceCache.get(
+      "all",
+      async () => {
+        const lastYear = parseInt(tanev);
+        const firstYear = lastYear - 4;
 
-  const data = await prisma.muhelyiskola.findMany({
-    where: {
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+        return await prisma.muhelyiskola.findMany({
+          where: {
+            tanev_kezdete: { gte: firstYear, lte: lastYear },
+          },
+          include: {
+            szakma: true,
+          },
+          orderBy: { createAt: "desc" },
+        });
       },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
-}
-
-export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `muhelyiskola:alapadatok_id:${alapadatokId}:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
+      CACHE_TTL.LIST,
+      tanev
+    );
   }
+);
 
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
+export const getById = withPerformanceMonitoring(
+  async function getById(alapadatok_id, tanev) {
+    return serviceCache.get(
+      "by_id",
+      async () => {
+        const lastYear = parseInt(tanev);
+        const firstYear = lastYear - 4;
 
-  const data = await prisma.muhelyiskola.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+        return await prisma.muhelyiskola.findMany({
+          where: {
+            alapadatok_id,
+            tanev_kezdete: { gte: firstYear, lte: lastYear },
+          },
+          include: {
+            szakma: true,
+          },
+        });
       },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
+      CACHE_TTL.DETAIL,
+      alapadatok_id,
+      tanev
+    );
+  }
+);
 
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
+export const update = withPerformanceMonitoring(
+  async function update(id, data) {
+    const {
+      alapadatok_id,
+      tanev_kezdete,
+      szakmaNev,
+      tanulo_letszam,
+      orak_szama,
+    } = data;
 
-  return data;
-}
-
-export async function create(
-  alapadatok_id,
-  tanev_kezdete,
-  reszszakmat_szerezok_szama,
-  muhelyiskola_tanuloi_osszletszam
-) {
-  const newmuhelyiskola = await prisma.muhelyiskola.create({
-    data: {
-      alapadatok: { connect: { id: alapadatok_id } },
-      tanev_kezdete: parseInt(tanev_kezdete),
-      reszszakmat_szerezok_szama: parseInt(reszszakmat_szerezok_szama),
-      muhelyiskola_tanuloi_osszletszam: parseInt(
-        muhelyiskola_tanuloi_osszletszam
-      ),
-    },
-  });
-
-  // Invalidate cache
-  cache.del(`muhelyiskola:all:${tanev}`);
-  cache.del(`muhelyiskola:alapadatok_id:${alapadatok_id}:${tanev}`);
-
-  return newmuhelyiskola;
-}
-
-export async function update(
-  id,
-  alapadatok_id,
-  tanev_kezdete,
-  reszszakmat_szerezok_szama,
-  muhelyiskola_tanuloi_osszletszam
-) {
-  const updatedmuhelyiskola = await prisma.muhelyiskola.update({
-    where: { id: id },
-    data: {
-      alapadatok: { connect: { id: alapadatok_id } },
-      tanev_kezdete: parseInt(tanev_kezdete),
-      reszszakmat_szerezok_szama: parseInt(reszszakmat_szerezok_szama),
-      muhelyiskola_tanuloi_osszletszam: parseInt(
-        muhelyiskola_tanuloi_osszletszam
-      ),
-    },
-  });
-
-  // Invalidate cache
-  cache.del(`muhelyiskola:all:${tanev_kezdete}`);
-  cache.del(`muhelyiskola:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
-
-  return updatedmuhelyiskola;
-}
-
-export async function deleteAllByAlapadatok(alapadatokId, tanev) {
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const deletedCount = await prisma.muhelyiskola.deleteMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
+    const szakma = await prisma.szakma.findUnique({
+      where: {
+        nev: szakmaNev,
       },
-    },
-  });
+    });
+    if (!szakma) {
+      throw new Error(`Szakma with name ${szakmaNev} not found`);
+    }
 
-  // Invalidate cache
-  cache.del(`muhelyiskola:all:${tanev}`);
-  cache.del(`muhelyiskola:alapadatok_id:${alapadatokId}:${tanev}`);
+    const result = await prisma.muhelyiskola.update({
+      where: {
+        id,
+      },
+      data: {
+        alapadatok_id,
+        tanev_kezdete,
+        szakma_id: szakma.id,
+        tanulo_letszam,
+        orak_szama,
+      },
+    });
 
-  return deletedCount;
-}
+    // Invalidate ServiceCache
+    serviceCache.invalidateByTags(['all', 'by_id']);
+
+    return result;
+  }
+);
