@@ -1,75 +1,15 @@
-import prisma from "../utils/prisma.js";
-import * as cache from "../utils/cache.js";
+import { ServicePattern } from "../utils/ServicePattern.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+const pattern = new ServicePattern('muhelyiskola', 'id', {
+  alapadatok: true,
+});
 
 export async function getAll(tanev) {
-  const cacheKey = `muhelyiskola:all:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.muhelyiskola.findMany({
-    where: {
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+  return await pattern.findAllByYear(tanev);
 }
 
 export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `muhelyiskola:alapadatok_id:${alapadatokId}:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.muhelyiskola.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+  return await pattern.findByAlapadatokIdAndYear(alapadatokId, tanev);
 }
 
 export async function create(
@@ -78,22 +18,12 @@ export async function create(
   reszszakmat_szerezok_szama,
   muhelyiskola_tanuloi_osszletszam
 ) {
-  const newmuhelyiskola = await prisma.muhelyiskola.create({
-    data: {
-      alapadatok: { connect: { id: alapadatok_id } },
-      tanev_kezdete: parseInt(tanev_kezdete),
-      reszszakmat_szerezok_szama: parseInt(reszszakmat_szerezok_szama),
-      muhelyiskola_tanuloi_osszletszam: parseInt(
-        muhelyiskola_tanuloi_osszletszam
-      ),
-    },
+  return await pattern.create({
+    alapadatok_id,
+    tanev_kezdete: parseInt(tanev_kezdete),
+    reszszakmat_szerezok_szama: parseInt(reszszakmat_szerezok_szama),
+    muhelyiskola_tanuloi_osszletszam: parseInt(muhelyiskola_tanuloi_osszletszam),
   });
-
-  // Invalidate cache
-  cache.del(`muhelyiskola:all:${tanev}`);
-  cache.del(`muhelyiskola:alapadatok_id:${alapadatok_id}:${tanev}`);
-
-  return newmuhelyiskola;
 }
 
 export async function update(
@@ -103,42 +33,14 @@ export async function update(
   reszszakmat_szerezok_szama,
   muhelyiskola_tanuloi_osszletszam
 ) {
-  const updatedmuhelyiskola = await prisma.muhelyiskola.update({
-    where: { id: id },
-    data: {
-      alapadatok: { connect: { id: alapadatok_id } },
-      tanev_kezdete: parseInt(tanev_kezdete),
-      reszszakmat_szerezok_szama: parseInt(reszszakmat_szerezok_szama),
-      muhelyiskola_tanuloi_osszletszam: parseInt(
-        muhelyiskola_tanuloi_osszletszam
-      ),
-    },
+  return await pattern.update(id, {
+    alapadatok_id,
+    tanev_kezdete: parseInt(tanev_kezdete),
+    reszszakmat_szerezok_szama: parseInt(reszszakmat_szerezok_szama),
+    muhelyiskola_tanuloi_osszletszam: parseInt(muhelyiskola_tanuloi_osszletszam),
   });
-
-  // Invalidate cache
-  cache.del(`muhelyiskola:all:${tanev_kezdete}`);
-  cache.del(`muhelyiskola:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
-
-  return updatedmuhelyiskola;
 }
 
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const deletedCount = await prisma.muhelyiskola.deleteMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-  });
-
-  // Invalidate cache
-  cache.del(`muhelyiskola:all:${tanev}`);
-  cache.del(`muhelyiskola:alapadatok_id:${alapadatokId}:${tanev}`);
-
-  return deletedCount;
+  return await pattern.deleteByAlapadatokIdAndYear(alapadatokId, tanev);
 }

@@ -1,79 +1,17 @@
-import prisma from "../utils/prisma.js";
-import * as cache from "../utils/cache.js";
+import { ServicePattern } from "../utils/ServicePattern.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+const pattern = new ServicePattern('szakmaiVizsgaEredmenyek', 'id', {
+  alapadatok: true,
+  szakirany: true,
+  szakma: true,
+});
 
 export async function getAll(tanev) {
-  const cacheKey = `szakmaiVizsgaEredmenyek:all:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.szakmaiVizsgaEredmenyek.findMany({
-    where: {
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-      szakirany: true,
-      szakma: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+  return await pattern.findAllByYear(tanev);
 }
 
 export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `szakmaiVizsgaEredmenyek:alapadatok_id:${alapadatokId}:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.szakmaiVizsgaEredmenyek.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-      szakirany: true,
-      szakma: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+  return await pattern.findByAlapadatokIdAndYear(alapadatokId, tanev);
 }
 
 export async function create(
@@ -84,23 +22,14 @@ export async function create(
   vizsgara_bocsathatoak_szama,
   sikeres_vizsgazok_szama
 ) {
-  const newszakmaiVizsgaEredmenyek =
-    await prisma.szakmaiVizsgaEredmenyek.create({
-      data: {
-        szakirany_id,
-        szakma_id,
-        alapadatok_id,
-        tanev_kezdete: parseInt(tanev_kezdete),
-        vizsgara_bocsathatoak_szama: parseInt(vizsgara_bocsathatoak_szama),
-        sikeres_vizsgazok_szama: parseInt(sikeres_vizsgazok_szama),
-      },
-    });
-
-  // Invalidate cache
-  cache.del(`szakmaiVizsgaEredmenyek:all:${tanev}`);
-  cache.del(`szakmaiVizsgaEredmenyek:alapadatok_id:${alapadatok_id}:${tanev}`);
-
-  return newszakmaiVizsgaEredmenyek;
+  return await pattern.create({
+    szakirany_id,
+    szakma_id,
+    alapadatok_id,
+    tanev_kezdete: parseInt(tanev_kezdete),
+    vizsgara_bocsathatoak_szama: parseInt(vizsgara_bocsathatoak_szama),
+    sikeres_vizsgazok_szama: parseInt(sikeres_vizsgazok_szama),
+  });
 }
 
 export async function update(
@@ -112,44 +41,16 @@ export async function update(
   vizsgara_bocsathatoak_szama,
   sikeres_vizsgazok_szama
 ) {
-  const updatedEredmenyek = await prisma.szakmaiVizsgaEredmenyek.update({
-    where: { id },
-    data: {
-      szakirany_id,
-      szakma_id,
-      alapadatok_id,
-      tanev_kezdete: parseInt(tanev_kezdete),
-      vizsgara_bocsathatoak_szama: parseInt(vizsgara_bocsathatoak_szama),
-      sikeres_vizsgazok_szama: parseInt(sikeres_vizsgazok_szama),
-    },
+  return await pattern.update(id, {
+    szakirany_id,
+    szakma_id,
+    alapadatok_id,
+    tanev_kezdete: parseInt(tanev_kezdete),
+    vizsgara_bocsathatoak_szama: parseInt(vizsgara_bocsathatoak_szama),
+    sikeres_vizsgazok_szama: parseInt(sikeres_vizsgazok_szama),
   });
-
-  // Invalidate cache
-  cache.del(`szakmaiVizsgaEredmenyek:all:${tanev_kezdete}`);
-  cache.del(
-    `szakmaiVizsgaEredmenyek:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`
-  );
-
-  return updatedEredmenyek;
 }
 
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const deletedCount = await prisma.szakmaiVizsgaEredmenyek.deleteMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-  });
-
-  // Invalidate cache
-  cache.del(`szakmaiVizsgaEredmenyek:all:${tanev}`);
-  cache.del(`szakmaiVizsgaEredmenyek:alapadatok_id:${alapadatokId}:${tanev}`);
-
-  return deletedCount;
+  return await pattern.deleteByAlapadatokIdAndYear(alapadatokId, tanev);
 }
