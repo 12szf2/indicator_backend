@@ -1,196 +1,90 @@
 import prisma from "../utils/prisma.js";
-import * as cache from "../utils/cache.js";
+import { ServicePattern, CACHE_TTL } from "../utils/ServicePattern.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize ServicePattern for intezmenyiNeveltseg with relations
+const pattern = new ServicePattern(
+  "intezmenyiNeveltseg", 
+  "id", 
+  {
+    alapadatok: true,
+  }
+);
 
 export async function getAll(tanev) {
-  const cacheKey = `intezmenyiNeveltseg:all:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.intezmenyiNeveltseg.findMany({
-    where: {
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
+  return await pattern.serviceCache.get(
+    'all_with_year_ordered',
+    async () => {
+      const { firstYear, lastYear } = pattern.getYearRange(tanev);
+      return await prisma.intezmenyiNeveltseg.findMany({
+        where: {
+          tanev_kezdete: { gte: firstYear, lte: lastYear },
+        },
+        orderBy: { tanev_kezdete: "asc" },
+        include: pattern.include,
+      });
     },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+    CACHE_TTL.SHORT,
+    tanev
+  );
 }
 
 export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `intezmenyiNeveltseg:alapadatok_id:${alapadatokId}:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.intezmenyiNeveltseg.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
+  return await pattern.serviceCache.get(
+    'alapadatok_with_year_ordered',
+    async () => {
+      const { firstYear, lastYear } = pattern.getYearRange(tanev);
+      return await prisma.intezmenyiNeveltseg.findMany({
+        where: {
+          alapadatok_id: alapadatokId,
+          tanev_kezdete: { gte: firstYear, lte: lastYear },
+        },
+        orderBy: { tanev_kezdete: "asc" },
+        include: pattern.include,
+      });
     },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+    CACHE_TTL.SHORT,
+    alapadatokId,
+    tanev
+  );
 }
 
 export async function create(
   alapadatok_id,
   tanev_kezdete,
-  osztaly_jele,
-  igazolatlan_ora,
-  oktato_testuleti_dicseret,
-  oktatoi_dicseret,
-  osztalyfonoki_dicseret,
-  igazagatoi_dicseret,
-  oktato_testuleti_figyelmeztetes,
-  oktatoi_figyelmeztetes,
-  osztalyfonoki_figyelmeztetes,
-  osztalyfonoki_intes,
-  osztalyfonoki_megrovas,
-  igazgatoi_figyelmeztetes,
-  igazgatoi_intes,
-  igazgatoi_megrovas,
-  fegyelmi_eljaras
+  alapfoku_oktatasban_reszvetel,
+  kozepfoku_oktatasban_reszvetel,
+  felsofoku_oktatasban_reszvetel,
+  osszesen
 ) {
-  const newintezmenyiNeveltseg = await prisma.intezmenyiNeveltseg.create({
-    data: {
-      alapadatok_id,
-      tanev_kezdete: parseInt(tanev_kezdete),
-      osztaly_jele,
-      igazolatlan_ora: parseInt(igazolatlan_ora),
-      oktato_testuleti_dicseret: parseInt(oktato_testuleti_dicseret),
-      oktatoi_dicseret: parseInt(oktatoi_dicseret),
-      osztalyfonoki_dicseret: parseInt(osztalyfonoki_dicseret),
-      igazgatoi_dicseret: parseInt(igazagatoi_dicseret),
-      oktato_testuleti_figyelmeztetes: parseInt(
-        oktato_testuleti_figyelmeztetes
-      ),
-      oktatoi_figyelmeztetes: parseInt(oktatoi_figyelmeztetes),
-      osztalyfonoki_figyelmeztetes: parseInt(osztalyfonoki_figyelmeztetes),
-      osztalyfonoki_intes: parseInt(osztalyfonoki_intes),
-      osztalyfonoki_megrovas: parseInt(osztalyfonoki_megrovas),
-      igazgatoi_figyelmeztetes: parseInt(igazgatoi_figyelmeztetes),
-      igazgatoi_intes: parseInt(igazgatoi_intes),
-      igazgatoi_megrovas: parseInt(igazgatoi_megrovas),
-      fegyelmi_eljaras: parseInt(fegyelmi_eljaras),
-    },
+  return await pattern.create({
+    alapadatok_id,
+    tanev_kezdete: parseInt(tanev_kezdete),
+    alapfoku_oktatasban_reszvetel: parseInt(alapfoku_oktatasban_reszvetel),
+    kozepfoku_oktatasban_reszvetel: parseInt(kozepfoku_oktatasban_reszvetel),
+    felsofoku_oktatasban_reszvetel: parseInt(felsofoku_oktatasban_reszvetel),
+    osszesen: parseInt(osszesen),
   });
-
-  // Invalidate cache
-  cache.del(`intezmenyiNeveltseg:all:${tanev}`);
-  cache.del(`intezmenyiNeveltseg:alapadatok_id:${alapadatok_id}:${tanev}`);
-
-  return newintezmenyiNeveltseg;
 }
 
 export async function update(
   id,
   alapadatok_id,
   tanev_kezdete,
-  osztaly_jele,
-  igazolatlan_ora,
-  oktato_testuleti_dicseret,
-  oktatoi_dicseret,
-  osztalyfonoki_dicseret,
-  igazagatoi_dicseret,
-  oktato_testuleti_figyelmeztetes,
-  oktatoi_figyelmeztetes,
-  osztalyfonoki_figyelmeztetes,
-  osztalyfonoki_intes,
-  osztalyfonoki_megrovas,
-  igazgatoi_figyelmeztetes,
-  igazgatoi_intes,
-  igazgatoi_megrovas,
-  fegyelmi_eljaras
+  alapfoku_oktatasban_reszvetel,
+  kozepfoku_oktatasban_reszvetel,
+  felsofoku_oktatasban_reszvetel,
+  osszesen
 ) {
-  // Invalidate cache
-  cache.del(`intezmenyiNeveltseg:all:${tanev_kezdete}`);
-  cache.del(
-    `intezmenyiNeveltseg:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`
-  );
-
-  return await prisma.intezmenyiNeveltseg.update({
-    where: {
-      id,
-    },
-    data: {
-      alapadatok_id,
-      tanev_kezdete,
-      osztaly_jele,
-      igazolatlan_ora,
-      oktato_testuleti_dicseret,
-      oktatoi_dicseret,
-      osztalyfonoki_dicseret,
-      igazagatoi_dicseret,
-      oktato_testuleti_figyelmeztetes,
-      oktatoi_figyelmeztetes,
-      osztalyfonoki_figyelmeztetes,
-      osztalyfonoki_intes,
-      osztalyfonoki_megrovas,
-      igazgatoi_figyelmeztetes,
-      igazgatoi_intes,
-      igazgatoi_megrovas,
-      fegyelmi_eljaras,
-    },
+  return await pattern.update(id, {
+    alapadatok_id,
+    tanev_kezdete: parseInt(tanev_kezdete),
+    alapfoku_oktatasban_reszvetel: parseInt(alapfoku_oktatasban_reszvetel),
+    kozepfoku_oktatasban_reszvetel: parseInt(kozepfoku_oktatasban_reszvetel),
+    felsofoku_oktatasban_reszvetel: parseInt(felsofoku_oktatasban_reszvetel),
+    osszesen: parseInt(osszesen),
   });
 }
 
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const deletedCount = await prisma.intezmenyiNeveltseg.deleteMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-  });
-
-  // Invalidate cache
-  cache.del(`intezmenyiNeveltseg:all:${tanev}`);
-  cache.del(`intezmenyiNeveltseg:alapadatok_id:${alapadatokId}:${tanev}`);
-
-  return deletedCount;
+  return await pattern.deleteByAlapadatokIdAndYear(alapadatokId, tanev);
 }
