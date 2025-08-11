@@ -1,53 +1,17 @@
+import { ServicePattern } from "../utils/ServicePattern.js";
 import prisma from "../utils/prisma.js";
-import * as cache from "../utils/cache.js";
+
+const pattern = new ServicePattern('szakkepzesiMunkaszerzodesAranya', 'id', {
+  szakirany: true,
+  szakma: true,
+});
 
 export async function getAll(tanev) {
-  const cacheKey = `szakkepzesiMunkaszerzodesAranya:${tanev}`;
-  const cachedData = await cache.get(cacheKey);
-
-  console.log("Fetching szakkepzesiMunkaszerzodesAranya data for year:", tanev);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const lastYear = parseInt(tanev);
-  const fistYear = lastYear - 4;
-
-  const data = await prisma.szakkepzesiMunkaszerzodesAranya.findMany({
-    where: { tanev_kezdete: { gte: fistYear, lte: lastYear } },
-    orderBy: { createAt: "desc" },
-  });
-
-  cache.set(cacheKey, data, 3600); // Cache for 1 hour
-  return data;
+  return await pattern.findAllByYear(tanev);
 }
 
 export async function getSzakkepzesiMunkaszerzodesAranya(alapadatokId, tanev) {
-  const cacheKey = `szakkepzesiMunkaszerzodesAranya:${alapadatokId}:${tanev}`;
-  const cachedData = await cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const lastYear = parseInt(tanev);
-  const firstYear = lastYear - 4;
-
-  const data = await prisma.szakkepzesiMunkaszerzodesAranya.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: { gte: firstYear, lte: lastYear },
-    },
-    include: {
-      szakirany: true,
-      szakma: true,
-    },
-    orderBy: { createAt: "desc" },
-  });
-
-  cache.set(cacheKey, data, 3600); // Cache for 1 hour
-  return data;
+  return await pattern.findByAlapadatokIdAndYear(alapadatokId, tanev);
 }
 
 export async function createSzakkepzesiMunkaszerzodesAranya(
@@ -59,6 +23,7 @@ export async function createSzakkepzesiMunkaszerzodesAranya(
   createBy = null,
   tanev_kezdete
 ) {
+  // Since this has complex relationships with szakirany/szakma connects, use direct Prisma
   let newRecord;
   if (szakmaNev && szakmaNev !== "Nincs meghatározva") {
     newRecord = await prisma.szakkepzesiMunkaszerzodesAranya.create({
@@ -87,8 +52,8 @@ export async function createSzakkepzesiMunkaszerzodesAranya(
     });
   }
 
-  // Invalidate cache for the specific alapadatokId
-  cache.del(`szakkepzesiMunkaszerzodesAranya:${alapadatok_id}`);
+  // Use pattern's cache invalidation
+  pattern.serviceCache.invalidateRelated("create", newRecord.id);
 
   return newRecord;
 }
@@ -103,6 +68,7 @@ export async function updateSzakkepzesiMunkaszerzodesAranya(
   createBy = null,
   tanev_kezdete
 ) {
+  // Since this has complex relationships with szakirany/szakma connects, use direct Prisma
   let updatedRecord;
   if (szakmaNev && szakmaNev !== "Nincs meghatározva") {
     updatedRecord = await prisma.szakkepzesiMunkaszerzodesAranya.update({
@@ -133,25 +99,20 @@ export async function updateSzakkepzesiMunkaszerzodesAranya(
     });
   }
 
-  // Invalidate cache for the specific alapadatokId
-  cache.del(`szakkepzesiMunkaszerzodesAranya:${updatedRecord.alapadatok_id}`);
+  // Use pattern's cache invalidation
+  pattern.serviceCache.invalidateRelated("update", id);
 
   return updatedRecord;
 }
 
 export async function deleteSzakkepzesiMunkaszerzodesAranya(id) {
-  const record = await prisma.szakkepzesiMunkaszerzodesAranya.findUnique({
-    where: { id },
-  });
+  const record = await pattern.findById(id);
 
   if (!record) {
     throw new Error("Record not found");
   }
 
-  await prisma.szakkepzesiMunkaszerzodesAranya.delete({ where: { id } });
-
-  // Invalidate cache for the specific alapadatokId
-  cache.del(`szakkepzesiMunkaszerzodesAranya:${record.alapadatok_id}`);
+  await pattern.delete(id);
 
   return { message: "Record deleted successfully" };
 }
