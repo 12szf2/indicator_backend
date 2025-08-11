@@ -1,13 +1,19 @@
 import prisma from "./prisma.js";
 import { ServiceCache, CACHE_TTL } from "./ServiceCache.js";
 
+export { CACHE_TTL };
+
 export class ServicePattern {
-  constructor(serviceName, key, include = {}, select = {}) {
+  constructor(serviceName, key, include = {}, select = {}, options = {}) {
     this.serviceName = serviceName;
     this.key = key;
     this.include = include;
     this.select = select;
     this.serviceCache = new ServiceCache(serviceName);
+    
+    // Field naming options for flexibility
+    this.yearField = options.yearField || 'tanev_kezdete'; // Default to tanev_kezdete
+    this.alapadatokField = options.alapadatokField || 'alapadatok_id'; // Default to alapadatok_id
   }
 
   /**
@@ -57,7 +63,7 @@ export class ServicePattern {
       "byYear",
       async () => {
         return await prisma[this.serviceName].findMany({
-          where: { year: { gte: firstYear, lte: lastYear } },
+          where: { [this.yearField]: { gte: firstYear, lte: lastYear } },
           include: this.include,
           select: Object.keys(this.select).length > 0 ? this.select : undefined,
         });
@@ -87,7 +93,7 @@ export class ServicePattern {
       "alapadatok_id",
       async () => {
         return await prisma[this.serviceName].findMany({
-          where: { alapadatokId },
+          where: { [this.alapadatokField]: alapadatokId },
           include: this.include,
           select: Object.keys(this.select).length > 0 ? this.select : undefined,
         });
@@ -106,8 +112,8 @@ export class ServicePattern {
       async () => {
         return await prisma[this.serviceName].findMany({
           where: {
-            alapadatokId,
-            year: { gte: firstYear, lte: lastYear },
+            [this.alapadatokField]: alapadatokId,
+            [this.yearField]: { gte: firstYear, lte: lastYear },
           },
           include: this.include,
           select: Object.keys(this.select).length > 0 ? this.select : undefined,
@@ -173,7 +179,7 @@ export class ServicePattern {
 
   async deleteByAlapadatokId(alapadatokId) {
     const result = await prisma[this.serviceName].deleteMany({
-      where: { alapadatokId },
+      where: { [this.alapadatokField]: alapadatokId },
     });
 
     // Invalidate related caches
@@ -187,8 +193,8 @@ export class ServicePattern {
 
     const result = await prisma[this.serviceName].deleteMany({
       where: {
-        alapadatokId,
-        year: { gte: firstYear, lte: lastYear },
+        [this.alapadatokField]: alapadatokId,
+        [this.yearField]: { gte: firstYear, lte: lastYear },
       },
     });
 

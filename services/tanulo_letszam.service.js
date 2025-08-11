@@ -1,76 +1,25 @@
 import prisma from "../utils/prisma.js";
-import * as cache from "../utils/cache.js";
+import { ServicePattern, CACHE_TTL } from "../utils/ServicePattern.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize ServicePattern for tanulo_letszam with relations
+const pattern = new ServicePattern(
+  "tanulo_Letszam", 
+  "id", 
+  {
+    szakirany: true,
+    szakma: true,
+  },
+  {} // no select restrictions
+);
 
 export async function getAll() {
-  // Include year in cache key since results depend on current year
-  let year = new Date().getFullYear();
-  const month = new Date().getMonth();
-
-  if (month < 6) {
-    year -= 1;
-  }
-
-  const cacheKey = `tanulo_letszam:all:${year}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const data = await prisma.tanulo_Letszam.findMany({
-    where: {
-      AND: {
-        tanev_kezdete: { lte: year },
-        tanev_kezdete: { gte: year - 4 },
-      },
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+  // Use current year to get relevant data
+  return await pattern.findAllCurrentYear();
 }
 
 export async function getById(id) {
-  let year = new Date().getFullYear();
-  const month = new Date().getMonth();
-
-  if (month < 6) {
-    year -= 1;
-  }
-
-  const cacheKey = `tanulo_letszam:id:${id}:year:${year}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const data = await prisma.tanulo_Letszam.findMany({
-    where: {
-      AND: {
-        tanev_kezdete: { lte: year },
-        tanev_kezdete: { gte: year - 4 },
-        alapadatok_id: id,
-      },
-    },
-    include: {
-      szakirany: true,
-      szakma: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.DETAIL);
-
-  return data;
+  // Get data by alapadatok_id for current year
+  return await pattern.findByAlapadatokCurrentYear(id);
 }
 
 export async function create(
@@ -81,39 +30,30 @@ export async function create(
   szakma,
   tanev_kezdete
 ) {
-  // Invalidate cache for this alapadatok and the main list
-  cache.delByPattern(`tanulo_letszam:all:.*`); // Clear all year variations
-  cache.delByPattern(`tanulo_letszam:id:${alapadatok_id}:.*`); // Clear all year variations
-  cache.delByPattern(
-    `tanulo_letszam:id:${alapadatok_id}:year:${tanev_kezdete}`
-  ); // Clear all year variations
+  // Build data object based on whether szakma is provided
+  const data = {
+    tanev_kezdete: Number(tanev_kezdete),
+    szakirany: { connect: { nev: szakirany } },
+    alapadatok: { connect: { id: alapadatok_id } },
+    jogv_tipus: Number(jogv_tipus),
+    letszam: Number(letszam),
+  };
 
-  let ret;
-
+  // Only connect szakma if it's provided and not "Nincs meghatározva"
   if (szakma && szakma !== "Nincs meghatározva") {
-    ret = await prisma.tanulo_Letszam.create({
-      data: {
-        tanev_kezdete: Number(tanev_kezdete),
-        szakirany: { connect: { nev: szakirany } },
-        szakma: { connect: { nev: szakma } },
-        alapadatok: { connect: { id: alapadatok_id } },
-        jogv_tipus: Number(jogv_tipus),
-        letszam: Number(letszam),
-      },
-    });
-  } else {
-    ret = await prisma.tanulo_Letszam.create({
-      data: {
-        tanev_kezdete: Number(tanev_kezdete),
-        szakirany: { connect: { nev: szakirany } },
-        alapadatok: { connect: { id: alapadatok_id } },
-        jogv_tipus: Number(jogv_tipus),
-        letszam: Number(letszam),
-      },
-    });
+    data.szakma = { connect: { nev: szakma } };
   }
 
-  return ret;
+  // Use custom create since we need the connect syntax
+  const result = await prisma.tanulo_Letszam.create({
+    data,
+    include: pattern.include,
+  });
+
+  // Invalidate related caches manually since we bypassed pattern.create
+  pattern.serviceCache.invalidateRelated("create", result.id);
+
+  return result;
 }
 
 export async function update(
@@ -125,57 +65,44 @@ export async function update(
   szakma,
   tanev_kezdete
 ) {
-  // Invalidate cache for this alapadatok and the main list
-  cache.delByPattern(`tanulo_letszam:all:.*`); // Clear all year variations
-  cache.delByPattern(`tanulo_letszam:id:${alapadatok_id}:.*`); // Clear all year variations
-  cache.delByPattern(
-    `tanulo_letszam:id:${alapadatok_id}:year:${tanev_kezdete}`
-  ); // Clear all year variations
+  // Build data object based on whether szakma is provided
+  const data = {
+    letszam: Number(letszam),
+    alapadatok: { connect: { id: alapadatok_id } },
+    jogv_tipus: Number(jogv_tipus),
+    szakirany: { connect: { nev: szakirany } },
+    tanev_kezdete: Number(tanev_kezdete),
+  };
 
-  let ret;
-
+  // Only connect szakma if it's provided and not "Nincs meghatározva"
   if (szakma && szakma !== "Nincs meghatározva") {
-    ret = await prisma.tanulo_Letszam.update({
-      where: { id: id },
-      data: {
-        letszam: Number(letszam),
-        alapadatok: { connect: { id: alapadatok_id } },
-        jogv_tipus: Number(jogv_tipus),
-        szakirany: { connect: { nev: szakirany } },
-        szakma: { connect: { nev: szakma } },
-        tanev_kezdete: Number(tanev_kezdete),
-      },
-    });
-  } else {
-    ret = await prisma.tanulo_Letszam.update({
-      where: { id: id },
-      data: {
-        letszam: Number(letszam),
-        alapadatok: { connect: { id: alapadatok_id } },
-        jogv_tipus: Number(jogv_tipus),
-        szakirany: { connect: { nev: szakirany } },
-        tanev_kezdete: Number(tanev_kezdete),
-      },
-    });
+    data.szakma = { connect: { nev: szakma } };
   }
 
-  return ret;
+  // Use custom update since we need the connect syntax
+  const result = await prisma.tanulo_Letszam.update({
+    where: { id: id },
+    data,
+    include: pattern.include,
+  });
+
+  // Invalidate related caches manually since we bypassed pattern.update
+  pattern.serviceCache.invalidateRelated("update", id);
+
+  return result;
 }
 
 export async function deleteMany(alapadatok_id, year) {
-  // Invalidate cache for this alapadatok and the main list
-  cache.delByPattern(`tanulo_letszam:all:.*`); // Clear all year variations
-  cache.delByPattern(`tanulo_letszam:id:${alapadatok_id}:.*`); // Clear all year variations
-  cache.delByPattern(
-    `tanulo_letszam:id:${alapadatok_id}:year:${tanev_kezdete}`
-  ); // Clear all year variations
-
-  const ret = await prisma.tanulo_Letszam.deleteMany({
+  // Use pattern's method which handles the proper field name and cache invalidation
+  const result = await prisma.tanulo_Letszam.deleteMany({
     where: {
       alapadatok_id,
       tanev_kezdete: Number(year),
     },
   });
 
-  return ret;
+  // Invalidate related caches
+  pattern.serviceCache.invalidateRelated("deleteMany", alapadatok_id);
+
+  return result;
 }
