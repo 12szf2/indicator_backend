@@ -1,3 +1,5 @@
+import * as cache from "./cache.js";
+
 export const CACHE_TTL = {
   VERY_SHORT: 1 * 60 * 1000, // 1 minute - for frequently changing data
   SHORT: 5 * 60 * 1000, // 5 minutes - for lists
@@ -64,10 +66,12 @@ export class ServiceCache {
       case "update":
       case "delete":
         // Invalidate lists and specific items
-        this.invalidate("all", "list:.*");
+        this.invalidate("all.*", "byYear.*", "alapadatok_id.*", "count.*");
         if (params[0]) {
-          // If ID provided
-          this.invalidate(`id:${params[0]}`, `alapadatok_id:${params[0]}`);
+          // If ID provided, invalidate specific item patterns
+          this.invalidate(`id:${params[0]}.*`);
+          // Also invalidate any alapadatok-related caches if this affects them
+          this.invalidate(`alapadatok_id:${params[0]}.*`);
         }
         break;
       case "createMany":
@@ -75,6 +79,35 @@ export class ServiceCache {
         // Invalidate all for bulk operations
         this.invalidateAll();
         break;
+      default:
+        // For unknown operations, invalidate commonly affected patterns
+        this.invalidate("all.*", "count.*");
     }
+  }
+
+  /**
+   * Invalidate caches for a specific alapadatok_id
+   */
+  invalidateByAlapadatokId(alapadatokId) {
+    this.invalidate(`alapadatok_id:${alapadatokId}.*`);
+    this.invalidate("all.*", "count.*"); // Also invalidate general lists
+  }
+
+  /**
+   * Invalidate caches for a specific year
+   */
+  invalidateByYear(year) {
+    this.invalidate(`byYear:${year}.*`);
+    this.invalidate(`alapadatok_id_year:.*:${year}.*`);
+    this.invalidate("all.*"); // Also invalidate general lists
+  }
+
+  /**
+   * Get cache statistics for this service
+   */
+  getStats() {
+    // This would require extending the cache utility to support pattern-based stats
+    // For now, return general cache stats
+    return cache.stats();
   }
 }
