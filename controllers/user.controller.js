@@ -1,5 +1,10 @@
 import e from "express";
-import { create, getAll, update } from "../services/user.service.js";
+import {
+  create,
+  getAll,
+  update,
+  getAllFiltered,
+} from "../services/user.service.js";
 
 const router = e.Router();
 
@@ -119,7 +124,7 @@ router.get("/", async (req, res) => {
 
 /**
  * @swagger
- * /users/{email}:
+ * /users/getByEmail/{email}:
  *   get:
  *     summary: Get user by email
  *     description: Retrieves a specific user by their email address
@@ -149,7 +154,7 @@ router.get("/", async (req, res) => {
  *       500:
  *         description: Internal server error
  */
-router.get("/:email", async (req, res) => {
+router.get("/getByEmail/:email", async (req, res) => {
   const { email } = req.params;
   try {
     const data = await getAll();

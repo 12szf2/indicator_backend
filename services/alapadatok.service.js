@@ -99,6 +99,12 @@ export async function add(
   // Invalidate the list cache before adding
   cache.del("alapadatok:all");
 
+  alapadatok_szakirany.map((szakirany) => {
+    szakirany.szakirany.szakma.map((szakma) => {
+      console.log(szakma.szakma);
+    });
+  });
+
   const foundOrCreatedSzakirany = await Promise.all(
     alapadatok_szakirany.map(async (szakirany) => {
       const szakiranyNev = szakirany.szakirany.nev;
@@ -113,8 +119,6 @@ export async function add(
       if (existingSzakirany) {
         return existingSzakirany;
       }
-
-      console.log(szakirany.szakirany);
 
       // If not, create it
       return await prisma.szakirany.create({
@@ -137,11 +141,33 @@ export async function add(
     })
   );
 
-  const szakmak = alapadatok_szakirany.flatMap((szakirany) =>
+  const szakmakNev = alapadatok_szakirany.flatMap((szakirany) =>
     szakirany.szakirany.szakma.map((szakma) => ({
       nev: szakma.szakma.nev,
     }))
   );
+
+  const foundSzakmak = await prisma.szakma.findMany({
+    where: {
+      nev: {
+        in: szakmakNev.map((szakma) => szakma.nev),
+      },
+    },
+  });
+
+  const foundOrCreatedSzakmak = szakmakNev.map((szakma) => {
+    const existingSzakma = foundSzakmak.find((s) => s.nev === szakma.nev);
+    if (existingSzakma) {
+      return existingSzakma;
+    }
+    return prisma.szakma.create({
+      data: {
+        nev: szakma.nev,
+      },
+    });
+  });
+
+  const createdSzakmak = await Promise.all(foundOrCreatedSzakmak);
 
   const result = await prisma.alapadatok.create({
     data: {
@@ -153,11 +179,8 @@ export async function add(
         })),
       },
       alapadatok_szakma: {
-        connectOrCreate: szakmak.map((szakma) => ({
-          where: { nev: szakma.nev },
-          create: {
-            nev: szakma.nev,
-          },
+        create: createdSzakmak.map((szakma) => ({
+          szakma_id: szakma.id,
         })),
       },
     },
@@ -190,8 +213,6 @@ export async function update(
         return existingSzakirany;
       }
 
-      console.log(szakirany.szakirany);
-
       // If not, create it
       return await prisma.szakirany.create({
         data: {
@@ -213,29 +234,71 @@ export async function update(
     })
   );
 
-  const szakmak = alapadatok_szakirany.flatMap((szakirany) =>
+  const szakmakNev = alapadatok_szakirany.flatMap((szakirany) =>
     szakirany.szakirany.szakma.map((szakma) => ({
       nev: szakma.szakma.nev,
     }))
   );
 
+  const foundSzakmak = await prisma.szakma.findMany({
+    where: {
+      nev: {
+        in: szakmakNev.map((szakma) => szakma.nev),
+      },
+    },
+  });
+
+  const foundOrCreatedSzakmak = szakmakNev.map((szakma) => {
+    const existingSzakma = foundSzakmak.find((s) => s.nev === szakma.nev);
+    if (existingSzakma) {
+      return existingSzakma;
+    }
+    return prisma.szakma.create({
+      data: {
+        nev: szakma.nev,
+      },
+    });
+  });
+
+  const createdSzakmak = await Promise.all(foundOrCreatedSzakmak);
+
+  // First, get existing relationships
+  const existingData = await prisma.alapadatok.findUnique({
+    where: { id: id },
+    include: {
+      alapadatok_szakirany: true,
+      alapadatok_szakma: true,
+    },
+  });
+
+  // Get existing szakirany and szakma IDs
+  const existingSzakiranyIds = existingData.alapadatok_szakirany.map(rel => rel.szakirany_id);
+  const existingSzakmaIds = existingData.alapadatok_szakma.map(rel => rel.szakma_id);
+
+  // Filter out already connected szakirany
+  const newSzakiranyConnections = foundOrCreatedSzakirany
+    .filter(szakirany => !existingSzakiranyIds.includes(szakirany.id))
+    .map(szakirany => ({ szakirany_id: szakirany.id }));
+
+  // Filter out already connected szakma
+  const newSzakmaConnections = createdSzakmak
+    .filter(szakma => !existingSzakmaIds.includes(szakma.id))
+    .map(szakma => ({ szakma_id: szakma.id }));
+
   const retData = await prisma.alapadatok.update({
     data: {
       iskola_neve: iskola_neve,
       intezmeny_tipus: intezmeny_tipus,
-      alapadatok_szakirany: {
-        create: foundOrCreatedSzakirany.map((szakirany) => ({
-          szakirany_id: szakirany.id,
-        })),
-      },
-      alapadatok_szakma: {
-        connectOrCreate: szakmak.map((szakma) => ({
-          where: { nev: szakma.nev },
-          create: {
-            nev: szakma.nev,
-          },
-        })),
-      },
+      ...(newSzakiranyConnections.length > 0 && {
+        alapadatok_szakirany: {
+          create: newSzakiranyConnections,
+        },
+      }),
+      ...(newSzakmaConnections.length > 0 && {
+        alapadatok_szakma: {
+          create: newSzakmaConnections,
+        },
+      }),
     },
     where: {
       id: id,

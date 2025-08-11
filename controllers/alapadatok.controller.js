@@ -274,7 +274,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const { iskola_neve, intezmeny_tipus } = req.body;
+    const { iskola_neve, intezmeny_tipus, alapadatok_szakirany } = req.body;
 
     if (!id || !iskola_neve || !intezmeny_tipus)
       return res.status(400).json({ message: "Hiányos adatok!" });
@@ -290,7 +290,7 @@ router.put("/:id", async (req, res) => {
       });
     }
 
-    await update(id, iskola_neve, intezmeny_tipus);
+    await update(id, iskola_neve, intezmeny_tipus, alapadatok_szakirany);
 
     res.status(200).json({ message: "Sikeresen frissítve!" });
   } catch (error) {
