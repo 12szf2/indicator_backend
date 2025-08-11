@@ -1,75 +1,51 @@
 import prisma from "../utils/prisma.js";
-import * as cache from "../utils/cache.js";
+import { ServicePattern, CACHE_TTL } from "../utils/ServicePattern.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize ServicePattern for hHEsHHHTanulok with relations
+const pattern = new ServicePattern(
+  "hHEsHHHTanulok", 
+  "id", 
+  {
+    alapadatok: true,
+  }
+);
 
 export async function getAll(tanev) {
-  const cacheKey = `hHEsHHHTanulok:all:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.hHEsHHHTanulok.findMany({
-    where: {
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
+  return await pattern.serviceCache.get(
+    'all_with_year_ordered',
+    async () => {
+      const { firstYear, lastYear } = pattern.getYearRange(tanev);
+      return await prisma.hHEsHHHTanulok.findMany({
+        where: {
+          tanev_kezdete: { gte: firstYear, lte: lastYear },
+        },
+        orderBy: { tanev_kezdete: "asc" },
+        include: pattern.include,
+      });
     },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+    CACHE_TTL.SHORT,
+    tanev
+  );
 }
 
 export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `hHEsHHHTanulok:alapadatok_id:${alapadatokId}:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.hHEsHHHTanulok.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
+  return await pattern.serviceCache.get(
+    'alapadatok_with_year_ordered',
+    async () => {
+      const { firstYear, lastYear } = pattern.getYearRange(tanev);
+      return await prisma.hHEsHHHTanulok.findMany({
+        where: {
+          alapadatok_id: alapadatokId,
+          tanev_kezdete: { gte: firstYear, lte: lastYear },
+        },
+        orderBy: { tanev_kezdete: "asc" },
+        include: pattern.include,
+      });
     },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+    CACHE_TTL.SHORT,
+    alapadatokId,
+    tanev
+  );
 }
 
 export async function create(
@@ -78,20 +54,12 @@ export async function create(
   hh_tanulo_letszam,
   tanuloi_osszletszam
 ) {
-  const newhHEsHHHTanulok = await prisma.hHEsHHHTanulok.create({
-    data: {
-      alapadatok_id,
-      tanev_kezdete: parseInt(tanev_kezdete),
-      hh_tanulo_letszam: parseInt(hh_tanulo_letszam),
-      tanuloi_osszletszam: parseInt(tanuloi_osszletszam),
-    },
+  return await pattern.create({
+    alapadatok_id,
+    tanev_kezdete: parseInt(tanev_kezdete),
+    hh_tanulo_letszam: parseInt(hh_tanulo_letszam),
+    tanuloi_osszletszam: parseInt(tanuloi_osszletszam),
   });
-
-  // Invalidate cache
-  cache.del(`hHEsHHHTanulok:all:${tanev}`);
-  cache.del(`hHEsHHHTanulok:alapadatok_id:${alapadatok_id}:${tanev}`);
-
-  return newhHEsHHHTanulok;
 }
 
 export async function update(
@@ -101,40 +69,14 @@ export async function update(
   hh_tanulo_letszam,
   tanuloi_osszletszam
 ) {
-  // Invalidate cache
-  cache.del(`hHEsHHHTanulok:all:${tanev_kezdete}`);
-  cache.del(`hHEsHHHTanulok:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
-
-  return await prisma.hHEsHHHTanulok.update({
-    where: {
-      id,
-    },
-    data: {
-      alapadatok_id,
-      tanev_kezdete,
-      hh_tanulo_letszam,
-      tanuloi_osszletszam,
-    },
+  return await pattern.update(id, {
+    alapadatok_id,
+    tanev_kezdete,
+    hh_tanulo_letszam,
+    tanuloi_osszletszam,
   });
 }
 
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const deletedCount = await prisma.hHEsHHHTanulok.deleteMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-  });
-
-  // Invalidate cache
-  cache.del(`hHEsHHHTanulok:all:${tanev}`);
-  cache.del(`hHEsHHHTanulok:alapadatok_id:${alapadatokId}:${tanev}`);
-
-  return deletedCount;
+  return await pattern.deleteByAlapadatokIdAndYear(alapadatokId, tanev);
 }

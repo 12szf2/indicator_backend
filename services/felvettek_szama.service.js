@@ -1,11 +1,16 @@
 import prisma from "../utils/prisma.js";
-import * as cache from "../utils/cache.js";
+import { ServicePattern, CACHE_TTL } from "../utils/ServicePattern.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+// Initialize ServicePattern for felvettek_szama with relations
+const pattern = new ServicePattern(
+  "felvettek_Szama", 
+  "id", 
+  {
+    szakma: true,
+    szakirany: true,
+  },
+  {} // no select restrictions
+);
 
 export async function create(data) {
   const {
@@ -18,13 +23,9 @@ export async function create(data) {
     felvett_letszam,
   } = data;
 
-  // Invalidate relevant caches
-  cache.del("felvettek_szama:all");
-  cache.del(`felvettek_szama:alapadatok_id:${alapadatok_id}`);
+  // Find szakma and szakirany by name
   const szakma = await prisma.szakma.findUnique({
-    where: {
-      nev: szakmaNev,
-    },
+    where: { nev: szakmaNev },
   });
 
   if (!szakma) {
@@ -32,16 +33,15 @@ export async function create(data) {
   }
 
   const szakirany = await prisma.szakirany.findUnique({
-    where: {
-      nev: szakiranyNev,
-    },
+    where: { nev: szakiranyNev },
   });
 
   if (!szakirany) {
     throw new Error(`Szakirany with name ${szakiranyNev} not found`);
   }
 
-  return await prisma.felvettek_Szama.create({
+  // Create with resolved IDs - use custom create for proper relations
+  const result = await prisma.felvettek_Szama.create({
     data: {
       alapadatok_id,
       tanev_kezdete,
@@ -51,63 +51,37 @@ export async function create(data) {
       felveheto_letszam,
       felvett_letszam,
     },
+    include: pattern.include,
   });
+
+  // Invalidate related caches manually since we bypassed pattern.create
+  pattern.serviceCache.invalidateRelated("create", result.id);
+
+  return result;
 }
 
 export async function getAll(tanev) {
-  const cacheKey = `felvettek_szama:all:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  const lastYear = parseInt(tanev);
-  const firstYear = lastYear - 4;
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const data = await prisma.felvettek_Szama.findMany({
-    where: {
-      tanev_kezdete: { gte: firstYear, lte: lastYear },
+  // Use pattern's method for year-based query with custom cache operation
+  return await pattern.serviceCache.get(
+    'all_with_year_ordered',
+    async () => {
+      const { firstYear, lastYear } = pattern.getYearRange(tanev);
+      return await prisma.felvettek_Szama.findMany({
+        where: {
+          tanev_kezdete: { gte: firstYear, lte: lastYear },
+        },
+        include: pattern.include,
+        orderBy: { createAt: "desc" },
+      });
     },
-    include: {
-      szakma: true,
-      szakirany: true,
-    },
-    orderBy: { createAt: "desc" },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+    CACHE_TTL.SHORT,
+    tanev
+  );
 }
 
 export async function getById(alapadatok_id, tanev) {
-  const cacheKey = `felvettek_szama:alapadatok_id:${alapadatok_id}:${tanev}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const lastYear = parseInt(tanev);
-  const firstYear = lastYear - 4;
-
-  const data = await prisma.felvettek_Szama.findMany({
-    where: {
-      alapadatok_id,
-      tanev_kezdete: { gte: firstYear, lte: lastYear },
-    },
-    include: {
-      szakma: true,
-      szakirany: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.DETAIL);
-
-  return data;
+  // Use pattern's method for alapadatok and year
+  return await pattern.findByAlapadatokIdAndYear(alapadatok_id, tanev);
 }
 
 export async function update(id, data) {
@@ -121,29 +95,26 @@ export async function update(id, data) {
     felvett_letszam,
   } = data;
 
-  // Invalidate relevant caches
-  cache.del("felvettek_szama:all");
-  cache.del(`felvettek_szama:alapadatok_id:${alapadatok_id}`);
+  // Find szakma and szakirany by name
   const szakma = await prisma.szakma.findUnique({
-    where: {
-      nev: szakmaNev,
-    },
+    where: { nev: szakmaNev },
   });
+  
   if (!szakma) {
     throw new Error(`Szakma with name ${szakmaNev} not found`);
   }
+  
   const szakirany = await prisma.szakirany.findUnique({
-    where: {
-      nev: szakiranyNev,
-    },
+    where: { nev: szakiranyNev },
   });
+  
   if (!szakirany) {
     throw new Error(`Szakirany with name ${szakiranyNev} not found`);
   }
-  return await prisma.felvettek_Szama.update({
-    where: {
-      id,
-    },
+  
+  // Update with resolved IDs - use custom update for proper relations
+  const result = await prisma.felvettek_Szama.update({
+    where: { id },
     data: {
       alapadatok_id,
       tanev_kezdete,
@@ -153,5 +124,11 @@ export async function update(id, data) {
       felveheto_letszam,
       felvett_letszam,
     },
+    include: pattern.include,
   });
+
+  // Invalidate related caches manually since we bypassed pattern.update
+  pattern.serviceCache.invalidateRelated("update", id);
+
+  return result;
 }

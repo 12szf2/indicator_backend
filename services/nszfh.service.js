@@ -1,76 +1,15 @@
-import prisma from "../utils/prisma.js";
-import * as cache from "../utils/cache.js";
+import { ServicePattern } from "../utils/ServicePattern.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+const pattern = new ServicePattern('nszfhMeresek', 'id', {
+  alapadatok: true,
+});
 
 export async function getAll(tanev) {
-  const cacheKey = "nszfh:all";
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.versenyek.findMany({
-    where: {
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      versenyNev: true,
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+  return await pattern.findAllByYear(tanev);
 }
 
 export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `nszfh:alapadatok_id:${alapadatokId}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.versenyek.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      versenyNev: true,
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+  return await pattern.findByAlapadatokIdAndYear(alapadatokId, tanev);
 }
 
 export async function create(
@@ -97,44 +36,30 @@ export async function create(
   kat_5_szoveg_bemeneti,
   kat_5_szoveg_kimeneti
 ) {
-  // Invalidate relevant caches
-  cache.del("nszfh:all");
-  cache.del(`nszfh:alapadatok_id:${alapadatok_id}`);
-
-  const data = await prisma.versenyek.create({
-    data: {
-      alapadatok_id,
-      tanev_kezdete,
-      kat_1_mat_bemeneti,
-      kat_1_mat_kimeneti,
-      kat_1_szoveg_bemeneti,
-      kat_1_szoveg_kimeneti,
-      kat_2_mat_bemeneti,
-      kat_2_mat_kimeneti,
-      kat_2_szoveg_bemeneti,
-      kat_2_szoveg_kimeneti,
-      kat_3_mat_bemeneti,
-      kat_3_mat_kimeneti,
-      kat_3_szoveg_bemeneti,
-      kat_3_szoveg_kimeneti,
-      kat_4_mat_bemeneti,
-      kat_4_mat_kimeneti,
-      kat_4_szoveg_bemeneti,
-      kat_4_szoveg_kimeneti,
-      kat_5_mat_bemeneti,
-      kat_5_mat_kimeneti,
-      kat_5_szoveg_bemeneti,
-      kat_5_szoveg_kimeneti,
-    },
-    include: {
-      versenyNev: true,
-      alapadatok: true,
-    },
+  return await pattern.create({
+    alapadatok_id,
+    tanev_kezdete,
+    kat_1_mat_bemeneti,
+    kat_1_mat_kimeneti,
+    kat_1_szoveg_bemeneti,
+    kat_1_szoveg_kimeneti,
+    kat_2_mat_bemeneti,
+    kat_2_mat_kimeneti,
+    kat_2_szoveg_bemeneti,
+    kat_2_szoveg_kimeneti,
+    kat_3_mat_bemeneti,
+    kat_3_mat_kimeneti,
+    kat_3_szoveg_bemeneti,
+    kat_3_szoveg_kimeneti,
+    kat_4_mat_bemeneti,
+    kat_4_mat_kimeneti,
+    kat_4_szoveg_bemeneti,
+    kat_4_szoveg_kimeneti,
+    kat_5_mat_bemeneti,
+    kat_5_mat_kimeneti,
+    kat_5_szoveg_bemeneti,
+    kat_5_szoveg_kimeneti,
   });
-  // Store in cache
-  cache.set(`nszfh:alapadatok_id:${alapadatok_id}`, data, CACHE_TTL.LIST);
-
-  return data;
 }
 
 export async function update(
@@ -162,59 +87,32 @@ export async function update(
   kat_5_szoveg_bemeneti,
   kat_5_szoveg_kimeneti
 ) {
-  // Invalidate relevant caches
-  cache.del("nszfh:all");
-  cache.del(`nszfh:alapadatok_id:${alapadatok_id}`);
-
-  const data = await prisma.versenyek.update({
-    where: { id },
-    data: {
-      alapadatok_id,
-      tanev_kezdete,
-      kat_1_mat_bemeneti,
-      kat_1_mat_kimeneti,
-      kat_1_szoveg_bemeneti,
-      kat_1_szoveg_kimeneti,
-      kat_2_mat_bemeneti,
-      kat_2_mat_kimeneti,
-      kat_2_szoveg_bemeneti,
-      kat_2_szoveg_kimeneti,
-      kat_3_mat_bemeneti,
-      kat_3_mat_kimeneti,
-      kat_3_szoveg_bemeneti,
-      kat_3_szoveg_kimeneti,
-      kat_4_mat_bemeneti,
-      kat_4_mat_kimeneti,
-      kat_4_szoveg_bemeneti,
-      kat_4_szoveg_kimeneti,
-      kat_5_mat_bemeneti,
-      kat_5_mat_kimeneti,
-      kat_5_szoveg_bemeneti,
-      kat_5_szoveg_kimeneti,
-    },
-    include: {
-      versenyNev: true,
-      alapadatok: true,
-    },
+  return await pattern.update(id, {
+    alapadatok_id,
+    tanev_kezdete,
+    kat_1_mat_bemeneti,
+    kat_1_mat_kimeneti,
+    kat_1_szoveg_bemeneti,
+    kat_1_szoveg_kimeneti,
+    kat_2_mat_bemeneti,
+    kat_2_mat_kimeneti,
+    kat_2_szoveg_bemeneti,
+    kat_2_szoveg_kimeneti,
+    kat_3_mat_bemeneti,
+    kat_3_mat_kimeneti,
+    kat_3_szoveg_bemeneti,
+    kat_3_szoveg_kimeneti,
+    kat_4_mat_bemeneti,
+    kat_4_mat_kimeneti,
+    kat_4_szoveg_bemeneti,
+    kat_4_szoveg_kimeneti,
+    kat_5_mat_bemeneti,
+    kat_5_mat_kimeneti,
+    kat_5_szoveg_bemeneti,
+    kat_5_szoveg_kimeneti,
   });
-
-  // Store in cache
-  cache.set(`nszfh:alapadatok_id:${alapadatok_id}`, data, CACHE_TTL.LIST);
-
-  return data;
 }
 
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {
-  // Invalidate relevant caches
-  cache.del("nszfh:all");
-  cache.del(`nszfh:alapadatok_id:${alapadatokId}`);
-
-  const data = await prisma.versenyek.deleteMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: tanev,
-    },
-  });
-
-  return data;
+  return await pattern.deleteByAlapadatokIdAndYear(alapadatokId, tanev);
 }

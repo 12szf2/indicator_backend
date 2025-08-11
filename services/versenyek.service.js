@@ -1,77 +1,17 @@
+import { ServicePattern } from "../utils/ServicePattern.js";
 import prisma from "../utils/prisma.js";
-import * as cache from "../utils/cache.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+const pattern = new ServicePattern('versenyek', 'id', {
+  versenyNev: true,
+  alapadatok: true,
+});
 
 export async function getAll(tanev) {
-  const cacheKey = "versenyek:all";
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.versenyek.findMany({
-    where: {
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      versenyNev: true,
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+  return await pattern.findAllByYear(tanev);
 }
 
 export async function getAllByAlapadatok(alapadatokId, tanev) {
-  const cacheKey = `felvettek_szama:alapadatok_id:${alapadatokId}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev) - 4;
-  const lastYear = parseInt(tanev);
-
-  const data = await prisma.versenyek.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      versenyNev: true,
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+  return await pattern.findByAlapadatokIdAndYear(alapadatokId, tanev);
 }
 
 export async function create(
@@ -84,10 +24,8 @@ export async function create(
   tanev_kezdete,
   alapadatokId
 ) {
-  // Invalidate relevant caches
-  cache.del("felvettek_szama:all");
-  cache.del(`felvettek_szama:alapadatok_id:${alapadatokId}`);
-
+  // Since this has complex relationships with versenyNev, we'll use direct Prisma for now
+  // but still leverage cache invalidation from pattern
   const data = await prisma.versenyek.create({
     data: {
       helyezett_1,
@@ -98,12 +36,12 @@ export async function create(
       alapadatok_id: alapadatokId,
       versenyNev: {
         connectOrCreate: {
-          id: versenyNev,
+          where: { id: versenyNev },
           create: {
             nev: versenyNev,
             versenyKategoria: {
               connectOrCreate: {
-                id: versenyKategoria,
+                where: { id: versenyKategoria },
                 create: {
                   nev: versenyKategoria,
                 },
@@ -114,6 +52,9 @@ export async function create(
       },
     },
   });
+
+  // Use pattern's cache invalidation
+  pattern.serviceCache.invalidateRelated("create", data.id);
 
   return data;
 }
@@ -128,10 +69,8 @@ export async function update(
   nevezettekSzama,
   tanev_kezdete
 ) {
-  // Invalidate relevant caches
-  cache.del("felvettek_szama:all");
-  cache.del(`felvettek_szama:alapadatok_id:${alapadatokId}`);
-
+  // Since this has complex relationships with versenyNev, we'll use direct Prisma for now
+  // but still leverage cache invalidation from pattern
   const data = await prisma.versenyek.update({
     where: { id },
     data: {
@@ -142,12 +81,12 @@ export async function update(
       tanev_kezdete,
       versenyNev: {
         connectOrCreate: {
-          id: versenyNev,
+          where: { id: versenyNev },
           create: {
             nev: versenyNev,
             versenyKategoria: {
               connectOrCreate: {
-                id: versenyKategoria,
+                where: { id: versenyKategoria },
                 create: {
                   nev: versenyKategoria,
                 },
@@ -158,6 +97,9 @@ export async function update(
       },
     },
   });
+
+  // Use pattern's cache invalidation
+  pattern.serviceCache.invalidateRelated("update", id);
 
   return data;
 }

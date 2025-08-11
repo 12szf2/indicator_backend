@@ -1,75 +1,15 @@
-import prisma from "../utils/prisma.js";
-import * as cache from "../utils/cache.js";
+import { ServicePattern } from "../utils/ServicePattern.js";
 
-// Cache TTLs
-const CACHE_TTL = {
-  LIST: 5 * 60 * 1000, // 5 minutes for lists
-  DETAIL: 10 * 60 * 1000, // 10 minutes for details
-};
+const pattern = new ServicePattern('dobbanto', 'id', {
+  alapadatok: true,
+});
 
 export async function getAll(tanev_kezdete) {
-  const cacheKey = `dobbanto:all:${tanev_kezdete}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev_kezdete) - 4;
-  const lastYear = parseInt(tanev_kezdete);
-
-  const data = await prisma.dobbanto.findMany({
-    where: {
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+  return await pattern.findAllByYear(tanev_kezdete);
 }
 
 export async function getAllByAlapadatok(alapadatokId, tanev_kezdete) {
-  const cacheKey = `dobbanto:alapadatok_id:${alapadatokId}:${tanev_kezdete}`;
-  const cachedData = cache.get(cacheKey);
-
-  if (cachedData) {
-    return cachedData;
-  }
-
-  const firstYear = parseInt(tanev_kezdete) - 4;
-  const lastYear = parseInt(tanev_kezdete);
-
-  const data = await prisma.dobbanto.findMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-    orderBy: {
-      tanev_kezdete: "asc",
-    },
-    include: {
-      alapadatok: true,
-    },
-  });
-
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
-
-  return data;
+  return await pattern.findByAlapadatokIdAndYear(alapadatokId, tanev_kezdete);
 }
 
 export async function create(
@@ -78,20 +18,12 @@ export async function create(
   dobbanto_szama,
   tanulok_osszesen
 ) {
-  const newdobbanto = await prisma.dobbanto.create({
-    data: {
-      alapadatok: { connect: { id: alapadatok_id } },
-      tanev_kezdete: parseInt(tanev_kezdete),
-      dobbanto_szama: parseInt(dobbanto_szama),
-      tanulok_osszesen: parseInt(tanulok_osszesen),
-    },
+  return await pattern.create({
+    alapadatok_id,
+    tanev_kezdete: parseInt(tanev_kezdete),
+    dobbanto_szama: parseInt(dobbanto_szama),
+    tanulok_osszesen: parseInt(tanulok_osszesen),
   });
-
-  // Invalidate cache
-  cache.del(`dobbanto:all:${tanev_kezdete}`);
-  cache.del(`dobbanto:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
-
-  return newdobbanto;
 }
 
 export async function update(
@@ -101,40 +33,14 @@ export async function update(
   dobbanto_szama,
   tanulok_osszesen
 ) {
-  const updatedDobbanto = await prisma.dobbanto.update({
-    where: { id: id },
-    data: {
-      alapadatok_id,
-      tanev_kezdete: parseInt(tanev_kezdete),
-      dobbanto_szama: parseInt(dobbanto_szama),
-      tanulok_osszesen: parseInt(tanulok_osszesen),
-    },
+  return await pattern.update(id, {
+    alapadatok_id,
+    tanev_kezdete: parseInt(tanev_kezdete),
+    dobbanto_szama: parseInt(dobbanto_szama),
+    tanulok_osszesen: parseInt(tanulok_osszesen),
   });
-
-  // Invalidate cache
-  cache.del(`dobbanto:all:${tanev_kezdete}`);
-  cache.del(`dobbanto:alapadatok_id:${alapadatok_id}:${tanev_kezdete}`);
-
-  return updatedDobbanto;
 }
 
 export async function deleteAllByAlapadatok(alapadatokId, tanev_kezdete) {
-  const firstYear = parseInt(tanev_kezdete) - 4;
-  const lastYear = parseInt(tanev_kezdete);
-
-  const deletedCount = await prisma.dobbanto.deleteMany({
-    where: {
-      alapadatok_id: alapadatokId,
-      tanev_kezdete: {
-        gte: firstYear,
-        lte: lastYear,
-      },
-    },
-  });
-
-  // Invalidate cache
-  cache.del(`dobbanto:all:${tanev_kezdete}`);
-  cache.del(`dobbanto:alapadatok_id:${alapadatokId}:${tanev_kezdete}`);
-
-  return deletedCount;
+  return await pattern.deleteByAlapadatokIdAndYear(alapadatokId, tanev_kezdete);
 }
