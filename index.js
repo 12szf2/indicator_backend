@@ -80,6 +80,7 @@ apiRouter.use("/cache", i.cacheRouter);
 
 // Log management endpoint
 apiRouter.use("/logs", i.logRouter);
+apiRouter.use("/changelog", i.changelogRouter);
 
 // Define API routes with their specific middleware
 apiRouter.use("/alapadatok", i.alapadatokRouter);
