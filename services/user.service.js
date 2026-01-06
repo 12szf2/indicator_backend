@@ -108,6 +108,40 @@ export async function getByEmail(email) {
   return data;
 }
 
+export async function getById(id) {
+  const cacheKey = `users:id:${id}`;
+  const cachedData = cache.get(cacheKey);
+
+  if (cachedData) {
+    return cachedData;
+  }
+
+  const data = await prisma.user.findUnique({
+    include: {
+      tableAccess: {
+        include: {
+          table: true,
+        },
+      },
+      alapadatok: true,
+    },
+    where: {
+      id: id,
+    },
+  });
+
+  if (!data) {
+    return null;
+  }
+
+  // Store in cache
+  cache.set(cacheKey, data, CACHE_TTL.DETAIL);
+  // Enrich user with permission details
+  enrichUserWithPermissions(data);
+
+  return data;
+}
+
 export async function getAllFiltered(token) {
   const cacheKey = `users:all:filtered`;
   const cachedData = cache.get(cacheKey);
@@ -242,8 +276,11 @@ export async function update(
       isActive,
     },
   });
+  // Handle tableAccess updates
+  let validTableIds = [];
+
   if (tableAccess && tableAccess.length > 0) {
-    await Promise.all(
+    validTableIds = await Promise.all(
       tableAccess.map(async (access) => {
         const table = await prisma.tableList.findUnique({
           where: { name: access.tableName },
@@ -271,9 +308,19 @@ export async function update(
             access: access.access,
           },
         });
+
+        return table.id;
       })
     );
   }
+
+  // Remove any table access that is not in the current list
+  await prisma.tableAccess.deleteMany({
+    where: {
+      userId: user.id,
+      tableId: { notIn: validTableIds },
+    },
+  });
 
   // Invalidate all user caches including specific user email and the users list
   cache.invalidate("users:*");
