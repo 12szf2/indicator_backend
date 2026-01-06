@@ -26,7 +26,7 @@ export async function createMany(alapadatok_id, data) {
     throw new Error(`Alapadatok with id ${alapadatok_id} not found`);
   }
 
-  let year = new Date().getFullYear();
+  let year = new Date().getFullYear(); w
   const month = new Date().getMonth();
 
   if (month <= 7) {

@@ -156,6 +156,21 @@ router.get("/:alapadatok_id/:ev", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const { alapadatok_id, tanugyi_adatok } = req.body;
+
+    if (!alapadatok_id || !tanugyi_adatok) {
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+
+    for (const tanugyi_adat of tanugyi_adatok) {
+      if (
+        !tanugyi_adat.uj_Szkt_agazat_tipusa ||
+        !tanugyi_adat.uj_szkt_szakma_tipusa ||
+        !tanugyi_adat.tanulo_jogviszonya
+      ) {
+        return res.status(400).json({ error: "Missing required fields" });
+      }
+    }
+
     const result = await createMany(alapadatok_id, tanugyi_adatok);
     res.status(201).json(result);
   } catch (error) {

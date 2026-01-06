@@ -59,7 +59,7 @@ export function logMiddleware(req, res, next) {
         logRequest({
           userId: userId,
           method: req.method,
-          path: req.path,
+          path: req.originalUrl.split("?")[0],
           statusCode: res.statusCode,
           body: sanitizeRequestBody(req.body),
           query: req.query,
@@ -85,7 +85,7 @@ export function logMiddleware(req, res, next) {
               logRequest({
                 userId: user.id,
                 method: req.method,
-                path: req.path,
+                path: req.originalUrl.split("?")[0],
                 statusCode: res.statusCode,
                 body: sanitizeRequestBody(req.body),
                 query: req.query,
@@ -104,7 +104,7 @@ export function logMiddleware(req, res, next) {
             // Log anyway without user ID
             logRequest({
               method: req.method,
-              path: req.path,
+              path: req.originalUrl.split("?")[0],
               statusCode: res.statusCode,
               body: sanitizeRequestBody(req.body),
               query: req.query,
