@@ -185,22 +185,22 @@ const startServer = async () => {
     app.listen(port, () => {
       console.log(`🚀 API Gateway running at http://localhost:${port}`);
       console.log(
-        `📚 API documentation available at http://localhost:${port}/api-docs`
+        `📚 API documentation available at http://localhost:${port}/api-docs`,
       );
       console.log(
-        `📊 Health endpoints available at http://localhost:${port}/health`
+        `📊 Health endpoints available at http://localhost:${port}/health`,
       );
       console.log("");
       console.log("🔗 Service Routing:");
       console.log(
         `   • /api/v1/auth/* → Login Service (${
           process.env.LOGIN_SERVICE_URL || "http://localhost:5301"
-        })`
+        })`,
       );
       console.log(
         `   • /api/v1/* → Main Service (${
           process.env.MAIN_SERVICE_URL || "http://localhost:5300"
-        })`
+        })`,
       );
       console.log("");
       console.log("🛡️  Security Features:");

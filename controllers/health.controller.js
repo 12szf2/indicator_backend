@@ -28,7 +28,10 @@ export const healthCheck = async (req, res) => {
     // Test database connection with a timeout
     const dbTestPromise = testDatabaseConnection();
     const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error("Database health check timeout")), 5000)
+      setTimeout(
+        () => reject(new Error("Database health check timeout")),
+        5000,
+      ),
     );
 
     await Promise.race([dbTestPromise, timeoutPromise]);
@@ -107,7 +110,7 @@ export const databaseHealth = async (req, res) => {
     // Test database connection with a simple query and timeout
     const queryPromise = prisma.$queryRaw`SELECT NOW() as current_time, version() as db_version`;
     const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error("Database query timeout")), 5000)
+      setTimeout(() => reject(new Error("Database query timeout")), 5000),
     );
 
     await Promise.race([queryPromise, timeoutPromise]);

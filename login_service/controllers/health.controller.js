@@ -57,10 +57,12 @@ router.get("/", async (req, res) => {
       status: "healthy",
       timestamp: new Date().toISOString(),
       service: "login_service",
-      version: "1.0.0",
+      version: process.env.npm_package_version || "unknown",
       database: {
         status: "connected",
       },
+      uptime: process.uptime(),
+      memory: process.memoryUsage(),
     });
   } catch (error) {
     console.error("Health check failed:", error);
@@ -68,7 +70,7 @@ router.get("/", async (req, res) => {
       status: "unhealthy",
       timestamp: new Date().toISOString(),
       service: "login_service",
-      version: "1.0.0",
+      version: process.env.npm_package_version || "unknown",
       database: {
         status: "disconnected",
         error: error.message,
@@ -93,7 +95,9 @@ router.get("/basic", (req, res) => {
     status: "healthy",
     timestamp: new Date().toISOString(),
     service: "login_service",
-    version: "1.0.0",
+    version: process.env.npm_package_version || "unknown",
+    uptime: process.uptime(),
+    memory: process.memoryUsage(),
   });
 });
 

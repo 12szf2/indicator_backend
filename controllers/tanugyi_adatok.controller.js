@@ -155,7 +155,7 @@ router.get("/:alapadatok_id/:ev", async (req, res) => {
  */
 router.post("/", async (req, res) => {
   try {
-    const { alapadatok_id, tanugyi_adatok } = req.body;
+    const { alapadatok_id, tanugyi_adatok, userId } = req.body;
 
     if (!alapadatok_id || !tanugyi_adatok) {
       return res.status(400).json({ error: "Missing required fields" });
@@ -171,7 +171,7 @@ router.post("/", async (req, res) => {
       }
     }
 
-    const result = await createMany(alapadatok_id, tanugyi_adatok);
+    const result = await createMany(alapadatok_id, tanugyi_adatok, userId);
     res.status(201).json(result);
   } catch (error) {
     console.error("Error creating tanugyi_adatok:", error);

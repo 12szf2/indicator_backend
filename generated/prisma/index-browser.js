@@ -793,6 +793,16 @@ exports.Prisma.OktatoAdatszolgScalarFieldEnum = {
   createBy: 'createBy'
 };
 
+exports.Prisma.ChangelogScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  version: 'version',
+  date: 'date',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -857,7 +867,8 @@ exports.Prisma.ModelName = {
   Muhelyiskola: 'Muhelyiskola',
   OktatoEgyebTev: 'OktatoEgyebTev',
   TanuloAdatszolg: 'TanuloAdatszolg',
-  OktatoAdatszolg: 'OktatoAdatszolg'
+  OktatoAdatszolg: 'OktatoAdatszolg',
+  Changelog: 'Changelog'
 };
 
 /**

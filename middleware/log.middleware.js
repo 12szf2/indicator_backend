@@ -42,14 +42,14 @@ export function logMiddleware(req, res, next) {
 
     // Determine log path from Referer (frontend path) or fallback to API path
     let logPath = req.originalUrl.split("?")[0];
-    if (req.headers.referer) {
-      try {
-        const url = new URL(req.headers.referer);
-        logPath = url.pathname;
-      } catch (e) {
-        // Ignore invalid URLs
-      }
-    }
+    // if (req.headers.referer) {
+    //   try {
+    //     const url = new URL(req.headers.referer);
+    //     logPath = url.pathname;
+    //   } catch (e) {
+    //     // Ignore invalid URLs
+    //   }
+    // }
 
     // Extract token if available
     const token = req.headers.authorization?.split(" ")[1];
@@ -231,7 +231,7 @@ function sanitizeRequestBody(body) {
       // Check if current key is sensitive
       if (
         SENSITIVE_FIELDS.some((field) =>
-          key.toLowerCase().includes(field.toLowerCase())
+          key.toLowerCase().includes(field.toLowerCase()),
         )
       ) {
         obj[key] = "***REDACTED***";

@@ -198,6 +198,11 @@ export type TanuloAdatszolg = $Result.DefaultSelection<Prisma.$TanuloAdatszolgPa
  * 
  */
 export type OktatoAdatszolg = $Result.DefaultSelection<Prisma.$OktatoAdatszolgPayload>
+/**
+ * Model Changelog
+ * 
+ */
+export type Changelog = $Result.DefaultSelection<Prisma.$ChangelogPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -693,6 +698,16 @@ export class PrismaClient<
     * ```
     */
   get oktatoAdatszolg(): Prisma.OktatoAdatszolgDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.changelog`: Exposes CRUD operations for the **Changelog** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Changelogs
+    * const changelogs = await prisma.changelog.findMany()
+    * ```
+    */
+  get changelog(): Prisma.ChangelogDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -1169,7 +1184,8 @@ export namespace Prisma {
     Muhelyiskola: 'Muhelyiskola',
     OktatoEgyebTev: 'OktatoEgyebTev',
     TanuloAdatszolg: 'TanuloAdatszolg',
-    OktatoAdatszolg: 'OktatoAdatszolg'
+    OktatoAdatszolg: 'OktatoAdatszolg',
+    Changelog: 'Changelog'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1188,7 +1204,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "session" | "user" | "tableList" | "tableAccess" | "log" | "alapadatok" | "szakirany" | "szakma" | "szakirany_Szakma" | "alapadatok_Szakirany" | "alapadatok_Szakma" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "egyOktatoraJutoTanulo" | "tanugyi_Adatok" | "alkalmazottak_Munkaugy" | "szakkepzesiMunkaszerzodesAranya" | "vesenyKategoria" | "vesenyNevek" | "versenyek" | "nszfhMeresek" | "elhelyezkedes" | "elegedettseg" | "vizsgaEredmenyek" | "szakmaiVizsgaEredmenyek" | "lemorzsolodas" | "elegedettsegMeres" | "intezmenyiNeveltseg" | "hHEsHHHTanulok" | "sajatosNevelesuTanulok" | "dobbanto" | "muhelyiskola" | "oktatoEgyebTev" | "tanuloAdatszolg" | "oktatoAdatszolg"
+      modelProps: "session" | "user" | "tableList" | "tableAccess" | "log" | "alapadatok" | "szakirany" | "szakma" | "szakirany_Szakma" | "alapadatok_Szakirany" | "alapadatok_Szakma" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "egyOktatoraJutoTanulo" | "tanugyi_Adatok" | "alkalmazottak_Munkaugy" | "szakkepzesiMunkaszerzodesAranya" | "vesenyKategoria" | "vesenyNevek" | "versenyek" | "nszfhMeresek" | "elhelyezkedes" | "elegedettseg" | "vizsgaEredmenyek" | "szakmaiVizsgaEredmenyek" | "lemorzsolodas" | "elegedettsegMeres" | "intezmenyiNeveltseg" | "hHEsHHHTanulok" | "sajatosNevelesuTanulok" | "dobbanto" | "muhelyiskola" | "oktatoEgyebTev" | "tanuloAdatszolg" | "oktatoAdatszolg" | "changelog"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3930,6 +3946,80 @@ export namespace Prisma {
           }
         }
       }
+      Changelog: {
+        payload: Prisma.$ChangelogPayload<ExtArgs>
+        fields: Prisma.ChangelogFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ChangelogFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChangelogPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ChangelogFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChangelogPayload>
+          }
+          findFirst: {
+            args: Prisma.ChangelogFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChangelogPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ChangelogFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChangelogPayload>
+          }
+          findMany: {
+            args: Prisma.ChangelogFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChangelogPayload>[]
+          }
+          create: {
+            args: Prisma.ChangelogCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChangelogPayload>
+          }
+          createMany: {
+            args: Prisma.ChangelogCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ChangelogCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChangelogPayload>[]
+          }
+          delete: {
+            args: Prisma.ChangelogDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChangelogPayload>
+          }
+          update: {
+            args: Prisma.ChangelogUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChangelogPayload>
+          }
+          deleteMany: {
+            args: Prisma.ChangelogDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ChangelogUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ChangelogUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChangelogPayload>[]
+          }
+          upsert: {
+            args: Prisma.ChangelogUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChangelogPayload>
+          }
+          aggregate: {
+            args: Prisma.ChangelogAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateChangelog>
+          }
+          groupBy: {
+            args: Prisma.ChangelogGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ChangelogGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ChangelogCountArgs<ExtArgs>
+            result: $Utils.Optional<ChangelogCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -4051,6 +4141,7 @@ export namespace Prisma {
     oktatoEgyebTev?: OktatoEgyebTevOmit
     tanuloAdatszolg?: TanuloAdatszolgOmit
     oktatoAdatszolg?: OktatoAdatszolgOmit
+    changelog?: ChangelogOmit
   }
 
   /* Types for Logging */
@@ -51757,6 +51848,1027 @@ export namespace Prisma {
 
 
   /**
+   * Model Changelog
+   */
+
+  export type AggregateChangelog = {
+    _count: ChangelogCountAggregateOutputType | null
+    _min: ChangelogMinAggregateOutputType | null
+    _max: ChangelogMaxAggregateOutputType | null
+  }
+
+  export type ChangelogMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    description: string | null
+    version: string | null
+    date: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ChangelogMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    description: string | null
+    version: string | null
+    date: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ChangelogCountAggregateOutputType = {
+    id: number
+    title: number
+    description: number
+    version: number
+    date: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ChangelogMinAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    version?: true
+    date?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ChangelogMaxAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    version?: true
+    date?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ChangelogCountAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    version?: true
+    date?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ChangelogAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Changelog to aggregate.
+     */
+    where?: ChangelogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Changelogs to fetch.
+     */
+    orderBy?: ChangelogOrderByWithRelationInput | ChangelogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ChangelogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Changelogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Changelogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Changelogs
+    **/
+    _count?: true | ChangelogCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ChangelogMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ChangelogMaxAggregateInputType
+  }
+
+  export type GetChangelogAggregateType<T extends ChangelogAggregateArgs> = {
+        [P in keyof T & keyof AggregateChangelog]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateChangelog[P]>
+      : GetScalarType<T[P], AggregateChangelog[P]>
+  }
+
+
+
+
+  export type ChangelogGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ChangelogWhereInput
+    orderBy?: ChangelogOrderByWithAggregationInput | ChangelogOrderByWithAggregationInput[]
+    by: ChangelogScalarFieldEnum[] | ChangelogScalarFieldEnum
+    having?: ChangelogScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ChangelogCountAggregateInputType | true
+    _min?: ChangelogMinAggregateInputType
+    _max?: ChangelogMaxAggregateInputType
+  }
+
+  export type ChangelogGroupByOutputType = {
+    id: string
+    title: string
+    description: string
+    version: string | null
+    date: Date
+    createdAt: Date
+    updatedAt: Date | null
+    _count: ChangelogCountAggregateOutputType | null
+    _min: ChangelogMinAggregateOutputType | null
+    _max: ChangelogMaxAggregateOutputType | null
+  }
+
+  type GetChangelogGroupByPayload<T extends ChangelogGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ChangelogGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ChangelogGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ChangelogGroupByOutputType[P]>
+            : GetScalarType<T[P], ChangelogGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ChangelogSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    version?: boolean
+    date?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["changelog"]>
+
+  export type ChangelogSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    version?: boolean
+    date?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["changelog"]>
+
+  export type ChangelogSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    version?: boolean
+    date?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["changelog"]>
+
+  export type ChangelogSelectScalar = {
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    version?: boolean
+    date?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ChangelogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "version" | "date" | "createdAt" | "updatedAt", ExtArgs["result"]["changelog"]>
+
+  export type $ChangelogPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Changelog"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      description: string
+      version: string | null
+      date: Date
+      createdAt: Date
+      updatedAt: Date | null
+    }, ExtArgs["result"]["changelog"]>
+    composites: {}
+  }
+
+  type ChangelogGetPayload<S extends boolean | null | undefined | ChangelogDefaultArgs> = $Result.GetResult<Prisma.$ChangelogPayload, S>
+
+  type ChangelogCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ChangelogFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ChangelogCountAggregateInputType | true
+    }
+
+  export interface ChangelogDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Changelog'], meta: { name: 'Changelog' } }
+    /**
+     * Find zero or one Changelog that matches the filter.
+     * @param {ChangelogFindUniqueArgs} args - Arguments to find a Changelog
+     * @example
+     * // Get one Changelog
+     * const changelog = await prisma.changelog.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ChangelogFindUniqueArgs>(args: SelectSubset<T, ChangelogFindUniqueArgs<ExtArgs>>): Prisma__ChangelogClient<$Result.GetResult<Prisma.$ChangelogPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Changelog that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ChangelogFindUniqueOrThrowArgs} args - Arguments to find a Changelog
+     * @example
+     * // Get one Changelog
+     * const changelog = await prisma.changelog.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ChangelogFindUniqueOrThrowArgs>(args: SelectSubset<T, ChangelogFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ChangelogClient<$Result.GetResult<Prisma.$ChangelogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Changelog that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ChangelogFindFirstArgs} args - Arguments to find a Changelog
+     * @example
+     * // Get one Changelog
+     * const changelog = await prisma.changelog.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ChangelogFindFirstArgs>(args?: SelectSubset<T, ChangelogFindFirstArgs<ExtArgs>>): Prisma__ChangelogClient<$Result.GetResult<Prisma.$ChangelogPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Changelog that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ChangelogFindFirstOrThrowArgs} args - Arguments to find a Changelog
+     * @example
+     * // Get one Changelog
+     * const changelog = await prisma.changelog.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ChangelogFindFirstOrThrowArgs>(args?: SelectSubset<T, ChangelogFindFirstOrThrowArgs<ExtArgs>>): Prisma__ChangelogClient<$Result.GetResult<Prisma.$ChangelogPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Changelogs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ChangelogFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Changelogs
+     * const changelogs = await prisma.changelog.findMany()
+     * 
+     * // Get first 10 Changelogs
+     * const changelogs = await prisma.changelog.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const changelogWithIdOnly = await prisma.changelog.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ChangelogFindManyArgs>(args?: SelectSubset<T, ChangelogFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChangelogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Changelog.
+     * @param {ChangelogCreateArgs} args - Arguments to create a Changelog.
+     * @example
+     * // Create one Changelog
+     * const Changelog = await prisma.changelog.create({
+     *   data: {
+     *     // ... data to create a Changelog
+     *   }
+     * })
+     * 
+     */
+    create<T extends ChangelogCreateArgs>(args: SelectSubset<T, ChangelogCreateArgs<ExtArgs>>): Prisma__ChangelogClient<$Result.GetResult<Prisma.$ChangelogPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Changelogs.
+     * @param {ChangelogCreateManyArgs} args - Arguments to create many Changelogs.
+     * @example
+     * // Create many Changelogs
+     * const changelog = await prisma.changelog.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ChangelogCreateManyArgs>(args?: SelectSubset<T, ChangelogCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Changelogs and returns the data saved in the database.
+     * @param {ChangelogCreateManyAndReturnArgs} args - Arguments to create many Changelogs.
+     * @example
+     * // Create many Changelogs
+     * const changelog = await prisma.changelog.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Changelogs and only return the `id`
+     * const changelogWithIdOnly = await prisma.changelog.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ChangelogCreateManyAndReturnArgs>(args?: SelectSubset<T, ChangelogCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChangelogPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Changelog.
+     * @param {ChangelogDeleteArgs} args - Arguments to delete one Changelog.
+     * @example
+     * // Delete one Changelog
+     * const Changelog = await prisma.changelog.delete({
+     *   where: {
+     *     // ... filter to delete one Changelog
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ChangelogDeleteArgs>(args: SelectSubset<T, ChangelogDeleteArgs<ExtArgs>>): Prisma__ChangelogClient<$Result.GetResult<Prisma.$ChangelogPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Changelog.
+     * @param {ChangelogUpdateArgs} args - Arguments to update one Changelog.
+     * @example
+     * // Update one Changelog
+     * const changelog = await prisma.changelog.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ChangelogUpdateArgs>(args: SelectSubset<T, ChangelogUpdateArgs<ExtArgs>>): Prisma__ChangelogClient<$Result.GetResult<Prisma.$ChangelogPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Changelogs.
+     * @param {ChangelogDeleteManyArgs} args - Arguments to filter Changelogs to delete.
+     * @example
+     * // Delete a few Changelogs
+     * const { count } = await prisma.changelog.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ChangelogDeleteManyArgs>(args?: SelectSubset<T, ChangelogDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Changelogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ChangelogUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Changelogs
+     * const changelog = await prisma.changelog.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ChangelogUpdateManyArgs>(args: SelectSubset<T, ChangelogUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Changelogs and returns the data updated in the database.
+     * @param {ChangelogUpdateManyAndReturnArgs} args - Arguments to update many Changelogs.
+     * @example
+     * // Update many Changelogs
+     * const changelog = await prisma.changelog.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Changelogs and only return the `id`
+     * const changelogWithIdOnly = await prisma.changelog.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ChangelogUpdateManyAndReturnArgs>(args: SelectSubset<T, ChangelogUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChangelogPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Changelog.
+     * @param {ChangelogUpsertArgs} args - Arguments to update or create a Changelog.
+     * @example
+     * // Update or create a Changelog
+     * const changelog = await prisma.changelog.upsert({
+     *   create: {
+     *     // ... data to create a Changelog
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Changelog we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ChangelogUpsertArgs>(args: SelectSubset<T, ChangelogUpsertArgs<ExtArgs>>): Prisma__ChangelogClient<$Result.GetResult<Prisma.$ChangelogPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Changelogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ChangelogCountArgs} args - Arguments to filter Changelogs to count.
+     * @example
+     * // Count the number of Changelogs
+     * const count = await prisma.changelog.count({
+     *   where: {
+     *     // ... the filter for the Changelogs we want to count
+     *   }
+     * })
+    **/
+    count<T extends ChangelogCountArgs>(
+      args?: Subset<T, ChangelogCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ChangelogCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Changelog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ChangelogAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ChangelogAggregateArgs>(args: Subset<T, ChangelogAggregateArgs>): Prisma.PrismaPromise<GetChangelogAggregateType<T>>
+
+    /**
+     * Group by Changelog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ChangelogGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ChangelogGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ChangelogGroupByArgs['orderBy'] }
+        : { orderBy?: ChangelogGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ChangelogGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetChangelogGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Changelog model
+   */
+  readonly fields: ChangelogFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Changelog.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ChangelogClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Changelog model
+   */
+  interface ChangelogFieldRefs {
+    readonly id: FieldRef<"Changelog", 'String'>
+    readonly title: FieldRef<"Changelog", 'String'>
+    readonly description: FieldRef<"Changelog", 'String'>
+    readonly version: FieldRef<"Changelog", 'String'>
+    readonly date: FieldRef<"Changelog", 'DateTime'>
+    readonly createdAt: FieldRef<"Changelog", 'DateTime'>
+    readonly updatedAt: FieldRef<"Changelog", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Changelog findUnique
+   */
+  export type ChangelogFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Changelog
+     */
+    select?: ChangelogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Changelog
+     */
+    omit?: ChangelogOmit<ExtArgs> | null
+    /**
+     * Filter, which Changelog to fetch.
+     */
+    where: ChangelogWhereUniqueInput
+  }
+
+  /**
+   * Changelog findUniqueOrThrow
+   */
+  export type ChangelogFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Changelog
+     */
+    select?: ChangelogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Changelog
+     */
+    omit?: ChangelogOmit<ExtArgs> | null
+    /**
+     * Filter, which Changelog to fetch.
+     */
+    where: ChangelogWhereUniqueInput
+  }
+
+  /**
+   * Changelog findFirst
+   */
+  export type ChangelogFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Changelog
+     */
+    select?: ChangelogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Changelog
+     */
+    omit?: ChangelogOmit<ExtArgs> | null
+    /**
+     * Filter, which Changelog to fetch.
+     */
+    where?: ChangelogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Changelogs to fetch.
+     */
+    orderBy?: ChangelogOrderByWithRelationInput | ChangelogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Changelogs.
+     */
+    cursor?: ChangelogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Changelogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Changelogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Changelogs.
+     */
+    distinct?: ChangelogScalarFieldEnum | ChangelogScalarFieldEnum[]
+  }
+
+  /**
+   * Changelog findFirstOrThrow
+   */
+  export type ChangelogFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Changelog
+     */
+    select?: ChangelogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Changelog
+     */
+    omit?: ChangelogOmit<ExtArgs> | null
+    /**
+     * Filter, which Changelog to fetch.
+     */
+    where?: ChangelogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Changelogs to fetch.
+     */
+    orderBy?: ChangelogOrderByWithRelationInput | ChangelogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Changelogs.
+     */
+    cursor?: ChangelogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Changelogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Changelogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Changelogs.
+     */
+    distinct?: ChangelogScalarFieldEnum | ChangelogScalarFieldEnum[]
+  }
+
+  /**
+   * Changelog findMany
+   */
+  export type ChangelogFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Changelog
+     */
+    select?: ChangelogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Changelog
+     */
+    omit?: ChangelogOmit<ExtArgs> | null
+    /**
+     * Filter, which Changelogs to fetch.
+     */
+    where?: ChangelogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Changelogs to fetch.
+     */
+    orderBy?: ChangelogOrderByWithRelationInput | ChangelogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Changelogs.
+     */
+    cursor?: ChangelogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Changelogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Changelogs.
+     */
+    skip?: number
+    distinct?: ChangelogScalarFieldEnum | ChangelogScalarFieldEnum[]
+  }
+
+  /**
+   * Changelog create
+   */
+  export type ChangelogCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Changelog
+     */
+    select?: ChangelogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Changelog
+     */
+    omit?: ChangelogOmit<ExtArgs> | null
+    /**
+     * The data needed to create a Changelog.
+     */
+    data: XOR<ChangelogCreateInput, ChangelogUncheckedCreateInput>
+  }
+
+  /**
+   * Changelog createMany
+   */
+  export type ChangelogCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Changelogs.
+     */
+    data: ChangelogCreateManyInput | ChangelogCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Changelog createManyAndReturn
+   */
+  export type ChangelogCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Changelog
+     */
+    select?: ChangelogSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Changelog
+     */
+    omit?: ChangelogOmit<ExtArgs> | null
+    /**
+     * The data used to create many Changelogs.
+     */
+    data: ChangelogCreateManyInput | ChangelogCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Changelog update
+   */
+  export type ChangelogUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Changelog
+     */
+    select?: ChangelogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Changelog
+     */
+    omit?: ChangelogOmit<ExtArgs> | null
+    /**
+     * The data needed to update a Changelog.
+     */
+    data: XOR<ChangelogUpdateInput, ChangelogUncheckedUpdateInput>
+    /**
+     * Choose, which Changelog to update.
+     */
+    where: ChangelogWhereUniqueInput
+  }
+
+  /**
+   * Changelog updateMany
+   */
+  export type ChangelogUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Changelogs.
+     */
+    data: XOR<ChangelogUpdateManyMutationInput, ChangelogUncheckedUpdateManyInput>
+    /**
+     * Filter which Changelogs to update
+     */
+    where?: ChangelogWhereInput
+    /**
+     * Limit how many Changelogs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Changelog updateManyAndReturn
+   */
+  export type ChangelogUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Changelog
+     */
+    select?: ChangelogSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Changelog
+     */
+    omit?: ChangelogOmit<ExtArgs> | null
+    /**
+     * The data used to update Changelogs.
+     */
+    data: XOR<ChangelogUpdateManyMutationInput, ChangelogUncheckedUpdateManyInput>
+    /**
+     * Filter which Changelogs to update
+     */
+    where?: ChangelogWhereInput
+    /**
+     * Limit how many Changelogs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Changelog upsert
+   */
+  export type ChangelogUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Changelog
+     */
+    select?: ChangelogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Changelog
+     */
+    omit?: ChangelogOmit<ExtArgs> | null
+    /**
+     * The filter to search for the Changelog to update in case it exists.
+     */
+    where: ChangelogWhereUniqueInput
+    /**
+     * In case the Changelog found by the `where` argument doesn't exist, create a new Changelog with this data.
+     */
+    create: XOR<ChangelogCreateInput, ChangelogUncheckedCreateInput>
+    /**
+     * In case the Changelog was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ChangelogUpdateInput, ChangelogUncheckedUpdateInput>
+  }
+
+  /**
+   * Changelog delete
+   */
+  export type ChangelogDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Changelog
+     */
+    select?: ChangelogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Changelog
+     */
+    omit?: ChangelogOmit<ExtArgs> | null
+    /**
+     * Filter which Changelog to delete.
+     */
+    where: ChangelogWhereUniqueInput
+  }
+
+  /**
+   * Changelog deleteMany
+   */
+  export type ChangelogDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Changelogs to delete
+     */
+    where?: ChangelogWhereInput
+    /**
+     * Limit how many Changelogs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Changelog without action
+   */
+  export type ChangelogDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Changelog
+     */
+    select?: ChangelogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Changelog
+     */
+    omit?: ChangelogOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -52552,6 +53664,19 @@ export namespace Prisma {
   };
 
   export type OktatoAdatszolgScalarFieldEnum = (typeof OktatoAdatszolgScalarFieldEnum)[keyof typeof OktatoAdatszolgScalarFieldEnum]
+
+
+  export const ChangelogScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    description: 'description',
+    version: 'version',
+    date: 'date',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ChangelogScalarFieldEnum = (typeof ChangelogScalarFieldEnum)[keyof typeof ChangelogScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -56871,6 +57996,68 @@ export namespace Prisma {
     Oktato_Informatikai_kepesitessel_ismeretekkel_rendelkezok?: StringNullableWithAggregatesFilter<"OktatoAdatszolg"> | string | null
     Oktato_IKT_eszkozoket_a_tanoraja_legalabb_40_aban_hasznalja?: StringNullableWithAggregatesFilter<"OktatoAdatszolg"> | string | null
     createBy?: StringNullableWithAggregatesFilter<"OktatoAdatszolg"> | string | null
+  }
+
+  export type ChangelogWhereInput = {
+    AND?: ChangelogWhereInput | ChangelogWhereInput[]
+    OR?: ChangelogWhereInput[]
+    NOT?: ChangelogWhereInput | ChangelogWhereInput[]
+    id?: UuidFilter<"Changelog"> | string
+    title?: StringFilter<"Changelog"> | string
+    description?: StringFilter<"Changelog"> | string
+    version?: StringNullableFilter<"Changelog"> | string | null
+    date?: DateTimeFilter<"Changelog"> | Date | string
+    createdAt?: DateTimeFilter<"Changelog"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Changelog"> | Date | string | null
+  }
+
+  export type ChangelogOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    version?: SortOrderInput | SortOrder
+    date?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+  }
+
+  export type ChangelogWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ChangelogWhereInput | ChangelogWhereInput[]
+    OR?: ChangelogWhereInput[]
+    NOT?: ChangelogWhereInput | ChangelogWhereInput[]
+    title?: StringFilter<"Changelog"> | string
+    description?: StringFilter<"Changelog"> | string
+    version?: StringNullableFilter<"Changelog"> | string | null
+    date?: DateTimeFilter<"Changelog"> | Date | string
+    createdAt?: DateTimeFilter<"Changelog"> | Date | string
+    updatedAt?: DateTimeNullableFilter<"Changelog"> | Date | string | null
+  }, "id">
+
+  export type ChangelogOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    version?: SortOrderInput | SortOrder
+    date?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    _count?: ChangelogCountOrderByAggregateInput
+    _max?: ChangelogMaxOrderByAggregateInput
+    _min?: ChangelogMinOrderByAggregateInput
+  }
+
+  export type ChangelogScalarWhereWithAggregatesInput = {
+    AND?: ChangelogScalarWhereWithAggregatesInput | ChangelogScalarWhereWithAggregatesInput[]
+    OR?: ChangelogScalarWhereWithAggregatesInput[]
+    NOT?: ChangelogScalarWhereWithAggregatesInput | ChangelogScalarWhereWithAggregatesInput[]
+    id?: UuidWithAggregatesFilter<"Changelog"> | string
+    title?: StringWithAggregatesFilter<"Changelog"> | string
+    description?: StringWithAggregatesFilter<"Changelog"> | string
+    version?: StringNullableWithAggregatesFilter<"Changelog"> | string | null
+    date?: DateTimeWithAggregatesFilter<"Changelog"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"Changelog"> | Date | string
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Changelog"> | Date | string | null
   }
 
   export type SessionCreateInput = {
@@ -61743,6 +62930,76 @@ export namespace Prisma {
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type ChangelogCreateInput = {
+    id?: string
+    title: string
+    description: string
+    version?: string | null
+    date?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+  }
+
+  export type ChangelogUncheckedCreateInput = {
+    id?: string
+    title: string
+    description: string
+    version?: string | null
+    date?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+  }
+
+  export type ChangelogUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    version?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ChangelogUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    version?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ChangelogCreateManyInput = {
+    id?: string
+    title: string
+    description: string
+    version?: string | null
+    date?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string | null
+  }
+
+  export type ChangelogUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    version?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ChangelogUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    version?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -64868,6 +66125,36 @@ export namespace Prisma {
 
   export type OktatoAdatszolgSumOrderByAggregateInput = {
     tanev_kezdete?: SortOrder
+  }
+
+  export type ChangelogCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    version?: SortOrder
+    date?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ChangelogMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    version?: SortOrder
+    date?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ChangelogMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    version?: SortOrder
+    date?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type StringFieldUpdateOperationsInput = {

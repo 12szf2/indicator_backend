@@ -10,14 +10,14 @@ const pattern = new ServicePattern(
   {
     yearField: "tanev_kezdete", // This service uses tanev_kezdete field
     alapadatokField: "alapadatok_id",
-  }
+  },
 );
 
 export async function getAll(alapadatok_id, ev) {
   return await pattern.findAllByAlapadatok(alapadatok_id);
 }
 
-export async function createMany(alapadatok_id, data) {
+export async function createMany(alapadatok_id, data, userId) {
   const alapadatokExists = await prisma.alapadatok.findUnique({
     where: { id: alapadatok_id },
   });
@@ -26,7 +26,7 @@ export async function createMany(alapadatok_id, data) {
     throw new Error(`Alapadatok with id ${alapadatok_id} not found`);
   }
 
-  let year = new Date().getFullYear(); w
+  let year = new Date().getFullYear();
   const month = new Date().getMonth();
 
   if (month <= 7) {
@@ -40,7 +40,7 @@ export async function createMany(alapadatok_id, data) {
   const preparedData = data.map((item) => ({
     ...item,
     alapadatok_id,
-    createBy: "cc2c2d68-5b38-4f9b-9e4f-1a3c9a0fb2a4",
+    createBy: userId,
     tanev_kezdete: year,
   }));
 

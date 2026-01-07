@@ -30,14 +30,14 @@ router.get("/", async (req, res) => {
       timestamp: new Date().toISOString(),
       uptime: process.uptime(),
       memory: process.memoryUsage(),
-      version: "1.0.0",
+      version: process.env.npm_package_version || "unknown",
     };
 
     const servicesHealth = serviceRegistry.getHealthStatus();
 
     // Determine overall health
     const allServicesHealthy = Object.values(servicesHealth).every(
-      (service) => service.status === "healthy"
+      (service) => service.status === "healthy",
     );
     const overallStatus = allServicesHealthy ? "healthy" : "degraded";
     const statusCode = allServicesHealthy ? 200 : 503;
@@ -50,10 +50,10 @@ router.get("/", async (req, res) => {
       summary: {
         total: Object.keys(servicesHealth).length,
         healthy: Object.values(servicesHealth).filter(
-          (s) => s.status === "healthy"
+          (s) => s.status === "healthy",
         ).length,
         unhealthy: Object.values(servicesHealth).filter(
-          (s) => s.status === "unhealthy"
+          (s) => s.status === "unhealthy",
         ).length,
       },
     });
@@ -86,7 +86,7 @@ router.get("/basic", (req, res) => {
     status: "healthy",
     timestamp: new Date().toISOString(),
     service: "api_gateway",
-    version: "1.0.0",
+    version: process.env.npm_package_version || "unknown",
     uptime: process.uptime(),
     memory: process.memoryUsage(),
   });
@@ -112,10 +112,10 @@ router.get("/services", (req, res) => {
     summary: {
       total: Object.keys(servicesHealth).length,
       healthy: Object.values(servicesHealth).filter(
-        (s) => s.status === "healthy"
+        (s) => s.status === "healthy",
       ).length,
       unhealthy: Object.values(servicesHealth).filter(
-        (s) => s.status === "unhealthy"
+        (s) => s.status === "unhealthy",
       ).length,
     },
   });
