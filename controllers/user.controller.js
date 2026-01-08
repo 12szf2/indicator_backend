@@ -6,6 +6,7 @@ import {
   getAllFiltered,
   updatePassword,
   inactivateUser,
+  updatePersonalInformation,
 } from "../services/user.service.js";
 
 const router = e.Router();
@@ -302,7 +303,7 @@ router.post("/", async (req, res) => {
       permissions,
       tableAccess,
       alapadatokId,
-      isActive
+      isActive,
     );
     res.status(201).json({ message: "User created successfully" });
   } catch (error) {
@@ -403,7 +404,7 @@ router.put("/:id", async (req, res) => {
       permissions,
       tableAccess,
       alapadatokId,
-      isActive
+      isActive,
     );
     res.status(200).json({ message: "User updated successfully" });
   } catch (error) {

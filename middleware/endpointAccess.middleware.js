@@ -25,9 +25,13 @@ export default function endpointAccessMiddleware(req, res, next) {
       return next();
     }
 
+    if (endpoint.includes("me")) {
+      return next();
+    }
+
     // Check if the user has access to this endpoint
     const hasEndpointAccess = user.tableAccess.some((access) =>
-      endpoint.includes(access.tableName)
+      endpoint.includes(access.tableName),
     );
 
     if (!hasEndpointAccess) {
@@ -75,7 +79,7 @@ export default function endpointAccessMiddleware(req, res, next) {
     }
 
     console.warn(
-      `User ${user.id} attempted to access ${method} ${endpoint} without permission`
+      `User ${user.id} attempted to access ${method} ${endpoint} without permission`,
     );
 
     // If we get here, the user doesn't have permission to use this method

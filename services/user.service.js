@@ -207,7 +207,7 @@ export async function create(
   permissions = 1,
   tableAccess = [],
   alapadatok_id = null,
-  isActive = true
+  isActive = true,
 ) {
   const existingUser = await prisma.user.findUnique({
     where: { email },
@@ -236,7 +236,7 @@ export async function create(
 
         if (!table) {
           throw new Error(
-            `Table with name ${access.tableName} does not exist.`
+            `Table with name ${access.tableName} does not exist.`,
           );
         }
 
@@ -247,7 +247,7 @@ export async function create(
             access: access.access,
           },
         });
-      })
+      }),
     );
   }
 
@@ -264,7 +264,7 @@ export async function update(
   permissions = 0b00001,
   tableAccess = [],
   alapadatokId = null,
-  isActive = true
+  isActive = true,
 ) {
   const user = await prisma.user.update({
     where: { id: id },
@@ -288,7 +288,7 @@ export async function update(
 
         if (!table) {
           throw new Error(
-            `Table with name ${access.tableName} does not exist.`
+            `Table with name ${access.tableName} does not exist.`,
           );
         }
 
@@ -310,7 +310,7 @@ export async function update(
         });
 
         return table.id;
-      })
+      }),
     );
   }
 
@@ -335,13 +335,29 @@ export async function updatePassword(id, newPassword, newPasswordConfirm) {
 
   const hashedPassword = await hashPassword(newPassword);
 
+  cache.invalidate("users:*");
+
   return prisma.user.update({
     where: { id },
     data: { password: hashedPassword },
   });
 }
 
+export async function updatePersonalInformation(id, name, email) {
+  cache.invalidate("users:*");
+
+  return prisma.user.update({
+    where: { id },
+    data: {
+      name,
+      email,
+    },
+  });
+}
+
 export async function inactivateUser(id) {
+  cache.invalidate("users:*");
+
   return prisma.user.update({
     where: { id },
     data: { isActive: false },

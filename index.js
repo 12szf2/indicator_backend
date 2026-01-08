@@ -39,7 +39,7 @@ app.use(
       dbRecordIdIsSessionId: true,
       dbRecordIdFunction: undefined,
     }),
-  })
+  }),
 );
 
 app.use(i.cors(corsConfig));
@@ -53,7 +53,7 @@ app.use(
     maxAge: 300, // 5 minutes
     private: true,
     staleWhileRevalidate: 60,
-  })
+  }),
 );
 
 // First, mount the auth routes separately to avoid middleware collision
@@ -84,6 +84,7 @@ apiRouter.use("/changelog", i.changelogRouter);
 
 // Define API routes with their specific middleware
 apiRouter.use("/alapadatok", i.alapadatokRouter);
+apiRouter.use("/me", i.meRouter);
 
 // Apply endpoint access middleware to protected routes
 const protectedRouter = i.express.Router();
@@ -109,11 +110,11 @@ protectedRouter.use("/muhelyiskola", i.muhelyiskolaRouter);
 protectedRouter.use("/nszfh", i.nszfhRouter);
 protectedRouter.use(
   "/sajatos_nevelesu_tanulok",
-  i.sajatosNevelesuTanulokRouter
+  i.sajatosNevelesuTanulokRouter,
 );
 protectedRouter.use(
   "/szakmai_vizsga_eredmenyek",
-  i.szakmaiVizsgaEredmenyekRouter
+  i.szakmaiVizsgaEredmenyekRouter,
 );
 protectedRouter.use("/vizsgaeredmenyek", i.vizsgaeredmenyekRouter);
 protectedRouter.use("/oktato-egyeb-tev", i.oktatoEgyebTevRouter);
@@ -145,7 +146,7 @@ const startServer = async () => {
 
     if (dbResult.degraded) {
       console.warn(
-        "⚠️  Server starting in degraded mode - some features may be unavailable"
+        "⚠️  Server starting in degraded mode - some features may be unavailable",
       );
     }
 
@@ -153,20 +154,20 @@ const startServer = async () => {
       const status = dbResult.degraded ? "🟡" : "🚀";
       const mode = dbResult.degraded ? " (DEGRADED MODE)" : "";
       console.log(
-        `${status} Server running at http://localhost:${port}${mode}`
+        `${status} Server running at http://localhost:${port}${mode}`,
       );
       console.log(
-        `📚 API documentation available at http://localhost:${port}/api-docs (requires authentication)`
+        `📚 API documentation available at http://localhost:${port}/api-docs (requires authentication)`,
       );
 
       if (dbResult.degraded) {
         console.log(
-          "🔧 Database connection will be retried automatically on each request"
+          "🔧 Database connection will be retried automatically on each request",
         );
         console.log(`📊 Health endpoints available:`);
         console.log(`   • Basic health: http://localhost:${port}/health/basic`);
         console.log(
-          `   • Database health: http://localhost:${port}/health/database`
+          `   • Database health: http://localhost:${port}/health/database`,
         );
         console.log(`   • Full health: http://localhost:${port}/health`);
       }
@@ -174,10 +175,10 @@ const startServer = async () => {
   } catch (error) {
     console.error(
       "❌ Failed to start server due to database connection issues:",
-      error.message
+      error.message,
     );
     console.error(
-      "💡 Tip: Set ALLOW_DEGRADED_START=true to start server without database"
+      "💡 Tip: Set ALLOW_DEGRADED_START=true to start server without database",
     );
     process.exit(1);
   }
