@@ -107,7 +107,7 @@ model Alapadatok {
   szakmaiVizsgaEredmenyek         SzakmaiVizsgaEredmenyek[]
   lemorzsolodas                   Lemorzsolodas[]
   elegedettsegMeres               ElegedettsegMeres[]
-  intezmenyiNeveltseg             IntezmenyiNeveltseg[]
+  intezmenyiNeveltsegiMutatok     IntezmenyiNeveltsegiMutatok[]
   hhesHhhTanulok                  HHEsHHHTanulok[]
   sajatosNevelesuTanulok          SajatosNevelesuTanulok[]
   dobbanto                        Dobbanto[]
@@ -628,7 +628,7 @@ model ElegedettsegMeres {
   @@map("elegedettseg_meres")
 }
 
-model IntezmenyiNeveltseg {
+model IntezmenyiNeveltsegiMutatok {
   id            String @id @default(uuid()) @db.Uuid
   alapadatok_id String @db.Uuid
   tanev_kezdete Int    @db.SmallInt
@@ -636,20 +636,19 @@ model IntezmenyiNeveltseg {
   osztaly_jele    String @db.VarChar(50)
   igazolatlan_ora Int    @db.Integer
 
-  oktato_testuleti_dicseret Int @db.Integer
-  oktatoi_dicseret          Int @db.Integer
-  osztalyfonoki_dicseret    Int @db.Integer
-  igazagatoi_dicseret       Int @db.Integer
-
-  oktato_testuleti_figyelmeztetes Int @db.Integer
-  oktatoi_figyelmeztetes          Int @db.Integer
-  osztalyfonoki_figyelmeztetes    Int @db.Integer
-  osztalyfonoki_intes             Int @db.Integer
-  osztalyfonoki_megrovas          Int @db.Integer
-  igazgatoi_figyelmeztetes        Int @db.Integer
-  igazgatoi_intes                 Int @db.Integer
-  igazgatoi_megrovas              Int @db.Integer
-  fegyelmi_eljaras                Int @db.Integer
+  dicseret_oktatoi                         Int @db.Integer
+  dicseret_osztalyfonoki                   Int @db.Integer
+  dicseret_igazgatoi                       Int @db.Integer
+  dicseret_oktato_testuleti                Int @db.Integer
+  buntetes_oktatoi_figyelmeztetes          Int @db.Integer
+  buntetes_osztalyfonoki_figyelmeztetes    Int @db.Integer
+  buntetes_osztalyfonoki_intes             Int @db.Integer
+  buntetes_osztalyfonoki_megrovas          Int @db.Integer
+  buntetes_igazgatoi_figyelmeztetes        Int @db.Integer
+  buntetes_igazgatoi_intes                 Int @db.Integer
+  buntetes_igazgatoi_megrovas              Int @db.Integer
+  buntetes_oktato_testuleti_figyelmeztetes Int @db.Integer
+  buntetes_fegyelmi_eljaras                Int @db.Integer
 
   createAt  DateTime  @default(now())
   createBy  String?
@@ -658,7 +657,7 @@ model IntezmenyiNeveltseg {
 
   alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
 
-  @@map("intezmenyi_neveltseg")
+  @@map("intezmenyi_neveltsegi_mutatok")
 }
 
 model HHEsHHHTanulok {

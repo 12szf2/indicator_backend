@@ -159,10 +159,10 @@ export type Lemorzsolodas = $Result.DefaultSelection<Prisma.$LemorzsolodasPayloa
  */
 export type ElegedettsegMeres = $Result.DefaultSelection<Prisma.$ElegedettsegMeresPayload>
 /**
- * Model IntezmenyiNeveltseg
+ * Model IntezmenyiNeveltsegiMutatok
  * 
  */
-export type IntezmenyiNeveltseg = $Result.DefaultSelection<Prisma.$IntezmenyiNeveltsegPayload>
+export type IntezmenyiNeveltsegiMutatok = $Result.DefaultSelection<Prisma.$IntezmenyiNeveltsegiMutatokPayload>
 /**
  * Model HHEsHHHTanulok
  * 
@@ -620,14 +620,14 @@ export class PrismaClient<
   get elegedettsegMeres(): Prisma.ElegedettsegMeresDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.intezmenyiNeveltseg`: Exposes CRUD operations for the **IntezmenyiNeveltseg** model.
+   * `prisma.intezmenyiNeveltsegiMutatok`: Exposes CRUD operations for the **IntezmenyiNeveltsegiMutatok** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more IntezmenyiNeveltsegs
-    * const intezmenyiNeveltsegs = await prisma.intezmenyiNeveltseg.findMany()
+    * // Fetch zero or more IntezmenyiNeveltsegiMutatoks
+    * const intezmenyiNeveltsegiMutatoks = await prisma.intezmenyiNeveltsegiMutatok.findMany()
     * ```
     */
-  get intezmenyiNeveltseg(): Prisma.IntezmenyiNeveltsegDelegate<ExtArgs, ClientOptions>;
+  get intezmenyiNeveltsegiMutatok(): Prisma.IntezmenyiNeveltsegiMutatokDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.hHEsHHHTanulok`: Exposes CRUD operations for the **HHEsHHHTanulok** model.
@@ -1177,7 +1177,7 @@ export namespace Prisma {
     SzakmaiVizsgaEredmenyek: 'SzakmaiVizsgaEredmenyek',
     Lemorzsolodas: 'Lemorzsolodas',
     ElegedettsegMeres: 'ElegedettsegMeres',
-    IntezmenyiNeveltseg: 'IntezmenyiNeveltseg',
+    IntezmenyiNeveltsegiMutatok: 'IntezmenyiNeveltsegiMutatok',
     HHEsHHHTanulok: 'HHEsHHHTanulok',
     SajatosNevelesuTanulok: 'SajatosNevelesuTanulok',
     Dobbanto: 'Dobbanto',
@@ -1204,7 +1204,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "session" | "user" | "tableList" | "tableAccess" | "log" | "alapadatok" | "szakirany" | "szakma" | "szakirany_Szakma" | "alapadatok_Szakirany" | "alapadatok_Szakma" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "egyOktatoraJutoTanulo" | "tanugyi_Adatok" | "alkalmazottak_Munkaugy" | "szakkepzesiMunkaszerzodesAranya" | "vesenyKategoria" | "vesenyNevek" | "versenyek" | "nszfhMeresek" | "elhelyezkedes" | "elegedettseg" | "vizsgaEredmenyek" | "szakmaiVizsgaEredmenyek" | "lemorzsolodas" | "elegedettsegMeres" | "intezmenyiNeveltseg" | "hHEsHHHTanulok" | "sajatosNevelesuTanulok" | "dobbanto" | "muhelyiskola" | "oktatoEgyebTev" | "tanuloAdatszolg" | "oktatoAdatszolg" | "changelog"
+      modelProps: "session" | "user" | "tableList" | "tableAccess" | "log" | "alapadatok" | "szakirany" | "szakma" | "szakirany_Szakma" | "alapadatok_Szakirany" | "alapadatok_Szakma" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "egyOktatoraJutoTanulo" | "tanugyi_Adatok" | "alkalmazottak_Munkaugy" | "szakkepzesiMunkaszerzodesAranya" | "vesenyKategoria" | "vesenyNevek" | "versenyek" | "nszfhMeresek" | "elhelyezkedes" | "elegedettseg" | "vizsgaEredmenyek" | "szakmaiVizsgaEredmenyek" | "lemorzsolodas" | "elegedettsegMeres" | "intezmenyiNeveltsegiMutatok" | "hHEsHHHTanulok" | "sajatosNevelesuTanulok" | "dobbanto" | "muhelyiskola" | "oktatoEgyebTev" | "tanuloAdatszolg" | "oktatoAdatszolg" | "changelog"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3354,77 +3354,77 @@ export namespace Prisma {
           }
         }
       }
-      IntezmenyiNeveltseg: {
-        payload: Prisma.$IntezmenyiNeveltsegPayload<ExtArgs>
-        fields: Prisma.IntezmenyiNeveltsegFieldRefs
+      IntezmenyiNeveltsegiMutatok: {
+        payload: Prisma.$IntezmenyiNeveltsegiMutatokPayload<ExtArgs>
+        fields: Prisma.IntezmenyiNeveltsegiMutatokFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.IntezmenyiNeveltsegFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegPayload> | null
+            args: Prisma.IntezmenyiNeveltsegiMutatokFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.IntezmenyiNeveltsegFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegPayload>
+            args: Prisma.IntezmenyiNeveltsegiMutatokFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload>
           }
           findFirst: {
-            args: Prisma.IntezmenyiNeveltsegFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegPayload> | null
+            args: Prisma.IntezmenyiNeveltsegiMutatokFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.IntezmenyiNeveltsegFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegPayload>
+            args: Prisma.IntezmenyiNeveltsegiMutatokFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload>
           }
           findMany: {
-            args: Prisma.IntezmenyiNeveltsegFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegPayload>[]
+            args: Prisma.IntezmenyiNeveltsegiMutatokFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload>[]
           }
           create: {
-            args: Prisma.IntezmenyiNeveltsegCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegPayload>
+            args: Prisma.IntezmenyiNeveltsegiMutatokCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload>
           }
           createMany: {
-            args: Prisma.IntezmenyiNeveltsegCreateManyArgs<ExtArgs>
+            args: Prisma.IntezmenyiNeveltsegiMutatokCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.IntezmenyiNeveltsegCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegPayload>[]
+            args: Prisma.IntezmenyiNeveltsegiMutatokCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload>[]
           }
           delete: {
-            args: Prisma.IntezmenyiNeveltsegDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegPayload>
+            args: Prisma.IntezmenyiNeveltsegiMutatokDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload>
           }
           update: {
-            args: Prisma.IntezmenyiNeveltsegUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegPayload>
+            args: Prisma.IntezmenyiNeveltsegiMutatokUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload>
           }
           deleteMany: {
-            args: Prisma.IntezmenyiNeveltsegDeleteManyArgs<ExtArgs>
+            args: Prisma.IntezmenyiNeveltsegiMutatokDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.IntezmenyiNeveltsegUpdateManyArgs<ExtArgs>
+            args: Prisma.IntezmenyiNeveltsegiMutatokUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.IntezmenyiNeveltsegUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegPayload>[]
+            args: Prisma.IntezmenyiNeveltsegiMutatokUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload>[]
           }
           upsert: {
-            args: Prisma.IntezmenyiNeveltsegUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegPayload>
+            args: Prisma.IntezmenyiNeveltsegiMutatokUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload>
           }
           aggregate: {
-            args: Prisma.IntezmenyiNeveltsegAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateIntezmenyiNeveltseg>
+            args: Prisma.IntezmenyiNeveltsegiMutatokAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateIntezmenyiNeveltsegiMutatok>
           }
           groupBy: {
-            args: Prisma.IntezmenyiNeveltsegGroupByArgs<ExtArgs>
-            result: $Utils.Optional<IntezmenyiNeveltsegGroupByOutputType>[]
+            args: Prisma.IntezmenyiNeveltsegiMutatokGroupByArgs<ExtArgs>
+            result: $Utils.Optional<IntezmenyiNeveltsegiMutatokGroupByOutputType>[]
           }
           count: {
-            args: Prisma.IntezmenyiNeveltsegCountArgs<ExtArgs>
-            result: $Utils.Optional<IntezmenyiNeveltsegCountAggregateOutputType> | number
+            args: Prisma.IntezmenyiNeveltsegiMutatokCountArgs<ExtArgs>
+            result: $Utils.Optional<IntezmenyiNeveltsegiMutatokCountAggregateOutputType> | number
           }
         }
       }
@@ -4133,7 +4133,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekOmit
     lemorzsolodas?: LemorzsolodasOmit
     elegedettsegMeres?: ElegedettsegMeresOmit
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegOmit
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokOmit
     hHEsHHHTanulok?: HHEsHHHTanulokOmit
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokOmit
     dobbanto?: DobbantoOmit
@@ -4325,7 +4325,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek: number
     lemorzsolodas: number
     elegedettsegMeres: number
-    intezmenyiNeveltseg: number
+    intezmenyiNeveltsegiMutatok: number
     hhesHhhTanulok: number
     sajatosNevelesuTanulok: number
     dobbanto: number
@@ -4355,7 +4355,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: boolean | AlapadatokCountOutputTypeCountSzakmaiVizsgaEredmenyekArgs
     lemorzsolodas?: boolean | AlapadatokCountOutputTypeCountLemorzsolodasArgs
     elegedettsegMeres?: boolean | AlapadatokCountOutputTypeCountElegedettsegMeresArgs
-    intezmenyiNeveltseg?: boolean | AlapadatokCountOutputTypeCountIntezmenyiNeveltsegArgs
+    intezmenyiNeveltsegiMutatok?: boolean | AlapadatokCountOutputTypeCountIntezmenyiNeveltsegiMutatokArgs
     hhesHhhTanulok?: boolean | AlapadatokCountOutputTypeCountHhesHhhTanulokArgs
     sajatosNevelesuTanulok?: boolean | AlapadatokCountOutputTypeCountSajatosNevelesuTanulokArgs
     dobbanto?: boolean | AlapadatokCountOutputTypeCountDobbantoArgs
@@ -4506,8 +4506,8 @@ export namespace Prisma {
   /**
    * AlapadatokCountOutputType without action
    */
-  export type AlapadatokCountOutputTypeCountIntezmenyiNeveltsegArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: IntezmenyiNeveltsegWhereInput
+  export type AlapadatokCountOutputTypeCountIntezmenyiNeveltsegiMutatokArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: IntezmenyiNeveltsegiMutatokWhereInput
   }
 
   /**
@@ -10669,7 +10669,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: boolean | Alapadatok$szakmaiVizsgaEredmenyekArgs<ExtArgs>
     lemorzsolodas?: boolean | Alapadatok$lemorzsolodasArgs<ExtArgs>
     elegedettsegMeres?: boolean | Alapadatok$elegedettsegMeresArgs<ExtArgs>
-    intezmenyiNeveltseg?: boolean | Alapadatok$intezmenyiNeveltsegArgs<ExtArgs>
+    intezmenyiNeveltsegiMutatok?: boolean | Alapadatok$intezmenyiNeveltsegiMutatokArgs<ExtArgs>
     hhesHhhTanulok?: boolean | Alapadatok$hhesHhhTanulokArgs<ExtArgs>
     sajatosNevelesuTanulok?: boolean | Alapadatok$sajatosNevelesuTanulokArgs<ExtArgs>
     dobbanto?: boolean | Alapadatok$dobbantoArgs<ExtArgs>
@@ -10722,7 +10722,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: boolean | Alapadatok$szakmaiVizsgaEredmenyekArgs<ExtArgs>
     lemorzsolodas?: boolean | Alapadatok$lemorzsolodasArgs<ExtArgs>
     elegedettsegMeres?: boolean | Alapadatok$elegedettsegMeresArgs<ExtArgs>
-    intezmenyiNeveltseg?: boolean | Alapadatok$intezmenyiNeveltsegArgs<ExtArgs>
+    intezmenyiNeveltsegiMutatok?: boolean | Alapadatok$intezmenyiNeveltsegiMutatokArgs<ExtArgs>
     hhesHhhTanulok?: boolean | Alapadatok$hhesHhhTanulokArgs<ExtArgs>
     sajatosNevelesuTanulok?: boolean | Alapadatok$sajatosNevelesuTanulokArgs<ExtArgs>
     dobbanto?: boolean | Alapadatok$dobbantoArgs<ExtArgs>
@@ -10757,7 +10757,7 @@ export namespace Prisma {
       szakmaiVizsgaEredmenyek: Prisma.$SzakmaiVizsgaEredmenyekPayload<ExtArgs>[]
       lemorzsolodas: Prisma.$LemorzsolodasPayload<ExtArgs>[]
       elegedettsegMeres: Prisma.$ElegedettsegMeresPayload<ExtArgs>[]
-      intezmenyiNeveltseg: Prisma.$IntezmenyiNeveltsegPayload<ExtArgs>[]
+      intezmenyiNeveltsegiMutatok: Prisma.$IntezmenyiNeveltsegiMutatokPayload<ExtArgs>[]
       hhesHhhTanulok: Prisma.$HHEsHHHTanulokPayload<ExtArgs>[]
       sajatosNevelesuTanulok: Prisma.$SajatosNevelesuTanulokPayload<ExtArgs>[]
       dobbanto: Prisma.$DobbantoPayload<ExtArgs>[]
@@ -11184,7 +11184,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek<T extends Alapadatok$szakmaiVizsgaEredmenyekArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$szakmaiVizsgaEredmenyekArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SzakmaiVizsgaEredmenyekPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     lemorzsolodas<T extends Alapadatok$lemorzsolodasArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$lemorzsolodasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LemorzsolodasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     elegedettsegMeres<T extends Alapadatok$elegedettsegMeresArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$elegedettsegMeresArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ElegedettsegMeresPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    intezmenyiNeveltseg<T extends Alapadatok$intezmenyiNeveltsegArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$intezmenyiNeveltsegArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IntezmenyiNeveltsegPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    intezmenyiNeveltsegiMutatok<T extends Alapadatok$intezmenyiNeveltsegiMutatokArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$intezmenyiNeveltsegiMutatokArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     hhesHhhTanulok<T extends Alapadatok$hhesHhhTanulokArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$hhesHhhTanulokArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HHEsHHHTanulokPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sajatosNevelesuTanulok<T extends Alapadatok$sajatosNevelesuTanulokArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$sajatosNevelesuTanulokArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SajatosNevelesuTanulokPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     dobbanto<T extends Alapadatok$dobbantoArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$dobbantoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DobbantoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -12046,27 +12046,27 @@ export namespace Prisma {
   }
 
   /**
-   * Alapadatok.intezmenyiNeveltseg
+   * Alapadatok.intezmenyiNeveltsegiMutatok
    */
-  export type Alapadatok$intezmenyiNeveltsegArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Alapadatok$intezmenyiNeveltsegiMutatokArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IntezmenyiNeveltseg
+     * Select specific fields to fetch from the IntezmenyiNeveltsegiMutatok
      */
-    select?: IntezmenyiNeveltsegSelect<ExtArgs> | null
+    select?: IntezmenyiNeveltsegiMutatokSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the IntezmenyiNeveltseg
+     * Omit specific fields from the IntezmenyiNeveltsegiMutatok
      */
-    omit?: IntezmenyiNeveltsegOmit<ExtArgs> | null
+    omit?: IntezmenyiNeveltsegiMutatokOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IntezmenyiNeveltsegInclude<ExtArgs> | null
-    where?: IntezmenyiNeveltsegWhereInput
-    orderBy?: IntezmenyiNeveltsegOrderByWithRelationInput | IntezmenyiNeveltsegOrderByWithRelationInput[]
-    cursor?: IntezmenyiNeveltsegWhereUniqueInput
+    include?: IntezmenyiNeveltsegiMutatokInclude<ExtArgs> | null
+    where?: IntezmenyiNeveltsegiMutatokWhereInput
+    orderBy?: IntezmenyiNeveltsegiMutatokOrderByWithRelationInput | IntezmenyiNeveltsegiMutatokOrderByWithRelationInput[]
+    cursor?: IntezmenyiNeveltsegiMutatokWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: IntezmenyiNeveltsegScalarFieldEnum | IntezmenyiNeveltsegScalarFieldEnum[]
+    distinct?: IntezmenyiNeveltsegiMutatokScalarFieldEnum | IntezmenyiNeveltsegiMutatokScalarFieldEnum[]
   }
 
   /**
@@ -40759,122 +40759,122 @@ export namespace Prisma {
 
 
   /**
-   * Model IntezmenyiNeveltseg
+   * Model IntezmenyiNeveltsegiMutatok
    */
 
-  export type AggregateIntezmenyiNeveltseg = {
-    _count: IntezmenyiNeveltsegCountAggregateOutputType | null
-    _avg: IntezmenyiNeveltsegAvgAggregateOutputType | null
-    _sum: IntezmenyiNeveltsegSumAggregateOutputType | null
-    _min: IntezmenyiNeveltsegMinAggregateOutputType | null
-    _max: IntezmenyiNeveltsegMaxAggregateOutputType | null
+  export type AggregateIntezmenyiNeveltsegiMutatok = {
+    _count: IntezmenyiNeveltsegiMutatokCountAggregateOutputType | null
+    _avg: IntezmenyiNeveltsegiMutatokAvgAggregateOutputType | null
+    _sum: IntezmenyiNeveltsegiMutatokSumAggregateOutputType | null
+    _min: IntezmenyiNeveltsegiMutatokMinAggregateOutputType | null
+    _max: IntezmenyiNeveltsegiMutatokMaxAggregateOutputType | null
   }
 
-  export type IntezmenyiNeveltsegAvgAggregateOutputType = {
+  export type IntezmenyiNeveltsegiMutatokAvgAggregateOutputType = {
     tanev_kezdete: number | null
     igazolatlan_ora: number | null
-    oktato_testuleti_dicseret: number | null
-    oktatoi_dicseret: number | null
-    osztalyfonoki_dicseret: number | null
-    igazagatoi_dicseret: number | null
-    oktato_testuleti_figyelmeztetes: number | null
-    oktatoi_figyelmeztetes: number | null
-    osztalyfonoki_figyelmeztetes: number | null
-    osztalyfonoki_intes: number | null
-    osztalyfonoki_megrovas: number | null
-    igazgatoi_figyelmeztetes: number | null
-    igazgatoi_intes: number | null
-    igazgatoi_megrovas: number | null
-    fegyelmi_eljaras: number | null
+    dicseret_oktatoi: number | null
+    dicseret_osztalyfonoki: number | null
+    dicseret_igazgatoi: number | null
+    dicseret_oktato_testuleti: number | null
+    buntetes_oktatoi_figyelmeztetes: number | null
+    buntetes_osztalyfonoki_figyelmeztetes: number | null
+    buntetes_osztalyfonoki_intes: number | null
+    buntetes_osztalyfonoki_megrovas: number | null
+    buntetes_igazgatoi_figyelmeztetes: number | null
+    buntetes_igazgatoi_intes: number | null
+    buntetes_igazgatoi_megrovas: number | null
+    buntetes_oktato_testuleti_figyelmeztetes: number | null
+    buntetes_fegyelmi_eljaras: number | null
   }
 
-  export type IntezmenyiNeveltsegSumAggregateOutputType = {
+  export type IntezmenyiNeveltsegiMutatokSumAggregateOutputType = {
     tanev_kezdete: number | null
     igazolatlan_ora: number | null
-    oktato_testuleti_dicseret: number | null
-    oktatoi_dicseret: number | null
-    osztalyfonoki_dicseret: number | null
-    igazagatoi_dicseret: number | null
-    oktato_testuleti_figyelmeztetes: number | null
-    oktatoi_figyelmeztetes: number | null
-    osztalyfonoki_figyelmeztetes: number | null
-    osztalyfonoki_intes: number | null
-    osztalyfonoki_megrovas: number | null
-    igazgatoi_figyelmeztetes: number | null
-    igazgatoi_intes: number | null
-    igazgatoi_megrovas: number | null
-    fegyelmi_eljaras: number | null
+    dicseret_oktatoi: number | null
+    dicseret_osztalyfonoki: number | null
+    dicseret_igazgatoi: number | null
+    dicseret_oktato_testuleti: number | null
+    buntetes_oktatoi_figyelmeztetes: number | null
+    buntetes_osztalyfonoki_figyelmeztetes: number | null
+    buntetes_osztalyfonoki_intes: number | null
+    buntetes_osztalyfonoki_megrovas: number | null
+    buntetes_igazgatoi_figyelmeztetes: number | null
+    buntetes_igazgatoi_intes: number | null
+    buntetes_igazgatoi_megrovas: number | null
+    buntetes_oktato_testuleti_figyelmeztetes: number | null
+    buntetes_fegyelmi_eljaras: number | null
   }
 
-  export type IntezmenyiNeveltsegMinAggregateOutputType = {
+  export type IntezmenyiNeveltsegiMutatokMinAggregateOutputType = {
     id: string | null
     alapadatok_id: string | null
     tanev_kezdete: number | null
     osztaly_jele: string | null
     igazolatlan_ora: number | null
-    oktato_testuleti_dicseret: number | null
-    oktatoi_dicseret: number | null
-    osztalyfonoki_dicseret: number | null
-    igazagatoi_dicseret: number | null
-    oktato_testuleti_figyelmeztetes: number | null
-    oktatoi_figyelmeztetes: number | null
-    osztalyfonoki_figyelmeztetes: number | null
-    osztalyfonoki_intes: number | null
-    osztalyfonoki_megrovas: number | null
-    igazgatoi_figyelmeztetes: number | null
-    igazgatoi_intes: number | null
-    igazgatoi_megrovas: number | null
-    fegyelmi_eljaras: number | null
+    dicseret_oktatoi: number | null
+    dicseret_osztalyfonoki: number | null
+    dicseret_igazgatoi: number | null
+    dicseret_oktato_testuleti: number | null
+    buntetes_oktatoi_figyelmeztetes: number | null
+    buntetes_osztalyfonoki_figyelmeztetes: number | null
+    buntetes_osztalyfonoki_intes: number | null
+    buntetes_osztalyfonoki_megrovas: number | null
+    buntetes_igazgatoi_figyelmeztetes: number | null
+    buntetes_igazgatoi_intes: number | null
+    buntetes_igazgatoi_megrovas: number | null
+    buntetes_oktato_testuleti_figyelmeztetes: number | null
+    buntetes_fegyelmi_eljaras: number | null
     createAt: Date | null
     createBy: string | null
     updatedAt: Date | null
     updatedBy: string | null
   }
 
-  export type IntezmenyiNeveltsegMaxAggregateOutputType = {
+  export type IntezmenyiNeveltsegiMutatokMaxAggregateOutputType = {
     id: string | null
     alapadatok_id: string | null
     tanev_kezdete: number | null
     osztaly_jele: string | null
     igazolatlan_ora: number | null
-    oktato_testuleti_dicseret: number | null
-    oktatoi_dicseret: number | null
-    osztalyfonoki_dicseret: number | null
-    igazagatoi_dicseret: number | null
-    oktato_testuleti_figyelmeztetes: number | null
-    oktatoi_figyelmeztetes: number | null
-    osztalyfonoki_figyelmeztetes: number | null
-    osztalyfonoki_intes: number | null
-    osztalyfonoki_megrovas: number | null
-    igazgatoi_figyelmeztetes: number | null
-    igazgatoi_intes: number | null
-    igazgatoi_megrovas: number | null
-    fegyelmi_eljaras: number | null
+    dicseret_oktatoi: number | null
+    dicseret_osztalyfonoki: number | null
+    dicseret_igazgatoi: number | null
+    dicseret_oktato_testuleti: number | null
+    buntetes_oktatoi_figyelmeztetes: number | null
+    buntetes_osztalyfonoki_figyelmeztetes: number | null
+    buntetes_osztalyfonoki_intes: number | null
+    buntetes_osztalyfonoki_megrovas: number | null
+    buntetes_igazgatoi_figyelmeztetes: number | null
+    buntetes_igazgatoi_intes: number | null
+    buntetes_igazgatoi_megrovas: number | null
+    buntetes_oktato_testuleti_figyelmeztetes: number | null
+    buntetes_fegyelmi_eljaras: number | null
     createAt: Date | null
     createBy: string | null
     updatedAt: Date | null
     updatedBy: string | null
   }
 
-  export type IntezmenyiNeveltsegCountAggregateOutputType = {
+  export type IntezmenyiNeveltsegiMutatokCountAggregateOutputType = {
     id: number
     alapadatok_id: number
     tanev_kezdete: number
     osztaly_jele: number
     igazolatlan_ora: number
-    oktato_testuleti_dicseret: number
-    oktatoi_dicseret: number
-    osztalyfonoki_dicseret: number
-    igazagatoi_dicseret: number
-    oktato_testuleti_figyelmeztetes: number
-    oktatoi_figyelmeztetes: number
-    osztalyfonoki_figyelmeztetes: number
-    osztalyfonoki_intes: number
-    osztalyfonoki_megrovas: number
-    igazgatoi_figyelmeztetes: number
-    igazgatoi_intes: number
-    igazgatoi_megrovas: number
-    fegyelmi_eljaras: number
+    dicseret_oktatoi: number
+    dicseret_osztalyfonoki: number
+    dicseret_igazgatoi: number
+    dicseret_oktato_testuleti: number
+    buntetes_oktatoi_figyelmeztetes: number
+    buntetes_osztalyfonoki_figyelmeztetes: number
+    buntetes_osztalyfonoki_intes: number
+    buntetes_osztalyfonoki_megrovas: number
+    buntetes_igazgatoi_figyelmeztetes: number
+    buntetes_igazgatoi_intes: number
+    buntetes_igazgatoi_megrovas: number
+    buntetes_oktato_testuleti_figyelmeztetes: number
+    buntetes_fegyelmi_eljaras: number
     createAt: number
     createBy: number
     updatedAt: number
@@ -40883,111 +40883,111 @@ export namespace Prisma {
   }
 
 
-  export type IntezmenyiNeveltsegAvgAggregateInputType = {
+  export type IntezmenyiNeveltsegiMutatokAvgAggregateInputType = {
     tanev_kezdete?: true
     igazolatlan_ora?: true
-    oktato_testuleti_dicseret?: true
-    oktatoi_dicseret?: true
-    osztalyfonoki_dicseret?: true
-    igazagatoi_dicseret?: true
-    oktato_testuleti_figyelmeztetes?: true
-    oktatoi_figyelmeztetes?: true
-    osztalyfonoki_figyelmeztetes?: true
-    osztalyfonoki_intes?: true
-    osztalyfonoki_megrovas?: true
-    igazgatoi_figyelmeztetes?: true
-    igazgatoi_intes?: true
-    igazgatoi_megrovas?: true
-    fegyelmi_eljaras?: true
+    dicseret_oktatoi?: true
+    dicseret_osztalyfonoki?: true
+    dicseret_igazgatoi?: true
+    dicseret_oktato_testuleti?: true
+    buntetes_oktatoi_figyelmeztetes?: true
+    buntetes_osztalyfonoki_figyelmeztetes?: true
+    buntetes_osztalyfonoki_intes?: true
+    buntetes_osztalyfonoki_megrovas?: true
+    buntetes_igazgatoi_figyelmeztetes?: true
+    buntetes_igazgatoi_intes?: true
+    buntetes_igazgatoi_megrovas?: true
+    buntetes_oktato_testuleti_figyelmeztetes?: true
+    buntetes_fegyelmi_eljaras?: true
   }
 
-  export type IntezmenyiNeveltsegSumAggregateInputType = {
+  export type IntezmenyiNeveltsegiMutatokSumAggregateInputType = {
     tanev_kezdete?: true
     igazolatlan_ora?: true
-    oktato_testuleti_dicseret?: true
-    oktatoi_dicseret?: true
-    osztalyfonoki_dicseret?: true
-    igazagatoi_dicseret?: true
-    oktato_testuleti_figyelmeztetes?: true
-    oktatoi_figyelmeztetes?: true
-    osztalyfonoki_figyelmeztetes?: true
-    osztalyfonoki_intes?: true
-    osztalyfonoki_megrovas?: true
-    igazgatoi_figyelmeztetes?: true
-    igazgatoi_intes?: true
-    igazgatoi_megrovas?: true
-    fegyelmi_eljaras?: true
+    dicseret_oktatoi?: true
+    dicseret_osztalyfonoki?: true
+    dicseret_igazgatoi?: true
+    dicseret_oktato_testuleti?: true
+    buntetes_oktatoi_figyelmeztetes?: true
+    buntetes_osztalyfonoki_figyelmeztetes?: true
+    buntetes_osztalyfonoki_intes?: true
+    buntetes_osztalyfonoki_megrovas?: true
+    buntetes_igazgatoi_figyelmeztetes?: true
+    buntetes_igazgatoi_intes?: true
+    buntetes_igazgatoi_megrovas?: true
+    buntetes_oktato_testuleti_figyelmeztetes?: true
+    buntetes_fegyelmi_eljaras?: true
   }
 
-  export type IntezmenyiNeveltsegMinAggregateInputType = {
+  export type IntezmenyiNeveltsegiMutatokMinAggregateInputType = {
     id?: true
     alapadatok_id?: true
     tanev_kezdete?: true
     osztaly_jele?: true
     igazolatlan_ora?: true
-    oktato_testuleti_dicseret?: true
-    oktatoi_dicseret?: true
-    osztalyfonoki_dicseret?: true
-    igazagatoi_dicseret?: true
-    oktato_testuleti_figyelmeztetes?: true
-    oktatoi_figyelmeztetes?: true
-    osztalyfonoki_figyelmeztetes?: true
-    osztalyfonoki_intes?: true
-    osztalyfonoki_megrovas?: true
-    igazgatoi_figyelmeztetes?: true
-    igazgatoi_intes?: true
-    igazgatoi_megrovas?: true
-    fegyelmi_eljaras?: true
+    dicseret_oktatoi?: true
+    dicseret_osztalyfonoki?: true
+    dicseret_igazgatoi?: true
+    dicseret_oktato_testuleti?: true
+    buntetes_oktatoi_figyelmeztetes?: true
+    buntetes_osztalyfonoki_figyelmeztetes?: true
+    buntetes_osztalyfonoki_intes?: true
+    buntetes_osztalyfonoki_megrovas?: true
+    buntetes_igazgatoi_figyelmeztetes?: true
+    buntetes_igazgatoi_intes?: true
+    buntetes_igazgatoi_megrovas?: true
+    buntetes_oktato_testuleti_figyelmeztetes?: true
+    buntetes_fegyelmi_eljaras?: true
     createAt?: true
     createBy?: true
     updatedAt?: true
     updatedBy?: true
   }
 
-  export type IntezmenyiNeveltsegMaxAggregateInputType = {
+  export type IntezmenyiNeveltsegiMutatokMaxAggregateInputType = {
     id?: true
     alapadatok_id?: true
     tanev_kezdete?: true
     osztaly_jele?: true
     igazolatlan_ora?: true
-    oktato_testuleti_dicseret?: true
-    oktatoi_dicseret?: true
-    osztalyfonoki_dicseret?: true
-    igazagatoi_dicseret?: true
-    oktato_testuleti_figyelmeztetes?: true
-    oktatoi_figyelmeztetes?: true
-    osztalyfonoki_figyelmeztetes?: true
-    osztalyfonoki_intes?: true
-    osztalyfonoki_megrovas?: true
-    igazgatoi_figyelmeztetes?: true
-    igazgatoi_intes?: true
-    igazgatoi_megrovas?: true
-    fegyelmi_eljaras?: true
+    dicseret_oktatoi?: true
+    dicseret_osztalyfonoki?: true
+    dicseret_igazgatoi?: true
+    dicseret_oktato_testuleti?: true
+    buntetes_oktatoi_figyelmeztetes?: true
+    buntetes_osztalyfonoki_figyelmeztetes?: true
+    buntetes_osztalyfonoki_intes?: true
+    buntetes_osztalyfonoki_megrovas?: true
+    buntetes_igazgatoi_figyelmeztetes?: true
+    buntetes_igazgatoi_intes?: true
+    buntetes_igazgatoi_megrovas?: true
+    buntetes_oktato_testuleti_figyelmeztetes?: true
+    buntetes_fegyelmi_eljaras?: true
     createAt?: true
     createBy?: true
     updatedAt?: true
     updatedBy?: true
   }
 
-  export type IntezmenyiNeveltsegCountAggregateInputType = {
+  export type IntezmenyiNeveltsegiMutatokCountAggregateInputType = {
     id?: true
     alapadatok_id?: true
     tanev_kezdete?: true
     osztaly_jele?: true
     igazolatlan_ora?: true
-    oktato_testuleti_dicseret?: true
-    oktatoi_dicseret?: true
-    osztalyfonoki_dicseret?: true
-    igazagatoi_dicseret?: true
-    oktato_testuleti_figyelmeztetes?: true
-    oktatoi_figyelmeztetes?: true
-    osztalyfonoki_figyelmeztetes?: true
-    osztalyfonoki_intes?: true
-    osztalyfonoki_megrovas?: true
-    igazgatoi_figyelmeztetes?: true
-    igazgatoi_intes?: true
-    igazgatoi_megrovas?: true
-    fegyelmi_eljaras?: true
+    dicseret_oktatoi?: true
+    dicseret_osztalyfonoki?: true
+    dicseret_igazgatoi?: true
+    dicseret_oktato_testuleti?: true
+    buntetes_oktatoi_figyelmeztetes?: true
+    buntetes_osztalyfonoki_figyelmeztetes?: true
+    buntetes_osztalyfonoki_intes?: true
+    buntetes_osztalyfonoki_megrovas?: true
+    buntetes_igazgatoi_figyelmeztetes?: true
+    buntetes_igazgatoi_intes?: true
+    buntetes_igazgatoi_megrovas?: true
+    buntetes_oktato_testuleti_figyelmeztetes?: true
+    buntetes_fegyelmi_eljaras?: true
     createAt?: true
     createBy?: true
     updatedAt?: true
@@ -40995,252 +40995,252 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type IntezmenyiNeveltsegAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which IntezmenyiNeveltseg to aggregate.
+     * Filter which IntezmenyiNeveltsegiMutatok to aggregate.
      */
-    where?: IntezmenyiNeveltsegWhereInput
+    where?: IntezmenyiNeveltsegiMutatokWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of IntezmenyiNeveltsegs to fetch.
+     * Determine the order of IntezmenyiNeveltsegiMutatoks to fetch.
      */
-    orderBy?: IntezmenyiNeveltsegOrderByWithRelationInput | IntezmenyiNeveltsegOrderByWithRelationInput[]
+    orderBy?: IntezmenyiNeveltsegiMutatokOrderByWithRelationInput | IntezmenyiNeveltsegiMutatokOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: IntezmenyiNeveltsegWhereUniqueInput
+    cursor?: IntezmenyiNeveltsegiMutatokWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` IntezmenyiNeveltsegs from the position of the cursor.
+     * Take `±n` IntezmenyiNeveltsegiMutatoks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` IntezmenyiNeveltsegs.
+     * Skip the first `n` IntezmenyiNeveltsegiMutatoks.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned IntezmenyiNeveltsegs
+     * Count returned IntezmenyiNeveltsegiMutatoks
     **/
-    _count?: true | IntezmenyiNeveltsegCountAggregateInputType
+    _count?: true | IntezmenyiNeveltsegiMutatokCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: IntezmenyiNeveltsegAvgAggregateInputType
+    _avg?: IntezmenyiNeveltsegiMutatokAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: IntezmenyiNeveltsegSumAggregateInputType
+    _sum?: IntezmenyiNeveltsegiMutatokSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: IntezmenyiNeveltsegMinAggregateInputType
+    _min?: IntezmenyiNeveltsegiMutatokMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: IntezmenyiNeveltsegMaxAggregateInputType
+    _max?: IntezmenyiNeveltsegiMutatokMaxAggregateInputType
   }
 
-  export type GetIntezmenyiNeveltsegAggregateType<T extends IntezmenyiNeveltsegAggregateArgs> = {
-        [P in keyof T & keyof AggregateIntezmenyiNeveltseg]: P extends '_count' | 'count'
+  export type GetIntezmenyiNeveltsegiMutatokAggregateType<T extends IntezmenyiNeveltsegiMutatokAggregateArgs> = {
+        [P in keyof T & keyof AggregateIntezmenyiNeveltsegiMutatok]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateIntezmenyiNeveltseg[P]>
-      : GetScalarType<T[P], AggregateIntezmenyiNeveltseg[P]>
+        : GetScalarType<T[P], AggregateIntezmenyiNeveltsegiMutatok[P]>
+      : GetScalarType<T[P], AggregateIntezmenyiNeveltsegiMutatok[P]>
   }
 
 
 
 
-  export type IntezmenyiNeveltsegGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: IntezmenyiNeveltsegWhereInput
-    orderBy?: IntezmenyiNeveltsegOrderByWithAggregationInput | IntezmenyiNeveltsegOrderByWithAggregationInput[]
-    by: IntezmenyiNeveltsegScalarFieldEnum[] | IntezmenyiNeveltsegScalarFieldEnum
-    having?: IntezmenyiNeveltsegScalarWhereWithAggregatesInput
+  export type IntezmenyiNeveltsegiMutatokGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: IntezmenyiNeveltsegiMutatokWhereInput
+    orderBy?: IntezmenyiNeveltsegiMutatokOrderByWithAggregationInput | IntezmenyiNeveltsegiMutatokOrderByWithAggregationInput[]
+    by: IntezmenyiNeveltsegiMutatokScalarFieldEnum[] | IntezmenyiNeveltsegiMutatokScalarFieldEnum
+    having?: IntezmenyiNeveltsegiMutatokScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: IntezmenyiNeveltsegCountAggregateInputType | true
-    _avg?: IntezmenyiNeveltsegAvgAggregateInputType
-    _sum?: IntezmenyiNeveltsegSumAggregateInputType
-    _min?: IntezmenyiNeveltsegMinAggregateInputType
-    _max?: IntezmenyiNeveltsegMaxAggregateInputType
+    _count?: IntezmenyiNeveltsegiMutatokCountAggregateInputType | true
+    _avg?: IntezmenyiNeveltsegiMutatokAvgAggregateInputType
+    _sum?: IntezmenyiNeveltsegiMutatokSumAggregateInputType
+    _min?: IntezmenyiNeveltsegiMutatokMinAggregateInputType
+    _max?: IntezmenyiNeveltsegiMutatokMaxAggregateInputType
   }
 
-  export type IntezmenyiNeveltsegGroupByOutputType = {
+  export type IntezmenyiNeveltsegiMutatokGroupByOutputType = {
     id: string
     alapadatok_id: string
     tanev_kezdete: number
     osztaly_jele: string
     igazolatlan_ora: number
-    oktato_testuleti_dicseret: number
-    oktatoi_dicseret: number
-    osztalyfonoki_dicseret: number
-    igazagatoi_dicseret: number
-    oktato_testuleti_figyelmeztetes: number
-    oktatoi_figyelmeztetes: number
-    osztalyfonoki_figyelmeztetes: number
-    osztalyfonoki_intes: number
-    osztalyfonoki_megrovas: number
-    igazgatoi_figyelmeztetes: number
-    igazgatoi_intes: number
-    igazgatoi_megrovas: number
-    fegyelmi_eljaras: number
+    dicseret_oktatoi: number
+    dicseret_osztalyfonoki: number
+    dicseret_igazgatoi: number
+    dicseret_oktato_testuleti: number
+    buntetes_oktatoi_figyelmeztetes: number
+    buntetes_osztalyfonoki_figyelmeztetes: number
+    buntetes_osztalyfonoki_intes: number
+    buntetes_osztalyfonoki_megrovas: number
+    buntetes_igazgatoi_figyelmeztetes: number
+    buntetes_igazgatoi_intes: number
+    buntetes_igazgatoi_megrovas: number
+    buntetes_oktato_testuleti_figyelmeztetes: number
+    buntetes_fegyelmi_eljaras: number
     createAt: Date
     createBy: string | null
     updatedAt: Date | null
     updatedBy: string | null
-    _count: IntezmenyiNeveltsegCountAggregateOutputType | null
-    _avg: IntezmenyiNeveltsegAvgAggregateOutputType | null
-    _sum: IntezmenyiNeveltsegSumAggregateOutputType | null
-    _min: IntezmenyiNeveltsegMinAggregateOutputType | null
-    _max: IntezmenyiNeveltsegMaxAggregateOutputType | null
+    _count: IntezmenyiNeveltsegiMutatokCountAggregateOutputType | null
+    _avg: IntezmenyiNeveltsegiMutatokAvgAggregateOutputType | null
+    _sum: IntezmenyiNeveltsegiMutatokSumAggregateOutputType | null
+    _min: IntezmenyiNeveltsegiMutatokMinAggregateOutputType | null
+    _max: IntezmenyiNeveltsegiMutatokMaxAggregateOutputType | null
   }
 
-  type GetIntezmenyiNeveltsegGroupByPayload<T extends IntezmenyiNeveltsegGroupByArgs> = Prisma.PrismaPromise<
+  type GetIntezmenyiNeveltsegiMutatokGroupByPayload<T extends IntezmenyiNeveltsegiMutatokGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<IntezmenyiNeveltsegGroupByOutputType, T['by']> &
+      PickEnumerable<IntezmenyiNeveltsegiMutatokGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof IntezmenyiNeveltsegGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof IntezmenyiNeveltsegiMutatokGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], IntezmenyiNeveltsegGroupByOutputType[P]>
-            : GetScalarType<T[P], IntezmenyiNeveltsegGroupByOutputType[P]>
+              : GetScalarType<T[P], IntezmenyiNeveltsegiMutatokGroupByOutputType[P]>
+            : GetScalarType<T[P], IntezmenyiNeveltsegiMutatokGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type IntezmenyiNeveltsegSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type IntezmenyiNeveltsegiMutatokSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     alapadatok_id?: boolean
     tanev_kezdete?: boolean
     osztaly_jele?: boolean
     igazolatlan_ora?: boolean
-    oktato_testuleti_dicseret?: boolean
-    oktatoi_dicseret?: boolean
-    osztalyfonoki_dicseret?: boolean
-    igazagatoi_dicseret?: boolean
-    oktato_testuleti_figyelmeztetes?: boolean
-    oktatoi_figyelmeztetes?: boolean
-    osztalyfonoki_figyelmeztetes?: boolean
-    osztalyfonoki_intes?: boolean
-    osztalyfonoki_megrovas?: boolean
-    igazgatoi_figyelmeztetes?: boolean
-    igazgatoi_intes?: boolean
-    igazgatoi_megrovas?: boolean
-    fegyelmi_eljaras?: boolean
+    dicseret_oktatoi?: boolean
+    dicseret_osztalyfonoki?: boolean
+    dicseret_igazgatoi?: boolean
+    dicseret_oktato_testuleti?: boolean
+    buntetes_oktatoi_figyelmeztetes?: boolean
+    buntetes_osztalyfonoki_figyelmeztetes?: boolean
+    buntetes_osztalyfonoki_intes?: boolean
+    buntetes_osztalyfonoki_megrovas?: boolean
+    buntetes_igazgatoi_figyelmeztetes?: boolean
+    buntetes_igazgatoi_intes?: boolean
+    buntetes_igazgatoi_megrovas?: boolean
+    buntetes_oktato_testuleti_figyelmeztetes?: boolean
+    buntetes_fegyelmi_eljaras?: boolean
     createAt?: boolean
     createBy?: boolean
     updatedAt?: boolean
     updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["intezmenyiNeveltseg"]>
+  }, ExtArgs["result"]["intezmenyiNeveltsegiMutatok"]>
 
-  export type IntezmenyiNeveltsegSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type IntezmenyiNeveltsegiMutatokSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     alapadatok_id?: boolean
     tanev_kezdete?: boolean
     osztaly_jele?: boolean
     igazolatlan_ora?: boolean
-    oktato_testuleti_dicseret?: boolean
-    oktatoi_dicseret?: boolean
-    osztalyfonoki_dicseret?: boolean
-    igazagatoi_dicseret?: boolean
-    oktato_testuleti_figyelmeztetes?: boolean
-    oktatoi_figyelmeztetes?: boolean
-    osztalyfonoki_figyelmeztetes?: boolean
-    osztalyfonoki_intes?: boolean
-    osztalyfonoki_megrovas?: boolean
-    igazgatoi_figyelmeztetes?: boolean
-    igazgatoi_intes?: boolean
-    igazgatoi_megrovas?: boolean
-    fegyelmi_eljaras?: boolean
+    dicseret_oktatoi?: boolean
+    dicseret_osztalyfonoki?: boolean
+    dicseret_igazgatoi?: boolean
+    dicseret_oktato_testuleti?: boolean
+    buntetes_oktatoi_figyelmeztetes?: boolean
+    buntetes_osztalyfonoki_figyelmeztetes?: boolean
+    buntetes_osztalyfonoki_intes?: boolean
+    buntetes_osztalyfonoki_megrovas?: boolean
+    buntetes_igazgatoi_figyelmeztetes?: boolean
+    buntetes_igazgatoi_intes?: boolean
+    buntetes_igazgatoi_megrovas?: boolean
+    buntetes_oktato_testuleti_figyelmeztetes?: boolean
+    buntetes_fegyelmi_eljaras?: boolean
     createAt?: boolean
     createBy?: boolean
     updatedAt?: boolean
     updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["intezmenyiNeveltseg"]>
+  }, ExtArgs["result"]["intezmenyiNeveltsegiMutatok"]>
 
-  export type IntezmenyiNeveltsegSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type IntezmenyiNeveltsegiMutatokSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     alapadatok_id?: boolean
     tanev_kezdete?: boolean
     osztaly_jele?: boolean
     igazolatlan_ora?: boolean
-    oktato_testuleti_dicseret?: boolean
-    oktatoi_dicseret?: boolean
-    osztalyfonoki_dicseret?: boolean
-    igazagatoi_dicseret?: boolean
-    oktato_testuleti_figyelmeztetes?: boolean
-    oktatoi_figyelmeztetes?: boolean
-    osztalyfonoki_figyelmeztetes?: boolean
-    osztalyfonoki_intes?: boolean
-    osztalyfonoki_megrovas?: boolean
-    igazgatoi_figyelmeztetes?: boolean
-    igazgatoi_intes?: boolean
-    igazgatoi_megrovas?: boolean
-    fegyelmi_eljaras?: boolean
+    dicseret_oktatoi?: boolean
+    dicseret_osztalyfonoki?: boolean
+    dicseret_igazgatoi?: boolean
+    dicseret_oktato_testuleti?: boolean
+    buntetes_oktatoi_figyelmeztetes?: boolean
+    buntetes_osztalyfonoki_figyelmeztetes?: boolean
+    buntetes_osztalyfonoki_intes?: boolean
+    buntetes_osztalyfonoki_megrovas?: boolean
+    buntetes_igazgatoi_figyelmeztetes?: boolean
+    buntetes_igazgatoi_intes?: boolean
+    buntetes_igazgatoi_megrovas?: boolean
+    buntetes_oktato_testuleti_figyelmeztetes?: boolean
+    buntetes_fegyelmi_eljaras?: boolean
     createAt?: boolean
     createBy?: boolean
     updatedAt?: boolean
     updatedBy?: boolean
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["intezmenyiNeveltseg"]>
+  }, ExtArgs["result"]["intezmenyiNeveltsegiMutatok"]>
 
-  export type IntezmenyiNeveltsegSelectScalar = {
+  export type IntezmenyiNeveltsegiMutatokSelectScalar = {
     id?: boolean
     alapadatok_id?: boolean
     tanev_kezdete?: boolean
     osztaly_jele?: boolean
     igazolatlan_ora?: boolean
-    oktato_testuleti_dicseret?: boolean
-    oktatoi_dicseret?: boolean
-    osztalyfonoki_dicseret?: boolean
-    igazagatoi_dicseret?: boolean
-    oktato_testuleti_figyelmeztetes?: boolean
-    oktatoi_figyelmeztetes?: boolean
-    osztalyfonoki_figyelmeztetes?: boolean
-    osztalyfonoki_intes?: boolean
-    osztalyfonoki_megrovas?: boolean
-    igazgatoi_figyelmeztetes?: boolean
-    igazgatoi_intes?: boolean
-    igazgatoi_megrovas?: boolean
-    fegyelmi_eljaras?: boolean
+    dicseret_oktatoi?: boolean
+    dicseret_osztalyfonoki?: boolean
+    dicseret_igazgatoi?: boolean
+    dicseret_oktato_testuleti?: boolean
+    buntetes_oktatoi_figyelmeztetes?: boolean
+    buntetes_osztalyfonoki_figyelmeztetes?: boolean
+    buntetes_osztalyfonoki_intes?: boolean
+    buntetes_osztalyfonoki_megrovas?: boolean
+    buntetes_igazgatoi_figyelmeztetes?: boolean
+    buntetes_igazgatoi_intes?: boolean
+    buntetes_igazgatoi_megrovas?: boolean
+    buntetes_oktato_testuleti_figyelmeztetes?: boolean
+    buntetes_fegyelmi_eljaras?: boolean
     createAt?: boolean
     createBy?: boolean
     updatedAt?: boolean
     updatedBy?: boolean
   }
 
-  export type IntezmenyiNeveltsegOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "osztaly_jele" | "igazolatlan_ora" | "oktato_testuleti_dicseret" | "oktatoi_dicseret" | "osztalyfonoki_dicseret" | "igazagatoi_dicseret" | "oktato_testuleti_figyelmeztetes" | "oktatoi_figyelmeztetes" | "osztalyfonoki_figyelmeztetes" | "osztalyfonoki_intes" | "osztalyfonoki_megrovas" | "igazgatoi_figyelmeztetes" | "igazgatoi_intes" | "igazgatoi_megrovas" | "fegyelmi_eljaras" | "createAt" | "createBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["intezmenyiNeveltseg"]>
-  export type IntezmenyiNeveltsegInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "osztaly_jele" | "igazolatlan_ora" | "dicseret_oktatoi" | "dicseret_osztalyfonoki" | "dicseret_igazgatoi" | "dicseret_oktato_testuleti" | "buntetes_oktatoi_figyelmeztetes" | "buntetes_osztalyfonoki_figyelmeztetes" | "buntetes_osztalyfonoki_intes" | "buntetes_osztalyfonoki_megrovas" | "buntetes_igazgatoi_figyelmeztetes" | "buntetes_igazgatoi_intes" | "buntetes_igazgatoi_megrovas" | "buntetes_oktato_testuleti_figyelmeztetes" | "buntetes_fegyelmi_eljaras" | "createAt" | "createBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["intezmenyiNeveltsegiMutatok"]>
+  export type IntezmenyiNeveltsegiMutatokInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }
-  export type IntezmenyiNeveltsegIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }
-  export type IntezmenyiNeveltsegIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }
 
-  export type $IntezmenyiNeveltsegPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "IntezmenyiNeveltseg"
+  export type $IntezmenyiNeveltsegiMutatokPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "IntezmenyiNeveltsegiMutatok"
     objects: {
       alapadatok: Prisma.$AlapadatokPayload<ExtArgs>
     }
@@ -41250,153 +41250,153 @@ export namespace Prisma {
       tanev_kezdete: number
       osztaly_jele: string
       igazolatlan_ora: number
-      oktato_testuleti_dicseret: number
-      oktatoi_dicseret: number
-      osztalyfonoki_dicseret: number
-      igazagatoi_dicseret: number
-      oktato_testuleti_figyelmeztetes: number
-      oktatoi_figyelmeztetes: number
-      osztalyfonoki_figyelmeztetes: number
-      osztalyfonoki_intes: number
-      osztalyfonoki_megrovas: number
-      igazgatoi_figyelmeztetes: number
-      igazgatoi_intes: number
-      igazgatoi_megrovas: number
-      fegyelmi_eljaras: number
+      dicseret_oktatoi: number
+      dicseret_osztalyfonoki: number
+      dicseret_igazgatoi: number
+      dicseret_oktato_testuleti: number
+      buntetes_oktatoi_figyelmeztetes: number
+      buntetes_osztalyfonoki_figyelmeztetes: number
+      buntetes_osztalyfonoki_intes: number
+      buntetes_osztalyfonoki_megrovas: number
+      buntetes_igazgatoi_figyelmeztetes: number
+      buntetes_igazgatoi_intes: number
+      buntetes_igazgatoi_megrovas: number
+      buntetes_oktato_testuleti_figyelmeztetes: number
+      buntetes_fegyelmi_eljaras: number
       createAt: Date
       createBy: string | null
       updatedAt: Date | null
       updatedBy: string | null
-    }, ExtArgs["result"]["intezmenyiNeveltseg"]>
+    }, ExtArgs["result"]["intezmenyiNeveltsegiMutatok"]>
     composites: {}
   }
 
-  type IntezmenyiNeveltsegGetPayload<S extends boolean | null | undefined | IntezmenyiNeveltsegDefaultArgs> = $Result.GetResult<Prisma.$IntezmenyiNeveltsegPayload, S>
+  type IntezmenyiNeveltsegiMutatokGetPayload<S extends boolean | null | undefined | IntezmenyiNeveltsegiMutatokDefaultArgs> = $Result.GetResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload, S>
 
-  type IntezmenyiNeveltsegCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<IntezmenyiNeveltsegFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: IntezmenyiNeveltsegCountAggregateInputType | true
+  type IntezmenyiNeveltsegiMutatokCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<IntezmenyiNeveltsegiMutatokFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: IntezmenyiNeveltsegiMutatokCountAggregateInputType | true
     }
 
-  export interface IntezmenyiNeveltsegDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['IntezmenyiNeveltseg'], meta: { name: 'IntezmenyiNeveltseg' } }
+  export interface IntezmenyiNeveltsegiMutatokDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['IntezmenyiNeveltsegiMutatok'], meta: { name: 'IntezmenyiNeveltsegiMutatok' } }
     /**
-     * Find zero or one IntezmenyiNeveltseg that matches the filter.
-     * @param {IntezmenyiNeveltsegFindUniqueArgs} args - Arguments to find a IntezmenyiNeveltseg
+     * Find zero or one IntezmenyiNeveltsegiMutatok that matches the filter.
+     * @param {IntezmenyiNeveltsegiMutatokFindUniqueArgs} args - Arguments to find a IntezmenyiNeveltsegiMutatok
      * @example
-     * // Get one IntezmenyiNeveltseg
-     * const intezmenyiNeveltseg = await prisma.intezmenyiNeveltseg.findUnique({
+     * // Get one IntezmenyiNeveltsegiMutatok
+     * const intezmenyiNeveltsegiMutatok = await prisma.intezmenyiNeveltsegiMutatok.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends IntezmenyiNeveltsegFindUniqueArgs>(args: SelectSubset<T, IntezmenyiNeveltsegFindUniqueArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends IntezmenyiNeveltsegiMutatokFindUniqueArgs>(args: SelectSubset<T, IntezmenyiNeveltsegiMutatokFindUniqueArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegiMutatokClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one IntezmenyiNeveltseg that matches the filter or throw an error with `error.code='P2025'`
+     * Find one IntezmenyiNeveltsegiMutatok that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {IntezmenyiNeveltsegFindUniqueOrThrowArgs} args - Arguments to find a IntezmenyiNeveltseg
+     * @param {IntezmenyiNeveltsegiMutatokFindUniqueOrThrowArgs} args - Arguments to find a IntezmenyiNeveltsegiMutatok
      * @example
-     * // Get one IntezmenyiNeveltseg
-     * const intezmenyiNeveltseg = await prisma.intezmenyiNeveltseg.findUniqueOrThrow({
+     * // Get one IntezmenyiNeveltsegiMutatok
+     * const intezmenyiNeveltsegiMutatok = await prisma.intezmenyiNeveltsegiMutatok.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends IntezmenyiNeveltsegFindUniqueOrThrowArgs>(args: SelectSubset<T, IntezmenyiNeveltsegFindUniqueOrThrowArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends IntezmenyiNeveltsegiMutatokFindUniqueOrThrowArgs>(args: SelectSubset<T, IntezmenyiNeveltsegiMutatokFindUniqueOrThrowArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegiMutatokClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first IntezmenyiNeveltseg that matches the filter.
+     * Find the first IntezmenyiNeveltsegiMutatok that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IntezmenyiNeveltsegFindFirstArgs} args - Arguments to find a IntezmenyiNeveltseg
+     * @param {IntezmenyiNeveltsegiMutatokFindFirstArgs} args - Arguments to find a IntezmenyiNeveltsegiMutatok
      * @example
-     * // Get one IntezmenyiNeveltseg
-     * const intezmenyiNeveltseg = await prisma.intezmenyiNeveltseg.findFirst({
+     * // Get one IntezmenyiNeveltsegiMutatok
+     * const intezmenyiNeveltsegiMutatok = await prisma.intezmenyiNeveltsegiMutatok.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends IntezmenyiNeveltsegFindFirstArgs>(args?: SelectSubset<T, IntezmenyiNeveltsegFindFirstArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends IntezmenyiNeveltsegiMutatokFindFirstArgs>(args?: SelectSubset<T, IntezmenyiNeveltsegiMutatokFindFirstArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegiMutatokClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first IntezmenyiNeveltseg that matches the filter or
+     * Find the first IntezmenyiNeveltsegiMutatok that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IntezmenyiNeveltsegFindFirstOrThrowArgs} args - Arguments to find a IntezmenyiNeveltseg
+     * @param {IntezmenyiNeveltsegiMutatokFindFirstOrThrowArgs} args - Arguments to find a IntezmenyiNeveltsegiMutatok
      * @example
-     * // Get one IntezmenyiNeveltseg
-     * const intezmenyiNeveltseg = await prisma.intezmenyiNeveltseg.findFirstOrThrow({
+     * // Get one IntezmenyiNeveltsegiMutatok
+     * const intezmenyiNeveltsegiMutatok = await prisma.intezmenyiNeveltsegiMutatok.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends IntezmenyiNeveltsegFindFirstOrThrowArgs>(args?: SelectSubset<T, IntezmenyiNeveltsegFindFirstOrThrowArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends IntezmenyiNeveltsegiMutatokFindFirstOrThrowArgs>(args?: SelectSubset<T, IntezmenyiNeveltsegiMutatokFindFirstOrThrowArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegiMutatokClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more IntezmenyiNeveltsegs that matches the filter.
+     * Find zero or more IntezmenyiNeveltsegiMutatoks that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IntezmenyiNeveltsegFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {IntezmenyiNeveltsegiMutatokFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all IntezmenyiNeveltsegs
-     * const intezmenyiNeveltsegs = await prisma.intezmenyiNeveltseg.findMany()
+     * // Get all IntezmenyiNeveltsegiMutatoks
+     * const intezmenyiNeveltsegiMutatoks = await prisma.intezmenyiNeveltsegiMutatok.findMany()
      * 
-     * // Get first 10 IntezmenyiNeveltsegs
-     * const intezmenyiNeveltsegs = await prisma.intezmenyiNeveltseg.findMany({ take: 10 })
+     * // Get first 10 IntezmenyiNeveltsegiMutatoks
+     * const intezmenyiNeveltsegiMutatoks = await prisma.intezmenyiNeveltsegiMutatok.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const intezmenyiNeveltsegWithIdOnly = await prisma.intezmenyiNeveltseg.findMany({ select: { id: true } })
+     * const intezmenyiNeveltsegiMutatokWithIdOnly = await prisma.intezmenyiNeveltsegiMutatok.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends IntezmenyiNeveltsegFindManyArgs>(args?: SelectSubset<T, IntezmenyiNeveltsegFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IntezmenyiNeveltsegPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends IntezmenyiNeveltsegiMutatokFindManyArgs>(args?: SelectSubset<T, IntezmenyiNeveltsegiMutatokFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a IntezmenyiNeveltseg.
-     * @param {IntezmenyiNeveltsegCreateArgs} args - Arguments to create a IntezmenyiNeveltseg.
+     * Create a IntezmenyiNeveltsegiMutatok.
+     * @param {IntezmenyiNeveltsegiMutatokCreateArgs} args - Arguments to create a IntezmenyiNeveltsegiMutatok.
      * @example
-     * // Create one IntezmenyiNeveltseg
-     * const IntezmenyiNeveltseg = await prisma.intezmenyiNeveltseg.create({
+     * // Create one IntezmenyiNeveltsegiMutatok
+     * const IntezmenyiNeveltsegiMutatok = await prisma.intezmenyiNeveltsegiMutatok.create({
      *   data: {
-     *     // ... data to create a IntezmenyiNeveltseg
+     *     // ... data to create a IntezmenyiNeveltsegiMutatok
      *   }
      * })
      * 
      */
-    create<T extends IntezmenyiNeveltsegCreateArgs>(args: SelectSubset<T, IntezmenyiNeveltsegCreateArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends IntezmenyiNeveltsegiMutatokCreateArgs>(args: SelectSubset<T, IntezmenyiNeveltsegiMutatokCreateArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegiMutatokClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many IntezmenyiNeveltsegs.
-     * @param {IntezmenyiNeveltsegCreateManyArgs} args - Arguments to create many IntezmenyiNeveltsegs.
+     * Create many IntezmenyiNeveltsegiMutatoks.
+     * @param {IntezmenyiNeveltsegiMutatokCreateManyArgs} args - Arguments to create many IntezmenyiNeveltsegiMutatoks.
      * @example
-     * // Create many IntezmenyiNeveltsegs
-     * const intezmenyiNeveltseg = await prisma.intezmenyiNeveltseg.createMany({
+     * // Create many IntezmenyiNeveltsegiMutatoks
+     * const intezmenyiNeveltsegiMutatok = await prisma.intezmenyiNeveltsegiMutatok.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends IntezmenyiNeveltsegCreateManyArgs>(args?: SelectSubset<T, IntezmenyiNeveltsegCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends IntezmenyiNeveltsegiMutatokCreateManyArgs>(args?: SelectSubset<T, IntezmenyiNeveltsegiMutatokCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many IntezmenyiNeveltsegs and returns the data saved in the database.
-     * @param {IntezmenyiNeveltsegCreateManyAndReturnArgs} args - Arguments to create many IntezmenyiNeveltsegs.
+     * Create many IntezmenyiNeveltsegiMutatoks and returns the data saved in the database.
+     * @param {IntezmenyiNeveltsegiMutatokCreateManyAndReturnArgs} args - Arguments to create many IntezmenyiNeveltsegiMutatoks.
      * @example
-     * // Create many IntezmenyiNeveltsegs
-     * const intezmenyiNeveltseg = await prisma.intezmenyiNeveltseg.createManyAndReturn({
+     * // Create many IntezmenyiNeveltsegiMutatoks
+     * const intezmenyiNeveltsegiMutatok = await prisma.intezmenyiNeveltsegiMutatok.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many IntezmenyiNeveltsegs and only return the `id`
-     * const intezmenyiNeveltsegWithIdOnly = await prisma.intezmenyiNeveltseg.createManyAndReturn({
+     * // Create many IntezmenyiNeveltsegiMutatoks and only return the `id`
+     * const intezmenyiNeveltsegiMutatokWithIdOnly = await prisma.intezmenyiNeveltsegiMutatok.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -41406,28 +41406,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends IntezmenyiNeveltsegCreateManyAndReturnArgs>(args?: SelectSubset<T, IntezmenyiNeveltsegCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IntezmenyiNeveltsegPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends IntezmenyiNeveltsegiMutatokCreateManyAndReturnArgs>(args?: SelectSubset<T, IntezmenyiNeveltsegiMutatokCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a IntezmenyiNeveltseg.
-     * @param {IntezmenyiNeveltsegDeleteArgs} args - Arguments to delete one IntezmenyiNeveltseg.
+     * Delete a IntezmenyiNeveltsegiMutatok.
+     * @param {IntezmenyiNeveltsegiMutatokDeleteArgs} args - Arguments to delete one IntezmenyiNeveltsegiMutatok.
      * @example
-     * // Delete one IntezmenyiNeveltseg
-     * const IntezmenyiNeveltseg = await prisma.intezmenyiNeveltseg.delete({
+     * // Delete one IntezmenyiNeveltsegiMutatok
+     * const IntezmenyiNeveltsegiMutatok = await prisma.intezmenyiNeveltsegiMutatok.delete({
      *   where: {
-     *     // ... filter to delete one IntezmenyiNeveltseg
+     *     // ... filter to delete one IntezmenyiNeveltsegiMutatok
      *   }
      * })
      * 
      */
-    delete<T extends IntezmenyiNeveltsegDeleteArgs>(args: SelectSubset<T, IntezmenyiNeveltsegDeleteArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends IntezmenyiNeveltsegiMutatokDeleteArgs>(args: SelectSubset<T, IntezmenyiNeveltsegiMutatokDeleteArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegiMutatokClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one IntezmenyiNeveltseg.
-     * @param {IntezmenyiNeveltsegUpdateArgs} args - Arguments to update one IntezmenyiNeveltseg.
+     * Update one IntezmenyiNeveltsegiMutatok.
+     * @param {IntezmenyiNeveltsegiMutatokUpdateArgs} args - Arguments to update one IntezmenyiNeveltsegiMutatok.
      * @example
-     * // Update one IntezmenyiNeveltseg
-     * const intezmenyiNeveltseg = await prisma.intezmenyiNeveltseg.update({
+     * // Update one IntezmenyiNeveltsegiMutatok
+     * const intezmenyiNeveltsegiMutatok = await prisma.intezmenyiNeveltsegiMutatok.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -41437,30 +41437,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends IntezmenyiNeveltsegUpdateArgs>(args: SelectSubset<T, IntezmenyiNeveltsegUpdateArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends IntezmenyiNeveltsegiMutatokUpdateArgs>(args: SelectSubset<T, IntezmenyiNeveltsegiMutatokUpdateArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegiMutatokClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more IntezmenyiNeveltsegs.
-     * @param {IntezmenyiNeveltsegDeleteManyArgs} args - Arguments to filter IntezmenyiNeveltsegs to delete.
+     * Delete zero or more IntezmenyiNeveltsegiMutatoks.
+     * @param {IntezmenyiNeveltsegiMutatokDeleteManyArgs} args - Arguments to filter IntezmenyiNeveltsegiMutatoks to delete.
      * @example
-     * // Delete a few IntezmenyiNeveltsegs
-     * const { count } = await prisma.intezmenyiNeveltseg.deleteMany({
+     * // Delete a few IntezmenyiNeveltsegiMutatoks
+     * const { count } = await prisma.intezmenyiNeveltsegiMutatok.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends IntezmenyiNeveltsegDeleteManyArgs>(args?: SelectSubset<T, IntezmenyiNeveltsegDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends IntezmenyiNeveltsegiMutatokDeleteManyArgs>(args?: SelectSubset<T, IntezmenyiNeveltsegiMutatokDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more IntezmenyiNeveltsegs.
+     * Update zero or more IntezmenyiNeveltsegiMutatoks.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IntezmenyiNeveltsegUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {IntezmenyiNeveltsegiMutatokUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many IntezmenyiNeveltsegs
-     * const intezmenyiNeveltseg = await prisma.intezmenyiNeveltseg.updateMany({
+     * // Update many IntezmenyiNeveltsegiMutatoks
+     * const intezmenyiNeveltsegiMutatok = await prisma.intezmenyiNeveltsegiMutatok.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -41470,14 +41470,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends IntezmenyiNeveltsegUpdateManyArgs>(args: SelectSubset<T, IntezmenyiNeveltsegUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends IntezmenyiNeveltsegiMutatokUpdateManyArgs>(args: SelectSubset<T, IntezmenyiNeveltsegiMutatokUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more IntezmenyiNeveltsegs and returns the data updated in the database.
-     * @param {IntezmenyiNeveltsegUpdateManyAndReturnArgs} args - Arguments to update many IntezmenyiNeveltsegs.
+     * Update zero or more IntezmenyiNeveltsegiMutatoks and returns the data updated in the database.
+     * @param {IntezmenyiNeveltsegiMutatokUpdateManyAndReturnArgs} args - Arguments to update many IntezmenyiNeveltsegiMutatoks.
      * @example
-     * // Update many IntezmenyiNeveltsegs
-     * const intezmenyiNeveltseg = await prisma.intezmenyiNeveltseg.updateManyAndReturn({
+     * // Update many IntezmenyiNeveltsegiMutatoks
+     * const intezmenyiNeveltsegiMutatok = await prisma.intezmenyiNeveltsegiMutatok.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -41486,8 +41486,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more IntezmenyiNeveltsegs and only return the `id`
-     * const intezmenyiNeveltsegWithIdOnly = await prisma.intezmenyiNeveltseg.updateManyAndReturn({
+     * // Update zero or more IntezmenyiNeveltsegiMutatoks and only return the `id`
+     * const intezmenyiNeveltsegiMutatokWithIdOnly = await prisma.intezmenyiNeveltsegiMutatok.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -41500,56 +41500,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends IntezmenyiNeveltsegUpdateManyAndReturnArgs>(args: SelectSubset<T, IntezmenyiNeveltsegUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IntezmenyiNeveltsegPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends IntezmenyiNeveltsegiMutatokUpdateManyAndReturnArgs>(args: SelectSubset<T, IntezmenyiNeveltsegiMutatokUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one IntezmenyiNeveltseg.
-     * @param {IntezmenyiNeveltsegUpsertArgs} args - Arguments to update or create a IntezmenyiNeveltseg.
+     * Create or update one IntezmenyiNeveltsegiMutatok.
+     * @param {IntezmenyiNeveltsegiMutatokUpsertArgs} args - Arguments to update or create a IntezmenyiNeveltsegiMutatok.
      * @example
-     * // Update or create a IntezmenyiNeveltseg
-     * const intezmenyiNeveltseg = await prisma.intezmenyiNeveltseg.upsert({
+     * // Update or create a IntezmenyiNeveltsegiMutatok
+     * const intezmenyiNeveltsegiMutatok = await prisma.intezmenyiNeveltsegiMutatok.upsert({
      *   create: {
-     *     // ... data to create a IntezmenyiNeveltseg
+     *     // ... data to create a IntezmenyiNeveltsegiMutatok
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the IntezmenyiNeveltseg we want to update
+     *     // ... the filter for the IntezmenyiNeveltsegiMutatok we want to update
      *   }
      * })
      */
-    upsert<T extends IntezmenyiNeveltsegUpsertArgs>(args: SelectSubset<T, IntezmenyiNeveltsegUpsertArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends IntezmenyiNeveltsegiMutatokUpsertArgs>(args: SelectSubset<T, IntezmenyiNeveltsegiMutatokUpsertArgs<ExtArgs>>): Prisma__IntezmenyiNeveltsegiMutatokClient<$Result.GetResult<Prisma.$IntezmenyiNeveltsegiMutatokPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of IntezmenyiNeveltsegs.
+     * Count the number of IntezmenyiNeveltsegiMutatoks.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IntezmenyiNeveltsegCountArgs} args - Arguments to filter IntezmenyiNeveltsegs to count.
+     * @param {IntezmenyiNeveltsegiMutatokCountArgs} args - Arguments to filter IntezmenyiNeveltsegiMutatoks to count.
      * @example
-     * // Count the number of IntezmenyiNeveltsegs
-     * const count = await prisma.intezmenyiNeveltseg.count({
+     * // Count the number of IntezmenyiNeveltsegiMutatoks
+     * const count = await prisma.intezmenyiNeveltsegiMutatok.count({
      *   where: {
-     *     // ... the filter for the IntezmenyiNeveltsegs we want to count
+     *     // ... the filter for the IntezmenyiNeveltsegiMutatoks we want to count
      *   }
      * })
     **/
-    count<T extends IntezmenyiNeveltsegCountArgs>(
-      args?: Subset<T, IntezmenyiNeveltsegCountArgs>,
+    count<T extends IntezmenyiNeveltsegiMutatokCountArgs>(
+      args?: Subset<T, IntezmenyiNeveltsegiMutatokCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], IntezmenyiNeveltsegCountAggregateOutputType>
+          : GetScalarType<T['select'], IntezmenyiNeveltsegiMutatokCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a IntezmenyiNeveltseg.
+     * Allows you to perform aggregations operations on a IntezmenyiNeveltsegiMutatok.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IntezmenyiNeveltsegAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {IntezmenyiNeveltsegiMutatokAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -41569,13 +41569,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends IntezmenyiNeveltsegAggregateArgs>(args: Subset<T, IntezmenyiNeveltsegAggregateArgs>): Prisma.PrismaPromise<GetIntezmenyiNeveltsegAggregateType<T>>
+    aggregate<T extends IntezmenyiNeveltsegiMutatokAggregateArgs>(args: Subset<T, IntezmenyiNeveltsegiMutatokAggregateArgs>): Prisma.PrismaPromise<GetIntezmenyiNeveltsegiMutatokAggregateType<T>>
 
     /**
-     * Group by IntezmenyiNeveltseg.
+     * Group by IntezmenyiNeveltsegiMutatok.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {IntezmenyiNeveltsegGroupByArgs} args - Group by arguments.
+     * @param {IntezmenyiNeveltsegiMutatokGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -41590,14 +41590,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends IntezmenyiNeveltsegGroupByArgs,
+      T extends IntezmenyiNeveltsegiMutatokGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: IntezmenyiNeveltsegGroupByArgs['orderBy'] }
-        : { orderBy?: IntezmenyiNeveltsegGroupByArgs['orderBy'] },
+        ? { orderBy: IntezmenyiNeveltsegiMutatokGroupByArgs['orderBy'] }
+        : { orderBy?: IntezmenyiNeveltsegiMutatokGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -41646,20 +41646,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, IntezmenyiNeveltsegGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetIntezmenyiNeveltsegGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, IntezmenyiNeveltsegiMutatokGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetIntezmenyiNeveltsegiMutatokGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the IntezmenyiNeveltseg model
+   * Fields of the IntezmenyiNeveltsegiMutatok model
    */
-  readonly fields: IntezmenyiNeveltsegFieldRefs;
+  readonly fields: IntezmenyiNeveltsegiMutatokFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for IntezmenyiNeveltseg.
+   * The delegate class that acts as a "Promise-like" for IntezmenyiNeveltsegiMutatok.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__IntezmenyiNeveltsegClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__IntezmenyiNeveltsegiMutatokClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     alapadatok<T extends AlapadatokDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AlapadatokDefaultArgs<ExtArgs>>): Prisma__AlapadatokClient<$Result.GetResult<Prisma.$AlapadatokPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -41688,442 +41688,442 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the IntezmenyiNeveltseg model
+   * Fields of the IntezmenyiNeveltsegiMutatok model
    */
-  interface IntezmenyiNeveltsegFieldRefs {
-    readonly id: FieldRef<"IntezmenyiNeveltseg", 'String'>
-    readonly alapadatok_id: FieldRef<"IntezmenyiNeveltseg", 'String'>
-    readonly tanev_kezdete: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly osztaly_jele: FieldRef<"IntezmenyiNeveltseg", 'String'>
-    readonly igazolatlan_ora: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly oktato_testuleti_dicseret: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly oktatoi_dicseret: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly osztalyfonoki_dicseret: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly igazagatoi_dicseret: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly oktato_testuleti_figyelmeztetes: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly oktatoi_figyelmeztetes: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly osztalyfonoki_figyelmeztetes: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly osztalyfonoki_intes: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly osztalyfonoki_megrovas: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly igazgatoi_figyelmeztetes: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly igazgatoi_intes: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly igazgatoi_megrovas: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly fegyelmi_eljaras: FieldRef<"IntezmenyiNeveltseg", 'Int'>
-    readonly createAt: FieldRef<"IntezmenyiNeveltseg", 'DateTime'>
-    readonly createBy: FieldRef<"IntezmenyiNeveltseg", 'String'>
-    readonly updatedAt: FieldRef<"IntezmenyiNeveltseg", 'DateTime'>
-    readonly updatedBy: FieldRef<"IntezmenyiNeveltseg", 'String'>
+  interface IntezmenyiNeveltsegiMutatokFieldRefs {
+    readonly id: FieldRef<"IntezmenyiNeveltsegiMutatok", 'String'>
+    readonly alapadatok_id: FieldRef<"IntezmenyiNeveltsegiMutatok", 'String'>
+    readonly tanev_kezdete: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly osztaly_jele: FieldRef<"IntezmenyiNeveltsegiMutatok", 'String'>
+    readonly igazolatlan_ora: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly dicseret_oktatoi: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly dicseret_osztalyfonoki: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly dicseret_igazgatoi: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly dicseret_oktato_testuleti: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly buntetes_oktatoi_figyelmeztetes: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly buntetes_osztalyfonoki_figyelmeztetes: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly buntetes_osztalyfonoki_intes: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly buntetes_osztalyfonoki_megrovas: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly buntetes_igazgatoi_figyelmeztetes: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly buntetes_igazgatoi_intes: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly buntetes_igazgatoi_megrovas: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly buntetes_oktato_testuleti_figyelmeztetes: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly buntetes_fegyelmi_eljaras: FieldRef<"IntezmenyiNeveltsegiMutatok", 'Int'>
+    readonly createAt: FieldRef<"IntezmenyiNeveltsegiMutatok", 'DateTime'>
+    readonly createBy: FieldRef<"IntezmenyiNeveltsegiMutatok", 'String'>
+    readonly updatedAt: FieldRef<"IntezmenyiNeveltsegiMutatok", 'DateTime'>
+    readonly updatedBy: FieldRef<"IntezmenyiNeveltsegiMutatok", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * IntezmenyiNeveltseg findUnique
+   * IntezmenyiNeveltsegiMutatok findUnique
    */
-  export type IntezmenyiNeveltsegFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IntezmenyiNeveltseg
+     * Select specific fields to fetch from the IntezmenyiNeveltsegiMutatok
      */
-    select?: IntezmenyiNeveltsegSelect<ExtArgs> | null
+    select?: IntezmenyiNeveltsegiMutatokSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the IntezmenyiNeveltseg
+     * Omit specific fields from the IntezmenyiNeveltsegiMutatok
      */
-    omit?: IntezmenyiNeveltsegOmit<ExtArgs> | null
+    omit?: IntezmenyiNeveltsegiMutatokOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IntezmenyiNeveltsegInclude<ExtArgs> | null
+    include?: IntezmenyiNeveltsegiMutatokInclude<ExtArgs> | null
     /**
-     * Filter, which IntezmenyiNeveltseg to fetch.
+     * Filter, which IntezmenyiNeveltsegiMutatok to fetch.
      */
-    where: IntezmenyiNeveltsegWhereUniqueInput
+    where: IntezmenyiNeveltsegiMutatokWhereUniqueInput
   }
 
   /**
-   * IntezmenyiNeveltseg findUniqueOrThrow
+   * IntezmenyiNeveltsegiMutatok findUniqueOrThrow
    */
-  export type IntezmenyiNeveltsegFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IntezmenyiNeveltseg
+     * Select specific fields to fetch from the IntezmenyiNeveltsegiMutatok
      */
-    select?: IntezmenyiNeveltsegSelect<ExtArgs> | null
+    select?: IntezmenyiNeveltsegiMutatokSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the IntezmenyiNeveltseg
+     * Omit specific fields from the IntezmenyiNeveltsegiMutatok
      */
-    omit?: IntezmenyiNeveltsegOmit<ExtArgs> | null
+    omit?: IntezmenyiNeveltsegiMutatokOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IntezmenyiNeveltsegInclude<ExtArgs> | null
+    include?: IntezmenyiNeveltsegiMutatokInclude<ExtArgs> | null
     /**
-     * Filter, which IntezmenyiNeveltseg to fetch.
+     * Filter, which IntezmenyiNeveltsegiMutatok to fetch.
      */
-    where: IntezmenyiNeveltsegWhereUniqueInput
+    where: IntezmenyiNeveltsegiMutatokWhereUniqueInput
   }
 
   /**
-   * IntezmenyiNeveltseg findFirst
+   * IntezmenyiNeveltsegiMutatok findFirst
    */
-  export type IntezmenyiNeveltsegFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IntezmenyiNeveltseg
+     * Select specific fields to fetch from the IntezmenyiNeveltsegiMutatok
      */
-    select?: IntezmenyiNeveltsegSelect<ExtArgs> | null
+    select?: IntezmenyiNeveltsegiMutatokSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the IntezmenyiNeveltseg
+     * Omit specific fields from the IntezmenyiNeveltsegiMutatok
      */
-    omit?: IntezmenyiNeveltsegOmit<ExtArgs> | null
+    omit?: IntezmenyiNeveltsegiMutatokOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IntezmenyiNeveltsegInclude<ExtArgs> | null
+    include?: IntezmenyiNeveltsegiMutatokInclude<ExtArgs> | null
     /**
-     * Filter, which IntezmenyiNeveltseg to fetch.
+     * Filter, which IntezmenyiNeveltsegiMutatok to fetch.
      */
-    where?: IntezmenyiNeveltsegWhereInput
+    where?: IntezmenyiNeveltsegiMutatokWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of IntezmenyiNeveltsegs to fetch.
+     * Determine the order of IntezmenyiNeveltsegiMutatoks to fetch.
      */
-    orderBy?: IntezmenyiNeveltsegOrderByWithRelationInput | IntezmenyiNeveltsegOrderByWithRelationInput[]
+    orderBy?: IntezmenyiNeveltsegiMutatokOrderByWithRelationInput | IntezmenyiNeveltsegiMutatokOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for IntezmenyiNeveltsegs.
+     * Sets the position for searching for IntezmenyiNeveltsegiMutatoks.
      */
-    cursor?: IntezmenyiNeveltsegWhereUniqueInput
+    cursor?: IntezmenyiNeveltsegiMutatokWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` IntezmenyiNeveltsegs from the position of the cursor.
+     * Take `±n` IntezmenyiNeveltsegiMutatoks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` IntezmenyiNeveltsegs.
+     * Skip the first `n` IntezmenyiNeveltsegiMutatoks.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of IntezmenyiNeveltsegs.
+     * Filter by unique combinations of IntezmenyiNeveltsegiMutatoks.
      */
-    distinct?: IntezmenyiNeveltsegScalarFieldEnum | IntezmenyiNeveltsegScalarFieldEnum[]
+    distinct?: IntezmenyiNeveltsegiMutatokScalarFieldEnum | IntezmenyiNeveltsegiMutatokScalarFieldEnum[]
   }
 
   /**
-   * IntezmenyiNeveltseg findFirstOrThrow
+   * IntezmenyiNeveltsegiMutatok findFirstOrThrow
    */
-  export type IntezmenyiNeveltsegFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IntezmenyiNeveltseg
+     * Select specific fields to fetch from the IntezmenyiNeveltsegiMutatok
      */
-    select?: IntezmenyiNeveltsegSelect<ExtArgs> | null
+    select?: IntezmenyiNeveltsegiMutatokSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the IntezmenyiNeveltseg
+     * Omit specific fields from the IntezmenyiNeveltsegiMutatok
      */
-    omit?: IntezmenyiNeveltsegOmit<ExtArgs> | null
+    omit?: IntezmenyiNeveltsegiMutatokOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IntezmenyiNeveltsegInclude<ExtArgs> | null
+    include?: IntezmenyiNeveltsegiMutatokInclude<ExtArgs> | null
     /**
-     * Filter, which IntezmenyiNeveltseg to fetch.
+     * Filter, which IntezmenyiNeveltsegiMutatok to fetch.
      */
-    where?: IntezmenyiNeveltsegWhereInput
+    where?: IntezmenyiNeveltsegiMutatokWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of IntezmenyiNeveltsegs to fetch.
+     * Determine the order of IntezmenyiNeveltsegiMutatoks to fetch.
      */
-    orderBy?: IntezmenyiNeveltsegOrderByWithRelationInput | IntezmenyiNeveltsegOrderByWithRelationInput[]
+    orderBy?: IntezmenyiNeveltsegiMutatokOrderByWithRelationInput | IntezmenyiNeveltsegiMutatokOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for IntezmenyiNeveltsegs.
+     * Sets the position for searching for IntezmenyiNeveltsegiMutatoks.
      */
-    cursor?: IntezmenyiNeveltsegWhereUniqueInput
+    cursor?: IntezmenyiNeveltsegiMutatokWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` IntezmenyiNeveltsegs from the position of the cursor.
+     * Take `±n` IntezmenyiNeveltsegiMutatoks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` IntezmenyiNeveltsegs.
+     * Skip the first `n` IntezmenyiNeveltsegiMutatoks.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of IntezmenyiNeveltsegs.
+     * Filter by unique combinations of IntezmenyiNeveltsegiMutatoks.
      */
-    distinct?: IntezmenyiNeveltsegScalarFieldEnum | IntezmenyiNeveltsegScalarFieldEnum[]
+    distinct?: IntezmenyiNeveltsegiMutatokScalarFieldEnum | IntezmenyiNeveltsegiMutatokScalarFieldEnum[]
   }
 
   /**
-   * IntezmenyiNeveltseg findMany
+   * IntezmenyiNeveltsegiMutatok findMany
    */
-  export type IntezmenyiNeveltsegFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IntezmenyiNeveltseg
+     * Select specific fields to fetch from the IntezmenyiNeveltsegiMutatok
      */
-    select?: IntezmenyiNeveltsegSelect<ExtArgs> | null
+    select?: IntezmenyiNeveltsegiMutatokSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the IntezmenyiNeveltseg
+     * Omit specific fields from the IntezmenyiNeveltsegiMutatok
      */
-    omit?: IntezmenyiNeveltsegOmit<ExtArgs> | null
+    omit?: IntezmenyiNeveltsegiMutatokOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IntezmenyiNeveltsegInclude<ExtArgs> | null
+    include?: IntezmenyiNeveltsegiMutatokInclude<ExtArgs> | null
     /**
-     * Filter, which IntezmenyiNeveltsegs to fetch.
+     * Filter, which IntezmenyiNeveltsegiMutatoks to fetch.
      */
-    where?: IntezmenyiNeveltsegWhereInput
+    where?: IntezmenyiNeveltsegiMutatokWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of IntezmenyiNeveltsegs to fetch.
+     * Determine the order of IntezmenyiNeveltsegiMutatoks to fetch.
      */
-    orderBy?: IntezmenyiNeveltsegOrderByWithRelationInput | IntezmenyiNeveltsegOrderByWithRelationInput[]
+    orderBy?: IntezmenyiNeveltsegiMutatokOrderByWithRelationInput | IntezmenyiNeveltsegiMutatokOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing IntezmenyiNeveltsegs.
+     * Sets the position for listing IntezmenyiNeveltsegiMutatoks.
      */
-    cursor?: IntezmenyiNeveltsegWhereUniqueInput
+    cursor?: IntezmenyiNeveltsegiMutatokWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` IntezmenyiNeveltsegs from the position of the cursor.
+     * Take `±n` IntezmenyiNeveltsegiMutatoks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` IntezmenyiNeveltsegs.
+     * Skip the first `n` IntezmenyiNeveltsegiMutatoks.
      */
     skip?: number
-    distinct?: IntezmenyiNeveltsegScalarFieldEnum | IntezmenyiNeveltsegScalarFieldEnum[]
+    distinct?: IntezmenyiNeveltsegiMutatokScalarFieldEnum | IntezmenyiNeveltsegiMutatokScalarFieldEnum[]
   }
 
   /**
-   * IntezmenyiNeveltseg create
+   * IntezmenyiNeveltsegiMutatok create
    */
-  export type IntezmenyiNeveltsegCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IntezmenyiNeveltseg
+     * Select specific fields to fetch from the IntezmenyiNeveltsegiMutatok
      */
-    select?: IntezmenyiNeveltsegSelect<ExtArgs> | null
+    select?: IntezmenyiNeveltsegiMutatokSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the IntezmenyiNeveltseg
+     * Omit specific fields from the IntezmenyiNeveltsegiMutatok
      */
-    omit?: IntezmenyiNeveltsegOmit<ExtArgs> | null
+    omit?: IntezmenyiNeveltsegiMutatokOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IntezmenyiNeveltsegInclude<ExtArgs> | null
+    include?: IntezmenyiNeveltsegiMutatokInclude<ExtArgs> | null
     /**
-     * The data needed to create a IntezmenyiNeveltseg.
+     * The data needed to create a IntezmenyiNeveltsegiMutatok.
      */
-    data: XOR<IntezmenyiNeveltsegCreateInput, IntezmenyiNeveltsegUncheckedCreateInput>
+    data: XOR<IntezmenyiNeveltsegiMutatokCreateInput, IntezmenyiNeveltsegiMutatokUncheckedCreateInput>
   }
 
   /**
-   * IntezmenyiNeveltseg createMany
+   * IntezmenyiNeveltsegiMutatok createMany
    */
-  export type IntezmenyiNeveltsegCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many IntezmenyiNeveltsegs.
+     * The data used to create many IntezmenyiNeveltsegiMutatoks.
      */
-    data: IntezmenyiNeveltsegCreateManyInput | IntezmenyiNeveltsegCreateManyInput[]
+    data: IntezmenyiNeveltsegiMutatokCreateManyInput | IntezmenyiNeveltsegiMutatokCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * IntezmenyiNeveltseg createManyAndReturn
+   * IntezmenyiNeveltsegiMutatok createManyAndReturn
    */
-  export type IntezmenyiNeveltsegCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IntezmenyiNeveltseg
+     * Select specific fields to fetch from the IntezmenyiNeveltsegiMutatok
      */
-    select?: IntezmenyiNeveltsegSelectCreateManyAndReturn<ExtArgs> | null
+    select?: IntezmenyiNeveltsegiMutatokSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the IntezmenyiNeveltseg
+     * Omit specific fields from the IntezmenyiNeveltsegiMutatok
      */
-    omit?: IntezmenyiNeveltsegOmit<ExtArgs> | null
+    omit?: IntezmenyiNeveltsegiMutatokOmit<ExtArgs> | null
     /**
-     * The data used to create many IntezmenyiNeveltsegs.
+     * The data used to create many IntezmenyiNeveltsegiMutatoks.
      */
-    data: IntezmenyiNeveltsegCreateManyInput | IntezmenyiNeveltsegCreateManyInput[]
+    data: IntezmenyiNeveltsegiMutatokCreateManyInput | IntezmenyiNeveltsegiMutatokCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IntezmenyiNeveltsegIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: IntezmenyiNeveltsegiMutatokIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * IntezmenyiNeveltseg update
+   * IntezmenyiNeveltsegiMutatok update
    */
-  export type IntezmenyiNeveltsegUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IntezmenyiNeveltseg
+     * Select specific fields to fetch from the IntezmenyiNeveltsegiMutatok
      */
-    select?: IntezmenyiNeveltsegSelect<ExtArgs> | null
+    select?: IntezmenyiNeveltsegiMutatokSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the IntezmenyiNeveltseg
+     * Omit specific fields from the IntezmenyiNeveltsegiMutatok
      */
-    omit?: IntezmenyiNeveltsegOmit<ExtArgs> | null
+    omit?: IntezmenyiNeveltsegiMutatokOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IntezmenyiNeveltsegInclude<ExtArgs> | null
+    include?: IntezmenyiNeveltsegiMutatokInclude<ExtArgs> | null
     /**
-     * The data needed to update a IntezmenyiNeveltseg.
+     * The data needed to update a IntezmenyiNeveltsegiMutatok.
      */
-    data: XOR<IntezmenyiNeveltsegUpdateInput, IntezmenyiNeveltsegUncheckedUpdateInput>
+    data: XOR<IntezmenyiNeveltsegiMutatokUpdateInput, IntezmenyiNeveltsegiMutatokUncheckedUpdateInput>
     /**
-     * Choose, which IntezmenyiNeveltseg to update.
+     * Choose, which IntezmenyiNeveltsegiMutatok to update.
      */
-    where: IntezmenyiNeveltsegWhereUniqueInput
+    where: IntezmenyiNeveltsegiMutatokWhereUniqueInput
   }
 
   /**
-   * IntezmenyiNeveltseg updateMany
+   * IntezmenyiNeveltsegiMutatok updateMany
    */
-  export type IntezmenyiNeveltsegUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update IntezmenyiNeveltsegs.
+     * The data used to update IntezmenyiNeveltsegiMutatoks.
      */
-    data: XOR<IntezmenyiNeveltsegUpdateManyMutationInput, IntezmenyiNeveltsegUncheckedUpdateManyInput>
+    data: XOR<IntezmenyiNeveltsegiMutatokUpdateManyMutationInput, IntezmenyiNeveltsegiMutatokUncheckedUpdateManyInput>
     /**
-     * Filter which IntezmenyiNeveltsegs to update
+     * Filter which IntezmenyiNeveltsegiMutatoks to update
      */
-    where?: IntezmenyiNeveltsegWhereInput
+    where?: IntezmenyiNeveltsegiMutatokWhereInput
     /**
-     * Limit how many IntezmenyiNeveltsegs to update.
+     * Limit how many IntezmenyiNeveltsegiMutatoks to update.
      */
     limit?: number
   }
 
   /**
-   * IntezmenyiNeveltseg updateManyAndReturn
+   * IntezmenyiNeveltsegiMutatok updateManyAndReturn
    */
-  export type IntezmenyiNeveltsegUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IntezmenyiNeveltseg
+     * Select specific fields to fetch from the IntezmenyiNeveltsegiMutatok
      */
-    select?: IntezmenyiNeveltsegSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: IntezmenyiNeveltsegiMutatokSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the IntezmenyiNeveltseg
+     * Omit specific fields from the IntezmenyiNeveltsegiMutatok
      */
-    omit?: IntezmenyiNeveltsegOmit<ExtArgs> | null
+    omit?: IntezmenyiNeveltsegiMutatokOmit<ExtArgs> | null
     /**
-     * The data used to update IntezmenyiNeveltsegs.
+     * The data used to update IntezmenyiNeveltsegiMutatoks.
      */
-    data: XOR<IntezmenyiNeveltsegUpdateManyMutationInput, IntezmenyiNeveltsegUncheckedUpdateManyInput>
+    data: XOR<IntezmenyiNeveltsegiMutatokUpdateManyMutationInput, IntezmenyiNeveltsegiMutatokUncheckedUpdateManyInput>
     /**
-     * Filter which IntezmenyiNeveltsegs to update
+     * Filter which IntezmenyiNeveltsegiMutatoks to update
      */
-    where?: IntezmenyiNeveltsegWhereInput
+    where?: IntezmenyiNeveltsegiMutatokWhereInput
     /**
-     * Limit how many IntezmenyiNeveltsegs to update.
+     * Limit how many IntezmenyiNeveltsegiMutatoks to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IntezmenyiNeveltsegIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: IntezmenyiNeveltsegiMutatokIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * IntezmenyiNeveltseg upsert
+   * IntezmenyiNeveltsegiMutatok upsert
    */
-  export type IntezmenyiNeveltsegUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IntezmenyiNeveltseg
+     * Select specific fields to fetch from the IntezmenyiNeveltsegiMutatok
      */
-    select?: IntezmenyiNeveltsegSelect<ExtArgs> | null
+    select?: IntezmenyiNeveltsegiMutatokSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the IntezmenyiNeveltseg
+     * Omit specific fields from the IntezmenyiNeveltsegiMutatok
      */
-    omit?: IntezmenyiNeveltsegOmit<ExtArgs> | null
+    omit?: IntezmenyiNeveltsegiMutatokOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IntezmenyiNeveltsegInclude<ExtArgs> | null
+    include?: IntezmenyiNeveltsegiMutatokInclude<ExtArgs> | null
     /**
-     * The filter to search for the IntezmenyiNeveltseg to update in case it exists.
+     * The filter to search for the IntezmenyiNeveltsegiMutatok to update in case it exists.
      */
-    where: IntezmenyiNeveltsegWhereUniqueInput
+    where: IntezmenyiNeveltsegiMutatokWhereUniqueInput
     /**
-     * In case the IntezmenyiNeveltseg found by the `where` argument doesn't exist, create a new IntezmenyiNeveltseg with this data.
+     * In case the IntezmenyiNeveltsegiMutatok found by the `where` argument doesn't exist, create a new IntezmenyiNeveltsegiMutatok with this data.
      */
-    create: XOR<IntezmenyiNeveltsegCreateInput, IntezmenyiNeveltsegUncheckedCreateInput>
+    create: XOR<IntezmenyiNeveltsegiMutatokCreateInput, IntezmenyiNeveltsegiMutatokUncheckedCreateInput>
     /**
-     * In case the IntezmenyiNeveltseg was found with the provided `where` argument, update it with this data.
+     * In case the IntezmenyiNeveltsegiMutatok was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<IntezmenyiNeveltsegUpdateInput, IntezmenyiNeveltsegUncheckedUpdateInput>
+    update: XOR<IntezmenyiNeveltsegiMutatokUpdateInput, IntezmenyiNeveltsegiMutatokUncheckedUpdateInput>
   }
 
   /**
-   * IntezmenyiNeveltseg delete
+   * IntezmenyiNeveltsegiMutatok delete
    */
-  export type IntezmenyiNeveltsegDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IntezmenyiNeveltseg
+     * Select specific fields to fetch from the IntezmenyiNeveltsegiMutatok
      */
-    select?: IntezmenyiNeveltsegSelect<ExtArgs> | null
+    select?: IntezmenyiNeveltsegiMutatokSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the IntezmenyiNeveltseg
+     * Omit specific fields from the IntezmenyiNeveltsegiMutatok
      */
-    omit?: IntezmenyiNeveltsegOmit<ExtArgs> | null
+    omit?: IntezmenyiNeveltsegiMutatokOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IntezmenyiNeveltsegInclude<ExtArgs> | null
+    include?: IntezmenyiNeveltsegiMutatokInclude<ExtArgs> | null
     /**
-     * Filter which IntezmenyiNeveltseg to delete.
+     * Filter which IntezmenyiNeveltsegiMutatok to delete.
      */
-    where: IntezmenyiNeveltsegWhereUniqueInput
+    where: IntezmenyiNeveltsegiMutatokWhereUniqueInput
   }
 
   /**
-   * IntezmenyiNeveltseg deleteMany
+   * IntezmenyiNeveltsegiMutatok deleteMany
    */
-  export type IntezmenyiNeveltsegDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which IntezmenyiNeveltsegs to delete
+     * Filter which IntezmenyiNeveltsegiMutatoks to delete
      */
-    where?: IntezmenyiNeveltsegWhereInput
+    where?: IntezmenyiNeveltsegiMutatokWhereInput
     /**
-     * Limit how many IntezmenyiNeveltsegs to delete.
+     * Limit how many IntezmenyiNeveltsegiMutatoks to delete.
      */
     limit?: number
   }
 
   /**
-   * IntezmenyiNeveltseg without action
+   * IntezmenyiNeveltsegiMutatok without action
    */
-  export type IntezmenyiNeveltsegDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type IntezmenyiNeveltsegiMutatokDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the IntezmenyiNeveltseg
+     * Select specific fields to fetch from the IntezmenyiNeveltsegiMutatok
      */
-    select?: IntezmenyiNeveltsegSelect<ExtArgs> | null
+    select?: IntezmenyiNeveltsegiMutatokSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the IntezmenyiNeveltseg
+     * Omit specific fields from the IntezmenyiNeveltsegiMutatok
      */
-    omit?: IntezmenyiNeveltsegOmit<ExtArgs> | null
+    omit?: IntezmenyiNeveltsegiMutatokOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: IntezmenyiNeveltsegInclude<ExtArgs> | null
+    include?: IntezmenyiNeveltsegiMutatokInclude<ExtArgs> | null
   }
 
 
@@ -53409,32 +53409,32 @@ export namespace Prisma {
   export type ElegedettsegMeresScalarFieldEnum = (typeof ElegedettsegMeresScalarFieldEnum)[keyof typeof ElegedettsegMeresScalarFieldEnum]
 
 
-  export const IntezmenyiNeveltsegScalarFieldEnum: {
+  export const IntezmenyiNeveltsegiMutatokScalarFieldEnum: {
     id: 'id',
     alapadatok_id: 'alapadatok_id',
     tanev_kezdete: 'tanev_kezdete',
     osztaly_jele: 'osztaly_jele',
     igazolatlan_ora: 'igazolatlan_ora',
-    oktato_testuleti_dicseret: 'oktato_testuleti_dicseret',
-    oktatoi_dicseret: 'oktatoi_dicseret',
-    osztalyfonoki_dicseret: 'osztalyfonoki_dicseret',
-    igazagatoi_dicseret: 'igazagatoi_dicseret',
-    oktato_testuleti_figyelmeztetes: 'oktato_testuleti_figyelmeztetes',
-    oktatoi_figyelmeztetes: 'oktatoi_figyelmeztetes',
-    osztalyfonoki_figyelmeztetes: 'osztalyfonoki_figyelmeztetes',
-    osztalyfonoki_intes: 'osztalyfonoki_intes',
-    osztalyfonoki_megrovas: 'osztalyfonoki_megrovas',
-    igazgatoi_figyelmeztetes: 'igazgatoi_figyelmeztetes',
-    igazgatoi_intes: 'igazgatoi_intes',
-    igazgatoi_megrovas: 'igazgatoi_megrovas',
-    fegyelmi_eljaras: 'fegyelmi_eljaras',
+    dicseret_oktatoi: 'dicseret_oktatoi',
+    dicseret_osztalyfonoki: 'dicseret_osztalyfonoki',
+    dicseret_igazgatoi: 'dicseret_igazgatoi',
+    dicseret_oktato_testuleti: 'dicseret_oktato_testuleti',
+    buntetes_oktatoi_figyelmeztetes: 'buntetes_oktatoi_figyelmeztetes',
+    buntetes_osztalyfonoki_figyelmeztetes: 'buntetes_osztalyfonoki_figyelmeztetes',
+    buntetes_osztalyfonoki_intes: 'buntetes_osztalyfonoki_intes',
+    buntetes_osztalyfonoki_megrovas: 'buntetes_osztalyfonoki_megrovas',
+    buntetes_igazgatoi_figyelmeztetes: 'buntetes_igazgatoi_figyelmeztetes',
+    buntetes_igazgatoi_intes: 'buntetes_igazgatoi_intes',
+    buntetes_igazgatoi_megrovas: 'buntetes_igazgatoi_megrovas',
+    buntetes_oktato_testuleti_figyelmeztetes: 'buntetes_oktato_testuleti_figyelmeztetes',
+    buntetes_fegyelmi_eljaras: 'buntetes_fegyelmi_eljaras',
     createAt: 'createAt',
     createBy: 'createBy',
     updatedAt: 'updatedAt',
     updatedBy: 'updatedBy'
   };
 
-  export type IntezmenyiNeveltsegScalarFieldEnum = (typeof IntezmenyiNeveltsegScalarFieldEnum)[keyof typeof IntezmenyiNeveltsegScalarFieldEnum]
+  export type IntezmenyiNeveltsegiMutatokScalarFieldEnum = (typeof IntezmenyiNeveltsegiMutatokScalarFieldEnum)[keyof typeof IntezmenyiNeveltsegiMutatokScalarFieldEnum]
 
 
   export const HHEsHHHTanulokScalarFieldEnum: {
@@ -54203,7 +54203,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekListRelationFilter
     lemorzsolodas?: LemorzsolodasListRelationFilter
     elegedettsegMeres?: ElegedettsegMeresListRelationFilter
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegListRelationFilter
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokListRelationFilter
     hhesHhhTanulok?: HHEsHHHTanulokListRelationFilter
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokListRelationFilter
     dobbanto?: DobbantoListRelationFilter
@@ -54237,7 +54237,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekOrderByRelationAggregateInput
     lemorzsolodas?: LemorzsolodasOrderByRelationAggregateInput
     elegedettsegMeres?: ElegedettsegMeresOrderByRelationAggregateInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegOrderByRelationAggregateInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokOrderByRelationAggregateInput
     hhesHhhTanulok?: HHEsHHHTanulokOrderByRelationAggregateInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokOrderByRelationAggregateInput
     dobbanto?: DobbantoOrderByRelationAggregateInput
@@ -54274,7 +54274,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekListRelationFilter
     lemorzsolodas?: LemorzsolodasListRelationFilter
     elegedettsegMeres?: ElegedettsegMeresListRelationFilter
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegListRelationFilter
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokListRelationFilter
     hhesHhhTanulok?: HHEsHHHTanulokListRelationFilter
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokListRelationFilter
     dobbanto?: DobbantoListRelationFilter
@@ -56697,54 +56697,54 @@ export namespace Prisma {
     updatedBy?: StringNullableWithAggregatesFilter<"ElegedettsegMeres"> | string | null
   }
 
-  export type IntezmenyiNeveltsegWhereInput = {
-    AND?: IntezmenyiNeveltsegWhereInput | IntezmenyiNeveltsegWhereInput[]
-    OR?: IntezmenyiNeveltsegWhereInput[]
-    NOT?: IntezmenyiNeveltsegWhereInput | IntezmenyiNeveltsegWhereInput[]
-    id?: UuidFilter<"IntezmenyiNeveltseg"> | string
-    alapadatok_id?: UuidFilter<"IntezmenyiNeveltseg"> | string
-    tanev_kezdete?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztaly_jele?: StringFilter<"IntezmenyiNeveltseg"> | string
-    igazolatlan_ora?: IntFilter<"IntezmenyiNeveltseg"> | number
-    oktato_testuleti_dicseret?: IntFilter<"IntezmenyiNeveltseg"> | number
-    oktatoi_dicseret?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_dicseret?: IntFilter<"IntezmenyiNeveltseg"> | number
-    igazagatoi_dicseret?: IntFilter<"IntezmenyiNeveltseg"> | number
-    oktato_testuleti_figyelmeztetes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    oktatoi_figyelmeztetes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_figyelmeztetes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_intes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_megrovas?: IntFilter<"IntezmenyiNeveltseg"> | number
-    igazgatoi_figyelmeztetes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    igazgatoi_intes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    igazgatoi_megrovas?: IntFilter<"IntezmenyiNeveltseg"> | number
-    fegyelmi_eljaras?: IntFilter<"IntezmenyiNeveltseg"> | number
-    createAt?: DateTimeFilter<"IntezmenyiNeveltseg"> | Date | string
-    createBy?: StringNullableFilter<"IntezmenyiNeveltseg"> | string | null
-    updatedAt?: DateTimeNullableFilter<"IntezmenyiNeveltseg"> | Date | string | null
-    updatedBy?: StringNullableFilter<"IntezmenyiNeveltseg"> | string | null
+  export type IntezmenyiNeveltsegiMutatokWhereInput = {
+    AND?: IntezmenyiNeveltsegiMutatokWhereInput | IntezmenyiNeveltsegiMutatokWhereInput[]
+    OR?: IntezmenyiNeveltsegiMutatokWhereInput[]
+    NOT?: IntezmenyiNeveltsegiMutatokWhereInput | IntezmenyiNeveltsegiMutatokWhereInput[]
+    id?: UuidFilter<"IntezmenyiNeveltsegiMutatok"> | string
+    alapadatok_id?: UuidFilter<"IntezmenyiNeveltsegiMutatok"> | string
+    tanev_kezdete?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    osztaly_jele?: StringFilter<"IntezmenyiNeveltsegiMutatok"> | string
+    igazolatlan_ora?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_oktatoi?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_osztalyfonoki?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_igazgatoi?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_oktato_testuleti?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_oktatoi_figyelmeztetes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_osztalyfonoki_figyelmeztetes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_osztalyfonoki_intes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_osztalyfonoki_megrovas?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_igazgatoi_figyelmeztetes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_igazgatoi_intes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_igazgatoi_megrovas?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_oktato_testuleti_figyelmeztetes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_fegyelmi_eljaras?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    createAt?: DateTimeFilter<"IntezmenyiNeveltsegiMutatok"> | Date | string
+    createBy?: StringNullableFilter<"IntezmenyiNeveltsegiMutatok"> | string | null
+    updatedAt?: DateTimeNullableFilter<"IntezmenyiNeveltsegiMutatok"> | Date | string | null
+    updatedBy?: StringNullableFilter<"IntezmenyiNeveltsegiMutatok"> | string | null
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
   }
 
-  export type IntezmenyiNeveltsegOrderByWithRelationInput = {
+  export type IntezmenyiNeveltsegiMutatokOrderByWithRelationInput = {
     id?: SortOrder
     alapadatok_id?: SortOrder
     tanev_kezdete?: SortOrder
     osztaly_jele?: SortOrder
     igazolatlan_ora?: SortOrder
-    oktato_testuleti_dicseret?: SortOrder
-    oktatoi_dicseret?: SortOrder
-    osztalyfonoki_dicseret?: SortOrder
-    igazagatoi_dicseret?: SortOrder
-    oktato_testuleti_figyelmeztetes?: SortOrder
-    oktatoi_figyelmeztetes?: SortOrder
-    osztalyfonoki_figyelmeztetes?: SortOrder
-    osztalyfonoki_intes?: SortOrder
-    osztalyfonoki_megrovas?: SortOrder
-    igazgatoi_figyelmeztetes?: SortOrder
-    igazgatoi_intes?: SortOrder
-    igazgatoi_megrovas?: SortOrder
-    fegyelmi_eljaras?: SortOrder
+    dicseret_oktatoi?: SortOrder
+    dicseret_osztalyfonoki?: SortOrder
+    dicseret_igazgatoi?: SortOrder
+    dicseret_oktato_testuleti?: SortOrder
+    buntetes_oktatoi_figyelmeztetes?: SortOrder
+    buntetes_osztalyfonoki_figyelmeztetes?: SortOrder
+    buntetes_osztalyfonoki_intes?: SortOrder
+    buntetes_osztalyfonoki_megrovas?: SortOrder
+    buntetes_igazgatoi_figyelmeztetes?: SortOrder
+    buntetes_igazgatoi_intes?: SortOrder
+    buntetes_igazgatoi_megrovas?: SortOrder
+    buntetes_oktato_testuleti_figyelmeztetes?: SortOrder
+    buntetes_fegyelmi_eljaras?: SortOrder
     createAt?: SortOrder
     createBy?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -56752,91 +56752,91 @@ export namespace Prisma {
     alapadatok?: AlapadatokOrderByWithRelationInput
   }
 
-  export type IntezmenyiNeveltsegWhereUniqueInput = Prisma.AtLeast<{
+  export type IntezmenyiNeveltsegiMutatokWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: IntezmenyiNeveltsegWhereInput | IntezmenyiNeveltsegWhereInput[]
-    OR?: IntezmenyiNeveltsegWhereInput[]
-    NOT?: IntezmenyiNeveltsegWhereInput | IntezmenyiNeveltsegWhereInput[]
-    alapadatok_id?: UuidFilter<"IntezmenyiNeveltseg"> | string
-    tanev_kezdete?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztaly_jele?: StringFilter<"IntezmenyiNeveltseg"> | string
-    igazolatlan_ora?: IntFilter<"IntezmenyiNeveltseg"> | number
-    oktato_testuleti_dicseret?: IntFilter<"IntezmenyiNeveltseg"> | number
-    oktatoi_dicseret?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_dicseret?: IntFilter<"IntezmenyiNeveltseg"> | number
-    igazagatoi_dicseret?: IntFilter<"IntezmenyiNeveltseg"> | number
-    oktato_testuleti_figyelmeztetes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    oktatoi_figyelmeztetes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_figyelmeztetes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_intes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_megrovas?: IntFilter<"IntezmenyiNeveltseg"> | number
-    igazgatoi_figyelmeztetes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    igazgatoi_intes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    igazgatoi_megrovas?: IntFilter<"IntezmenyiNeveltseg"> | number
-    fegyelmi_eljaras?: IntFilter<"IntezmenyiNeveltseg"> | number
-    createAt?: DateTimeFilter<"IntezmenyiNeveltseg"> | Date | string
-    createBy?: StringNullableFilter<"IntezmenyiNeveltseg"> | string | null
-    updatedAt?: DateTimeNullableFilter<"IntezmenyiNeveltseg"> | Date | string | null
-    updatedBy?: StringNullableFilter<"IntezmenyiNeveltseg"> | string | null
+    AND?: IntezmenyiNeveltsegiMutatokWhereInput | IntezmenyiNeveltsegiMutatokWhereInput[]
+    OR?: IntezmenyiNeveltsegiMutatokWhereInput[]
+    NOT?: IntezmenyiNeveltsegiMutatokWhereInput | IntezmenyiNeveltsegiMutatokWhereInput[]
+    alapadatok_id?: UuidFilter<"IntezmenyiNeveltsegiMutatok"> | string
+    tanev_kezdete?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    osztaly_jele?: StringFilter<"IntezmenyiNeveltsegiMutatok"> | string
+    igazolatlan_ora?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_oktatoi?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_osztalyfonoki?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_igazgatoi?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_oktato_testuleti?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_oktatoi_figyelmeztetes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_osztalyfonoki_figyelmeztetes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_osztalyfonoki_intes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_osztalyfonoki_megrovas?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_igazgatoi_figyelmeztetes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_igazgatoi_intes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_igazgatoi_megrovas?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_oktato_testuleti_figyelmeztetes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_fegyelmi_eljaras?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    createAt?: DateTimeFilter<"IntezmenyiNeveltsegiMutatok"> | Date | string
+    createBy?: StringNullableFilter<"IntezmenyiNeveltsegiMutatok"> | string | null
+    updatedAt?: DateTimeNullableFilter<"IntezmenyiNeveltsegiMutatok"> | Date | string | null
+    updatedBy?: StringNullableFilter<"IntezmenyiNeveltsegiMutatok"> | string | null
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
   }, "id">
 
-  export type IntezmenyiNeveltsegOrderByWithAggregationInput = {
+  export type IntezmenyiNeveltsegiMutatokOrderByWithAggregationInput = {
     id?: SortOrder
     alapadatok_id?: SortOrder
     tanev_kezdete?: SortOrder
     osztaly_jele?: SortOrder
     igazolatlan_ora?: SortOrder
-    oktato_testuleti_dicseret?: SortOrder
-    oktatoi_dicseret?: SortOrder
-    osztalyfonoki_dicseret?: SortOrder
-    igazagatoi_dicseret?: SortOrder
-    oktato_testuleti_figyelmeztetes?: SortOrder
-    oktatoi_figyelmeztetes?: SortOrder
-    osztalyfonoki_figyelmeztetes?: SortOrder
-    osztalyfonoki_intes?: SortOrder
-    osztalyfonoki_megrovas?: SortOrder
-    igazgatoi_figyelmeztetes?: SortOrder
-    igazgatoi_intes?: SortOrder
-    igazgatoi_megrovas?: SortOrder
-    fegyelmi_eljaras?: SortOrder
+    dicseret_oktatoi?: SortOrder
+    dicseret_osztalyfonoki?: SortOrder
+    dicseret_igazgatoi?: SortOrder
+    dicseret_oktato_testuleti?: SortOrder
+    buntetes_oktatoi_figyelmeztetes?: SortOrder
+    buntetes_osztalyfonoki_figyelmeztetes?: SortOrder
+    buntetes_osztalyfonoki_intes?: SortOrder
+    buntetes_osztalyfonoki_megrovas?: SortOrder
+    buntetes_igazgatoi_figyelmeztetes?: SortOrder
+    buntetes_igazgatoi_intes?: SortOrder
+    buntetes_igazgatoi_megrovas?: SortOrder
+    buntetes_oktato_testuleti_figyelmeztetes?: SortOrder
+    buntetes_fegyelmi_eljaras?: SortOrder
     createAt?: SortOrder
     createBy?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
     updatedBy?: SortOrderInput | SortOrder
-    _count?: IntezmenyiNeveltsegCountOrderByAggregateInput
-    _avg?: IntezmenyiNeveltsegAvgOrderByAggregateInput
-    _max?: IntezmenyiNeveltsegMaxOrderByAggregateInput
-    _min?: IntezmenyiNeveltsegMinOrderByAggregateInput
-    _sum?: IntezmenyiNeveltsegSumOrderByAggregateInput
+    _count?: IntezmenyiNeveltsegiMutatokCountOrderByAggregateInput
+    _avg?: IntezmenyiNeveltsegiMutatokAvgOrderByAggregateInput
+    _max?: IntezmenyiNeveltsegiMutatokMaxOrderByAggregateInput
+    _min?: IntezmenyiNeveltsegiMutatokMinOrderByAggregateInput
+    _sum?: IntezmenyiNeveltsegiMutatokSumOrderByAggregateInput
   }
 
-  export type IntezmenyiNeveltsegScalarWhereWithAggregatesInput = {
-    AND?: IntezmenyiNeveltsegScalarWhereWithAggregatesInput | IntezmenyiNeveltsegScalarWhereWithAggregatesInput[]
-    OR?: IntezmenyiNeveltsegScalarWhereWithAggregatesInput[]
-    NOT?: IntezmenyiNeveltsegScalarWhereWithAggregatesInput | IntezmenyiNeveltsegScalarWhereWithAggregatesInput[]
-    id?: UuidWithAggregatesFilter<"IntezmenyiNeveltseg"> | string
-    alapadatok_id?: UuidWithAggregatesFilter<"IntezmenyiNeveltseg"> | string
-    tanev_kezdete?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    osztaly_jele?: StringWithAggregatesFilter<"IntezmenyiNeveltseg"> | string
-    igazolatlan_ora?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    oktato_testuleti_dicseret?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    oktatoi_dicseret?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_dicseret?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    igazagatoi_dicseret?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    oktato_testuleti_figyelmeztetes?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    oktatoi_figyelmeztetes?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_figyelmeztetes?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_intes?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_megrovas?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    igazgatoi_figyelmeztetes?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    igazgatoi_intes?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    igazgatoi_megrovas?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    fegyelmi_eljaras?: IntWithAggregatesFilter<"IntezmenyiNeveltseg"> | number
-    createAt?: DateTimeWithAggregatesFilter<"IntezmenyiNeveltseg"> | Date | string
-    createBy?: StringNullableWithAggregatesFilter<"IntezmenyiNeveltseg"> | string | null
-    updatedAt?: DateTimeNullableWithAggregatesFilter<"IntezmenyiNeveltseg"> | Date | string | null
-    updatedBy?: StringNullableWithAggregatesFilter<"IntezmenyiNeveltseg"> | string | null
+  export type IntezmenyiNeveltsegiMutatokScalarWhereWithAggregatesInput = {
+    AND?: IntezmenyiNeveltsegiMutatokScalarWhereWithAggregatesInput | IntezmenyiNeveltsegiMutatokScalarWhereWithAggregatesInput[]
+    OR?: IntezmenyiNeveltsegiMutatokScalarWhereWithAggregatesInput[]
+    NOT?: IntezmenyiNeveltsegiMutatokScalarWhereWithAggregatesInput | IntezmenyiNeveltsegiMutatokScalarWhereWithAggregatesInput[]
+    id?: UuidWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | string
+    alapadatok_id?: UuidWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | string
+    tanev_kezdete?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    osztaly_jele?: StringWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | string
+    igazolatlan_ora?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_oktatoi?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_osztalyfonoki?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_igazgatoi?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_oktato_testuleti?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_oktatoi_figyelmeztetes?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_osztalyfonoki_figyelmeztetes?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_osztalyfonoki_intes?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_osztalyfonoki_megrovas?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_igazgatoi_figyelmeztetes?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_igazgatoi_intes?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_igazgatoi_megrovas?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_oktato_testuleti_figyelmeztetes?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_fegyelmi_eljaras?: IntWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    createAt?: DateTimeWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | Date | string
+    createBy?: StringNullableWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | Date | string | null
+    updatedBy?: StringNullableWithAggregatesFilter<"IntezmenyiNeveltsegiMutatok"> | string | null
   }
 
   export type HHEsHHHTanulokWhereInput = {
@@ -58469,7 +58469,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -58503,7 +58503,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -58537,7 +58537,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -58571,7 +58571,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -61307,174 +61307,174 @@ export namespace Prisma {
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type IntezmenyiNeveltsegCreateInput = {
+  export type IntezmenyiNeveltsegiMutatokCreateInput = {
     id?: string
     tanev_kezdete: number
     osztaly_jele: string
     igazolatlan_ora: number
-    oktato_testuleti_dicseret: number
-    oktatoi_dicseret: number
-    osztalyfonoki_dicseret: number
-    igazagatoi_dicseret: number
-    oktato_testuleti_figyelmeztetes: number
-    oktatoi_figyelmeztetes: number
-    osztalyfonoki_figyelmeztetes: number
-    osztalyfonoki_intes: number
-    osztalyfonoki_megrovas: number
-    igazgatoi_figyelmeztetes: number
-    igazgatoi_intes: number
-    igazgatoi_megrovas: number
-    fegyelmi_eljaras: number
+    dicseret_oktatoi: number
+    dicseret_osztalyfonoki: number
+    dicseret_igazgatoi: number
+    dicseret_oktato_testuleti: number
+    buntetes_oktatoi_figyelmeztetes: number
+    buntetes_osztalyfonoki_figyelmeztetes: number
+    buntetes_osztalyfonoki_intes: number
+    buntetes_osztalyfonoki_megrovas: number
+    buntetes_igazgatoi_figyelmeztetes: number
+    buntetes_igazgatoi_intes: number
+    buntetes_igazgatoi_megrovas: number
+    buntetes_oktato_testuleti_figyelmeztetes: number
+    buntetes_fegyelmi_eljaras: number
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
-    alapadatok: AlapadatokCreateNestedOneWithoutIntezmenyiNeveltsegInput
+    alapadatok: AlapadatokCreateNestedOneWithoutIntezmenyiNeveltsegiMutatokInput
   }
 
-  export type IntezmenyiNeveltsegUncheckedCreateInput = {
-    id?: string
-    alapadatok_id: string
-    tanev_kezdete: number
-    osztaly_jele: string
-    igazolatlan_ora: number
-    oktato_testuleti_dicseret: number
-    oktatoi_dicseret: number
-    osztalyfonoki_dicseret: number
-    igazagatoi_dicseret: number
-    oktato_testuleti_figyelmeztetes: number
-    oktatoi_figyelmeztetes: number
-    osztalyfonoki_figyelmeztetes: number
-    osztalyfonoki_intes: number
-    osztalyfonoki_megrovas: number
-    igazgatoi_figyelmeztetes: number
-    igazgatoi_intes: number
-    igazgatoi_megrovas: number
-    fegyelmi_eljaras: number
-    createAt?: Date | string
-    createBy?: string | null
-    updatedAt?: Date | string | null
-    updatedBy?: string | null
-  }
-
-  export type IntezmenyiNeveltsegUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    osztaly_jele?: StringFieldUpdateOperationsInput | string
-    igazolatlan_ora?: IntFieldUpdateOperationsInput | number
-    oktato_testuleti_dicseret?: IntFieldUpdateOperationsInput | number
-    oktatoi_dicseret?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_dicseret?: IntFieldUpdateOperationsInput | number
-    igazagatoi_dicseret?: IntFieldUpdateOperationsInput | number
-    oktato_testuleti_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    oktatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_intes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_megrovas?: IntFieldUpdateOperationsInput | number
-    igazgatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    igazgatoi_intes?: IntFieldUpdateOperationsInput | number
-    igazgatoi_megrovas?: IntFieldUpdateOperationsInput | number
-    fegyelmi_eljaras?: IntFieldUpdateOperationsInput | number
-    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createBy?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-    alapadatok?: AlapadatokUpdateOneRequiredWithoutIntezmenyiNeveltsegNestedInput
-  }
-
-  export type IntezmenyiNeveltsegUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    alapadatok_id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    osztaly_jele?: StringFieldUpdateOperationsInput | string
-    igazolatlan_ora?: IntFieldUpdateOperationsInput | number
-    oktato_testuleti_dicseret?: IntFieldUpdateOperationsInput | number
-    oktatoi_dicseret?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_dicseret?: IntFieldUpdateOperationsInput | number
-    igazagatoi_dicseret?: IntFieldUpdateOperationsInput | number
-    oktato_testuleti_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    oktatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_intes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_megrovas?: IntFieldUpdateOperationsInput | number
-    igazgatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    igazgatoi_intes?: IntFieldUpdateOperationsInput | number
-    igazgatoi_megrovas?: IntFieldUpdateOperationsInput | number
-    fegyelmi_eljaras?: IntFieldUpdateOperationsInput | number
-    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createBy?: NullableStringFieldUpdateOperationsInput | string | null
-    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type IntezmenyiNeveltsegCreateManyInput = {
+  export type IntezmenyiNeveltsegiMutatokUncheckedCreateInput = {
     id?: string
     alapadatok_id: string
     tanev_kezdete: number
     osztaly_jele: string
     igazolatlan_ora: number
-    oktato_testuleti_dicseret: number
-    oktatoi_dicseret: number
-    osztalyfonoki_dicseret: number
-    igazagatoi_dicseret: number
-    oktato_testuleti_figyelmeztetes: number
-    oktatoi_figyelmeztetes: number
-    osztalyfonoki_figyelmeztetes: number
-    osztalyfonoki_intes: number
-    osztalyfonoki_megrovas: number
-    igazgatoi_figyelmeztetes: number
-    igazgatoi_intes: number
-    igazgatoi_megrovas: number
-    fegyelmi_eljaras: number
+    dicseret_oktatoi: number
+    dicseret_osztalyfonoki: number
+    dicseret_igazgatoi: number
+    dicseret_oktato_testuleti: number
+    buntetes_oktatoi_figyelmeztetes: number
+    buntetes_osztalyfonoki_figyelmeztetes: number
+    buntetes_osztalyfonoki_intes: number
+    buntetes_osztalyfonoki_megrovas: number
+    buntetes_igazgatoi_figyelmeztetes: number
+    buntetes_igazgatoi_intes: number
+    buntetes_igazgatoi_megrovas: number
+    buntetes_oktato_testuleti_figyelmeztetes: number
+    buntetes_fegyelmi_eljaras: number
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
   }
 
-  export type IntezmenyiNeveltsegUpdateManyMutationInput = {
+  export type IntezmenyiNeveltsegiMutatokUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     osztaly_jele?: StringFieldUpdateOperationsInput | string
     igazolatlan_ora?: IntFieldUpdateOperationsInput | number
-    oktato_testuleti_dicseret?: IntFieldUpdateOperationsInput | number
-    oktatoi_dicseret?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_dicseret?: IntFieldUpdateOperationsInput | number
-    igazagatoi_dicseret?: IntFieldUpdateOperationsInput | number
-    oktato_testuleti_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    oktatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_intes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_megrovas?: IntFieldUpdateOperationsInput | number
-    igazgatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    igazgatoi_intes?: IntFieldUpdateOperationsInput | number
-    igazgatoi_megrovas?: IntFieldUpdateOperationsInput | number
-    fegyelmi_eljaras?: IntFieldUpdateOperationsInput | number
+    dicseret_oktatoi?: IntFieldUpdateOperationsInput | number
+    dicseret_osztalyfonoki?: IntFieldUpdateOperationsInput | number
+    dicseret_igazgatoi?: IntFieldUpdateOperationsInput | number
+    dicseret_oktato_testuleti?: IntFieldUpdateOperationsInput | number
+    buntetes_oktatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_intes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_megrovas?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_intes?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_megrovas?: IntFieldUpdateOperationsInput | number
+    buntetes_oktato_testuleti_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_fegyelmi_eljaras?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    alapadatok?: AlapadatokUpdateOneRequiredWithoutIntezmenyiNeveltsegiMutatokNestedInput
+  }
+
+  export type IntezmenyiNeveltsegiMutatokUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    osztaly_jele?: StringFieldUpdateOperationsInput | string
+    igazolatlan_ora?: IntFieldUpdateOperationsInput | number
+    dicseret_oktatoi?: IntFieldUpdateOperationsInput | number
+    dicseret_osztalyfonoki?: IntFieldUpdateOperationsInput | number
+    dicseret_igazgatoi?: IntFieldUpdateOperationsInput | number
+    dicseret_oktato_testuleti?: IntFieldUpdateOperationsInput | number
+    buntetes_oktatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_intes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_megrovas?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_intes?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_megrovas?: IntFieldUpdateOperationsInput | number
+    buntetes_oktato_testuleti_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_fegyelmi_eljaras?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type IntezmenyiNeveltsegUncheckedUpdateManyInput = {
+  export type IntezmenyiNeveltsegiMutatokCreateManyInput = {
+    id?: string
+    alapadatok_id: string
+    tanev_kezdete: number
+    osztaly_jele: string
+    igazolatlan_ora: number
+    dicseret_oktatoi: number
+    dicseret_osztalyfonoki: number
+    dicseret_igazgatoi: number
+    dicseret_oktato_testuleti: number
+    buntetes_oktatoi_figyelmeztetes: number
+    buntetes_osztalyfonoki_figyelmeztetes: number
+    buntetes_osztalyfonoki_intes: number
+    buntetes_osztalyfonoki_megrovas: number
+    buntetes_igazgatoi_figyelmeztetes: number
+    buntetes_igazgatoi_intes: number
+    buntetes_igazgatoi_megrovas: number
+    buntetes_oktato_testuleti_figyelmeztetes: number
+    buntetes_fegyelmi_eljaras: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type IntezmenyiNeveltsegiMutatokUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    osztaly_jele?: StringFieldUpdateOperationsInput | string
+    igazolatlan_ora?: IntFieldUpdateOperationsInput | number
+    dicseret_oktatoi?: IntFieldUpdateOperationsInput | number
+    dicseret_osztalyfonoki?: IntFieldUpdateOperationsInput | number
+    dicseret_igazgatoi?: IntFieldUpdateOperationsInput | number
+    dicseret_oktato_testuleti?: IntFieldUpdateOperationsInput | number
+    buntetes_oktatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_intes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_megrovas?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_intes?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_megrovas?: IntFieldUpdateOperationsInput | number
+    buntetes_oktato_testuleti_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_fegyelmi_eljaras?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type IntezmenyiNeveltsegiMutatokUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     alapadatok_id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     osztaly_jele?: StringFieldUpdateOperationsInput | string
     igazolatlan_ora?: IntFieldUpdateOperationsInput | number
-    oktato_testuleti_dicseret?: IntFieldUpdateOperationsInput | number
-    oktatoi_dicseret?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_dicseret?: IntFieldUpdateOperationsInput | number
-    igazagatoi_dicseret?: IntFieldUpdateOperationsInput | number
-    oktato_testuleti_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    oktatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_intes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_megrovas?: IntFieldUpdateOperationsInput | number
-    igazgatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    igazgatoi_intes?: IntFieldUpdateOperationsInput | number
-    igazgatoi_megrovas?: IntFieldUpdateOperationsInput | number
-    fegyelmi_eljaras?: IntFieldUpdateOperationsInput | number
+    dicseret_oktatoi?: IntFieldUpdateOperationsInput | number
+    dicseret_osztalyfonoki?: IntFieldUpdateOperationsInput | number
+    dicseret_igazgatoi?: IntFieldUpdateOperationsInput | number
+    dicseret_oktato_testuleti?: IntFieldUpdateOperationsInput | number
+    buntetes_oktatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_intes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_megrovas?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_intes?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_megrovas?: IntFieldUpdateOperationsInput | number
+    buntetes_oktato_testuleti_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_fegyelmi_eljaras?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -63621,10 +63621,10 @@ export namespace Prisma {
     none?: ElegedettsegMeresWhereInput
   }
 
-  export type IntezmenyiNeveltsegListRelationFilter = {
-    every?: IntezmenyiNeveltsegWhereInput
-    some?: IntezmenyiNeveltsegWhereInput
-    none?: IntezmenyiNeveltsegWhereInput
+  export type IntezmenyiNeveltsegiMutatokListRelationFilter = {
+    every?: IntezmenyiNeveltsegiMutatokWhereInput
+    some?: IntezmenyiNeveltsegiMutatokWhereInput
+    none?: IntezmenyiNeveltsegiMutatokWhereInput
   }
 
   export type HHEsHHHTanulokListRelationFilter = {
@@ -63747,7 +63747,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type IntezmenyiNeveltsegOrderByRelationAggregateInput = {
+  export type IntezmenyiNeveltsegiMutatokOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -65286,115 +65286,115 @@ export namespace Prisma {
     munkaero_piac_elegedettsege?: SortOrder
   }
 
-  export type IntezmenyiNeveltsegCountOrderByAggregateInput = {
+  export type IntezmenyiNeveltsegiMutatokCountOrderByAggregateInput = {
     id?: SortOrder
     alapadatok_id?: SortOrder
     tanev_kezdete?: SortOrder
     osztaly_jele?: SortOrder
     igazolatlan_ora?: SortOrder
-    oktato_testuleti_dicseret?: SortOrder
-    oktatoi_dicseret?: SortOrder
-    osztalyfonoki_dicseret?: SortOrder
-    igazagatoi_dicseret?: SortOrder
-    oktato_testuleti_figyelmeztetes?: SortOrder
-    oktatoi_figyelmeztetes?: SortOrder
-    osztalyfonoki_figyelmeztetes?: SortOrder
-    osztalyfonoki_intes?: SortOrder
-    osztalyfonoki_megrovas?: SortOrder
-    igazgatoi_figyelmeztetes?: SortOrder
-    igazgatoi_intes?: SortOrder
-    igazgatoi_megrovas?: SortOrder
-    fegyelmi_eljaras?: SortOrder
+    dicseret_oktatoi?: SortOrder
+    dicseret_osztalyfonoki?: SortOrder
+    dicseret_igazgatoi?: SortOrder
+    dicseret_oktato_testuleti?: SortOrder
+    buntetes_oktatoi_figyelmeztetes?: SortOrder
+    buntetes_osztalyfonoki_figyelmeztetes?: SortOrder
+    buntetes_osztalyfonoki_intes?: SortOrder
+    buntetes_osztalyfonoki_megrovas?: SortOrder
+    buntetes_igazgatoi_figyelmeztetes?: SortOrder
+    buntetes_igazgatoi_intes?: SortOrder
+    buntetes_igazgatoi_megrovas?: SortOrder
+    buntetes_oktato_testuleti_figyelmeztetes?: SortOrder
+    buntetes_fegyelmi_eljaras?: SortOrder
     createAt?: SortOrder
     createBy?: SortOrder
     updatedAt?: SortOrder
     updatedBy?: SortOrder
   }
 
-  export type IntezmenyiNeveltsegAvgOrderByAggregateInput = {
+  export type IntezmenyiNeveltsegiMutatokAvgOrderByAggregateInput = {
     tanev_kezdete?: SortOrder
     igazolatlan_ora?: SortOrder
-    oktato_testuleti_dicseret?: SortOrder
-    oktatoi_dicseret?: SortOrder
-    osztalyfonoki_dicseret?: SortOrder
-    igazagatoi_dicseret?: SortOrder
-    oktato_testuleti_figyelmeztetes?: SortOrder
-    oktatoi_figyelmeztetes?: SortOrder
-    osztalyfonoki_figyelmeztetes?: SortOrder
-    osztalyfonoki_intes?: SortOrder
-    osztalyfonoki_megrovas?: SortOrder
-    igazgatoi_figyelmeztetes?: SortOrder
-    igazgatoi_intes?: SortOrder
-    igazgatoi_megrovas?: SortOrder
-    fegyelmi_eljaras?: SortOrder
+    dicseret_oktatoi?: SortOrder
+    dicseret_osztalyfonoki?: SortOrder
+    dicseret_igazgatoi?: SortOrder
+    dicseret_oktato_testuleti?: SortOrder
+    buntetes_oktatoi_figyelmeztetes?: SortOrder
+    buntetes_osztalyfonoki_figyelmeztetes?: SortOrder
+    buntetes_osztalyfonoki_intes?: SortOrder
+    buntetes_osztalyfonoki_megrovas?: SortOrder
+    buntetes_igazgatoi_figyelmeztetes?: SortOrder
+    buntetes_igazgatoi_intes?: SortOrder
+    buntetes_igazgatoi_megrovas?: SortOrder
+    buntetes_oktato_testuleti_figyelmeztetes?: SortOrder
+    buntetes_fegyelmi_eljaras?: SortOrder
   }
 
-  export type IntezmenyiNeveltsegMaxOrderByAggregateInput = {
+  export type IntezmenyiNeveltsegiMutatokMaxOrderByAggregateInput = {
     id?: SortOrder
     alapadatok_id?: SortOrder
     tanev_kezdete?: SortOrder
     osztaly_jele?: SortOrder
     igazolatlan_ora?: SortOrder
-    oktato_testuleti_dicseret?: SortOrder
-    oktatoi_dicseret?: SortOrder
-    osztalyfonoki_dicseret?: SortOrder
-    igazagatoi_dicseret?: SortOrder
-    oktato_testuleti_figyelmeztetes?: SortOrder
-    oktatoi_figyelmeztetes?: SortOrder
-    osztalyfonoki_figyelmeztetes?: SortOrder
-    osztalyfonoki_intes?: SortOrder
-    osztalyfonoki_megrovas?: SortOrder
-    igazgatoi_figyelmeztetes?: SortOrder
-    igazgatoi_intes?: SortOrder
-    igazgatoi_megrovas?: SortOrder
-    fegyelmi_eljaras?: SortOrder
+    dicseret_oktatoi?: SortOrder
+    dicseret_osztalyfonoki?: SortOrder
+    dicseret_igazgatoi?: SortOrder
+    dicseret_oktato_testuleti?: SortOrder
+    buntetes_oktatoi_figyelmeztetes?: SortOrder
+    buntetes_osztalyfonoki_figyelmeztetes?: SortOrder
+    buntetes_osztalyfonoki_intes?: SortOrder
+    buntetes_osztalyfonoki_megrovas?: SortOrder
+    buntetes_igazgatoi_figyelmeztetes?: SortOrder
+    buntetes_igazgatoi_intes?: SortOrder
+    buntetes_igazgatoi_megrovas?: SortOrder
+    buntetes_oktato_testuleti_figyelmeztetes?: SortOrder
+    buntetes_fegyelmi_eljaras?: SortOrder
     createAt?: SortOrder
     createBy?: SortOrder
     updatedAt?: SortOrder
     updatedBy?: SortOrder
   }
 
-  export type IntezmenyiNeveltsegMinOrderByAggregateInput = {
+  export type IntezmenyiNeveltsegiMutatokMinOrderByAggregateInput = {
     id?: SortOrder
     alapadatok_id?: SortOrder
     tanev_kezdete?: SortOrder
     osztaly_jele?: SortOrder
     igazolatlan_ora?: SortOrder
-    oktato_testuleti_dicseret?: SortOrder
-    oktatoi_dicseret?: SortOrder
-    osztalyfonoki_dicseret?: SortOrder
-    igazagatoi_dicseret?: SortOrder
-    oktato_testuleti_figyelmeztetes?: SortOrder
-    oktatoi_figyelmeztetes?: SortOrder
-    osztalyfonoki_figyelmeztetes?: SortOrder
-    osztalyfonoki_intes?: SortOrder
-    osztalyfonoki_megrovas?: SortOrder
-    igazgatoi_figyelmeztetes?: SortOrder
-    igazgatoi_intes?: SortOrder
-    igazgatoi_megrovas?: SortOrder
-    fegyelmi_eljaras?: SortOrder
+    dicseret_oktatoi?: SortOrder
+    dicseret_osztalyfonoki?: SortOrder
+    dicseret_igazgatoi?: SortOrder
+    dicseret_oktato_testuleti?: SortOrder
+    buntetes_oktatoi_figyelmeztetes?: SortOrder
+    buntetes_osztalyfonoki_figyelmeztetes?: SortOrder
+    buntetes_osztalyfonoki_intes?: SortOrder
+    buntetes_osztalyfonoki_megrovas?: SortOrder
+    buntetes_igazgatoi_figyelmeztetes?: SortOrder
+    buntetes_igazgatoi_intes?: SortOrder
+    buntetes_igazgatoi_megrovas?: SortOrder
+    buntetes_oktato_testuleti_figyelmeztetes?: SortOrder
+    buntetes_fegyelmi_eljaras?: SortOrder
     createAt?: SortOrder
     createBy?: SortOrder
     updatedAt?: SortOrder
     updatedBy?: SortOrder
   }
 
-  export type IntezmenyiNeveltsegSumOrderByAggregateInput = {
+  export type IntezmenyiNeveltsegiMutatokSumOrderByAggregateInput = {
     tanev_kezdete?: SortOrder
     igazolatlan_ora?: SortOrder
-    oktato_testuleti_dicseret?: SortOrder
-    oktatoi_dicseret?: SortOrder
-    osztalyfonoki_dicseret?: SortOrder
-    igazagatoi_dicseret?: SortOrder
-    oktato_testuleti_figyelmeztetes?: SortOrder
-    oktatoi_figyelmeztetes?: SortOrder
-    osztalyfonoki_figyelmeztetes?: SortOrder
-    osztalyfonoki_intes?: SortOrder
-    osztalyfonoki_megrovas?: SortOrder
-    igazgatoi_figyelmeztetes?: SortOrder
-    igazgatoi_intes?: SortOrder
-    igazgatoi_megrovas?: SortOrder
-    fegyelmi_eljaras?: SortOrder
+    dicseret_oktatoi?: SortOrder
+    dicseret_osztalyfonoki?: SortOrder
+    dicseret_igazgatoi?: SortOrder
+    dicseret_oktato_testuleti?: SortOrder
+    buntetes_oktatoi_figyelmeztetes?: SortOrder
+    buntetes_osztalyfonoki_figyelmeztetes?: SortOrder
+    buntetes_osztalyfonoki_intes?: SortOrder
+    buntetes_osztalyfonoki_megrovas?: SortOrder
+    buntetes_igazgatoi_figyelmeztetes?: SortOrder
+    buntetes_igazgatoi_intes?: SortOrder
+    buntetes_igazgatoi_megrovas?: SortOrder
+    buntetes_oktato_testuleti_figyelmeztetes?: SortOrder
+    buntetes_fegyelmi_eljaras?: SortOrder
   }
 
   export type HHEsHHHTanulokCountOrderByAggregateInput = {
@@ -66507,11 +66507,11 @@ export namespace Prisma {
     connect?: ElegedettsegMeresWhereUniqueInput | ElegedettsegMeresWhereUniqueInput[]
   }
 
-  export type IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput = {
-    create?: XOR<IntezmenyiNeveltsegCreateWithoutAlapadatokInput, IntezmenyiNeveltsegUncheckedCreateWithoutAlapadatokInput> | IntezmenyiNeveltsegCreateWithoutAlapadatokInput[] | IntezmenyiNeveltsegUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: IntezmenyiNeveltsegCreateOrConnectWithoutAlapadatokInput | IntezmenyiNeveltsegCreateOrConnectWithoutAlapadatokInput[]
-    createMany?: IntezmenyiNeveltsegCreateManyAlapadatokInputEnvelope
-    connect?: IntezmenyiNeveltsegWhereUniqueInput | IntezmenyiNeveltsegWhereUniqueInput[]
+  export type IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<IntezmenyiNeveltsegiMutatokCreateWithoutAlapadatokInput, IntezmenyiNeveltsegiMutatokUncheckedCreateWithoutAlapadatokInput> | IntezmenyiNeveltsegiMutatokCreateWithoutAlapadatokInput[] | IntezmenyiNeveltsegiMutatokUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: IntezmenyiNeveltsegiMutatokCreateOrConnectWithoutAlapadatokInput | IntezmenyiNeveltsegiMutatokCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: IntezmenyiNeveltsegiMutatokCreateManyAlapadatokInputEnvelope
+    connect?: IntezmenyiNeveltsegiMutatokWhereUniqueInput | IntezmenyiNeveltsegiMutatokWhereUniqueInput[]
   }
 
   export type HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput = {
@@ -66696,11 +66696,11 @@ export namespace Prisma {
     connect?: ElegedettsegMeresWhereUniqueInput | ElegedettsegMeresWhereUniqueInput[]
   }
 
-  export type IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput = {
-    create?: XOR<IntezmenyiNeveltsegCreateWithoutAlapadatokInput, IntezmenyiNeveltsegUncheckedCreateWithoutAlapadatokInput> | IntezmenyiNeveltsegCreateWithoutAlapadatokInput[] | IntezmenyiNeveltsegUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: IntezmenyiNeveltsegCreateOrConnectWithoutAlapadatokInput | IntezmenyiNeveltsegCreateOrConnectWithoutAlapadatokInput[]
-    createMany?: IntezmenyiNeveltsegCreateManyAlapadatokInputEnvelope
-    connect?: IntezmenyiNeveltsegWhereUniqueInput | IntezmenyiNeveltsegWhereUniqueInput[]
+  export type IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<IntezmenyiNeveltsegiMutatokCreateWithoutAlapadatokInput, IntezmenyiNeveltsegiMutatokUncheckedCreateWithoutAlapadatokInput> | IntezmenyiNeveltsegiMutatokCreateWithoutAlapadatokInput[] | IntezmenyiNeveltsegiMutatokUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: IntezmenyiNeveltsegiMutatokCreateOrConnectWithoutAlapadatokInput | IntezmenyiNeveltsegiMutatokCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: IntezmenyiNeveltsegiMutatokCreateManyAlapadatokInputEnvelope
+    connect?: IntezmenyiNeveltsegiMutatokWhereUniqueInput | IntezmenyiNeveltsegiMutatokWhereUniqueInput[]
   }
 
   export type HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput = {
@@ -67011,18 +67011,18 @@ export namespace Prisma {
     deleteMany?: ElegedettsegMeresScalarWhereInput | ElegedettsegMeresScalarWhereInput[]
   }
 
-  export type IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput = {
-    create?: XOR<IntezmenyiNeveltsegCreateWithoutAlapadatokInput, IntezmenyiNeveltsegUncheckedCreateWithoutAlapadatokInput> | IntezmenyiNeveltsegCreateWithoutAlapadatokInput[] | IntezmenyiNeveltsegUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: IntezmenyiNeveltsegCreateOrConnectWithoutAlapadatokInput | IntezmenyiNeveltsegCreateOrConnectWithoutAlapadatokInput[]
-    upsert?: IntezmenyiNeveltsegUpsertWithWhereUniqueWithoutAlapadatokInput | IntezmenyiNeveltsegUpsertWithWhereUniqueWithoutAlapadatokInput[]
-    createMany?: IntezmenyiNeveltsegCreateManyAlapadatokInputEnvelope
-    set?: IntezmenyiNeveltsegWhereUniqueInput | IntezmenyiNeveltsegWhereUniqueInput[]
-    disconnect?: IntezmenyiNeveltsegWhereUniqueInput | IntezmenyiNeveltsegWhereUniqueInput[]
-    delete?: IntezmenyiNeveltsegWhereUniqueInput | IntezmenyiNeveltsegWhereUniqueInput[]
-    connect?: IntezmenyiNeveltsegWhereUniqueInput | IntezmenyiNeveltsegWhereUniqueInput[]
-    update?: IntezmenyiNeveltsegUpdateWithWhereUniqueWithoutAlapadatokInput | IntezmenyiNeveltsegUpdateWithWhereUniqueWithoutAlapadatokInput[]
-    updateMany?: IntezmenyiNeveltsegUpdateManyWithWhereWithoutAlapadatokInput | IntezmenyiNeveltsegUpdateManyWithWhereWithoutAlapadatokInput[]
-    deleteMany?: IntezmenyiNeveltsegScalarWhereInput | IntezmenyiNeveltsegScalarWhereInput[]
+  export type IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<IntezmenyiNeveltsegiMutatokCreateWithoutAlapadatokInput, IntezmenyiNeveltsegiMutatokUncheckedCreateWithoutAlapadatokInput> | IntezmenyiNeveltsegiMutatokCreateWithoutAlapadatokInput[] | IntezmenyiNeveltsegiMutatokUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: IntezmenyiNeveltsegiMutatokCreateOrConnectWithoutAlapadatokInput | IntezmenyiNeveltsegiMutatokCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: IntezmenyiNeveltsegiMutatokUpsertWithWhereUniqueWithoutAlapadatokInput | IntezmenyiNeveltsegiMutatokUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: IntezmenyiNeveltsegiMutatokCreateManyAlapadatokInputEnvelope
+    set?: IntezmenyiNeveltsegiMutatokWhereUniqueInput | IntezmenyiNeveltsegiMutatokWhereUniqueInput[]
+    disconnect?: IntezmenyiNeveltsegiMutatokWhereUniqueInput | IntezmenyiNeveltsegiMutatokWhereUniqueInput[]
+    delete?: IntezmenyiNeveltsegiMutatokWhereUniqueInput | IntezmenyiNeveltsegiMutatokWhereUniqueInput[]
+    connect?: IntezmenyiNeveltsegiMutatokWhereUniqueInput | IntezmenyiNeveltsegiMutatokWhereUniqueInput[]
+    update?: IntezmenyiNeveltsegiMutatokUpdateWithWhereUniqueWithoutAlapadatokInput | IntezmenyiNeveltsegiMutatokUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: IntezmenyiNeveltsegiMutatokUpdateManyWithWhereWithoutAlapadatokInput | IntezmenyiNeveltsegiMutatokUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: IntezmenyiNeveltsegiMutatokScalarWhereInput | IntezmenyiNeveltsegiMutatokScalarWhereInput[]
   }
 
   export type HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput = {
@@ -67389,18 +67389,18 @@ export namespace Prisma {
     deleteMany?: ElegedettsegMeresScalarWhereInput | ElegedettsegMeresScalarWhereInput[]
   }
 
-  export type IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput = {
-    create?: XOR<IntezmenyiNeveltsegCreateWithoutAlapadatokInput, IntezmenyiNeveltsegUncheckedCreateWithoutAlapadatokInput> | IntezmenyiNeveltsegCreateWithoutAlapadatokInput[] | IntezmenyiNeveltsegUncheckedCreateWithoutAlapadatokInput[]
-    connectOrCreate?: IntezmenyiNeveltsegCreateOrConnectWithoutAlapadatokInput | IntezmenyiNeveltsegCreateOrConnectWithoutAlapadatokInput[]
-    upsert?: IntezmenyiNeveltsegUpsertWithWhereUniqueWithoutAlapadatokInput | IntezmenyiNeveltsegUpsertWithWhereUniqueWithoutAlapadatokInput[]
-    createMany?: IntezmenyiNeveltsegCreateManyAlapadatokInputEnvelope
-    set?: IntezmenyiNeveltsegWhereUniqueInput | IntezmenyiNeveltsegWhereUniqueInput[]
-    disconnect?: IntezmenyiNeveltsegWhereUniqueInput | IntezmenyiNeveltsegWhereUniqueInput[]
-    delete?: IntezmenyiNeveltsegWhereUniqueInput | IntezmenyiNeveltsegWhereUniqueInput[]
-    connect?: IntezmenyiNeveltsegWhereUniqueInput | IntezmenyiNeveltsegWhereUniqueInput[]
-    update?: IntezmenyiNeveltsegUpdateWithWhereUniqueWithoutAlapadatokInput | IntezmenyiNeveltsegUpdateWithWhereUniqueWithoutAlapadatokInput[]
-    updateMany?: IntezmenyiNeveltsegUpdateManyWithWhereWithoutAlapadatokInput | IntezmenyiNeveltsegUpdateManyWithWhereWithoutAlapadatokInput[]
-    deleteMany?: IntezmenyiNeveltsegScalarWhereInput | IntezmenyiNeveltsegScalarWhereInput[]
+  export type IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<IntezmenyiNeveltsegiMutatokCreateWithoutAlapadatokInput, IntezmenyiNeveltsegiMutatokUncheckedCreateWithoutAlapadatokInput> | IntezmenyiNeveltsegiMutatokCreateWithoutAlapadatokInput[] | IntezmenyiNeveltsegiMutatokUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: IntezmenyiNeveltsegiMutatokCreateOrConnectWithoutAlapadatokInput | IntezmenyiNeveltsegiMutatokCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: IntezmenyiNeveltsegiMutatokUpsertWithWhereUniqueWithoutAlapadatokInput | IntezmenyiNeveltsegiMutatokUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: IntezmenyiNeveltsegiMutatokCreateManyAlapadatokInputEnvelope
+    set?: IntezmenyiNeveltsegiMutatokWhereUniqueInput | IntezmenyiNeveltsegiMutatokWhereUniqueInput[]
+    disconnect?: IntezmenyiNeveltsegiMutatokWhereUniqueInput | IntezmenyiNeveltsegiMutatokWhereUniqueInput[]
+    delete?: IntezmenyiNeveltsegiMutatokWhereUniqueInput | IntezmenyiNeveltsegiMutatokWhereUniqueInput[]
+    connect?: IntezmenyiNeveltsegiMutatokWhereUniqueInput | IntezmenyiNeveltsegiMutatokWhereUniqueInput[]
+    update?: IntezmenyiNeveltsegiMutatokUpdateWithWhereUniqueWithoutAlapadatokInput | IntezmenyiNeveltsegiMutatokUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: IntezmenyiNeveltsegiMutatokUpdateManyWithWhereWithoutAlapadatokInput | IntezmenyiNeveltsegiMutatokUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: IntezmenyiNeveltsegiMutatokScalarWhereInput | IntezmenyiNeveltsegiMutatokScalarWhereInput[]
   }
 
   export type HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput = {
@@ -69017,18 +69017,18 @@ export namespace Prisma {
     update?: XOR<XOR<AlapadatokUpdateToOneWithWhereWithoutElegedettsegMeresInput, AlapadatokUpdateWithoutElegedettsegMeresInput>, AlapadatokUncheckedUpdateWithoutElegedettsegMeresInput>
   }
 
-  export type AlapadatokCreateNestedOneWithoutIntezmenyiNeveltsegInput = {
-    create?: XOR<AlapadatokCreateWithoutIntezmenyiNeveltsegInput, AlapadatokUncheckedCreateWithoutIntezmenyiNeveltsegInput>
-    connectOrCreate?: AlapadatokCreateOrConnectWithoutIntezmenyiNeveltsegInput
+  export type AlapadatokCreateNestedOneWithoutIntezmenyiNeveltsegiMutatokInput = {
+    create?: XOR<AlapadatokCreateWithoutIntezmenyiNeveltsegiMutatokInput, AlapadatokUncheckedCreateWithoutIntezmenyiNeveltsegiMutatokInput>
+    connectOrCreate?: AlapadatokCreateOrConnectWithoutIntezmenyiNeveltsegiMutatokInput
     connect?: AlapadatokWhereUniqueInput
   }
 
-  export type AlapadatokUpdateOneRequiredWithoutIntezmenyiNeveltsegNestedInput = {
-    create?: XOR<AlapadatokCreateWithoutIntezmenyiNeveltsegInput, AlapadatokUncheckedCreateWithoutIntezmenyiNeveltsegInput>
-    connectOrCreate?: AlapadatokCreateOrConnectWithoutIntezmenyiNeveltsegInput
-    upsert?: AlapadatokUpsertWithoutIntezmenyiNeveltsegInput
+  export type AlapadatokUpdateOneRequiredWithoutIntezmenyiNeveltsegiMutatokNestedInput = {
+    create?: XOR<AlapadatokCreateWithoutIntezmenyiNeveltsegiMutatokInput, AlapadatokUncheckedCreateWithoutIntezmenyiNeveltsegiMutatokInput>
+    connectOrCreate?: AlapadatokCreateOrConnectWithoutIntezmenyiNeveltsegiMutatokInput
+    upsert?: AlapadatokUpsertWithoutIntezmenyiNeveltsegiMutatokInput
     connect?: AlapadatokWhereUniqueInput
-    update?: XOR<XOR<AlapadatokUpdateToOneWithWhereWithoutIntezmenyiNeveltsegInput, AlapadatokUpdateWithoutIntezmenyiNeveltsegInput>, AlapadatokUncheckedUpdateWithoutIntezmenyiNeveltsegInput>
+    update?: XOR<XOR<AlapadatokUpdateToOneWithWhereWithoutIntezmenyiNeveltsegiMutatokInput, AlapadatokUpdateWithoutIntezmenyiNeveltsegiMutatokInput>, AlapadatokUncheckedUpdateWithoutIntezmenyiNeveltsegiMutatokInput>
   }
 
   export type AlapadatokCreateNestedOneWithoutHhesHhhTanulokInput = {
@@ -69519,7 +69519,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -69552,7 +69552,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -69664,7 +69664,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -69697,7 +69697,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -70771,61 +70771,61 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type IntezmenyiNeveltsegCreateWithoutAlapadatokInput = {
+  export type IntezmenyiNeveltsegiMutatokCreateWithoutAlapadatokInput = {
     id?: string
     tanev_kezdete: number
     osztaly_jele: string
     igazolatlan_ora: number
-    oktato_testuleti_dicseret: number
-    oktatoi_dicseret: number
-    osztalyfonoki_dicseret: number
-    igazagatoi_dicseret: number
-    oktato_testuleti_figyelmeztetes: number
-    oktatoi_figyelmeztetes: number
-    osztalyfonoki_figyelmeztetes: number
-    osztalyfonoki_intes: number
-    osztalyfonoki_megrovas: number
-    igazgatoi_figyelmeztetes: number
-    igazgatoi_intes: number
-    igazgatoi_megrovas: number
-    fegyelmi_eljaras: number
+    dicseret_oktatoi: number
+    dicseret_osztalyfonoki: number
+    dicseret_igazgatoi: number
+    dicseret_oktato_testuleti: number
+    buntetes_oktatoi_figyelmeztetes: number
+    buntetes_osztalyfonoki_figyelmeztetes: number
+    buntetes_osztalyfonoki_intes: number
+    buntetes_osztalyfonoki_megrovas: number
+    buntetes_igazgatoi_figyelmeztetes: number
+    buntetes_igazgatoi_intes: number
+    buntetes_igazgatoi_megrovas: number
+    buntetes_oktato_testuleti_figyelmeztetes: number
+    buntetes_fegyelmi_eljaras: number
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
   }
 
-  export type IntezmenyiNeveltsegUncheckedCreateWithoutAlapadatokInput = {
+  export type IntezmenyiNeveltsegiMutatokUncheckedCreateWithoutAlapadatokInput = {
     id?: string
     tanev_kezdete: number
     osztaly_jele: string
     igazolatlan_ora: number
-    oktato_testuleti_dicseret: number
-    oktatoi_dicseret: number
-    osztalyfonoki_dicseret: number
-    igazagatoi_dicseret: number
-    oktato_testuleti_figyelmeztetes: number
-    oktatoi_figyelmeztetes: number
-    osztalyfonoki_figyelmeztetes: number
-    osztalyfonoki_intes: number
-    osztalyfonoki_megrovas: number
-    igazgatoi_figyelmeztetes: number
-    igazgatoi_intes: number
-    igazgatoi_megrovas: number
-    fegyelmi_eljaras: number
+    dicseret_oktatoi: number
+    dicseret_osztalyfonoki: number
+    dicseret_igazgatoi: number
+    dicseret_oktato_testuleti: number
+    buntetes_oktatoi_figyelmeztetes: number
+    buntetes_osztalyfonoki_figyelmeztetes: number
+    buntetes_osztalyfonoki_intes: number
+    buntetes_osztalyfonoki_megrovas: number
+    buntetes_igazgatoi_figyelmeztetes: number
+    buntetes_igazgatoi_intes: number
+    buntetes_igazgatoi_megrovas: number
+    buntetes_oktato_testuleti_figyelmeztetes: number
+    buntetes_fegyelmi_eljaras: number
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
     updatedBy?: string | null
   }
 
-  export type IntezmenyiNeveltsegCreateOrConnectWithoutAlapadatokInput = {
-    where: IntezmenyiNeveltsegWhereUniqueInput
-    create: XOR<IntezmenyiNeveltsegCreateWithoutAlapadatokInput, IntezmenyiNeveltsegUncheckedCreateWithoutAlapadatokInput>
+  export type IntezmenyiNeveltsegiMutatokCreateOrConnectWithoutAlapadatokInput = {
+    where: IntezmenyiNeveltsegiMutatokWhereUniqueInput
+    create: XOR<IntezmenyiNeveltsegiMutatokCreateWithoutAlapadatokInput, IntezmenyiNeveltsegiMutatokUncheckedCreateWithoutAlapadatokInput>
   }
 
-  export type IntezmenyiNeveltsegCreateManyAlapadatokInputEnvelope = {
-    data: IntezmenyiNeveltsegCreateManyAlapadatokInput | IntezmenyiNeveltsegCreateManyAlapadatokInput[]
+  export type IntezmenyiNeveltsegiMutatokCreateManyAlapadatokInputEnvelope = {
+    data: IntezmenyiNeveltsegiMutatokCreateManyAlapadatokInput | IntezmenyiNeveltsegiMutatokCreateManyAlapadatokInput[]
     skipDuplicates?: boolean
   }
 
@@ -72023,48 +72023,48 @@ export namespace Prisma {
     updatedBy?: StringNullableFilter<"ElegedettsegMeres"> | string | null
   }
 
-  export type IntezmenyiNeveltsegUpsertWithWhereUniqueWithoutAlapadatokInput = {
-    where: IntezmenyiNeveltsegWhereUniqueInput
-    update: XOR<IntezmenyiNeveltsegUpdateWithoutAlapadatokInput, IntezmenyiNeveltsegUncheckedUpdateWithoutAlapadatokInput>
-    create: XOR<IntezmenyiNeveltsegCreateWithoutAlapadatokInput, IntezmenyiNeveltsegUncheckedCreateWithoutAlapadatokInput>
+  export type IntezmenyiNeveltsegiMutatokUpsertWithWhereUniqueWithoutAlapadatokInput = {
+    where: IntezmenyiNeveltsegiMutatokWhereUniqueInput
+    update: XOR<IntezmenyiNeveltsegiMutatokUpdateWithoutAlapadatokInput, IntezmenyiNeveltsegiMutatokUncheckedUpdateWithoutAlapadatokInput>
+    create: XOR<IntezmenyiNeveltsegiMutatokCreateWithoutAlapadatokInput, IntezmenyiNeveltsegiMutatokUncheckedCreateWithoutAlapadatokInput>
   }
 
-  export type IntezmenyiNeveltsegUpdateWithWhereUniqueWithoutAlapadatokInput = {
-    where: IntezmenyiNeveltsegWhereUniqueInput
-    data: XOR<IntezmenyiNeveltsegUpdateWithoutAlapadatokInput, IntezmenyiNeveltsegUncheckedUpdateWithoutAlapadatokInput>
+  export type IntezmenyiNeveltsegiMutatokUpdateWithWhereUniqueWithoutAlapadatokInput = {
+    where: IntezmenyiNeveltsegiMutatokWhereUniqueInput
+    data: XOR<IntezmenyiNeveltsegiMutatokUpdateWithoutAlapadatokInput, IntezmenyiNeveltsegiMutatokUncheckedUpdateWithoutAlapadatokInput>
   }
 
-  export type IntezmenyiNeveltsegUpdateManyWithWhereWithoutAlapadatokInput = {
-    where: IntezmenyiNeveltsegScalarWhereInput
-    data: XOR<IntezmenyiNeveltsegUpdateManyMutationInput, IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokInput>
+  export type IntezmenyiNeveltsegiMutatokUpdateManyWithWhereWithoutAlapadatokInput = {
+    where: IntezmenyiNeveltsegiMutatokScalarWhereInput
+    data: XOR<IntezmenyiNeveltsegiMutatokUpdateManyMutationInput, IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokInput>
   }
 
-  export type IntezmenyiNeveltsegScalarWhereInput = {
-    AND?: IntezmenyiNeveltsegScalarWhereInput | IntezmenyiNeveltsegScalarWhereInput[]
-    OR?: IntezmenyiNeveltsegScalarWhereInput[]
-    NOT?: IntezmenyiNeveltsegScalarWhereInput | IntezmenyiNeveltsegScalarWhereInput[]
-    id?: UuidFilter<"IntezmenyiNeveltseg"> | string
-    alapadatok_id?: UuidFilter<"IntezmenyiNeveltseg"> | string
-    tanev_kezdete?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztaly_jele?: StringFilter<"IntezmenyiNeveltseg"> | string
-    igazolatlan_ora?: IntFilter<"IntezmenyiNeveltseg"> | number
-    oktato_testuleti_dicseret?: IntFilter<"IntezmenyiNeveltseg"> | number
-    oktatoi_dicseret?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_dicseret?: IntFilter<"IntezmenyiNeveltseg"> | number
-    igazagatoi_dicseret?: IntFilter<"IntezmenyiNeveltseg"> | number
-    oktato_testuleti_figyelmeztetes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    oktatoi_figyelmeztetes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_figyelmeztetes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_intes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    osztalyfonoki_megrovas?: IntFilter<"IntezmenyiNeveltseg"> | number
-    igazgatoi_figyelmeztetes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    igazgatoi_intes?: IntFilter<"IntezmenyiNeveltseg"> | number
-    igazgatoi_megrovas?: IntFilter<"IntezmenyiNeveltseg"> | number
-    fegyelmi_eljaras?: IntFilter<"IntezmenyiNeveltseg"> | number
-    createAt?: DateTimeFilter<"IntezmenyiNeveltseg"> | Date | string
-    createBy?: StringNullableFilter<"IntezmenyiNeveltseg"> | string | null
-    updatedAt?: DateTimeNullableFilter<"IntezmenyiNeveltseg"> | Date | string | null
-    updatedBy?: StringNullableFilter<"IntezmenyiNeveltseg"> | string | null
+  export type IntezmenyiNeveltsegiMutatokScalarWhereInput = {
+    AND?: IntezmenyiNeveltsegiMutatokScalarWhereInput | IntezmenyiNeveltsegiMutatokScalarWhereInput[]
+    OR?: IntezmenyiNeveltsegiMutatokScalarWhereInput[]
+    NOT?: IntezmenyiNeveltsegiMutatokScalarWhereInput | IntezmenyiNeveltsegiMutatokScalarWhereInput[]
+    id?: UuidFilter<"IntezmenyiNeveltsegiMutatok"> | string
+    alapadatok_id?: UuidFilter<"IntezmenyiNeveltsegiMutatok"> | string
+    tanev_kezdete?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    osztaly_jele?: StringFilter<"IntezmenyiNeveltsegiMutatok"> | string
+    igazolatlan_ora?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_oktatoi?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_osztalyfonoki?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_igazgatoi?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    dicseret_oktato_testuleti?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_oktatoi_figyelmeztetes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_osztalyfonoki_figyelmeztetes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_osztalyfonoki_intes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_osztalyfonoki_megrovas?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_igazgatoi_figyelmeztetes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_igazgatoi_intes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_igazgatoi_megrovas?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_oktato_testuleti_figyelmeztetes?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    buntetes_fegyelmi_eljaras?: IntFilter<"IntezmenyiNeveltsegiMutatok"> | number
+    createAt?: DateTimeFilter<"IntezmenyiNeveltsegiMutatok"> | Date | string
+    createBy?: StringNullableFilter<"IntezmenyiNeveltsegiMutatok"> | string | null
+    updatedAt?: DateTimeNullableFilter<"IntezmenyiNeveltsegiMutatok"> | Date | string | null
+    updatedBy?: StringNullableFilter<"IntezmenyiNeveltsegiMutatok"> | string | null
   }
 
   export type HHEsHHHTanulokUpsertWithWhereUniqueWithoutAlapadatokInput = {
@@ -73605,7 +73605,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -73638,7 +73638,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -73720,7 +73720,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -73753,7 +73753,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -73825,7 +73825,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -73858,7 +73858,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -73942,7 +73942,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -73975,7 +73975,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -74049,7 +74049,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -74082,7 +74082,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -74199,7 +74199,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -74232,7 +74232,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -74345,7 +74345,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -74378,7 +74378,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -74427,7 +74427,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -74460,7 +74460,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -74493,7 +74493,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -74526,7 +74526,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -74643,7 +74643,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -74676,7 +74676,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -74789,7 +74789,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -74822,7 +74822,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -74871,7 +74871,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -74904,7 +74904,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -74937,7 +74937,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -74970,7 +74970,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -75019,7 +75019,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -75052,7 +75052,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -75085,7 +75085,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -75118,7 +75118,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -75167,7 +75167,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -75200,7 +75200,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -75233,7 +75233,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -75266,7 +75266,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -75315,7 +75315,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -75348,7 +75348,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -75381,7 +75381,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -75414,7 +75414,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -75531,7 +75531,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -75564,7 +75564,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -75842,7 +75842,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -75875,7 +75875,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -75949,7 +75949,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -75982,7 +75982,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -76046,7 +76046,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -76079,7 +76079,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -76128,7 +76128,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -76161,7 +76161,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -76194,7 +76194,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -76227,7 +76227,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -76344,7 +76344,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -76377,7 +76377,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -76490,7 +76490,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -76523,7 +76523,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -76640,7 +76640,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -76673,7 +76673,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -76786,7 +76786,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -76819,7 +76819,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -76936,7 +76936,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -76969,7 +76969,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -77082,7 +77082,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -77115,7 +77115,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -77232,7 +77232,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -77265,7 +77265,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -77378,7 +77378,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -77411,7 +77411,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -77528,7 +77528,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -77561,7 +77561,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -77674,7 +77674,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -77707,7 +77707,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -77756,7 +77756,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -77789,7 +77789,7 @@ export namespace Prisma {
     vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -77800,7 +77800,7 @@ export namespace Prisma {
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
-  export type AlapadatokCreateWithoutIntezmenyiNeveltsegInput = {
+  export type AlapadatokCreateWithoutIntezmenyiNeveltsegiMutatokInput = {
     id?: string
     iskola_neve: string
     intezmeny_tipus: string
@@ -77833,7 +77833,7 @@ export namespace Prisma {
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
-  export type AlapadatokUncheckedCreateWithoutIntezmenyiNeveltsegInput = {
+  export type AlapadatokUncheckedCreateWithoutIntezmenyiNeveltsegiMutatokInput = {
     id?: string
     iskola_neve: string
     intezmeny_tipus: string
@@ -77866,23 +77866,23 @@ export namespace Prisma {
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
-  export type AlapadatokCreateOrConnectWithoutIntezmenyiNeveltsegInput = {
+  export type AlapadatokCreateOrConnectWithoutIntezmenyiNeveltsegiMutatokInput = {
     where: AlapadatokWhereUniqueInput
-    create: XOR<AlapadatokCreateWithoutIntezmenyiNeveltsegInput, AlapadatokUncheckedCreateWithoutIntezmenyiNeveltsegInput>
+    create: XOR<AlapadatokCreateWithoutIntezmenyiNeveltsegiMutatokInput, AlapadatokUncheckedCreateWithoutIntezmenyiNeveltsegiMutatokInput>
   }
 
-  export type AlapadatokUpsertWithoutIntezmenyiNeveltsegInput = {
-    update: XOR<AlapadatokUpdateWithoutIntezmenyiNeveltsegInput, AlapadatokUncheckedUpdateWithoutIntezmenyiNeveltsegInput>
-    create: XOR<AlapadatokCreateWithoutIntezmenyiNeveltsegInput, AlapadatokUncheckedCreateWithoutIntezmenyiNeveltsegInput>
+  export type AlapadatokUpsertWithoutIntezmenyiNeveltsegiMutatokInput = {
+    update: XOR<AlapadatokUpdateWithoutIntezmenyiNeveltsegiMutatokInput, AlapadatokUncheckedUpdateWithoutIntezmenyiNeveltsegiMutatokInput>
+    create: XOR<AlapadatokCreateWithoutIntezmenyiNeveltsegiMutatokInput, AlapadatokUncheckedCreateWithoutIntezmenyiNeveltsegiMutatokInput>
     where?: AlapadatokWhereInput
   }
 
-  export type AlapadatokUpdateToOneWithWhereWithoutIntezmenyiNeveltsegInput = {
+  export type AlapadatokUpdateToOneWithWhereWithoutIntezmenyiNeveltsegiMutatokInput = {
     where?: AlapadatokWhereInput
-    data: XOR<AlapadatokUpdateWithoutIntezmenyiNeveltsegInput, AlapadatokUncheckedUpdateWithoutIntezmenyiNeveltsegInput>
+    data: XOR<AlapadatokUpdateWithoutIntezmenyiNeveltsegiMutatokInput, AlapadatokUncheckedUpdateWithoutIntezmenyiNeveltsegiMutatokInput>
   }
 
-  export type AlapadatokUpdateWithoutIntezmenyiNeveltsegInput = {
+  export type AlapadatokUpdateWithoutIntezmenyiNeveltsegiMutatokInput = {
     id?: StringFieldUpdateOperationsInput | string
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
@@ -77915,7 +77915,7 @@ export namespace Prisma {
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
-  export type AlapadatokUncheckedUpdateWithoutIntezmenyiNeveltsegInput = {
+  export type AlapadatokUncheckedUpdateWithoutIntezmenyiNeveltsegiMutatokInput = {
     id?: StringFieldUpdateOperationsInput | string
     iskola_neve?: StringFieldUpdateOperationsInput | string
     intezmeny_tipus?: StringFieldUpdateOperationsInput | string
@@ -77971,7 +77971,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
@@ -78004,7 +78004,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -78053,7 +78053,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
@@ -78086,7 +78086,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -78119,7 +78119,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
@@ -78152,7 +78152,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -78201,7 +78201,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
@@ -78234,7 +78234,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -78267,7 +78267,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
@@ -78300,7 +78300,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -78349,7 +78349,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
@@ -78382,7 +78382,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -78415,7 +78415,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -78448,7 +78448,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -78497,7 +78497,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -78530,7 +78530,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -78563,7 +78563,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -78596,7 +78596,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -78645,7 +78645,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -78678,7 +78678,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -78711,7 +78711,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -78744,7 +78744,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -78793,7 +78793,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -78826,7 +78826,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -78859,7 +78859,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
@@ -78892,7 +78892,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
     lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
@@ -78941,7 +78941,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
@@ -78974,7 +78974,7 @@ export namespace Prisma {
     szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
     lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
     elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
-    intezmenyiNeveltseg?: IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
     hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
@@ -79430,24 +79430,24 @@ export namespace Prisma {
     updatedBy?: string | null
   }
 
-  export type IntezmenyiNeveltsegCreateManyAlapadatokInput = {
+  export type IntezmenyiNeveltsegiMutatokCreateManyAlapadatokInput = {
     id?: string
     tanev_kezdete: number
     osztaly_jele: string
     igazolatlan_ora: number
-    oktato_testuleti_dicseret: number
-    oktatoi_dicseret: number
-    osztalyfonoki_dicseret: number
-    igazagatoi_dicseret: number
-    oktato_testuleti_figyelmeztetes: number
-    oktatoi_figyelmeztetes: number
-    osztalyfonoki_figyelmeztetes: number
-    osztalyfonoki_intes: number
-    osztalyfonoki_megrovas: number
-    igazgatoi_figyelmeztetes: number
-    igazgatoi_intes: number
-    igazgatoi_megrovas: number
-    fegyelmi_eljaras: number
+    dicseret_oktatoi: number
+    dicseret_osztalyfonoki: number
+    dicseret_igazgatoi: number
+    dicseret_oktato_testuleti: number
+    buntetes_oktatoi_figyelmeztetes: number
+    buntetes_osztalyfonoki_figyelmeztetes: number
+    buntetes_osztalyfonoki_intes: number
+    buntetes_osztalyfonoki_megrovas: number
+    buntetes_igazgatoi_figyelmeztetes: number
+    buntetes_igazgatoi_intes: number
+    buntetes_igazgatoi_megrovas: number
+    buntetes_oktato_testuleti_figyelmeztetes: number
+    buntetes_fegyelmi_eljaras: number
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -80644,72 +80644,72 @@ export namespace Prisma {
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type IntezmenyiNeveltsegUpdateWithoutAlapadatokInput = {
+  export type IntezmenyiNeveltsegiMutatokUpdateWithoutAlapadatokInput = {
     id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     osztaly_jele?: StringFieldUpdateOperationsInput | string
     igazolatlan_ora?: IntFieldUpdateOperationsInput | number
-    oktato_testuleti_dicseret?: IntFieldUpdateOperationsInput | number
-    oktatoi_dicseret?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_dicseret?: IntFieldUpdateOperationsInput | number
-    igazagatoi_dicseret?: IntFieldUpdateOperationsInput | number
-    oktato_testuleti_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    oktatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_intes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_megrovas?: IntFieldUpdateOperationsInput | number
-    igazgatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    igazgatoi_intes?: IntFieldUpdateOperationsInput | number
-    igazgatoi_megrovas?: IntFieldUpdateOperationsInput | number
-    fegyelmi_eljaras?: IntFieldUpdateOperationsInput | number
+    dicseret_oktatoi?: IntFieldUpdateOperationsInput | number
+    dicseret_osztalyfonoki?: IntFieldUpdateOperationsInput | number
+    dicseret_igazgatoi?: IntFieldUpdateOperationsInput | number
+    dicseret_oktato_testuleti?: IntFieldUpdateOperationsInput | number
+    buntetes_oktatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_intes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_megrovas?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_intes?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_megrovas?: IntFieldUpdateOperationsInput | number
+    buntetes_oktato_testuleti_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_fegyelmi_eljaras?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type IntezmenyiNeveltsegUncheckedUpdateWithoutAlapadatokInput = {
+  export type IntezmenyiNeveltsegiMutatokUncheckedUpdateWithoutAlapadatokInput = {
     id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     osztaly_jele?: StringFieldUpdateOperationsInput | string
     igazolatlan_ora?: IntFieldUpdateOperationsInput | number
-    oktato_testuleti_dicseret?: IntFieldUpdateOperationsInput | number
-    oktatoi_dicseret?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_dicseret?: IntFieldUpdateOperationsInput | number
-    igazagatoi_dicseret?: IntFieldUpdateOperationsInput | number
-    oktato_testuleti_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    oktatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_intes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_megrovas?: IntFieldUpdateOperationsInput | number
-    igazgatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    igazgatoi_intes?: IntFieldUpdateOperationsInput | number
-    igazgatoi_megrovas?: IntFieldUpdateOperationsInput | number
-    fegyelmi_eljaras?: IntFieldUpdateOperationsInput | number
+    dicseret_oktatoi?: IntFieldUpdateOperationsInput | number
+    dicseret_osztalyfonoki?: IntFieldUpdateOperationsInput | number
+    dicseret_igazgatoi?: IntFieldUpdateOperationsInput | number
+    dicseret_oktato_testuleti?: IntFieldUpdateOperationsInput | number
+    buntetes_oktatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_intes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_megrovas?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_intes?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_megrovas?: IntFieldUpdateOperationsInput | number
+    buntetes_oktato_testuleti_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_fegyelmi_eljaras?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type IntezmenyiNeveltsegUncheckedUpdateManyWithoutAlapadatokInput = {
+  export type IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokInput = {
     id?: StringFieldUpdateOperationsInput | string
     tanev_kezdete?: IntFieldUpdateOperationsInput | number
     osztaly_jele?: StringFieldUpdateOperationsInput | string
     igazolatlan_ora?: IntFieldUpdateOperationsInput | number
-    oktato_testuleti_dicseret?: IntFieldUpdateOperationsInput | number
-    oktatoi_dicseret?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_dicseret?: IntFieldUpdateOperationsInput | number
-    igazagatoi_dicseret?: IntFieldUpdateOperationsInput | number
-    oktato_testuleti_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    oktatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_intes?: IntFieldUpdateOperationsInput | number
-    osztalyfonoki_megrovas?: IntFieldUpdateOperationsInput | number
-    igazgatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
-    igazgatoi_intes?: IntFieldUpdateOperationsInput | number
-    igazgatoi_megrovas?: IntFieldUpdateOperationsInput | number
-    fegyelmi_eljaras?: IntFieldUpdateOperationsInput | number
+    dicseret_oktatoi?: IntFieldUpdateOperationsInput | number
+    dicseret_osztalyfonoki?: IntFieldUpdateOperationsInput | number
+    dicseret_igazgatoi?: IntFieldUpdateOperationsInput | number
+    dicseret_oktato_testuleti?: IntFieldUpdateOperationsInput | number
+    buntetes_oktatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_intes?: IntFieldUpdateOperationsInput | number
+    buntetes_osztalyfonoki_megrovas?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_intes?: IntFieldUpdateOperationsInput | number
+    buntetes_igazgatoi_megrovas?: IntFieldUpdateOperationsInput | number
+    buntetes_oktato_testuleti_figyelmeztetes?: IntFieldUpdateOperationsInput | number
+    buntetes_fegyelmi_eljaras?: IntFieldUpdateOperationsInput | number
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null

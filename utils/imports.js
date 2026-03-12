@@ -27,7 +27,7 @@ import elegedettsegMeresRouter from "../controllers/elegedettseg_meres.controlle
 import elhelyezkedesRouter from "../controllers/elhelyezkedes.controller.js";
 import hhEsHHHRouter from "../controllers/hh_es_hhh_nevelesu_tanulok.controller.js";
 import lemorzsolodasRouter from "../controllers/lemorzsolodas.controller.js";
-import intezmenyiNeveltsegRouter from "../controllers/intezmenyi_neveltseg.controller.js";
+import intezmenyiNeveltsegiMutatokRouter from "../controllers/intezmenyi_neveltsegi_mutatok.controller.js";
 import muhelyiskolaRouter from "../controllers/muhelyiskola.controller.js";
 import nszfhRouter from "../controllers/nszfh.controller.js";
 import sajatosNevelesuTanulokRouter from "../controllers/sajatos_nevelesu_tanulok.controller.js";
@@ -82,7 +82,7 @@ export {
   elhelyezkedesRouter,
   hhEsHHHRouter,
   lemorzsolodasRouter,
-  intezmenyiNeveltsegRouter,
+  intezmenyiNeveltsegiMutatokRouter,
   muhelyiskolaRouter,
   nszfhRouter,
   sajatosNevelesuTanulokRouter,

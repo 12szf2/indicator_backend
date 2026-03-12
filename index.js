@@ -104,7 +104,10 @@ protectedRouter.use("/elegedettseg_meres", i.elegedettsegMeresRouter);
 protectedRouter.use("/elegedettseg", i.elegedettsegRouter);
 protectedRouter.use("/elhelyezkedes", i.elhelyezkedesRouter);
 protectedRouter.use("/hh_es_hhh", i.hhEsHHHRouter);
-protectedRouter.use("/intezmenyi_neveltseg", i.intezmenyiNeveltsegRouter);
+protectedRouter.use(
+  "/intezmenyi_neveltsegi_mutatok",
+  i.intezmenyiNeveltsegiMutatokRouter,
+);
 protectedRouter.use("/lemorzsolodas", i.lemorzsolodasRouter);
 protectedRouter.use("/muhelyiskola", i.muhelyiskolaRouter);
 protectedRouter.use("/nszfh", i.nszfhRouter);
