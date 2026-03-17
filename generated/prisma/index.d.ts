@@ -189,6 +189,16 @@ export type Muhelyiskola = $Result.DefaultSelection<Prisma.$MuhelyiskolaPayload>
  */
 export type OktatoEgyebTev = $Result.DefaultSelection<Prisma.$OktatoEgyebTevPayload>
 /**
+ * Model SzakmaiTovabbkepzes
+ * 
+ */
+export type SzakmaiTovabbkepzes = $Result.DefaultSelection<Prisma.$SzakmaiTovabbkepzesPayload>
+/**
+ * Model Hianyzas
+ * 
+ */
+export type Hianyzas = $Result.DefaultSelection<Prisma.$HianyzasPayload>
+/**
  * Model TanuloAdatszolg
  * 
  */
@@ -678,6 +688,26 @@ export class PrismaClient<
     * ```
     */
   get oktatoEgyebTev(): Prisma.OktatoEgyebTevDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.szakmaiTovabbkepzes`: Exposes CRUD operations for the **SzakmaiTovabbkepzes** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SzakmaiTovabbkepzes
+    * const szakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.findMany()
+    * ```
+    */
+  get szakmaiTovabbkepzes(): Prisma.SzakmaiTovabbkepzesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.hianyzas`: Exposes CRUD operations for the **Hianyzas** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Hianyzas
+    * const hianyzas = await prisma.hianyzas.findMany()
+    * ```
+    */
+  get hianyzas(): Prisma.HianyzasDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.tanuloAdatszolg`: Exposes CRUD operations for the **TanuloAdatszolg** model.
@@ -1183,6 +1213,8 @@ export namespace Prisma {
     Dobbanto: 'Dobbanto',
     Muhelyiskola: 'Muhelyiskola',
     OktatoEgyebTev: 'OktatoEgyebTev',
+    SzakmaiTovabbkepzes: 'SzakmaiTovabbkepzes',
+    Hianyzas: 'Hianyzas',
     TanuloAdatszolg: 'TanuloAdatszolg',
     OktatoAdatszolg: 'OktatoAdatszolg',
     Changelog: 'Changelog'
@@ -1204,7 +1236,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "session" | "user" | "tableList" | "tableAccess" | "log" | "alapadatok" | "szakirany" | "szakma" | "szakirany_Szakma" | "alapadatok_Szakirany" | "alapadatok_Szakma" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "egyOktatoraJutoTanulo" | "tanugyi_Adatok" | "alkalmazottak_Munkaugy" | "szakkepzesiMunkaszerzodesAranya" | "vesenyKategoria" | "vesenyNevek" | "versenyek" | "nszfhMeresek" | "elhelyezkedes" | "elegedettseg" | "vizsgaEredmenyek" | "szakmaiVizsgaEredmenyek" | "lemorzsolodas" | "elegedettsegMeres" | "intezmenyiNeveltsegiMutatok" | "hHEsHHHTanulok" | "sajatosNevelesuTanulok" | "dobbanto" | "muhelyiskola" | "oktatoEgyebTev" | "tanuloAdatszolg" | "oktatoAdatszolg" | "changelog"
+      modelProps: "session" | "user" | "tableList" | "tableAccess" | "log" | "alapadatok" | "szakirany" | "szakma" | "szakirany_Szakma" | "alapadatok_Szakirany" | "alapadatok_Szakma" | "tanulo_Letszam" | "tanar_Letszam" | "felvettek_Szama" | "kompetencia" | "egyOktatoraJutoTanulo" | "tanugyi_Adatok" | "alkalmazottak_Munkaugy" | "szakkepzesiMunkaszerzodesAranya" | "vesenyKategoria" | "vesenyNevek" | "versenyek" | "nszfhMeresek" | "elhelyezkedes" | "elegedettseg" | "vizsgaEredmenyek" | "szakmaiVizsgaEredmenyek" | "lemorzsolodas" | "elegedettsegMeres" | "intezmenyiNeveltsegiMutatok" | "hHEsHHHTanulok" | "sajatosNevelesuTanulok" | "dobbanto" | "muhelyiskola" | "oktatoEgyebTev" | "szakmaiTovabbkepzes" | "hianyzas" | "tanuloAdatszolg" | "oktatoAdatszolg" | "changelog"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -3798,6 +3830,154 @@ export namespace Prisma {
           }
         }
       }
+      SzakmaiTovabbkepzes: {
+        payload: Prisma.$SzakmaiTovabbkepzesPayload<ExtArgs>
+        fields: Prisma.SzakmaiTovabbkepzesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SzakmaiTovabbkepzesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SzakmaiTovabbkepzesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SzakmaiTovabbkepzesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SzakmaiTovabbkepzesPayload>
+          }
+          findFirst: {
+            args: Prisma.SzakmaiTovabbkepzesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SzakmaiTovabbkepzesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SzakmaiTovabbkepzesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SzakmaiTovabbkepzesPayload>
+          }
+          findMany: {
+            args: Prisma.SzakmaiTovabbkepzesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SzakmaiTovabbkepzesPayload>[]
+          }
+          create: {
+            args: Prisma.SzakmaiTovabbkepzesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SzakmaiTovabbkepzesPayload>
+          }
+          createMany: {
+            args: Prisma.SzakmaiTovabbkepzesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SzakmaiTovabbkepzesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SzakmaiTovabbkepzesPayload>[]
+          }
+          delete: {
+            args: Prisma.SzakmaiTovabbkepzesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SzakmaiTovabbkepzesPayload>
+          }
+          update: {
+            args: Prisma.SzakmaiTovabbkepzesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SzakmaiTovabbkepzesPayload>
+          }
+          deleteMany: {
+            args: Prisma.SzakmaiTovabbkepzesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SzakmaiTovabbkepzesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SzakmaiTovabbkepzesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SzakmaiTovabbkepzesPayload>[]
+          }
+          upsert: {
+            args: Prisma.SzakmaiTovabbkepzesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SzakmaiTovabbkepzesPayload>
+          }
+          aggregate: {
+            args: Prisma.SzakmaiTovabbkepzesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSzakmaiTovabbkepzes>
+          }
+          groupBy: {
+            args: Prisma.SzakmaiTovabbkepzesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SzakmaiTovabbkepzesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SzakmaiTovabbkepzesCountArgs<ExtArgs>
+            result: $Utils.Optional<SzakmaiTovabbkepzesCountAggregateOutputType> | number
+          }
+        }
+      }
+      Hianyzas: {
+        payload: Prisma.$HianyzasPayload<ExtArgs>
+        fields: Prisma.HianyzasFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.HianyzasFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HianyzasPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.HianyzasFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HianyzasPayload>
+          }
+          findFirst: {
+            args: Prisma.HianyzasFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HianyzasPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.HianyzasFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HianyzasPayload>
+          }
+          findMany: {
+            args: Prisma.HianyzasFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HianyzasPayload>[]
+          }
+          create: {
+            args: Prisma.HianyzasCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HianyzasPayload>
+          }
+          createMany: {
+            args: Prisma.HianyzasCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.HianyzasCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HianyzasPayload>[]
+          }
+          delete: {
+            args: Prisma.HianyzasDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HianyzasPayload>
+          }
+          update: {
+            args: Prisma.HianyzasUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HianyzasPayload>
+          }
+          deleteMany: {
+            args: Prisma.HianyzasDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.HianyzasUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.HianyzasUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HianyzasPayload>[]
+          }
+          upsert: {
+            args: Prisma.HianyzasUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HianyzasPayload>
+          }
+          aggregate: {
+            args: Prisma.HianyzasAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateHianyzas>
+          }
+          groupBy: {
+            args: Prisma.HianyzasGroupByArgs<ExtArgs>
+            result: $Utils.Optional<HianyzasGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.HianyzasCountArgs<ExtArgs>
+            result: $Utils.Optional<HianyzasCountAggregateOutputType> | number
+          }
+        }
+      }
       TanuloAdatszolg: {
         payload: Prisma.$TanuloAdatszolgPayload<ExtArgs>
         fields: Prisma.TanuloAdatszolgFieldRefs
@@ -4139,6 +4319,8 @@ export namespace Prisma {
     dobbanto?: DobbantoOmit
     muhelyiskola?: MuhelyiskolaOmit
     oktatoEgyebTev?: OktatoEgyebTevOmit
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesOmit
+    hianyzas?: HianyzasOmit
     tanuloAdatszolg?: TanuloAdatszolgOmit
     oktatoAdatszolg?: OktatoAdatszolgOmit
     changelog?: ChangelogOmit
@@ -4332,6 +4514,8 @@ export namespace Prisma {
     muhelyiskola: number
     tanuloAdatszolg: number
     oktatoAdatszolg: number
+    hianyzas: number
+    szakmaiTovabbkepzes: number
     users: number
     OktatoEgyebTev: number
   }
@@ -4362,6 +4546,8 @@ export namespace Prisma {
     muhelyiskola?: boolean | AlapadatokCountOutputTypeCountMuhelyiskolaArgs
     tanuloAdatszolg?: boolean | AlapadatokCountOutputTypeCountTanuloAdatszolgArgs
     oktatoAdatszolg?: boolean | AlapadatokCountOutputTypeCountOktatoAdatszolgArgs
+    hianyzas?: boolean | AlapadatokCountOutputTypeCountHianyzasArgs
+    szakmaiTovabbkepzes?: boolean | AlapadatokCountOutputTypeCountSzakmaiTovabbkepzesArgs
     users?: boolean | AlapadatokCountOutputTypeCountUsersArgs
     OktatoEgyebTev?: boolean | AlapadatokCountOutputTypeCountOktatoEgyebTevArgs
   }
@@ -4550,6 +4736,20 @@ export namespace Prisma {
    */
   export type AlapadatokCountOutputTypeCountOktatoAdatszolgArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: OktatoAdatszolgWhereInput
+  }
+
+  /**
+   * AlapadatokCountOutputType without action
+   */
+  export type AlapadatokCountOutputTypeCountHianyzasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HianyzasWhereInput
+  }
+
+  /**
+   * AlapadatokCountOutputType without action
+   */
+  export type AlapadatokCountOutputTypeCountSzakmaiTovabbkepzesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SzakmaiTovabbkepzesWhereInput
   }
 
   /**
@@ -10676,6 +10876,8 @@ export namespace Prisma {
     muhelyiskola?: boolean | Alapadatok$muhelyiskolaArgs<ExtArgs>
     tanuloAdatszolg?: boolean | Alapadatok$tanuloAdatszolgArgs<ExtArgs>
     oktatoAdatszolg?: boolean | Alapadatok$oktatoAdatszolgArgs<ExtArgs>
+    hianyzas?: boolean | Alapadatok$hianyzasArgs<ExtArgs>
+    szakmaiTovabbkepzes?: boolean | Alapadatok$szakmaiTovabbkepzesArgs<ExtArgs>
     users?: boolean | Alapadatok$usersArgs<ExtArgs>
     OktatoEgyebTev?: boolean | Alapadatok$OktatoEgyebTevArgs<ExtArgs>
     _count?: boolean | AlapadatokCountOutputTypeDefaultArgs<ExtArgs>
@@ -10729,6 +10931,8 @@ export namespace Prisma {
     muhelyiskola?: boolean | Alapadatok$muhelyiskolaArgs<ExtArgs>
     tanuloAdatszolg?: boolean | Alapadatok$tanuloAdatszolgArgs<ExtArgs>
     oktatoAdatszolg?: boolean | Alapadatok$oktatoAdatszolgArgs<ExtArgs>
+    hianyzas?: boolean | Alapadatok$hianyzasArgs<ExtArgs>
+    szakmaiTovabbkepzes?: boolean | Alapadatok$szakmaiTovabbkepzesArgs<ExtArgs>
     users?: boolean | Alapadatok$usersArgs<ExtArgs>
     OktatoEgyebTev?: boolean | Alapadatok$OktatoEgyebTevArgs<ExtArgs>
     _count?: boolean | AlapadatokCountOutputTypeDefaultArgs<ExtArgs>
@@ -10764,6 +10968,8 @@ export namespace Prisma {
       muhelyiskola: Prisma.$MuhelyiskolaPayload<ExtArgs>[]
       tanuloAdatszolg: Prisma.$TanuloAdatszolgPayload<ExtArgs>[]
       oktatoAdatszolg: Prisma.$OktatoAdatszolgPayload<ExtArgs>[]
+      hianyzas: Prisma.$HianyzasPayload<ExtArgs>[]
+      szakmaiTovabbkepzes: Prisma.$SzakmaiTovabbkepzesPayload<ExtArgs>[]
       users: Prisma.$UserPayload<ExtArgs>[]
       OktatoEgyebTev: Prisma.$OktatoEgyebTevPayload<ExtArgs>[]
     }
@@ -11191,6 +11397,8 @@ export namespace Prisma {
     muhelyiskola<T extends Alapadatok$muhelyiskolaArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$muhelyiskolaArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MuhelyiskolaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     tanuloAdatszolg<T extends Alapadatok$tanuloAdatszolgArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$tanuloAdatszolgArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TanuloAdatszolgPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     oktatoAdatszolg<T extends Alapadatok$oktatoAdatszolgArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$oktatoAdatszolgArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OktatoAdatszolgPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    hianyzas<T extends Alapadatok$hianyzasArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$hianyzasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HianyzasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    szakmaiTovabbkepzes<T extends Alapadatok$szakmaiTovabbkepzesArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$szakmaiTovabbkepzesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SzakmaiTovabbkepzesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     users<T extends Alapadatok$usersArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     OktatoEgyebTev<T extends Alapadatok$OktatoEgyebTevArgs<ExtArgs> = {}>(args?: Subset<T, Alapadatok$OktatoEgyebTevArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OktatoEgyebTevPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -12211,6 +12419,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: OktatoAdatszolgScalarFieldEnum | OktatoAdatszolgScalarFieldEnum[]
+  }
+
+  /**
+   * Alapadatok.hianyzas
+   */
+  export type Alapadatok$hianyzasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hianyzas
+     */
+    select?: HianyzasSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hianyzas
+     */
+    omit?: HianyzasOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HianyzasInclude<ExtArgs> | null
+    where?: HianyzasWhereInput
+    orderBy?: HianyzasOrderByWithRelationInput | HianyzasOrderByWithRelationInput[]
+    cursor?: HianyzasWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: HianyzasScalarFieldEnum | HianyzasScalarFieldEnum[]
+  }
+
+  /**
+   * Alapadatok.szakmaiTovabbkepzes
+   */
+  export type Alapadatok$szakmaiTovabbkepzesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SzakmaiTovabbkepzes
+     */
+    select?: SzakmaiTovabbkepzesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SzakmaiTovabbkepzes
+     */
+    omit?: SzakmaiTovabbkepzesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SzakmaiTovabbkepzesInclude<ExtArgs> | null
+    where?: SzakmaiTovabbkepzesWhereInput
+    orderBy?: SzakmaiTovabbkepzesOrderByWithRelationInput | SzakmaiTovabbkepzesOrderByWithRelationInput[]
+    cursor?: SzakmaiTovabbkepzesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SzakmaiTovabbkepzesScalarFieldEnum | SzakmaiTovabbkepzesScalarFieldEnum[]
   }
 
   /**
@@ -48143,6 +48399,2638 @@ export namespace Prisma {
 
 
   /**
+   * Model SzakmaiTovabbkepzes
+   */
+
+  export type AggregateSzakmaiTovabbkepzes = {
+    _count: SzakmaiTovabbkepzesCountAggregateOutputType | null
+    _avg: SzakmaiTovabbkepzesAvgAggregateOutputType | null
+    _sum: SzakmaiTovabbkepzesSumAggregateOutputType | null
+    _min: SzakmaiTovabbkepzesMinAggregateOutputType | null
+    _max: SzakmaiTovabbkepzesMaxAggregateOutputType | null
+  }
+
+  export type SzakmaiTovabbkepzesAvgAggregateOutputType = {
+    tanev_kezdete: number | null
+    alapkepesites_mesterfokozat: number | null
+    egyeb_posztgradualis: number | null
+    egyedi_oraszam: number | null
+    forditott_osszeg: number | null
+    ikk_10: number | null
+    ikk_10_alatt: number | null
+    ikk_20: number | null
+    ikk_30: number | null
+    ikk_40: number | null
+    ikk_50: number | null
+    ikk_60: number | null
+    ikk_90: number | null
+    ikk_120: number | null
+    oktatok_letszama: number | null
+    pedagogus_szakvizsga: number | null
+    ujabb_diploma: number | null
+    vallalati_tovabbkepzes: number | null
+    veztok_letszama: number | null
+  }
+
+  export type SzakmaiTovabbkepzesSumAggregateOutputType = {
+    tanev_kezdete: number | null
+    alapkepesites_mesterfokozat: number | null
+    egyeb_posztgradualis: number | null
+    egyedi_oraszam: number | null
+    forditott_osszeg: number | null
+    ikk_10: number | null
+    ikk_10_alatt: number | null
+    ikk_20: number | null
+    ikk_30: number | null
+    ikk_40: number | null
+    ikk_50: number | null
+    ikk_60: number | null
+    ikk_90: number | null
+    ikk_120: number | null
+    oktatok_letszama: number | null
+    pedagogus_szakvizsga: number | null
+    ujabb_diploma: number | null
+    vallalati_tovabbkepzes: number | null
+    veztok_letszama: number | null
+  }
+
+  export type SzakmaiTovabbkepzesMinAggregateOutputType = {
+    id: string | null
+    alapadatok_id: string | null
+    tanev_kezdete: number | null
+    alapkepesites_mesterfokozat: number | null
+    egyeb_posztgradualis: number | null
+    egyedi_oraszam: number | null
+    forditott_osszeg: number | null
+    ikk_10: number | null
+    ikk_10_alatt: number | null
+    ikk_20: number | null
+    ikk_30: number | null
+    ikk_40: number | null
+    ikk_50: number | null
+    ikk_60: number | null
+    ikk_90: number | null
+    ikk_120: number | null
+    oktatok_letszama: number | null
+    pedagogus_szakvizsga: number | null
+    ujabb_diploma: number | null
+    vallalati_tovabbkepzes: number | null
+    veztok_letszama: number | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
+  }
+
+  export type SzakmaiTovabbkepzesMaxAggregateOutputType = {
+    id: string | null
+    alapadatok_id: string | null
+    tanev_kezdete: number | null
+    alapkepesites_mesterfokozat: number | null
+    egyeb_posztgradualis: number | null
+    egyedi_oraszam: number | null
+    forditott_osszeg: number | null
+    ikk_10: number | null
+    ikk_10_alatt: number | null
+    ikk_20: number | null
+    ikk_30: number | null
+    ikk_40: number | null
+    ikk_50: number | null
+    ikk_60: number | null
+    ikk_90: number | null
+    ikk_120: number | null
+    oktatok_letszama: number | null
+    pedagogus_szakvizsga: number | null
+    ujabb_diploma: number | null
+    vallalati_tovabbkepzes: number | null
+    veztok_letszama: number | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
+  }
+
+  export type SzakmaiTovabbkepzesCountAggregateOutputType = {
+    id: number
+    alapadatok_id: number
+    tanev_kezdete: number
+    alapkepesites_mesterfokozat: number
+    egyeb_posztgradualis: number
+    egyedi_oraszam: number
+    forditott_osszeg: number
+    ikk_10: number
+    ikk_10_alatt: number
+    ikk_20: number
+    ikk_30: number
+    ikk_40: number
+    ikk_50: number
+    ikk_60: number
+    ikk_90: number
+    ikk_120: number
+    oktatok_letszama: number
+    pedagogus_szakvizsga: number
+    ujabb_diploma: number
+    vallalati_tovabbkepzes: number
+    veztok_letszama: number
+    createAt: number
+    createBy: number
+    updatedAt: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type SzakmaiTovabbkepzesAvgAggregateInputType = {
+    tanev_kezdete?: true
+    alapkepesites_mesterfokozat?: true
+    egyeb_posztgradualis?: true
+    egyedi_oraszam?: true
+    forditott_osszeg?: true
+    ikk_10?: true
+    ikk_10_alatt?: true
+    ikk_20?: true
+    ikk_30?: true
+    ikk_40?: true
+    ikk_50?: true
+    ikk_60?: true
+    ikk_90?: true
+    ikk_120?: true
+    oktatok_letszama?: true
+    pedagogus_szakvizsga?: true
+    ujabb_diploma?: true
+    vallalati_tovabbkepzes?: true
+    veztok_letszama?: true
+  }
+
+  export type SzakmaiTovabbkepzesSumAggregateInputType = {
+    tanev_kezdete?: true
+    alapkepesites_mesterfokozat?: true
+    egyeb_posztgradualis?: true
+    egyedi_oraszam?: true
+    forditott_osszeg?: true
+    ikk_10?: true
+    ikk_10_alatt?: true
+    ikk_20?: true
+    ikk_30?: true
+    ikk_40?: true
+    ikk_50?: true
+    ikk_60?: true
+    ikk_90?: true
+    ikk_120?: true
+    oktatok_letszama?: true
+    pedagogus_szakvizsga?: true
+    ujabb_diploma?: true
+    vallalati_tovabbkepzes?: true
+    veztok_letszama?: true
+  }
+
+  export type SzakmaiTovabbkepzesMinAggregateInputType = {
+    id?: true
+    alapadatok_id?: true
+    tanev_kezdete?: true
+    alapkepesites_mesterfokozat?: true
+    egyeb_posztgradualis?: true
+    egyedi_oraszam?: true
+    forditott_osszeg?: true
+    ikk_10?: true
+    ikk_10_alatt?: true
+    ikk_20?: true
+    ikk_30?: true
+    ikk_40?: true
+    ikk_50?: true
+    ikk_60?: true
+    ikk_90?: true
+    ikk_120?: true
+    oktatok_letszama?: true
+    pedagogus_szakvizsga?: true
+    ujabb_diploma?: true
+    vallalati_tovabbkepzes?: true
+    veztok_letszama?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
+  }
+
+  export type SzakmaiTovabbkepzesMaxAggregateInputType = {
+    id?: true
+    alapadatok_id?: true
+    tanev_kezdete?: true
+    alapkepesites_mesterfokozat?: true
+    egyeb_posztgradualis?: true
+    egyedi_oraszam?: true
+    forditott_osszeg?: true
+    ikk_10?: true
+    ikk_10_alatt?: true
+    ikk_20?: true
+    ikk_30?: true
+    ikk_40?: true
+    ikk_50?: true
+    ikk_60?: true
+    ikk_90?: true
+    ikk_120?: true
+    oktatok_letszama?: true
+    pedagogus_szakvizsga?: true
+    ujabb_diploma?: true
+    vallalati_tovabbkepzes?: true
+    veztok_letszama?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
+  }
+
+  export type SzakmaiTovabbkepzesCountAggregateInputType = {
+    id?: true
+    alapadatok_id?: true
+    tanev_kezdete?: true
+    alapkepesites_mesterfokozat?: true
+    egyeb_posztgradualis?: true
+    egyedi_oraszam?: true
+    forditott_osszeg?: true
+    ikk_10?: true
+    ikk_10_alatt?: true
+    ikk_20?: true
+    ikk_30?: true
+    ikk_40?: true
+    ikk_50?: true
+    ikk_60?: true
+    ikk_90?: true
+    ikk_120?: true
+    oktatok_letszama?: true
+    pedagogus_szakvizsga?: true
+    ujabb_diploma?: true
+    vallalati_tovabbkepzes?: true
+    veztok_letszama?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type SzakmaiTovabbkepzesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SzakmaiTovabbkepzes to aggregate.
+     */
+    where?: SzakmaiTovabbkepzesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SzakmaiTovabbkepzes to fetch.
+     */
+    orderBy?: SzakmaiTovabbkepzesOrderByWithRelationInput | SzakmaiTovabbkepzesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SzakmaiTovabbkepzesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SzakmaiTovabbkepzes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SzakmaiTovabbkepzes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SzakmaiTovabbkepzes
+    **/
+    _count?: true | SzakmaiTovabbkepzesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SzakmaiTovabbkepzesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SzakmaiTovabbkepzesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SzakmaiTovabbkepzesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SzakmaiTovabbkepzesMaxAggregateInputType
+  }
+
+  export type GetSzakmaiTovabbkepzesAggregateType<T extends SzakmaiTovabbkepzesAggregateArgs> = {
+        [P in keyof T & keyof AggregateSzakmaiTovabbkepzes]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSzakmaiTovabbkepzes[P]>
+      : GetScalarType<T[P], AggregateSzakmaiTovabbkepzes[P]>
+  }
+
+
+
+
+  export type SzakmaiTovabbkepzesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SzakmaiTovabbkepzesWhereInput
+    orderBy?: SzakmaiTovabbkepzesOrderByWithAggregationInput | SzakmaiTovabbkepzesOrderByWithAggregationInput[]
+    by: SzakmaiTovabbkepzesScalarFieldEnum[] | SzakmaiTovabbkepzesScalarFieldEnum
+    having?: SzakmaiTovabbkepzesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SzakmaiTovabbkepzesCountAggregateInputType | true
+    _avg?: SzakmaiTovabbkepzesAvgAggregateInputType
+    _sum?: SzakmaiTovabbkepzesSumAggregateInputType
+    _min?: SzakmaiTovabbkepzesMinAggregateInputType
+    _max?: SzakmaiTovabbkepzesMaxAggregateInputType
+  }
+
+  export type SzakmaiTovabbkepzesGroupByOutputType = {
+    id: string
+    alapadatok_id: string
+    tanev_kezdete: number
+    alapkepesites_mesterfokozat: number
+    egyeb_posztgradualis: number
+    egyedi_oraszam: number
+    forditott_osszeg: number
+    ikk_10: number
+    ikk_10_alatt: number
+    ikk_20: number
+    ikk_30: number
+    ikk_40: number
+    ikk_50: number
+    ikk_60: number
+    ikk_90: number
+    ikk_120: number
+    oktatok_letszama: number
+    pedagogus_szakvizsga: number
+    ujabb_diploma: number
+    vallalati_tovabbkepzes: number
+    veztok_letszama: number
+    createAt: Date
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
+    _count: SzakmaiTovabbkepzesCountAggregateOutputType | null
+    _avg: SzakmaiTovabbkepzesAvgAggregateOutputType | null
+    _sum: SzakmaiTovabbkepzesSumAggregateOutputType | null
+    _min: SzakmaiTovabbkepzesMinAggregateOutputType | null
+    _max: SzakmaiTovabbkepzesMaxAggregateOutputType | null
+  }
+
+  type GetSzakmaiTovabbkepzesGroupByPayload<T extends SzakmaiTovabbkepzesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SzakmaiTovabbkepzesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SzakmaiTovabbkepzesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SzakmaiTovabbkepzesGroupByOutputType[P]>
+            : GetScalarType<T[P], SzakmaiTovabbkepzesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SzakmaiTovabbkepzesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alapadatok_id?: boolean
+    tanev_kezdete?: boolean
+    alapkepesites_mesterfokozat?: boolean
+    egyeb_posztgradualis?: boolean
+    egyedi_oraszam?: boolean
+    forditott_osszeg?: boolean
+    ikk_10?: boolean
+    ikk_10_alatt?: boolean
+    ikk_20?: boolean
+    ikk_30?: boolean
+    ikk_40?: boolean
+    ikk_50?: boolean
+    ikk_60?: boolean
+    ikk_90?: boolean
+    ikk_120?: boolean
+    oktatok_letszama?: boolean
+    pedagogus_szakvizsga?: boolean
+    ujabb_diploma?: boolean
+    vallalati_tovabbkepzes?: boolean
+    veztok_letszama?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["szakmaiTovabbkepzes"]>
+
+  export type SzakmaiTovabbkepzesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alapadatok_id?: boolean
+    tanev_kezdete?: boolean
+    alapkepesites_mesterfokozat?: boolean
+    egyeb_posztgradualis?: boolean
+    egyedi_oraszam?: boolean
+    forditott_osszeg?: boolean
+    ikk_10?: boolean
+    ikk_10_alatt?: boolean
+    ikk_20?: boolean
+    ikk_30?: boolean
+    ikk_40?: boolean
+    ikk_50?: boolean
+    ikk_60?: boolean
+    ikk_90?: boolean
+    ikk_120?: boolean
+    oktatok_letszama?: boolean
+    pedagogus_szakvizsga?: boolean
+    ujabb_diploma?: boolean
+    vallalati_tovabbkepzes?: boolean
+    veztok_letszama?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["szakmaiTovabbkepzes"]>
+
+  export type SzakmaiTovabbkepzesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alapadatok_id?: boolean
+    tanev_kezdete?: boolean
+    alapkepesites_mesterfokozat?: boolean
+    egyeb_posztgradualis?: boolean
+    egyedi_oraszam?: boolean
+    forditott_osszeg?: boolean
+    ikk_10?: boolean
+    ikk_10_alatt?: boolean
+    ikk_20?: boolean
+    ikk_30?: boolean
+    ikk_40?: boolean
+    ikk_50?: boolean
+    ikk_60?: boolean
+    ikk_90?: boolean
+    ikk_120?: boolean
+    oktatok_letszama?: boolean
+    pedagogus_szakvizsga?: boolean
+    ujabb_diploma?: boolean
+    vallalati_tovabbkepzes?: boolean
+    veztok_letszama?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["szakmaiTovabbkepzes"]>
+
+  export type SzakmaiTovabbkepzesSelectScalar = {
+    id?: boolean
+    alapadatok_id?: boolean
+    tanev_kezdete?: boolean
+    alapkepesites_mesterfokozat?: boolean
+    egyeb_posztgradualis?: boolean
+    egyedi_oraszam?: boolean
+    forditott_osszeg?: boolean
+    ikk_10?: boolean
+    ikk_10_alatt?: boolean
+    ikk_20?: boolean
+    ikk_30?: boolean
+    ikk_40?: boolean
+    ikk_50?: boolean
+    ikk_60?: boolean
+    ikk_90?: boolean
+    ikk_120?: boolean
+    oktatok_letszama?: boolean
+    pedagogus_szakvizsga?: boolean
+    ujabb_diploma?: boolean
+    vallalati_tovabbkepzes?: boolean
+    veztok_letszama?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+  }
+
+  export type SzakmaiTovabbkepzesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "alapkepesites_mesterfokozat" | "egyeb_posztgradualis" | "egyedi_oraszam" | "forditott_osszeg" | "ikk_10" | "ikk_10_alatt" | "ikk_20" | "ikk_30" | "ikk_40" | "ikk_50" | "ikk_60" | "ikk_90" | "ikk_120" | "oktatok_letszama" | "pedagogus_szakvizsga" | "ujabb_diploma" | "vallalati_tovabbkepzes" | "veztok_letszama" | "createAt" | "createBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["szakmaiTovabbkepzes"]>
+  export type SzakmaiTovabbkepzesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }
+  export type SzakmaiTovabbkepzesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }
+  export type SzakmaiTovabbkepzesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }
+
+  export type $SzakmaiTovabbkepzesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SzakmaiTovabbkepzes"
+    objects: {
+      alapadatok: Prisma.$AlapadatokPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      alapadatok_id: string
+      tanev_kezdete: number
+      alapkepesites_mesterfokozat: number
+      egyeb_posztgradualis: number
+      egyedi_oraszam: number
+      forditott_osszeg: number
+      ikk_10: number
+      ikk_10_alatt: number
+      ikk_20: number
+      ikk_30: number
+      ikk_40: number
+      ikk_50: number
+      ikk_60: number
+      ikk_90: number
+      ikk_120: number
+      oktatok_letszama: number
+      pedagogus_szakvizsga: number
+      ujabb_diploma: number
+      vallalati_tovabbkepzes: number
+      veztok_letszama: number
+      createAt: Date
+      createBy: string | null
+      updatedAt: Date | null
+      updatedBy: string | null
+    }, ExtArgs["result"]["szakmaiTovabbkepzes"]>
+    composites: {}
+  }
+
+  type SzakmaiTovabbkepzesGetPayload<S extends boolean | null | undefined | SzakmaiTovabbkepzesDefaultArgs> = $Result.GetResult<Prisma.$SzakmaiTovabbkepzesPayload, S>
+
+  type SzakmaiTovabbkepzesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SzakmaiTovabbkepzesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SzakmaiTovabbkepzesCountAggregateInputType | true
+    }
+
+  export interface SzakmaiTovabbkepzesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SzakmaiTovabbkepzes'], meta: { name: 'SzakmaiTovabbkepzes' } }
+    /**
+     * Find zero or one SzakmaiTovabbkepzes that matches the filter.
+     * @param {SzakmaiTovabbkepzesFindUniqueArgs} args - Arguments to find a SzakmaiTovabbkepzes
+     * @example
+     * // Get one SzakmaiTovabbkepzes
+     * const szakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SzakmaiTovabbkepzesFindUniqueArgs>(args: SelectSubset<T, SzakmaiTovabbkepzesFindUniqueArgs<ExtArgs>>): Prisma__SzakmaiTovabbkepzesClient<$Result.GetResult<Prisma.$SzakmaiTovabbkepzesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SzakmaiTovabbkepzes that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SzakmaiTovabbkepzesFindUniqueOrThrowArgs} args - Arguments to find a SzakmaiTovabbkepzes
+     * @example
+     * // Get one SzakmaiTovabbkepzes
+     * const szakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SzakmaiTovabbkepzesFindUniqueOrThrowArgs>(args: SelectSubset<T, SzakmaiTovabbkepzesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SzakmaiTovabbkepzesClient<$Result.GetResult<Prisma.$SzakmaiTovabbkepzesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SzakmaiTovabbkepzes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SzakmaiTovabbkepzesFindFirstArgs} args - Arguments to find a SzakmaiTovabbkepzes
+     * @example
+     * // Get one SzakmaiTovabbkepzes
+     * const szakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SzakmaiTovabbkepzesFindFirstArgs>(args?: SelectSubset<T, SzakmaiTovabbkepzesFindFirstArgs<ExtArgs>>): Prisma__SzakmaiTovabbkepzesClient<$Result.GetResult<Prisma.$SzakmaiTovabbkepzesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SzakmaiTovabbkepzes that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SzakmaiTovabbkepzesFindFirstOrThrowArgs} args - Arguments to find a SzakmaiTovabbkepzes
+     * @example
+     * // Get one SzakmaiTovabbkepzes
+     * const szakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SzakmaiTovabbkepzesFindFirstOrThrowArgs>(args?: SelectSubset<T, SzakmaiTovabbkepzesFindFirstOrThrowArgs<ExtArgs>>): Prisma__SzakmaiTovabbkepzesClient<$Result.GetResult<Prisma.$SzakmaiTovabbkepzesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SzakmaiTovabbkepzes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SzakmaiTovabbkepzesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SzakmaiTovabbkepzes
+     * const szakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.findMany()
+     * 
+     * // Get first 10 SzakmaiTovabbkepzes
+     * const szakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const szakmaiTovabbkepzesWithIdOnly = await prisma.szakmaiTovabbkepzes.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SzakmaiTovabbkepzesFindManyArgs>(args?: SelectSubset<T, SzakmaiTovabbkepzesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SzakmaiTovabbkepzesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SzakmaiTovabbkepzes.
+     * @param {SzakmaiTovabbkepzesCreateArgs} args - Arguments to create a SzakmaiTovabbkepzes.
+     * @example
+     * // Create one SzakmaiTovabbkepzes
+     * const SzakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.create({
+     *   data: {
+     *     // ... data to create a SzakmaiTovabbkepzes
+     *   }
+     * })
+     * 
+     */
+    create<T extends SzakmaiTovabbkepzesCreateArgs>(args: SelectSubset<T, SzakmaiTovabbkepzesCreateArgs<ExtArgs>>): Prisma__SzakmaiTovabbkepzesClient<$Result.GetResult<Prisma.$SzakmaiTovabbkepzesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SzakmaiTovabbkepzes.
+     * @param {SzakmaiTovabbkepzesCreateManyArgs} args - Arguments to create many SzakmaiTovabbkepzes.
+     * @example
+     * // Create many SzakmaiTovabbkepzes
+     * const szakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SzakmaiTovabbkepzesCreateManyArgs>(args?: SelectSubset<T, SzakmaiTovabbkepzesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SzakmaiTovabbkepzes and returns the data saved in the database.
+     * @param {SzakmaiTovabbkepzesCreateManyAndReturnArgs} args - Arguments to create many SzakmaiTovabbkepzes.
+     * @example
+     * // Create many SzakmaiTovabbkepzes
+     * const szakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SzakmaiTovabbkepzes and only return the `id`
+     * const szakmaiTovabbkepzesWithIdOnly = await prisma.szakmaiTovabbkepzes.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SzakmaiTovabbkepzesCreateManyAndReturnArgs>(args?: SelectSubset<T, SzakmaiTovabbkepzesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SzakmaiTovabbkepzesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SzakmaiTovabbkepzes.
+     * @param {SzakmaiTovabbkepzesDeleteArgs} args - Arguments to delete one SzakmaiTovabbkepzes.
+     * @example
+     * // Delete one SzakmaiTovabbkepzes
+     * const SzakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.delete({
+     *   where: {
+     *     // ... filter to delete one SzakmaiTovabbkepzes
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SzakmaiTovabbkepzesDeleteArgs>(args: SelectSubset<T, SzakmaiTovabbkepzesDeleteArgs<ExtArgs>>): Prisma__SzakmaiTovabbkepzesClient<$Result.GetResult<Prisma.$SzakmaiTovabbkepzesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SzakmaiTovabbkepzes.
+     * @param {SzakmaiTovabbkepzesUpdateArgs} args - Arguments to update one SzakmaiTovabbkepzes.
+     * @example
+     * // Update one SzakmaiTovabbkepzes
+     * const szakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SzakmaiTovabbkepzesUpdateArgs>(args: SelectSubset<T, SzakmaiTovabbkepzesUpdateArgs<ExtArgs>>): Prisma__SzakmaiTovabbkepzesClient<$Result.GetResult<Prisma.$SzakmaiTovabbkepzesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SzakmaiTovabbkepzes.
+     * @param {SzakmaiTovabbkepzesDeleteManyArgs} args - Arguments to filter SzakmaiTovabbkepzes to delete.
+     * @example
+     * // Delete a few SzakmaiTovabbkepzes
+     * const { count } = await prisma.szakmaiTovabbkepzes.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SzakmaiTovabbkepzesDeleteManyArgs>(args?: SelectSubset<T, SzakmaiTovabbkepzesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SzakmaiTovabbkepzes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SzakmaiTovabbkepzesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SzakmaiTovabbkepzes
+     * const szakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SzakmaiTovabbkepzesUpdateManyArgs>(args: SelectSubset<T, SzakmaiTovabbkepzesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SzakmaiTovabbkepzes and returns the data updated in the database.
+     * @param {SzakmaiTovabbkepzesUpdateManyAndReturnArgs} args - Arguments to update many SzakmaiTovabbkepzes.
+     * @example
+     * // Update many SzakmaiTovabbkepzes
+     * const szakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SzakmaiTovabbkepzes and only return the `id`
+     * const szakmaiTovabbkepzesWithIdOnly = await prisma.szakmaiTovabbkepzes.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SzakmaiTovabbkepzesUpdateManyAndReturnArgs>(args: SelectSubset<T, SzakmaiTovabbkepzesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SzakmaiTovabbkepzesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SzakmaiTovabbkepzes.
+     * @param {SzakmaiTovabbkepzesUpsertArgs} args - Arguments to update or create a SzakmaiTovabbkepzes.
+     * @example
+     * // Update or create a SzakmaiTovabbkepzes
+     * const szakmaiTovabbkepzes = await prisma.szakmaiTovabbkepzes.upsert({
+     *   create: {
+     *     // ... data to create a SzakmaiTovabbkepzes
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SzakmaiTovabbkepzes we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SzakmaiTovabbkepzesUpsertArgs>(args: SelectSubset<T, SzakmaiTovabbkepzesUpsertArgs<ExtArgs>>): Prisma__SzakmaiTovabbkepzesClient<$Result.GetResult<Prisma.$SzakmaiTovabbkepzesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SzakmaiTovabbkepzes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SzakmaiTovabbkepzesCountArgs} args - Arguments to filter SzakmaiTovabbkepzes to count.
+     * @example
+     * // Count the number of SzakmaiTovabbkepzes
+     * const count = await prisma.szakmaiTovabbkepzes.count({
+     *   where: {
+     *     // ... the filter for the SzakmaiTovabbkepzes we want to count
+     *   }
+     * })
+    **/
+    count<T extends SzakmaiTovabbkepzesCountArgs>(
+      args?: Subset<T, SzakmaiTovabbkepzesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SzakmaiTovabbkepzesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SzakmaiTovabbkepzes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SzakmaiTovabbkepzesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SzakmaiTovabbkepzesAggregateArgs>(args: Subset<T, SzakmaiTovabbkepzesAggregateArgs>): Prisma.PrismaPromise<GetSzakmaiTovabbkepzesAggregateType<T>>
+
+    /**
+     * Group by SzakmaiTovabbkepzes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SzakmaiTovabbkepzesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SzakmaiTovabbkepzesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SzakmaiTovabbkepzesGroupByArgs['orderBy'] }
+        : { orderBy?: SzakmaiTovabbkepzesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SzakmaiTovabbkepzesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSzakmaiTovabbkepzesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SzakmaiTovabbkepzes model
+   */
+  readonly fields: SzakmaiTovabbkepzesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SzakmaiTovabbkepzes.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SzakmaiTovabbkepzesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    alapadatok<T extends AlapadatokDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AlapadatokDefaultArgs<ExtArgs>>): Prisma__AlapadatokClient<$Result.GetResult<Prisma.$AlapadatokPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SzakmaiTovabbkepzes model
+   */
+  interface SzakmaiTovabbkepzesFieldRefs {
+    readonly id: FieldRef<"SzakmaiTovabbkepzes", 'String'>
+    readonly alapadatok_id: FieldRef<"SzakmaiTovabbkepzes", 'String'>
+    readonly tanev_kezdete: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly alapkepesites_mesterfokozat: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly egyeb_posztgradualis: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly egyedi_oraszam: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly forditott_osszeg: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly ikk_10: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly ikk_10_alatt: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly ikk_20: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly ikk_30: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly ikk_40: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly ikk_50: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly ikk_60: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly ikk_90: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly ikk_120: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly oktatok_letszama: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly pedagogus_szakvizsga: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly ujabb_diploma: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly vallalati_tovabbkepzes: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly veztok_letszama: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly createAt: FieldRef<"SzakmaiTovabbkepzes", 'DateTime'>
+    readonly createBy: FieldRef<"SzakmaiTovabbkepzes", 'String'>
+    readonly updatedAt: FieldRef<"SzakmaiTovabbkepzes", 'DateTime'>
+    readonly updatedBy: FieldRef<"SzakmaiTovabbkepzes", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SzakmaiTovabbkepzes findUnique
+   */
+  export type SzakmaiTovabbkepzesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SzakmaiTovabbkepzes
+     */
+    select?: SzakmaiTovabbkepzesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SzakmaiTovabbkepzes
+     */
+    omit?: SzakmaiTovabbkepzesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SzakmaiTovabbkepzesInclude<ExtArgs> | null
+    /**
+     * Filter, which SzakmaiTovabbkepzes to fetch.
+     */
+    where: SzakmaiTovabbkepzesWhereUniqueInput
+  }
+
+  /**
+   * SzakmaiTovabbkepzes findUniqueOrThrow
+   */
+  export type SzakmaiTovabbkepzesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SzakmaiTovabbkepzes
+     */
+    select?: SzakmaiTovabbkepzesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SzakmaiTovabbkepzes
+     */
+    omit?: SzakmaiTovabbkepzesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SzakmaiTovabbkepzesInclude<ExtArgs> | null
+    /**
+     * Filter, which SzakmaiTovabbkepzes to fetch.
+     */
+    where: SzakmaiTovabbkepzesWhereUniqueInput
+  }
+
+  /**
+   * SzakmaiTovabbkepzes findFirst
+   */
+  export type SzakmaiTovabbkepzesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SzakmaiTovabbkepzes
+     */
+    select?: SzakmaiTovabbkepzesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SzakmaiTovabbkepzes
+     */
+    omit?: SzakmaiTovabbkepzesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SzakmaiTovabbkepzesInclude<ExtArgs> | null
+    /**
+     * Filter, which SzakmaiTovabbkepzes to fetch.
+     */
+    where?: SzakmaiTovabbkepzesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SzakmaiTovabbkepzes to fetch.
+     */
+    orderBy?: SzakmaiTovabbkepzesOrderByWithRelationInput | SzakmaiTovabbkepzesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SzakmaiTovabbkepzes.
+     */
+    cursor?: SzakmaiTovabbkepzesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SzakmaiTovabbkepzes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SzakmaiTovabbkepzes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SzakmaiTovabbkepzes.
+     */
+    distinct?: SzakmaiTovabbkepzesScalarFieldEnum | SzakmaiTovabbkepzesScalarFieldEnum[]
+  }
+
+  /**
+   * SzakmaiTovabbkepzes findFirstOrThrow
+   */
+  export type SzakmaiTovabbkepzesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SzakmaiTovabbkepzes
+     */
+    select?: SzakmaiTovabbkepzesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SzakmaiTovabbkepzes
+     */
+    omit?: SzakmaiTovabbkepzesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SzakmaiTovabbkepzesInclude<ExtArgs> | null
+    /**
+     * Filter, which SzakmaiTovabbkepzes to fetch.
+     */
+    where?: SzakmaiTovabbkepzesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SzakmaiTovabbkepzes to fetch.
+     */
+    orderBy?: SzakmaiTovabbkepzesOrderByWithRelationInput | SzakmaiTovabbkepzesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SzakmaiTovabbkepzes.
+     */
+    cursor?: SzakmaiTovabbkepzesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SzakmaiTovabbkepzes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SzakmaiTovabbkepzes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SzakmaiTovabbkepzes.
+     */
+    distinct?: SzakmaiTovabbkepzesScalarFieldEnum | SzakmaiTovabbkepzesScalarFieldEnum[]
+  }
+
+  /**
+   * SzakmaiTovabbkepzes findMany
+   */
+  export type SzakmaiTovabbkepzesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SzakmaiTovabbkepzes
+     */
+    select?: SzakmaiTovabbkepzesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SzakmaiTovabbkepzes
+     */
+    omit?: SzakmaiTovabbkepzesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SzakmaiTovabbkepzesInclude<ExtArgs> | null
+    /**
+     * Filter, which SzakmaiTovabbkepzes to fetch.
+     */
+    where?: SzakmaiTovabbkepzesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SzakmaiTovabbkepzes to fetch.
+     */
+    orderBy?: SzakmaiTovabbkepzesOrderByWithRelationInput | SzakmaiTovabbkepzesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SzakmaiTovabbkepzes.
+     */
+    cursor?: SzakmaiTovabbkepzesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SzakmaiTovabbkepzes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SzakmaiTovabbkepzes.
+     */
+    skip?: number
+    distinct?: SzakmaiTovabbkepzesScalarFieldEnum | SzakmaiTovabbkepzesScalarFieldEnum[]
+  }
+
+  /**
+   * SzakmaiTovabbkepzes create
+   */
+  export type SzakmaiTovabbkepzesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SzakmaiTovabbkepzes
+     */
+    select?: SzakmaiTovabbkepzesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SzakmaiTovabbkepzes
+     */
+    omit?: SzakmaiTovabbkepzesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SzakmaiTovabbkepzesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SzakmaiTovabbkepzes.
+     */
+    data: XOR<SzakmaiTovabbkepzesCreateInput, SzakmaiTovabbkepzesUncheckedCreateInput>
+  }
+
+  /**
+   * SzakmaiTovabbkepzes createMany
+   */
+  export type SzakmaiTovabbkepzesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SzakmaiTovabbkepzes.
+     */
+    data: SzakmaiTovabbkepzesCreateManyInput | SzakmaiTovabbkepzesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SzakmaiTovabbkepzes createManyAndReturn
+   */
+  export type SzakmaiTovabbkepzesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SzakmaiTovabbkepzes
+     */
+    select?: SzakmaiTovabbkepzesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SzakmaiTovabbkepzes
+     */
+    omit?: SzakmaiTovabbkepzesOmit<ExtArgs> | null
+    /**
+     * The data used to create many SzakmaiTovabbkepzes.
+     */
+    data: SzakmaiTovabbkepzesCreateManyInput | SzakmaiTovabbkepzesCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SzakmaiTovabbkepzesIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SzakmaiTovabbkepzes update
+   */
+  export type SzakmaiTovabbkepzesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SzakmaiTovabbkepzes
+     */
+    select?: SzakmaiTovabbkepzesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SzakmaiTovabbkepzes
+     */
+    omit?: SzakmaiTovabbkepzesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SzakmaiTovabbkepzesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SzakmaiTovabbkepzes.
+     */
+    data: XOR<SzakmaiTovabbkepzesUpdateInput, SzakmaiTovabbkepzesUncheckedUpdateInput>
+    /**
+     * Choose, which SzakmaiTovabbkepzes to update.
+     */
+    where: SzakmaiTovabbkepzesWhereUniqueInput
+  }
+
+  /**
+   * SzakmaiTovabbkepzes updateMany
+   */
+  export type SzakmaiTovabbkepzesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SzakmaiTovabbkepzes.
+     */
+    data: XOR<SzakmaiTovabbkepzesUpdateManyMutationInput, SzakmaiTovabbkepzesUncheckedUpdateManyInput>
+    /**
+     * Filter which SzakmaiTovabbkepzes to update
+     */
+    where?: SzakmaiTovabbkepzesWhereInput
+    /**
+     * Limit how many SzakmaiTovabbkepzes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SzakmaiTovabbkepzes updateManyAndReturn
+   */
+  export type SzakmaiTovabbkepzesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SzakmaiTovabbkepzes
+     */
+    select?: SzakmaiTovabbkepzesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SzakmaiTovabbkepzes
+     */
+    omit?: SzakmaiTovabbkepzesOmit<ExtArgs> | null
+    /**
+     * The data used to update SzakmaiTovabbkepzes.
+     */
+    data: XOR<SzakmaiTovabbkepzesUpdateManyMutationInput, SzakmaiTovabbkepzesUncheckedUpdateManyInput>
+    /**
+     * Filter which SzakmaiTovabbkepzes to update
+     */
+    where?: SzakmaiTovabbkepzesWhereInput
+    /**
+     * Limit how many SzakmaiTovabbkepzes to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SzakmaiTovabbkepzesIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SzakmaiTovabbkepzes upsert
+   */
+  export type SzakmaiTovabbkepzesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SzakmaiTovabbkepzes
+     */
+    select?: SzakmaiTovabbkepzesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SzakmaiTovabbkepzes
+     */
+    omit?: SzakmaiTovabbkepzesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SzakmaiTovabbkepzesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SzakmaiTovabbkepzes to update in case it exists.
+     */
+    where: SzakmaiTovabbkepzesWhereUniqueInput
+    /**
+     * In case the SzakmaiTovabbkepzes found by the `where` argument doesn't exist, create a new SzakmaiTovabbkepzes with this data.
+     */
+    create: XOR<SzakmaiTovabbkepzesCreateInput, SzakmaiTovabbkepzesUncheckedCreateInput>
+    /**
+     * In case the SzakmaiTovabbkepzes was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SzakmaiTovabbkepzesUpdateInput, SzakmaiTovabbkepzesUncheckedUpdateInput>
+  }
+
+  /**
+   * SzakmaiTovabbkepzes delete
+   */
+  export type SzakmaiTovabbkepzesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SzakmaiTovabbkepzes
+     */
+    select?: SzakmaiTovabbkepzesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SzakmaiTovabbkepzes
+     */
+    omit?: SzakmaiTovabbkepzesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SzakmaiTovabbkepzesInclude<ExtArgs> | null
+    /**
+     * Filter which SzakmaiTovabbkepzes to delete.
+     */
+    where: SzakmaiTovabbkepzesWhereUniqueInput
+  }
+
+  /**
+   * SzakmaiTovabbkepzes deleteMany
+   */
+  export type SzakmaiTovabbkepzesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SzakmaiTovabbkepzes to delete
+     */
+    where?: SzakmaiTovabbkepzesWhereInput
+    /**
+     * Limit how many SzakmaiTovabbkepzes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SzakmaiTovabbkepzes without action
+   */
+  export type SzakmaiTovabbkepzesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SzakmaiTovabbkepzes
+     */
+    select?: SzakmaiTovabbkepzesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SzakmaiTovabbkepzes
+     */
+    omit?: SzakmaiTovabbkepzesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SzakmaiTovabbkepzesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Hianyzas
+   */
+
+  export type AggregateHianyzas = {
+    _count: HianyzasCountAggregateOutputType | null
+    _avg: HianyzasAvgAggregateOutputType | null
+    _sum: HianyzasSumAggregateOutputType | null
+    _min: HianyzasMinAggregateOutputType | null
+    _max: HianyzasMaxAggregateOutputType | null
+  }
+
+  export type HianyzasAvgAggregateOutputType = {
+    tanev_kezdete: number | null
+    atlag: number | null
+    igazolatlan: number | null
+    igazolt: number | null
+  }
+
+  export type HianyzasSumAggregateOutputType = {
+    tanev_kezdete: number | null
+    atlag: number | null
+    igazolatlan: number | null
+    igazolt: number | null
+  }
+
+  export type HianyzasMinAggregateOutputType = {
+    id: string | null
+    alapadatok_id: string | null
+    tanev_kezdete: number | null
+    atlag: number | null
+    felev: string | null
+    igazolatlan: number | null
+    igazolt: number | null
+    intezmeny_tipus: string | null
+    jogviszony: string | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
+  }
+
+  export type HianyzasMaxAggregateOutputType = {
+    id: string | null
+    alapadatok_id: string | null
+    tanev_kezdete: number | null
+    atlag: number | null
+    felev: string | null
+    igazolatlan: number | null
+    igazolt: number | null
+    intezmeny_tipus: string | null
+    jogviszony: string | null
+    createAt: Date | null
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
+  }
+
+  export type HianyzasCountAggregateOutputType = {
+    id: number
+    alapadatok_id: number
+    tanev_kezdete: number
+    atlag: number
+    felev: number
+    igazolatlan: number
+    igazolt: number
+    intezmeny_tipus: number
+    jogviszony: number
+    createAt: number
+    createBy: number
+    updatedAt: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type HianyzasAvgAggregateInputType = {
+    tanev_kezdete?: true
+    atlag?: true
+    igazolatlan?: true
+    igazolt?: true
+  }
+
+  export type HianyzasSumAggregateInputType = {
+    tanev_kezdete?: true
+    atlag?: true
+    igazolatlan?: true
+    igazolt?: true
+  }
+
+  export type HianyzasMinAggregateInputType = {
+    id?: true
+    alapadatok_id?: true
+    tanev_kezdete?: true
+    atlag?: true
+    felev?: true
+    igazolatlan?: true
+    igazolt?: true
+    intezmeny_tipus?: true
+    jogviszony?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
+  }
+
+  export type HianyzasMaxAggregateInputType = {
+    id?: true
+    alapadatok_id?: true
+    tanev_kezdete?: true
+    atlag?: true
+    felev?: true
+    igazolatlan?: true
+    igazolt?: true
+    intezmeny_tipus?: true
+    jogviszony?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
+  }
+
+  export type HianyzasCountAggregateInputType = {
+    id?: true
+    alapadatok_id?: true
+    tanev_kezdete?: true
+    atlag?: true
+    felev?: true
+    igazolatlan?: true
+    igazolt?: true
+    intezmeny_tipus?: true
+    jogviszony?: true
+    createAt?: true
+    createBy?: true
+    updatedAt?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type HianyzasAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Hianyzas to aggregate.
+     */
+    where?: HianyzasWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Hianyzas to fetch.
+     */
+    orderBy?: HianyzasOrderByWithRelationInput | HianyzasOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: HianyzasWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Hianyzas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Hianyzas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Hianyzas
+    **/
+    _count?: true | HianyzasCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: HianyzasAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: HianyzasSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: HianyzasMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: HianyzasMaxAggregateInputType
+  }
+
+  export type GetHianyzasAggregateType<T extends HianyzasAggregateArgs> = {
+        [P in keyof T & keyof AggregateHianyzas]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateHianyzas[P]>
+      : GetScalarType<T[P], AggregateHianyzas[P]>
+  }
+
+
+
+
+  export type HianyzasGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HianyzasWhereInput
+    orderBy?: HianyzasOrderByWithAggregationInput | HianyzasOrderByWithAggregationInput[]
+    by: HianyzasScalarFieldEnum[] | HianyzasScalarFieldEnum
+    having?: HianyzasScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: HianyzasCountAggregateInputType | true
+    _avg?: HianyzasAvgAggregateInputType
+    _sum?: HianyzasSumAggregateInputType
+    _min?: HianyzasMinAggregateInputType
+    _max?: HianyzasMaxAggregateInputType
+  }
+
+  export type HianyzasGroupByOutputType = {
+    id: string
+    alapadatok_id: string
+    tanev_kezdete: number
+    atlag: number
+    felev: string
+    igazolatlan: number
+    igazolt: number
+    intezmeny_tipus: string
+    jogviszony: string
+    createAt: Date
+    createBy: string | null
+    updatedAt: Date | null
+    updatedBy: string | null
+    _count: HianyzasCountAggregateOutputType | null
+    _avg: HianyzasAvgAggregateOutputType | null
+    _sum: HianyzasSumAggregateOutputType | null
+    _min: HianyzasMinAggregateOutputType | null
+    _max: HianyzasMaxAggregateOutputType | null
+  }
+
+  type GetHianyzasGroupByPayload<T extends HianyzasGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<HianyzasGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof HianyzasGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], HianyzasGroupByOutputType[P]>
+            : GetScalarType<T[P], HianyzasGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type HianyzasSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alapadatok_id?: boolean
+    tanev_kezdete?: boolean
+    atlag?: boolean
+    felev?: boolean
+    igazolatlan?: boolean
+    igazolt?: boolean
+    intezmeny_tipus?: boolean
+    jogviszony?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["hianyzas"]>
+
+  export type HianyzasSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alapadatok_id?: boolean
+    tanev_kezdete?: boolean
+    atlag?: boolean
+    felev?: boolean
+    igazolatlan?: boolean
+    igazolt?: boolean
+    intezmeny_tipus?: boolean
+    jogviszony?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["hianyzas"]>
+
+  export type HianyzasSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    alapadatok_id?: boolean
+    tanev_kezdete?: boolean
+    atlag?: boolean
+    felev?: boolean
+    igazolatlan?: boolean
+    igazolt?: boolean
+    intezmeny_tipus?: boolean
+    jogviszony?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["hianyzas"]>
+
+  export type HianyzasSelectScalar = {
+    id?: boolean
+    alapadatok_id?: boolean
+    tanev_kezdete?: boolean
+    atlag?: boolean
+    felev?: boolean
+    igazolatlan?: boolean
+    igazolt?: boolean
+    intezmeny_tipus?: boolean
+    jogviszony?: boolean
+    createAt?: boolean
+    createBy?: boolean
+    updatedAt?: boolean
+    updatedBy?: boolean
+  }
+
+  export type HianyzasOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "atlag" | "felev" | "igazolatlan" | "igazolt" | "intezmeny_tipus" | "jogviszony" | "createAt" | "createBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["hianyzas"]>
+  export type HianyzasInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }
+  export type HianyzasIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }
+  export type HianyzasIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
+  }
+
+  export type $HianyzasPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Hianyzas"
+    objects: {
+      alapadatok: Prisma.$AlapadatokPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      alapadatok_id: string
+      tanev_kezdete: number
+      atlag: number
+      felev: string
+      igazolatlan: number
+      igazolt: number
+      intezmeny_tipus: string
+      jogviszony: string
+      createAt: Date
+      createBy: string | null
+      updatedAt: Date | null
+      updatedBy: string | null
+    }, ExtArgs["result"]["hianyzas"]>
+    composites: {}
+  }
+
+  type HianyzasGetPayload<S extends boolean | null | undefined | HianyzasDefaultArgs> = $Result.GetResult<Prisma.$HianyzasPayload, S>
+
+  type HianyzasCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<HianyzasFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: HianyzasCountAggregateInputType | true
+    }
+
+  export interface HianyzasDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Hianyzas'], meta: { name: 'Hianyzas' } }
+    /**
+     * Find zero or one Hianyzas that matches the filter.
+     * @param {HianyzasFindUniqueArgs} args - Arguments to find a Hianyzas
+     * @example
+     * // Get one Hianyzas
+     * const hianyzas = await prisma.hianyzas.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends HianyzasFindUniqueArgs>(args: SelectSubset<T, HianyzasFindUniqueArgs<ExtArgs>>): Prisma__HianyzasClient<$Result.GetResult<Prisma.$HianyzasPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Hianyzas that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {HianyzasFindUniqueOrThrowArgs} args - Arguments to find a Hianyzas
+     * @example
+     * // Get one Hianyzas
+     * const hianyzas = await prisma.hianyzas.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends HianyzasFindUniqueOrThrowArgs>(args: SelectSubset<T, HianyzasFindUniqueOrThrowArgs<ExtArgs>>): Prisma__HianyzasClient<$Result.GetResult<Prisma.$HianyzasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Hianyzas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HianyzasFindFirstArgs} args - Arguments to find a Hianyzas
+     * @example
+     * // Get one Hianyzas
+     * const hianyzas = await prisma.hianyzas.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends HianyzasFindFirstArgs>(args?: SelectSubset<T, HianyzasFindFirstArgs<ExtArgs>>): Prisma__HianyzasClient<$Result.GetResult<Prisma.$HianyzasPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Hianyzas that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HianyzasFindFirstOrThrowArgs} args - Arguments to find a Hianyzas
+     * @example
+     * // Get one Hianyzas
+     * const hianyzas = await prisma.hianyzas.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends HianyzasFindFirstOrThrowArgs>(args?: SelectSubset<T, HianyzasFindFirstOrThrowArgs<ExtArgs>>): Prisma__HianyzasClient<$Result.GetResult<Prisma.$HianyzasPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Hianyzas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HianyzasFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Hianyzas
+     * const hianyzas = await prisma.hianyzas.findMany()
+     * 
+     * // Get first 10 Hianyzas
+     * const hianyzas = await prisma.hianyzas.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const hianyzasWithIdOnly = await prisma.hianyzas.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends HianyzasFindManyArgs>(args?: SelectSubset<T, HianyzasFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HianyzasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Hianyzas.
+     * @param {HianyzasCreateArgs} args - Arguments to create a Hianyzas.
+     * @example
+     * // Create one Hianyzas
+     * const Hianyzas = await prisma.hianyzas.create({
+     *   data: {
+     *     // ... data to create a Hianyzas
+     *   }
+     * })
+     * 
+     */
+    create<T extends HianyzasCreateArgs>(args: SelectSubset<T, HianyzasCreateArgs<ExtArgs>>): Prisma__HianyzasClient<$Result.GetResult<Prisma.$HianyzasPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Hianyzas.
+     * @param {HianyzasCreateManyArgs} args - Arguments to create many Hianyzas.
+     * @example
+     * // Create many Hianyzas
+     * const hianyzas = await prisma.hianyzas.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends HianyzasCreateManyArgs>(args?: SelectSubset<T, HianyzasCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Hianyzas and returns the data saved in the database.
+     * @param {HianyzasCreateManyAndReturnArgs} args - Arguments to create many Hianyzas.
+     * @example
+     * // Create many Hianyzas
+     * const hianyzas = await prisma.hianyzas.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Hianyzas and only return the `id`
+     * const hianyzasWithIdOnly = await prisma.hianyzas.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends HianyzasCreateManyAndReturnArgs>(args?: SelectSubset<T, HianyzasCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HianyzasPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Hianyzas.
+     * @param {HianyzasDeleteArgs} args - Arguments to delete one Hianyzas.
+     * @example
+     * // Delete one Hianyzas
+     * const Hianyzas = await prisma.hianyzas.delete({
+     *   where: {
+     *     // ... filter to delete one Hianyzas
+     *   }
+     * })
+     * 
+     */
+    delete<T extends HianyzasDeleteArgs>(args: SelectSubset<T, HianyzasDeleteArgs<ExtArgs>>): Prisma__HianyzasClient<$Result.GetResult<Prisma.$HianyzasPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Hianyzas.
+     * @param {HianyzasUpdateArgs} args - Arguments to update one Hianyzas.
+     * @example
+     * // Update one Hianyzas
+     * const hianyzas = await prisma.hianyzas.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends HianyzasUpdateArgs>(args: SelectSubset<T, HianyzasUpdateArgs<ExtArgs>>): Prisma__HianyzasClient<$Result.GetResult<Prisma.$HianyzasPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Hianyzas.
+     * @param {HianyzasDeleteManyArgs} args - Arguments to filter Hianyzas to delete.
+     * @example
+     * // Delete a few Hianyzas
+     * const { count } = await prisma.hianyzas.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends HianyzasDeleteManyArgs>(args?: SelectSubset<T, HianyzasDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Hianyzas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HianyzasUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Hianyzas
+     * const hianyzas = await prisma.hianyzas.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends HianyzasUpdateManyArgs>(args: SelectSubset<T, HianyzasUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Hianyzas and returns the data updated in the database.
+     * @param {HianyzasUpdateManyAndReturnArgs} args - Arguments to update many Hianyzas.
+     * @example
+     * // Update many Hianyzas
+     * const hianyzas = await prisma.hianyzas.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Hianyzas and only return the `id`
+     * const hianyzasWithIdOnly = await prisma.hianyzas.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends HianyzasUpdateManyAndReturnArgs>(args: SelectSubset<T, HianyzasUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HianyzasPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Hianyzas.
+     * @param {HianyzasUpsertArgs} args - Arguments to update or create a Hianyzas.
+     * @example
+     * // Update or create a Hianyzas
+     * const hianyzas = await prisma.hianyzas.upsert({
+     *   create: {
+     *     // ... data to create a Hianyzas
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Hianyzas we want to update
+     *   }
+     * })
+     */
+    upsert<T extends HianyzasUpsertArgs>(args: SelectSubset<T, HianyzasUpsertArgs<ExtArgs>>): Prisma__HianyzasClient<$Result.GetResult<Prisma.$HianyzasPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Hianyzas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HianyzasCountArgs} args - Arguments to filter Hianyzas to count.
+     * @example
+     * // Count the number of Hianyzas
+     * const count = await prisma.hianyzas.count({
+     *   where: {
+     *     // ... the filter for the Hianyzas we want to count
+     *   }
+     * })
+    **/
+    count<T extends HianyzasCountArgs>(
+      args?: Subset<T, HianyzasCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], HianyzasCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Hianyzas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HianyzasAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends HianyzasAggregateArgs>(args: Subset<T, HianyzasAggregateArgs>): Prisma.PrismaPromise<GetHianyzasAggregateType<T>>
+
+    /**
+     * Group by Hianyzas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HianyzasGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends HianyzasGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: HianyzasGroupByArgs['orderBy'] }
+        : { orderBy?: HianyzasGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, HianyzasGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetHianyzasGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Hianyzas model
+   */
+  readonly fields: HianyzasFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Hianyzas.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__HianyzasClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    alapadatok<T extends AlapadatokDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AlapadatokDefaultArgs<ExtArgs>>): Prisma__AlapadatokClient<$Result.GetResult<Prisma.$AlapadatokPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Hianyzas model
+   */
+  interface HianyzasFieldRefs {
+    readonly id: FieldRef<"Hianyzas", 'String'>
+    readonly alapadatok_id: FieldRef<"Hianyzas", 'String'>
+    readonly tanev_kezdete: FieldRef<"Hianyzas", 'Int'>
+    readonly atlag: FieldRef<"Hianyzas", 'Int'>
+    readonly felev: FieldRef<"Hianyzas", 'String'>
+    readonly igazolatlan: FieldRef<"Hianyzas", 'Int'>
+    readonly igazolt: FieldRef<"Hianyzas", 'Int'>
+    readonly intezmeny_tipus: FieldRef<"Hianyzas", 'String'>
+    readonly jogviszony: FieldRef<"Hianyzas", 'String'>
+    readonly createAt: FieldRef<"Hianyzas", 'DateTime'>
+    readonly createBy: FieldRef<"Hianyzas", 'String'>
+    readonly updatedAt: FieldRef<"Hianyzas", 'DateTime'>
+    readonly updatedBy: FieldRef<"Hianyzas", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Hianyzas findUnique
+   */
+  export type HianyzasFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hianyzas
+     */
+    select?: HianyzasSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hianyzas
+     */
+    omit?: HianyzasOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HianyzasInclude<ExtArgs> | null
+    /**
+     * Filter, which Hianyzas to fetch.
+     */
+    where: HianyzasWhereUniqueInput
+  }
+
+  /**
+   * Hianyzas findUniqueOrThrow
+   */
+  export type HianyzasFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hianyzas
+     */
+    select?: HianyzasSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hianyzas
+     */
+    omit?: HianyzasOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HianyzasInclude<ExtArgs> | null
+    /**
+     * Filter, which Hianyzas to fetch.
+     */
+    where: HianyzasWhereUniqueInput
+  }
+
+  /**
+   * Hianyzas findFirst
+   */
+  export type HianyzasFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hianyzas
+     */
+    select?: HianyzasSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hianyzas
+     */
+    omit?: HianyzasOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HianyzasInclude<ExtArgs> | null
+    /**
+     * Filter, which Hianyzas to fetch.
+     */
+    where?: HianyzasWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Hianyzas to fetch.
+     */
+    orderBy?: HianyzasOrderByWithRelationInput | HianyzasOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Hianyzas.
+     */
+    cursor?: HianyzasWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Hianyzas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Hianyzas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Hianyzas.
+     */
+    distinct?: HianyzasScalarFieldEnum | HianyzasScalarFieldEnum[]
+  }
+
+  /**
+   * Hianyzas findFirstOrThrow
+   */
+  export type HianyzasFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hianyzas
+     */
+    select?: HianyzasSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hianyzas
+     */
+    omit?: HianyzasOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HianyzasInclude<ExtArgs> | null
+    /**
+     * Filter, which Hianyzas to fetch.
+     */
+    where?: HianyzasWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Hianyzas to fetch.
+     */
+    orderBy?: HianyzasOrderByWithRelationInput | HianyzasOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Hianyzas.
+     */
+    cursor?: HianyzasWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Hianyzas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Hianyzas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Hianyzas.
+     */
+    distinct?: HianyzasScalarFieldEnum | HianyzasScalarFieldEnum[]
+  }
+
+  /**
+   * Hianyzas findMany
+   */
+  export type HianyzasFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hianyzas
+     */
+    select?: HianyzasSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hianyzas
+     */
+    omit?: HianyzasOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HianyzasInclude<ExtArgs> | null
+    /**
+     * Filter, which Hianyzas to fetch.
+     */
+    where?: HianyzasWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Hianyzas to fetch.
+     */
+    orderBy?: HianyzasOrderByWithRelationInput | HianyzasOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Hianyzas.
+     */
+    cursor?: HianyzasWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Hianyzas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Hianyzas.
+     */
+    skip?: number
+    distinct?: HianyzasScalarFieldEnum | HianyzasScalarFieldEnum[]
+  }
+
+  /**
+   * Hianyzas create
+   */
+  export type HianyzasCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hianyzas
+     */
+    select?: HianyzasSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hianyzas
+     */
+    omit?: HianyzasOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HianyzasInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Hianyzas.
+     */
+    data: XOR<HianyzasCreateInput, HianyzasUncheckedCreateInput>
+  }
+
+  /**
+   * Hianyzas createMany
+   */
+  export type HianyzasCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Hianyzas.
+     */
+    data: HianyzasCreateManyInput | HianyzasCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Hianyzas createManyAndReturn
+   */
+  export type HianyzasCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hianyzas
+     */
+    select?: HianyzasSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hianyzas
+     */
+    omit?: HianyzasOmit<ExtArgs> | null
+    /**
+     * The data used to create many Hianyzas.
+     */
+    data: HianyzasCreateManyInput | HianyzasCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HianyzasIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Hianyzas update
+   */
+  export type HianyzasUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hianyzas
+     */
+    select?: HianyzasSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hianyzas
+     */
+    omit?: HianyzasOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HianyzasInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Hianyzas.
+     */
+    data: XOR<HianyzasUpdateInput, HianyzasUncheckedUpdateInput>
+    /**
+     * Choose, which Hianyzas to update.
+     */
+    where: HianyzasWhereUniqueInput
+  }
+
+  /**
+   * Hianyzas updateMany
+   */
+  export type HianyzasUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Hianyzas.
+     */
+    data: XOR<HianyzasUpdateManyMutationInput, HianyzasUncheckedUpdateManyInput>
+    /**
+     * Filter which Hianyzas to update
+     */
+    where?: HianyzasWhereInput
+    /**
+     * Limit how many Hianyzas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Hianyzas updateManyAndReturn
+   */
+  export type HianyzasUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hianyzas
+     */
+    select?: HianyzasSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hianyzas
+     */
+    omit?: HianyzasOmit<ExtArgs> | null
+    /**
+     * The data used to update Hianyzas.
+     */
+    data: XOR<HianyzasUpdateManyMutationInput, HianyzasUncheckedUpdateManyInput>
+    /**
+     * Filter which Hianyzas to update
+     */
+    where?: HianyzasWhereInput
+    /**
+     * Limit how many Hianyzas to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HianyzasIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Hianyzas upsert
+   */
+  export type HianyzasUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hianyzas
+     */
+    select?: HianyzasSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hianyzas
+     */
+    omit?: HianyzasOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HianyzasInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Hianyzas to update in case it exists.
+     */
+    where: HianyzasWhereUniqueInput
+    /**
+     * In case the Hianyzas found by the `where` argument doesn't exist, create a new Hianyzas with this data.
+     */
+    create: XOR<HianyzasCreateInput, HianyzasUncheckedCreateInput>
+    /**
+     * In case the Hianyzas was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<HianyzasUpdateInput, HianyzasUncheckedUpdateInput>
+  }
+
+  /**
+   * Hianyzas delete
+   */
+  export type HianyzasDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hianyzas
+     */
+    select?: HianyzasSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hianyzas
+     */
+    omit?: HianyzasOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HianyzasInclude<ExtArgs> | null
+    /**
+     * Filter which Hianyzas to delete.
+     */
+    where: HianyzasWhereUniqueInput
+  }
+
+  /**
+   * Hianyzas deleteMany
+   */
+  export type HianyzasDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Hianyzas to delete
+     */
+    where?: HianyzasWhereInput
+    /**
+     * Limit how many Hianyzas to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Hianyzas without action
+   */
+  export type HianyzasDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Hianyzas
+     */
+    select?: HianyzasSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Hianyzas
+     */
+    omit?: HianyzasOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HianyzasInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model TanuloAdatszolg
    */
 
@@ -53527,6 +56415,56 @@ export namespace Prisma {
   export type OktatoEgyebTevScalarFieldEnum = (typeof OktatoEgyebTevScalarFieldEnum)[keyof typeof OktatoEgyebTevScalarFieldEnum]
 
 
+  export const SzakmaiTovabbkepzesScalarFieldEnum: {
+    id: 'id',
+    alapadatok_id: 'alapadatok_id',
+    tanev_kezdete: 'tanev_kezdete',
+    alapkepesites_mesterfokozat: 'alapkepesites_mesterfokozat',
+    egyeb_posztgradualis: 'egyeb_posztgradualis',
+    egyedi_oraszam: 'egyedi_oraszam',
+    forditott_osszeg: 'forditott_osszeg',
+    ikk_10: 'ikk_10',
+    ikk_10_alatt: 'ikk_10_alatt',
+    ikk_20: 'ikk_20',
+    ikk_30: 'ikk_30',
+    ikk_40: 'ikk_40',
+    ikk_50: 'ikk_50',
+    ikk_60: 'ikk_60',
+    ikk_90: 'ikk_90',
+    ikk_120: 'ikk_120',
+    oktatok_letszama: 'oktatok_letszama',
+    pedagogus_szakvizsga: 'pedagogus_szakvizsga',
+    ujabb_diploma: 'ujabb_diploma',
+    vallalati_tovabbkepzes: 'vallalati_tovabbkepzes',
+    veztok_letszama: 'veztok_letszama',
+    createAt: 'createAt',
+    createBy: 'createBy',
+    updatedAt: 'updatedAt',
+    updatedBy: 'updatedBy'
+  };
+
+  export type SzakmaiTovabbkepzesScalarFieldEnum = (typeof SzakmaiTovabbkepzesScalarFieldEnum)[keyof typeof SzakmaiTovabbkepzesScalarFieldEnum]
+
+
+  export const HianyzasScalarFieldEnum: {
+    id: 'id',
+    alapadatok_id: 'alapadatok_id',
+    tanev_kezdete: 'tanev_kezdete',
+    atlag: 'atlag',
+    felev: 'felev',
+    igazolatlan: 'igazolatlan',
+    igazolt: 'igazolt',
+    intezmeny_tipus: 'intezmeny_tipus',
+    jogviszony: 'jogviszony',
+    createAt: 'createAt',
+    createBy: 'createBy',
+    updatedAt: 'updatedAt',
+    updatedBy: 'updatedBy'
+  };
+
+  export type HianyzasScalarFieldEnum = (typeof HianyzasScalarFieldEnum)[keyof typeof HianyzasScalarFieldEnum]
+
+
   export const TanuloAdatszolgScalarFieldEnum: {
     id: 'id',
     alapadatok_id: 'alapadatok_id',
@@ -54210,6 +57148,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaListRelationFilter
     tanuloAdatszolg?: TanuloAdatszolgListRelationFilter
     oktatoAdatszolg?: OktatoAdatszolgListRelationFilter
+    hianyzas?: HianyzasListRelationFilter
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesListRelationFilter
     users?: UserListRelationFilter
     OktatoEgyebTev?: OktatoEgyebTevListRelationFilter
   }
@@ -54244,6 +57184,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaOrderByRelationAggregateInput
     tanuloAdatszolg?: TanuloAdatszolgOrderByRelationAggregateInput
     oktatoAdatszolg?: OktatoAdatszolgOrderByRelationAggregateInput
+    hianyzas?: HianyzasOrderByRelationAggregateInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesOrderByRelationAggregateInput
     users?: UserOrderByRelationAggregateInput
     OktatoEgyebTev?: OktatoEgyebTevOrderByRelationAggregateInput
   }
@@ -54281,6 +57223,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaListRelationFilter
     tanuloAdatszolg?: TanuloAdatszolgListRelationFilter
     oktatoAdatszolg?: OktatoAdatszolgListRelationFilter
+    hianyzas?: HianyzasListRelationFilter
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesListRelationFilter
     users?: UserListRelationFilter
     OktatoEgyebTev?: OktatoEgyebTevListRelationFilter
   }, "id">
@@ -57299,6 +60243,260 @@ export namespace Prisma {
     oktatok_letszama?: IntWithAggregatesFilter<"OktatoEgyebTev"> | number
   }
 
+  export type SzakmaiTovabbkepzesWhereInput = {
+    AND?: SzakmaiTovabbkepzesWhereInput | SzakmaiTovabbkepzesWhereInput[]
+    OR?: SzakmaiTovabbkepzesWhereInput[]
+    NOT?: SzakmaiTovabbkepzesWhereInput | SzakmaiTovabbkepzesWhereInput[]
+    id?: UuidFilter<"SzakmaiTovabbkepzes"> | string
+    alapadatok_id?: UuidFilter<"SzakmaiTovabbkepzes"> | string
+    tanev_kezdete?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    alapkepesites_mesterfokozat?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    egyeb_posztgradualis?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    egyedi_oraszam?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    forditott_osszeg?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_10?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_10_alatt?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_20?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_30?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_40?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_50?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_60?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_90?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_120?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    oktatok_letszama?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    pedagogus_szakvizsga?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ujabb_diploma?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    vallalati_tovabbkepzes?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    veztok_letszama?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    createAt?: DateTimeFilter<"SzakmaiTovabbkepzes"> | Date | string
+    createBy?: StringNullableFilter<"SzakmaiTovabbkepzes"> | string | null
+    updatedAt?: DateTimeNullableFilter<"SzakmaiTovabbkepzes"> | Date | string | null
+    updatedBy?: StringNullableFilter<"SzakmaiTovabbkepzes"> | string | null
+    alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
+  }
+
+  export type SzakmaiTovabbkepzesOrderByWithRelationInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    alapkepesites_mesterfokozat?: SortOrder
+    egyeb_posztgradualis?: SortOrder
+    egyedi_oraszam?: SortOrder
+    forditott_osszeg?: SortOrder
+    ikk_10?: SortOrder
+    ikk_10_alatt?: SortOrder
+    ikk_20?: SortOrder
+    ikk_30?: SortOrder
+    ikk_40?: SortOrder
+    ikk_50?: SortOrder
+    ikk_60?: SortOrder
+    ikk_90?: SortOrder
+    ikk_120?: SortOrder
+    oktatok_letszama?: SortOrder
+    pedagogus_szakvizsga?: SortOrder
+    ujabb_diploma?: SortOrder
+    vallalati_tovabbkepzes?: SortOrder
+    veztok_letszama?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
+    alapadatok?: AlapadatokOrderByWithRelationInput
+  }
+
+  export type SzakmaiTovabbkepzesWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SzakmaiTovabbkepzesWhereInput | SzakmaiTovabbkepzesWhereInput[]
+    OR?: SzakmaiTovabbkepzesWhereInput[]
+    NOT?: SzakmaiTovabbkepzesWhereInput | SzakmaiTovabbkepzesWhereInput[]
+    alapadatok_id?: UuidFilter<"SzakmaiTovabbkepzes"> | string
+    tanev_kezdete?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    alapkepesites_mesterfokozat?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    egyeb_posztgradualis?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    egyedi_oraszam?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    forditott_osszeg?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_10?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_10_alatt?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_20?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_30?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_40?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_50?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_60?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_90?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_120?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    oktatok_letszama?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    pedagogus_szakvizsga?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ujabb_diploma?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    vallalati_tovabbkepzes?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    veztok_letszama?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    createAt?: DateTimeFilter<"SzakmaiTovabbkepzes"> | Date | string
+    createBy?: StringNullableFilter<"SzakmaiTovabbkepzes"> | string | null
+    updatedAt?: DateTimeNullableFilter<"SzakmaiTovabbkepzes"> | Date | string | null
+    updatedBy?: StringNullableFilter<"SzakmaiTovabbkepzes"> | string | null
+    alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
+  }, "id">
+
+  export type SzakmaiTovabbkepzesOrderByWithAggregationInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    alapkepesites_mesterfokozat?: SortOrder
+    egyeb_posztgradualis?: SortOrder
+    egyedi_oraszam?: SortOrder
+    forditott_osszeg?: SortOrder
+    ikk_10?: SortOrder
+    ikk_10_alatt?: SortOrder
+    ikk_20?: SortOrder
+    ikk_30?: SortOrder
+    ikk_40?: SortOrder
+    ikk_50?: SortOrder
+    ikk_60?: SortOrder
+    ikk_90?: SortOrder
+    ikk_120?: SortOrder
+    oktatok_letszama?: SortOrder
+    pedagogus_szakvizsga?: SortOrder
+    ujabb_diploma?: SortOrder
+    vallalati_tovabbkepzes?: SortOrder
+    veztok_letszama?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
+    _count?: SzakmaiTovabbkepzesCountOrderByAggregateInput
+    _avg?: SzakmaiTovabbkepzesAvgOrderByAggregateInput
+    _max?: SzakmaiTovabbkepzesMaxOrderByAggregateInput
+    _min?: SzakmaiTovabbkepzesMinOrderByAggregateInput
+    _sum?: SzakmaiTovabbkepzesSumOrderByAggregateInput
+  }
+
+  export type SzakmaiTovabbkepzesScalarWhereWithAggregatesInput = {
+    AND?: SzakmaiTovabbkepzesScalarWhereWithAggregatesInput | SzakmaiTovabbkepzesScalarWhereWithAggregatesInput[]
+    OR?: SzakmaiTovabbkepzesScalarWhereWithAggregatesInput[]
+    NOT?: SzakmaiTovabbkepzesScalarWhereWithAggregatesInput | SzakmaiTovabbkepzesScalarWhereWithAggregatesInput[]
+    id?: UuidWithAggregatesFilter<"SzakmaiTovabbkepzes"> | string
+    alapadatok_id?: UuidWithAggregatesFilter<"SzakmaiTovabbkepzes"> | string
+    tanev_kezdete?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    alapkepesites_mesterfokozat?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    egyeb_posztgradualis?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    egyedi_oraszam?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    forditott_osszeg?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_10?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_10_alatt?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_20?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_30?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_40?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_50?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_60?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_90?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_120?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    oktatok_letszama?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    pedagogus_szakvizsga?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    ujabb_diploma?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    vallalati_tovabbkepzes?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    veztok_letszama?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    createAt?: DateTimeWithAggregatesFilter<"SzakmaiTovabbkepzes"> | Date | string
+    createBy?: StringNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | Date | string | null
+    updatedBy?: StringNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | string | null
+  }
+
+  export type HianyzasWhereInput = {
+    AND?: HianyzasWhereInput | HianyzasWhereInput[]
+    OR?: HianyzasWhereInput[]
+    NOT?: HianyzasWhereInput | HianyzasWhereInput[]
+    id?: UuidFilter<"Hianyzas"> | string
+    alapadatok_id?: UuidFilter<"Hianyzas"> | string
+    tanev_kezdete?: IntFilter<"Hianyzas"> | number
+    atlag?: IntFilter<"Hianyzas"> | number
+    felev?: StringFilter<"Hianyzas"> | string
+    igazolatlan?: IntFilter<"Hianyzas"> | number
+    igazolt?: IntFilter<"Hianyzas"> | number
+    intezmeny_tipus?: StringFilter<"Hianyzas"> | string
+    jogviszony?: StringFilter<"Hianyzas"> | string
+    createAt?: DateTimeFilter<"Hianyzas"> | Date | string
+    createBy?: StringNullableFilter<"Hianyzas"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Hianyzas"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Hianyzas"> | string | null
+    alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
+  }
+
+  export type HianyzasOrderByWithRelationInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    atlag?: SortOrder
+    felev?: SortOrder
+    igazolatlan?: SortOrder
+    igazolt?: SortOrder
+    intezmeny_tipus?: SortOrder
+    jogviszony?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
+    alapadatok?: AlapadatokOrderByWithRelationInput
+  }
+
+  export type HianyzasWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: HianyzasWhereInput | HianyzasWhereInput[]
+    OR?: HianyzasWhereInput[]
+    NOT?: HianyzasWhereInput | HianyzasWhereInput[]
+    alapadatok_id?: UuidFilter<"Hianyzas"> | string
+    tanev_kezdete?: IntFilter<"Hianyzas"> | number
+    atlag?: IntFilter<"Hianyzas"> | number
+    felev?: StringFilter<"Hianyzas"> | string
+    igazolatlan?: IntFilter<"Hianyzas"> | number
+    igazolt?: IntFilter<"Hianyzas"> | number
+    intezmeny_tipus?: StringFilter<"Hianyzas"> | string
+    jogviszony?: StringFilter<"Hianyzas"> | string
+    createAt?: DateTimeFilter<"Hianyzas"> | Date | string
+    createBy?: StringNullableFilter<"Hianyzas"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Hianyzas"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Hianyzas"> | string | null
+    alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
+  }, "id">
+
+  export type HianyzasOrderByWithAggregationInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    atlag?: SortOrder
+    felev?: SortOrder
+    igazolatlan?: SortOrder
+    igazolt?: SortOrder
+    intezmeny_tipus?: SortOrder
+    jogviszony?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    updatedBy?: SortOrderInput | SortOrder
+    _count?: HianyzasCountOrderByAggregateInput
+    _avg?: HianyzasAvgOrderByAggregateInput
+    _max?: HianyzasMaxOrderByAggregateInput
+    _min?: HianyzasMinOrderByAggregateInput
+    _sum?: HianyzasSumOrderByAggregateInput
+  }
+
+  export type HianyzasScalarWhereWithAggregatesInput = {
+    AND?: HianyzasScalarWhereWithAggregatesInput | HianyzasScalarWhereWithAggregatesInput[]
+    OR?: HianyzasScalarWhereWithAggregatesInput[]
+    NOT?: HianyzasScalarWhereWithAggregatesInput | HianyzasScalarWhereWithAggregatesInput[]
+    id?: UuidWithAggregatesFilter<"Hianyzas"> | string
+    alapadatok_id?: UuidWithAggregatesFilter<"Hianyzas"> | string
+    tanev_kezdete?: IntWithAggregatesFilter<"Hianyzas"> | number
+    atlag?: IntWithAggregatesFilter<"Hianyzas"> | number
+    felev?: StringWithAggregatesFilter<"Hianyzas"> | string
+    igazolatlan?: IntWithAggregatesFilter<"Hianyzas"> | number
+    igazolt?: IntWithAggregatesFilter<"Hianyzas"> | number
+    intezmeny_tipus?: StringWithAggregatesFilter<"Hianyzas"> | string
+    jogviszony?: StringWithAggregatesFilter<"Hianyzas"> | string
+    createAt?: DateTimeWithAggregatesFilter<"Hianyzas"> | Date | string
+    createBy?: StringNullableWithAggregatesFilter<"Hianyzas"> | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Hianyzas"> | Date | string | null
+    updatedBy?: StringNullableWithAggregatesFilter<"Hianyzas"> | string | null
+  }
+
   export type TanuloAdatszolgWhereInput = {
     AND?: TanuloAdatszolgWhereInput | TanuloAdatszolgWhereInput[]
     OR?: TanuloAdatszolgWhereInput[]
@@ -58476,6 +61674,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -58510,6 +61710,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -58544,6 +61746,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -58578,6 +61782,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -62001,6 +65207,312 @@ export namespace Prisma {
     oktatok_letszama?: IntFieldUpdateOperationsInput | number
   }
 
+  export type SzakmaiTovabbkepzesCreateInput = {
+    id?: string
+    tanev_kezdete: number
+    alapkepesites_mesterfokozat: number
+    egyeb_posztgradualis: number
+    egyedi_oraszam: number
+    forditott_osszeg: number
+    ikk_10: number
+    ikk_10_alatt: number
+    ikk_20: number
+    ikk_30: number
+    ikk_40: number
+    ikk_50: number
+    ikk_60: number
+    ikk_90: number
+    ikk_120: number
+    oktatok_letszama: number
+    pedagogus_szakvizsga: number
+    ujabb_diploma: number
+    vallalati_tovabbkepzes: number
+    veztok_letszama: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    alapadatok: AlapadatokCreateNestedOneWithoutSzakmaiTovabbkepzesInput
+  }
+
+  export type SzakmaiTovabbkepzesUncheckedCreateInput = {
+    id?: string
+    alapadatok_id: string
+    tanev_kezdete: number
+    alapkepesites_mesterfokozat: number
+    egyeb_posztgradualis: number
+    egyedi_oraszam: number
+    forditott_osszeg: number
+    ikk_10: number
+    ikk_10_alatt: number
+    ikk_20: number
+    ikk_30: number
+    ikk_40: number
+    ikk_50: number
+    ikk_60: number
+    ikk_90: number
+    ikk_120: number
+    oktatok_letszama: number
+    pedagogus_szakvizsga: number
+    ujabb_diploma: number
+    vallalati_tovabbkepzes: number
+    veztok_letszama: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type SzakmaiTovabbkepzesUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    alapkepesites_mesterfokozat?: IntFieldUpdateOperationsInput | number
+    egyeb_posztgradualis?: IntFieldUpdateOperationsInput | number
+    egyedi_oraszam?: IntFieldUpdateOperationsInput | number
+    forditott_osszeg?: IntFieldUpdateOperationsInput | number
+    ikk_10?: IntFieldUpdateOperationsInput | number
+    ikk_10_alatt?: IntFieldUpdateOperationsInput | number
+    ikk_20?: IntFieldUpdateOperationsInput | number
+    ikk_30?: IntFieldUpdateOperationsInput | number
+    ikk_40?: IntFieldUpdateOperationsInput | number
+    ikk_50?: IntFieldUpdateOperationsInput | number
+    ikk_60?: IntFieldUpdateOperationsInput | number
+    ikk_90?: IntFieldUpdateOperationsInput | number
+    ikk_120?: IntFieldUpdateOperationsInput | number
+    oktatok_letszama?: IntFieldUpdateOperationsInput | number
+    pedagogus_szakvizsga?: IntFieldUpdateOperationsInput | number
+    ujabb_diploma?: IntFieldUpdateOperationsInput | number
+    vallalati_tovabbkepzes?: IntFieldUpdateOperationsInput | number
+    veztok_letszama?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    alapadatok?: AlapadatokUpdateOneRequiredWithoutSzakmaiTovabbkepzesNestedInput
+  }
+
+  export type SzakmaiTovabbkepzesUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    alapkepesites_mesterfokozat?: IntFieldUpdateOperationsInput | number
+    egyeb_posztgradualis?: IntFieldUpdateOperationsInput | number
+    egyedi_oraszam?: IntFieldUpdateOperationsInput | number
+    forditott_osszeg?: IntFieldUpdateOperationsInput | number
+    ikk_10?: IntFieldUpdateOperationsInput | number
+    ikk_10_alatt?: IntFieldUpdateOperationsInput | number
+    ikk_20?: IntFieldUpdateOperationsInput | number
+    ikk_30?: IntFieldUpdateOperationsInput | number
+    ikk_40?: IntFieldUpdateOperationsInput | number
+    ikk_50?: IntFieldUpdateOperationsInput | number
+    ikk_60?: IntFieldUpdateOperationsInput | number
+    ikk_90?: IntFieldUpdateOperationsInput | number
+    ikk_120?: IntFieldUpdateOperationsInput | number
+    oktatok_letszama?: IntFieldUpdateOperationsInput | number
+    pedagogus_szakvizsga?: IntFieldUpdateOperationsInput | number
+    ujabb_diploma?: IntFieldUpdateOperationsInput | number
+    vallalati_tovabbkepzes?: IntFieldUpdateOperationsInput | number
+    veztok_letszama?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SzakmaiTovabbkepzesCreateManyInput = {
+    id?: string
+    alapadatok_id: string
+    tanev_kezdete: number
+    alapkepesites_mesterfokozat: number
+    egyeb_posztgradualis: number
+    egyedi_oraszam: number
+    forditott_osszeg: number
+    ikk_10: number
+    ikk_10_alatt: number
+    ikk_20: number
+    ikk_30: number
+    ikk_40: number
+    ikk_50: number
+    ikk_60: number
+    ikk_90: number
+    ikk_120: number
+    oktatok_letszama: number
+    pedagogus_szakvizsga: number
+    ujabb_diploma: number
+    vallalati_tovabbkepzes: number
+    veztok_letszama: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type SzakmaiTovabbkepzesUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    alapkepesites_mesterfokozat?: IntFieldUpdateOperationsInput | number
+    egyeb_posztgradualis?: IntFieldUpdateOperationsInput | number
+    egyedi_oraszam?: IntFieldUpdateOperationsInput | number
+    forditott_osszeg?: IntFieldUpdateOperationsInput | number
+    ikk_10?: IntFieldUpdateOperationsInput | number
+    ikk_10_alatt?: IntFieldUpdateOperationsInput | number
+    ikk_20?: IntFieldUpdateOperationsInput | number
+    ikk_30?: IntFieldUpdateOperationsInput | number
+    ikk_40?: IntFieldUpdateOperationsInput | number
+    ikk_50?: IntFieldUpdateOperationsInput | number
+    ikk_60?: IntFieldUpdateOperationsInput | number
+    ikk_90?: IntFieldUpdateOperationsInput | number
+    ikk_120?: IntFieldUpdateOperationsInput | number
+    oktatok_letszama?: IntFieldUpdateOperationsInput | number
+    pedagogus_szakvizsga?: IntFieldUpdateOperationsInput | number
+    ujabb_diploma?: IntFieldUpdateOperationsInput | number
+    vallalati_tovabbkepzes?: IntFieldUpdateOperationsInput | number
+    veztok_letszama?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SzakmaiTovabbkepzesUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    alapkepesites_mesterfokozat?: IntFieldUpdateOperationsInput | number
+    egyeb_posztgradualis?: IntFieldUpdateOperationsInput | number
+    egyedi_oraszam?: IntFieldUpdateOperationsInput | number
+    forditott_osszeg?: IntFieldUpdateOperationsInput | number
+    ikk_10?: IntFieldUpdateOperationsInput | number
+    ikk_10_alatt?: IntFieldUpdateOperationsInput | number
+    ikk_20?: IntFieldUpdateOperationsInput | number
+    ikk_30?: IntFieldUpdateOperationsInput | number
+    ikk_40?: IntFieldUpdateOperationsInput | number
+    ikk_50?: IntFieldUpdateOperationsInput | number
+    ikk_60?: IntFieldUpdateOperationsInput | number
+    ikk_90?: IntFieldUpdateOperationsInput | number
+    ikk_120?: IntFieldUpdateOperationsInput | number
+    oktatok_letszama?: IntFieldUpdateOperationsInput | number
+    pedagogus_szakvizsga?: IntFieldUpdateOperationsInput | number
+    ujabb_diploma?: IntFieldUpdateOperationsInput | number
+    vallalati_tovabbkepzes?: IntFieldUpdateOperationsInput | number
+    veztok_letszama?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type HianyzasCreateInput = {
+    id?: string
+    tanev_kezdete: number
+    atlag: number
+    felev: string
+    igazolatlan: number
+    igazolt: number
+    intezmeny_tipus: string
+    jogviszony: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+    alapadatok: AlapadatokCreateNestedOneWithoutHianyzasInput
+  }
+
+  export type HianyzasUncheckedCreateInput = {
+    id?: string
+    alapadatok_id: string
+    tanev_kezdete: number
+    atlag: number
+    felev: string
+    igazolatlan: number
+    igazolt: number
+    intezmeny_tipus: string
+    jogviszony: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type HianyzasUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    atlag?: IntFieldUpdateOperationsInput | number
+    felev?: StringFieldUpdateOperationsInput | string
+    igazolatlan?: IntFieldUpdateOperationsInput | number
+    igazolt?: IntFieldUpdateOperationsInput | number
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    jogviszony?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    alapadatok?: AlapadatokUpdateOneRequiredWithoutHianyzasNestedInput
+  }
+
+  export type HianyzasUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    atlag?: IntFieldUpdateOperationsInput | number
+    felev?: StringFieldUpdateOperationsInput | string
+    igazolatlan?: IntFieldUpdateOperationsInput | number
+    igazolt?: IntFieldUpdateOperationsInput | number
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    jogviszony?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type HianyzasCreateManyInput = {
+    id?: string
+    alapadatok_id: string
+    tanev_kezdete: number
+    atlag: number
+    felev: string
+    igazolatlan: number
+    igazolt: number
+    intezmeny_tipus: string
+    jogviszony: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type HianyzasUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    atlag?: IntFieldUpdateOperationsInput | number
+    felev?: StringFieldUpdateOperationsInput | string
+    igazolatlan?: IntFieldUpdateOperationsInput | number
+    igazolt?: IntFieldUpdateOperationsInput | number
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    jogviszony?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type HianyzasUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    alapadatok_id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    atlag?: IntFieldUpdateOperationsInput | number
+    felev?: StringFieldUpdateOperationsInput | string
+    igazolatlan?: IntFieldUpdateOperationsInput | number
+    igazolt?: IntFieldUpdateOperationsInput | number
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    jogviszony?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type TanuloAdatszolgCreateInput = {
     id?: string
     tanev_kezdete: number
@@ -63663,6 +67175,18 @@ export namespace Prisma {
     none?: OktatoAdatszolgWhereInput
   }
 
+  export type HianyzasListRelationFilter = {
+    every?: HianyzasWhereInput
+    some?: HianyzasWhereInput
+    none?: HianyzasWhereInput
+  }
+
+  export type SzakmaiTovabbkepzesListRelationFilter = {
+    every?: SzakmaiTovabbkepzesWhereInput
+    some?: SzakmaiTovabbkepzesWhereInput
+    none?: SzakmaiTovabbkepzesWhereInput
+  }
+
   export type UserListRelationFilter = {
     every?: UserWhereInput
     some?: UserWhereInput
@@ -63772,6 +67296,14 @@ export namespace Prisma {
   }
 
   export type OktatoAdatszolgOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type HianyzasOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SzakmaiTovabbkepzesOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -65712,6 +69244,196 @@ export namespace Prisma {
     oktatok_letszama?: SortOrder
   }
 
+  export type SzakmaiTovabbkepzesCountOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    alapkepesites_mesterfokozat?: SortOrder
+    egyeb_posztgradualis?: SortOrder
+    egyedi_oraszam?: SortOrder
+    forditott_osszeg?: SortOrder
+    ikk_10?: SortOrder
+    ikk_10_alatt?: SortOrder
+    ikk_20?: SortOrder
+    ikk_30?: SortOrder
+    ikk_40?: SortOrder
+    ikk_50?: SortOrder
+    ikk_60?: SortOrder
+    ikk_90?: SortOrder
+    ikk_120?: SortOrder
+    oktatok_letszama?: SortOrder
+    pedagogus_szakvizsga?: SortOrder
+    ujabb_diploma?: SortOrder
+    vallalati_tovabbkepzes?: SortOrder
+    veztok_letszama?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type SzakmaiTovabbkepzesAvgOrderByAggregateInput = {
+    tanev_kezdete?: SortOrder
+    alapkepesites_mesterfokozat?: SortOrder
+    egyeb_posztgradualis?: SortOrder
+    egyedi_oraszam?: SortOrder
+    forditott_osszeg?: SortOrder
+    ikk_10?: SortOrder
+    ikk_10_alatt?: SortOrder
+    ikk_20?: SortOrder
+    ikk_30?: SortOrder
+    ikk_40?: SortOrder
+    ikk_50?: SortOrder
+    ikk_60?: SortOrder
+    ikk_90?: SortOrder
+    ikk_120?: SortOrder
+    oktatok_letszama?: SortOrder
+    pedagogus_szakvizsga?: SortOrder
+    ujabb_diploma?: SortOrder
+    vallalati_tovabbkepzes?: SortOrder
+    veztok_letszama?: SortOrder
+  }
+
+  export type SzakmaiTovabbkepzesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    alapkepesites_mesterfokozat?: SortOrder
+    egyeb_posztgradualis?: SortOrder
+    egyedi_oraszam?: SortOrder
+    forditott_osszeg?: SortOrder
+    ikk_10?: SortOrder
+    ikk_10_alatt?: SortOrder
+    ikk_20?: SortOrder
+    ikk_30?: SortOrder
+    ikk_40?: SortOrder
+    ikk_50?: SortOrder
+    ikk_60?: SortOrder
+    ikk_90?: SortOrder
+    ikk_120?: SortOrder
+    oktatok_letszama?: SortOrder
+    pedagogus_szakvizsga?: SortOrder
+    ujabb_diploma?: SortOrder
+    vallalati_tovabbkepzes?: SortOrder
+    veztok_letszama?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type SzakmaiTovabbkepzesMinOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    alapkepesites_mesterfokozat?: SortOrder
+    egyeb_posztgradualis?: SortOrder
+    egyedi_oraszam?: SortOrder
+    forditott_osszeg?: SortOrder
+    ikk_10?: SortOrder
+    ikk_10_alatt?: SortOrder
+    ikk_20?: SortOrder
+    ikk_30?: SortOrder
+    ikk_40?: SortOrder
+    ikk_50?: SortOrder
+    ikk_60?: SortOrder
+    ikk_90?: SortOrder
+    ikk_120?: SortOrder
+    oktatok_letszama?: SortOrder
+    pedagogus_szakvizsga?: SortOrder
+    ujabb_diploma?: SortOrder
+    vallalati_tovabbkepzes?: SortOrder
+    veztok_letszama?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type SzakmaiTovabbkepzesSumOrderByAggregateInput = {
+    tanev_kezdete?: SortOrder
+    alapkepesites_mesterfokozat?: SortOrder
+    egyeb_posztgradualis?: SortOrder
+    egyedi_oraszam?: SortOrder
+    forditott_osszeg?: SortOrder
+    ikk_10?: SortOrder
+    ikk_10_alatt?: SortOrder
+    ikk_20?: SortOrder
+    ikk_30?: SortOrder
+    ikk_40?: SortOrder
+    ikk_50?: SortOrder
+    ikk_60?: SortOrder
+    ikk_90?: SortOrder
+    ikk_120?: SortOrder
+    oktatok_letszama?: SortOrder
+    pedagogus_szakvizsga?: SortOrder
+    ujabb_diploma?: SortOrder
+    vallalati_tovabbkepzes?: SortOrder
+    veztok_letszama?: SortOrder
+  }
+
+  export type HianyzasCountOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    atlag?: SortOrder
+    felev?: SortOrder
+    igazolatlan?: SortOrder
+    igazolt?: SortOrder
+    intezmeny_tipus?: SortOrder
+    jogviszony?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type HianyzasAvgOrderByAggregateInput = {
+    tanev_kezdete?: SortOrder
+    atlag?: SortOrder
+    igazolatlan?: SortOrder
+    igazolt?: SortOrder
+  }
+
+  export type HianyzasMaxOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    atlag?: SortOrder
+    felev?: SortOrder
+    igazolatlan?: SortOrder
+    igazolt?: SortOrder
+    intezmeny_tipus?: SortOrder
+    jogviszony?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type HianyzasMinOrderByAggregateInput = {
+    id?: SortOrder
+    alapadatok_id?: SortOrder
+    tanev_kezdete?: SortOrder
+    atlag?: SortOrder
+    felev?: SortOrder
+    igazolatlan?: SortOrder
+    igazolt?: SortOrder
+    intezmeny_tipus?: SortOrder
+    jogviszony?: SortOrder
+    createAt?: SortOrder
+    createBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type HianyzasSumOrderByAggregateInput = {
+    tanev_kezdete?: SortOrder
+    atlag?: SortOrder
+    igazolatlan?: SortOrder
+    igazolt?: SortOrder
+  }
+
   export type TanuloAdatszolgCountOrderByAggregateInput = {
     id?: SortOrder
     alapadatok_id?: SortOrder
@@ -66556,6 +70278,20 @@ export namespace Prisma {
     connect?: OktatoAdatszolgWhereUniqueInput | OktatoAdatszolgWhereUniqueInput[]
   }
 
+  export type HianyzasCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<HianyzasCreateWithoutAlapadatokInput, HianyzasUncheckedCreateWithoutAlapadatokInput> | HianyzasCreateWithoutAlapadatokInput[] | HianyzasUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: HianyzasCreateOrConnectWithoutAlapadatokInput | HianyzasCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: HianyzasCreateManyAlapadatokInputEnvelope
+    connect?: HianyzasWhereUniqueInput | HianyzasWhereUniqueInput[]
+  }
+
+  export type SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<SzakmaiTovabbkepzesCreateWithoutAlapadatokInput, SzakmaiTovabbkepzesUncheckedCreateWithoutAlapadatokInput> | SzakmaiTovabbkepzesCreateWithoutAlapadatokInput[] | SzakmaiTovabbkepzesUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: SzakmaiTovabbkepzesCreateOrConnectWithoutAlapadatokInput | SzakmaiTovabbkepzesCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: SzakmaiTovabbkepzesCreateManyAlapadatokInputEnvelope
+    connect?: SzakmaiTovabbkepzesWhereUniqueInput | SzakmaiTovabbkepzesWhereUniqueInput[]
+  }
+
   export type UserCreateNestedManyWithoutAlapadatokInput = {
     create?: XOR<UserCreateWithoutAlapadatokInput, UserUncheckedCreateWithoutAlapadatokInput> | UserCreateWithoutAlapadatokInput[] | UserUncheckedCreateWithoutAlapadatokInput[]
     connectOrCreate?: UserCreateOrConnectWithoutAlapadatokInput | UserCreateOrConnectWithoutAlapadatokInput[]
@@ -66743,6 +70479,20 @@ export namespace Prisma {
     connectOrCreate?: OktatoAdatszolgCreateOrConnectWithoutAlapadatokInput | OktatoAdatszolgCreateOrConnectWithoutAlapadatokInput[]
     createMany?: OktatoAdatszolgCreateManyAlapadatokInputEnvelope
     connect?: OktatoAdatszolgWhereUniqueInput | OktatoAdatszolgWhereUniqueInput[]
+  }
+
+  export type HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<HianyzasCreateWithoutAlapadatokInput, HianyzasUncheckedCreateWithoutAlapadatokInput> | HianyzasCreateWithoutAlapadatokInput[] | HianyzasUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: HianyzasCreateOrConnectWithoutAlapadatokInput | HianyzasCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: HianyzasCreateManyAlapadatokInputEnvelope
+    connect?: HianyzasWhereUniqueInput | HianyzasWhereUniqueInput[]
+  }
+
+  export type SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput = {
+    create?: XOR<SzakmaiTovabbkepzesCreateWithoutAlapadatokInput, SzakmaiTovabbkepzesUncheckedCreateWithoutAlapadatokInput> | SzakmaiTovabbkepzesCreateWithoutAlapadatokInput[] | SzakmaiTovabbkepzesUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: SzakmaiTovabbkepzesCreateOrConnectWithoutAlapadatokInput | SzakmaiTovabbkepzesCreateOrConnectWithoutAlapadatokInput[]
+    createMany?: SzakmaiTovabbkepzesCreateManyAlapadatokInputEnvelope
+    connect?: SzakmaiTovabbkepzesWhereUniqueInput | SzakmaiTovabbkepzesWhereUniqueInput[]
   }
 
   export type UserUncheckedCreateNestedManyWithoutAlapadatokInput = {
@@ -67107,6 +70857,34 @@ export namespace Prisma {
     update?: OktatoAdatszolgUpdateWithWhereUniqueWithoutAlapadatokInput | OktatoAdatszolgUpdateWithWhereUniqueWithoutAlapadatokInput[]
     updateMany?: OktatoAdatszolgUpdateManyWithWhereWithoutAlapadatokInput | OktatoAdatszolgUpdateManyWithWhereWithoutAlapadatokInput[]
     deleteMany?: OktatoAdatszolgScalarWhereInput | OktatoAdatszolgScalarWhereInput[]
+  }
+
+  export type HianyzasUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<HianyzasCreateWithoutAlapadatokInput, HianyzasUncheckedCreateWithoutAlapadatokInput> | HianyzasCreateWithoutAlapadatokInput[] | HianyzasUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: HianyzasCreateOrConnectWithoutAlapadatokInput | HianyzasCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: HianyzasUpsertWithWhereUniqueWithoutAlapadatokInput | HianyzasUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: HianyzasCreateManyAlapadatokInputEnvelope
+    set?: HianyzasWhereUniqueInput | HianyzasWhereUniqueInput[]
+    disconnect?: HianyzasWhereUniqueInput | HianyzasWhereUniqueInput[]
+    delete?: HianyzasWhereUniqueInput | HianyzasWhereUniqueInput[]
+    connect?: HianyzasWhereUniqueInput | HianyzasWhereUniqueInput[]
+    update?: HianyzasUpdateWithWhereUniqueWithoutAlapadatokInput | HianyzasUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: HianyzasUpdateManyWithWhereWithoutAlapadatokInput | HianyzasUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: HianyzasScalarWhereInput | HianyzasScalarWhereInput[]
+  }
+
+  export type SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<SzakmaiTovabbkepzesCreateWithoutAlapadatokInput, SzakmaiTovabbkepzesUncheckedCreateWithoutAlapadatokInput> | SzakmaiTovabbkepzesCreateWithoutAlapadatokInput[] | SzakmaiTovabbkepzesUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: SzakmaiTovabbkepzesCreateOrConnectWithoutAlapadatokInput | SzakmaiTovabbkepzesCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: SzakmaiTovabbkepzesUpsertWithWhereUniqueWithoutAlapadatokInput | SzakmaiTovabbkepzesUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: SzakmaiTovabbkepzesCreateManyAlapadatokInputEnvelope
+    set?: SzakmaiTovabbkepzesWhereUniqueInput | SzakmaiTovabbkepzesWhereUniqueInput[]
+    disconnect?: SzakmaiTovabbkepzesWhereUniqueInput | SzakmaiTovabbkepzesWhereUniqueInput[]
+    delete?: SzakmaiTovabbkepzesWhereUniqueInput | SzakmaiTovabbkepzesWhereUniqueInput[]
+    connect?: SzakmaiTovabbkepzesWhereUniqueInput | SzakmaiTovabbkepzesWhereUniqueInput[]
+    update?: SzakmaiTovabbkepzesUpdateWithWhereUniqueWithoutAlapadatokInput | SzakmaiTovabbkepzesUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: SzakmaiTovabbkepzesUpdateManyWithWhereWithoutAlapadatokInput | SzakmaiTovabbkepzesUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: SzakmaiTovabbkepzesScalarWhereInput | SzakmaiTovabbkepzesScalarWhereInput[]
   }
 
   export type UserUpdateManyWithoutAlapadatokNestedInput = {
@@ -67485,6 +71263,34 @@ export namespace Prisma {
     update?: OktatoAdatszolgUpdateWithWhereUniqueWithoutAlapadatokInput | OktatoAdatszolgUpdateWithWhereUniqueWithoutAlapadatokInput[]
     updateMany?: OktatoAdatszolgUpdateManyWithWhereWithoutAlapadatokInput | OktatoAdatszolgUpdateManyWithWhereWithoutAlapadatokInput[]
     deleteMany?: OktatoAdatszolgScalarWhereInput | OktatoAdatszolgScalarWhereInput[]
+  }
+
+  export type HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<HianyzasCreateWithoutAlapadatokInput, HianyzasUncheckedCreateWithoutAlapadatokInput> | HianyzasCreateWithoutAlapadatokInput[] | HianyzasUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: HianyzasCreateOrConnectWithoutAlapadatokInput | HianyzasCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: HianyzasUpsertWithWhereUniqueWithoutAlapadatokInput | HianyzasUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: HianyzasCreateManyAlapadatokInputEnvelope
+    set?: HianyzasWhereUniqueInput | HianyzasWhereUniqueInput[]
+    disconnect?: HianyzasWhereUniqueInput | HianyzasWhereUniqueInput[]
+    delete?: HianyzasWhereUniqueInput | HianyzasWhereUniqueInput[]
+    connect?: HianyzasWhereUniqueInput | HianyzasWhereUniqueInput[]
+    update?: HianyzasUpdateWithWhereUniqueWithoutAlapadatokInput | HianyzasUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: HianyzasUpdateManyWithWhereWithoutAlapadatokInput | HianyzasUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: HianyzasScalarWhereInput | HianyzasScalarWhereInput[]
+  }
+
+  export type SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput = {
+    create?: XOR<SzakmaiTovabbkepzesCreateWithoutAlapadatokInput, SzakmaiTovabbkepzesUncheckedCreateWithoutAlapadatokInput> | SzakmaiTovabbkepzesCreateWithoutAlapadatokInput[] | SzakmaiTovabbkepzesUncheckedCreateWithoutAlapadatokInput[]
+    connectOrCreate?: SzakmaiTovabbkepzesCreateOrConnectWithoutAlapadatokInput | SzakmaiTovabbkepzesCreateOrConnectWithoutAlapadatokInput[]
+    upsert?: SzakmaiTovabbkepzesUpsertWithWhereUniqueWithoutAlapadatokInput | SzakmaiTovabbkepzesUpsertWithWhereUniqueWithoutAlapadatokInput[]
+    createMany?: SzakmaiTovabbkepzesCreateManyAlapadatokInputEnvelope
+    set?: SzakmaiTovabbkepzesWhereUniqueInput | SzakmaiTovabbkepzesWhereUniqueInput[]
+    disconnect?: SzakmaiTovabbkepzesWhereUniqueInput | SzakmaiTovabbkepzesWhereUniqueInput[]
+    delete?: SzakmaiTovabbkepzesWhereUniqueInput | SzakmaiTovabbkepzesWhereUniqueInput[]
+    connect?: SzakmaiTovabbkepzesWhereUniqueInput | SzakmaiTovabbkepzesWhereUniqueInput[]
+    update?: SzakmaiTovabbkepzesUpdateWithWhereUniqueWithoutAlapadatokInput | SzakmaiTovabbkepzesUpdateWithWhereUniqueWithoutAlapadatokInput[]
+    updateMany?: SzakmaiTovabbkepzesUpdateManyWithWhereWithoutAlapadatokInput | SzakmaiTovabbkepzesUpdateManyWithWhereWithoutAlapadatokInput[]
+    deleteMany?: SzakmaiTovabbkepzesScalarWhereInput | SzakmaiTovabbkepzesScalarWhereInput[]
   }
 
   export type UserUncheckedUpdateManyWithoutAlapadatokNestedInput = {
@@ -69101,6 +72907,34 @@ export namespace Prisma {
     update?: XOR<XOR<AlapadatokUpdateToOneWithWhereWithoutOktatoEgyebTevInput, AlapadatokUpdateWithoutOktatoEgyebTevInput>, AlapadatokUncheckedUpdateWithoutOktatoEgyebTevInput>
   }
 
+  export type AlapadatokCreateNestedOneWithoutSzakmaiTovabbkepzesInput = {
+    create?: XOR<AlapadatokCreateWithoutSzakmaiTovabbkepzesInput, AlapadatokUncheckedCreateWithoutSzakmaiTovabbkepzesInput>
+    connectOrCreate?: AlapadatokCreateOrConnectWithoutSzakmaiTovabbkepzesInput
+    connect?: AlapadatokWhereUniqueInput
+  }
+
+  export type AlapadatokUpdateOneRequiredWithoutSzakmaiTovabbkepzesNestedInput = {
+    create?: XOR<AlapadatokCreateWithoutSzakmaiTovabbkepzesInput, AlapadatokUncheckedCreateWithoutSzakmaiTovabbkepzesInput>
+    connectOrCreate?: AlapadatokCreateOrConnectWithoutSzakmaiTovabbkepzesInput
+    upsert?: AlapadatokUpsertWithoutSzakmaiTovabbkepzesInput
+    connect?: AlapadatokWhereUniqueInput
+    update?: XOR<XOR<AlapadatokUpdateToOneWithWhereWithoutSzakmaiTovabbkepzesInput, AlapadatokUpdateWithoutSzakmaiTovabbkepzesInput>, AlapadatokUncheckedUpdateWithoutSzakmaiTovabbkepzesInput>
+  }
+
+  export type AlapadatokCreateNestedOneWithoutHianyzasInput = {
+    create?: XOR<AlapadatokCreateWithoutHianyzasInput, AlapadatokUncheckedCreateWithoutHianyzasInput>
+    connectOrCreate?: AlapadatokCreateOrConnectWithoutHianyzasInput
+    connect?: AlapadatokWhereUniqueInput
+  }
+
+  export type AlapadatokUpdateOneRequiredWithoutHianyzasNestedInput = {
+    create?: XOR<AlapadatokCreateWithoutHianyzasInput, AlapadatokUncheckedCreateWithoutHianyzasInput>
+    connectOrCreate?: AlapadatokCreateOrConnectWithoutHianyzasInput
+    upsert?: AlapadatokUpsertWithoutHianyzasInput
+    connect?: AlapadatokWhereUniqueInput
+    update?: XOR<XOR<AlapadatokUpdateToOneWithWhereWithoutHianyzasInput, AlapadatokUpdateWithoutHianyzasInput>, AlapadatokUncheckedUpdateWithoutHianyzasInput>
+  }
+
   export type AlapadatokCreateNestedOneWithoutTanuloAdatszolgInput = {
     create?: XOR<AlapadatokCreateWithoutTanuloAdatszolgInput, AlapadatokUncheckedCreateWithoutTanuloAdatszolgInput>
     connectOrCreate?: AlapadatokCreateOrConnectWithoutTanuloAdatszolgInput
@@ -69526,6 +73360,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -69559,6 +73395,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -69671,6 +73509,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -69704,6 +73544,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -71241,6 +75083,110 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type HianyzasCreateWithoutAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    atlag: number
+    felev: string
+    igazolatlan: number
+    igazolt: number
+    intezmeny_tipus: string
+    jogviszony: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type HianyzasUncheckedCreateWithoutAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    atlag: number
+    felev: string
+    igazolatlan: number
+    igazolt: number
+    intezmeny_tipus: string
+    jogviszony: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type HianyzasCreateOrConnectWithoutAlapadatokInput = {
+    where: HianyzasWhereUniqueInput
+    create: XOR<HianyzasCreateWithoutAlapadatokInput, HianyzasUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type HianyzasCreateManyAlapadatokInputEnvelope = {
+    data: HianyzasCreateManyAlapadatokInput | HianyzasCreateManyAlapadatokInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SzakmaiTovabbkepzesCreateWithoutAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    alapkepesites_mesterfokozat: number
+    egyeb_posztgradualis: number
+    egyedi_oraszam: number
+    forditott_osszeg: number
+    ikk_10: number
+    ikk_10_alatt: number
+    ikk_20: number
+    ikk_30: number
+    ikk_40: number
+    ikk_50: number
+    ikk_60: number
+    ikk_90: number
+    ikk_120: number
+    oktatok_letszama: number
+    pedagogus_szakvizsga: number
+    ujabb_diploma: number
+    vallalati_tovabbkepzes: number
+    veztok_letszama: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type SzakmaiTovabbkepzesUncheckedCreateWithoutAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    alapkepesites_mesterfokozat: number
+    egyeb_posztgradualis: number
+    egyedi_oraszam: number
+    forditott_osszeg: number
+    ikk_10: number
+    ikk_10_alatt: number
+    ikk_20: number
+    ikk_30: number
+    ikk_40: number
+    ikk_50: number
+    ikk_60: number
+    ikk_90: number
+    ikk_120: number
+    oktatok_letszama: number
+    pedagogus_szakvizsga: number
+    ujabb_diploma: number
+    vallalati_tovabbkepzes: number
+    veztok_letszama: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type SzakmaiTovabbkepzesCreateOrConnectWithoutAlapadatokInput = {
+    where: SzakmaiTovabbkepzesWhereUniqueInput
+    create: XOR<SzakmaiTovabbkepzesCreateWithoutAlapadatokInput, SzakmaiTovabbkepzesUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type SzakmaiTovabbkepzesCreateManyAlapadatokInputEnvelope = {
+    data: SzakmaiTovabbkepzesCreateManyAlapadatokInput | SzakmaiTovabbkepzesCreateManyAlapadatokInput[]
+    skipDuplicates?: boolean
+  }
+
   export type UserCreateWithoutAlapadatokInput = {
     id?: string
     email: string
@@ -72361,6 +76307,88 @@ export namespace Prisma {
     Oktato_Informatikai_kepesitessel_ismeretekkel_rendelkezok?: StringNullableFilter<"OktatoAdatszolg"> | string | null
     Oktato_IKT_eszkozoket_a_tanoraja_legalabb_40_aban_hasznalja?: StringNullableFilter<"OktatoAdatszolg"> | string | null
     createBy?: StringNullableFilter<"OktatoAdatszolg"> | string | null
+  }
+
+  export type HianyzasUpsertWithWhereUniqueWithoutAlapadatokInput = {
+    where: HianyzasWhereUniqueInput
+    update: XOR<HianyzasUpdateWithoutAlapadatokInput, HianyzasUncheckedUpdateWithoutAlapadatokInput>
+    create: XOR<HianyzasCreateWithoutAlapadatokInput, HianyzasUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type HianyzasUpdateWithWhereUniqueWithoutAlapadatokInput = {
+    where: HianyzasWhereUniqueInput
+    data: XOR<HianyzasUpdateWithoutAlapadatokInput, HianyzasUncheckedUpdateWithoutAlapadatokInput>
+  }
+
+  export type HianyzasUpdateManyWithWhereWithoutAlapadatokInput = {
+    where: HianyzasScalarWhereInput
+    data: XOR<HianyzasUpdateManyMutationInput, HianyzasUncheckedUpdateManyWithoutAlapadatokInput>
+  }
+
+  export type HianyzasScalarWhereInput = {
+    AND?: HianyzasScalarWhereInput | HianyzasScalarWhereInput[]
+    OR?: HianyzasScalarWhereInput[]
+    NOT?: HianyzasScalarWhereInput | HianyzasScalarWhereInput[]
+    id?: UuidFilter<"Hianyzas"> | string
+    alapadatok_id?: UuidFilter<"Hianyzas"> | string
+    tanev_kezdete?: IntFilter<"Hianyzas"> | number
+    atlag?: IntFilter<"Hianyzas"> | number
+    felev?: StringFilter<"Hianyzas"> | string
+    igazolatlan?: IntFilter<"Hianyzas"> | number
+    igazolt?: IntFilter<"Hianyzas"> | number
+    intezmeny_tipus?: StringFilter<"Hianyzas"> | string
+    jogviszony?: StringFilter<"Hianyzas"> | string
+    createAt?: DateTimeFilter<"Hianyzas"> | Date | string
+    createBy?: StringNullableFilter<"Hianyzas"> | string | null
+    updatedAt?: DateTimeNullableFilter<"Hianyzas"> | Date | string | null
+    updatedBy?: StringNullableFilter<"Hianyzas"> | string | null
+  }
+
+  export type SzakmaiTovabbkepzesUpsertWithWhereUniqueWithoutAlapadatokInput = {
+    where: SzakmaiTovabbkepzesWhereUniqueInput
+    update: XOR<SzakmaiTovabbkepzesUpdateWithoutAlapadatokInput, SzakmaiTovabbkepzesUncheckedUpdateWithoutAlapadatokInput>
+    create: XOR<SzakmaiTovabbkepzesCreateWithoutAlapadatokInput, SzakmaiTovabbkepzesUncheckedCreateWithoutAlapadatokInput>
+  }
+
+  export type SzakmaiTovabbkepzesUpdateWithWhereUniqueWithoutAlapadatokInput = {
+    where: SzakmaiTovabbkepzesWhereUniqueInput
+    data: XOR<SzakmaiTovabbkepzesUpdateWithoutAlapadatokInput, SzakmaiTovabbkepzesUncheckedUpdateWithoutAlapadatokInput>
+  }
+
+  export type SzakmaiTovabbkepzesUpdateManyWithWhereWithoutAlapadatokInput = {
+    where: SzakmaiTovabbkepzesScalarWhereInput
+    data: XOR<SzakmaiTovabbkepzesUpdateManyMutationInput, SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokInput>
+  }
+
+  export type SzakmaiTovabbkepzesScalarWhereInput = {
+    AND?: SzakmaiTovabbkepzesScalarWhereInput | SzakmaiTovabbkepzesScalarWhereInput[]
+    OR?: SzakmaiTovabbkepzesScalarWhereInput[]
+    NOT?: SzakmaiTovabbkepzesScalarWhereInput | SzakmaiTovabbkepzesScalarWhereInput[]
+    id?: UuidFilter<"SzakmaiTovabbkepzes"> | string
+    alapadatok_id?: UuidFilter<"SzakmaiTovabbkepzes"> | string
+    tanev_kezdete?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    alapkepesites_mesterfokozat?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    egyeb_posztgradualis?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    egyedi_oraszam?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    forditott_osszeg?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_10?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_10_alatt?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_20?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_30?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_40?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_50?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_60?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_90?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ikk_120?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    oktatok_letszama?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    pedagogus_szakvizsga?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    ujabb_diploma?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    vallalati_tovabbkepzes?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    veztok_letszama?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    createAt?: DateTimeFilter<"SzakmaiTovabbkepzes"> | Date | string
+    createBy?: StringNullableFilter<"SzakmaiTovabbkepzes"> | string | null
+    updatedAt?: DateTimeNullableFilter<"SzakmaiTovabbkepzes"> | Date | string | null
+    updatedBy?: StringNullableFilter<"SzakmaiTovabbkepzes"> | string | null
   }
 
   export type UserUpsertWithWhereUniqueWithoutAlapadatokInput = {
@@ -73612,6 +77640,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -73645,6 +77675,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -73727,6 +77759,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -73760,6 +77794,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -73832,6 +77868,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -73865,6 +77903,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -73949,6 +77989,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -73982,6 +78024,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -74056,6 +78100,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -74089,6 +78135,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -74206,6 +78254,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -74239,6 +78289,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -74352,6 +78404,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -74385,6 +78439,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -74434,6 +78490,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -74467,6 +78525,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -74500,6 +78560,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -74533,6 +78595,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -74650,6 +78714,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -74683,6 +78749,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -74796,6 +78864,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -74829,6 +78899,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -74878,6 +78950,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -74911,6 +78985,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -74944,6 +79020,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -74977,6 +79055,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -75026,6 +79106,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -75059,6 +79141,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -75092,6 +79176,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -75125,6 +79211,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -75174,6 +79262,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -75207,6 +79297,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -75240,6 +79332,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -75273,6 +79367,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -75322,6 +79418,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -75355,6 +79453,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -75388,6 +79488,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -75421,6 +79523,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -75538,6 +79642,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -75571,6 +79677,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -75849,6 +79957,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -75882,6 +79992,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -75956,6 +80068,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -75989,6 +80103,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -76053,6 +80169,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -76086,6 +80204,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -76135,6 +80255,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -76168,6 +80290,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -76201,6 +80325,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -76234,6 +80360,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -76351,6 +80479,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -76384,6 +80514,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -76497,6 +80629,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -76530,6 +80664,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -76647,6 +80783,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -76680,6 +80818,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -76793,6 +80933,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -76826,6 +80968,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -76943,6 +81087,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -76976,6 +81122,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -77089,6 +81237,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -77122,6 +81272,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -77239,6 +81391,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -77272,6 +81426,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -77385,6 +81541,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -77418,6 +81576,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -77535,6 +81695,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -77568,6 +81730,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -77681,6 +81845,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -77714,6 +81880,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -77763,6 +81931,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -77796,6 +81966,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -77829,6 +82001,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -77862,6 +82036,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -77911,6 +82087,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -77944,6 +82122,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -77977,6 +82157,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -78010,6 +82192,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -78059,6 +82243,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -78092,6 +82278,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -78125,6 +82313,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -78158,6 +82348,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -78207,6 +82399,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -78240,6 +82434,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -78273,6 +82469,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -78306,6 +82504,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -78355,6 +82555,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -78388,6 +82590,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -78421,6 +82625,8 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -78454,6 +82660,8 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -78503,6 +82711,8 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -78536,6 +82746,8 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -78570,6 +82782,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -78603,6 +82817,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
   }
 
@@ -78652,6 +82868,8 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
   }
 
@@ -78685,7 +82903,321 @@ export namespace Prisma {
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+  }
+
+  export type AlapadatokCreateWithoutSzakmaiTovabbkepzesInput = {
+    id?: string
+    iskola_neve: string
+    intezmeny_tipus: string
+    deleted?: boolean
+    felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
+    tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
+    szakkepzesiMunkaszerzodesAranya?: SzakkepzesiMunkaszerzodesAranyaCreateNestedManyWithoutAlapadatokInput
+    versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
+    nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
+    elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
+    elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
+    vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
+    lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
+    elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
+    hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
+    dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
+    muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
+    tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
+    oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
+  }
+
+  export type AlapadatokUncheckedCreateWithoutSzakmaiTovabbkepzesInput = {
+    id?: string
+    iskola_neve: string
+    intezmeny_tipus: string
+    deleted?: boolean
+    felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakkepzesiMunkaszerzodesAranya?: SzakkepzesiMunkaszerzodesAranyaUncheckedCreateNestedManyWithoutAlapadatokInput
+    versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
+    nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
+    elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
+    elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
+    lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
+    elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
+    hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
+    dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
+    muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
+  }
+
+  export type AlapadatokCreateOrConnectWithoutSzakmaiTovabbkepzesInput = {
+    where: AlapadatokWhereUniqueInput
+    create: XOR<AlapadatokCreateWithoutSzakmaiTovabbkepzesInput, AlapadatokUncheckedCreateWithoutSzakmaiTovabbkepzesInput>
+  }
+
+  export type AlapadatokUpsertWithoutSzakmaiTovabbkepzesInput = {
+    update: XOR<AlapadatokUpdateWithoutSzakmaiTovabbkepzesInput, AlapadatokUncheckedUpdateWithoutSzakmaiTovabbkepzesInput>
+    create: XOR<AlapadatokCreateWithoutSzakmaiTovabbkepzesInput, AlapadatokUncheckedCreateWithoutSzakmaiTovabbkepzesInput>
+    where?: AlapadatokWhereInput
+  }
+
+  export type AlapadatokUpdateToOneWithWhereWithoutSzakmaiTovabbkepzesInput = {
+    where?: AlapadatokWhereInput
+    data: XOR<AlapadatokUpdateWithoutSzakmaiTovabbkepzesInput, AlapadatokUncheckedUpdateWithoutSzakmaiTovabbkepzesInput>
+  }
+
+  export type AlapadatokUpdateWithoutSzakmaiTovabbkepzesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    iskola_neve?: StringFieldUpdateOperationsInput | string
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    deleted?: BoolFieldUpdateOperationsInput | boolean
+    felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
+    tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
+    szakkepzesiMunkaszerzodesAranya?: SzakkepzesiMunkaszerzodesAranyaUpdateManyWithoutAlapadatokNestedInput
+    versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
+    nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
+    elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
+    elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
+    lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
+    elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
+    hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
+    dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
+    muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
+    tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
+  }
+
+  export type AlapadatokUncheckedUpdateWithoutSzakmaiTovabbkepzesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    iskola_neve?: StringFieldUpdateOperationsInput | string
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    deleted?: BoolFieldUpdateOperationsInput | boolean
+    felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakkepzesiMunkaszerzodesAranya?: SzakkepzesiMunkaszerzodesAranyaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
+    elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
+    muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
+  }
+
+  export type AlapadatokCreateWithoutHianyzasInput = {
+    id?: string
+    iskola_neve: string
+    intezmeny_tipus: string
+    deleted?: boolean
+    felvettek_szama?: Felvettek_SzamaCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamCreateNestedManyWithoutAlapadatokInput
+    tanugyiAdatok?: Tanugyi_AdatokCreateNestedManyWithoutAlapadatokInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamCreateNestedManyWithoutAlapadatokInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloCreateNestedManyWithoutAlapadatokInput
+    szakkepzesiMunkaszerzodesAranya?: SzakkepzesiMunkaszerzodesAranyaCreateNestedManyWithoutAlapadatokInput
+    versenyek?: versenyekCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaCreateNestedManyWithoutAlapadatokInput
+    nszfhMeresek?: nszfhMeresekCreateNestedManyWithoutAlapadatokInput
+    elhelyezkedes?: ElhelyezkedesCreateNestedManyWithoutAlapadatokInput
+    elegedettseg?: ElegedettsegCreateNestedManyWithoutAlapadatokInput
+    vizsgaeredmenyek?: VizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekCreateNestedManyWithoutAlapadatokInput
+    lemorzsolodas?: LemorzsolodasCreateNestedManyWithoutAlapadatokInput
+    elegedettsegMeres?: ElegedettsegMeresCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokCreateNestedManyWithoutAlapadatokInput
+    hhesHhhTanulok?: HHEsHHHTanulokCreateNestedManyWithoutAlapadatokInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokCreateNestedManyWithoutAlapadatokInput
+    dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
+    muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
+    tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
+    oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
+    users?: UserCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
+  }
+
+  export type AlapadatokUncheckedCreateWithoutHianyzasInput = {
+    id?: string
+    iskola_neve: string
+    intezmeny_tipus: string
+    deleted?: boolean
+    felvettek_szama?: Felvettek_SzamaUncheckedCreateNestedManyWithoutAlapadatokInput
+    kompetencia?: KompetenciaUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanar_letszam?: Tanar_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanugyiAdatok?: Tanugyi_AdatokUncheckedCreateNestedManyWithoutAlapadatokInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedCreateNestedManyWithoutAlapadatokInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakkepzesiMunkaszerzodesAranya?: SzakkepzesiMunkaszerzodesAranyaUncheckedCreateNestedManyWithoutAlapadatokInput
+    versenyek?: versenyekUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedCreateNestedManyWithoutAlapadatokInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedCreateNestedManyWithoutAlapadatokInput
+    nszfhMeresek?: nszfhMeresekUncheckedCreateNestedManyWithoutAlapadatokInput
+    elhelyezkedes?: ElhelyezkedesUncheckedCreateNestedManyWithoutAlapadatokInput
+    elegedettseg?: ElegedettsegUncheckedCreateNestedManyWithoutAlapadatokInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedCreateNestedManyWithoutAlapadatokInput
+    lemorzsolodas?: LemorzsolodasUncheckedCreateNestedManyWithoutAlapadatokInput
+    elegedettsegMeres?: ElegedettsegMeresUncheckedCreateNestedManyWithoutAlapadatokInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedCreateNestedManyWithoutAlapadatokInput
+    hhesHhhTanulok?: HHEsHHHTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedCreateNestedManyWithoutAlapadatokInput
+    dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
+    muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
+    tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
+    users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
+  }
+
+  export type AlapadatokCreateOrConnectWithoutHianyzasInput = {
+    where: AlapadatokWhereUniqueInput
+    create: XOR<AlapadatokCreateWithoutHianyzasInput, AlapadatokUncheckedCreateWithoutHianyzasInput>
+  }
+
+  export type AlapadatokUpsertWithoutHianyzasInput = {
+    update: XOR<AlapadatokUpdateWithoutHianyzasInput, AlapadatokUncheckedUpdateWithoutHianyzasInput>
+    create: XOR<AlapadatokCreateWithoutHianyzasInput, AlapadatokUncheckedCreateWithoutHianyzasInput>
+    where?: AlapadatokWhereInput
+  }
+
+  export type AlapadatokUpdateToOneWithWhereWithoutHianyzasInput = {
+    where?: AlapadatokWhereInput
+    data: XOR<AlapadatokUpdateWithoutHianyzasInput, AlapadatokUncheckedUpdateWithoutHianyzasInput>
+  }
+
+  export type AlapadatokUpdateWithoutHianyzasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    iskola_neve?: StringFieldUpdateOperationsInput | string
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    deleted?: BoolFieldUpdateOperationsInput | boolean
+    felvettek_szama?: Felvettek_SzamaUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUpdateManyWithoutAlapadatokNestedInput
+    tanugyiAdatok?: Tanugyi_AdatokUpdateManyWithoutAlapadatokNestedInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUpdateManyWithoutAlapadatokNestedInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUpdateManyWithoutAlapadatokNestedInput
+    szakkepzesiMunkaszerzodesAranya?: SzakkepzesiMunkaszerzodesAranyaUpdateManyWithoutAlapadatokNestedInput
+    versenyek?: versenyekUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUpdateManyWithoutAlapadatokNestedInput
+    nszfhMeresek?: nszfhMeresekUpdateManyWithoutAlapadatokNestedInput
+    elhelyezkedes?: ElhelyezkedesUpdateManyWithoutAlapadatokNestedInput
+    elegedettseg?: ElegedettsegUpdateManyWithoutAlapadatokNestedInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUpdateManyWithoutAlapadatokNestedInput
+    lemorzsolodas?: LemorzsolodasUpdateManyWithoutAlapadatokNestedInput
+    elegedettsegMeres?: ElegedettsegMeresUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUpdateManyWithoutAlapadatokNestedInput
+    hhesHhhTanulok?: HHEsHHHTanulokUpdateManyWithoutAlapadatokNestedInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokUpdateManyWithoutAlapadatokNestedInput
+    dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
+    muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
+    tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
+    users?: UserUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
+  }
+
+  export type AlapadatokUncheckedUpdateWithoutHianyzasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    iskola_neve?: StringFieldUpdateOperationsInput | string
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    deleted?: BoolFieldUpdateOperationsInput | boolean
+    felvettek_szama?: Felvettek_SzamaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    kompetencia?: KompetenciaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanar_letszam?: Tanar_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanugyiAdatok?: Tanugyi_AdatokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alkalmazottakMunkaugy?: Alkalmazottak_MunkaugyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanulo_letszam?: Tanulo_LetszamUncheckedUpdateManyWithoutAlapadatokNestedInput
+    egyOktatoraJutoTanulo?: EgyOktatoraJutoTanuloUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakkepzesiMunkaszerzodesAranya?: SzakkepzesiMunkaszerzodesAranyaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    versenyek?: versenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakirany?: Alapadatok_SzakiranyUncheckedUpdateManyWithoutAlapadatokNestedInput
+    alapadatok_szakma?: Alapadatok_SzakmaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    nszfhMeresek?: nszfhMeresekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    elhelyezkedes?: ElhelyezkedesUncheckedUpdateManyWithoutAlapadatokNestedInput
+    elegedettseg?: ElegedettsegUncheckedUpdateManyWithoutAlapadatokNestedInput
+    vizsgaeredmenyek?: VizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiVizsgaEredmenyek?: SzakmaiVizsgaEredmenyekUncheckedUpdateManyWithoutAlapadatokNestedInput
+    lemorzsolodas?: LemorzsolodasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    elegedettsegMeres?: ElegedettsegMeresUncheckedUpdateManyWithoutAlapadatokNestedInput
+    intezmenyiNeveltsegiMutatok?: IntezmenyiNeveltsegiMutatokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hhesHhhTanulok?: HHEsHHHTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    sajatosNevelesuTanulok?: SajatosNevelesuTanulokUncheckedUpdateManyWithoutAlapadatokNestedInput
+    dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
+    muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
+    tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
+    users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
+    OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
 
   export type AlapadatokCreateWithoutTanuloAdatszolgInput = {
@@ -78717,6 +83249,8 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -78750,6 +83284,8 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -78799,6 +83335,8 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -78832,6 +83370,8 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     oktatoAdatszolg?: OktatoAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -78865,6 +83405,8 @@ export namespace Prisma {
     dobbanto?: DobbantoCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesCreateNestedManyWithoutAlapadatokInput
     users?: UserCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevCreateNestedManyWithoutAlapadatokInput
   }
@@ -78898,6 +83440,8 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedCreateNestedManyWithoutAlapadatokInput
     muhelyiskola?: MuhelyiskolaUncheckedCreateNestedManyWithoutAlapadatokInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedCreateNestedManyWithoutAlapadatokInput
+    hianyzas?: HianyzasUncheckedCreateNestedManyWithoutAlapadatokInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedCreateNestedManyWithoutAlapadatokInput
     users?: UserUncheckedCreateNestedManyWithoutAlapadatokInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedCreateNestedManyWithoutAlapadatokInput
   }
@@ -78947,6 +83491,8 @@ export namespace Prisma {
     dobbanto?: DobbantoUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUpdateManyWithoutAlapadatokNestedInput
     users?: UserUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUpdateManyWithoutAlapadatokNestedInput
   }
@@ -78980,6 +83526,8 @@ export namespace Prisma {
     dobbanto?: DobbantoUncheckedUpdateManyWithoutAlapadatokNestedInput
     muhelyiskola?: MuhelyiskolaUncheckedUpdateManyWithoutAlapadatokNestedInput
     tanuloAdatszolg?: TanuloAdatszolgUncheckedUpdateManyWithoutAlapadatokNestedInput
+    hianyzas?: HianyzasUncheckedUpdateManyWithoutAlapadatokNestedInput
+    szakmaiTovabbkepzes?: SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokNestedInput
     users?: UserUncheckedUpdateManyWithoutAlapadatokNestedInput
     OktatoEgyebTev?: OktatoEgyebTevUncheckedUpdateManyWithoutAlapadatokNestedInput
   }
@@ -79628,6 +84176,48 @@ export namespace Prisma {
     Oktato_Informatikai_kepesitessel_ismeretekkel_rendelkezok?: string | null
     Oktato_IKT_eszkozoket_a_tanoraja_legalabb_40_aban_hasznalja?: string | null
     createBy?: string | null
+  }
+
+  export type HianyzasCreateManyAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    atlag: number
+    felev: string
+    igazolatlan: number
+    igazolt: number
+    intezmeny_tipus: string
+    jogviszony: string
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
+  }
+
+  export type SzakmaiTovabbkepzesCreateManyAlapadatokInput = {
+    id?: string
+    tanev_kezdete: number
+    alapkepesites_mesterfokozat: number
+    egyeb_posztgradualis: number
+    egyedi_oraszam: number
+    forditott_osszeg: number
+    ikk_10: number
+    ikk_10_alatt: number
+    ikk_20: number
+    ikk_30: number
+    ikk_40: number
+    ikk_50: number
+    ikk_60: number
+    ikk_90: number
+    ikk_120: number
+    oktatok_letszama: number
+    pedagogus_szakvizsga: number
+    ujabb_diploma: number
+    vallalati_tovabbkepzes: number
+    veztok_letszama: number
+    createAt?: Date | string
+    createBy?: string | null
+    updatedAt?: Date | string | null
+    updatedBy?: string | null
   }
 
   export type UserCreateManyAlapadatokInput = {
@@ -81242,6 +85832,132 @@ export namespace Prisma {
     Oktato_Informatikai_kepesitessel_ismeretekkel_rendelkezok?: NullableStringFieldUpdateOperationsInput | string | null
     Oktato_IKT_eszkozoket_a_tanoraja_legalabb_40_aban_hasznalja?: NullableStringFieldUpdateOperationsInput | string | null
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type HianyzasUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    atlag?: IntFieldUpdateOperationsInput | number
+    felev?: StringFieldUpdateOperationsInput | string
+    igazolatlan?: IntFieldUpdateOperationsInput | number
+    igazolt?: IntFieldUpdateOperationsInput | number
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    jogviszony?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type HianyzasUncheckedUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    atlag?: IntFieldUpdateOperationsInput | number
+    felev?: StringFieldUpdateOperationsInput | string
+    igazolatlan?: IntFieldUpdateOperationsInput | number
+    igazolt?: IntFieldUpdateOperationsInput | number
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    jogviszony?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type HianyzasUncheckedUpdateManyWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    atlag?: IntFieldUpdateOperationsInput | number
+    felev?: StringFieldUpdateOperationsInput | string
+    igazolatlan?: IntFieldUpdateOperationsInput | number
+    igazolt?: IntFieldUpdateOperationsInput | number
+    intezmeny_tipus?: StringFieldUpdateOperationsInput | string
+    jogviszony?: StringFieldUpdateOperationsInput | string
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SzakmaiTovabbkepzesUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    alapkepesites_mesterfokozat?: IntFieldUpdateOperationsInput | number
+    egyeb_posztgradualis?: IntFieldUpdateOperationsInput | number
+    egyedi_oraszam?: IntFieldUpdateOperationsInput | number
+    forditott_osszeg?: IntFieldUpdateOperationsInput | number
+    ikk_10?: IntFieldUpdateOperationsInput | number
+    ikk_10_alatt?: IntFieldUpdateOperationsInput | number
+    ikk_20?: IntFieldUpdateOperationsInput | number
+    ikk_30?: IntFieldUpdateOperationsInput | number
+    ikk_40?: IntFieldUpdateOperationsInput | number
+    ikk_50?: IntFieldUpdateOperationsInput | number
+    ikk_60?: IntFieldUpdateOperationsInput | number
+    ikk_90?: IntFieldUpdateOperationsInput | number
+    ikk_120?: IntFieldUpdateOperationsInput | number
+    oktatok_letszama?: IntFieldUpdateOperationsInput | number
+    pedagogus_szakvizsga?: IntFieldUpdateOperationsInput | number
+    ujabb_diploma?: IntFieldUpdateOperationsInput | number
+    vallalati_tovabbkepzes?: IntFieldUpdateOperationsInput | number
+    veztok_letszama?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SzakmaiTovabbkepzesUncheckedUpdateWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    alapkepesites_mesterfokozat?: IntFieldUpdateOperationsInput | number
+    egyeb_posztgradualis?: IntFieldUpdateOperationsInput | number
+    egyedi_oraszam?: IntFieldUpdateOperationsInput | number
+    forditott_osszeg?: IntFieldUpdateOperationsInput | number
+    ikk_10?: IntFieldUpdateOperationsInput | number
+    ikk_10_alatt?: IntFieldUpdateOperationsInput | number
+    ikk_20?: IntFieldUpdateOperationsInput | number
+    ikk_30?: IntFieldUpdateOperationsInput | number
+    ikk_40?: IntFieldUpdateOperationsInput | number
+    ikk_50?: IntFieldUpdateOperationsInput | number
+    ikk_60?: IntFieldUpdateOperationsInput | number
+    ikk_90?: IntFieldUpdateOperationsInput | number
+    ikk_120?: IntFieldUpdateOperationsInput | number
+    oktatok_letszama?: IntFieldUpdateOperationsInput | number
+    pedagogus_szakvizsga?: IntFieldUpdateOperationsInput | number
+    ujabb_diploma?: IntFieldUpdateOperationsInput | number
+    vallalati_tovabbkepzes?: IntFieldUpdateOperationsInput | number
+    veztok_letszama?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tanev_kezdete?: IntFieldUpdateOperationsInput | number
+    alapkepesites_mesterfokozat?: IntFieldUpdateOperationsInput | number
+    egyeb_posztgradualis?: IntFieldUpdateOperationsInput | number
+    egyedi_oraszam?: IntFieldUpdateOperationsInput | number
+    forditott_osszeg?: IntFieldUpdateOperationsInput | number
+    ikk_10?: IntFieldUpdateOperationsInput | number
+    ikk_10_alatt?: IntFieldUpdateOperationsInput | number
+    ikk_20?: IntFieldUpdateOperationsInput | number
+    ikk_30?: IntFieldUpdateOperationsInput | number
+    ikk_40?: IntFieldUpdateOperationsInput | number
+    ikk_50?: IntFieldUpdateOperationsInput | number
+    ikk_60?: IntFieldUpdateOperationsInput | number
+    ikk_90?: IntFieldUpdateOperationsInput | number
+    ikk_120?: IntFieldUpdateOperationsInput | number
+    oktatok_letszama?: IntFieldUpdateOperationsInput | number
+    pedagogus_szakvizsga?: IntFieldUpdateOperationsInput | number
+    ujabb_diploma?: IntFieldUpdateOperationsInput | number
+    vallalati_tovabbkepzes?: IntFieldUpdateOperationsInput | number
+    veztok_letszama?: IntFieldUpdateOperationsInput | number
+    createAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUpdateWithoutAlapadatokInput = {

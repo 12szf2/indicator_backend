@@ -660,6 +660,50 @@ exports.Prisma.OktatoEgyebTevScalarFieldEnum = {
   oktatok_letszama: 'oktatok_letszama'
 };
 
+exports.Prisma.SzakmaiTovabbkepzesScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  alapkepesites_mesterfokozat: 'alapkepesites_mesterfokozat',
+  egyeb_posztgradualis: 'egyeb_posztgradualis',
+  egyedi_oraszam: 'egyedi_oraszam',
+  forditott_osszeg: 'forditott_osszeg',
+  ikk_10: 'ikk_10',
+  ikk_10_alatt: 'ikk_10_alatt',
+  ikk_20: 'ikk_20',
+  ikk_30: 'ikk_30',
+  ikk_40: 'ikk_40',
+  ikk_50: 'ikk_50',
+  ikk_60: 'ikk_60',
+  ikk_90: 'ikk_90',
+  ikk_120: 'ikk_120',
+  oktatok_letszama: 'oktatok_letszama',
+  pedagogus_szakvizsga: 'pedagogus_szakvizsga',
+  ujabb_diploma: 'ujabb_diploma',
+  vallalati_tovabbkepzes: 'vallalati_tovabbkepzes',
+  veztok_letszama: 'veztok_letszama',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.HianyzasScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  atlag: 'atlag',
+  felev: 'felev',
+  igazolatlan: 'igazolatlan',
+  igazolt: 'igazolt',
+  intezmeny_tipus: 'intezmeny_tipus',
+  jogviszony: 'jogviszony',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
 exports.Prisma.TanuloAdatszolgScalarFieldEnum = {
   id: 'id',
   alapadatok_id: 'alapadatok_id',
@@ -866,6 +910,8 @@ exports.Prisma.ModelName = {
   Dobbanto: 'Dobbanto',
   Muhelyiskola: 'Muhelyiskola',
   OktatoEgyebTev: 'OktatoEgyebTev',
+  SzakmaiTovabbkepzes: 'SzakmaiTovabbkepzes',
+  Hianyzas: 'Hianyzas',
   TanuloAdatszolg: 'TanuloAdatszolg',
   OktatoAdatszolg: 'OktatoAdatszolg',
   Changelog: 'Changelog'

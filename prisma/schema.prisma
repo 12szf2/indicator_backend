@@ -116,6 +116,8 @@ model Alapadatok {
   muhelyiskola   Muhelyiskola[]
   tanuloAdatszolg  TanuloAdatszolg[]
   oktatoAdatszolg OktatoAdatszolg[]
+  hianyzas         Hianyzas[]
+  szakmaiTovabbkepzes SzakmaiTovabbkepzes[]
 
   users           User[]            @relation("AlapadatokUsers")
 
@@ -766,6 +768,62 @@ model OktatoEgyebTev{
   alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
 
   @@map("oktato_egyeb_tev")
+}
+
+model SzakmaiTovabbkepzes {
+  id           String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+
+  alapkepesites_mesterfokozat Int @db.Integer
+  egyeb_posztgradualis Int @db.Integer
+  egyedi_oraszam Int @db.Integer
+  forditott_osszeg Int @db.Integer
+  ikk_10 Int @db.Integer
+  ikk_10_alatt Int @db.Integer
+  ikk_20 Int @db.Integer
+  ikk_30 Int @db.Integer
+  ikk_40 Int @db.Integer
+  ikk_50 Int @db.Integer
+  ikk_60 Int @db.Integer
+  ikk_90 Int @db.Integer
+  ikk_120 Int @db.Integer
+  oktatok_letszama Int @db.Integer
+  pedagogus_szakvizsga Int @db.Integer
+  ujabb_diploma Int @db.Integer
+  vallalati_tovabbkepzes Int @db.Integer
+  veztok_letszama Int @db.Integer
+
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@map("szakmai_tovabbkepzes")
+}
+
+model Hianyzas {
+  id           String     @id @default(uuid()) @db.Uuid
+  alapadatok_id String     @db.Uuid
+  tanev_kezdete Int        @db.SmallInt
+
+  atlag Int @db.Integer
+  felev String @db.VarChar(20)
+  igazolatlan Int @db.Integer
+  igazolt Int @db.Integer
+  intezmeny_tipus String @db.VarChar(50)
+  jogviszony String @db.VarChar(50)
+
+  createAt      DateTime   @default(now())
+  createBy      String?
+  updatedAt     DateTime?  @updatedAt
+  updatedBy     String?
+
+  alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@map("hianyzas")
 }
 
 model TanuloAdatszolg {
