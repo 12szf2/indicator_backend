@@ -385,7 +385,9 @@ router.post("/", async (req, res) => {
   try {
     const {
       alapadatok_id,
+      szakma_id,
       tanev_kezdete,
+      kepzes_forma,
       kat_1_mat_bemeneti,
       kat_1_mat_kimeneti,
       kat_1_szoveg_bemeneti,
@@ -410,7 +412,9 @@ router.post("/", async (req, res) => {
 
     const createdData = await create(
       alapadatok_id,
+      szakma_id,
       tanev_kezdete,
+      kepzes_forma,
       kat_1_mat_bemeneti,
       kat_1_mat_kimeneti,
       kat_1_szoveg_bemeneti,
@@ -596,7 +600,9 @@ router.put("/:id", async (req, res) => {
     const id = req.params.id;
     const {
       alapadatok_id,
+      szakma_id,
       tanev_kezdete,
+      kepzes_forma,
       kat_1_mat_bemeneti,
       kat_1_mat_kimeneti,
       kat_1_szoveg_bemeneti,
@@ -622,7 +628,9 @@ router.put("/:id", async (req, res) => {
     const updatedData = await update(
       id,
       alapadatok_id,
+      szakma_id,
       tanev_kezdete,
+      kepzes_forma,
       kat_1_mat_bemeneti,
       kat_1_mat_kimeneti,
       kat_1_szoveg_bemeneti,

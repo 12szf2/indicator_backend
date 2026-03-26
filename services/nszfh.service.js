@@ -14,7 +14,9 @@ export async function getAllByAlapadatok(alapadatokId, tanev) {
 
 export async function create(
   alapadatok_id,
+  szakma_id,
   tanev_kezdete,
+  kepzes_forma,
   kat_1_mat_bemeneti,
   kat_1_mat_kimeneti,
   kat_1_szoveg_bemeneti,
@@ -38,7 +40,9 @@ export async function create(
 ) {
   return await pattern.create({
     alapadatok_id,
+    szakma_id,
     tanev_kezdete,
+    kepzes_forma,
     kat_1_mat_bemeneti,
     kat_1_mat_kimeneti,
     kat_1_szoveg_bemeneti,
@@ -65,7 +69,9 @@ export async function create(
 export async function update(
   id,
   alapadatok_id,
+  szakma_id,
   tanev_kezdete,
+  kepzes_forma,
   kat_1_mat_bemeneti,
   kat_1_mat_kimeneti,
   kat_1_szoveg_bemeneti,
@@ -89,7 +95,9 @@ export async function update(
 ) {
   return await pattern.update(id, {
     alapadatok_id,
+    szakma_id,
     tanev_kezdete,
+    kepzes_forma,
     kat_1_mat_bemeneti,
     kat_1_mat_kimeneti,
     kat_1_szoveg_bemeneti,

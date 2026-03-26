@@ -154,6 +154,7 @@ model Szakma {
   szakmaiVizsgaEredmenyek SzakmaiVizsgaEredmenyek[]
   lemorzsolodas  Lemorzsolodas[]
 
+  nszfhMeresek    nszfhMeresek[]
   alapadatok    Alapadatok_Szakma[]
   alapadatok_szakma Szakirany_Szakma[]
 }
@@ -467,7 +468,9 @@ model versenyek {
 model nszfhMeresek {
   id           String     @id @default(uuid()) @db.Uuid
   alapadatok_id String     @db.Uuid
+  szakma_id     String?    @db.Uuid
   tanev_kezdete Int        @db.SmallInt
+  kepzes_forma  String?    @db.VarChar(50)
   kat_1_mat_bemeneti Int? @db.Integer
   kat_1_mat_kimeneti Int? @db.Integer
   kat_1_szoveg_bemeneti Int? @db.Integer
@@ -495,6 +498,7 @@ model nszfhMeresek {
   updatedBy     String?
 
   alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  szakma        Szakma?    @relation(fields: [szakma_id], references: [id])
 
   @@map("nszfh_meresek")
 }
