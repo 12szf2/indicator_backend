@@ -871,7 +871,7 @@ model TanuloAdatszolg {
   Uj_Szkt_Reszszakma_Szakma String?
   Uj_Szkt_Reszszakmak_Reszszakma String?
   Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet String?
-  Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese String?
+  Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev String?
   Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod String?
   Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany String?
   Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet String?
@@ -908,7 +908,7 @@ model TanuloAdatszolg {
   Kezdo_evfolyamos_tanulo String?
   Iskolai_sportkorben_resztvevo_tanulo String?
   Diaksport_egyesulet_tagja String?
-  Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok String?
+  Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep String?
   Arany_Janos_Tehetseggondozo_Program String?
   Emelt_szintu_oktatasban_vesz_reszt String?
   Emelt_szintu_oktatas_tantargy_1 String?
