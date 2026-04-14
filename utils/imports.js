@@ -41,6 +41,7 @@ import szakmaRouter from "../controllers/szakma.controller.js";
 import tanuloAdatszolgaltatasRouter from "../controllers/tanulo_adatszolg.controller.js";
 import oktatoAdatszolgaltatasRouter from "../controllers/oktato_adatszolg.controller.js";
 import changelogRouter from "../controllers/changelog.controller.js";
+import hianyzasRouter from "../controllers/hianyzas.controller.js";
 import meRouter from "../controllers/me.controller.js";
 
 // Middleware
@@ -97,5 +98,6 @@ export {
   tanuloAdatszolgaltatasRouter,
   oktatoAdatszolgaltatasRouter,
   changelogRouter,
+  hianyzasRouter,
   meRouter,
 };

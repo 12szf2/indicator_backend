@@ -66,7 +66,7 @@ export class ServiceCache {
       case "update":
       case "delete":
         // Invalidate lists and specific items
-        this.invalidate("all.*", "byYear.*", "alapadatok_id.*", "count.*");
+        this.invalidate("all.*", "byYear.*", "alapadatok_id.*", "count.*", "all_with_year_ordered.*", "alapadatok_with_year_ordered.*");
         if (params[0]) {
           // If ID provided, invalidate specific item patterns
           this.invalidate(`id:${params[0]}.*`);
@@ -90,7 +90,7 @@ export class ServiceCache {
    */
   invalidateByAlapadatokId(alapadatokId) {
     this.invalidate(`alapadatok_id:${alapadatokId}.*`);
-    this.invalidate("all.*", "count.*"); // Also invalidate general lists
+    this.invalidate("all.*", "count.*", "all_with_year_ordered.*", "alapadatok_with_year_ordered.*"); // Also invalidate general lists
   }
 
   /**
@@ -99,7 +99,7 @@ export class ServiceCache {
   invalidateByYear(year) {
     this.invalidate(`byYear:${year}.*`);
     this.invalidate(`alapadatok_id_year:.*:${year}.*`);
-    this.invalidate("all.*"); // Also invalidate general lists
+    this.invalidate("all.*", "all_with_year_ordered.*", "alapadatok_with_year_ordered.*"); // Also invalidate general lists
   }
 
   /**

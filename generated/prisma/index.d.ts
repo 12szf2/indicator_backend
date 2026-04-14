@@ -51180,7 +51180,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma: string | null
     Uj_Szkt_Reszszakmak_Reszszakma: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet: string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese: string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany: string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet: string | null
@@ -51217,7 +51217,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo: string | null
     Iskolai_sportkorben_resztvevo_tanulo: string | null
     Diaksport_egyesulet_tagja: string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok: string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep: string | null
     Arany_Janos_Tehetseggondozo_Program: string | null
     Emelt_szintu_oktatasban_vesz_reszt: string | null
     Emelt_szintu_oktatas_tantargy_1: string | null
@@ -51275,7 +51275,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma: string | null
     Uj_Szkt_Reszszakmak_Reszszakma: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet: string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese: string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany: string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet: string | null
@@ -51312,7 +51312,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo: string | null
     Iskolai_sportkorben_resztvevo_tanulo: string | null
     Diaksport_egyesulet_tagja: string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok: string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep: string | null
     Arany_Janos_Tehetseggondozo_Program: string | null
     Emelt_szintu_oktatasban_vesz_reszt: string | null
     Emelt_szintu_oktatas_tantargy_1: string | null
@@ -51370,7 +51370,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma: number
     Uj_Szkt_Reszszakmak_Reszszakma: number
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet: number
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese: number
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev: number
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod: number
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany: number
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet: number
@@ -51407,7 +51407,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo: number
     Iskolai_sportkorben_resztvevo_tanulo: number
     Diaksport_egyesulet_tagja: number
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok: number
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep: number
     Arany_Janos_Tehetseggondozo_Program: number
     Emelt_szintu_oktatasban_vesz_reszt: number
     Emelt_szintu_oktatas_tantargy_1: number
@@ -51475,7 +51475,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: true
     Uj_Szkt_Reszszakmak_Reszszakma?: true
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: true
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: true
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: true
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: true
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: true
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: true
@@ -51512,7 +51512,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: true
     Iskolai_sportkorben_resztvevo_tanulo?: true
     Diaksport_egyesulet_tagja?: true
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: true
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: true
     Arany_Janos_Tehetseggondozo_Program?: true
     Emelt_szintu_oktatasban_vesz_reszt?: true
     Emelt_szintu_oktatas_tantargy_1?: true
@@ -51570,7 +51570,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: true
     Uj_Szkt_Reszszakmak_Reszszakma?: true
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: true
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: true
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: true
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: true
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: true
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: true
@@ -51607,7 +51607,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: true
     Iskolai_sportkorben_resztvevo_tanulo?: true
     Diaksport_egyesulet_tagja?: true
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: true
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: true
     Arany_Janos_Tehetseggondozo_Program?: true
     Emelt_szintu_oktatasban_vesz_reszt?: true
     Emelt_szintu_oktatas_tantargy_1?: true
@@ -51665,7 +51665,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: true
     Uj_Szkt_Reszszakmak_Reszszakma?: true
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: true
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: true
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: true
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: true
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: true
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: true
@@ -51702,7 +51702,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: true
     Iskolai_sportkorben_resztvevo_tanulo?: true
     Diaksport_egyesulet_tagja?: true
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: true
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: true
     Arany_Janos_Tehetseggondozo_Program?: true
     Emelt_szintu_oktatasban_vesz_reszt?: true
     Emelt_szintu_oktatas_tantargy_1?: true
@@ -51847,7 +51847,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma: string | null
     Uj_Szkt_Reszszakmak_Reszszakma: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet: string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese: string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany: string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet: string | null
@@ -51884,7 +51884,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo: string | null
     Iskolai_sportkorben_resztvevo_tanulo: string | null
     Diaksport_egyesulet_tagja: string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok: string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep: string | null
     Arany_Janos_Tehetseggondozo_Program: string | null
     Emelt_szintu_oktatasban_vesz_reszt: string | null
     Emelt_szintu_oktatas_tantargy_1: string | null
@@ -51961,7 +51961,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: boolean
     Uj_Szkt_Reszszakmak_Reszszakma?: boolean
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: boolean
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: boolean
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: boolean
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: boolean
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: boolean
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: boolean
@@ -51998,7 +51998,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: boolean
     Iskolai_sportkorben_resztvevo_tanulo?: boolean
     Diaksport_egyesulet_tagja?: boolean
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: boolean
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: boolean
     Arany_Janos_Tehetseggondozo_Program?: boolean
     Emelt_szintu_oktatasban_vesz_reszt?: boolean
     Emelt_szintu_oktatas_tantargy_1?: boolean
@@ -52057,7 +52057,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: boolean
     Uj_Szkt_Reszszakmak_Reszszakma?: boolean
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: boolean
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: boolean
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: boolean
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: boolean
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: boolean
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: boolean
@@ -52094,7 +52094,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: boolean
     Iskolai_sportkorben_resztvevo_tanulo?: boolean
     Diaksport_egyesulet_tagja?: boolean
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: boolean
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: boolean
     Arany_Janos_Tehetseggondozo_Program?: boolean
     Emelt_szintu_oktatasban_vesz_reszt?: boolean
     Emelt_szintu_oktatas_tantargy_1?: boolean
@@ -52153,7 +52153,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: boolean
     Uj_Szkt_Reszszakmak_Reszszakma?: boolean
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: boolean
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: boolean
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: boolean
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: boolean
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: boolean
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: boolean
@@ -52190,7 +52190,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: boolean
     Iskolai_sportkorben_resztvevo_tanulo?: boolean
     Diaksport_egyesulet_tagja?: boolean
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: boolean
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: boolean
     Arany_Janos_Tehetseggondozo_Program?: boolean
     Emelt_szintu_oktatasban_vesz_reszt?: boolean
     Emelt_szintu_oktatas_tantargy_1?: boolean
@@ -52249,7 +52249,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: boolean
     Uj_Szkt_Reszszakmak_Reszszakma?: boolean
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: boolean
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: boolean
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: boolean
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: boolean
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: boolean
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: boolean
@@ -52286,7 +52286,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: boolean
     Iskolai_sportkorben_resztvevo_tanulo?: boolean
     Diaksport_egyesulet_tagja?: boolean
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: boolean
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: boolean
     Arany_Janos_Tehetseggondozo_Program?: boolean
     Emelt_szintu_oktatasban_vesz_reszt?: boolean
     Emelt_szintu_oktatas_tantargy_1?: boolean
@@ -52304,7 +52304,7 @@ export namespace Prisma {
     createBy?: boolean
   }
 
-  export type TanuloAdatszolgOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "Tanulo_Oktatasi_azonosito" | "Intezmeny_OM_azonosito" | "Intezmeny_nev" | "Intezmeny_szekhely_telepules_nev" | "Intezmeny_szekhely_telepules_iranyitoszam" | "Intezmeny_szekhely_cim" | "Intezmeny_szekhely_email" | "Feladatellatasi_hely_azonosito_Mukodesi_hely_hosszu_azonosito" | "Feladatellatasi_hely_nev" | "Feladatellatasi_hely_telepules_nev" | "Feladatellatasi_hely_telepules_iranyitoszam" | "Feladatellatasi_hely_cim" | "Feladatellatasi_hely_email" | "Lakohely_tanulo_lakohely_telepules" | "Lakohely_szulo_allando_lakohely_telepules" | "Lakohely_kulfoldi_allampolgar_tartozkodasi_hely_telepules" | "Tanulo_Koreve" | "Tanulo_jogviszonya" | "Nem" | "Feladatellatasi_hely_tipus_ellatott_feladat" | "Tantervi_jellemzo" | "Munkarend" | "Evfolyam" | "Regi_Szkt_OKJ_Szakmacsoport" | "Regi_Szkt_OKJ_Agazat" | "Regi_Szkt_OKJ_Szakkepesites_megnevezese" | "Regi_Szkt_OKJ_Szakkepesites_kod" | "Regi_Szkt_OKJ_Reszszakkepesites" | "Uj_Szkt_Szakmajegyzek_Agazat" | "Uj_Szkt_Szakmajegyzek_Szakma_megnevezese" | "Uj_Szkt_Szakmajegyzek_Szakma_kod" | "Uj_Szkt_Szakmajegyzek_Szakmairany" | "Uj_Szkt_Reszszakmak_Agazat" | "Uj_Szkt_Reszszakma_Szakma" | "Uj_Szkt_Reszszakmak_Reszszakma" | "Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet" | "Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese" | "Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod" | "Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany" | "Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet" | "Programkovetelmenyes_szakmai_kepzes_Szakmai_kepzes_megnevezese" | "Programkovetelmenyes_szakmai_kepzes" | "Allampolgarsag_orszaga_1" | "Allampolgarsag_orszaga_2" | "Sajatos_nevelesi_igeny" | "Sajatos_nevelesi_igeny_gyogypedagogiai_tanterv_szerint_nevelt" | "Sajatos_nevelesi_igeny_integraltan_nevelt" | "Fogyatekossag_tipusa" | "Kiemelten_tehetseges" | "Evfolyamismetlo" | "Egyeni_tanrend_szerint_tanul" | "Tanmuhelyben_tanul" | "Mas_telepulesrol_bejar" | "Kollegiumban_lakik" | "Externatusi_ellatasban_reszesitett" | "Szocialis_osztondijban_illetve_szocialis_tamogatasban_reszesul" | "Etkeztetesben_reszesul" | "Gyakorlathoz_kotheto_jogviszony" | "Beilleszkedesi_tanulasi_magatartasi_nehezseggel_kuzdo" | "Napkoziotthoni_ellatasban_reszesul" | "Hatranyos_helyzetu" | "Halmozottan_hatranyos_helyzetu" | "Rendszeres_gyermekvedelmi_kedvezmenyben_reszesul" | "Szamitogepet_oktatasi_celra_hasznal" | "Hit_es_erkolcstan_oktatasban_vesz_reszt" | "Etika_oktatasban_reszesul" | "Nyelvoktatasban_reszesul" | "Nyelvoktatas_alol_felmentett" | "Tandijas" | "Teritesi_dijas" | "Kezdo_evfolyamos_tanulo" | "Iskolai_sportkorben_resztvevo_tanulo" | "Diaksport_egyesulet_tagja" | "Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok" | "Arany_Janos_Tehetseggondozo_Program" | "Emelt_szintu_oktatasban_vesz_reszt" | "Emelt_szintu_oktatas_tantargy_1" | "Emelt_szintu_oktatas_tantargy_2" | "Emelt_szintu_oktatas_tantargy_3" | "Tanult_idegen_nyelv_1" | "Tanult_idegen_nyelv_2" | "Tanult_idegen_nyelv_3" | "Tanulo_nemzetisegi_nyelvoktatasa" | "Nemzetisegi_neveles_oktatas_fajtaja" | "Nemzetisegi_nyelv" | "Egesz_napos_iskolai_oktatasban_reszesul" | "A_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte" | "Otthon_nyujtott_ellatasi_formaban_reszesul" | "createBy", ExtArgs["result"]["tanuloAdatszolg"]>
+  export type TanuloAdatszolgOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "Tanulo_Oktatasi_azonosito" | "Intezmeny_OM_azonosito" | "Intezmeny_nev" | "Intezmeny_szekhely_telepules_nev" | "Intezmeny_szekhely_telepules_iranyitoszam" | "Intezmeny_szekhely_cim" | "Intezmeny_szekhely_email" | "Feladatellatasi_hely_azonosito_Mukodesi_hely_hosszu_azonosito" | "Feladatellatasi_hely_nev" | "Feladatellatasi_hely_telepules_nev" | "Feladatellatasi_hely_telepules_iranyitoszam" | "Feladatellatasi_hely_cim" | "Feladatellatasi_hely_email" | "Lakohely_tanulo_lakohely_telepules" | "Lakohely_szulo_allando_lakohely_telepules" | "Lakohely_kulfoldi_allampolgar_tartozkodasi_hely_telepules" | "Tanulo_Koreve" | "Tanulo_jogviszonya" | "Nem" | "Feladatellatasi_hely_tipus_ellatott_feladat" | "Tantervi_jellemzo" | "Munkarend" | "Evfolyam" | "Regi_Szkt_OKJ_Szakmacsoport" | "Regi_Szkt_OKJ_Agazat" | "Regi_Szkt_OKJ_Szakkepesites_megnevezese" | "Regi_Szkt_OKJ_Szakkepesites_kod" | "Regi_Szkt_OKJ_Reszszakkepesites" | "Uj_Szkt_Szakmajegyzek_Agazat" | "Uj_Szkt_Szakmajegyzek_Szakma_megnevezese" | "Uj_Szkt_Szakmajegyzek_Szakma_kod" | "Uj_Szkt_Szakmajegyzek_Szakmairany" | "Uj_Szkt_Reszszakmak_Agazat" | "Uj_Szkt_Reszszakma_Szakma" | "Uj_Szkt_Reszszakmak_Reszszakma" | "Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet" | "Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev" | "Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod" | "Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany" | "Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet" | "Programkovetelmenyes_szakmai_kepzes_Szakmai_kepzes_megnevezese" | "Programkovetelmenyes_szakmai_kepzes" | "Allampolgarsag_orszaga_1" | "Allampolgarsag_orszaga_2" | "Sajatos_nevelesi_igeny" | "Sajatos_nevelesi_igeny_gyogypedagogiai_tanterv_szerint_nevelt" | "Sajatos_nevelesi_igeny_integraltan_nevelt" | "Fogyatekossag_tipusa" | "Kiemelten_tehetseges" | "Evfolyamismetlo" | "Egyeni_tanrend_szerint_tanul" | "Tanmuhelyben_tanul" | "Mas_telepulesrol_bejar" | "Kollegiumban_lakik" | "Externatusi_ellatasban_reszesitett" | "Szocialis_osztondijban_illetve_szocialis_tamogatasban_reszesul" | "Etkeztetesben_reszesul" | "Gyakorlathoz_kotheto_jogviszony" | "Beilleszkedesi_tanulasi_magatartasi_nehezseggel_kuzdo" | "Napkoziotthoni_ellatasban_reszesul" | "Hatranyos_helyzetu" | "Halmozottan_hatranyos_helyzetu" | "Rendszeres_gyermekvedelmi_kedvezmenyben_reszesul" | "Szamitogepet_oktatasi_celra_hasznal" | "Hit_es_erkolcstan_oktatasban_vesz_reszt" | "Etika_oktatasban_reszesul" | "Nyelvoktatasban_reszesul" | "Nyelvoktatas_alol_felmentett" | "Tandijas" | "Teritesi_dijas" | "Kezdo_evfolyamos_tanulo" | "Iskolai_sportkorben_resztvevo_tanulo" | "Diaksport_egyesulet_tagja" | "Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep" | "Arany_Janos_Tehetseggondozo_Program" | "Emelt_szintu_oktatasban_vesz_reszt" | "Emelt_szintu_oktatas_tantargy_1" | "Emelt_szintu_oktatas_tantargy_2" | "Emelt_szintu_oktatas_tantargy_3" | "Tanult_idegen_nyelv_1" | "Tanult_idegen_nyelv_2" | "Tanult_idegen_nyelv_3" | "Tanulo_nemzetisegi_nyelvoktatasa" | "Nemzetisegi_neveles_oktatas_fajtaja" | "Nemzetisegi_nyelv" | "Egesz_napos_iskolai_oktatasban_reszesul" | "A_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte" | "Otthon_nyujtott_ellatasi_formaban_reszesul" | "createBy", ExtArgs["result"]["tanuloAdatszolg"]>
   export type TanuloAdatszolgInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }
@@ -52360,7 +52360,7 @@ export namespace Prisma {
       Uj_Szkt_Reszszakma_Szakma: string | null
       Uj_Szkt_Reszszakmak_Reszszakma: string | null
       Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet: string | null
-      Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese: string | null
+      Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev: string | null
       Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod: string | null
       Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany: string | null
       Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet: string | null
@@ -52397,7 +52397,7 @@ export namespace Prisma {
       Kezdo_evfolyamos_tanulo: string | null
       Iskolai_sportkorben_resztvevo_tanulo: string | null
       Diaksport_egyesulet_tagja: string | null
-      Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok: string | null
+      Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep: string | null
       Arany_Janos_Tehetseggondozo_Program: string | null
       Emelt_szintu_oktatasban_vesz_reszt: string | null
       Emelt_szintu_oktatas_tantargy_1: string | null
@@ -52876,7 +52876,7 @@ export namespace Prisma {
     readonly Uj_Szkt_Reszszakma_Szakma: FieldRef<"TanuloAdatszolg", 'String'>
     readonly Uj_Szkt_Reszszakmak_Reszszakma: FieldRef<"TanuloAdatszolg", 'String'>
     readonly Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet: FieldRef<"TanuloAdatszolg", 'String'>
-    readonly Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese: FieldRef<"TanuloAdatszolg", 'String'>
+    readonly Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev: FieldRef<"TanuloAdatszolg", 'String'>
     readonly Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod: FieldRef<"TanuloAdatszolg", 'String'>
     readonly Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany: FieldRef<"TanuloAdatszolg", 'String'>
     readonly Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet: FieldRef<"TanuloAdatszolg", 'String'>
@@ -52913,7 +52913,7 @@ export namespace Prisma {
     readonly Kezdo_evfolyamos_tanulo: FieldRef<"TanuloAdatszolg", 'String'>
     readonly Iskolai_sportkorben_resztvevo_tanulo: FieldRef<"TanuloAdatszolg", 'String'>
     readonly Diaksport_egyesulet_tagja: FieldRef<"TanuloAdatszolg", 'String'>
-    readonly Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok: FieldRef<"TanuloAdatszolg", 'String'>
+    readonly Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep: FieldRef<"TanuloAdatszolg", 'String'>
     readonly Arany_Janos_Tehetseggondozo_Program: FieldRef<"TanuloAdatszolg", 'String'>
     readonly Emelt_szintu_oktatasban_vesz_reszt: FieldRef<"TanuloAdatszolg", 'String'>
     readonly Emelt_szintu_oktatas_tantargy_1: FieldRef<"TanuloAdatszolg", 'String'>
@@ -56597,7 +56597,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma: 'Uj_Szkt_Reszszakma_Szakma',
     Uj_Szkt_Reszszakmak_Reszszakma: 'Uj_Szkt_Reszszakmak_Reszszakma',
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet: 'Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet',
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese: 'Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese',
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev: 'Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev',
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod: 'Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod',
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany: 'Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany',
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet: 'Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet',
@@ -56634,7 +56634,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo: 'Kezdo_evfolyamos_tanulo',
     Iskolai_sportkorben_resztvevo_tanulo: 'Iskolai_sportkorben_resztvevo_tanulo',
     Diaksport_egyesulet_tagja: 'Diaksport_egyesulet_tagja',
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok: 'Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok',
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep: 'Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep',
     Arany_Janos_Tehetseggondozo_Program: 'Arany_Janos_Tehetseggondozo_Program',
     Emelt_szintu_oktatasban_vesz_reszt: 'Emelt_szintu_oktatasban_vesz_reszt',
     Emelt_szintu_oktatas_tantargy_1: 'Emelt_szintu_oktatas_tantargy_1',
@@ -60648,7 +60648,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: StringNullableFilter<"TanuloAdatszolg"> | string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: StringNullableFilter<"TanuloAdatszolg"> | string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: StringNullableFilter<"TanuloAdatszolg"> | string | null
@@ -60685,7 +60685,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Iskolai_sportkorben_resztvevo_tanulo?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Diaksport_egyesulet_tagja?: StringNullableFilter<"TanuloAdatszolg"> | string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: StringNullableFilter<"TanuloAdatszolg"> | string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Arany_Janos_Tehetseggondozo_Program?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Emelt_szintu_oktatasban_vesz_reszt?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Emelt_szintu_oktatas_tantargy_1?: StringNullableFilter<"TanuloAdatszolg"> | string | null
@@ -60744,7 +60744,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: SortOrderInput | SortOrder
     Uj_Szkt_Reszszakmak_Reszszakma?: SortOrderInput | SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: SortOrderInput | SortOrder
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: SortOrderInput | SortOrder
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: SortOrderInput | SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: SortOrderInput | SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: SortOrderInput | SortOrder
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: SortOrderInput | SortOrder
@@ -60781,7 +60781,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: SortOrderInput | SortOrder
     Iskolai_sportkorben_resztvevo_tanulo?: SortOrderInput | SortOrder
     Diaksport_egyesulet_tagja?: SortOrderInput | SortOrder
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: SortOrderInput | SortOrder
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: SortOrderInput | SortOrder
     Arany_Janos_Tehetseggondozo_Program?: SortOrderInput | SortOrder
     Emelt_szintu_oktatasban_vesz_reszt?: SortOrderInput | SortOrder
     Emelt_szintu_oktatas_tantargy_1?: SortOrderInput | SortOrder
@@ -60843,7 +60843,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: StringNullableFilter<"TanuloAdatszolg"> | string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: StringNullableFilter<"TanuloAdatszolg"> | string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: StringNullableFilter<"TanuloAdatszolg"> | string | null
@@ -60880,7 +60880,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Iskolai_sportkorben_resztvevo_tanulo?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Diaksport_egyesulet_tagja?: StringNullableFilter<"TanuloAdatszolg"> | string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: StringNullableFilter<"TanuloAdatszolg"> | string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Arany_Janos_Tehetseggondozo_Program?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Emelt_szintu_oktatasban_vesz_reszt?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Emelt_szintu_oktatas_tantargy_1?: StringNullableFilter<"TanuloAdatszolg"> | string | null
@@ -60939,7 +60939,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: SortOrderInput | SortOrder
     Uj_Szkt_Reszszakmak_Reszszakma?: SortOrderInput | SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: SortOrderInput | SortOrder
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: SortOrderInput | SortOrder
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: SortOrderInput | SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: SortOrderInput | SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: SortOrderInput | SortOrder
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: SortOrderInput | SortOrder
@@ -60976,7 +60976,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: SortOrderInput | SortOrder
     Iskolai_sportkorben_resztvevo_tanulo?: SortOrderInput | SortOrder
     Diaksport_egyesulet_tagja?: SortOrderInput | SortOrder
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: SortOrderInput | SortOrder
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: SortOrderInput | SortOrder
     Arany_Janos_Tehetseggondozo_Program?: SortOrderInput | SortOrder
     Emelt_szintu_oktatasban_vesz_reszt?: SortOrderInput | SortOrder
     Emelt_szintu_oktatas_tantargy_1?: SortOrderInput | SortOrder
@@ -61042,7 +61042,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
@@ -61079,7 +61079,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
     Iskolai_sportkorben_resztvevo_tanulo?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
     Diaksport_egyesulet_tagja?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
     Arany_Janos_Tehetseggondozo_Program?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
     Emelt_szintu_oktatasban_vesz_reszt?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
     Emelt_szintu_oktatas_tantargy_1?: StringNullableWithAggregatesFilter<"TanuloAdatszolg"> | string | null
@@ -65677,7 +65677,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: string | null
@@ -65714,7 +65714,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: string | null
     Iskolai_sportkorben_resztvevo_tanulo?: string | null
     Diaksport_egyesulet_tagja?: string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: string | null
     Arany_Janos_Tehetseggondozo_Program?: string | null
     Emelt_szintu_oktatasban_vesz_reszt?: string | null
     Emelt_szintu_oktatas_tantargy_1?: string | null
@@ -65773,7 +65773,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: string | null
@@ -65810,7 +65810,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: string | null
     Iskolai_sportkorben_resztvevo_tanulo?: string | null
     Diaksport_egyesulet_tagja?: string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: string | null
     Arany_Janos_Tehetseggondozo_Program?: string | null
     Emelt_szintu_oktatasban_vesz_reszt?: string | null
     Emelt_szintu_oktatas_tantargy_1?: string | null
@@ -65867,7 +65867,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: NullableStringFieldUpdateOperationsInput | string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: NullableStringFieldUpdateOperationsInput | string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: NullableStringFieldUpdateOperationsInput | string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65904,7 +65904,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
     Iskolai_sportkorben_resztvevo_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
     Diaksport_egyesulet_tagja?: NullableStringFieldUpdateOperationsInput | string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: NullableStringFieldUpdateOperationsInput | string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: NullableStringFieldUpdateOperationsInput | string | null
     Arany_Janos_Tehetseggondozo_Program?: NullableStringFieldUpdateOperationsInput | string | null
     Emelt_szintu_oktatasban_vesz_reszt?: NullableStringFieldUpdateOperationsInput | string | null
     Emelt_szintu_oktatas_tantargy_1?: NullableStringFieldUpdateOperationsInput | string | null
@@ -65963,7 +65963,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: NullableStringFieldUpdateOperationsInput | string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: NullableStringFieldUpdateOperationsInput | string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: NullableStringFieldUpdateOperationsInput | string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
@@ -66000,7 +66000,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
     Iskolai_sportkorben_resztvevo_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
     Diaksport_egyesulet_tagja?: NullableStringFieldUpdateOperationsInput | string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: NullableStringFieldUpdateOperationsInput | string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: NullableStringFieldUpdateOperationsInput | string | null
     Arany_Janos_Tehetseggondozo_Program?: NullableStringFieldUpdateOperationsInput | string | null
     Emelt_szintu_oktatasban_vesz_reszt?: NullableStringFieldUpdateOperationsInput | string | null
     Emelt_szintu_oktatas_tantargy_1?: NullableStringFieldUpdateOperationsInput | string | null
@@ -66058,7 +66058,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: string | null
@@ -66095,7 +66095,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: string | null
     Iskolai_sportkorben_resztvevo_tanulo?: string | null
     Diaksport_egyesulet_tagja?: string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: string | null
     Arany_Janos_Tehetseggondozo_Program?: string | null
     Emelt_szintu_oktatasban_vesz_reszt?: string | null
     Emelt_szintu_oktatas_tantargy_1?: string | null
@@ -66152,7 +66152,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: NullableStringFieldUpdateOperationsInput | string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: NullableStringFieldUpdateOperationsInput | string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: NullableStringFieldUpdateOperationsInput | string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
@@ -66189,7 +66189,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
     Iskolai_sportkorben_resztvevo_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
     Diaksport_egyesulet_tagja?: NullableStringFieldUpdateOperationsInput | string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: NullableStringFieldUpdateOperationsInput | string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: NullableStringFieldUpdateOperationsInput | string | null
     Arany_Janos_Tehetseggondozo_Program?: NullableStringFieldUpdateOperationsInput | string | null
     Emelt_szintu_oktatasban_vesz_reszt?: NullableStringFieldUpdateOperationsInput | string | null
     Emelt_szintu_oktatas_tantargy_1?: NullableStringFieldUpdateOperationsInput | string | null
@@ -66247,7 +66247,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: NullableStringFieldUpdateOperationsInput | string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: NullableStringFieldUpdateOperationsInput | string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: NullableStringFieldUpdateOperationsInput | string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
@@ -66284,7 +66284,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
     Iskolai_sportkorben_resztvevo_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
     Diaksport_egyesulet_tagja?: NullableStringFieldUpdateOperationsInput | string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: NullableStringFieldUpdateOperationsInput | string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: NullableStringFieldUpdateOperationsInput | string | null
     Arany_Janos_Tehetseggondozo_Program?: NullableStringFieldUpdateOperationsInput | string | null
     Emelt_szintu_oktatasban_vesz_reszt?: NullableStringFieldUpdateOperationsInput | string | null
     Emelt_szintu_oktatas_tantargy_1?: NullableStringFieldUpdateOperationsInput | string | null
@@ -69605,7 +69605,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: SortOrder
     Uj_Szkt_Reszszakmak_Reszszakma?: SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: SortOrder
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: SortOrder
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: SortOrder
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: SortOrder
@@ -69642,7 +69642,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: SortOrder
     Iskolai_sportkorben_resztvevo_tanulo?: SortOrder
     Diaksport_egyesulet_tagja?: SortOrder
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: SortOrder
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: SortOrder
     Arany_Janos_Tehetseggondozo_Program?: SortOrder
     Emelt_szintu_oktatasban_vesz_reszt?: SortOrder
     Emelt_szintu_oktatas_tantargy_1?: SortOrder
@@ -69704,7 +69704,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: SortOrder
     Uj_Szkt_Reszszakmak_Reszszakma?: SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: SortOrder
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: SortOrder
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: SortOrder
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: SortOrder
@@ -69741,7 +69741,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: SortOrder
     Iskolai_sportkorben_resztvevo_tanulo?: SortOrder
     Diaksport_egyesulet_tagja?: SortOrder
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: SortOrder
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: SortOrder
     Arany_Janos_Tehetseggondozo_Program?: SortOrder
     Emelt_szintu_oktatasban_vesz_reszt?: SortOrder
     Emelt_szintu_oktatas_tantargy_1?: SortOrder
@@ -69799,7 +69799,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: SortOrder
     Uj_Szkt_Reszszakmak_Reszszakma?: SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: SortOrder
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: SortOrder
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: SortOrder
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: SortOrder
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: SortOrder
@@ -69836,7 +69836,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: SortOrder
     Iskolai_sportkorben_resztvevo_tanulo?: SortOrder
     Diaksport_egyesulet_tagja?: SortOrder
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: SortOrder
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: SortOrder
     Arany_Janos_Tehetseggondozo_Program?: SortOrder
     Emelt_szintu_oktatasban_vesz_reszt?: SortOrder
     Emelt_szintu_oktatas_tantargy_1?: SortOrder
@@ -75033,7 +75033,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: string | null
@@ -75070,7 +75070,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: string | null
     Iskolai_sportkorben_resztvevo_tanulo?: string | null
     Diaksport_egyesulet_tagja?: string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: string | null
     Arany_Janos_Tehetseggondozo_Program?: string | null
     Emelt_szintu_oktatasban_vesz_reszt?: string | null
     Emelt_szintu_oktatas_tantargy_1?: string | null
@@ -75127,7 +75127,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: string | null
@@ -75164,7 +75164,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: string | null
     Iskolai_sportkorben_resztvevo_tanulo?: string | null
     Diaksport_egyesulet_tagja?: string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: string | null
     Arany_Janos_Tehetseggondozo_Program?: string | null
     Emelt_szintu_oktatasban_vesz_reszt?: string | null
     Emelt_szintu_oktatas_tantargy_1?: string | null
@@ -76392,7 +76392,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: StringNullableFilter<"TanuloAdatszolg"> | string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: StringNullableFilter<"TanuloAdatszolg"> | string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: StringNullableFilter<"TanuloAdatszolg"> | string | null
@@ -76429,7 +76429,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Iskolai_sportkorben_resztvevo_tanulo?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Diaksport_egyesulet_tagja?: StringNullableFilter<"TanuloAdatszolg"> | string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: StringNullableFilter<"TanuloAdatszolg"> | string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Arany_Janos_Tehetseggondozo_Program?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Emelt_szintu_oktatasban_vesz_reszt?: StringNullableFilter<"TanuloAdatszolg"> | string | null
     Emelt_szintu_oktatas_tantargy_1?: StringNullableFilter<"TanuloAdatszolg"> | string | null
@@ -84491,7 +84491,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: string | null
@@ -84528,7 +84528,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: string | null
     Iskolai_sportkorben_resztvevo_tanulo?: string | null
     Diaksport_egyesulet_tagja?: string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: string | null
     Arany_Janos_Tehetseggondozo_Program?: string | null
     Emelt_szintu_oktatasban_vesz_reszt?: string | null
     Emelt_szintu_oktatas_tantargy_1?: string | null
@@ -85891,7 +85891,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: NullableStringFieldUpdateOperationsInput | string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: NullableStringFieldUpdateOperationsInput | string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: NullableStringFieldUpdateOperationsInput | string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
@@ -85928,7 +85928,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
     Iskolai_sportkorben_resztvevo_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
     Diaksport_egyesulet_tagja?: NullableStringFieldUpdateOperationsInput | string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: NullableStringFieldUpdateOperationsInput | string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: NullableStringFieldUpdateOperationsInput | string | null
     Arany_Janos_Tehetseggondozo_Program?: NullableStringFieldUpdateOperationsInput | string | null
     Emelt_szintu_oktatasban_vesz_reszt?: NullableStringFieldUpdateOperationsInput | string | null
     Emelt_szintu_oktatas_tantargy_1?: NullableStringFieldUpdateOperationsInput | string | null
@@ -85985,7 +85985,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: NullableStringFieldUpdateOperationsInput | string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: NullableStringFieldUpdateOperationsInput | string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: NullableStringFieldUpdateOperationsInput | string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
@@ -86022,7 +86022,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
     Iskolai_sportkorben_resztvevo_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
     Diaksport_egyesulet_tagja?: NullableStringFieldUpdateOperationsInput | string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: NullableStringFieldUpdateOperationsInput | string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: NullableStringFieldUpdateOperationsInput | string | null
     Arany_Janos_Tehetseggondozo_Program?: NullableStringFieldUpdateOperationsInput | string | null
     Emelt_szintu_oktatasban_vesz_reszt?: NullableStringFieldUpdateOperationsInput | string | null
     Emelt_szintu_oktatas_tantargy_1?: NullableStringFieldUpdateOperationsInput | string | null
@@ -86079,7 +86079,7 @@ export namespace Prisma {
     Uj_Szkt_Reszszakma_Szakma?: NullableStringFieldUpdateOperationsInput | string | null
     Uj_Szkt_Reszszakmak_Reszszakma?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
-    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnevezese?: NullableStringFieldUpdateOperationsInput | string | null
+    Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod?: NullableStringFieldUpdateOperationsInput | string | null
     Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany?: NullableStringFieldUpdateOperationsInput | string | null
     Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet?: NullableStringFieldUpdateOperationsInput | string | null
@@ -86116,7 +86116,7 @@ export namespace Prisma {
     Kezdo_evfolyamos_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
     Iskolai_sportkorben_resztvevo_tanulo?: NullableStringFieldUpdateOperationsInput | string | null
     Diaksport_egyesulet_tagja?: NullableStringFieldUpdateOperationsInput | string | null
-    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkepesitesi_tanulok?: NullableStringFieldUpdateOperationsInput | string | null
+    Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep?: NullableStringFieldUpdateOperationsInput | string | null
     Arany_Janos_Tehetseggondozo_Program?: NullableStringFieldUpdateOperationsInput | string | null
     Emelt_szintu_oktatasban_vesz_reszt?: NullableStringFieldUpdateOperationsInput | string | null
     Emelt_szintu_oktatas_tantargy_1?: NullableStringFieldUpdateOperationsInput | string | null
