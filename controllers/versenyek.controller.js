@@ -2,11 +2,35 @@ import {
   create,
   getAll,
   getAllByAlapadatok,
+  getKategoriak,
   update,
 } from "../services/versenyek.service.js";
 import e from "express";
 
 const router = e.Router();
+
+/**
+ * @swagger
+ * /api/v1/versenyek/kategoriak:
+ *   get:
+ *     summary: Get all competition categories
+ *     tags:
+ *       - Versenyek
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: List of competition categories
+ */
+router.get("/kategoriak", async (req, res) => {
+  try {
+    const data = await getKategoriak();
+    return res.status(200).json(data);
+  } catch (error) {
+    console.error("Error fetching competition categories:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
 
 /**
  * @swagger
@@ -380,25 +404,20 @@ router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const {
-      kategoria,
-      verseny_neve,
-      alapadatok_id,
-      helyezes_1,
-      helyezes_1_3,
-      helyezes_1_10,
-      versenyre_nevezettek,
+      helyezett_1,
+      helyezett_1_3,
+      dontobeJutott,
+      nevezettekSzama,
       tanev_kezdete,
     } = req.body;
 
     const data = await update(
       id,
-      kategoria, // versenyKategoria
-      verseny_neve, // versenyNev
-      helyezes_1, // helyezett_1
-      helyezes_1_3, // helyezett_1_3
-      helyezes_1_10, // dontobeJutott
-      versenyre_nevezettek, // nevezettekSzama
-      tanev_kezdete // tanev_kezdete
+      helyezett_1,
+      helyezett_1_3,
+      dontobeJutott,
+      nevezettekSzama,
+      tanev_kezdete
     );
 
     return res.status(200).json(data);

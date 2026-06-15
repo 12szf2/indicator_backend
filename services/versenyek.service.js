@@ -6,6 +6,10 @@ const pattern = new ServicePattern('versenyek', 'id', {
   alapadatok: true,
 });
 
+export async function getKategoriak() {
+  return await prisma.vesenyKategoria.findMany();
+}
+
 export async function getAll(tanev) {
   return await pattern.findAllByYear(tanev);
 }
@@ -63,16 +67,12 @@ export async function create(
 
 export async function update(
   id,
-  versenyKategoria,
-  versenyNev,
   helyezett_1,
   helyezett_1_3,
   dontobeJutott,
   nevezettekSzama,
   tanev_kezdete
 ) {
-  // Since this has complex relationships with versenyNev, we'll use direct Prisma for now
-  // but still leverage cache invalidation from pattern
   const data = await prisma.versenyek.update({
     where: { id },
     data: {
@@ -81,22 +81,6 @@ export async function update(
       dontobeJutott,
       nevezettekSzama,
       tanev_kezdete,
-      versenyNev: {
-        connectOrCreate: {
-          where: { nev: versenyNev },
-          create: {
-            nev: versenyNev,
-            kategoria: {
-              connectOrCreate: {
-                where: { nev: versenyKategoria },
-                create: {
-                  nev: versenyKategoria,
-                },
-              },
-            },
-          },
-        },
-      },
     },
   });
 
