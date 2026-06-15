@@ -77,7 +77,7 @@ export async function update(
   elhelyezkedok_szama,
   szakmai_okatatasban_sikeresen_vegzettek_szama
 ) {
-  return await pattern.update(parseInt(id), {
+  return await pattern.update(id, {
     szakirany_id,
     szakma_id,
     alapadatok_id,

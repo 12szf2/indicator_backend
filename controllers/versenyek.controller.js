@@ -234,25 +234,25 @@ router.get("/:alapadatokId/:tanev", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const {
-      versenyKategoria,
-      versenyNev,
-      alapadatokId,
-      helyezett1,
-      helyezett1_3,
+      kategoria,
+      verseny_neve,
+      alapadatok_id,
+      helyezett_1,
+      helyezett_1_3,
       dontobeJutott,
       nevezettekSzama,
-      tanevKezdete,
+      tanev_kezdete,
     } = req.body;
 
     const data = await create(
-      versenyKategoria,
-      versenyNev,
-      alapadatokId,
-      helyezett1,
-      helyezett1_3,
-      dontobeJutott,
-      nevezettekSzama,
-      tanevKezdete
+      kategoria, // versenyKategoria
+      verseny_neve, // versenyNev
+      helyezett_1, // helyezett_1
+      helyezett_1_3, // helyezett_1_3
+      dontobeJutott, // dontobeJutott
+      nevezettekSzama, // nevezettekSzama
+      tanev_kezdete, // tanev_kezdete
+      alapadatok_id // alapadatokId
     );
 
     return res.status(201).json(data);
@@ -380,26 +380,25 @@ router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const {
-      versenyKategoria,
-      versenyNev,
-      alapadatokId,
-      helyezett1,
-      helyezett1_3,
-      dontobeJutott,
-      nevezettekSzama,
-      tanevKezdete,
+      kategoria,
+      verseny_neve,
+      alapadatok_id,
+      helyezes_1,
+      helyezes_1_3,
+      helyezes_1_10,
+      versenyre_nevezettek,
+      tanev_kezdete,
     } = req.body;
 
     const data = await update(
       id,
-      versenyKategoria,
-      versenyNev,
-      alapadatokId,
-      helyezett1,
-      helyezett1_3,
-      dontobeJutott,
-      nevezettekSzama,
-      tanevKezdete
+      kategoria, // versenyKategoria
+      verseny_neve, // versenyNev
+      helyezes_1, // helyezett_1
+      helyezes_1_3, // helyezett_1_3
+      helyezes_1_10, // dontobeJutott
+      versenyre_nevezettek, // nevezettekSzama
+      tanev_kezdete // tanev_kezdete
     );
 
     return res.status(200).json(data);

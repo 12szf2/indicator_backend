@@ -42,7 +42,7 @@ export async function update(
   dualis_kepzohely_elegedettsege,
   munkaero_piac_elegedettsege
 ) {
-  return await pattern.update(parseInt(id), {
+  return await pattern.update(id, {
     alapadatok_id,
     tanev_kezdete: parseInt(tanev_kezdete),
     szulok_elegedettsege: parseFloat(szulok_elegedettsege),

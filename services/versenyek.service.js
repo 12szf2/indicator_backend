@@ -33,15 +33,17 @@ export async function create(
       dontobeJutott,
       nevezettekSzama,
       tanev_kezdete,
-      alapadatok_id: alapadatokId,
+      alapadatok: {
+        connect: { id: alapadatokId }
+      },
       versenyNev: {
         connectOrCreate: {
-          where: { id: versenyNev },
+          where: { nev: versenyNev },
           create: {
             nev: versenyNev,
-            versenyKategoria: {
+            kategoria: {
               connectOrCreate: {
-                where: { id: versenyKategoria },
+                where: { nev: versenyKategoria },
                 create: {
                   nev: versenyKategoria,
                 },
@@ -81,12 +83,12 @@ export async function update(
       tanev_kezdete,
       versenyNev: {
         connectOrCreate: {
-          where: { id: versenyNev },
+          where: { nev: versenyNev },
           create: {
             nev: versenyNev,
-            versenyKategoria: {
+            kategoria: {
               connectOrCreate: {
-                where: { id: versenyKategoria },
+                where: { nev: versenyKategoria },
                 create: {
                   nev: versenyKategoria,
                 },

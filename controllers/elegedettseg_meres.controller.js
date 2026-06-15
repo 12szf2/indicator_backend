@@ -241,21 +241,21 @@ router.post("/", async (req, res) => {
     const {
       alapadatok_id,
       tanev_kezdete,
-      szulok_elegedettsege,
-      oktatok_elegedettsege,
-      tanulok_elegedettsege,
-      dualis_kepzohely_elegedettsege,
-      munkaero_piac_elegedettsege,
+      szulo,
+      oktato,
+      tanulo,
+      dualis_kepzohely,
+      munkaeropiaci,
     } = req.body;
 
     const createdData = await create(
       alapadatok_id,
       tanev_kezdete,
-      szulok_elegedettsege,
-      oktatok_elegedettsege,
-      tanulok_elegedettsege,
-      dualis_kepzohely_elegedettsege,
-      munkaero_piac_elegedettsege
+      szulo,
+      oktato,
+      tanulo,
+      dualis_kepzohely,
+      munkaeropiaci
     );
 
     return res.status(201).json(createdData);
@@ -342,22 +342,22 @@ router.put("/:id", async (req, res) => {
     const {
       alapadatok_id,
       tanev_kezdete,
-      szulok_elegedettsege,
-      oktatok_elegedettsege,
-      tanulok_elegedettsege,
-      dualis_kepzohely_elegedettsege,
-      munkaero_piac_elegedettsege,
+      szulo,
+      oktato,
+      tanulo,
+      dualis_kepzohely,
+      munkaeropiaci,
     } = req.body;
 
     const updatedData = await update(
       id,
       alapadatok_id,
       tanev_kezdete,
-      szulok_elegedettsege,
-      oktatok_elegedettsege,
-      tanulok_elegedettsege,
-      dualis_kepzohely_elegedettsege,
-      munkaero_piac_elegedettsege
+      szulo,
+      oktato,
+      tanulo,
+      dualis_kepzohely,
+      munkaeropiaci
     );
 
     return res.status(200).json(updatedData);
