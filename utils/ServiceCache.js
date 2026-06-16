@@ -66,7 +66,7 @@ export class ServiceCache {
       case "update":
       case "delete":
         // Invalidate lists and specific items
-        this.invalidate("all.*", "byYear.*", "alapadatok_id.*", "count.*", "all_with_year_ordered.*", "alapadatok_with_year_ordered.*");
+        this.invalidate("all.*", "byYear.*", "alapadatok_id.*", "alapadatok_id_year.*", "count.*", "all_with_year_ordered.*", "alapadatok_with_year_ordered.*");
         if (params[0]) {
           // If ID provided, invalidate specific item patterns
           this.invalidate(`id:${params[0]}.*`);

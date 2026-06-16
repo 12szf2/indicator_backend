@@ -4,6 +4,7 @@ import {
   getAllByAlapadatok,
   getKategoriak,
   update,
+  deleteVerseny
 } from "../services/versenyek.service.js";
 import e from "express";
 
@@ -423,6 +424,74 @@ router.put("/:id", async (req, res) => {
     return res.status(200).json(data);
   } catch (error) {
     console.error("Error updating competition:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+/**
+ * @swagger
+ * /api/v1/versenyek/{id}:
+ *   delete:
+ *     summary: Delete competition record
+ *     description: Delete a competition record by its ID
+ *     tags:
+ *       - Versenyek
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Competition record ID to delete
+ *         example: 1
+ *     responses:
+ *       200:
+ *         description: Competition record deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/VersenyekRecord'
+ *       401:
+ *         description: Unauthorized
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Unauthorized"
+ *       404:
+ *         description: Competition record not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Competition not found"
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Internal server error"
+ */
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = await deleteVerseny(id);
+
+    return res.status(200).json(data);
+  } catch (error) {
+    console.error("Error deleting competition:", error);
     return res.status(500).json({ error: "Internal server error" });
   }
 });
