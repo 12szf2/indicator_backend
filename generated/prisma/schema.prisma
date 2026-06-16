@@ -778,34 +778,38 @@ model OktatoEgyebTev {
 model SzakmaiTovabbkepzes {
   id            String @id @default(uuid()) @db.Uuid
   alapadatok_id String @db.Uuid
-  tanev_kezdete Int    @db.SmallInt
+  tanev         Int    @db.SmallInt
 
-  alapkepesites_mesterfokozat Int @db.Integer
-  egyeb_posztgradualis        Int @db.Integer
-  egyedi_oraszam              Int @db.Integer
-  forditott_osszeg            Int @db.Integer
-  ikk_10                      Int @db.Integer
-  ikk_10_alatt                Int @db.Integer
-  ikk_20                      Int @db.Integer
-  ikk_30                      Int @db.Integer
-  ikk_40                      Int @db.Integer
-  ikk_50                      Int @db.Integer
-  ikk_60                      Int @db.Integer
-  ikk_90                      Int @db.Integer
-  ikk_120                     Int @db.Integer
-  oktatok_letszama            Int @db.Integer
-  pedagogus_szakvizsga        Int @db.Integer
-  ujabb_diploma               Int @db.Integer
-  vallalati_tovabbkepzes      Int @db.Integer
-  veztok_letszama             Int @db.Integer
+  oktatok_letszama Float?
+  veztok_letszama  Float?
+
+  ikk_10_alatt Float?
+  ikk_10       Float?
+  ikk_20       Float?
+  ikk_30       Float?
+  ikk_40       Float?
+  ikk_50       Float?
+  ikk_60       Float?
+  ikk_90       Float?
+  ikk_120      Float?
+
+  vallalati_tovabbkepzes      Float?
+  egyedi_oraszam              Float?
+  ujabb_diploma               Float?
+  alapkepesites_mesterfokozat Float?
+  pedagogus_szakvizsga        Float?
+  egyeb_posztgradualis        Float?
+
+  forditott_osszeg Float?
 
   createAt  DateTime  @default(now())
   createBy  String?
   updatedAt DateTime? @updatedAt
   updatedBy String?
 
-  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id], onDelete: Cascade)
 
+  @@unique([alapadatok_id, tanev])
   @@map("szakmai_tovabbkepzes")
 }
 

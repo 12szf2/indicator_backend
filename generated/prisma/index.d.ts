@@ -48885,13 +48885,11 @@ export namespace Prisma {
   }
 
   export type SzakmaiTovabbkepzesAvgAggregateOutputType = {
-    tanev_kezdete: number | null
-    alapkepesites_mesterfokozat: number | null
-    egyeb_posztgradualis: number | null
-    egyedi_oraszam: number | null
-    forditott_osszeg: number | null
-    ikk_10: number | null
+    tanev: number | null
+    oktatok_letszama: number | null
+    veztok_letszama: number | null
     ikk_10_alatt: number | null
+    ikk_10: number | null
     ikk_20: number | null
     ikk_30: number | null
     ikk_40: number | null
@@ -48899,21 +48897,21 @@ export namespace Prisma {
     ikk_60: number | null
     ikk_90: number | null
     ikk_120: number | null
-    oktatok_letszama: number | null
-    pedagogus_szakvizsga: number | null
-    ujabb_diploma: number | null
     vallalati_tovabbkepzes: number | null
-    veztok_letszama: number | null
+    egyedi_oraszam: number | null
+    ujabb_diploma: number | null
+    alapkepesites_mesterfokozat: number | null
+    pedagogus_szakvizsga: number | null
+    egyeb_posztgradualis: number | null
+    forditott_osszeg: number | null
   }
 
   export type SzakmaiTovabbkepzesSumAggregateOutputType = {
-    tanev_kezdete: number | null
-    alapkepesites_mesterfokozat: number | null
-    egyeb_posztgradualis: number | null
-    egyedi_oraszam: number | null
-    forditott_osszeg: number | null
-    ikk_10: number | null
+    tanev: number | null
+    oktatok_letszama: number | null
+    veztok_letszama: number | null
     ikk_10_alatt: number | null
+    ikk_10: number | null
     ikk_20: number | null
     ikk_30: number | null
     ikk_40: number | null
@@ -48921,23 +48919,23 @@ export namespace Prisma {
     ikk_60: number | null
     ikk_90: number | null
     ikk_120: number | null
-    oktatok_letszama: number | null
-    pedagogus_szakvizsga: number | null
-    ujabb_diploma: number | null
     vallalati_tovabbkepzes: number | null
-    veztok_letszama: number | null
+    egyedi_oraszam: number | null
+    ujabb_diploma: number | null
+    alapkepesites_mesterfokozat: number | null
+    pedagogus_szakvizsga: number | null
+    egyeb_posztgradualis: number | null
+    forditott_osszeg: number | null
   }
 
   export type SzakmaiTovabbkepzesMinAggregateOutputType = {
     id: string | null
     alapadatok_id: string | null
-    tanev_kezdete: number | null
-    alapkepesites_mesterfokozat: number | null
-    egyeb_posztgradualis: number | null
-    egyedi_oraszam: number | null
-    forditott_osszeg: number | null
-    ikk_10: number | null
+    tanev: number | null
+    oktatok_letszama: number | null
+    veztok_letszama: number | null
     ikk_10_alatt: number | null
+    ikk_10: number | null
     ikk_20: number | null
     ikk_30: number | null
     ikk_40: number | null
@@ -48945,11 +48943,13 @@ export namespace Prisma {
     ikk_60: number | null
     ikk_90: number | null
     ikk_120: number | null
-    oktatok_letszama: number | null
-    pedagogus_szakvizsga: number | null
-    ujabb_diploma: number | null
     vallalati_tovabbkepzes: number | null
-    veztok_letszama: number | null
+    egyedi_oraszam: number | null
+    ujabb_diploma: number | null
+    alapkepesites_mesterfokozat: number | null
+    pedagogus_szakvizsga: number | null
+    egyeb_posztgradualis: number | null
+    forditott_osszeg: number | null
     createAt: Date | null
     createBy: string | null
     updatedAt: Date | null
@@ -48959,13 +48959,11 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesMaxAggregateOutputType = {
     id: string | null
     alapadatok_id: string | null
-    tanev_kezdete: number | null
-    alapkepesites_mesterfokozat: number | null
-    egyeb_posztgradualis: number | null
-    egyedi_oraszam: number | null
-    forditott_osszeg: number | null
-    ikk_10: number | null
+    tanev: number | null
+    oktatok_letszama: number | null
+    veztok_letszama: number | null
     ikk_10_alatt: number | null
+    ikk_10: number | null
     ikk_20: number | null
     ikk_30: number | null
     ikk_40: number | null
@@ -48973,11 +48971,13 @@ export namespace Prisma {
     ikk_60: number | null
     ikk_90: number | null
     ikk_120: number | null
-    oktatok_letszama: number | null
-    pedagogus_szakvizsga: number | null
-    ujabb_diploma: number | null
     vallalati_tovabbkepzes: number | null
-    veztok_letszama: number | null
+    egyedi_oraszam: number | null
+    ujabb_diploma: number | null
+    alapkepesites_mesterfokozat: number | null
+    pedagogus_szakvizsga: number | null
+    egyeb_posztgradualis: number | null
+    forditott_osszeg: number | null
     createAt: Date | null
     createBy: string | null
     updatedAt: Date | null
@@ -48987,13 +48987,11 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesCountAggregateOutputType = {
     id: number
     alapadatok_id: number
-    tanev_kezdete: number
-    alapkepesites_mesterfokozat: number
-    egyeb_posztgradualis: number
-    egyedi_oraszam: number
-    forditott_osszeg: number
-    ikk_10: number
+    tanev: number
+    oktatok_letszama: number
+    veztok_letszama: number
     ikk_10_alatt: number
+    ikk_10: number
     ikk_20: number
     ikk_30: number
     ikk_40: number
@@ -49001,11 +48999,13 @@ export namespace Prisma {
     ikk_60: number
     ikk_90: number
     ikk_120: number
-    oktatok_letszama: number
-    pedagogus_szakvizsga: number
-    ujabb_diploma: number
     vallalati_tovabbkepzes: number
-    veztok_letszama: number
+    egyedi_oraszam: number
+    ujabb_diploma: number
+    alapkepesites_mesterfokozat: number
+    pedagogus_szakvizsga: number
+    egyeb_posztgradualis: number
+    forditott_osszeg: number
     createAt: number
     createBy: number
     updatedAt: number
@@ -49015,13 +49015,11 @@ export namespace Prisma {
 
 
   export type SzakmaiTovabbkepzesAvgAggregateInputType = {
-    tanev_kezdete?: true
-    alapkepesites_mesterfokozat?: true
-    egyeb_posztgradualis?: true
-    egyedi_oraszam?: true
-    forditott_osszeg?: true
-    ikk_10?: true
+    tanev?: true
+    oktatok_letszama?: true
+    veztok_letszama?: true
     ikk_10_alatt?: true
+    ikk_10?: true
     ikk_20?: true
     ikk_30?: true
     ikk_40?: true
@@ -49029,21 +49027,21 @@ export namespace Prisma {
     ikk_60?: true
     ikk_90?: true
     ikk_120?: true
-    oktatok_letszama?: true
-    pedagogus_szakvizsga?: true
-    ujabb_diploma?: true
     vallalati_tovabbkepzes?: true
-    veztok_letszama?: true
+    egyedi_oraszam?: true
+    ujabb_diploma?: true
+    alapkepesites_mesterfokozat?: true
+    pedagogus_szakvizsga?: true
+    egyeb_posztgradualis?: true
+    forditott_osszeg?: true
   }
 
   export type SzakmaiTovabbkepzesSumAggregateInputType = {
-    tanev_kezdete?: true
-    alapkepesites_mesterfokozat?: true
-    egyeb_posztgradualis?: true
-    egyedi_oraszam?: true
-    forditott_osszeg?: true
-    ikk_10?: true
+    tanev?: true
+    oktatok_letszama?: true
+    veztok_letszama?: true
     ikk_10_alatt?: true
+    ikk_10?: true
     ikk_20?: true
     ikk_30?: true
     ikk_40?: true
@@ -49051,23 +49049,23 @@ export namespace Prisma {
     ikk_60?: true
     ikk_90?: true
     ikk_120?: true
-    oktatok_letszama?: true
-    pedagogus_szakvizsga?: true
-    ujabb_diploma?: true
     vallalati_tovabbkepzes?: true
-    veztok_letszama?: true
+    egyedi_oraszam?: true
+    ujabb_diploma?: true
+    alapkepesites_mesterfokozat?: true
+    pedagogus_szakvizsga?: true
+    egyeb_posztgradualis?: true
+    forditott_osszeg?: true
   }
 
   export type SzakmaiTovabbkepzesMinAggregateInputType = {
     id?: true
     alapadatok_id?: true
-    tanev_kezdete?: true
-    alapkepesites_mesterfokozat?: true
-    egyeb_posztgradualis?: true
-    egyedi_oraszam?: true
-    forditott_osszeg?: true
-    ikk_10?: true
+    tanev?: true
+    oktatok_letszama?: true
+    veztok_letszama?: true
     ikk_10_alatt?: true
+    ikk_10?: true
     ikk_20?: true
     ikk_30?: true
     ikk_40?: true
@@ -49075,11 +49073,13 @@ export namespace Prisma {
     ikk_60?: true
     ikk_90?: true
     ikk_120?: true
-    oktatok_letszama?: true
-    pedagogus_szakvizsga?: true
-    ujabb_diploma?: true
     vallalati_tovabbkepzes?: true
-    veztok_letszama?: true
+    egyedi_oraszam?: true
+    ujabb_diploma?: true
+    alapkepesites_mesterfokozat?: true
+    pedagogus_szakvizsga?: true
+    egyeb_posztgradualis?: true
+    forditott_osszeg?: true
     createAt?: true
     createBy?: true
     updatedAt?: true
@@ -49089,13 +49089,11 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesMaxAggregateInputType = {
     id?: true
     alapadatok_id?: true
-    tanev_kezdete?: true
-    alapkepesites_mesterfokozat?: true
-    egyeb_posztgradualis?: true
-    egyedi_oraszam?: true
-    forditott_osszeg?: true
-    ikk_10?: true
+    tanev?: true
+    oktatok_letszama?: true
+    veztok_letszama?: true
     ikk_10_alatt?: true
+    ikk_10?: true
     ikk_20?: true
     ikk_30?: true
     ikk_40?: true
@@ -49103,11 +49101,13 @@ export namespace Prisma {
     ikk_60?: true
     ikk_90?: true
     ikk_120?: true
-    oktatok_letszama?: true
-    pedagogus_szakvizsga?: true
-    ujabb_diploma?: true
     vallalati_tovabbkepzes?: true
-    veztok_letszama?: true
+    egyedi_oraszam?: true
+    ujabb_diploma?: true
+    alapkepesites_mesterfokozat?: true
+    pedagogus_szakvizsga?: true
+    egyeb_posztgradualis?: true
+    forditott_osszeg?: true
     createAt?: true
     createBy?: true
     updatedAt?: true
@@ -49117,13 +49117,11 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesCountAggregateInputType = {
     id?: true
     alapadatok_id?: true
-    tanev_kezdete?: true
-    alapkepesites_mesterfokozat?: true
-    egyeb_posztgradualis?: true
-    egyedi_oraszam?: true
-    forditott_osszeg?: true
-    ikk_10?: true
+    tanev?: true
+    oktatok_letszama?: true
+    veztok_letszama?: true
     ikk_10_alatt?: true
+    ikk_10?: true
     ikk_20?: true
     ikk_30?: true
     ikk_40?: true
@@ -49131,11 +49129,13 @@ export namespace Prisma {
     ikk_60?: true
     ikk_90?: true
     ikk_120?: true
-    oktatok_letszama?: true
-    pedagogus_szakvizsga?: true
-    ujabb_diploma?: true
     vallalati_tovabbkepzes?: true
-    veztok_letszama?: true
+    egyedi_oraszam?: true
+    ujabb_diploma?: true
+    alapkepesites_mesterfokozat?: true
+    pedagogus_szakvizsga?: true
+    egyeb_posztgradualis?: true
+    forditott_osszeg?: true
     createAt?: true
     createBy?: true
     updatedAt?: true
@@ -49232,25 +49232,25 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesGroupByOutputType = {
     id: string
     alapadatok_id: string
-    tanev_kezdete: number
-    alapkepesites_mesterfokozat: number
-    egyeb_posztgradualis: number
-    egyedi_oraszam: number
-    forditott_osszeg: number
-    ikk_10: number
-    ikk_10_alatt: number
-    ikk_20: number
-    ikk_30: number
-    ikk_40: number
-    ikk_50: number
-    ikk_60: number
-    ikk_90: number
-    ikk_120: number
-    oktatok_letszama: number
-    pedagogus_szakvizsga: number
-    ujabb_diploma: number
-    vallalati_tovabbkepzes: number
-    veztok_letszama: number
+    tanev: number
+    oktatok_letszama: number | null
+    veztok_letszama: number | null
+    ikk_10_alatt: number | null
+    ikk_10: number | null
+    ikk_20: number | null
+    ikk_30: number | null
+    ikk_40: number | null
+    ikk_50: number | null
+    ikk_60: number | null
+    ikk_90: number | null
+    ikk_120: number | null
+    vallalati_tovabbkepzes: number | null
+    egyedi_oraszam: number | null
+    ujabb_diploma: number | null
+    alapkepesites_mesterfokozat: number | null
+    pedagogus_szakvizsga: number | null
+    egyeb_posztgradualis: number | null
+    forditott_osszeg: number | null
     createAt: Date
     createBy: string | null
     updatedAt: Date | null
@@ -49279,13 +49279,11 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     alapadatok_id?: boolean
-    tanev_kezdete?: boolean
-    alapkepesites_mesterfokozat?: boolean
-    egyeb_posztgradualis?: boolean
-    egyedi_oraszam?: boolean
-    forditott_osszeg?: boolean
-    ikk_10?: boolean
+    tanev?: boolean
+    oktatok_letszama?: boolean
+    veztok_letszama?: boolean
     ikk_10_alatt?: boolean
+    ikk_10?: boolean
     ikk_20?: boolean
     ikk_30?: boolean
     ikk_40?: boolean
@@ -49293,11 +49291,13 @@ export namespace Prisma {
     ikk_60?: boolean
     ikk_90?: boolean
     ikk_120?: boolean
-    oktatok_letszama?: boolean
-    pedagogus_szakvizsga?: boolean
-    ujabb_diploma?: boolean
     vallalati_tovabbkepzes?: boolean
-    veztok_letszama?: boolean
+    egyedi_oraszam?: boolean
+    ujabb_diploma?: boolean
+    alapkepesites_mesterfokozat?: boolean
+    pedagogus_szakvizsga?: boolean
+    egyeb_posztgradualis?: boolean
+    forditott_osszeg?: boolean
     createAt?: boolean
     createBy?: boolean
     updatedAt?: boolean
@@ -49308,13 +49308,11 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     alapadatok_id?: boolean
-    tanev_kezdete?: boolean
-    alapkepesites_mesterfokozat?: boolean
-    egyeb_posztgradualis?: boolean
-    egyedi_oraszam?: boolean
-    forditott_osszeg?: boolean
-    ikk_10?: boolean
+    tanev?: boolean
+    oktatok_letszama?: boolean
+    veztok_letszama?: boolean
     ikk_10_alatt?: boolean
+    ikk_10?: boolean
     ikk_20?: boolean
     ikk_30?: boolean
     ikk_40?: boolean
@@ -49322,11 +49320,13 @@ export namespace Prisma {
     ikk_60?: boolean
     ikk_90?: boolean
     ikk_120?: boolean
-    oktatok_letszama?: boolean
-    pedagogus_szakvizsga?: boolean
-    ujabb_diploma?: boolean
     vallalati_tovabbkepzes?: boolean
-    veztok_letszama?: boolean
+    egyedi_oraszam?: boolean
+    ujabb_diploma?: boolean
+    alapkepesites_mesterfokozat?: boolean
+    pedagogus_szakvizsga?: boolean
+    egyeb_posztgradualis?: boolean
+    forditott_osszeg?: boolean
     createAt?: boolean
     createBy?: boolean
     updatedAt?: boolean
@@ -49337,13 +49337,11 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     alapadatok_id?: boolean
-    tanev_kezdete?: boolean
-    alapkepesites_mesterfokozat?: boolean
-    egyeb_posztgradualis?: boolean
-    egyedi_oraszam?: boolean
-    forditott_osszeg?: boolean
-    ikk_10?: boolean
+    tanev?: boolean
+    oktatok_letszama?: boolean
+    veztok_letszama?: boolean
     ikk_10_alatt?: boolean
+    ikk_10?: boolean
     ikk_20?: boolean
     ikk_30?: boolean
     ikk_40?: boolean
@@ -49351,11 +49349,13 @@ export namespace Prisma {
     ikk_60?: boolean
     ikk_90?: boolean
     ikk_120?: boolean
-    oktatok_letszama?: boolean
-    pedagogus_szakvizsga?: boolean
-    ujabb_diploma?: boolean
     vallalati_tovabbkepzes?: boolean
-    veztok_letszama?: boolean
+    egyedi_oraszam?: boolean
+    ujabb_diploma?: boolean
+    alapkepesites_mesterfokozat?: boolean
+    pedagogus_szakvizsga?: boolean
+    egyeb_posztgradualis?: boolean
+    forditott_osszeg?: boolean
     createAt?: boolean
     createBy?: boolean
     updatedAt?: boolean
@@ -49366,13 +49366,11 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesSelectScalar = {
     id?: boolean
     alapadatok_id?: boolean
-    tanev_kezdete?: boolean
-    alapkepesites_mesterfokozat?: boolean
-    egyeb_posztgradualis?: boolean
-    egyedi_oraszam?: boolean
-    forditott_osszeg?: boolean
-    ikk_10?: boolean
+    tanev?: boolean
+    oktatok_letszama?: boolean
+    veztok_letszama?: boolean
     ikk_10_alatt?: boolean
+    ikk_10?: boolean
     ikk_20?: boolean
     ikk_30?: boolean
     ikk_40?: boolean
@@ -49380,18 +49378,20 @@ export namespace Prisma {
     ikk_60?: boolean
     ikk_90?: boolean
     ikk_120?: boolean
-    oktatok_letszama?: boolean
-    pedagogus_szakvizsga?: boolean
-    ujabb_diploma?: boolean
     vallalati_tovabbkepzes?: boolean
-    veztok_letszama?: boolean
+    egyedi_oraszam?: boolean
+    ujabb_diploma?: boolean
+    alapkepesites_mesterfokozat?: boolean
+    pedagogus_szakvizsga?: boolean
+    egyeb_posztgradualis?: boolean
+    forditott_osszeg?: boolean
     createAt?: boolean
     createBy?: boolean
     updatedAt?: boolean
     updatedBy?: boolean
   }
 
-  export type SzakmaiTovabbkepzesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev_kezdete" | "alapkepesites_mesterfokozat" | "egyeb_posztgradualis" | "egyedi_oraszam" | "forditott_osszeg" | "ikk_10" | "ikk_10_alatt" | "ikk_20" | "ikk_30" | "ikk_40" | "ikk_50" | "ikk_60" | "ikk_90" | "ikk_120" | "oktatok_letszama" | "pedagogus_szakvizsga" | "ujabb_diploma" | "vallalati_tovabbkepzes" | "veztok_letszama" | "createAt" | "createBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["szakmaiTovabbkepzes"]>
+  export type SzakmaiTovabbkepzesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "alapadatok_id" | "tanev" | "oktatok_letszama" | "veztok_letszama" | "ikk_10_alatt" | "ikk_10" | "ikk_20" | "ikk_30" | "ikk_40" | "ikk_50" | "ikk_60" | "ikk_90" | "ikk_120" | "vallalati_tovabbkepzes" | "egyedi_oraszam" | "ujabb_diploma" | "alapkepesites_mesterfokozat" | "pedagogus_szakvizsga" | "egyeb_posztgradualis" | "forditott_osszeg" | "createAt" | "createBy" | "updatedAt" | "updatedBy", ExtArgs["result"]["szakmaiTovabbkepzes"]>
   export type SzakmaiTovabbkepzesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     alapadatok?: boolean | AlapadatokDefaultArgs<ExtArgs>
   }
@@ -49410,25 +49410,25 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       alapadatok_id: string
-      tanev_kezdete: number
-      alapkepesites_mesterfokozat: number
-      egyeb_posztgradualis: number
-      egyedi_oraszam: number
-      forditott_osszeg: number
-      ikk_10: number
-      ikk_10_alatt: number
-      ikk_20: number
-      ikk_30: number
-      ikk_40: number
-      ikk_50: number
-      ikk_60: number
-      ikk_90: number
-      ikk_120: number
-      oktatok_letszama: number
-      pedagogus_szakvizsga: number
-      ujabb_diploma: number
-      vallalati_tovabbkepzes: number
-      veztok_letszama: number
+      tanev: number
+      oktatok_letszama: number | null
+      veztok_letszama: number | null
+      ikk_10_alatt: number | null
+      ikk_10: number | null
+      ikk_20: number | null
+      ikk_30: number | null
+      ikk_40: number | null
+      ikk_50: number | null
+      ikk_60: number | null
+      ikk_90: number | null
+      ikk_120: number | null
+      vallalati_tovabbkepzes: number | null
+      egyedi_oraszam: number | null
+      ujabb_diploma: number | null
+      alapkepesites_mesterfokozat: number | null
+      pedagogus_szakvizsga: number | null
+      egyeb_posztgradualis: number | null
+      forditott_osszeg: number | null
       createAt: Date
       createBy: string | null
       updatedAt: Date | null
@@ -49859,25 +49859,25 @@ export namespace Prisma {
   interface SzakmaiTovabbkepzesFieldRefs {
     readonly id: FieldRef<"SzakmaiTovabbkepzes", 'String'>
     readonly alapadatok_id: FieldRef<"SzakmaiTovabbkepzes", 'String'>
-    readonly tanev_kezdete: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly alapkepesites_mesterfokozat: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly egyeb_posztgradualis: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly egyedi_oraszam: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly forditott_osszeg: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly ikk_10: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly ikk_10_alatt: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly ikk_20: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly ikk_30: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly ikk_40: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly ikk_50: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly ikk_60: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly ikk_90: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly ikk_120: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly oktatok_letszama: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly pedagogus_szakvizsga: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly ujabb_diploma: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly vallalati_tovabbkepzes: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
-    readonly veztok_letszama: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly tanev: FieldRef<"SzakmaiTovabbkepzes", 'Int'>
+    readonly oktatok_letszama: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly veztok_letszama: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly ikk_10_alatt: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly ikk_10: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly ikk_20: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly ikk_30: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly ikk_40: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly ikk_50: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly ikk_60: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly ikk_90: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly ikk_120: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly vallalati_tovabbkepzes: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly egyedi_oraszam: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly ujabb_diploma: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly alapkepesites_mesterfokozat: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly pedagogus_szakvizsga: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly egyeb_posztgradualis: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
+    readonly forditott_osszeg: FieldRef<"SzakmaiTovabbkepzes", 'Float'>
     readonly createAt: FieldRef<"SzakmaiTovabbkepzes", 'DateTime'>
     readonly createBy: FieldRef<"SzakmaiTovabbkepzes", 'String'>
     readonly updatedAt: FieldRef<"SzakmaiTovabbkepzes", 'DateTime'>
@@ -60487,13 +60487,11 @@ export namespace Prisma {
   export const SzakmaiTovabbkepzesScalarFieldEnum: {
     id: 'id',
     alapadatok_id: 'alapadatok_id',
-    tanev_kezdete: 'tanev_kezdete',
-    alapkepesites_mesterfokozat: 'alapkepesites_mesterfokozat',
-    egyeb_posztgradualis: 'egyeb_posztgradualis',
-    egyedi_oraszam: 'egyedi_oraszam',
-    forditott_osszeg: 'forditott_osszeg',
-    ikk_10: 'ikk_10',
+    tanev: 'tanev',
+    oktatok_letszama: 'oktatok_letszama',
+    veztok_letszama: 'veztok_letszama',
     ikk_10_alatt: 'ikk_10_alatt',
+    ikk_10: 'ikk_10',
     ikk_20: 'ikk_20',
     ikk_30: 'ikk_30',
     ikk_40: 'ikk_40',
@@ -60501,11 +60499,13 @@ export namespace Prisma {
     ikk_60: 'ikk_60',
     ikk_90: 'ikk_90',
     ikk_120: 'ikk_120',
-    oktatok_letszama: 'oktatok_letszama',
-    pedagogus_szakvizsga: 'pedagogus_szakvizsga',
-    ujabb_diploma: 'ujabb_diploma',
     vallalati_tovabbkepzes: 'vallalati_tovabbkepzes',
-    veztok_letszama: 'veztok_letszama',
+    egyedi_oraszam: 'egyedi_oraszam',
+    ujabb_diploma: 'ujabb_diploma',
+    alapkepesites_mesterfokozat: 'alapkepesites_mesterfokozat',
+    pedagogus_szakvizsga: 'pedagogus_szakvizsga',
+    egyeb_posztgradualis: 'egyeb_posztgradualis',
+    forditott_osszeg: 'forditott_osszeg',
     createAt: 'createAt',
     createBy: 'createBy',
     updatedAt: 'updatedAt',
@@ -64397,25 +64397,25 @@ export namespace Prisma {
     NOT?: SzakmaiTovabbkepzesWhereInput | SzakmaiTovabbkepzesWhereInput[]
     id?: UuidFilter<"SzakmaiTovabbkepzes"> | string
     alapadatok_id?: UuidFilter<"SzakmaiTovabbkepzes"> | string
-    tanev_kezdete?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    alapkepesites_mesterfokozat?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    egyeb_posztgradualis?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    egyedi_oraszam?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    forditott_osszeg?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_10?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_10_alatt?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_20?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_30?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_40?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_50?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_60?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_90?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_120?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    oktatok_letszama?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    pedagogus_szakvizsga?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ujabb_diploma?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    vallalati_tovabbkepzes?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    veztok_letszama?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    tanev?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    oktatok_letszama?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    veztok_letszama?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_10_alatt?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_10?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_20?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_30?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_40?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_50?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_60?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_90?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_120?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    vallalati_tovabbkepzes?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    egyedi_oraszam?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ujabb_diploma?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    alapkepesites_mesterfokozat?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    pedagogus_szakvizsga?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    egyeb_posztgradualis?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    forditott_osszeg?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
     createAt?: DateTimeFilter<"SzakmaiTovabbkepzes"> | Date | string
     createBy?: StringNullableFilter<"SzakmaiTovabbkepzes"> | string | null
     updatedAt?: DateTimeNullableFilter<"SzakmaiTovabbkepzes"> | Date | string | null
@@ -64426,25 +64426,25 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesOrderByWithRelationInput = {
     id?: SortOrder
     alapadatok_id?: SortOrder
-    tanev_kezdete?: SortOrder
-    alapkepesites_mesterfokozat?: SortOrder
-    egyeb_posztgradualis?: SortOrder
-    egyedi_oraszam?: SortOrder
-    forditott_osszeg?: SortOrder
-    ikk_10?: SortOrder
-    ikk_10_alatt?: SortOrder
-    ikk_20?: SortOrder
-    ikk_30?: SortOrder
-    ikk_40?: SortOrder
-    ikk_50?: SortOrder
-    ikk_60?: SortOrder
-    ikk_90?: SortOrder
-    ikk_120?: SortOrder
-    oktatok_letszama?: SortOrder
-    pedagogus_szakvizsga?: SortOrder
-    ujabb_diploma?: SortOrder
-    vallalati_tovabbkepzes?: SortOrder
-    veztok_letszama?: SortOrder
+    tanev?: SortOrder
+    oktatok_letszama?: SortOrderInput | SortOrder
+    veztok_letszama?: SortOrderInput | SortOrder
+    ikk_10_alatt?: SortOrderInput | SortOrder
+    ikk_10?: SortOrderInput | SortOrder
+    ikk_20?: SortOrderInput | SortOrder
+    ikk_30?: SortOrderInput | SortOrder
+    ikk_40?: SortOrderInput | SortOrder
+    ikk_50?: SortOrderInput | SortOrder
+    ikk_60?: SortOrderInput | SortOrder
+    ikk_90?: SortOrderInput | SortOrder
+    ikk_120?: SortOrderInput | SortOrder
+    vallalati_tovabbkepzes?: SortOrderInput | SortOrder
+    egyedi_oraszam?: SortOrderInput | SortOrder
+    ujabb_diploma?: SortOrderInput | SortOrder
+    alapkepesites_mesterfokozat?: SortOrderInput | SortOrder
+    pedagogus_szakvizsga?: SortOrderInput | SortOrder
+    egyeb_posztgradualis?: SortOrderInput | SortOrder
+    forditott_osszeg?: SortOrderInput | SortOrder
     createAt?: SortOrder
     createBy?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -64454,58 +64454,59 @@ export namespace Prisma {
 
   export type SzakmaiTovabbkepzesWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    alapadatok_id_tanev?: SzakmaiTovabbkepzesAlapadatok_idTanevCompoundUniqueInput
     AND?: SzakmaiTovabbkepzesWhereInput | SzakmaiTovabbkepzesWhereInput[]
     OR?: SzakmaiTovabbkepzesWhereInput[]
     NOT?: SzakmaiTovabbkepzesWhereInput | SzakmaiTovabbkepzesWhereInput[]
     alapadatok_id?: UuidFilter<"SzakmaiTovabbkepzes"> | string
-    tanev_kezdete?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    alapkepesites_mesterfokozat?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    egyeb_posztgradualis?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    egyedi_oraszam?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    forditott_osszeg?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_10?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_10_alatt?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_20?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_30?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_40?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_50?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_60?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_90?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_120?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    oktatok_letszama?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    pedagogus_szakvizsga?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ujabb_diploma?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    vallalati_tovabbkepzes?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    veztok_letszama?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    tanev?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    oktatok_letszama?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    veztok_letszama?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_10_alatt?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_10?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_20?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_30?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_40?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_50?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_60?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_90?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_120?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    vallalati_tovabbkepzes?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    egyedi_oraszam?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ujabb_diploma?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    alapkepesites_mesterfokozat?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    pedagogus_szakvizsga?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    egyeb_posztgradualis?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    forditott_osszeg?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
     createAt?: DateTimeFilter<"SzakmaiTovabbkepzes"> | Date | string
     createBy?: StringNullableFilter<"SzakmaiTovabbkepzes"> | string | null
     updatedAt?: DateTimeNullableFilter<"SzakmaiTovabbkepzes"> | Date | string | null
     updatedBy?: StringNullableFilter<"SzakmaiTovabbkepzes"> | string | null
     alapadatok?: XOR<AlapadatokScalarRelationFilter, AlapadatokWhereInput>
-  }, "id">
+  }, "id" | "alapadatok_id_tanev">
 
   export type SzakmaiTovabbkepzesOrderByWithAggregationInput = {
     id?: SortOrder
     alapadatok_id?: SortOrder
-    tanev_kezdete?: SortOrder
-    alapkepesites_mesterfokozat?: SortOrder
-    egyeb_posztgradualis?: SortOrder
-    egyedi_oraszam?: SortOrder
-    forditott_osszeg?: SortOrder
-    ikk_10?: SortOrder
-    ikk_10_alatt?: SortOrder
-    ikk_20?: SortOrder
-    ikk_30?: SortOrder
-    ikk_40?: SortOrder
-    ikk_50?: SortOrder
-    ikk_60?: SortOrder
-    ikk_90?: SortOrder
-    ikk_120?: SortOrder
-    oktatok_letszama?: SortOrder
-    pedagogus_szakvizsga?: SortOrder
-    ujabb_diploma?: SortOrder
-    vallalati_tovabbkepzes?: SortOrder
-    veztok_letszama?: SortOrder
+    tanev?: SortOrder
+    oktatok_letszama?: SortOrderInput | SortOrder
+    veztok_letszama?: SortOrderInput | SortOrder
+    ikk_10_alatt?: SortOrderInput | SortOrder
+    ikk_10?: SortOrderInput | SortOrder
+    ikk_20?: SortOrderInput | SortOrder
+    ikk_30?: SortOrderInput | SortOrder
+    ikk_40?: SortOrderInput | SortOrder
+    ikk_50?: SortOrderInput | SortOrder
+    ikk_60?: SortOrderInput | SortOrder
+    ikk_90?: SortOrderInput | SortOrder
+    ikk_120?: SortOrderInput | SortOrder
+    vallalati_tovabbkepzes?: SortOrderInput | SortOrder
+    egyedi_oraszam?: SortOrderInput | SortOrder
+    ujabb_diploma?: SortOrderInput | SortOrder
+    alapkepesites_mesterfokozat?: SortOrderInput | SortOrder
+    pedagogus_szakvizsga?: SortOrderInput | SortOrder
+    egyeb_posztgradualis?: SortOrderInput | SortOrder
+    forditott_osszeg?: SortOrderInput | SortOrder
     createAt?: SortOrder
     createBy?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -64523,25 +64524,25 @@ export namespace Prisma {
     NOT?: SzakmaiTovabbkepzesScalarWhereWithAggregatesInput | SzakmaiTovabbkepzesScalarWhereWithAggregatesInput[]
     id?: UuidWithAggregatesFilter<"SzakmaiTovabbkepzes"> | string
     alapadatok_id?: UuidWithAggregatesFilter<"SzakmaiTovabbkepzes"> | string
-    tanev_kezdete?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    alapkepesites_mesterfokozat?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    egyeb_posztgradualis?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    egyedi_oraszam?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    forditott_osszeg?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_10?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_10_alatt?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_20?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_30?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_40?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_50?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_60?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_90?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_120?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    oktatok_letszama?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    pedagogus_szakvizsga?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    ujabb_diploma?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    vallalati_tovabbkepzes?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
-    veztok_letszama?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    tanev?: IntWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number
+    oktatok_letszama?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    veztok_letszama?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_10_alatt?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_10?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_20?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_30?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_40?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_50?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_60?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_90?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_120?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    vallalati_tovabbkepzes?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    egyedi_oraszam?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    ujabb_diploma?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    alapkepesites_mesterfokozat?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    pedagogus_szakvizsga?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    egyeb_posztgradualis?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
+    forditott_osszeg?: FloatNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | number | null
     createAt?: DateTimeWithAggregatesFilter<"SzakmaiTovabbkepzes"> | Date | string
     createBy?: StringNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | string | null
     updatedAt?: DateTimeNullableWithAggregatesFilter<"SzakmaiTovabbkepzes"> | Date | string | null
@@ -69663,25 +69664,25 @@ export namespace Prisma {
 
   export type SzakmaiTovabbkepzesCreateInput = {
     id?: string
-    tanev_kezdete: number
-    alapkepesites_mesterfokozat: number
-    egyeb_posztgradualis: number
-    egyedi_oraszam: number
-    forditott_osszeg: number
-    ikk_10: number
-    ikk_10_alatt: number
-    ikk_20: number
-    ikk_30: number
-    ikk_40: number
-    ikk_50: number
-    ikk_60: number
-    ikk_90: number
-    ikk_120: number
-    oktatok_letszama: number
-    pedagogus_szakvizsga: number
-    ujabb_diploma: number
-    vallalati_tovabbkepzes: number
-    veztok_letszama: number
+    tanev: number
+    oktatok_letszama?: number | null
+    veztok_letszama?: number | null
+    ikk_10_alatt?: number | null
+    ikk_10?: number | null
+    ikk_20?: number | null
+    ikk_30?: number | null
+    ikk_40?: number | null
+    ikk_50?: number | null
+    ikk_60?: number | null
+    ikk_90?: number | null
+    ikk_120?: number | null
+    vallalati_tovabbkepzes?: number | null
+    egyedi_oraszam?: number | null
+    ujabb_diploma?: number | null
+    alapkepesites_mesterfokozat?: number | null
+    pedagogus_szakvizsga?: number | null
+    egyeb_posztgradualis?: number | null
+    forditott_osszeg?: number | null
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -69692,25 +69693,25 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesUncheckedCreateInput = {
     id?: string
     alapadatok_id: string
-    tanev_kezdete: number
-    alapkepesites_mesterfokozat: number
-    egyeb_posztgradualis: number
-    egyedi_oraszam: number
-    forditott_osszeg: number
-    ikk_10: number
-    ikk_10_alatt: number
-    ikk_20: number
-    ikk_30: number
-    ikk_40: number
-    ikk_50: number
-    ikk_60: number
-    ikk_90: number
-    ikk_120: number
-    oktatok_letszama: number
-    pedagogus_szakvizsga: number
-    ujabb_diploma: number
-    vallalati_tovabbkepzes: number
-    veztok_letszama: number
+    tanev: number
+    oktatok_letszama?: number | null
+    veztok_letszama?: number | null
+    ikk_10_alatt?: number | null
+    ikk_10?: number | null
+    ikk_20?: number | null
+    ikk_30?: number | null
+    ikk_40?: number | null
+    ikk_50?: number | null
+    ikk_60?: number | null
+    ikk_90?: number | null
+    ikk_120?: number | null
+    vallalati_tovabbkepzes?: number | null
+    egyedi_oraszam?: number | null
+    ujabb_diploma?: number | null
+    alapkepesites_mesterfokozat?: number | null
+    pedagogus_szakvizsga?: number | null
+    egyeb_posztgradualis?: number | null
+    forditott_osszeg?: number | null
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -69719,25 +69720,25 @@ export namespace Prisma {
 
   export type SzakmaiTovabbkepzesUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    alapkepesites_mesterfokozat?: IntFieldUpdateOperationsInput | number
-    egyeb_posztgradualis?: IntFieldUpdateOperationsInput | number
-    egyedi_oraszam?: IntFieldUpdateOperationsInput | number
-    forditott_osszeg?: IntFieldUpdateOperationsInput | number
-    ikk_10?: IntFieldUpdateOperationsInput | number
-    ikk_10_alatt?: IntFieldUpdateOperationsInput | number
-    ikk_20?: IntFieldUpdateOperationsInput | number
-    ikk_30?: IntFieldUpdateOperationsInput | number
-    ikk_40?: IntFieldUpdateOperationsInput | number
-    ikk_50?: IntFieldUpdateOperationsInput | number
-    ikk_60?: IntFieldUpdateOperationsInput | number
-    ikk_90?: IntFieldUpdateOperationsInput | number
-    ikk_120?: IntFieldUpdateOperationsInput | number
-    oktatok_letszama?: IntFieldUpdateOperationsInput | number
-    pedagogus_szakvizsga?: IntFieldUpdateOperationsInput | number
-    ujabb_diploma?: IntFieldUpdateOperationsInput | number
-    vallalati_tovabbkepzes?: IntFieldUpdateOperationsInput | number
-    veztok_letszama?: IntFieldUpdateOperationsInput | number
+    tanev?: IntFieldUpdateOperationsInput | number
+    oktatok_letszama?: NullableFloatFieldUpdateOperationsInput | number | null
+    veztok_letszama?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_10_alatt?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_10?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_20?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_30?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_40?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_50?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_60?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_90?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_120?: NullableFloatFieldUpdateOperationsInput | number | null
+    vallalati_tovabbkepzes?: NullableFloatFieldUpdateOperationsInput | number | null
+    egyedi_oraszam?: NullableFloatFieldUpdateOperationsInput | number | null
+    ujabb_diploma?: NullableFloatFieldUpdateOperationsInput | number | null
+    alapkepesites_mesterfokozat?: NullableFloatFieldUpdateOperationsInput | number | null
+    pedagogus_szakvizsga?: NullableFloatFieldUpdateOperationsInput | number | null
+    egyeb_posztgradualis?: NullableFloatFieldUpdateOperationsInput | number | null
+    forditott_osszeg?: NullableFloatFieldUpdateOperationsInput | number | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -69748,25 +69749,25 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     alapadatok_id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    alapkepesites_mesterfokozat?: IntFieldUpdateOperationsInput | number
-    egyeb_posztgradualis?: IntFieldUpdateOperationsInput | number
-    egyedi_oraszam?: IntFieldUpdateOperationsInput | number
-    forditott_osszeg?: IntFieldUpdateOperationsInput | number
-    ikk_10?: IntFieldUpdateOperationsInput | number
-    ikk_10_alatt?: IntFieldUpdateOperationsInput | number
-    ikk_20?: IntFieldUpdateOperationsInput | number
-    ikk_30?: IntFieldUpdateOperationsInput | number
-    ikk_40?: IntFieldUpdateOperationsInput | number
-    ikk_50?: IntFieldUpdateOperationsInput | number
-    ikk_60?: IntFieldUpdateOperationsInput | number
-    ikk_90?: IntFieldUpdateOperationsInput | number
-    ikk_120?: IntFieldUpdateOperationsInput | number
-    oktatok_letszama?: IntFieldUpdateOperationsInput | number
-    pedagogus_szakvizsga?: IntFieldUpdateOperationsInput | number
-    ujabb_diploma?: IntFieldUpdateOperationsInput | number
-    vallalati_tovabbkepzes?: IntFieldUpdateOperationsInput | number
-    veztok_letszama?: IntFieldUpdateOperationsInput | number
+    tanev?: IntFieldUpdateOperationsInput | number
+    oktatok_letszama?: NullableFloatFieldUpdateOperationsInput | number | null
+    veztok_letszama?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_10_alatt?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_10?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_20?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_30?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_40?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_50?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_60?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_90?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_120?: NullableFloatFieldUpdateOperationsInput | number | null
+    vallalati_tovabbkepzes?: NullableFloatFieldUpdateOperationsInput | number | null
+    egyedi_oraszam?: NullableFloatFieldUpdateOperationsInput | number | null
+    ujabb_diploma?: NullableFloatFieldUpdateOperationsInput | number | null
+    alapkepesites_mesterfokozat?: NullableFloatFieldUpdateOperationsInput | number | null
+    pedagogus_szakvizsga?: NullableFloatFieldUpdateOperationsInput | number | null
+    egyeb_posztgradualis?: NullableFloatFieldUpdateOperationsInput | number | null
+    forditott_osszeg?: NullableFloatFieldUpdateOperationsInput | number | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -69776,25 +69777,25 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesCreateManyInput = {
     id?: string
     alapadatok_id: string
-    tanev_kezdete: number
-    alapkepesites_mesterfokozat: number
-    egyeb_posztgradualis: number
-    egyedi_oraszam: number
-    forditott_osszeg: number
-    ikk_10: number
-    ikk_10_alatt: number
-    ikk_20: number
-    ikk_30: number
-    ikk_40: number
-    ikk_50: number
-    ikk_60: number
-    ikk_90: number
-    ikk_120: number
-    oktatok_letszama: number
-    pedagogus_szakvizsga: number
-    ujabb_diploma: number
-    vallalati_tovabbkepzes: number
-    veztok_letszama: number
+    tanev: number
+    oktatok_letszama?: number | null
+    veztok_letszama?: number | null
+    ikk_10_alatt?: number | null
+    ikk_10?: number | null
+    ikk_20?: number | null
+    ikk_30?: number | null
+    ikk_40?: number | null
+    ikk_50?: number | null
+    ikk_60?: number | null
+    ikk_90?: number | null
+    ikk_120?: number | null
+    vallalati_tovabbkepzes?: number | null
+    egyedi_oraszam?: number | null
+    ujabb_diploma?: number | null
+    alapkepesites_mesterfokozat?: number | null
+    pedagogus_szakvizsga?: number | null
+    egyeb_posztgradualis?: number | null
+    forditott_osszeg?: number | null
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -69803,25 +69804,25 @@ export namespace Prisma {
 
   export type SzakmaiTovabbkepzesUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    alapkepesites_mesterfokozat?: IntFieldUpdateOperationsInput | number
-    egyeb_posztgradualis?: IntFieldUpdateOperationsInput | number
-    egyedi_oraszam?: IntFieldUpdateOperationsInput | number
-    forditott_osszeg?: IntFieldUpdateOperationsInput | number
-    ikk_10?: IntFieldUpdateOperationsInput | number
-    ikk_10_alatt?: IntFieldUpdateOperationsInput | number
-    ikk_20?: IntFieldUpdateOperationsInput | number
-    ikk_30?: IntFieldUpdateOperationsInput | number
-    ikk_40?: IntFieldUpdateOperationsInput | number
-    ikk_50?: IntFieldUpdateOperationsInput | number
-    ikk_60?: IntFieldUpdateOperationsInput | number
-    ikk_90?: IntFieldUpdateOperationsInput | number
-    ikk_120?: IntFieldUpdateOperationsInput | number
-    oktatok_letszama?: IntFieldUpdateOperationsInput | number
-    pedagogus_szakvizsga?: IntFieldUpdateOperationsInput | number
-    ujabb_diploma?: IntFieldUpdateOperationsInput | number
-    vallalati_tovabbkepzes?: IntFieldUpdateOperationsInput | number
-    veztok_letszama?: IntFieldUpdateOperationsInput | number
+    tanev?: IntFieldUpdateOperationsInput | number
+    oktatok_letszama?: NullableFloatFieldUpdateOperationsInput | number | null
+    veztok_letszama?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_10_alatt?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_10?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_20?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_30?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_40?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_50?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_60?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_90?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_120?: NullableFloatFieldUpdateOperationsInput | number | null
+    vallalati_tovabbkepzes?: NullableFloatFieldUpdateOperationsInput | number | null
+    egyedi_oraszam?: NullableFloatFieldUpdateOperationsInput | number | null
+    ujabb_diploma?: NullableFloatFieldUpdateOperationsInput | number | null
+    alapkepesites_mesterfokozat?: NullableFloatFieldUpdateOperationsInput | number | null
+    pedagogus_szakvizsga?: NullableFloatFieldUpdateOperationsInput | number | null
+    egyeb_posztgradualis?: NullableFloatFieldUpdateOperationsInput | number | null
+    forditott_osszeg?: NullableFloatFieldUpdateOperationsInput | number | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -69831,25 +69832,25 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     alapadatok_id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    alapkepesites_mesterfokozat?: IntFieldUpdateOperationsInput | number
-    egyeb_posztgradualis?: IntFieldUpdateOperationsInput | number
-    egyedi_oraszam?: IntFieldUpdateOperationsInput | number
-    forditott_osszeg?: IntFieldUpdateOperationsInput | number
-    ikk_10?: IntFieldUpdateOperationsInput | number
-    ikk_10_alatt?: IntFieldUpdateOperationsInput | number
-    ikk_20?: IntFieldUpdateOperationsInput | number
-    ikk_30?: IntFieldUpdateOperationsInput | number
-    ikk_40?: IntFieldUpdateOperationsInput | number
-    ikk_50?: IntFieldUpdateOperationsInput | number
-    ikk_60?: IntFieldUpdateOperationsInput | number
-    ikk_90?: IntFieldUpdateOperationsInput | number
-    ikk_120?: IntFieldUpdateOperationsInput | number
-    oktatok_letszama?: IntFieldUpdateOperationsInput | number
-    pedagogus_szakvizsga?: IntFieldUpdateOperationsInput | number
-    ujabb_diploma?: IntFieldUpdateOperationsInput | number
-    vallalati_tovabbkepzes?: IntFieldUpdateOperationsInput | number
-    veztok_letszama?: IntFieldUpdateOperationsInput | number
+    tanev?: IntFieldUpdateOperationsInput | number
+    oktatok_letszama?: NullableFloatFieldUpdateOperationsInput | number | null
+    veztok_letszama?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_10_alatt?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_10?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_20?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_30?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_40?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_50?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_60?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_90?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_120?: NullableFloatFieldUpdateOperationsInput | number | null
+    vallalati_tovabbkepzes?: NullableFloatFieldUpdateOperationsInput | number | null
+    egyedi_oraszam?: NullableFloatFieldUpdateOperationsInput | number | null
+    ujabb_diploma?: NullableFloatFieldUpdateOperationsInput | number | null
+    alapkepesites_mesterfokozat?: NullableFloatFieldUpdateOperationsInput | number | null
+    pedagogus_szakvizsga?: NullableFloatFieldUpdateOperationsInput | number | null
+    egyeb_posztgradualis?: NullableFloatFieldUpdateOperationsInput | number | null
+    forditott_osszeg?: NullableFloatFieldUpdateOperationsInput | number | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -74046,16 +74047,30 @@ export namespace Prisma {
     oktatok_letszama?: SortOrder
   }
 
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type SzakmaiTovabbkepzesAlapadatok_idTanevCompoundUniqueInput = {
+    alapadatok_id: string
+    tanev: number
+  }
+
   export type SzakmaiTovabbkepzesCountOrderByAggregateInput = {
     id?: SortOrder
     alapadatok_id?: SortOrder
-    tanev_kezdete?: SortOrder
-    alapkepesites_mesterfokozat?: SortOrder
-    egyeb_posztgradualis?: SortOrder
-    egyedi_oraszam?: SortOrder
-    forditott_osszeg?: SortOrder
-    ikk_10?: SortOrder
+    tanev?: SortOrder
+    oktatok_letszama?: SortOrder
+    veztok_letszama?: SortOrder
     ikk_10_alatt?: SortOrder
+    ikk_10?: SortOrder
     ikk_20?: SortOrder
     ikk_30?: SortOrder
     ikk_40?: SortOrder
@@ -74063,11 +74078,13 @@ export namespace Prisma {
     ikk_60?: SortOrder
     ikk_90?: SortOrder
     ikk_120?: SortOrder
-    oktatok_letszama?: SortOrder
-    pedagogus_szakvizsga?: SortOrder
-    ujabb_diploma?: SortOrder
     vallalati_tovabbkepzes?: SortOrder
-    veztok_letszama?: SortOrder
+    egyedi_oraszam?: SortOrder
+    ujabb_diploma?: SortOrder
+    alapkepesites_mesterfokozat?: SortOrder
+    pedagogus_szakvizsga?: SortOrder
+    egyeb_posztgradualis?: SortOrder
+    forditott_osszeg?: SortOrder
     createAt?: SortOrder
     createBy?: SortOrder
     updatedAt?: SortOrder
@@ -74075,13 +74092,11 @@ export namespace Prisma {
   }
 
   export type SzakmaiTovabbkepzesAvgOrderByAggregateInput = {
-    tanev_kezdete?: SortOrder
-    alapkepesites_mesterfokozat?: SortOrder
-    egyeb_posztgradualis?: SortOrder
-    egyedi_oraszam?: SortOrder
-    forditott_osszeg?: SortOrder
-    ikk_10?: SortOrder
+    tanev?: SortOrder
+    oktatok_letszama?: SortOrder
+    veztok_letszama?: SortOrder
     ikk_10_alatt?: SortOrder
+    ikk_10?: SortOrder
     ikk_20?: SortOrder
     ikk_30?: SortOrder
     ikk_40?: SortOrder
@@ -74089,23 +74104,23 @@ export namespace Prisma {
     ikk_60?: SortOrder
     ikk_90?: SortOrder
     ikk_120?: SortOrder
-    oktatok_letszama?: SortOrder
-    pedagogus_szakvizsga?: SortOrder
-    ujabb_diploma?: SortOrder
     vallalati_tovabbkepzes?: SortOrder
-    veztok_letszama?: SortOrder
+    egyedi_oraszam?: SortOrder
+    ujabb_diploma?: SortOrder
+    alapkepesites_mesterfokozat?: SortOrder
+    pedagogus_szakvizsga?: SortOrder
+    egyeb_posztgradualis?: SortOrder
+    forditott_osszeg?: SortOrder
   }
 
   export type SzakmaiTovabbkepzesMaxOrderByAggregateInput = {
     id?: SortOrder
     alapadatok_id?: SortOrder
-    tanev_kezdete?: SortOrder
-    alapkepesites_mesterfokozat?: SortOrder
-    egyeb_posztgradualis?: SortOrder
-    egyedi_oraszam?: SortOrder
-    forditott_osszeg?: SortOrder
-    ikk_10?: SortOrder
+    tanev?: SortOrder
+    oktatok_letszama?: SortOrder
+    veztok_letszama?: SortOrder
     ikk_10_alatt?: SortOrder
+    ikk_10?: SortOrder
     ikk_20?: SortOrder
     ikk_30?: SortOrder
     ikk_40?: SortOrder
@@ -74113,11 +74128,13 @@ export namespace Prisma {
     ikk_60?: SortOrder
     ikk_90?: SortOrder
     ikk_120?: SortOrder
-    oktatok_letszama?: SortOrder
-    pedagogus_szakvizsga?: SortOrder
-    ujabb_diploma?: SortOrder
     vallalati_tovabbkepzes?: SortOrder
-    veztok_letszama?: SortOrder
+    egyedi_oraszam?: SortOrder
+    ujabb_diploma?: SortOrder
+    alapkepesites_mesterfokozat?: SortOrder
+    pedagogus_szakvizsga?: SortOrder
+    egyeb_posztgradualis?: SortOrder
+    forditott_osszeg?: SortOrder
     createAt?: SortOrder
     createBy?: SortOrder
     updatedAt?: SortOrder
@@ -74127,13 +74144,11 @@ export namespace Prisma {
   export type SzakmaiTovabbkepzesMinOrderByAggregateInput = {
     id?: SortOrder
     alapadatok_id?: SortOrder
-    tanev_kezdete?: SortOrder
-    alapkepesites_mesterfokozat?: SortOrder
-    egyeb_posztgradualis?: SortOrder
-    egyedi_oraszam?: SortOrder
-    forditott_osszeg?: SortOrder
-    ikk_10?: SortOrder
+    tanev?: SortOrder
+    oktatok_letszama?: SortOrder
+    veztok_letszama?: SortOrder
     ikk_10_alatt?: SortOrder
+    ikk_10?: SortOrder
     ikk_20?: SortOrder
     ikk_30?: SortOrder
     ikk_40?: SortOrder
@@ -74141,11 +74156,13 @@ export namespace Prisma {
     ikk_60?: SortOrder
     ikk_90?: SortOrder
     ikk_120?: SortOrder
-    oktatok_letszama?: SortOrder
-    pedagogus_szakvizsga?: SortOrder
-    ujabb_diploma?: SortOrder
     vallalati_tovabbkepzes?: SortOrder
-    veztok_letszama?: SortOrder
+    egyedi_oraszam?: SortOrder
+    ujabb_diploma?: SortOrder
+    alapkepesites_mesterfokozat?: SortOrder
+    pedagogus_szakvizsga?: SortOrder
+    egyeb_posztgradualis?: SortOrder
+    forditott_osszeg?: SortOrder
     createAt?: SortOrder
     createBy?: SortOrder
     updatedAt?: SortOrder
@@ -74153,13 +74170,11 @@ export namespace Prisma {
   }
 
   export type SzakmaiTovabbkepzesSumOrderByAggregateInput = {
-    tanev_kezdete?: SortOrder
-    alapkepesites_mesterfokozat?: SortOrder
-    egyeb_posztgradualis?: SortOrder
-    egyedi_oraszam?: SortOrder
-    forditott_osszeg?: SortOrder
-    ikk_10?: SortOrder
+    tanev?: SortOrder
+    oktatok_letszama?: SortOrder
+    veztok_letszama?: SortOrder
     ikk_10_alatt?: SortOrder
+    ikk_10?: SortOrder
     ikk_20?: SortOrder
     ikk_30?: SortOrder
     ikk_40?: SortOrder
@@ -74167,11 +74182,29 @@ export namespace Prisma {
     ikk_60?: SortOrder
     ikk_90?: SortOrder
     ikk_120?: SortOrder
-    oktatok_letszama?: SortOrder
-    pedagogus_szakvizsga?: SortOrder
-    ujabb_diploma?: SortOrder
     vallalati_tovabbkepzes?: SortOrder
-    veztok_letszama?: SortOrder
+    egyedi_oraszam?: SortOrder
+    ujabb_diploma?: SortOrder
+    alapkepesites_mesterfokozat?: SortOrder
+    pedagogus_szakvizsga?: SortOrder
+    egyeb_posztgradualis?: SortOrder
+    forditott_osszeg?: SortOrder
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type HianyzasCountOrderByAggregateInput = {
@@ -78085,6 +78118,14 @@ export namespace Prisma {
     connect?: AlapadatokWhereUniqueInput
   }
 
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type AlapadatokUpdateOneRequiredWithoutSzakmaiTovabbkepzesNestedInput = {
     create?: XOR<AlapadatokCreateWithoutSzakmaiTovabbkepzesInput, AlapadatokUncheckedCreateWithoutSzakmaiTovabbkepzesInput>
     connectOrCreate?: AlapadatokCreateOrConnectWithoutSzakmaiTovabbkepzesInput
@@ -78476,6 +78517,22 @@ export namespace Prisma {
     _sum?: NestedDecimalFilter<$PrismaModel>
     _min?: NestedDecimalFilter<$PrismaModel>
     _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type LogCreateWithoutUserInput = {
@@ -80355,25 +80412,25 @@ export namespace Prisma {
 
   export type SzakmaiTovabbkepzesCreateWithoutAlapadatokInput = {
     id?: string
-    tanev_kezdete: number
-    alapkepesites_mesterfokozat: number
-    egyeb_posztgradualis: number
-    egyedi_oraszam: number
-    forditott_osszeg: number
-    ikk_10: number
-    ikk_10_alatt: number
-    ikk_20: number
-    ikk_30: number
-    ikk_40: number
-    ikk_50: number
-    ikk_60: number
-    ikk_90: number
-    ikk_120: number
-    oktatok_letszama: number
-    pedagogus_szakvizsga: number
-    ujabb_diploma: number
-    vallalati_tovabbkepzes: number
-    veztok_letszama: number
+    tanev: number
+    oktatok_letszama?: number | null
+    veztok_letszama?: number | null
+    ikk_10_alatt?: number | null
+    ikk_10?: number | null
+    ikk_20?: number | null
+    ikk_30?: number | null
+    ikk_40?: number | null
+    ikk_50?: number | null
+    ikk_60?: number | null
+    ikk_90?: number | null
+    ikk_120?: number | null
+    vallalati_tovabbkepzes?: number | null
+    egyedi_oraszam?: number | null
+    ujabb_diploma?: number | null
+    alapkepesites_mesterfokozat?: number | null
+    pedagogus_szakvizsga?: number | null
+    egyeb_posztgradualis?: number | null
+    forditott_osszeg?: number | null
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -80382,25 +80439,25 @@ export namespace Prisma {
 
   export type SzakmaiTovabbkepzesUncheckedCreateWithoutAlapadatokInput = {
     id?: string
-    tanev_kezdete: number
-    alapkepesites_mesterfokozat: number
-    egyeb_posztgradualis: number
-    egyedi_oraszam: number
-    forditott_osszeg: number
-    ikk_10: number
-    ikk_10_alatt: number
-    ikk_20: number
-    ikk_30: number
-    ikk_40: number
-    ikk_50: number
-    ikk_60: number
-    ikk_90: number
-    ikk_120: number
-    oktatok_letszama: number
-    pedagogus_szakvizsga: number
-    ujabb_diploma: number
-    vallalati_tovabbkepzes: number
-    veztok_letszama: number
+    tanev: number
+    oktatok_letszama?: number | null
+    veztok_letszama?: number | null
+    ikk_10_alatt?: number | null
+    ikk_10?: number | null
+    ikk_20?: number | null
+    ikk_30?: number | null
+    ikk_40?: number | null
+    ikk_50?: number | null
+    ikk_60?: number | null
+    ikk_90?: number | null
+    ikk_120?: number | null
+    vallalati_tovabbkepzes?: number | null
+    egyedi_oraszam?: number | null
+    ujabb_diploma?: number | null
+    alapkepesites_mesterfokozat?: number | null
+    pedagogus_szakvizsga?: number | null
+    egyeb_posztgradualis?: number | null
+    forditott_osszeg?: number | null
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -81712,25 +81769,25 @@ export namespace Prisma {
     NOT?: SzakmaiTovabbkepzesScalarWhereInput | SzakmaiTovabbkepzesScalarWhereInput[]
     id?: UuidFilter<"SzakmaiTovabbkepzes"> | string
     alapadatok_id?: UuidFilter<"SzakmaiTovabbkepzes"> | string
-    tanev_kezdete?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    alapkepesites_mesterfokozat?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    egyeb_posztgradualis?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    egyedi_oraszam?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    forditott_osszeg?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_10?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_10_alatt?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_20?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_30?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_40?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_50?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_60?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_90?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ikk_120?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    oktatok_letszama?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    pedagogus_szakvizsga?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    ujabb_diploma?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    vallalati_tovabbkepzes?: IntFilter<"SzakmaiTovabbkepzes"> | number
-    veztok_letszama?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    tanev?: IntFilter<"SzakmaiTovabbkepzes"> | number
+    oktatok_letszama?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    veztok_letszama?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_10_alatt?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_10?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_20?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_30?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_40?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_50?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_60?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_90?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ikk_120?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    vallalati_tovabbkepzes?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    egyedi_oraszam?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    ujabb_diploma?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    alapkepesites_mesterfokozat?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    pedagogus_szakvizsga?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    egyeb_posztgradualis?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
+    forditott_osszeg?: FloatNullableFilter<"SzakmaiTovabbkepzes"> | number | null
     createAt?: DateTimeFilter<"SzakmaiTovabbkepzes"> | Date | string
     createBy?: StringNullableFilter<"SzakmaiTovabbkepzes"> | string | null
     updatedAt?: DateTimeNullableFilter<"SzakmaiTovabbkepzes"> | Date | string | null
@@ -90693,25 +90750,25 @@ export namespace Prisma {
 
   export type SzakmaiTovabbkepzesCreateManyAlapadatokInput = {
     id?: string
-    tanev_kezdete: number
-    alapkepesites_mesterfokozat: number
-    egyeb_posztgradualis: number
-    egyedi_oraszam: number
-    forditott_osszeg: number
-    ikk_10: number
-    ikk_10_alatt: number
-    ikk_20: number
-    ikk_30: number
-    ikk_40: number
-    ikk_50: number
-    ikk_60: number
-    ikk_90: number
-    ikk_120: number
-    oktatok_letszama: number
-    pedagogus_szakvizsga: number
-    ujabb_diploma: number
-    vallalati_tovabbkepzes: number
-    veztok_letszama: number
+    tanev: number
+    oktatok_letszama?: number | null
+    veztok_letszama?: number | null
+    ikk_10_alatt?: number | null
+    ikk_10?: number | null
+    ikk_20?: number | null
+    ikk_30?: number | null
+    ikk_40?: number | null
+    ikk_50?: number | null
+    ikk_60?: number | null
+    ikk_90?: number | null
+    ikk_120?: number | null
+    vallalati_tovabbkepzes?: number | null
+    egyedi_oraszam?: number | null
+    ujabb_diploma?: number | null
+    alapkepesites_mesterfokozat?: number | null
+    pedagogus_szakvizsga?: number | null
+    egyeb_posztgradualis?: number | null
+    forditott_osszeg?: number | null
     createAt?: Date | string
     createBy?: string | null
     updatedAt?: Date | string | null
@@ -92427,25 +92484,25 @@ export namespace Prisma {
 
   export type SzakmaiTovabbkepzesUpdateWithoutAlapadatokInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    alapkepesites_mesterfokozat?: IntFieldUpdateOperationsInput | number
-    egyeb_posztgradualis?: IntFieldUpdateOperationsInput | number
-    egyedi_oraszam?: IntFieldUpdateOperationsInput | number
-    forditott_osszeg?: IntFieldUpdateOperationsInput | number
-    ikk_10?: IntFieldUpdateOperationsInput | number
-    ikk_10_alatt?: IntFieldUpdateOperationsInput | number
-    ikk_20?: IntFieldUpdateOperationsInput | number
-    ikk_30?: IntFieldUpdateOperationsInput | number
-    ikk_40?: IntFieldUpdateOperationsInput | number
-    ikk_50?: IntFieldUpdateOperationsInput | number
-    ikk_60?: IntFieldUpdateOperationsInput | number
-    ikk_90?: IntFieldUpdateOperationsInput | number
-    ikk_120?: IntFieldUpdateOperationsInput | number
-    oktatok_letszama?: IntFieldUpdateOperationsInput | number
-    pedagogus_szakvizsga?: IntFieldUpdateOperationsInput | number
-    ujabb_diploma?: IntFieldUpdateOperationsInput | number
-    vallalati_tovabbkepzes?: IntFieldUpdateOperationsInput | number
-    veztok_letszama?: IntFieldUpdateOperationsInput | number
+    tanev?: IntFieldUpdateOperationsInput | number
+    oktatok_letszama?: NullableFloatFieldUpdateOperationsInput | number | null
+    veztok_letszama?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_10_alatt?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_10?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_20?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_30?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_40?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_50?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_60?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_90?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_120?: NullableFloatFieldUpdateOperationsInput | number | null
+    vallalati_tovabbkepzes?: NullableFloatFieldUpdateOperationsInput | number | null
+    egyedi_oraszam?: NullableFloatFieldUpdateOperationsInput | number | null
+    ujabb_diploma?: NullableFloatFieldUpdateOperationsInput | number | null
+    alapkepesites_mesterfokozat?: NullableFloatFieldUpdateOperationsInput | number | null
+    pedagogus_szakvizsga?: NullableFloatFieldUpdateOperationsInput | number | null
+    egyeb_posztgradualis?: NullableFloatFieldUpdateOperationsInput | number | null
+    forditott_osszeg?: NullableFloatFieldUpdateOperationsInput | number | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -92454,25 +92511,25 @@ export namespace Prisma {
 
   export type SzakmaiTovabbkepzesUncheckedUpdateWithoutAlapadatokInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    alapkepesites_mesterfokozat?: IntFieldUpdateOperationsInput | number
-    egyeb_posztgradualis?: IntFieldUpdateOperationsInput | number
-    egyedi_oraszam?: IntFieldUpdateOperationsInput | number
-    forditott_osszeg?: IntFieldUpdateOperationsInput | number
-    ikk_10?: IntFieldUpdateOperationsInput | number
-    ikk_10_alatt?: IntFieldUpdateOperationsInput | number
-    ikk_20?: IntFieldUpdateOperationsInput | number
-    ikk_30?: IntFieldUpdateOperationsInput | number
-    ikk_40?: IntFieldUpdateOperationsInput | number
-    ikk_50?: IntFieldUpdateOperationsInput | number
-    ikk_60?: IntFieldUpdateOperationsInput | number
-    ikk_90?: IntFieldUpdateOperationsInput | number
-    ikk_120?: IntFieldUpdateOperationsInput | number
-    oktatok_letszama?: IntFieldUpdateOperationsInput | number
-    pedagogus_szakvizsga?: IntFieldUpdateOperationsInput | number
-    ujabb_diploma?: IntFieldUpdateOperationsInput | number
-    vallalati_tovabbkepzes?: IntFieldUpdateOperationsInput | number
-    veztok_letszama?: IntFieldUpdateOperationsInput | number
+    tanev?: IntFieldUpdateOperationsInput | number
+    oktatok_letszama?: NullableFloatFieldUpdateOperationsInput | number | null
+    veztok_letszama?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_10_alatt?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_10?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_20?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_30?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_40?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_50?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_60?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_90?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_120?: NullableFloatFieldUpdateOperationsInput | number | null
+    vallalati_tovabbkepzes?: NullableFloatFieldUpdateOperationsInput | number | null
+    egyedi_oraszam?: NullableFloatFieldUpdateOperationsInput | number | null
+    ujabb_diploma?: NullableFloatFieldUpdateOperationsInput | number | null
+    alapkepesites_mesterfokozat?: NullableFloatFieldUpdateOperationsInput | number | null
+    pedagogus_szakvizsga?: NullableFloatFieldUpdateOperationsInput | number | null
+    egyeb_posztgradualis?: NullableFloatFieldUpdateOperationsInput | number | null
+    forditott_osszeg?: NullableFloatFieldUpdateOperationsInput | number | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -92481,25 +92538,25 @@ export namespace Prisma {
 
   export type SzakmaiTovabbkepzesUncheckedUpdateManyWithoutAlapadatokInput = {
     id?: StringFieldUpdateOperationsInput | string
-    tanev_kezdete?: IntFieldUpdateOperationsInput | number
-    alapkepesites_mesterfokozat?: IntFieldUpdateOperationsInput | number
-    egyeb_posztgradualis?: IntFieldUpdateOperationsInput | number
-    egyedi_oraszam?: IntFieldUpdateOperationsInput | number
-    forditott_osszeg?: IntFieldUpdateOperationsInput | number
-    ikk_10?: IntFieldUpdateOperationsInput | number
-    ikk_10_alatt?: IntFieldUpdateOperationsInput | number
-    ikk_20?: IntFieldUpdateOperationsInput | number
-    ikk_30?: IntFieldUpdateOperationsInput | number
-    ikk_40?: IntFieldUpdateOperationsInput | number
-    ikk_50?: IntFieldUpdateOperationsInput | number
-    ikk_60?: IntFieldUpdateOperationsInput | number
-    ikk_90?: IntFieldUpdateOperationsInput | number
-    ikk_120?: IntFieldUpdateOperationsInput | number
-    oktatok_letszama?: IntFieldUpdateOperationsInput | number
-    pedagogus_szakvizsga?: IntFieldUpdateOperationsInput | number
-    ujabb_diploma?: IntFieldUpdateOperationsInput | number
-    vallalati_tovabbkepzes?: IntFieldUpdateOperationsInput | number
-    veztok_letszama?: IntFieldUpdateOperationsInput | number
+    tanev?: IntFieldUpdateOperationsInput | number
+    oktatok_letszama?: NullableFloatFieldUpdateOperationsInput | number | null
+    veztok_letszama?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_10_alatt?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_10?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_20?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_30?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_40?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_50?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_60?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_90?: NullableFloatFieldUpdateOperationsInput | number | null
+    ikk_120?: NullableFloatFieldUpdateOperationsInput | number | null
+    vallalati_tovabbkepzes?: NullableFloatFieldUpdateOperationsInput | number | null
+    egyedi_oraszam?: NullableFloatFieldUpdateOperationsInput | number | null
+    ujabb_diploma?: NullableFloatFieldUpdateOperationsInput | number | null
+    alapkepesites_mesterfokozat?: NullableFloatFieldUpdateOperationsInput | number | null
+    pedagogus_szakvizsga?: NullableFloatFieldUpdateOperationsInput | number | null
+    egyeb_posztgradualis?: NullableFloatFieldUpdateOperationsInput | number | null
+    forditott_osszeg?: NullableFloatFieldUpdateOperationsInput | number | null
     createAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createBy?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null

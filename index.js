@@ -130,6 +130,7 @@ protectedRouter.use("/oktato_adatszolgaltatas", i.oktatoAdatszolgaltatasRouter);
 protectedRouter.use("/hianyzas", i.hianyzasRouter);
 protectedRouter.use("/intezmenyi_elismeresek", i.intezményiElismeresekRouter);
 protectedRouter.use("/munkavallalok_elismeresek", i.munkavallalokElismeresekRouter);
+protectedRouter.use("/szakmai_tovabbkepzes", i.szakmaiTovabbkepzesRouter);
 
 // Mount the protected router under the API router
 apiRouter.use(protectedRouter);

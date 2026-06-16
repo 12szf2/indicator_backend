@@ -97,31 +97,31 @@ model Alapadatok {
   tanulo_letszam                  Tanulo_Letszam[]
   egyOktatoraJutoTanulo           EgyOktatoraJutoTanulo[]
   szakkepzesiMunkaszerzodesAranya SzakkepzesiMunkaszerzodesAranya[]
-  versenyek       versenyek[]
-  alapadatok_szakirany Alapadatok_Szakirany[]
-  alapadatok_szakma Alapadatok_Szakma[]
-  nszfhMeresek    nszfhMeresek[]
-  elhelyezkedes   Elhelyezkedes[]
-  elegedettseg   Elegedettseg[]
-  vizsgaeredmenyek VizsgaEredmenyek[]
-  szakmaiVizsgaEredmenyek SzakmaiVizsgaEredmenyek[]
-  lemorzsolodas  Lemorzsolodas[]
-  elegedettsegMeres ElegedettsegMeres[]
-  intezmenyiNeveltsegiMutatok IntezmenyiNeveltsegiMutatok[]
-  hhesHhhTanulok HHEsHHHTanulok[]
-  sajatosNevelesuTanulok SajatosNevelesuTanulok[]
-  dobbanto       Dobbanto[]
-  muhelyiskola   Muhelyiskola[]
-  tanuloAdatszolg  TanuloAdatszolg[]
-  oktatoAdatszolg OktatoAdatszolg[]
-  hianyzas         Hianyzas[]
-  szakmaiTovabbkepzes SzakmaiTovabbkepzes[]
-  intezményiElismeresek IntezményiElismeresek[]
-  munkavallalokElismeresek MunkavallalokElismeresek[]
+  versenyek                       versenyek[]
+  alapadatok_szakirany            Alapadatok_Szakirany[]
+  alapadatok_szakma               Alapadatok_Szakma[]
+  nszfhMeresek                    nszfhMeresek[]
+  elhelyezkedes                   Elhelyezkedes[]
+  elegedettseg                    Elegedettseg[]
+  vizsgaeredmenyek                VizsgaEredmenyek[]
+  szakmaiVizsgaEredmenyek         SzakmaiVizsgaEredmenyek[]
+  lemorzsolodas                   Lemorzsolodas[]
+  elegedettsegMeres               ElegedettsegMeres[]
+  intezmenyiNeveltsegiMutatok     IntezmenyiNeveltsegiMutatok[]
+  hhesHhhTanulok                  HHEsHHHTanulok[]
+  sajatosNevelesuTanulok          SajatosNevelesuTanulok[]
+  dobbanto                        Dobbanto[]
+  muhelyiskola                    Muhelyiskola[]
+  tanuloAdatszolg                 TanuloAdatszolg[]
+  oktatoAdatszolg                 OktatoAdatszolg[]
+  hianyzas                        Hianyzas[]
+  szakmaiTovabbkepzes             SzakmaiTovabbkepzes[]
+  intezményiElismeresek          IntezményiElismeresek[]
+  munkavallalokElismeresek        MunkavallalokElismeresek[]
 
-  users           User[]            @relation("AlapadatokUsers")
+  users User[] @relation("AlapadatokUsers")
 
-  OktatoEgyebTev OktatoEgyebTev[]
+  OktatoEgyebTev      OktatoEgyebTev[]
   szakmaiRendezvenyek SzakmaiRendezvenyek[]
 }
 
@@ -776,36 +776,40 @@ model OktatoEgyebTev {
 }
 
 model SzakmaiTovabbkepzes {
-  id            String @id @default(uuid()) @db.Uuid
-  alapadatok_id String @db.Uuid
-  tanev_kezdete Int    @db.SmallInt
+  id                          String     @id @default(uuid()) @db.Uuid
+  alapadatok_id               String     @db.Uuid
+  tanev                       Int        @db.SmallInt
 
-  alapkepesites_mesterfokozat Int @db.Integer
-  egyeb_posztgradualis        Int @db.Integer
-  egyedi_oraszam              Int @db.Integer
-  forditott_osszeg            Int @db.Integer
-  ikk_10                      Int @db.Integer
-  ikk_10_alatt                Int @db.Integer
-  ikk_20                      Int @db.Integer
-  ikk_30                      Int @db.Integer
-  ikk_40                      Int @db.Integer
-  ikk_50                      Int @db.Integer
-  ikk_60                      Int @db.Integer
-  ikk_90                      Int @db.Integer
-  ikk_120                     Int @db.Integer
-  oktatok_letszama            Int @db.Integer
-  pedagogus_szakvizsga        Int @db.Integer
-  ujabb_diploma               Int @db.Integer
-  vallalati_tovabbkepzes      Int @db.Integer
-  veztok_letszama             Int @db.Integer
+  oktatok_letszama            Float?
+  veztok_letszama             Float?
 
-  createAt  DateTime  @default(now())
-  createBy  String?
-  updatedAt DateTime? @updatedAt
-  updatedBy String?
+  ikk_10_alatt                Float?
+  ikk_10                      Float?
+  ikk_20                      Float?
+  ikk_30                      Float?
+  ikk_40                      Float?
+  ikk_50                      Float?
+  ikk_60                      Float?
+  ikk_90                      Float?
+  ikk_120                     Float?
 
-  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
+  vallalati_tovabbkepzes      Float?
+  egyedi_oraszam              Float?
+  ujabb_diploma               Float?
+  alapkepesites_mesterfokozat Float?
+  pedagogus_szakvizsga        Float?
+  egyeb_posztgradualis        Float?
 
+  forditott_osszeg            Float?
+
+  createAt                    DateTime   @default(now())
+  createBy                    String?
+  updatedAt                   DateTime?  @updatedAt
+  updatedBy                   String?
+
+  alapadatok                  Alapadatok @relation(fields: [alapadatok_id], references: [id], onDelete: Cascade)
+
+  @@unique([alapadatok_id, tanev])
   @@map("szakmai_tovabbkepzes")
 }
 
@@ -987,11 +991,11 @@ model Changelog {
 }
 
 model IntezményiElismeresek {
-  id            String    @id @default(uuid()) @db.Uuid
-  alapadatok_id String    @db.Uuid
-  tanev_kezdete Int       @db.SmallInt
-  dij_neve      String    @db.VarChar(200)
-  darabszam     Int       @db.Integer @default(0)
+  id            String @id @default(uuid()) @db.Uuid
+  alapadatok_id String @db.Uuid
+  tanev_kezdete Int    @db.SmallInt
+  dij_neve      String @db.VarChar(200)
+  darabszam     Int    @default(0) @db.Integer
 
   createAt  DateTime  @default(now())
   createBy  String?
@@ -1004,17 +1008,17 @@ model IntezményiElismeresek {
 }
 
 model MunkavallalokElismeresek {
-  id            String    @id @default(uuid()) @db.Uuid
-  alapadatok_id String    @db.Uuid
-  tanev_kezdete Int       @db.SmallInt
+  id            String @id @default(uuid()) @db.Uuid
+  alapadatok_id String @db.Uuid
+  tanev_kezdete Int    @db.SmallInt
 
-  itm_miniszteri_elismero_oklevel  Int @db.Integer @default(0)
-  itm_szakkepzesert_dij            Int @db.Integer @default(0)
-  kim_miniszter_elismero_oklevele  Int @db.Integer @default(0)
-  kim_szakkepzesert_dij            Int @db.Integer @default(0)
-  kim_oktatoi_szolgalati_emlekazerem Int @db.Integer @default(0)
-  pedagogus_szolgalati_emlekazerem Int @db.Integer @default(0)
-  hszc_kivalosagi_dij              Int @db.Integer @default(0)
+  itm_miniszteri_elismero_oklevel    Int @default(0) @db.Integer
+  itm_szakkepzesert_dij              Int @default(0) @db.Integer
+  kim_miniszter_elismero_oklevele    Int @default(0) @db.Integer
+  kim_szakkepzesert_dij              Int @default(0) @db.Integer
+  kim_oktatoi_szolgalati_emlekazerem Int @default(0) @db.Integer
+  pedagogus_szolgalati_emlekazerem   Int @default(0) @db.Integer
+  hszc_kivalosagi_dij                Int @default(0) @db.Integer
 
   createAt  DateTime  @default(now())
   createBy  String?
@@ -1032,12 +1036,12 @@ model SzakmaiRendezvenyek {
   alapadatok_id String @db.Uuid
   tanev_kezdete Int    @db.SmallInt
 
-  szakmai_bemutatok_neve      String? @db.Text
-  szakmai_bemutatok_letszam   Int? @db.Integer
-  konferenciak_neve           String? @db.Text
-  konferenciak_letszam        Int? @db.Integer
-  egyeb_rendezvenyek_neve     String? @db.Text
-  egyeb_rendezvenyek_letszam  Int? @db.Integer
+  szakmai_bemutatok_neve     String? @db.Text
+  szakmai_bemutatok_letszam  Int?    @db.Integer
+  konferenciak_neve          String? @db.Text
+  konferenciak_letszam       Int?    @db.Integer
+  egyeb_rendezvenyek_neve    String? @db.Text
+  egyeb_rendezvenyek_letszam Int?    @db.Integer
 
   createAt  DateTime  @default(now())
   createBy  String?

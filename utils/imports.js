@@ -46,6 +46,7 @@ import hianyzasRouter from "../controllers/hianyzas.controller.js";
 import meRouter from "../controllers/me.controller.js";
 import intezményiElismeresekRouter from "../controllers/intezmenyi_elismeresek.controller.js";
 import munkavallalokElismeresekRouter from "../controllers/munkavallalok_elismeresek.controller.js";
+import szakmaiTovabbkepzesRouter from "../controllers/szakmai_tovabbkepzes.controller.js";
 
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
@@ -106,4 +107,5 @@ export {
   meRouter,
   intezményiElismeresekRouter,
   munkavallalokElismeresekRouter,
+  szakmaiTovabbkepzesRouter,
 };
