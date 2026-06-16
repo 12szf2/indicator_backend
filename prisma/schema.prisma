@@ -97,27 +97,29 @@ model Alapadatok {
   tanulo_letszam                  Tanulo_Letszam[]
   egyOktatoraJutoTanulo           EgyOktatoraJutoTanulo[]
   szakkepzesiMunkaszerzodesAranya SzakkepzesiMunkaszerzodesAranya[]
-  versenyek                       versenyek[]
-  alapadatok_szakirany            Alapadatok_Szakirany[]
-  alapadatok_szakma               Alapadatok_Szakma[]
-  nszfhMeresek                    nszfhMeresek[]
-  elhelyezkedes                   Elhelyezkedes[]
-  elegedettseg                    Elegedettseg[]
-  vizsgaeredmenyek                VizsgaEredmenyek[]
-  szakmaiVizsgaEredmenyek         SzakmaiVizsgaEredmenyek[]
-  lemorzsolodas                   Lemorzsolodas[]
-  elegedettsegMeres               ElegedettsegMeres[]
-  intezmenyiNeveltsegiMutatok     IntezmenyiNeveltsegiMutatok[]
-  hhesHhhTanulok                  HHEsHHHTanulok[]
-  sajatosNevelesuTanulok          SajatosNevelesuTanulok[]
-  dobbanto                        Dobbanto[]
-  muhelyiskola                    Muhelyiskola[]
-  tanuloAdatszolg                 TanuloAdatszolg[]
-  oktatoAdatszolg                 OktatoAdatszolg[]
-  hianyzas                        Hianyzas[]
-  szakmaiTovabbkepzes             SzakmaiTovabbkepzes[]
-  szakmaiRendezvenyek             SzakmaiRendezvenyek[]
-  users                           User[]                            @relation("AlapadatokUsers")
+  versenyek       versenyek[]
+  alapadatok_szakirany Alapadatok_Szakirany[]
+  alapadatok_szakma Alapadatok_Szakma[]
+  nszfhMeresek    nszfhMeresek[]
+  elhelyezkedes   Elhelyezkedes[]
+  elegedettseg   Elegedettseg[]
+  vizsgaeredmenyek VizsgaEredmenyek[]
+  szakmaiVizsgaEredmenyek SzakmaiVizsgaEredmenyek[]
+  lemorzsolodas  Lemorzsolodas[]
+  elegedettsegMeres ElegedettsegMeres[]
+  intezmenyiNeveltsegiMutatok IntezmenyiNeveltsegiMutatok[]
+  hhesHhhTanulok HHEsHHHTanulok[]
+  sajatosNevelesuTanulok SajatosNevelesuTanulok[]
+  dobbanto       Dobbanto[]
+  muhelyiskola   Muhelyiskola[]
+  tanuloAdatszolg  TanuloAdatszolg[]
+  oktatoAdatszolg OktatoAdatszolg[]
+  hianyzas         Hianyzas[]
+  szakmaiTovabbkepzes SzakmaiTovabbkepzes[]
+  intezményiElismeresek IntezményiElismeresek[]
+  munkavallalokElismeresek MunkavallalokElismeresek[]
+
+  users           User[]            @relation("AlapadatokUsers")
 
   OktatoEgyebTev OktatoEgyebTev[]
 }
@@ -983,27 +985,43 @@ model Changelog {
   @@map("changelog")
 }
 
-model SzakmaiRendezvenyek {
-  id            String @id @default(uuid()) @db.Uuid
-  alapadatok_id String @db.Uuid
-  tanev_kezdete Int    @db.SmallInt
-
-  szakmai_bemutatok_neve    String? @db.Text
-  szakmai_bemutatok_letszam Int?    @db.Integer
-
-  konferenciak_neve    String? @db.Text
-  konferenciak_letszam Int?    @db.Integer
-
-  egyeb_rendezvenyek_neve    String? @db.Text
-  egyeb_rendezvenyek_letszam Int?    @db.Integer
+model IntezményiElismeresek {
+  id            String    @id @default(uuid()) @db.Uuid
+  alapadatok_id String    @db.Uuid
+  tanev_kezdete Int       @db.SmallInt
+  dij_neve      String    @db.VarChar(200)
+  darabszam     Int       @db.Integer @default(0)
 
   createAt  DateTime  @default(now())
   createBy  String?
   updatedAt DateTime? @updatedAt
   updatedBy String?
 
-  alapadatok                        Alapadatok @relation(fields: [alapadatok_id], references: [id])
-  szakmai_bemutatok_konferenciak_id String?    @db.Uuid
+  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
 
-  @@map("szakmai_rendezvenyek")
+  @@map("intezmenyi_elismeresek")
+}
+
+model MunkavallalokElismeresek {
+  id            String    @id @default(uuid()) @db.Uuid
+  alapadatok_id String    @db.Uuid
+  tanev_kezdete Int       @db.SmallInt
+
+  itm_miniszteri_elismero_oklevel  Int @db.Integer @default(0)
+  itm_szakkepzesert_dij            Int @db.Integer @default(0)
+  kim_miniszter_elismero_oklevele  Int @db.Integer @default(0)
+  kim_szakkepzesert_dij            Int @db.Integer @default(0)
+  kim_oktatoi_szolgalati_emlekazerem Int @db.Integer @default(0)
+  pedagogus_szolgalati_emlekazerem Int @db.Integer @default(0)
+  hszc_kivalosagi_dij              Int @db.Integer @default(0)
+
+  createAt  DateTime  @default(now())
+  createBy  String?
+  updatedAt DateTime? @updatedAt
+  updatedBy String?
+
+  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@unique([alapadatok_id, tanev_kezdete])
+  @@map("munkavallalok_elismeresek")
 }

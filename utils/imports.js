@@ -44,6 +44,8 @@ import oktatoAdatszolgaltatasRouter from "../controllers/oktato_adatszolg.contro
 import changelogRouter from "../controllers/changelog.controller.js";
 import hianyzasRouter from "../controllers/hianyzas.controller.js";
 import meRouter from "../controllers/me.controller.js";
+import intezményiElismeresekRouter from "../controllers/intezmenyi_elismeresek.controller.js";
+import munkavallalokElismeresekRouter from "../controllers/munkavallalok_elismeresek.controller.js";
 
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
@@ -102,4 +104,6 @@ export {
   changelogRouter,
   hianyzasRouter,
   meRouter,
+  intezményiElismeresekRouter,
+  munkavallalokElismeresekRouter,
 };
