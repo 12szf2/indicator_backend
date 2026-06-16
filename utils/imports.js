@@ -33,6 +33,7 @@ import nszfhRouter from "../controllers/nszfh.controller.js";
 import sajatosNevelesuTanulokRouter from "../controllers/sajatos_nevelesu_tanulok.controller.js";
 import szakmaiVizsgaEredmenyekRouter from "../controllers/szakmai_vizsga_eredmenyek.controller.js";
 import vizsgaeredmenyekRouter from "../controllers/vizsgaeredmenyek.controller.js";
+import szakmairendezvenyekRouter from "../controllers/szakmairendezvenyek.controller.js";
 import oktatoEgyebTevRouter from "../controllers/oktato_egyeb_tev.controller.js";
 import alkalmazottakMunkauyRouter from "../controllers/alkalmazottak_munkaugy.controller.js";
 import healthRouter from "../controllers/health.controller.js";
@@ -89,6 +90,7 @@ export {
   sajatosNevelesuTanulokRouter,
   szakmaiVizsgaEredmenyekRouter,
   vizsgaeredmenyekRouter,
+  szakmairendezvenyekRouter,
   oktatoEgyebTevRouter,
   alkalmazottakMunkauyRouter,
   healthRouter,

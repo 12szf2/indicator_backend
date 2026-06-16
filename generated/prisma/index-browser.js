@@ -849,6 +849,23 @@ exports.Prisma.ChangelogScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.SzakmaiRendezvenyekScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  szakmai_bemutatok_neve: 'szakmai_bemutatok_neve',
+  szakmai_bemutatok_letszam: 'szakmai_bemutatok_letszam',
+  konferenciak_neve: 'konferenciak_neve',
+  konferenciak_letszam: 'konferenciak_letszam',
+  egyeb_rendezvenyek_neve: 'egyeb_rendezvenyek_neve',
+  egyeb_rendezvenyek_letszam: 'egyeb_rendezvenyek_letszam',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy',
+  szakmai_bemutatok_konferenciak_id: 'szakmai_bemutatok_konferenciak_id'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -916,7 +933,8 @@ exports.Prisma.ModelName = {
   Hianyzas: 'Hianyzas',
   TanuloAdatszolg: 'TanuloAdatszolg',
   OktatoAdatszolg: 'OktatoAdatszolg',
-  Changelog: 'Changelog'
+  Changelog: 'Changelog',
+  SzakmaiRendezvenyek: 'SzakmaiRendezvenyek'
 };
 
 /**

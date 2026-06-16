@@ -120,6 +120,7 @@ protectedRouter.use(
   i.szakmaiVizsgaEredmenyekRouter,
 );
 protectedRouter.use("/vizsgaeredmenyek", i.vizsgaeredmenyekRouter);
+protectedRouter.use("/szakmairendezvenyek", i.szakmairendezvenyekRouter);
 protectedRouter.use("/oktato-egyeb-tev", i.oktatoEgyebTevRouter);
 protectedRouter.use("/alkalmazottak_munkaugy", i.alkalmazottakMunkauyRouter);
 protectedRouter.use("/szakirany", i.szakiranyRouter);
