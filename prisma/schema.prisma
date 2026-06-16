@@ -122,6 +122,7 @@ model Alapadatok {
   users           User[]            @relation("AlapadatokUsers")
 
   OktatoEgyebTev OktatoEgyebTev[]
+  szakmaiRendezvenyek SzakmaiRendezvenyek[]
 }
 
 model Szakirany {
@@ -1024,4 +1025,26 @@ model MunkavallalokElismeresek {
 
   @@unique([alapadatok_id, tanev_kezdete])
   @@map("munkavallalok_elismeresek")
+}
+
+model SzakmaiRendezvenyek {
+  id            String @id @default(uuid()) @db.Uuid
+  alapadatok_id String @db.Uuid
+  tanev_kezdete Int    @db.SmallInt
+
+  szakmai_bemutatok_neve      String? @db.Text
+  szakmai_bemutatok_letszam   Int? @db.Integer
+  konferenciak_neve           String? @db.Text
+  konferenciak_letszam        Int? @db.Integer
+  egyeb_rendezvenyek_neve     String? @db.Text
+  egyeb_rendezvenyek_letszam  Int? @db.Integer
+
+  createAt  DateTime  @default(now())
+  createBy  String?
+  updatedAt DateTime? @updatedAt
+  updatedBy String?
+
+  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@map("szakmai_rendezvenyek")
 }
