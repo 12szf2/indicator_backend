@@ -4,6 +4,8 @@ import prisma from "../utils/prisma.js";
 const pattern = new ServicePattern('versenyek', 'id', {
   versenyNev: true,
   alapadatok: true,
+}, {}, {
+  orderBy: { createdAt: 'desc' },
 });
 
 export async function getKategoriak() {
@@ -88,4 +90,8 @@ export async function update(
   pattern.serviceCache.invalidateRelated("update", id);
 
   return data;
+}
+
+export async function deleteVerseny(id) {
+  return await pattern.delete(id);
 }

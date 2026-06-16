@@ -231,6 +231,16 @@ router.get("/:alapadatokId/:tanev", async (req, res) => {
  *               - alapadatok_id
  *               - tanev_kezdete
  *             properties:
+ *               szakirany_id:
+ *                 type: integer
+ *                 nullable: true
+ *                 description: Field of study identifier
+ *                 example: 1
+ *               szakma_id:
+ *                 type: integer
+ *                 nullable: true
+ *                 description: Profession identifier
+ *                 example: 1
  *               alapadatok_id:
  *                 type: integer
  *                 description: School identifier reference
@@ -239,14 +249,41 @@ router.get("/:alapadatokId/:tanev", async (req, res) => {
  *                 type: integer
  *                 description: School year start year
  *                 example: 2023
- *               reszszakmat_szerezok_szama:
- *                 type: integer
- *                 description: Number of students acquiring partial qualifications
- *                 example: 32
- *               vizsgaeredmenyek_tanuloi_osszletszam:
- *                 type: integer
- *                 description: Total number of students taking exams
- *                 example: 85
+ *               szakmai_vizsga_eredmeny:
+ *                 type: number
+ *                 format: float
+ *                 description: Professional exam result
+ *                 example: 4.2
+ *               agazati_alapvizsga_eredmeny:
+ *                 type: number
+ *                 format: float
+ *                 description: Sectoral basic exam result
+ *                 example: 3.8
+ *               magyar_nyelv_eretsegi_eredmeny:
+ *                 type: number
+ *                 format: float
+ *                 description: Hungarian language matriculation exam result
+ *                 example: 4.0
+ *               matematika_eretsegi_eredmeny:
+ *                 type: number
+ *                 format: float
+ *                 description: Mathematics matriculation exam result
+ *                 example: 3.5
+ *               tortenelem_eretsegi_eredmeny:
+ *                 type: number
+ *                 format: float
+ *                 description: History matriculation exam result
+ *                 example: 3.9
+ *               angol_nyelv_eretsegi_eredmeny:
+ *                 type: number
+ *                 format: float
+ *                 description: English language matriculation exam result
+ *                 example: 4.1
+ *               agazati_szakmai_eretsegi_eredmeny:
+ *                 type: number
+ *                 format: float
+ *                 description: Sectoral professional matriculation exam result
+ *                 example: 4.3
  *     responses:
  *       201:
  *         description: Exam results data created successfully
@@ -272,17 +309,31 @@ router.get("/:alapadatokId/:tanev", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const {
+      szakirany_id,
+      szakma_id,
       alapadatok_id,
       tanev_kezdete,
-      reszszakmat_szerezok_szama,
-      vizsgaeredmenyek_tanuloi_osszletszam,
+      szakmai_vizsga_eredmeny,
+      agazati_alapvizsga_eredmeny,
+      magyar_nyelv_eretsegi_eredmeny,
+      matematika_eretsegi_eredmeny,
+      tortenelem_eretsegi_eredmeny,
+      angol_nyelv_eretsegi_eredmeny,
+      agazati_szakmai_eretsegi_eredmeny,
     } = req.body;
 
     const createdData = await create(
+      szakirany_id,
+      szakma_id,
       alapadatok_id,
       tanev_kezdete,
-      reszszakmat_szerezok_szama,
-      vizsgaeredmenyek_tanuloi_osszletszam
+      szakmai_vizsga_eredmeny,
+      agazati_alapvizsga_eredmeny,
+      magyar_nyelv_eretsegi_eredmeny,
+      matematika_eretsegi_eredmeny,
+      tortenelem_eretsegi_eredmeny,
+      angol_nyelv_eretsegi_eredmeny,
+      agazati_szakmai_eretsegi_eredmeny
     );
 
     return res.status(201).json(createdData);
