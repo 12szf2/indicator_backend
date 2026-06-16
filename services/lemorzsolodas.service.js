@@ -80,7 +80,7 @@ export async function update(
   lemorzsolodo_tanulok_szama,
   oktober_es_belepett_tanulok_szama
 ) {
-  return await pattern.update(parseInt(id), {
+  return await pattern.update(id, {
     szakirany_id,
     szakma_id,
     alapadatok_id,
