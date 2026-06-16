@@ -116,6 +116,8 @@ model Alapadatok {
   oktatoAdatszolg                 OktatoAdatszolg[]
   hianyzas                        Hianyzas[]
   szakmaiTovabbkepzes             SzakmaiTovabbkepzes[]
+  intezményiElismeresek          IntezményiElismeresek[]
+  munkavallalokElismeresek        MunkavallalokElismeresek[]
 
   users User[] @relation("AlapadatokUsers")
 
@@ -981,4 +983,49 @@ model Changelog {
   updatedAt   DateTime? @updatedAt
 
   @@map("changelog")
+}
+
+// ── Indicator 13: Intézményi Elismerések ─────────────────────────────────────
+
+/// Intézmény által elnyert díjak, elismerések (dinamikus – bármennyi tétel felvehető)
+model IntezményiElismeresek {
+  id            String @id @default(uuid()) @db.Uuid
+  alapadatok_id String @db.Uuid
+  tanev_kezdete Int    @db.SmallInt
+  dij_neve      String @db.VarChar(200)
+  darabszam     Int    @default(0) @db.Integer
+
+  createAt  DateTime  @default(now())
+  createBy  String?
+  updatedAt DateTime? @updatedAt
+  updatedBy String?
+
+  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@map("intezmenyi_elismeresek")
+}
+
+/// Munkavállalók által elnyert díjak, elismerések, kitüntetésre való felterjesztések (fix 7 sor)
+model MunkavallalokElismeresek {
+  id            String @id @default(uuid()) @db.Uuid
+  alapadatok_id String @db.Uuid
+  tanev_kezdete Int    @db.SmallInt
+
+  itm_miniszteri_elismero_oklevel    Int @default(0) @db.Integer
+  itm_szakkepzesert_dij              Int @default(0) @db.Integer
+  kim_miniszter_elismero_oklevele    Int @default(0) @db.Integer
+  kim_szakkepzesert_dij              Int @default(0) @db.Integer
+  kim_oktatoi_szolgalati_emlekazerem Int @default(0) @db.Integer
+  pedagogus_szolgalati_emlekazerem   Int @default(0) @db.Integer
+  hszc_kivalosagi_dij                Int @default(0) @db.Integer
+
+  createAt  DateTime  @default(now())
+  createBy  String?
+  updatedAt DateTime? @updatedAt
+  updatedBy String?
+
+  alapadatok Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@unique([alapadatok_id, tanev_kezdete])
+  @@map("munkavallalok_elismeresek")
 }

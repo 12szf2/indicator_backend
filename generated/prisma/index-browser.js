@@ -849,6 +849,35 @@ exports.Prisma.ChangelogScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.IntezményiElismeresekScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  dij_neve: 'dij_neve',
+  darabszam: 'darabszam',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
+exports.Prisma.MunkavallalokElismeresekScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  itm_miniszteri_elismero_oklevel: 'itm_miniszteri_elismero_oklevel',
+  itm_szakkepzesert_dij: 'itm_szakkepzesert_dij',
+  kim_miniszter_elismero_oklevele: 'kim_miniszter_elismero_oklevele',
+  kim_szakkepzesert_dij: 'kim_szakkepzesert_dij',
+  kim_oktatoi_szolgalati_emlekazerem: 'kim_oktatoi_szolgalati_emlekazerem',
+  pedagogus_szolgalati_emlekazerem: 'pedagogus_szolgalati_emlekazerem',
+  hszc_kivalosagi_dij: 'hszc_kivalosagi_dij',
+  createAt: 'createAt',
+  createBy: 'createBy',
+  updatedAt: 'updatedAt',
+  updatedBy: 'updatedBy'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -916,7 +945,9 @@ exports.Prisma.ModelName = {
   Hianyzas: 'Hianyzas',
   TanuloAdatszolg: 'TanuloAdatszolg',
   OktatoAdatszolg: 'OktatoAdatszolg',
-  Changelog: 'Changelog'
+  Changelog: 'Changelog',
+  IntezményiElismeresek: 'IntezményiElismeresek',
+  MunkavallalokElismeresek: 'MunkavallalokElismeresek'
 };
 
 /**
