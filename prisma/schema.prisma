@@ -124,6 +124,7 @@ model Alapadatok {
   palyazatok              Palyazatok[]
   tanulmanyiEredmeny      TanulmanyiEredmeny[]
   szakkepzesZolditese     SzakkepzesZolditese[]
+  projektek               Projektek[]
 }
 
 model Szakirany {
@@ -1092,4 +1093,30 @@ model SzakkepzesZolditese {
 
   @@index([alapadatok_id, tanev_kezdete])
   @@map("szakkepzes_zolditese")
+}
+
+
+model Projektek {
+  id                    Int        @id @default(autoincrement())
+
+  alapadatok_id         String     @db.Uuid
+  alapadatok            Alapadatok @relation(fields: [alapadatok_id], references: [id], onDelete: Cascade)
+
+  tanev_kezdete         Int        @db.SmallInt
+
+  agazat_szakma         String
+
+  projekthetek_neve     String?
+
+  projekthetek_ora      String?
+
+  projektnapok_neve     String?
+
+  projektnapok_ora      String?
+
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+
+  @@index([alapadatok_id, tanev_kezdete])
+  @@map("projektek")
 }
