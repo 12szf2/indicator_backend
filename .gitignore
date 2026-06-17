@@ -3,3 +3,4 @@ node_modules
 .env
 OKTATO_EGYEB_TEV_API.md
 docker-compose-priv.yaml
+/generated
