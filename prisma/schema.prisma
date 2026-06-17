@@ -120,6 +120,7 @@ model Alapadatok {
   versenyek                       versenyek[]
   vizsgaeredmenyek                VizsgaEredmenyek[]
   dualisKepzohelyek               DualisKepzohelyek[]
+  innovaciosTevekenysegek         InnovaciosTevekenysegek[]
   palyazatok          Palyazatok[]
   tanulmanyiEredmeny  TanulmanyiEredmeny[]
 }
@@ -1046,4 +1047,26 @@ model DualisKepzohelyek {
   @@index([alapadatok_id, tanev_kezdete])
   @@map("dualis_kepzohelyek")
 }
+
+model InnovaciosTevekenysegek {
+  id                    Int        @id @default(autoincrement())
+
+  alapadatok_id         String     @db.Uuid
+  alapadatok            Alapadatok @relation(fields: [alapadatok_id], references: [id], onDelete: Cascade)
+
+  tanev_kezdete         Int        @db.SmallInt
+
+  // A tevékenység (bal oldali oszlop) megnevezése
+  tevekenyseg_neve      String
+
+  // A tanévhez tartozó jó gyakorlatok szövege (lehet hosszabb, ezért opcionálisan String)
+  jo_gyakorlatok        String?
+
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+
+  @@index([alapadatok_id, tanev_kezdete])
+  @@map("innovacios_tevekenysegek")
+}
+
 
