@@ -119,6 +119,7 @@ model Alapadatok {
   users                           User[]                            @relation("AlapadatokUsers")
   versenyek                       versenyek[]
   vizsgaeredmenyek                VizsgaEredmenyek[]
+  dualisKepzohelyek               DualisKepzohelyek[]
   palyazatok          Palyazatok[]
   tanulmanyiEredmeny  TanulmanyiEredmeny[]
 }
@@ -1024,3 +1025,25 @@ model TanulmanyiEredmeny {
   @@unique([alapadatok_id, tanev_kezdete, intezmeny_tipusa, jogviszony, felev])
   @@map("tanulmanyi_eredmeny")
 }
+
+model DualisKepzohelyek {
+  id                    Int        @id @default(autoincrement())
+
+  alapadatok_id         String     @db.Uuid
+  alapadatok            Alapadatok @relation(fields: [alapadatok_id], references: [id], onDelete: Cascade)
+
+  tanev_kezdete         Int        @db.SmallInt
+  kepzohely_neve        String
+
+  // A három új mező az évhez
+  egyuttmukodes_formaja String?
+  egyuttmukodes_szama   String?
+  egyeb_rendezvenyek    String?
+
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+
+  @@index([alapadatok_id, tanev_kezdete])
+  @@map("dualis_kepzohelyek")
+}
+

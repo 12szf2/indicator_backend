@@ -50,6 +50,7 @@ import szakmaiTovabbkepzesRouter from "../controllers/szakmai_tovabbkepzes.contr
 import szervezetfejlesztesRouter from "../controllers/szervezetfejlesztes.controller.js";
 import palyazatokRouter from "../controllers/palyazatok.controller.js";
 import tanulmanyiEredmenyRouter from "../controllers/tanulmanyi_eredmeny.controller.js";
+import dualisKepzohelyekRouter from "../controllers/dualis_kepzohelyek.controller.js";
 
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
@@ -114,4 +115,5 @@ export {
   palyazatokRouter,
   tanulmanyiEredmenyRouter,
   szervezetfejlesztesRouter,
+  dualisKepzohelyekRouter,
 };

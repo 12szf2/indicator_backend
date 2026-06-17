@@ -134,6 +134,7 @@ protectedRouter.use("/szakmai_tovabbkepzes", i.szakmaiTovabbkepzesRouter);
 protectedRouter.use("/szervezetfejlesztes", i.szervezetfejlesztesRouter);
 protectedRouter.use("/palyazatok", i.palyazatokRouter);
 protectedRouter.use("/tanulmanyi_eredmeny", i.tanulmanyiEredmenyRouter);
+protectedRouter.use("/dualis_kepzohelyek", i.dualisKepzohelyekRouter);
 
 // Mount the protected router under the API router
 apiRouter.use(protectedRouter);
