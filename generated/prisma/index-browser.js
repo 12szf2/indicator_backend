@@ -142,11 +142,11 @@ exports.Prisma.UserScalarFieldEnum = {
 exports.Prisma.TableListScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  alias: 'alias',
   isAvailable: 'isAvailable',
-  isLocked: 'isLocked',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  alias: 'alias',
+  isLocked: 'isLocked'
 };
 
 exports.Prisma.TableAccessScalarFieldEnum = {
@@ -250,16 +250,16 @@ exports.Prisma.Felvettek_SzamaScalarFieldEnum = {
 exports.Prisma.KompetenciaScalarFieldEnum = {
   id: 'id',
   tanev_kezdete: 'tanev_kezdete',
-  mat_orsz_p: 'mat_orsz_p',
-  szoveg_orsz_p: 'szoveg_orsz_p',
-  mat_int_p: 'mat_int_p',
-  szoveg_int_p: 'szoveg_int_p',
   kepzes_forma: 'kepzes_forma',
   alapadatok_id: 'alapadatok_id',
   createAt: 'createAt',
   createBy: 'createBy',
   updatedAt: 'updatedAt',
-  updatedBy: 'updatedBy'
+  updatedBy: 'updatedBy',
+  mat_orsz_p: 'mat_orsz_p',
+  szoveg_orsz_p: 'szoveg_orsz_p',
+  mat_int_p: 'mat_int_p',
+  szoveg_int_p: 'szoveg_int_p'
 };
 
 exports.Prisma.EgyOktatoraJutoTanuloScalarFieldEnum = {
@@ -444,9 +444,7 @@ exports.Prisma.VersenyekScalarFieldEnum = {
 exports.Prisma.NszfhMeresekScalarFieldEnum = {
   id: 'id',
   alapadatok_id: 'alapadatok_id',
-  szakma_id: 'szakma_id',
   tanev_kezdete: 'tanev_kezdete',
-  kepzes_forma: 'kepzes_forma',
   kat_1_mat_bemeneti: 'kat_1_mat_bemeneti',
   kat_1_mat_kimeneti: 'kat_1_mat_kimeneti',
   kat_1_szoveg_bemeneti: 'kat_1_szoveg_bemeneti',
@@ -470,7 +468,9 @@ exports.Prisma.NszfhMeresekScalarFieldEnum = {
   createAt: 'createAt',
   createBy: 'createBy',
   updatedAt: 'updatedAt',
-  updatedBy: 'updatedBy'
+  updatedBy: 'updatedBy',
+  kepzes_forma: 'kepzes_forma',
+  szakma_id: 'szakma_id'
 };
 
 exports.Prisma.ElhelyezkedesScalarFieldEnum = {
@@ -591,13 +591,14 @@ exports.Prisma.HHEsHHHTanulokScalarFieldEnum = {
   id: 'id',
   alapadatok_id: 'alapadatok_id',
   tanev_kezdete: 'tanev_kezdete',
-  jogviszony_tipus: 'jogviszony_tipus',
   hh_tanulo_letszam: 'hh_tanulo_letszam',
+  hhh_tanulo_letszam: 'hhh_tanulo_letszam',
   tanuloi_osszletszam: 'tanuloi_osszletszam',
   createAt: 'createAt',
   createBy: 'createBy',
   updatedAt: 'updatedAt',
-  updatedBy: 'updatedBy'
+  updatedBy: 'updatedBy',
+  jogviszony_tipus: 'jogviszony_tipus'
 };
 
 exports.Prisma.SajatosNevelesuTanulokScalarFieldEnum = {
@@ -658,18 +659,19 @@ exports.Prisma.OktatoEgyebTevScalarFieldEnum = {
   tananyagfejleszto: 'tananyagfejleszto',
   tankonyv_jegyzetiro: 'tankonyv_jegyzetiro',
   szakmai_tisztsegviselo: 'szakmai_tisztsegviselo',
-  szakmai_vizsga_mero_ertekelo: 'szakmai_vizsga_mero_ertekelo',
-  oktatok_letszama: 'oktatok_letszama'
+  oktatok_letszama: 'oktatok_letszama',
+  szakmai_vizsga_mero_ertekelo: 'szakmai_vizsga_mero_ertekelo'
 };
 
 exports.Prisma.SzakmaiTovabbkepzesScalarFieldEnum = {
   id: 'id',
   alapadatok_id: 'alapadatok_id',
-  tanev: 'tanev',
-  oktatok_letszama: 'oktatok_letszama',
-  veztok_letszama: 'veztok_letszama',
-  ikk_10_alatt: 'ikk_10_alatt',
+  alapkepesites_mesterfokozat: 'alapkepesites_mesterfokozat',
+  egyeb_posztgradualis: 'egyeb_posztgradualis',
+  egyedi_oraszam: 'egyedi_oraszam',
+  forditott_osszeg: 'forditott_osszeg',
   ikk_10: 'ikk_10',
+  ikk_10_alatt: 'ikk_10_alatt',
   ikk_20: 'ikk_20',
   ikk_30: 'ikk_30',
   ikk_40: 'ikk_40',
@@ -677,17 +679,16 @@ exports.Prisma.SzakmaiTovabbkepzesScalarFieldEnum = {
   ikk_60: 'ikk_60',
   ikk_90: 'ikk_90',
   ikk_120: 'ikk_120',
-  vallalati_tovabbkepzes: 'vallalati_tovabbkepzes',
-  egyedi_oraszam: 'egyedi_oraszam',
-  ujabb_diploma: 'ujabb_diploma',
-  alapkepesites_mesterfokozat: 'alapkepesites_mesterfokozat',
+  oktatok_letszama: 'oktatok_letszama',
   pedagogus_szakvizsga: 'pedagogus_szakvizsga',
-  egyeb_posztgradualis: 'egyeb_posztgradualis',
-  forditott_osszeg: 'forditott_osszeg',
+  ujabb_diploma: 'ujabb_diploma',
+  vallalati_tovabbkepzes: 'vallalati_tovabbkepzes',
+  veztok_letszama: 'veztok_letszama',
   createAt: 'createAt',
   createBy: 'createBy',
   updatedAt: 'updatedAt',
-  updatedBy: 'updatedBy'
+  updatedBy: 'updatedBy',
+  tanev: 'tanev'
 };
 
 exports.Prisma.HianyzasScalarFieldEnum = {
@@ -746,7 +747,6 @@ exports.Prisma.TanuloAdatszolgScalarFieldEnum = {
   Uj_Szkt_Reszszakma_Szakma: 'Uj_Szkt_Reszszakma_Szakma',
   Uj_Szkt_Reszszakmak_Reszszakma: 'Uj_Szkt_Reszszakmak_Reszszakma',
   Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet: 'Nkt_Szakgimnaziumban_oktathato_kepzesek_Tanulmanyi_terulet',
-  Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev: 'Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev',
   Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod: 'Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_kod',
   Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany: 'Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakirany',
   Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet: 'Programkovetelmenyes_szakmai_kepzes_Agazat_Tanulmanyi_terulet',
@@ -783,7 +783,6 @@ exports.Prisma.TanuloAdatszolgScalarFieldEnum = {
   Kezdo_evfolyamos_tanulo: 'Kezdo_evfolyamos_tanulo',
   Iskolai_sportkorben_resztvevo_tanulo: 'Iskolai_sportkorben_resztvevo_tanulo',
   Diaksport_egyesulet_tagja: 'Diaksport_egyesulet_tagja',
-  Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep: 'Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep',
   Arany_Janos_Tehetseggondozo_Program: 'Arany_Janos_Tehetseggondozo_Program',
   Emelt_szintu_oktatasban_vesz_reszt: 'Emelt_szintu_oktatasban_vesz_reszt',
   Emelt_szintu_oktatas_tantargy_1: 'Emelt_szintu_oktatas_tantargy_1',
@@ -798,7 +797,9 @@ exports.Prisma.TanuloAdatszolgScalarFieldEnum = {
   Egesz_napos_iskolai_oktatasban_reszesul: 'Egesz_napos_iskolai_oktatasban_reszesul',
   A_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte: 'A_9_evfolyamosok_kozul_a_8_evfolyamot_az_elozo_tanevben_vegezte',
   Otthon_nyujtott_ellatasi_formaban_reszesul: 'Otthon_nyujtott_ellatasi_formaban_reszesul',
-  createBy: 'createBy'
+  createBy: 'createBy',
+  Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep: 'Szaboky_Adolf_Szakkepzesi_Osztondijban_reszesulok_hiany_szakkep',
+  Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev: 'Nkt_Szakgimnaziumban_oktathato_kepzesek_Szakkepesites_megnev'
 };
 
 exports.Prisma.OktatoAdatszolgScalarFieldEnum = {
@@ -894,6 +895,43 @@ exports.Prisma.SzakmaiRendezvenyekScalarFieldEnum = {
   updatedBy: 'updatedBy'
 };
 
+exports.Prisma.PalyazatokScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  kategoria: 'kategoria',
+  palyazat_neve: 'palyazat_neve',
+  beadott_db: 'beadott_db',
+  elnyert_db: 'elnyert_db',
+  osszeg_ft: 'osszeg_ft',
+  erintett: 'erintett',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.Tanulmanyi_eredmenyScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  intezmeny_tipusa: 'intezmeny_tipusa',
+  jogviszony: 'jogviszony',
+  felev: 'felev',
+  kituno: 'kituno',
+  bukott: 'bukott',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SzervezetfejlesztesScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  tevekenyseg_neve: 'tevekenyseg_neve',
+  resztvevok_szama: 'resztvevok_szama',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -964,7 +1002,10 @@ exports.Prisma.ModelName = {
   Changelog: 'Changelog',
   IntezményiElismeresek: 'IntezményiElismeresek',
   MunkavallalokElismeresek: 'MunkavallalokElismeresek',
-  SzakmaiRendezvenyek: 'SzakmaiRendezvenyek'
+  SzakmaiRendezvenyek: 'SzakmaiRendezvenyek',
+  palyazatok: 'palyazatok',
+  tanulmanyi_eredmeny: 'tanulmanyi_eredmeny',
+  Szervezetfejlesztes: 'Szervezetfejlesztes'
 };
 
 /**

@@ -49,6 +49,7 @@ export async function create(
   tanev_kezdete,
   jogviszony_tipus,
   hh_tanulo_letszam,
+  hhh_tanulo_letszam,
   tanuloi_osszletszam
 ) {
   return await pattern.create({
@@ -56,6 +57,7 @@ export async function create(
     tanev_kezdete: parseInt(tanev_kezdete),
     jogviszony_tipus: parseInt(jogviszony_tipus),
     hh_tanulo_letszam: parseInt(hh_tanulo_letszam),
+    hhh_tanulo_letszam: parseInt(hhh_tanulo_letszam || 0),
     tanuloi_osszletszam: parseInt(tanuloi_osszletszam),
   });
 }
@@ -66,6 +68,7 @@ export async function update(
   tanev_kezdete,
   jogviszony_tipus,
   hh_tanulo_letszam,
+  hhh_tanulo_letszam,
   tanuloi_osszletszam
 ) {
   return await pattern.update(id, {
@@ -73,6 +76,7 @@ export async function update(
     tanev_kezdete,
     jogviszony_tipus,
     hh_tanulo_letszam,
+    hhh_tanulo_letszam,
     tanuloi_osszletszam,
   });
 }
