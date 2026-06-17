@@ -267,6 +267,7 @@ router.post("/", async (req, res) => {
       tanev_kezdete,
       jogviszony_tipus,
       hh_tanulo_letszam,
+      hhh_tanulo_letszam,
       tanuloi_osszletszam,
     } = req.body;
 
@@ -275,6 +276,7 @@ router.post("/", async (req, res) => {
       tanev_kezdete,
       jogviszony_tipus,
       hh_tanulo_letszam,
+      hhh_tanulo_letszam,
       tanuloi_osszletszam
     );
 
@@ -294,6 +296,7 @@ router.put("/:id", async (req, res) => {
       tanev_kezdete,
       jogviszony_tipus,
       hh_tanulo_letszam,
+      hhh_tanulo_letszam,
       tanuloi_osszletszam,
     } = req.body;
 
@@ -303,6 +306,7 @@ router.put("/:id", async (req, res) => {
       tanev_kezdete,
       jogviszony_tipus,
       hh_tanulo_letszam,
+      hhh_tanulo_letszam,
       tanuloi_osszletszam
     );
 

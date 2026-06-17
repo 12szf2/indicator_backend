@@ -131,6 +131,7 @@ protectedRouter.use("/hianyzas", i.hianyzasRouter);
 protectedRouter.use("/intezmenyi_elismeresek", i.intezményiElismeresekRouter);
 protectedRouter.use("/munkavallalok_elismeresek", i.munkavallalokElismeresekRouter);
 protectedRouter.use("/szakmai_tovabbkepzes", i.szakmaiTovabbkepzesRouter);
+protectedRouter.use("/szervezetfejlesztes", i.szervezetfejlesztesRouter);
 protectedRouter.use("/palyazatok", i.palyazatokRouter);
 protectedRouter.use("/tanulmanyi_eredmeny", i.tanulmanyiEredmenyRouter);
 
