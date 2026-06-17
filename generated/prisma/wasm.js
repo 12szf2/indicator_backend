@@ -894,6 +894,33 @@ exports.Prisma.SzakmaiRendezvenyekScalarFieldEnum = {
   updatedBy: 'updatedBy'
 };
 
+exports.Prisma.PalyazatokScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  kategoria: 'kategoria',
+  palyazat_neve: 'palyazat_neve',
+  beadott_db: 'beadott_db',
+  elnyert_db: 'elnyert_db',
+  osszeg_ft: 'osszeg_ft',
+  erintett: 'erintett',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TanulmanyiEredmenyScalarFieldEnum = {
+  id: 'id',
+  alapadatok_id: 'alapadatok_id',
+  tanev_kezdete: 'tanev_kezdete',
+  intezmeny_tipusa: 'intezmeny_tipusa',
+  jogviszony: 'jogviszony',
+  felev: 'felev',
+  kituno: 'kituno',
+  bukott: 'bukott',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -964,7 +991,9 @@ exports.Prisma.ModelName = {
   Changelog: 'Changelog',
   IntezményiElismeresek: 'IntezményiElismeresek',
   MunkavallalokElismeresek: 'MunkavallalokElismeresek',
-  SzakmaiRendezvenyek: 'SzakmaiRendezvenyek'
+  SzakmaiRendezvenyek: 'SzakmaiRendezvenyek',
+  Palyazatok: 'Palyazatok',
+  TanulmanyiEredmeny: 'TanulmanyiEredmeny'
 };
 
 /**

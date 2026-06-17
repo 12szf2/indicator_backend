@@ -131,6 +131,8 @@ protectedRouter.use("/hianyzas", i.hianyzasRouter);
 protectedRouter.use("/intezmenyi_elismeresek", i.intezményiElismeresekRouter);
 protectedRouter.use("/munkavallalok_elismeresek", i.munkavallalokElismeresekRouter);
 protectedRouter.use("/szakmai_tovabbkepzes", i.szakmaiTovabbkepzesRouter);
+protectedRouter.use("/palyazatok", i.palyazatokRouter);
+protectedRouter.use("/tanulmanyi_eredmeny", i.tanulmanyiEredmenyRouter);
 
 // Mount the protected router under the API router
 apiRouter.use(protectedRouter);
