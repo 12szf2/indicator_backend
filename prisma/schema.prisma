@@ -121,8 +121,9 @@ model Alapadatok {
   vizsgaeredmenyek                VizsgaEredmenyek[]
   dualisKepzohelyek               DualisKepzohelyek[]
   innovaciosTevekenysegek         InnovaciosTevekenysegek[]
-  palyazatok          Palyazatok[]
-  tanulmanyiEredmeny  TanulmanyiEredmeny[]
+  palyazatok              Palyazatok[]
+  tanulmanyiEredmeny      TanulmanyiEredmeny[]
+  szakkepzesZolditese     SzakkepzesZolditese[]
 }
 
 model Szakirany {
@@ -1070,3 +1071,25 @@ model InnovaciosTevekenysegek {
 }
 
 
+
+
+model SzakkepzesZolditese {
+  id                    Int        @id @default(autoincrement())
+
+  alapadatok_id         String     @db.Uuid
+  alapadatok            Alapadatok @relation(fields: [alapadatok_id], references: [id], onDelete: Cascade)
+
+  tanev_kezdete         Int        @db.SmallInt
+
+  kategoria             String
+
+  tevekenyseg_neve      String
+
+  resztvevok_szama      String?
+
+  createdAt             DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+
+  @@index([alapadatok_id, tanev_kezdete])
+  @@map("szakkepzes_zolditese")
+}
