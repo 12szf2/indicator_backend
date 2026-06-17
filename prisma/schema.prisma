@@ -125,6 +125,7 @@ model Alapadatok {
   tanulmanyiEredmeny      TanulmanyiEredmeny[]
   szakkepzesZolditese     SzakkepzesZolditese[]
   projektek               Projektek[]
+  digitalisKompetencia    DigitalisKompetencia[]
 }
 
 model Szakirany {
@@ -1119,4 +1120,23 @@ model Projektek {
 
   @@index([alapadatok_id, tanev_kezdete])
   @@map("projektek")
+}
+
+model DigitalisKompetencia {
+  id                      Int        @id @default(autoincrement())
+
+  alapadatok_id           String     @db.Uuid
+  alapadatok              Alapadatok @relation(fields: [alapadatok_id], references: [id], onDelete: Cascade)
+
+  tanev_kezdete           Int        @db.SmallInt
+
+  fejleszto_oktatok_szama String?
+
+  hasznalo_oktatok_szama  String?
+
+  createdAt               DateTime   @default(now())
+  updatedAt               DateTime   @updatedAt
+
+  @@index([alapadatok_id, tanev_kezdete])
+  @@map("digitalis_kompetencia")
 }
