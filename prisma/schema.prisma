@@ -126,6 +126,9 @@ model Alapadatok {
   szakkepzesZolditese     SzakkepzesZolditese[]
   projektek               Projektek[]
   digitalisKompetencia    DigitalisKompetencia[]
+  palya_orientacio        palya_orientacio[]
+  nyelvvizsgak_szama      nyelvvizsgak_szama[]
+  egyuttmukudesek_szama   egyuttmukudesek_szama[]
 }
 
 model Szakirany {
@@ -1139,4 +1142,62 @@ model DigitalisKompetencia {
 
   @@index([alapadatok_id, tanev_kezdete])
   @@map("digitalis_kompetencia")
+}
+
+model palya_orientacio {
+  id               Int        @id @default(autoincrement())
+  alapadatok_id    String     @db.Uuid
+  tanev_kezdete    Int        @db.SmallInt
+  kategoria        String
+  tevekenyseg_neve String
+  resztvevok_szama String?
+
+  alapadatok       Alapadatok @relation(fields: [alapadatok_id], references: [id], onDelete: Cascade)
+
+  @@index([alapadatok_id, tanev_kezdete])
+  @@map("palya_orientacio")
+}
+
+model nyelvvizsgak_szama {
+  id               Int        @id @default(autoincrement())
+  alapadatok_id    String     @db.Uuid
+  tanev_kezdete    Int        @db.SmallInt
+  osztaly          String     @db.VarChar(50)
+  kozepfoku_angol  Int        @default(0)
+  felsofoku_angol  Int        @default(0)
+  kozepfoku_nemet  Int        @default(0)
+  felsofoku_nemet  Int        @default(0)
+  egyeb_nyelv      String?    @db.VarChar(100)
+  egyeb_fo         Int        @default(0)
+
+  alapadatok       Alapadatok @relation(fields: [alapadatok_id], references: [id], onDelete: Cascade)
+
+  @@unique([alapadatok_id, tanev_kezdete, osztaly])
+  @@index([alapadatok_id, tanev_kezdete])
+  @@map("nyelvvizsgak_szama")
+}
+
+model egyuttmukudesek_szama {
+  id                           Int       @id @default(autoincrement())
+  alapadatok_id                String    @db.Uuid
+  tanev_kezdete                Int       @db.SmallInt
+  tablazat_szam                Int       @default(1)
+
+  felsooktatasi_intezmeny_neve String?   @db.VarChar(255)
+
+  egyuttmukodes_formaja        String?   @db.VarChar(255)
+  erintett_evfolyam            String?   @db.VarChar(50)
+  erintett_tanulok_szama       Int?
+
+  felsooktataba_lepo_szama     Int?
+  vegzos_technikumi_szama      Int?
+  tovabbtanulok_aranya         String?   @db.VarChar(50)
+
+  created_at                   DateTime  @default(now())
+  updated_at                   DateTime  @updatedAt
+
+  alapadatok                   Alapadatok @relation(fields: [alapadatok_id], references: [id], onDelete: Cascade)
+
+  @@index([alapadatok_id, tanev_kezdete])
+  @@map("egyuttmukudesek_szama")
 }

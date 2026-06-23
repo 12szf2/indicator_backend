@@ -55,6 +55,9 @@ import innovaciosTevekenysegekRouter from "../controllers/innovacios_tevekenyseg
 import szakkepzesZolditeseRouter from "../controllers/szakkepzes_zolditese.controller.js";
 import projektekRouter from "../controllers/projektek.controller.js";
 import digitalisKompetenciaRouter from "../controllers/digitalis_kompetencia.controller.js";
+import palyaOrientacioRouter from "../controllers/palya_orientacio.controller.js";
+import nyelvvizsgakSzamaRouter from "../controllers/nyelvvizsgak_szama.controller.js";
+import egyuttmukudesekSzamaRouter from "../controllers/egyuttmukudesek_szama.controller.js";
 
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
@@ -124,4 +127,7 @@ export {
   szakkepzesZolditeseRouter,
   projektekRouter,
   digitalisKompetenciaRouter,
+  palyaOrientacioRouter,
+  nyelvvizsgakSzamaRouter,
+  egyuttmukudesekSzamaRouter,
 };

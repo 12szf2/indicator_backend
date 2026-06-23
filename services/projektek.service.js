@@ -9,13 +9,7 @@ export async function getAllByAlapadatok(alapadatokId, tanev) {
   if (tanev) {
     return await pattern.findByAlapadatokIdAndYear(alapadatokId, tanev);
   } else {
-    // We can use prisma directly or add a findByAlapadatokId in ServicePattern
-    // Actually, pattern.prismaClient[pattern.modelName].findMany can be used
-    return await pattern.prisma[pattern.modelName].findMany({
-      where: { alapadatok_id: alapadatokId },
-      include: pattern.include,
-      orderBy: { tanev_kezdete: 'desc' }
-    });
+    return await pattern.findAllByAlapadatok(alapadatokId);
   }
 }
 

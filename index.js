@@ -139,6 +139,9 @@ protectedRouter.use("/innovacios_tevekenysegek", i.innovaciosTevekenysegekRouter
 protectedRouter.use("/szakkepzes_zolditese", i.szakkepzesZolditeseRouter);
 protectedRouter.use("/projektek", i.projektekRouter);
 protectedRouter.use("/digitalis_kompetencia", i.digitalisKompetenciaRouter);
+protectedRouter.use("/palya_orientacio", i.palyaOrientacioRouter);
+protectedRouter.use("/nyelvvizsgak_szama", i.nyelvvizsgakSzamaRouter);
+protectedRouter.use("/egyuttmukudesek_szama", i.egyuttmukudesekSzamaRouter);
 
 // Mount the protected router under the API router
 apiRouter.use(protectedRouter);
