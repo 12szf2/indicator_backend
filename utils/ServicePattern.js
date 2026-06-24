@@ -58,6 +58,9 @@ export class ServicePattern {
   }
 
   async findAllByYear(year) {
+    if (!year || year === "undefined" || year === "null") {
+      return await this.findAll();
+    }
     const firstYear = parseInt(year) - 4;
     const lastYear = parseInt(year);
 
@@ -106,6 +109,9 @@ export class ServicePattern {
   }
 
   async findByAlapadatokIdAndYear(alapadatokId, year) {
+    if (!year || year === "undefined" || year === "null") {
+      return await this.findAllByAlapadatok(alapadatokId);
+    }
     const firstYear = parseInt(year) - 4;
     const lastYear = parseInt(year);
 
@@ -191,6 +197,9 @@ export class ServicePattern {
   }
 
   async deleteByAlapadatokIdAndYear(alapadatokId, year) {
+    if (!year || year === "undefined" || year === "null") {
+      return await this.deleteByAlapadatokId(alapadatokId);
+    }
     const { firstYear, lastYear } = this.getYearRange(year);
 
     const result = await prisma[this.serviceName].deleteMany({
@@ -207,6 +216,9 @@ export class ServicePattern {
   }
 
   async deleteByAlapadatokIdAndExactYear(alapadatokId, year) {
+    if (!year || year === "undefined" || year === "null") {
+      return await this.deleteByAlapadatokId(alapadatokId);
+    }
     const targetYear = parseInt(year);
     const result = await prisma[this.serviceName].deleteMany({
       where: {

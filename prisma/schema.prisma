@@ -246,10 +246,10 @@ model Kompetencia {
   createBy      String?
   updatedAt     DateTime?  @updatedAt
   updatedBy     String?
-  mat_orsz_p    Decimal    @default(0.00) @db.Decimal(3, 2)
-  szoveg_orsz_p Decimal    @default(0.00) @db.Decimal(3, 2)
-  mat_int_p     Decimal    @default(0.00) @db.Decimal(3, 2)
-  szoveg_int_p  Decimal    @default(0.00) @db.Decimal(3, 2)
+  mat_orsz_p    Decimal    @default(0.00) @db.Decimal(6, 2)
+  szoveg_orsz_p Decimal    @default(0.00) @db.Decimal(6, 2)
+  mat_int_p     Decimal    @default(0.00) @db.Decimal(6, 2)
+  szoveg_int_p  Decimal    @default(0.00) @db.Decimal(6, 2)
   alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id])
 }
 

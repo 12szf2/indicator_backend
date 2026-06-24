@@ -401,7 +401,7 @@ router.put("/:id", async (req, res) => {
   const id = req.params.id;
   const { tanev_kezdete, letszam, alapadatok_id } = req.body;
 
-  if (!tanev_kezdete || !letszam || !alapadatok_id) {
+  if (!tanev_kezdete || !alapadatok_id) {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
