@@ -1203,6 +1203,7 @@ model FormHistory {
   alapadatok_id String     @db.Uuid
   table_name    String     @db.VarChar(100)
   snapshot_data Json
+  is_active     Boolean    @default(false)
   created_at    DateTime   @default(now())
   alapadatok    Alapadatok @relation(fields: [alapadatok_id], references: [id], onDelete: Cascade)
 

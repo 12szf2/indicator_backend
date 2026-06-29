@@ -17,11 +17,18 @@ export async function createSnapshot(alapadatok_id, table_name) {
     where: { alapadatok_id: alapadatok_id }
   });
 
+  // Set all previous to inactive
+  await prisma.formHistory.updateMany({
+    where: { alapadatok_id, table_name },
+    data: { is_active: false }
+  });
+
   // Elmentjük a snapshotot
   const result = await getPattern().create({
     alapadatok_id,
     table_name,
-    snapshot_data: rows
+    snapshot_data: rows,
+    is_active: true
   });
 
   // Keep only the last 10 snapshots per table per alapadatok_id to prevent bloat
@@ -64,7 +71,8 @@ export async function getHistory(alapadatok_id, table_name) {
     take: 10,
     select: {
       id: true,
-      created_at: true
+      created_at: true,
+      is_active: true
     }
   });
 }
@@ -89,6 +97,17 @@ export async function rollback(history_id) {
         data: snapshot_data
       });
     }
+
+    // Mark active status
+    await tx.formHistory.updateMany({
+      where: { alapadatok_id, table_name },
+      data: { is_active: false }
+    });
+
+    await tx.formHistory.update({
+      where: { id: history_id },
+      data: { is_active: true }
+    });
 
     return { success: true, message: "Sikeres visszaállítás" };
   });
