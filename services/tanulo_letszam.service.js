@@ -110,34 +110,37 @@ export async function deleteMany(alapadatok_id, year) {
 
 export async function bulkSave(alapadatok_id, records) {
   // We perform all creates and updates in a single transaction
-  const operations = records.map((record) => {
-    const data = {
-      letszam: Number(record.letszam),
-      alapadatok: { connect: { id: alapadatok_id } },
-      jogv_tipus: Number(record.jogv_tipus),
-      szakirany: { connect: { nev: record.szakirany } },
-      tanev_kezdete: Number(record.tanev_kezdete),
-    };
+  const result = await prisma.$transaction(async (tx) => {
+    let affected = 0;
+    for (const record of records) {
+      const data = {
+        letszam: Number(record.letszam),
+        alapadatok: { connect: { id: alapadatok_id } },
+        jogv_tipus: Number(record.jogv_tipus),
+        szakirany: { connect: { nev: record.szakirany } },
+        tanev_kezdete: Number(record.tanev_kezdete),
+      };
 
-    if (record.szakma && record.szakma !== "Nincs meghatározva") {
-      data.szakma = { connect: { nev: record.szakma } };
-    }
+      if (record.szakma && record.szakma !== "Nincs meghatározva") {
+        data.szakma = { connect: { nev: record.szakma } };
+      }
 
-    if (record.id) {
-      // Update existing
-      return prisma.tanulo_Letszam.update({
-        where: { id: record.id },
-        data,
-      });
-    } else {
-      // Create new
-      return prisma.tanulo_Letszam.create({
-        data,
-      });
+      if (record.id) {
+        // Update existing
+        await tx.tanulo_Letszam.update({
+          where: { id: record.id },
+          data,
+        });
+      } else {
+        // Create new
+        await tx.tanulo_Letszam.create({
+          data,
+        });
+      }
+      affected++;
     }
+    return { count: affected };
   });
-
-  const result = await prisma.$transaction(operations);
 
   // Invalidate cache
   pattern.serviceCache.invalidateRelated("createMany", alapadatok_id);
