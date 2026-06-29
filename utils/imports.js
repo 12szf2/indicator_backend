@@ -58,6 +58,7 @@ import digitalisKompetenciaRouter from "../controllers/digitalis_kompetencia.con
 import palyaOrientacioRouter from "../controllers/palya_orientacio.controller.js";
 import nyelvvizsgakSzamaRouter from "../controllers/nyelvvizsgak_szama.controller.js";
 import egyuttmukudesekSzamaRouter from "../controllers/egyuttmukudesek_szama.controller.js";
+import formHistoryRouter from "../controllers/form_history.controller.js";
 
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
@@ -130,4 +131,5 @@ export {
   palyaOrientacioRouter,
   nyelvvizsgakSzamaRouter,
   egyuttmukudesekSzamaRouter,
+  formHistoryRouter,
 };

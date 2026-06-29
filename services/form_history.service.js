@@ -1,0 +1,103 @@
+import prisma from "../utils/prisma.js";
+import { ServicePattern, CACHE_TTL } from "../utils/ServicePattern.js";
+
+let patternInstance = null;
+function getPattern() {
+  if (!patternInstance) {
+    patternInstance = new ServicePattern("formHistory", "id", {}, {}, { alapadatokField: "alapadatok_id" });
+  }
+  return patternInstance;
+}
+
+const snapshotTimeouts = {};
+
+export async function createSnapshot(alapadatok_id, table_name) {
+  // Lekérdezzük az összes sort a táblából (dinamikus táblanév miatt itt a Prisma natív hívása marad)
+  const rows = await prisma[table_name].findMany({
+    where: { alapadatok_id: alapadatok_id }
+  });
+
+  // Elmentjük a snapshotot
+  const result = await getPattern().create({
+    alapadatok_id,
+    table_name,
+    snapshot_data: rows
+  });
+
+  // Keep only the last 10 snapshots per table per alapadatok_id to prevent bloat
+  const historyCount = await getPattern().count({ alapadatok_id, table_name });
+
+  if (historyCount > 10) {
+    const oldestSnapshots = await prisma.formHistory.findMany({
+      where: { alapadatok_id, table_name },
+      orderBy: { created_at: 'asc' },
+      take: historyCount - 10,
+      select: { id: true }
+    });
+
+    const oldestIds = oldestSnapshots.map(s => s.id);
+    if (oldestIds.length > 0) {
+      await getPattern().deleteMany({ id: { in: oldestIds } });
+    }
+  }
+
+  return result;
+}
+
+export function scheduleSnapshot(alapadatok_id, table_name) {
+  const key = `${alapadatok_id}_${table_name}`;
+  if (snapshotTimeouts[key]) {
+    clearTimeout(snapshotTimeouts[key]);
+  }
+  snapshotTimeouts[key] = setTimeout(() => {
+    createSnapshot(alapadatok_id, table_name).catch(err => {
+      console.error(`Error creating snapshot for ${table_name}:`, err);
+    });
+    delete snapshotTimeouts[key];
+  }, 2000); // 2 másodperc debounce
+}
+
+export async function getHistory(alapadatok_id, table_name) {
+  return await getPattern().serviceCache.get(
+    "historyList",
+    async () => {
+      return await prisma.formHistory.findMany({
+        where: { alapadatok_id, table_name },
+        orderBy: { created_at: 'desc' },
+        take: 10,
+        select: {
+          id: true,
+          created_at: true
+        }
+      });
+    },
+    CACHE_TTL.SHORT,
+    alapadatok_id,
+    table_name
+  );
+}
+
+export async function rollback(history_id) {
+  const history = await getPattern().findById(history_id);
+
+  if (!history) throw new Error("A mentési pont nem található.");
+
+  const { alapadatok_id, table_name, snapshot_data } = history;
+
+  // Tranzakcióban törlünk és visszatöltünk
+  return await prisma.$transaction(async (tx) => {
+    // Törlünk mindent
+    await tx[table_name].deleteMany({
+      where: { alapadatok_id }
+    });
+
+    // Beszúrjuk az összes régi sort
+    if (Array.isArray(snapshot_data) && snapshot_data.length > 0) {
+      await tx[table_name].createMany({
+        data: snapshot_data
+      });
+    }
+
+    return { success: true, message: "Sikeres visszaállítás" };
+  });
+}
