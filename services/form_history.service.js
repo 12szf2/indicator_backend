@@ -58,23 +58,15 @@ export function scheduleSnapshot(alapadatok_id, table_name) {
 }
 
 export async function getHistory(alapadatok_id, table_name) {
-  return await getPattern().serviceCache.get(
-    "historyList",
-    async () => {
-      return await prisma.formHistory.findMany({
-        where: { alapadatok_id, table_name },
-        orderBy: { created_at: 'desc' },
-        take: 10,
-        select: {
-          id: true,
-          created_at: true
-        }
-      });
-    },
-    CACHE_TTL.SHORT,
-    alapadatok_id,
-    table_name
-  );
+  return await prisma.formHistory.findMany({
+    where: { alapadatok_id, table_name },
+    orderBy: { created_at: 'desc' },
+    take: 10,
+    select: {
+      id: true,
+      created_at: true
+    }
+  });
 }
 
 export async function rollback(history_id) {
@@ -85,7 +77,7 @@ export async function rollback(history_id) {
   const { alapadatok_id, table_name, snapshot_data } = history;
 
   // Tranzakcióban törlünk és visszatöltünk
-  return await prisma.$transaction(async (tx) => {
+  const result = await prisma.$transaction(async (tx) => {
     // Törlünk mindent
     await tx[table_name].deleteMany({
       where: { alapadatok_id }
@@ -100,4 +92,16 @@ export async function rollback(history_id) {
 
     return { success: true, message: "Sikeres visszaállítás" };
   });
+
+  // Törölni kell a cél tábla cache-ét, különben a kliens továbbra is a régi adatokat látja
+  try {
+    const { ServiceCache } = await import("../utils/ServiceCache.js");
+    const targetCache = new ServiceCache(table_name);
+    targetCache.invalidateByAlapadatokId(alapadatok_id);
+    targetCache.invalidateAll();
+  } catch(err) {
+    console.error("Error invalidating cache after rollback:", err);
+  }
+
+  return result;
 }
