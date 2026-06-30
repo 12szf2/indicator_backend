@@ -59,6 +59,7 @@ import palyaOrientacioRouter from "../controllers/palya_orientacio.controller.js
 import nyelvvizsgakSzamaRouter from "../controllers/nyelvvizsgak_szama.controller.js";
 import egyuttmukudesekSzamaRouter from "../controllers/egyuttmukudesek_szama.controller.js";
 import formHistoryRouter from "../controllers/form_history.controller.js";
+import bugReportRouter from "../controllers/bugReport.controller.js";
 
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
@@ -132,4 +133,5 @@ export {
   nyelvvizsgakSzamaRouter,
   egyuttmukudesekSzamaRouter,
   formHistoryRouter,
+  bugReportRouter,
 };

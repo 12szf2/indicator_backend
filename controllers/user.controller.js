@@ -7,6 +7,7 @@ import {
   updatePassword,
   inactivateUser,
   updatePersonalInformation,
+  disable2FAForUser,
 } from "../services/user.service.js";
 
 const router = e.Router();
@@ -444,6 +445,35 @@ router.delete("/inactivate/:id", async (req, res) => {
     res.status(200).json({ message: "User inactivated successfully" });
   } catch (error) {
     console.error("Error inactivating user:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+/**
+ * @swagger
+ * /users/{id}/disable-2fa:
+ *   post:
+ *     summary: Disable 2FA for a user
+ *     description: Disable two-factor authentication for a specific user
+ *     tags: [Users]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: User ID
+ */
+router.post("/:id/disable-2fa", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    await disable2FAForUser(id);
+    res.status(200).json({ message: "2FA disabled successfully" });
+  } catch (error) {
+    console.error("Error disabling 2FA:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });

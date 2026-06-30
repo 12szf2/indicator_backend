@@ -366,3 +366,15 @@ export async function inactivateUser(id) {
     data: { isActive: false },
   });
 }
+
+export async function disable2FAForUser(id) {
+  cache.invalidate("users:*");
+
+  return prisma.user.update({
+    where: { id },
+    data: {
+      isTwoFactorEnabled: false,
+      twoFactorSecret: null,
+    },
+  });
+}
