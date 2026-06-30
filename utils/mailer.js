@@ -23,8 +23,9 @@ const transporter = nodemailer.createTransport({
  * @param {string|string[]} bccList - The recipient email addresses (BCC)
  * @param {Object} bugReportData - The bug report details
  * @param {Object} reporterInfo - Information about the reporter (name, email)
+ * @param {Object} [attachment] - Optional file attachment (from multer)
  */
-export async function sendBugReportEmail(bccList, bugReportData, reporterInfo) {
+export async function sendBugReportEmail(bccList, bugReportData, reporterInfo, attachment = null) {
   const { title, description, severity, stepsToReproduce, pageUrl, userAgent } = bugReportData;
   const { name, email } = reporterInfo;
 
@@ -100,16 +101,27 @@ ${userAgent || "Nem adta meg"}`;
     return;
   }
 
+  const mailOptions = {
+    from: process.env.SMTP_FROM || process.env.SMTP_USER || '"Indikátor Rendszer" <noreply@example.com>',
+    to: process.env.SMTP_FROM || process.env.SMTP_USER || '"Indikátor Rendszer" <noreply@example.com>', // Send to self to avoid spam filters
+    bcc: bccList,
+    subject,
+    text: textContent,
+    html: htmlContent,
+  };
+
+  if (attachment && attachment.buffer) {
+    mailOptions.attachments = [
+      {
+        filename: attachment.originalname || "attachment",
+        content: attachment.buffer,
+        contentType: attachment.mimetype
+      }
+    ];
+  }
+
   try {
-    const sender = process.env.SMTP_FROM || process.env.SMTP_USER || '"Indikátor Rendszer" <noreply@example.com>';
-    await transporter.sendMail({
-      from: sender,
-      to: sender, // Send to self to avoid spam filters filtering out emails without a "to" address
-      bcc: bccList,
-      subject,
-      text: textContent,
-      html: htmlContent,
-    });
+    await transporter.sendMail(mailOptions);
     console.log(`Bug report email sent via BCC to: ${Array.isArray(bccList) ? bccList.join(", ") : bccList}`);
   } catch (error) {
     console.error("Error sending bug report email:", error);

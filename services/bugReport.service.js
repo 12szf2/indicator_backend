@@ -8,9 +8,10 @@ import { enrichUserWithPermissions } from "../utils/permissions.js";
  * @param {string} userId - The ID of the user submitting the report
  * @param {Object} bugReportData - The data from the request body
  * @param {Object} reporterInfo - The user info from the token (name, email)
+ * @param {Object} [attachment] - Optional file attachment (from multer)
  * @returns {Promise<Object>} The created bug report
  */
-export async function createBugReport(userId, bugReportData, reporterInfo) {
+export async function createBugReport(userId, bugReportData, reporterInfo, attachment = null) {
   // 1. Save to database
   const bugReport = await prisma.bugReport.create({
     data: {
@@ -41,7 +42,7 @@ export async function createBugReport(userId, bugReportData, reporterInfo) {
     const bccList = superAdmins.map(admin => admin.email);
     
     // We send a single email with all superadmins in BCC
-    sendBugReportEmail(bccList, bugReportData, reporterInfo).catch(err => {
+    sendBugReportEmail(bccList, bugReportData, reporterInfo, attachment).catch(err => {
       console.error("Error sending bug report emails:", err);
     });
   }

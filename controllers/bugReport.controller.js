@@ -1,7 +1,9 @@
 import express from "express";
+import multer from "multer";
 import { createBugReport } from "../services/bugReport.service.js";
 
 const router = express.Router();
+const upload = multer({ storage: multer.memoryStorage() });
 
 /**
  * @swagger
@@ -19,7 +21,7 @@ const router = express.Router();
  *     requestBody:
  *       required: true
  *       content:
- *         application/json:
+ *         multipart/form-data:
  *           schema:
  *             type: object
  *             required:
@@ -39,6 +41,9 @@ const router = express.Router();
  *                 type: string
  *               userAgent:
  *                 type: string
+ *               attachment:
+ *                 type: string
+ *                 format: binary
  *     responses:
  *       201:
  *         description: Bug report successfully submitted
@@ -47,7 +52,7 @@ const router = express.Router();
  *       500:
  *         description: Internal server error
  */
-router.post("/", async (req, res) => {
+router.post("/", upload.single("attachment"), async (req, res) => {
   try {
     const { title, description, severity, stepsToReproduce, pageUrl, userAgent } = req.body;
     
@@ -79,7 +84,9 @@ router.post("/", async (req, res) => {
       userAgent
     };
 
-    await createBugReport(req.user.id, bugReportData, reporterInfo);
+    const attachment = req.file || null;
+
+    await createBugReport(req.user.id, bugReportData, reporterInfo, attachment);
 
     return res.status(201).json({ 
       message: "Hibabejelentés sikeresen elküldve." 
