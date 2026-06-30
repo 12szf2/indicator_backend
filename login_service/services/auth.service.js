@@ -1,12 +1,12 @@
 import { hashPassword, comparePassword } from "../utils/hash.js";
-import { generateToken, verifyRefreshToken } from "../utils/token.js";
+import { generateToken, verifyRefreshToken, generateTrustedDeviceToken, verifyTrustedDeviceToken } from "../utils/token.js";
 import { getByEmail, getById, updateUser } from "./user.service.js";
 import { sendTemporaryPasswordEmail } from "../utils/mailer.js";
 
 import speakeasy from "speakeasy";
 import QRCode from "qrcode";
 
-export async function login(email, password, twoFactorCode) {
+export async function login(email, password, twoFactorCode, trustDevice, trustedDeviceToken) {
   try {
     // Get user data
     const user = await getByEmail(email.toLowerCase());
@@ -25,8 +25,19 @@ export async function login(email, password, twoFactorCode) {
       throw new Error("Hibás email vagy jelszó");
     }
 
+    // Check trusted device token
+    let isTrusted = false;
+    if (trustedDeviceToken) {
+      const decoded = verifyTrustedDeviceToken(trustedDeviceToken);
+      if (decoded && String(decoded.id) === String(user.id)) {
+        isTrusted = true;
+      }
+    }
+
+    let generatedTrustedToken = null;
+
     // Check 2FA
-    if (user.isTwoFactorEnabled) {
+    if (user.isTwoFactorEnabled && !isTrusted) {
       if (!twoFactorCode) {
         return { requires2FA: true, userId: user.id };
       }
@@ -40,6 +51,10 @@ export async function login(email, password, twoFactorCode) {
 
       if (!isValid2FA) {
         throw new Error("Hibás kétlépcsős kód");
+      }
+
+      if (trustDevice) {
+        generatedTrustedToken = generateTrustedDeviceToken(user);
       }
     }
 
@@ -59,6 +74,7 @@ export async function login(email, password, twoFactorCode) {
       accessToken: token.accessToken,
       refreshToken: token.refreshToken,
       mustChangePassword: user.mustChangePassword || false,
+      ...(generatedTrustedToken && { trustedDeviceToken: generatedTrustedToken })
     };
   } catch (error) {
     // Improve error handling

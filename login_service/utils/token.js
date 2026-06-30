@@ -132,3 +132,38 @@ export function isTokenExpired(token) {
 export function isRefreshTokenExpired(token) {
   return isExpired(token, "refresh token");
 }
+
+/**
+ * Generate a long-lived trusted device token
+ * @param {object} user - The user object
+ * @returns {string} - The generated JWT token
+ */
+export function generateTrustedDeviceToken(user) {
+  return jwt.sign(
+    { email: user.email, name: user.name, id: user.id, type: "trusted_device" },
+    JWT_REFRESH_SECRET,
+    {
+      ...JWT_DEFAULT_OPTIONS,
+      expiresIn: "30d",
+      subject: String(user.id),
+    }
+  );
+}
+
+/**
+ * Verify a trusted device token
+ * @param {string} token - The token to verify
+ * @returns {object|null} - The decoded token if valid, null otherwise
+ */
+export function verifyTrustedDeviceToken(token) {
+  try {
+    const decoded = jwt.verify(token, JWT_REFRESH_SECRET, JWT_DEFAULT_OPTIONS);
+    if (decoded && decoded.type === "trusted_device") {
+      return decoded;
+    }
+    return null;
+  } catch (error) {
+    console.error("Trusted device token verification failed:", error);
+    return null;
+  }
+}

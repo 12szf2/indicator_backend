@@ -103,7 +103,7 @@ const router = express.Router();
  *                   example: User not found or Invalid password
  */
 router.post("/login", async (req, res) => {
-  const { email, password, twoFactorCode } = req.body;
+  const { email, password, twoFactorCode, trustDevice, trustedDeviceToken } = req.body;
 
   if (!email || !password) {
     return res
@@ -112,7 +112,7 @@ router.post("/login", async (req, res) => {
   }
 
   try {
-    const user = await login(email, password, twoFactorCode);
+    const user = await login(email, password, twoFactorCode, trustDevice, trustedDeviceToken);
     res.status(200).json(user);
   } catch (error) {
     console.error("Login error:", error);
