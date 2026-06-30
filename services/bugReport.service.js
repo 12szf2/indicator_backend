@@ -38,15 +38,10 @@ export async function createBugReport(userId, bugReportData, reporterInfo) {
 
   // 3. Send emails
   if (superAdmins.length > 0) {
-    // We send emails in parallel, but don't await them to not block the response
-    // Or we can await them if we want to ensure they are sent. 
-    // Usually it's better to fire and forget for faster API response, but for reliability we await Promise.all
-    const emailPromises = superAdmins.map(admin => 
-      sendBugReportEmail(admin.email, bugReportData, reporterInfo)
-    );
+    const bccList = superAdmins.map(admin => admin.email);
     
-    // We catch errors inside the sendBugReportEmail, so Promise.all won't throw
-    Promise.all(emailPromises).catch(err => {
+    // We send a single email with all superadmins in BCC
+    sendBugReportEmail(bccList, bugReportData, reporterInfo).catch(err => {
       console.error("Error sending bug report emails:", err);
     });
   }
