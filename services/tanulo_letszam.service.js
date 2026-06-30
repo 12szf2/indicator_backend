@@ -1,5 +1,6 @@
 import prisma from "../utils/prisma.js";
 import { ServicePattern, CACHE_TTL } from "../utils/ServicePattern.js";
+import { scheduleSnapshot } from "./form_history.service.js";
 
 // Initialize ServicePattern for tanulo_letszam with relations
 const pattern = new ServicePattern(
@@ -103,6 +104,50 @@ export async function deleteMany(alapadatok_id, year) {
 
   // Invalidate related caches
   pattern.serviceCache.invalidateRelated("deleteMany", alapadatok_id);
+
+  return result;
+}
+
+export async function bulkSave(alapadatok_id, records) {
+  // We perform all creates and updates in a single transaction
+  const result = await prisma.$transaction(async (tx) => {
+    let affected = 0;
+    for (const record of records) {
+      const data = {
+        letszam: Number(record.letszam),
+        alapadatok: { connect: { id: alapadatok_id } },
+        jogv_tipus: Number(record.jogv_tipus),
+        szakirany: { connect: { nev: record.szakirany } },
+        tanev_kezdete: Number(record.tanev_kezdete),
+      };
+
+      if (record.szakma && record.szakma !== "Nincs meghatározva") {
+        data.szakma = { connect: { nev: record.szakma } };
+      }
+
+      if (record.id) {
+        // Update existing
+        await tx.tanulo_Letszam.update({
+          where: { id: record.id },
+          data,
+        });
+      } else {
+        // Create new
+        await tx.tanulo_Letszam.create({
+          data,
+        });
+      }
+      affected++;
+    }
+    return { count: affected };
+  });
+
+  // Invalidate cache
+  pattern.serviceCache.invalidateRelated("createMany", alapadatok_id);
+  pattern.serviceCache.invalidateRelated("update", alapadatok_id);
+
+  // Schedule exactly one snapshot after the bulk save finishes
+  await scheduleSnapshot(alapadatok_id, "tanulo_Letszam");
 
   return result;
 }

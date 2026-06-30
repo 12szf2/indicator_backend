@@ -4,6 +4,7 @@ import {
   create,
   deleteMany,
   update,
+  bulkSave,
 } from "../services/tanulo_letszam.service.js";
 import e from "express";
 
@@ -225,6 +226,55 @@ router.post("/", async (req, res) => {
     );
     res.status(201).json(newEntry);
   } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+/**
+ * @swagger
+ * /tanulo_letszam/bulk:
+ *   post:
+ *     summary: Bulk create/update student enrollment records
+ *     description: Add or update multiple student enrollment records in a single transaction
+ *     tags: [Tanulo_letszam]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - alapadatok_id
+ *               - records
+ *             properties:
+ *               alapadatok_id:
+ *                 type: integer
+ *               records:
+ *                 type: array
+ *                 items:
+ *                   $ref: '#/components/schemas/TanuloLetszam'
+ *     responses:
+ *       201:
+ *         description: Successfully processed
+ *       400:
+ *         description: Invalid payload
+ *       500:
+ *         description: Internal Server Error
+ */
+router.post("/bulk", async (req, res) => {
+  const { alapadatok_id, records } = req.body;
+
+  if (!alapadatok_id || !Array.isArray(records)) {
+    return res.status(400).json({ error: "alapadatok_id and an array of records are required" });
+  }
+
+  try {
+    const result = await bulkSave(alapadatok_id, records);
+    res.status(201).json({ message: "Sikeres tömeges mentés", count: result.length });
+  } catch (error) {
+    console.error("Bulk save error:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });

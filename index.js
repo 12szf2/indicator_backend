@@ -142,6 +142,7 @@ protectedRouter.use("/digitalis_kompetencia", i.digitalisKompetenciaRouter);
 protectedRouter.use("/palya_orientacio", i.palyaOrientacioRouter);
 protectedRouter.use("/nyelvvizsgak_szama", i.nyelvvizsgakSzamaRouter);
 protectedRouter.use("/egyuttmukudesek_szama", i.egyuttmukudesekSzamaRouter);
+protectedRouter.use("/form_history", i.formHistoryRouter);
 
 // Mount the protected router under the API router
 apiRouter.use(protectedRouter);
