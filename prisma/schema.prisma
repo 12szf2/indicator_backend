@@ -27,6 +27,7 @@ model User {
   isActive     Boolean       @default(true)
   twoFactorSecret    String?
   isTwoFactorEnabled Boolean     @default(false)
+  mustChangePassword Boolean     @default(false)
   logs         Log[]
   tableAccess  TableAccess[]
   alapadatok   Alapadatok?   @relation("AlapadatokUsers", fields: [alapadatokId], references: [id])

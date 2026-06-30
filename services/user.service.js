@@ -339,7 +339,10 @@ export async function updatePassword(id, newPassword, newPasswordConfirm) {
 
   return prisma.user.update({
     where: { id },
-    data: { password: hashedPassword },
+    data: { 
+      password: hashedPassword,
+      mustChangePassword: false
+    },
   });
 }
 

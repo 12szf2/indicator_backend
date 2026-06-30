@@ -19,6 +19,7 @@ model User {
   isActive    Boolean       @default(true)
   twoFactorSecret    String?
   isTwoFactorEnabled Boolean     @default(false)
+  mustChangePassword Boolean     @default(false)
 
   tableAccess  TableAccess[]
 

@@ -1,5 +1,6 @@
 import express from "express";
-import { login, refresh, generate2FA, verify2FA, disable2FA } from "../services/auth.service.js";
+import rateLimit from "express-rate-limit";
+import { login, refresh, generate2FA, verify2FA, disable2FA, forgotPassword } from "../services/auth.service.js";
 import { verifyToken } from "../utils/token.js";
 
 const authenticateToken = (req, res, next) => {
@@ -116,6 +117,70 @@ router.post("/login", async (req, res) => {
   } catch (error) {
     console.error("Login error:", error);
     res.status(401).json({ message: error.message });
+  }
+});
+
+// Rate limiting for forgot password to prevent abuse (max 3 requests per IP per hour)
+const forgotPasswordLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hour
+  max: 3, // Limit each IP to 3 forgot password requests per windowMs
+  message: {
+    message: "Túl sok kérés erről az IP címről. Kérjük, próbáld újra egy óra múlva.",
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+/**
+ * @swagger
+ * /api/v1/auth/forgot-password:
+ *   post:
+ *     summary: Request a temporary password
+ *     tags: [Authentication]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: felhasznalo@example.com
+ *     responses:
+ *       200:
+ *         description: Request processed successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *       500:
+ *         description: Internal server error
+ */
+router.post("/forgot-password", forgotPasswordLimiter, async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ message: "Email megadása kötelező." });
+  }
+
+  try {
+    // Calling forgotPassword service. 
+    // It handles timing attacks internally and returns void.
+    await forgotPassword(email);
+    
+    // Always return the same successful response
+    res.status(200).json({
+      message: "Ha a megadott email cím regisztrálva van, elküldtük az ideiglenes jelszót."
+    });
+  } catch (error) {
+    console.error("Forgot password route error:", error);
+    res.status(500).json({ message: "Hiba történt a kérés feldolgozása során." });
   }
 });
 

@@ -1,6 +1,7 @@
-import { comparePassword } from "../utils/hash.js";
+import { hashPassword, comparePassword } from "../utils/hash.js";
 import { generateToken, verifyRefreshToken } from "../utils/token.js";
 import { getByEmail, getById, updateUser } from "./user.service.js";
+import { sendTemporaryPasswordEmail } from "../utils/mailer.js";
 
 import speakeasy from "speakeasy";
 import QRCode from "qrcode";
@@ -57,6 +58,7 @@ export async function login(email, password, twoFactorCode) {
       permissions: user.permissions,
       accessToken: token.accessToken,
       refreshToken: token.refreshToken,
+      mustChangePassword: user.mustChangePassword || false,
     };
   } catch (error) {
     // Improve error handling
@@ -158,6 +160,66 @@ export async function disable2FA(userId) {
     return { success: true };
   } catch (error) {
     console.error("Disable 2FA error:", error.message);
+    throw error;
+  }
+}
+
+/**
+ * Generates a random temporary password meeting specific criteria.
+ * @returns {string}
+ */
+function generateTemporaryPassword() {
+  const lowercase = "abcdefghijklmnopqrstuvwxyz";
+  const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const numbers = "0123456789";
+  const specials = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+
+  let password = "";
+  password += lowercase[Math.floor(Math.random() * lowercase.length)];
+  password += uppercase[Math.floor(Math.random() * uppercase.length)];
+  password += numbers[Math.floor(Math.random() * numbers.length)];
+  password += specials[Math.floor(Math.random() * specials.length)];
+
+  const allChars = lowercase + uppercase + numbers + specials;
+  for (let i = password.length; i < 12; i++) {
+    password += allChars[Math.floor(Math.random() * allChars.length)];
+  }
+
+  // Shuffle the password characters
+  return password.split('').sort(() => 0.5 - Math.random()).join('');
+}
+
+/**
+ * Handles the forgot password request.
+ * Generates a temporary password, saves it hashed, flags mustChangePassword, and emails the user.
+ * 
+ * @param {string} email 
+ */
+export async function forgotPassword(email) {
+  try {
+    const user = await getByEmail(email.toLowerCase());
+
+    if (!user) {
+      // Simulate hashing time to prevent timing attacks
+      await hashPassword("dummy_password_for_timing_attack_prevention");
+      return; // Act as if it succeeded
+    }
+
+    const tempPassword = generateTemporaryPassword();
+    const hashedPassword = await hashPassword(tempPassword);
+
+    await updateUser(user.id, {
+      password: hashedPassword,
+      mustChangePassword: true,
+    });
+
+    // Send email asynchronously without awaiting to ensure consistent response time
+    sendTemporaryPasswordEmail(user.email, user.name, tempPassword).catch(err => {
+      console.error("Failed to send temporary password email:", err);
+    });
+
+  } catch (error) {
+    console.error("Forgot password error:", error);
     throw error;
   }
 }

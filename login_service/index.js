@@ -14,6 +14,10 @@ import healthRouter from "./controllers/health.controller.js";
 
 // Configuration
 const app = express();
+
+// Trust the API Gateway proxy to correctly resolve client IPs for rate limiting
+app.set("trust proxy", 1);
+
 const port = process.env.PORT || 5301;
 
 const corsConfig = {
