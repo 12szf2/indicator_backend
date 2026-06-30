@@ -5,20 +5,20 @@ import { getByEmail, getById } from "./user.service.js";
 export async function login(email, password) {
   try {
     // Get user data
-    const user = await getByEmail(email);
+    const user = await getByEmail(email.toLowerCase());
 
     if (!user) {
-      throw new Error("User not found");
+      throw new Error("Hibás email vagy jelszó");
     }
 
     if (!user.isActive) {
-      throw new Error("User is inactive");
+      throw new Error("A fiók inaktív");
     }
 
     // Password comparison is inherently slow for security
     const isPasswordValid = await comparePassword(password, user.password);
     if (!isPasswordValid) {
-      throw new Error("User not found");
+      throw new Error("Hibás email vagy jelszó");
     }
 
     // Generate token

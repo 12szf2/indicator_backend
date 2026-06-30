@@ -23,5 +23,6 @@ export async function hashPassword(password) {
  * @returns {Promise<boolean>} - A promise resolving to true if the password matches
  */
 export async function comparePassword(password, hash) {
+  if (!hash) return false;
   return await bcrypt.compare(password, hash);
 }
