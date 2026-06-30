@@ -23,6 +23,7 @@ export function generateToken(user) {
     name: user.name,
     permissions: user.permissionsDetails,
     school: user.alapadatok,
+    isTwoFactorEnabled: user.isTwoFactorEnabled,
     tableAccess: user.tableAccess
       ? user.tableAccess
           .filter((access) => access.table.isAvailable)

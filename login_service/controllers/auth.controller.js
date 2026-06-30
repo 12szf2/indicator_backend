@@ -1,5 +1,24 @@
 import express from "express";
-import { login, refresh } from "../services/auth.service.js";
+import { login, refresh, generate2FA, verify2FA, disable2FA } from "../services/auth.service.js";
+import { verifyToken } from "../utils/token.js";
+
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+
+  if (token == null) return res.status(401).json({ message: "No token provided" });
+
+  try {
+    const decoded = verifyToken(token);
+    // JWT token is generated with subject as the userId (sub property typically, but here it's signed with sub)
+    // Actually looking at token.js, the id is usually in the subject. Let's verify token.js again.
+    // In token.js: `subject: String(user.id)`
+    req.userId = decoded.sub || decoded.id;
+    next();
+  } catch (error) {
+    return res.status(403).json({ message: "Invalid or expired token" });
+  }
+};
 
 const router = express.Router();
 
@@ -83,7 +102,7 @@ const router = express.Router();
  *                   example: User not found or Invalid password
  */
 router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, twoFactorCode } = req.body;
 
   if (!email || !password) {
     return res
@@ -92,7 +111,7 @@ router.post("/login", async (req, res) => {
   }
 
   try {
-    const user = await login(email, password);
+    const user = await login(email, password, twoFactorCode);
     res.status(200).json(user);
   } catch (error) {
     console.error("Login error:", error);
@@ -166,6 +185,39 @@ router.post("/refresh", async (req, res) => {
   } catch (error) {
     console.error("Refresh token error:", error);
     res.status(401).json({ message: error.message });
+  }
+});
+
+router.post("/2fa/generate", authenticateToken, async (req, res) => {
+  try {
+    const result = await generate2FA(req.userId);
+    res.status(200).json(result);
+  } catch (error) {
+    console.error("Generate 2FA error:", error);
+    res.status(400).json({ message: error.message });
+  }
+});
+
+router.post("/2fa/verify", authenticateToken, async (req, res) => {
+  const { token } = req.body;
+  if (!token) return res.status(400).json({ message: "Token is required" });
+
+  try {
+    const result = await verify2FA(req.userId, token);
+    res.status(200).json(result);
+  } catch (error) {
+    console.error("Verify 2FA error:", error);
+    res.status(400).json({ message: error.message });
+  }
+});
+
+router.post("/2fa/disable", authenticateToken, async (req, res) => {
+  try {
+    const result = await disable2FA(req.userId);
+    res.status(200).json(result);
+  } catch (error) {
+    console.error("Disable 2FA error:", error);
+    res.status(400).json({ message: error.message });
   }
 });
 

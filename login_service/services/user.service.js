@@ -56,3 +56,18 @@ export async function getById(id) {
     throw error;
   }
 }
+
+export async function updateUser(id, data) {
+  try {
+    const user = await executeWithRetry(async (prismaInstance) => {
+      return await prismaInstance.user.update({
+        where: { id },
+        data,
+      });
+    });
+    return user;
+  } catch (error) {
+    console.error("Error updating user:", error);
+    throw error;
+  }
+}

@@ -25,6 +25,8 @@ model User {
   alapadatokId String?       @db.Uuid
   permissions  Int           @default(0)
   isActive     Boolean       @default(true)
+  twoFactorSecret    String?
+  isTwoFactorEnabled Boolean     @default(false)
   logs         Log[]
   tableAccess  TableAccess[]
   alapadatok   Alapadatok?   @relation("AlapadatokUsers", fields: [alapadatokId], references: [id])

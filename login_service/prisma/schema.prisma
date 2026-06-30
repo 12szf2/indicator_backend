@@ -17,6 +17,8 @@ model User {
   alapadatokId String?       @db.Uuid
   permissions  Int           @default(0)
   isActive    Boolean       @default(true)
+  twoFactorSecret    String?
+  isTwoFactorEnabled Boolean     @default(false)
 
   tableAccess  TableAccess[]
 
