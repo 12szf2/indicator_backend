@@ -5,7 +5,7 @@ const pattern = new ServicePattern('versenyek', 'id', {
   versenyNev: true,
   alapadatok: true,
 }, {}, {
-  orderBy: { createAt: 'desc' },
+  orderBy: { createdAt: 'desc' },
 });
 
 export async function getKategoriak() {

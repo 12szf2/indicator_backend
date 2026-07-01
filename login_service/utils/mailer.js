@@ -5,8 +5,6 @@ dotenv.config();
 
 // Create a transporter using SMTP settings from environment variables
 const transporter = nodemailer.createTransport({
-  pool: true,
-  maxConnections: 1, // Fix for "Concurrent connections limit exceeded" on Outlook
   host: process.env.SMTP_HOST || "smtp.example.com",
   port: parseInt(process.env.SMTP_PORT || "587"),
   secure: process.env.SMTP_SECURE === "true", // true for 465, false for other ports
@@ -76,7 +74,7 @@ Az Indikátor Rendszer Csapata`;
 
   try {
     await transporter.sendMail({
-      from: process.env.SMTP_FROM || process.env.SMTP_USER || '"Indikátor Rendszer" <noreply@example.com>',
+      from: process.env.SMTP_FROM || '"Indikátor Rendszer" <noreply@example.com>',
       to,
       subject,
       text: textContent,

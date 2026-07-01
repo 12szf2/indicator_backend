@@ -1,102 +1,85 @@
 import express from "express";
 import multer from "multer";
-import { createBugReport } from "../services/bugReport.service.js";
+import "dotenv/config";
 
-const router = express.Router();
+const bugReportRouter = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });
 
-/**
- * @swagger
- * tags:
- *   name: BugReports
- *   description: Bug report endpoints
- *
- * /bug-report:
- *   post:
- *     summary: Submit a new bug report
- *     description: Submit a new bug report. Will send email to superadmins and save to database.
- *     tags: [BugReports]
- *     security:
- *       - bearerAuth: []
- *     requestBody:
- *       required: true
- *       content:
- *         multipart/form-data:
- *           schema:
- *             type: object
- *             required:
- *               - title
- *               - description
- *             properties:
- *               title:
- *                 type: string
- *               description:
- *                 type: string
- *               severity:
- *                 type: string
- *                 enum: [low, medium, high]
- *               stepsToReproduce:
- *                 type: string
- *               pageUrl:
- *                 type: string
- *               userAgent:
- *                 type: string
- *               attachment:
- *                 type: string
- *                 format: binary
- *     responses:
- *       201:
- *         description: Bug report successfully submitted
- *       400:
- *         description: Invalid input data
- *       500:
- *         description: Internal server error
- */
-router.post("/", upload.single("attachment"), async (req, res) => {
+bugReportRouter.post("/", upload.single("attachment"), async (req, res) => {
   try {
     const { title, description, severity, stepsToReproduce, pageUrl, userAgent } = req.body;
-    
-    // Validate required fields
-    if (!title || !description) {
-      return res.status(400).json({ 
-        message: "Title and description are required fields." 
-      });
+    const file = req.file;
+
+    const TRELLO_API_KEY = process.env.TRELLO_API_KEY;
+    const TRELLO_API_TOKEN = process.env.TRELLO_API_TOKEN;
+    const TRELLO_LIST_ID = process.env.TRELLO_LIST_ID;
+
+    if (!TRELLO_API_KEY || !TRELLO_API_TOKEN || !TRELLO_LIST_ID) {
+      console.warn("Trello API credentials missing. Bug report not saved to Trello.");
+      return res.status(500).json({ message: "Trello API configuration is missing on the server." });
     }
 
-    // req.user is set by authMiddleware
-    if (!req.user || !req.user.id) {
-      return res.status(401).json({ 
-        message: "Unauthorized: User information not found in token." 
-      });
-    }
+    // Build markdown description
+    const desc = `
+**Súlyosság:** ${severity}
+**Jelentve erről az oldalról:** ${pageUrl || "Ismeretlen"}
+**Böngésző / Rendszer:** ${userAgent || "Ismeretlen"}
 
-    const reporterInfo = {
-      name: req.user.name || "Unknown User",
-      email: req.user.email || "No email"
-    };
+---
+### Leírás
+${description}
 
-    const bugReportData = {
-      title,
-      description,
-      severity,
-      stepsToReproduce,
-      pageUrl,
-      userAgent
-    };
+${stepsToReproduce ? `### Reprodukálás lépései\n${stepsToReproduce}` : ""}
+`;
 
-    const attachment = req.file || null;
-
-    await createBugReport(req.user.id, bugReportData, reporterInfo, attachment);
-
-    return res.status(201).json({ 
-      message: "Hibabejelentés sikeresen elküldve." 
+    // 1. Create the Trello Card
+    const createCardResponse = await fetch(`https://api.trello.com/1/cards?idList=${TRELLO_LIST_ID}&key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: title || "Új hibabejelentés",
+        desc: desc,
+        pos: "top"
+      })
     });
+
+    if (!createCardResponse.ok) {
+      const errorText = await createCardResponse.text();
+      console.error("Trello API Error creating card:", errorText);
+      return res.status(500).json({ message: "Nem sikerült létrehozni a hibajegyet." });
+    }
+
+    const card = await createCardResponse.json();
+    const cardId = card.id;
+
+    // 2. Upload attachment if exists
+    if (file) {
+      const formData = new FormData();
+      const blob = new Blob([file.buffer], { type: file.mimetype });
+      // In Node's native fetch, setting name of file inside FormData:
+      formData.append("file", blob, file.originalname);
+
+      const uploadResponse = await fetch(`https://api.trello.com/1/cards/${cardId}/attachments?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`, {
+        method: 'POST',
+        body: formData
+      });
+
+      if (!uploadResponse.ok) {
+        const errorText = await uploadResponse.text();
+        console.error("Trello API Error uploading attachment:", errorText);
+        // We still return success as the card was created
+      }
+    }
+
+    res.status(200).json({ message: "Hibabejelentés sikeresen továbbítva a Trello-ba.", cardId });
+
   } catch (error) {
-    console.error("Error creating bug report:", error);
-    return res.status(500).json({ 
-      message: "Hiba történt a bejelentés küldése során. Kérjük, próbálja újra később." 
-    });
+    console.error("Bug report endpoint error:", error);
+    res.status(500).json({ message: "Szerverhiba történt a hibabejelentés feldolgozása során." });
   }
 });
 
-export default router;
+export default bugReportRouter;
