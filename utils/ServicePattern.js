@@ -62,8 +62,11 @@ export class ServicePattern {
     if (!year || year === "undefined" || year === "null") {
       return await this.findAll();
     }
-    const firstYear = parseInt(year) - 4;
     const lastYear = parseInt(year);
+    if (isNaN(lastYear)) {
+      return await this.findAll();
+    }
+    const firstYear = lastYear - 4;
 
     return await this.serviceCache.get(
       "byYear",
@@ -113,8 +116,11 @@ export class ServicePattern {
     if (!year || year === "undefined" || year === "null") {
       return await this.findAllByAlapadatok(alapadatokId);
     }
-    const firstYear = parseInt(year) - 4;
     const lastYear = parseInt(year);
+    if (isNaN(lastYear)) {
+      return await this.findAllByAlapadatok(alapadatokId);
+    }
+    const firstYear = lastYear - 4;
 
     return await this.serviceCache.get(
       "alapadatok_id_year",
@@ -222,7 +228,12 @@ export class ServicePattern {
     if (!year || year === "undefined" || year === "null") {
       return await this.deleteByAlapadatokId(alapadatokId);
     }
-    const { firstYear, lastYear } = this.getYearRange(year);
+    const targetYear = parseInt(year);
+    if (isNaN(targetYear)) {
+      return await this.deleteByAlapadatokId(alapadatokId);
+    }
+    const firstYear = targetYear - 4;
+    const lastYear = targetYear;
 
     const result = await prisma[this.serviceName].deleteMany({
       where: {
@@ -242,6 +253,9 @@ export class ServicePattern {
       return await this.deleteByAlapadatokId(alapadatokId);
     }
     const targetYear = parseInt(year);
+    if (isNaN(targetYear)) {
+      return await this.deleteByAlapadatokId(alapadatokId);
+    }
     const result = await prisma[this.serviceName].deleteMany({
       where: {
         [this.alapadatokField]: alapadatokId,
