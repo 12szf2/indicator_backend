@@ -116,3 +116,54 @@ export async function deleteSzakkepzesiMunkaszerzodesAranya(id) {
 
   return { message: "Record deleted successfully" };
 }
+
+export async function bulkSaveSzakkepzesiMunkaszerzodesAranya(records) {
+  if (!records || records.length === 0) return [];
+
+  const results = await prisma.$transaction(
+    records.map((record) => {
+      const {
+        id,
+        alapadatok_id,
+        szakiranyNev,
+        szakmaNev,
+        tanulok_osszeletszam,
+        munkaszerzodeses_tanulok_szama,
+        createBy = null,
+        tanev_kezdete,
+      } = record;
+
+      const data = {
+        alapadatok: { connect: { id: alapadatok_id } },
+        szakirany: { connect: { nev: szakiranyNev } },
+        tanulok_osszeletszam: Number(tanulok_osszeletszam),
+        munkaszerzodeses_tanulok_szama: Number(munkaszerzodeses_tanulok_szama),
+        createAt: new Date(),
+        createBy: createBy,
+        tanev_kezdete: tanev_kezdete,
+      };
+
+      if (szakmaNev && szakmaNev !== "Nincs meghatározva") {
+        data.szakma = { connect: { nev: szakmaNev } };
+      }
+
+      if (id) {
+        return prisma.szakkepzesiMunkaszerzodesAranya.update({
+          where: { id },
+          data,
+        });
+      } else {
+        return prisma.szakkepzesiMunkaszerzodesAranya.create({
+          data,
+        });
+      }
+    })
+  );
+
+  if (results.length > 0) {
+    // Invalidate cache
+    pattern.serviceCache.invalidateRelated("update", results[0].id);
+  }
+
+  return results;
+}
