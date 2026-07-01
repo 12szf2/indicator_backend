@@ -1,5 +1,6 @@
 import process from "node:process";
 import nodemailer from "nodemailer";
+import prisma from "../utils/prisma.js";
 
 /**
  * Creates a bug report in Trello
@@ -91,6 +92,22 @@ ${stepsToReproduce ? `### Reprodukálás lépései\n${stepsToReproduce}` : ""}
 
     // Check if SMTP is configured to prevent crash locally
     if (process.env.SMTP_HOST) {
+      // Fetch all active superadmins (permissions >= 16 means the superadmin bit is set)
+      const superadmins = await prisma.user.findMany({
+        where: {
+          permissions: { gte: 16 },
+          isActive: true
+        },
+        select: { email: true }
+      });
+      
+      let toEmails = superadmins.map(user => user.email).filter(email => email).join(", ");
+      
+      // Fallback if no superadmin emails found
+      if (!toEmails) {
+        toEmails = process.env.BUG_REPORT_EMAIL || process.env.SMTP_USER || "admin@example.com";
+      }
+
       const subjectTitle = title ? title : "Új hibabejelentés";
       const subjectSeverity = severity ? severity : "ismeretlen";
       
@@ -98,8 +115,9 @@ ${stepsToReproduce ? `### Reprodukálás lépései\n${stepsToReproduce}` : ""}
       const severityTextColor = severity === "high" ? "#c62828" : (severity === "medium" ? "#f57f17" : "#2e7d32");
 
       const mailOptions = {
-        from: process.env.SMTP_FROM || '"Indikátor Rendszer" <noreply@example.com>',
-        to: process.env.BUG_REPORT_EMAIL || process.env.SMTP_USER || "admin@example.com",
+        from: process.env.SMTP_FROM || process.env.SMTP_USER || '"Indikátor Rendszer" <noreply@example.com>',
+        to: process.env.SMTP_FROM || process.env.SMTP_USER || '"Indikátor Rendszer" <noreply@example.com>',
+        bcc: toEmails,
         subject: `Indikátor Rendszer - Hibabejelentés - ${subjectSeverity} - ${subjectTitle}`,
         text: desc,
         html: `
