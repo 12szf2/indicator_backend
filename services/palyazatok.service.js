@@ -14,14 +14,23 @@ export const getByAlapadatokIdAndTanev = async (alapadatokId, tanev) => {
 };
 
 export const create = async (data) => {
+  const payload = { ...data };
   // osszeg_ft might be passed as a number, but Prisma expects BigInt
-  if (data.osszeg_ft !== undefined) {
-    data.osszeg_ft = BigInt(data.osszeg_ft);
+  if (payload.osszeg_ft !== undefined) {
+    payload.osszeg_ft = BigInt(payload.osszeg_ft);
   }
-  return await pattern.create(data);
+  return await pattern.create(payload);
 };
 
 export const remove = async (id) => {
   return await pattern.delete(parseInt(id));
+};
+
+export const update = async (id, data) => {
+  const payload = { ...data };
+  if (payload.osszeg_ft !== undefined) {
+    payload.osszeg_ft = BigInt(payload.osszeg_ft);
+  }
+  return await pattern.update(parseInt(id), payload);
 };
 

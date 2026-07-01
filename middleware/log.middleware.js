@@ -220,8 +220,12 @@ function sanitizeRequestBody(body) {
   // If body is not an object, return as is
   if (typeof body !== "object") return body;
 
-  // Create a deep copy to avoid modifying the original
-  const sanitizedBody = JSON.parse(JSON.stringify(body));
+  // Create a deep copy to avoid modifying the original and handle BigInts
+  const sanitizedBody = JSON.parse(
+    JSON.stringify(body, (key, value) =>
+      typeof value === "bigint" ? Number(value) : value
+    )
+  );
 
   // Recursive function to redact sensitive fields
   function redactSensitiveFields(obj) {

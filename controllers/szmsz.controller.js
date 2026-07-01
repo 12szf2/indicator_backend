@@ -3,6 +3,7 @@ import {
   deleteSzakkepzesiMunkaszerzodesAranya,
   getSzakkepzesiMunkaszerzodesAranya,
   updateSzakkepzesiMunkaszerzodesAranya,
+  bulkSaveSzakkepzesiMunkaszerzodesAranya,
   getAll,
 } from "../services/szmsz.service.js";
 import e from "express";
@@ -241,6 +242,72 @@ router.post("/", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to create data" });
+  }
+});
+
+/**
+ * @swagger
+ * /szmsz/bulk:
+ *   post:
+ *     summary: Bulk save SZMSZ data
+ *     tags: [SZMSZ]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: array
+ *             items:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ *                   description: SZMSZ record ID (optional, for updates)
+ *                 alapadatok_id:
+ *                   type: string
+ *                   description: Basic data ID reference
+ *                 szakiranyNev:
+ *                   type: string
+ *                   description: Field of study name
+ *                 szakmaNev:
+ *                   type: string
+ *                   description: Profession name
+ *                 tanulok_osszeletszam:
+ *                   type: integer
+ *                   description: Total number of students
+ *                 munkaszerzodeses_tanulok_szama:
+ *                   type: integer
+ *                   description: Number of students with work contract
+ *                 createBy:
+ *                   type: string
+ *                   description: Creator identifier
+ *                 tanev_kezdete:
+ *                   type: integer
+ *                   description: School year start year
+ *     responses:
+ *       201:
+ *         description: SZMSZ data bulk saved successfully
+ *       400:
+ *         description: Bad request - Missing records
+ *       500:
+ *         description: Internal server error
+ */
+router.post("/bulk", async (req, res) => {
+  try {
+    const records = req.body;
+
+    if (!Array.isArray(records)) {
+      return res.status(400).json({ error: "Expected an array of records" });
+    }
+
+    const results = await bulkSaveSzakkepzesiMunkaszerzodesAranya(records);
+
+    res.status(201).json({ message: "Bulk save successful", count: results.length });
+  } catch (error) {
+    console.error("Bulk save error:", error);
+    res.status(500).json({ error: "Failed to bulk save data" });
   }
 });
 
