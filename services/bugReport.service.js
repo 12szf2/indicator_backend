@@ -1,4 +1,5 @@
 import process from "node:process";
+import nodemailer from "nodemailer";
 
 /**
  * Creates a bug report in Trello
@@ -74,6 +75,92 @@ ${stepsToReproduce ? `### Reprodukálás lépései\n${stepsToReproduce}` : ""}
       console.error("Trello API Error uploading attachment:", errorText);
       // We still return success as the card was created
     }
+  }
+
+  // 3. Send email to superadmins
+  try {
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST || "smtp.example.com",
+      port: parseInt(process.env.SMTP_PORT || "587"),
+      secure: process.env.SMTP_SECURE === "true",
+      auth: {
+        user: process.env.SMTP_USER || "user@example.com",
+        pass: process.env.SMTP_PASS || "password",
+      },
+    });
+
+    // Check if SMTP is configured to prevent crash locally
+    if (process.env.SMTP_HOST) {
+      const subjectTitle = title ? title : "Új hibabejelentés";
+      const subjectSeverity = severity ? severity : "ismeretlen";
+      
+      const severityColor = severity === "high" ? "#ffcdd2" : (severity === "medium" ? "#fff9c4" : "#c8e6c8");
+      const severityTextColor = severity === "high" ? "#c62828" : (severity === "medium" ? "#f57f17" : "#2e7d32");
+
+      const mailOptions = {
+        from: process.env.SMTP_FROM || '"Indikátor Rendszer" <noreply@example.com>',
+        to: process.env.BUG_REPORT_EMAIL || process.env.SMTP_USER || "admin@example.com",
+        subject: `Indikátor Rendszer - Hibabejelentés - ${subjectSeverity} - ${subjectTitle}`,
+        text: desc,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; color: #333;">
+            <h2 style="color: #d32f2f; text-align: center; border-bottom: 1px solid #eee; padding-bottom: 10px;">Új hibabejelentés érkezett</h2>
+            
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+              <tr>
+                <td style="padding: 10px 0; border-bottom: 1px solid #eee; width: 150px;"><strong>Bejelentő:</strong></td>
+                <td style="padding: 10px 0; border-bottom: 1px solid #eee;">${name} (<a href="mailto:${email}">${email}</a>)</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>Súlyosság:</strong></td>
+                <td style="padding: 10px 0; border-bottom: 1px solid #eee;">
+                  <span style="background-color: ${severityColor}; color: ${severityTextColor}; padding: 3px 8px; border-radius: 4px; font-size: 14px; font-weight: bold;">
+                    ${severity || "ismeretlen"}
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 0; border-bottom: 1px solid #eee;"><strong>URL:</strong></td>
+                <td style="padding: 10px 0; border-bottom: 1px solid #eee;"><a href="${pageUrl || "#"}">${pageUrl || "Ismeretlen"}</a></td>
+              </tr>
+            </table>
+
+            <h3 style="margin-top: 30px; font-size: 18px;">${subjectTitle}</h3>
+
+            <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+              <p style="margin-top: 0; font-weight: bold; font-size: 14px;">Leírás:</p>
+              <p style="margin-bottom: 0; white-space: pre-wrap;">${description}</p>
+            </div>
+
+            <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+              <p style="margin-top: 0; font-weight: bold; font-size: 14px;">Reprodukálás lépései:</p>
+              <p style="margin-bottom: 0; white-space: pre-wrap;">${stepsToReproduce || "Nem adta meg"}</p>
+            </div>
+
+            <p style="font-size: 12px; color: #777; margin-top: 30px;">
+              <strong>Böngésző / Rendszer:</strong><br>
+              ${userAgent || "Ismeretlen"}
+            </p>
+          </div>
+        `,
+        attachments: []
+      };
+
+      if (attachment) {
+        mailOptions.attachments.push({
+          filename: attachment.originalname,
+          content: attachment.buffer,
+          contentType: attachment.mimetype
+        });
+      }
+
+      await transporter.sendMail(mailOptions);
+    } else {
+      console.warn("SMTP credentials missing. Bug report email not sent.");
+    }
+  } catch (emailError) {
+    console.error("Error sending bug report email:", emailError);
+    // Don't throw, let the bug report creation succeed even if email fails
   }
 
   return { success: true, cardId };
