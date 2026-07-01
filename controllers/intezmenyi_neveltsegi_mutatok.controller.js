@@ -3,6 +3,7 @@ import {
   getAllById,
   create,
   update,
+  bulkSaveIntezmenyiNeveltseg,
 } from "../services/intezmenyi_neveltsegi_mutatok.service.js";
 
 const router = e.Router();
@@ -286,6 +287,20 @@ router.put("/:id/:tanev_kezdete", async (req, res) => {
     return res.status(200).json(updatedData);
   } catch (error) {
     console.error("Error updating intezmenyi neveltseg data:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+router.post("/bulk", async (req, res) => {
+  try {
+    const records = req.body;
+    if (!Array.isArray(records)) {
+      return res.status(400).json({ error: "Invalid data format. Expected an array of records." });
+    }
+    const results = await bulkSaveIntezmenyiNeveltseg(records);
+    return res.status(200).json(results);
+  } catch (error) {
+    console.error("Error bulk saving intezmenyi neveltseg data:", error);
     return res.status(500).json({ error: "Internal server error" });
   }
 });
