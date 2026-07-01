@@ -79,6 +79,9 @@ services:
       - JWT_SECRET=${JWT_SECRET}
       - JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET}
       - LOGIN_SERVICE_URL=http://login-service:5301
+      - TRELLO_API_KEY=${TRELLO_API_KEY}
+      - TRELLO_API_TOKEN=${TRELLO_API_TOKEN}
+      - TRELLO_LIST_ID=${TRELLO_LIST_ID}
     volumes:
       - .:/app
       - /app/node_modules
