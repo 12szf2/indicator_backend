@@ -144,6 +144,9 @@ protectedRouter.use("/nyelvvizsgak_szama", i.nyelvvizsgakSzamaRouter);
 protectedRouter.use("/egyuttmukudesek_szama", i.egyuttmukudesekSzamaRouter);
 protectedRouter.use("/form_history", i.formHistoryRouter);
 
+// Not protected by endpointAccessMiddleware but uses auth
+apiRouter.use("/bug-report", i.bugReportRouter);
+
 // Mount the protected router under the API router
 apiRouter.use(protectedRouter);
 
