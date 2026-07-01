@@ -3,6 +3,7 @@ import {
   getByAlapadatokIdAndTanev,
   create,
   remove,
+  update,
 } from "../services/palyazatok.service.js";
 
 const router = express.Router();
@@ -45,6 +46,18 @@ router.delete("/:id", async (req, res) => {
     res.status(200).json(serialize(deleted));
   } catch (error) {
     console.error("Error deleting palyazat:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = req.body;
+    const updated = await update(id, data);
+    res.status(200).json(serialize(updated));
+  } catch (error) {
+    console.error("Error updating palyazat:", error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });

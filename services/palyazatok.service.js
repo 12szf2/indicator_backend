@@ -26,3 +26,11 @@ export const remove = async (id) => {
   return await pattern.delete(parseInt(id));
 };
 
+export const update = async (id, data) => {
+  const payload = { ...data };
+  if (payload.osszeg_ft !== undefined) {
+    payload.osszeg_ft = BigInt(payload.osszeg_ft);
+  }
+  return await pattern.update(parseInt(id), payload);
+};
+
