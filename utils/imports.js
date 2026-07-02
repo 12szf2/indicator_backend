@@ -60,6 +60,7 @@ import nyelvvizsgakSzamaRouter from "../controllers/nyelvvizsgak_szama.controlle
 import egyuttmukudesekSzamaRouter from "../controllers/egyuttmukudesek_szama.controller.js";
 import formHistoryRouter from "../controllers/form_history.controller.js";
 import bugReportRouter from "../controllers/bugReport.controller.js";
+import engedelyezettOratomegRouter from "../controllers/engedelyezett_oratomeg.controller.js";
 
 // Middleware
 import logMiddleware from "../middleware/log.middleware.js";
@@ -134,4 +135,5 @@ export {
   egyuttmukudesekSzamaRouter,
   formHistoryRouter,
   bugReportRouter,
+  engedelyezettOratomegRouter,
 };

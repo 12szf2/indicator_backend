@@ -143,6 +143,7 @@ protectedRouter.use("/palya_orientacio", i.palyaOrientacioRouter);
 protectedRouter.use("/nyelvvizsgak_szama", i.nyelvvizsgakSzamaRouter);
 protectedRouter.use("/egyuttmukudesek_szama", i.egyuttmukudesekSzamaRouter);
 protectedRouter.use("/form_history", i.formHistoryRouter);
+protectedRouter.use("/engedelyezett_oratomeg", i.engedelyezettOratomegRouter);
 
 // Not protected by endpointAccessMiddleware but uses auth
 apiRouter.use("/bug-report", i.bugReportRouter);

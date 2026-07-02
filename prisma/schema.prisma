@@ -133,6 +133,7 @@ model Alapadatok {
   nyelvvizsgak_szama              nyelvvizsgak_szama[]
   egyuttmukudesek_szama           egyuttmukudesek_szama[]
   FormHistory                     FormHistory[]
+  engedelyezettOratomeg           EngedelyezettOratomeg[]
 }
 
 model Szakirany {
@@ -1212,4 +1213,20 @@ model FormHistory {
 
   @@index([alapadatok_id, table_name])
   @@map("form_history")
+}
+
+model EngedelyezettOratomeg {
+  id               String     @id @default(uuid()) @db.Uuid
+  alapadatok_id    String     @db.Uuid
+  tanev_kezdete    Int        @db.SmallInt
+  tanuloi_oratomeg Decimal?   @db.Decimal(10, 2)
+  felnott_oratomeg Decimal?   @db.Decimal(10, 2)
+  createAt         DateTime   @default(now())
+  createBy         String?
+  updatedAt        DateTime?  @updatedAt
+  updatedBy        String?
+  alapadatok       Alapadatok @relation(fields: [alapadatok_id], references: [id])
+
+  @@unique([alapadatok_id, tanev_kezdete])
+  @@map("engedelyezett_oratomeg")
 }
