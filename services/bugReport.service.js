@@ -198,7 +198,7 @@ export const getReportedBugs = async () => {
     return [];
   }
 
-  const response = await fetch(`https://api.trello.com/1/lists/${TRELLO_LIST_ID}/cards?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`, {
+  const response = await fetch(`https://api.trello.com/1/lists/${TRELLO_LIST_ID}/cards?attachments=true&key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json'
@@ -220,6 +220,13 @@ export const getReportedBugs = async () => {
     url: card.url,
     labels: card.labels,
     dateLastActivity: card.dateLastActivity,
+    attachments: card.attachments ? card.attachments.map(att => ({
+      id: att.id,
+      name: att.name,
+      url: att.url,
+      mimeType: att.mimeType,
+      previews: att.previews
+    })) : []
   }));
 };
 
