@@ -307,7 +307,7 @@ router.post("/bulk", async (req, res) => {
     res.status(201).json({ message: "Bulk save successful", count: results.length });
   } catch (error) {
     console.error("Bulk save error:", error);
-    res.status(500).json({ error: "Failed to bulk save data" });
+    res.status(500).json({ error: "Failed to bulk save data", details: error.message });
   }
 });
 

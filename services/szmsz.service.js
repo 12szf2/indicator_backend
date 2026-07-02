@@ -120,8 +120,9 @@ export async function deleteSzakkepzesiMunkaszerzodesAranya(id) {
 export async function bulkSaveSzakkepzesiMunkaszerzodesAranya(records) {
   if (!records || records.length === 0) return [];
 
-  const results = await prisma.$transaction(
-    records.map((record) => {
+  const results = await prisma.$transaction(async (tx) => {
+    const res = [];
+    for (const record of records) {
       const {
         id,
         alapadatok_id,
@@ -148,17 +149,22 @@ export async function bulkSaveSzakkepzesiMunkaszerzodesAranya(records) {
       }
 
       if (id) {
-        return prisma.szakkepzesiMunkaszerzodesAranya.update({
-          where: { id },
-          data,
-        });
+        res.push(
+          await tx.szakkepzesiMunkaszerzodesAranya.update({
+            where: { id },
+            data,
+          })
+        );
       } else {
-        return prisma.szakkepzesiMunkaszerzodesAranya.create({
-          data,
-        });
+        res.push(
+          await tx.szakkepzesiMunkaszerzodesAranya.create({
+            data,
+          })
+        );
       }
-    })
-  );
+    }
+    return res;
+  });
 
   if (results.length > 0) {
     // Invalidate cache
