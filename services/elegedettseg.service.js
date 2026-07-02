@@ -57,11 +57,30 @@ export async function create(
   tanev_kezdete,
   munkaadok_elegedettsege
 ) {
+  const parsedTanev = parseInt(tanev_kezdete);
+  
+  // Prevent duplicates by checking if record exists
+  const existing = await prisma.elegedettseg.findFirst({
+    where: {
+      szakirany_id,
+      szakma_id,
+      alapadatok_id,
+      tanev_kezdete: parsedTanev,
+    },
+    orderBy: { createAt: "desc" }
+  });
+
+  if (existing) {
+    return await pattern.update(existing.id, {
+      munkaadok_elegedettsege,
+    });
+  }
+
   return await pattern.create({
     szakirany_id,
     szakma_id,
     alapadatok_id,
-    tanev_kezdete: parseInt(tanev_kezdete),
+    tanev_kezdete: parsedTanev,
     munkaadok_elegedettsege,
   });
 }

@@ -21,9 +21,30 @@ export async function create(
   dualis_kepzohely_elegedettsege,
   munkaero_piac_elegedettsege
 ) {
+  const parsedTanev = parseInt(tanev_kezdete);
+
+  // Prevent duplicates by checking if record exists
+  const existing = await prisma.elegedettsegMeres.findFirst({
+    where: {
+      alapadatok_id,
+      tanev_kezdete: parsedTanev,
+    },
+    orderBy: { createAt: "desc" }
+  });
+
+  if (existing) {
+    return await pattern.update(existing.id, {
+      szulok_elegedettsege: parseFloat(szulok_elegedettsege),
+      oktatok_elegedettsege: parseFloat(oktatok_elegedettsege),
+      tanulok_elegedettsege: parseFloat(tanulok_elegedettsege),
+      dualis_kepzohely_elegedettsege: parseFloat(dualis_kepzohely_elegedettsege),
+      munkaero_piac_elegedettsege: parseFloat(munkaero_piac_elegedettsege),
+    });
+  }
+
   return await pattern.create({
     alapadatok_id,
-    tanev_kezdete: parseInt(tanev_kezdete),
+    tanev_kezdete: parsedTanev,
     szulok_elegedettsege: parseFloat(szulok_elegedettsege),
     oktatok_elegedettsege: parseFloat(oktatok_elegedettsege),
     tanulok_elegedettsege: parseFloat(tanulok_elegedettsege),

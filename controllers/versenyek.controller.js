@@ -6,6 +6,7 @@ import {
   update,
   deleteVerseny
 } from "../services/versenyek.service.js";
+import { scheduleSnapshot } from "../services/form_history.service.js";
 import e from "express";
 
 const router = e.Router();
@@ -286,6 +287,10 @@ router.post("/", async (req, res) => {
       alapadatok_id // alapadatokId
     );
 
+    if (data && data.alapadatok_id) {
+      scheduleSnapshot(data.alapadatok_id, "versenyek");
+    }
+
     return res.status(201).json(data);
   } catch (error) {
     console.error("Error creating competition:", error);
@@ -427,6 +432,10 @@ router.put("/:id", async (req, res) => {
       tanev_kezdete
     );
 
+    if (data && data.alapadatok_id) {
+      scheduleSnapshot(data.alapadatok_id, "versenyek");
+    }
+
     return res.status(200).json(data);
   } catch (error) {
     console.error("Error updating competition:", error);
@@ -494,6 +503,10 @@ router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const data = await deleteVerseny(id);
+
+    if (data && data.alapadatok_id) {
+      scheduleSnapshot(data.alapadatok_id, "versenyek");
+    }
 
     return res.status(200).json(data);
   } catch (error) {
