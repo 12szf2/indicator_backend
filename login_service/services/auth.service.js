@@ -5,6 +5,10 @@ import { sendTemporaryPasswordEmail } from "../utils/mailer.js";
 
 import speakeasy from "speakeasy";
 import QRCode from "qrcode";
+import { OAuth2Client } from "google-auth-library";
+
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
 
 export async function login(email, password, twoFactorCode, trustDevice, trustedDeviceToken) {
   try {
@@ -80,6 +84,85 @@ export async function login(email, password, twoFactorCode, trustDevice, trusted
     // Improve error handling
     console.error("Login error:", error.message);
     throw error; // Re-throw to be handled by the controller
+  }
+}
+
+export async function googleLogin(idToken, trustDevice, trustedDeviceToken, twoFactorCode) {
+  try {
+    const ticket = await client.verifyIdToken({
+      idToken: idToken,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+    const payload = ticket.getPayload();
+    const email = payload.email;
+
+    if (!email) {
+      throw new Error("Nem sikerült lekérni az email címet a Google fiókból.");
+    }
+
+    const user = await getByEmail(email.toLowerCase());
+
+    if (!user) {
+      throw new Error("Nincs regisztrált fiók ezzel az email címmel.");
+    }
+
+    if (!user.isActive) {
+      throw new Error("A fiók inaktív.");
+    }
+
+    // Check trusted device token
+    let isTrusted = false;
+    if (trustedDeviceToken) {
+      const decoded = verifyTrustedDeviceToken(trustedDeviceToken);
+      if (decoded && String(decoded.id) === String(user.id)) {
+        isTrusted = true;
+      }
+    }
+
+    let generatedTrustedToken = null;
+
+    // Check 2FA
+    if (user.isTwoFactorEnabled && !isTrusted) {
+      if (!twoFactorCode) {
+        return { requires2FA: true, userId: user.id, isGoogleLogin: true, idToken }; 
+      }
+
+      const isValid2FA = speakeasy.totp.verify({
+        secret: user.twoFactorSecret,
+        encoding: 'base32',
+        token: twoFactorCode,
+        window: 1
+      });
+
+      if (!isValid2FA) {
+        throw new Error("Hibás kétlépcsős kód");
+      }
+    }
+
+    if (trustDevice) {
+      generatedTrustedToken = generateTrustedDeviceToken(user);
+    }
+
+    // Generate token
+    const token = generateToken(user);
+
+    if (!token) {
+      throw new Error("Failed to generate token");
+    }
+
+    return {
+      id: user.id,
+      email: user.email,
+      name: user.name,
+      permissions: user.permissions,
+      accessToken: token.accessToken,
+      refreshToken: token.refreshToken,
+      mustChangePassword: user.mustChangePassword || false,
+      ...(generatedTrustedToken && { trustedDeviceToken: generatedTrustedToken })
+    };
+  } catch (error) {
+    console.error("Google Login error:", error.message);
+    throw error;
   }
 }
 

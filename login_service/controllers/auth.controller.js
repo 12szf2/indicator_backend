@@ -1,6 +1,6 @@
 import express from "express";
 import rateLimit from "express-rate-limit";
-import { login, refresh, generate2FA, verify2FA, disable2FA, forgotPassword } from "../services/auth.service.js";
+import { login, refresh, generate2FA, verify2FA, disable2FA, forgotPassword, googleLogin } from "../services/auth.service.js";
 import { verifyToken } from "../utils/token.js";
 
 const authenticateToken = (req, res, next) => {
@@ -116,6 +116,52 @@ router.post("/login", async (req, res) => {
     res.status(200).json(user);
   } catch (error) {
     console.error("Login error:", error);
+    res.status(401).json({ message: error.message });
+  }
+});
+
+/**
+ * @swagger
+ * /api/v1/auth/google-login:
+ *   post:
+ *     summary: Google OAuth authentication
+ *     description: Authenticates a user using Google OAuth ID token. Only existing users are allowed.
+ *     tags: [Authentication]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - idToken
+ *             properties:
+ *               idToken:
+ *                 type: string
+ *               twoFactorCode:
+ *                 type: string
+ *               trustDevice:
+ *                 type: boolean
+ *               trustedDeviceToken:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Authentication successful
+ *       401:
+ *         description: Invalid token or user not found
+ */
+router.post("/google-login", async (req, res) => {
+  const { idToken, twoFactorCode, trustDevice, trustedDeviceToken } = req.body;
+
+  if (!idToken) {
+    return res.status(400).json({ message: "ID token megadása kötelező." });
+  }
+
+  try {
+    const user = await googleLogin(idToken, trustDevice, trustedDeviceToken, twoFactorCode);
+    res.status(200).json(user);
+  } catch (error) {
+    console.error("Google login error:", error);
     res.status(401).json({ message: error.message });
   }
 });
