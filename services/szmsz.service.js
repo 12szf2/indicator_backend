@@ -1,5 +1,6 @@
 import { ServicePattern } from "../utils/ServicePattern.js";
 import prisma from "../utils/prisma.js";
+import { scheduleSnapshot } from "./form_history.service.js";
 
 const pattern = new ServicePattern('szakkepzesiMunkaszerzodesAranya', 'id', {
   szakirany: true,
@@ -120,8 +121,9 @@ export async function deleteSzakkepzesiMunkaszerzodesAranya(id) {
 export async function bulkSaveSzakkepzesiMunkaszerzodesAranya(records) {
   if (!records || records.length === 0) return [];
 
-  const results = await prisma.$transaction(
-    records.map((record) => {
+  const results = await prisma.$transaction(async (tx) => {
+    const res = [];
+    for (const record of records) {
       const {
         id,
         alapadatok_id,
@@ -148,21 +150,30 @@ export async function bulkSaveSzakkepzesiMunkaszerzodesAranya(records) {
       }
 
       if (id) {
-        return prisma.szakkepzesiMunkaszerzodesAranya.update({
-          where: { id },
-          data,
-        });
+        res.push(
+          await tx.szakkepzesiMunkaszerzodesAranya.update({
+            where: { id },
+            data,
+          })
+        );
       } else {
-        return prisma.szakkepzesiMunkaszerzodesAranya.create({
-          data,
-        });
+        res.push(
+          await tx.szakkepzesiMunkaszerzodesAranya.create({
+            data,
+          })
+        );
       }
-    })
-  );
+    }
+    return res;
+  });
 
   if (results.length > 0) {
     // Invalidate cache
     pattern.serviceCache.invalidateRelated("update", results[0].id);
+    // Schedule history snapshot
+    if (records[0]?.alapadatok_id) {
+      scheduleSnapshot(records[0].alapadatok_id, "szakkepzesiMunkaszerzodesAranya");
+    }
   }
 
   return results;
