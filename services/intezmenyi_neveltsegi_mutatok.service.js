@@ -167,12 +167,5 @@ export async function bulkSaveIntezmenyiNeveltseg(records) {
     }
   }
   
-  // Try to use cache invalidation
-  if (records.length > 0 && records[0].alapadatok_id) {
-    await pattern.invalidateRelated(records[0].alapadatok_id);
-  } else if (results.length > 0 && results[0].alapadatok_id) {
-    await pattern.invalidateRelated(results[0].alapadatok_id);
-  }
-
   return results;
 }
