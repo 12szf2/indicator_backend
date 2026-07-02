@@ -39,6 +39,10 @@ router.post("/", async (req, res) => {
 
     const updated = await upsertOratomeg(alapadatok_id, parseInt(tanev_kezdete), tanuloi_oratomeg, felnott_oratomeg, userId);
 
+    import("../services/form_history.service.js").then(({ scheduleSnapshot }) => {
+      scheduleSnapshot(alapadatok_id, "engedelyezettOratomeg");
+    });
+
     return res.status(200).json(formatResponse(200, "Sikeres mentés", updated));
   } catch (error) {
     console.error("Error in updateEngedelyezettOratomeg:", error);
