@@ -9,11 +9,30 @@ function getPattern() {
   return patternInstance;
 }
 
+function getPrismaModelName(tableName) {
+  const overrides = {
+    'intezmenyi_elismeresek': 'intezményiElismeresek',
+    'munkavallalok_elismeresek': 'munkavallalokElismeresek',
+    'IntezmenyiNeveltsegiMutatok': 'intezmenyiNeveltsegiMutatok'
+  };
+  if (overrides[tableName]) return overrides[tableName];
+
+  if (!prisma[tableName]) {
+    const keys = Object.keys(prisma);
+    const lowerTableName = tableName.toLowerCase();
+    const match = keys.find(k => k.toLowerCase() === lowerTableName);
+    if (match) return match;
+  }
+  
+  return tableName;
+}
+
 const snapshotTimeouts = {};
 
 export async function createSnapshot(alapadatok_id, table_name) {
+  const modelName = getPrismaModelName(table_name);
   // Lekérdezzük az összes sort a táblából (dinamikus táblanév miatt itt a Prisma natív hívása marad)
-  const rows = await prisma[table_name].findMany({
+  const rows = await prisma[modelName].findMany({
     where: { alapadatok_id: alapadatok_id }
   });
 
@@ -84,16 +103,18 @@ export async function rollback(history_id) {
 
   const { alapadatok_id, table_name, snapshot_data } = history;
 
+  const modelName = getPrismaModelName(table_name);
+
   // Tranzakcióban törlünk és visszatöltünk
   const result = await prisma.$transaction(async (tx) => {
     // Törlünk mindent
-    await tx[table_name].deleteMany({
+    await tx[modelName].deleteMany({
       where: { alapadatok_id }
     });
 
     // Beszúrjuk az összes régi sort
     if (Array.isArray(snapshot_data) && snapshot_data.length > 0) {
-      await tx[table_name].createMany({
+      await tx[modelName].createMany({
         data: snapshot_data
       });
     }
