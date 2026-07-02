@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import { createBugReport } from "../services/bugReport.service.js";
+import { createBugReport, getReportedBugs } from "../services/bugReport.service.js";
 
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });
@@ -95,6 +95,33 @@ router.post("/", upload.single("attachment"), async (req, res) => {
     console.error("Error creating bug report:", error);
     return res.status(500).json({
       message: "Hiba történt a bejelentés küldése során. Kérjük, próbálja újra később."
+    });
+  }
+});
+
+/**
+ * @swagger
+ * /bug-report:
+ *   get:
+ *     summary: Get reported bugs
+ *     description: Get a list of previously reported bugs from Trello
+ *     tags: [BugReports]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: List of reported bugs
+ *       500:
+ *         description: Internal server error
+ */
+router.get("/", async (req, res) => {
+  try {
+    const bugs = await getReportedBugs();
+    return res.status(200).json(bugs);
+  } catch (error) {
+    console.error("Error fetching bug reports:", error);
+    return res.status(500).json({
+      message: "Hiba történt a hibajegyek lekérdezése során."
     });
   }
 });

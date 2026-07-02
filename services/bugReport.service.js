@@ -183,3 +183,42 @@ ${stepsToReproduce ? `### Reprodukálás lépései\n${stepsToReproduce}` : ""}
 
   return { success: true, cardId };
 };
+
+/**
+ * Fetches reported bugs from Trello
+ * @returns {Array} List of bugs
+ */
+export const getReportedBugs = async () => {
+  const TRELLO_API_KEY = process.env.TRELLO_API_KEY;
+  const TRELLO_API_TOKEN = process.env.TRELLO_API_TOKEN;
+  const TRELLO_LIST_ID = process.env.TRELLO_LIST_ID;
+
+  if (!TRELLO_API_KEY || !TRELLO_API_TOKEN || !TRELLO_LIST_ID) {
+    console.warn("Trello API credentials missing. Cannot fetch bugs.");
+    return [];
+  }
+
+  const response = await fetch(`https://api.trello.com/1/lists/${TRELLO_LIST_ID}/cards?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error("Trello API Error fetching bugs:", errorText);
+    throw new Error("Nem sikerült lekérni a hibajegyeket a Trello-ból.");
+  }
+
+  const cards = await response.json();
+  
+  return cards.map(card => ({
+    id: card.id,
+    name: card.name,
+    desc: card.desc,
+    url: card.url,
+    labels: card.labels,
+    dateLastActivity: card.dateLastActivity,
+  }));
+};
