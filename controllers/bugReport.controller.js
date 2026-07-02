@@ -1,6 +1,8 @@
 import express from "express";
 import multer from "multer";
-import { createBugReport, getReportedBugs, resolveBugReport, getBugAttachment } from "../services/bugReport.service.js";
+import { createBugReport, getReportedBugs, updateBugStatus, getBugAttachment } from "../services/bugReport.service.js";
+
+
 
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });
@@ -128,10 +130,10 @@ router.get("/", async (req, res) => {
 
 /**
  * @swagger
- * /bug-report/{id}/resolve:
- *   post:
- *     summary: Mark a bug report as resolved
- *     description: Archives a bug report card in Trello. Requires superadmin permissions.
+ * /bug-report/{id}/status:
+ *   put:
+ *     summary: Update bug report status
+ *     description: Set bug report status to Kész or Folyamatban
  *     tags: [BugReports]
  *     security:
  *       - bearerAuth: []
@@ -141,30 +143,44 @@ router.get("/", async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - status
+ *             properties:
+ *               status:
+ *                 type: string
+ *                 enum: [Folyamatban, Kész]
  *     responses:
  *       200:
- *         description: Bug report successfully resolved
- *       403:
- *         description: Forbidden
+ *         description: Successfully updated
  *       500:
  *         description: Internal server error
  */
-router.post("/:id/resolve", async (req, res) => {
+router.put("/:id/status", async (req, res) => {
   try {
-    if (!req.user || req.user.permissions < 16) {
-      return res.status(403).json({
-        message: "Nincs jogosultsága ehhez a művelethez."
-      });
+    const { id } = req.params;
+    const { status } = req.body;
+
+    if (!status || !["Folyamatban", "Kész"].includes(status)) {
+      return res.status(400).json({ message: "Érvénytelen státusz." });
     }
 
-    const { id } = req.params;
-    await resolveBugReport(id);
+    // Must be superadmin
+    if (!req.user || !req.user.permissions || !req.user.permissions.isSuperadmin) {
+      return res.status(403).json({ message: "Nincs jogosultságod a hibajegy állapotának módosítására." });
+    }
 
-    return res.status(200).json({ message: "Hibajegy sikeresen lezárva." });
+    await updateBugStatus(id, status);
+    return res.status(200).json({ message: "Hibajegy állapota sikeresen frissítve." });
   } catch (error) {
-    console.error("Error resolving bug report:", error);
+    console.error("Error updating bug report status:", error);
     return res.status(500).json({
-      message: "Hiba történt a hibajegy lezárása során."
+      message: "Hiba történt a hibajegy állapotának frissítése során."
     });
   }
 });

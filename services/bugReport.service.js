@@ -231,10 +231,11 @@ export const getReportedBugs = async () => {
 };
 
 /**
- * Archives a bug report card in Trello (marks as done)
+ * Updates the status (adds label) of a bug report in Trello
  * @param {string} cardId - The Trello card ID
+ * @param {string} status - 'Kész' or 'Folyamatban'
  */
-export const resolveBugReport = async (cardId) => {
+export const updateBugStatus = async (cardId, status) => {
   const TRELLO_API_KEY = process.env.TRELLO_API_KEY;
   const TRELLO_API_TOKEN = process.env.TRELLO_API_TOKEN;
 
@@ -243,7 +244,7 @@ export const resolveBugReport = async (cardId) => {
   }
 
   // 1. Get Board ID and current labels from card
-  const cardResponse = await fetch(`https://api.trello.com/1/cards/${cardId}?fields=idBoard,labels&key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`);
+  const cardResponse = await fetch(`https://api.trello.com/1/cards/${cardId}?fields=idBoard,idLabels,labels&key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`);
   if (!cardResponse.ok) {
     console.error("Trello API Error fetching card details");
     throw new Error("Nem sikerült lekérni a kártya adatait.");
@@ -251,38 +252,53 @@ export const resolveBugReport = async (cardId) => {
   const cardData = await cardResponse.json();
   const boardId = cardData.idBoard;
 
-  // Check if card already has "Kész" label
-  const hasKeszLabel = cardData.labels && cardData.labels.some(l => l.name === "Kész");
-  if (hasKeszLabel) {
-    return { success: true }; // Already resolved
+  const oppositeStatus = status === "Kész" ? "Folyamatban" : "Kész";
+  const targetColor = status === "Kész" ? "green" : "blue";
+
+  // Check if card already has target label
+  const hasTargetLabel = cardData.labels && cardData.labels.some(l => l.name === status);
+  
+  // Find opposite label if it exists on card
+  const oppositeLabelOnCard = cardData.labels && cardData.labels.find(l => l.name === oppositeStatus);
+
+  if (hasTargetLabel && !oppositeLabelOnCard) {
+    return { success: true }; // Already in correct state
   }
 
-  // 2. Get Board labels
-  const labelsResponse = await fetch(`https://api.trello.com/1/boards/${boardId}/labels?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`);
-  if (!labelsResponse.ok) throw new Error("Nem sikerült lekérni a tábla címkéit.");
-  const labels = await labelsResponse.json();
+  // 2. Remove opposite label if present
+  if (oppositeLabelOnCard) {
+    await fetch(`https://api.trello.com/1/cards/${cardId}/idLabels/${oppositeLabelOnCard.id}?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`, {
+      method: 'DELETE'
+    });
+  }
 
-  // 3. Find "Kész" label
-  let keszLabel = labels.find(l => l.name === "Kész");
+  if (!hasTargetLabel) {
+    // 3. Get Board labels
+    const labelsResponse = await fetch(`https://api.trello.com/1/boards/${boardId}/labels?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`);
+    if (!labelsResponse.ok) throw new Error("Nem sikerült lekérni a tábla címkéit.");
+    const labels = await labelsResponse.json();
 
-  // 4. Create "Kész" label if not found
-  if (!keszLabel) {
-    const createLabelResponse = await fetch(`https://api.trello.com/1/labels?name=Kész&color=green&idBoard=${boardId}&key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`, {
+    // 4. Find target label on board
+    let targetLabel = labels.find(l => l.name === status);
+
+    // 5. Create target label if not found
+    if (!targetLabel) {
+      const createLabelResponse = await fetch(`https://api.trello.com/1/labels?name=${encodeURIComponent(status)}&color=${targetColor}&idBoard=${boardId}&key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`, {
+        method: 'POST'
+      });
+      if (!createLabelResponse.ok) throw new Error(`Nem sikerült létrehozni a ${status} címkét.`);
+      targetLabel = await createLabelResponse.json();
+    }
+
+    // 6. Add label to card
+    const addLabelResponse = await fetch(`https://api.trello.com/1/cards/${cardId}/idLabels?value=${targetLabel.id}&key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`, {
       method: 'POST'
     });
-    if (!createLabelResponse.ok) throw new Error("Nem sikerült létrehozni a Kész címkét.");
-    keszLabel = await createLabelResponse.json();
-  }
 
-  // 5. Add label to card
-  const addLabelResponse = await fetch(`https://api.trello.com/1/cards/${cardId}/idLabels?value=${keszLabel.id}&key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`, {
-    method: 'POST'
-  });
-
-  if (!addLabelResponse.ok) {
-    const errorText = await addLabelResponse.text();
-    console.error("Trello API Error adding label:", errorText);
-    throw new Error("Nem sikerült rátenni a Kész címkét a Trello-ban.");
+    if (!addLabelResponse.ok) {
+      console.error("Trello API Error adding label");
+      throw new Error(`Nem sikerült rátenni a ${status} címkét a Trello-ban.`);
+    }
   }
 
   return { success: true };
