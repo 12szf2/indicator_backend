@@ -1,5 +1,6 @@
 import { ServicePattern } from "../utils/ServicePattern.js";
 import prisma from "../utils/prisma.js";
+import { scheduleSnapshot } from "./form_history.service.js";
 
 const pattern = new ServicePattern('szakkepzesiMunkaszerzodesAranya', 'id', {
   szakirany: true,
@@ -169,6 +170,10 @@ export async function bulkSaveSzakkepzesiMunkaszerzodesAranya(records) {
   if (results.length > 0) {
     // Invalidate cache
     pattern.serviceCache.invalidateRelated("update", results[0].id);
+    // Schedule history snapshot
+    if (records[0]?.alapadatok_id) {
+      scheduleSnapshot(records[0].alapadatok_id, "szakkepzesiMunkaszerzodesAranya");
+    }
   }
 
   return results;
