@@ -81,12 +81,18 @@ router.get("/kategoriak", async (req, res) => {
  *                   type: string
  *                   example: "Internal server error"
  */
-router.get("/:tanev", async (req, res) => {
+router.get("/:param", async (req, res) => {
   try {
-    const tanev = req.params.tanev;
-    const data = await getAll(tanev);
-
-    return res.status(200).json(data);
+    const param = req.params.param;
+    
+    // Check if the parameter is a UUID (alapadatokId)
+    if (param.includes("-") && param.length > 20) {
+      const data = await getAllByAlapadatok(param);
+      return res.status(200).json(data);
+    } else {
+      const data = await getAll(param);
+      return res.status(200).json(data);
+    }
   } catch (error) {
     console.error("Error fetching competitions:", error);
     return res.status(500).json({ error: "Internal server error" });

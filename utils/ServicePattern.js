@@ -65,6 +65,10 @@ export class ServicePattern {
     const firstYear = parseInt(year) - 4;
     const lastYear = parseInt(year);
 
+    if (isNaN(firstYear) || isNaN(lastYear)) {
+      return await this.findAll();
+    }
+
     return await this.serviceCache.get(
       "byYear",
       async () => {
@@ -115,6 +119,10 @@ export class ServicePattern {
     }
     const firstYear = parseInt(year) - 4;
     const lastYear = parseInt(year);
+
+    if (isNaN(firstYear) || isNaN(lastYear)) {
+      return await this.findAllByAlapadatok(alapadatokId);
+    }
 
     return await this.serviceCache.get(
       "alapadatok_id_year",
