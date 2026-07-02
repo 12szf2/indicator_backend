@@ -93,8 +93,21 @@ router.post("/", async (req, res) => {
       return res.status(400).json({ error: "Missing required fields" });
     }
 
-    const ujEredmeny = await prisma.tanulmanyiEredmeny.create({
-      data: {
+    const ujEredmeny = await prisma.tanulmanyiEredmeny.upsert({
+      where: {
+        alapadatok_id_tanev_kezdete_intezmeny_tipusa_jogviszony_felev: {
+          alapadatok_id,
+          tanev_kezdete: parseInt(tanev_kezdete),
+          intezmeny_tipusa,
+          jogviszony,
+          felev
+        }
+      },
+      update: {
+        kituno: kituno !== undefined && kituno !== null ? parseInt(kituno) : null,
+        bukott: bukott !== undefined && bukott !== null ? parseInt(bukott) : null
+      },
+      create: {
         alapadatok_id,
         tanev_kezdete: parseInt(tanev_kezdete),
         intezmeny_tipusa,
