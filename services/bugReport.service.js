@@ -222,3 +222,35 @@ export const getReportedBugs = async () => {
     dateLastActivity: card.dateLastActivity,
   }));
 };
+
+/**
+ * Archives a bug report card in Trello (marks as done)
+ * @param {string} cardId - The Trello card ID
+ */
+export const resolveBugReport = async (cardId) => {
+  const TRELLO_API_KEY = process.env.TRELLO_API_KEY;
+  const TRELLO_API_TOKEN = process.env.TRELLO_API_TOKEN;
+
+  if (!TRELLO_API_KEY || !TRELLO_API_TOKEN) {
+    throw new Error("Trello API credentials missing.");
+  }
+
+  const response = await fetch(`https://api.trello.com/1/cards/${cardId}?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`, {
+    method: 'PUT',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      closed: true
+    })
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error("Trello API Error resolving bug:", errorText);
+    throw new Error("Nem sikerült lezárni a hibajegyet a Trello-ban.");
+  }
+
+  return { success: true };
+};

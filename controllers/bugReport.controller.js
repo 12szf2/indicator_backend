@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import { createBugReport, getReportedBugs } from "../services/bugReport.service.js";
+import { createBugReport, getReportedBugs, resolveBugReport } from "../services/bugReport.service.js";
 
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });
@@ -122,6 +122,49 @@ router.get("/", async (req, res) => {
     console.error("Error fetching bug reports:", error);
     return res.status(500).json({
       message: "Hiba történt a hibajegyek lekérdezése során."
+    });
+  }
+});
+
+/**
+ * @swagger
+ * /bug-report/{id}/resolve:
+ *   post:
+ *     summary: Mark a bug report as resolved
+ *     description: Archives a bug report card in Trello. Requires superadmin permissions.
+ *     tags: [BugReports]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Bug report successfully resolved
+ *       403:
+ *         description: Forbidden
+ *       500:
+ *         description: Internal server error
+ */
+router.post("/:id/resolve", async (req, res) => {
+  try {
+    if (!req.user || req.user.permissions < 16) {
+      return res.status(403).json({
+        message: "Nincs jogosultsága ehhez a művelethez."
+      });
+    }
+
+    const { id } = req.params;
+    await resolveBugReport(id);
+
+    return res.status(200).json({ message: "Hibajegy sikeresen lezárva." });
+  } catch (error) {
+    console.error("Error resolving bug report:", error);
+    return res.status(500).json({
+      message: "Hiba történt a hibajegy lezárása során."
     });
   }
 });
