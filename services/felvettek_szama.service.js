@@ -1,5 +1,6 @@
 import prisma from "../utils/prisma.js";
 import { ServicePattern, CACHE_TTL } from "../utils/ServicePattern.js";
+import { scheduleSnapshot } from "./form_history.service.js";
 
 // Initialize ServicePattern for felvettek_szama with relations
 const pattern = new ServicePattern(
@@ -56,6 +57,9 @@ export async function create(data) {
 
   // Invalidate related caches manually since we bypassed pattern.create
   pattern.serviceCache.invalidateRelated("create", result.id);
+
+  // Schedule history snapshot since we bypassed pattern.create
+  scheduleSnapshot(alapadatok_id, "felvettek_Szama");
 
   return result;
 }
@@ -129,6 +133,9 @@ export async function update(id, data) {
 
   // Invalidate related caches manually since we bypassed pattern.update
   pattern.serviceCache.invalidateRelated("update", id);
+
+  // Schedule history snapshot since we bypassed pattern.update
+  scheduleSnapshot(alapadatok_id, "felvettek_Szama");
 
   return result;
 }
