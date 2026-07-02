@@ -261,3 +261,42 @@ export const resolveBugReport = async (cardId) => {
 
   return { success: true };
 };
+
+/**
+ * Gets the attachment buffer and metadata from Trello
+ * @param {string} cardId - The Trello card ID
+ * @param {string} attachmentId - The attachment ID
+ */
+export const getBugAttachment = async (cardId, attachmentId) => {
+  const TRELLO_API_KEY = process.env.TRELLO_API_KEY;
+  const TRELLO_API_TOKEN = process.env.TRELLO_API_TOKEN;
+
+  if (!TRELLO_API_KEY || !TRELLO_API_TOKEN) {
+    throw new Error("Trello API credentials missing.");
+  }
+
+  // Get attachment info
+  const infoResponse = await fetch(`https://api.trello.com/1/cards/${cardId}/attachments/${attachmentId}?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`);
+  if (!infoResponse.ok) {
+    throw new Error("Failed to get attachment info");
+  }
+  const info = await infoResponse.json();
+
+  // Download attachment data using OAuth header
+  const downloadResponse = await fetch(info.url, {
+    headers: {
+      'Authorization': `OAuth oauth_consumer_key="${TRELLO_API_KEY}", oauth_token="${TRELLO_API_TOKEN}"`
+    }
+  });
+
+  if (!downloadResponse.ok) {
+    throw new Error("Failed to download attachment data");
+  }
+
+  const arrayBuffer = await downloadResponse.arrayBuffer();
+  return {
+    buffer: Buffer.from(arrayBuffer),
+    mimeType: info.mimeType || 'application/octet-stream',
+    name: info.name
+  };
+};

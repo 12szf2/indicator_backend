@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import { createBugReport, getReportedBugs, resolveBugReport } from "../services/bugReport.service.js";
+import { createBugReport, getReportedBugs, resolveBugReport, getBugAttachment } from "../services/bugReport.service.js";
 
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });
@@ -165,6 +165,48 @@ router.post("/:id/resolve", async (req, res) => {
     console.error("Error resolving bug report:", error);
     return res.status(500).json({
       message: "Hiba történt a hibajegy lezárása során."
+    });
+  }
+});
+
+/**
+ * @swagger
+ * /bug-report/attachment/{cardId}/{attachmentId}:
+ *   get:
+ *     summary: Get a bug report attachment
+ *     description: Proxies an attachment from Trello to bypass authentication issues
+ *     tags: [BugReports]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: cardId
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - in: path
+ *         name: attachmentId
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Attachment file
+ *       500:
+ *         description: Internal server error
+ */
+router.get("/attachment/:cardId/:attachmentId", async (req, res) => {
+  try {
+    const { cardId, attachmentId } = req.params;
+    const { buffer, mimeType, name } = await getBugAttachment(cardId, attachmentId);
+
+    res.setHeader('Content-Type', mimeType);
+    res.setHeader('Content-Disposition', `inline; filename="${name}"`);
+    res.send(buffer);
+  } catch (error) {
+    console.error("Error fetching bug report attachment:", error);
+    return res.status(500).json({
+      message: "Hiba történt a csatolmány lekérése során."
     });
   }
 });
