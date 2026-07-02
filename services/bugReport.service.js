@@ -242,21 +242,47 @@ export const resolveBugReport = async (cardId) => {
     throw new Error("Trello API credentials missing.");
   }
 
-  const response = await fetch(`https://api.trello.com/1/cards/${cardId}?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`, {
-    method: 'PUT',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      closed: true
-    })
+  // 1. Get Board ID and current labels from card
+  const cardResponse = await fetch(`https://api.trello.com/1/cards/${cardId}?fields=idBoard,labels&key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`);
+  if (!cardResponse.ok) {
+    console.error("Trello API Error fetching card details");
+    throw new Error("Nem sikerült lekérni a kártya adatait.");
+  }
+  const cardData = await cardResponse.json();
+  const boardId = cardData.idBoard;
+
+  // Check if card already has "Kész" label
+  const hasKeszLabel = cardData.labels && cardData.labels.some(l => l.name === "Kész");
+  if (hasKeszLabel) {
+    return { success: true }; // Already resolved
+  }
+
+  // 2. Get Board labels
+  const labelsResponse = await fetch(`https://api.trello.com/1/boards/${boardId}/labels?key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`);
+  if (!labelsResponse.ok) throw new Error("Nem sikerült lekérni a tábla címkéit.");
+  const labels = await labelsResponse.json();
+
+  // 3. Find "Kész" label
+  let keszLabel = labels.find(l => l.name === "Kész");
+
+  // 4. Create "Kész" label if not found
+  if (!keszLabel) {
+    const createLabelResponse = await fetch(`https://api.trello.com/1/labels?name=Kész&color=green&idBoard=${boardId}&key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`, {
+      method: 'POST'
+    });
+    if (!createLabelResponse.ok) throw new Error("Nem sikerült létrehozni a Kész címkét.");
+    keszLabel = await createLabelResponse.json();
+  }
+
+  // 5. Add label to card
+  const addLabelResponse = await fetch(`https://api.trello.com/1/cards/${cardId}/idLabels?value=${keszLabel.id}&key=${TRELLO_API_KEY}&token=${TRELLO_API_TOKEN}`, {
+    method: 'POST'
   });
 
-  if (!response.ok) {
-    const errorText = await response.text();
-    console.error("Trello API Error resolving bug:", errorText);
-    throw new Error("Nem sikerült lezárni a hibajegyet a Trello-ban.");
+  if (!addLabelResponse.ok) {
+    const errorText = await addLabelResponse.text();
+    console.error("Trello API Error adding label:", errorText);
+    throw new Error("Nem sikerült rátenni a Kész címkét a Trello-ban.");
   }
 
   return { success: true };
