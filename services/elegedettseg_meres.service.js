@@ -1,4 +1,5 @@
 import { ServicePattern } from "../utils/ServicePattern.js";
+import prisma from "../utils/prisma.js";
 
 const pattern = new ServicePattern('elegedettsegMeres', 'id', {
   alapadatok: true,
