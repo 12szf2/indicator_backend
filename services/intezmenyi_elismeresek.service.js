@@ -1,4 +1,5 @@
 import prisma from "../utils/prisma.js";
+import { scheduleSnapshot } from "./form_history.service.js";
 
 // ─── Intézményi Elismerések (dinamikus díjak) ────────────────────────────────
 
@@ -20,7 +21,7 @@ export async function getIntezményiElismeresekBySchool(alapadatokId) {
 }
 
 export async function createIntezményiElismeresek(alapadatokId, tanev, dij_neve, darabszam) {
-  return await prisma.intezményiElismeresek.create({
+  const res = await prisma.intezményiElismeresek.create({
     data: {
       alapadatok_id: alapadatokId,
       tanev_kezdete: parseInt(tanev),
@@ -28,20 +29,26 @@ export async function createIntezményiElismeresek(alapadatokId, tanev, dij_neve
       darabszam: parseInt(darabszam) || 0,
     },
   });
+  scheduleSnapshot(alapadatokId, "intezmenyi_elismeresek");
+  return res;
 }
 
 export async function updateIntezményiElismeresek(id, darabszam, dij_neve) {
-  return await prisma.intezményiElismeresek.update({
+  const res = await prisma.intezményiElismeresek.update({
     where: { id },
     data: {
       darabszam: parseInt(darabszam) || 0,
       ...(dij_neve !== undefined ? { dij_neve } : {}),
     },
   });
+  scheduleSnapshot(res.alapadatok_id, "intezmenyi_elismeresek");
+  return res;
 }
 
 export async function deleteIntezményiElismeresek(id) {
-  return await prisma.intezményiElismeresek.delete({ where: { id } });
+  const res = await prisma.intezményiElismeresek.delete({ where: { id } });
+  scheduleSnapshot(res.alapadatok_id, "intezmenyi_elismeresek");
+  return res;
 }
 
 // ─── Munkavállalók Elismerései (fix struktúra) ────────────────────────────────
@@ -64,7 +71,7 @@ export async function getMunkavallalokElismeresekBySchool(alapadatokId) {
 
 export async function upsertMunkavallalokElismeresek(alapadatokId, tanev, fields) {
   const tanev_kezdete = parseInt(tanev);
-  return await prisma.munkavallalokElismeresek.upsert({
+  const res = await prisma.munkavallalokElismeresek.upsert({
     where: {
       alapadatok_id_tanev_kezdete: {
         alapadatok_id: alapadatokId,
@@ -78,4 +85,6 @@ export async function upsertMunkavallalokElismeresek(alapadatokId, tanev, fields
     },
     update: fields,
   });
+  scheduleSnapshot(alapadatokId, "munkavallalok_elismeresek");
+  return res;
 }

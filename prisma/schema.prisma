@@ -29,6 +29,7 @@ model User {
   isTwoFactorEnabled Boolean     @default(false)
   mustChangePassword Boolean     @default(false)
   logs         Log[]
+  bug_reports  BugReport[]
   tableAccess  TableAccess[]
   alapadatok   Alapadatok?   @relation("AlapadatokUsers", fields: [alapadatokId], references: [id])
 
@@ -1229,4 +1230,20 @@ model EngedelyezettOratomeg {
 
   @@unique([alapadatok_id, tanev_kezdete])
   @@map("engedelyezett_oratomeg")
+}
+
+model BugReport {
+  id               String   @id @default(uuid()) @db.Uuid
+  userId           String   @db.Uuid
+  title            String   @db.VarChar(255)
+  description      String
+  severity         String   @db.VarChar(50)
+  stepsToReproduce String?
+  pageUrl          String?  @db.VarChar(255)
+  userAgent        String?  @db.VarChar(255)
+  status           String   @default("NEW") @db.VarChar(50)
+  createdAt        DateTime @default(now())
+  user             User     @relation(fields: [userId], references: [id])
+
+  @@map("bug_reports")
 }

@@ -1,5 +1,5 @@
-import { PrismaClient } from "../generated/prisma/index.js";
-const prisma = new PrismaClient();
+import prisma from "../utils/prisma.js";
+import { scheduleSnapshot } from "./form_history.service.js";
 
 export const getOratomeg = async (alapadatok_id, tanev_kezdete) => {
   return await prisma.engedelyezettOratomeg.findFirst({
@@ -11,7 +11,7 @@ export const getOratomeg = async (alapadatok_id, tanev_kezdete) => {
 };
 
 export const upsertOratomeg = async (alapadatok_id, tanev_kezdete, tanuloi_oratomeg, felnott_oratomeg, userId) => {
-  return await prisma.engedelyezettOratomeg.upsert({
+  const res = await prisma.engedelyezettOratomeg.upsert({
     where: {
       alapadatok_id_tanev_kezdete: {
         alapadatok_id,
@@ -31,4 +31,6 @@ export const upsertOratomeg = async (alapadatok_id, tanev_kezdete, tanuloi_orato
       createBy: userId,
     },
   });
+  scheduleSnapshot(alapadatok_id, "engedelyezett_oratomeg");
+  return res;
 };
