@@ -1,5 +1,6 @@
 import e from "express";
 import prisma from "../utils/prisma.js";
+import { scheduleSnapshot } from "../services/form_history.service.js";
 
 const router = e.Router();
 
@@ -118,6 +119,7 @@ router.post("/", async (req, res) => {
       }
     });
 
+    scheduleSnapshot(alapadatok_id, "tanulmanyi_eredmeny");
     res.status(201).json(ujEredmeny);
   } catch (error) {
     console.error("Error creating tanulmanyi_eredmeny:", error);
@@ -184,6 +186,7 @@ router.put("/:id", async (req, res) => {
       }
     });
 
+    scheduleSnapshot(alapadatok_id, "tanulmanyi_eredmeny");
     res.status(200).json(updatedEredmeny);
   } catch (error) {
     console.error("Error updating tanulmanyi_eredmeny:", error);
