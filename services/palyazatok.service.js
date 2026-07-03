@@ -13,6 +13,10 @@ export const getByAlapadatokIdAndTanev = async (alapadatokId, tanev) => {
   return results.filter(r => r.tanev_kezdete === targetYear);
 };
 
+export const getByAlapadatokId = async (alapadatokId) => {
+  return await pattern.findAllByAlapadatok(alapadatokId);
+};
+
 export const create = async (data) => {
   const payload = { ...data };
   // osszeg_ft might be passed as a number, but Prisma expects BigInt

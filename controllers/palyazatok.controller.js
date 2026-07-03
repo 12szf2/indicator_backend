@@ -1,6 +1,7 @@
 import express from "express";
 import {
   getByAlapadatokIdAndTanev,
+  getByAlapadatokId,
   create,
   remove,
   update,
@@ -16,6 +17,17 @@ const serialize = (obj) => {
     )
   );
 };
+
+router.get("/alapadatok/:alapadatokId", async (req, res) => {
+  try {
+    const { alapadatokId } = req.params;
+    const data = await getByAlapadatokId(alapadatokId);
+    res.status(200).json(serialize(data));
+  } catch (error) {
+    console.error("Error fetching palyazatok by alapadatok:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
 
 router.get("/:alapadatokId/:tanev", async (req, res) => {
   try {
