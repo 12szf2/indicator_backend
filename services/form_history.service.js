@@ -19,8 +19,8 @@ function getPrismaModelName(tableName) {
 
   if (!prisma[tableName]) {
     const keys = Object.keys(prisma);
-    const lowerTableName = tableName.toLowerCase();
-    const match = keys.find(k => k.toLowerCase() === lowerTableName);
+    const normalizedTableName = tableName.toLowerCase().replace(/_/g, "");
+    const match = keys.find(k => k.toLowerCase() === normalizedTableName);
     if (match) return match;
   }
   

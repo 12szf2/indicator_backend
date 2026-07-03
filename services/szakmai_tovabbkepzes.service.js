@@ -1,5 +1,6 @@
 import prisma from "../utils/prisma.js";
 import { ServicePattern, CACHE_TTL } from "../utils/ServicePattern.js";
+import { scheduleSnapshot } from "./form_history.service.js";
 
 const pattern = new ServicePattern(
   "szakmai_tovabbkepzes", 
@@ -106,6 +107,8 @@ export async function upsertBulk(alapadatokId, data) {
 
   // Invalidate caches
   await pattern.serviceCache.invalidateAll();
+  
+  scheduleSnapshot(alapadatokId, "szakmai_tovabbkepzes");
   
   return results;
 }
