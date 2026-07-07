@@ -158,7 +158,7 @@ export class ServicePattern {
     });
 
     // Invalidate related caches
-    this.serviceCache.invalidateRelated("create", result[this.key]);
+    await this.serviceCache.invalidateRelated("create", result[this.key]);
 
     if (data[this.alapadatokField] && this.serviceName !== "formHistory") {
       scheduleSnapshot(data[this.alapadatokField], this.serviceName);
@@ -174,7 +174,7 @@ export class ServicePattern {
     });
 
     // Invalidate all cache for bulk operations
-    this.serviceCache.invalidateRelated("createMany");
+    await this.serviceCache.invalidateRelated("createMany");
 
     // Attempt to schedule snapshot if we have at least one record with alapadatokId
     if (Array.isArray(data) && data.length > 0 && data[0][this.alapadatokField] && this.serviceName !== "formHistory") {
@@ -193,7 +193,7 @@ export class ServicePattern {
     });
 
     // Invalidate related caches
-    this.serviceCache.invalidateRelated("update", id);
+    await this.serviceCache.invalidateRelated("update", id);
 
     if ((data[this.alapadatokField] || result[this.alapadatokField]) && this.serviceName !== "formHistory") {
       scheduleSnapshot(data[this.alapadatokField] || result[this.alapadatokField], this.serviceName);
@@ -210,7 +210,7 @@ export class ServicePattern {
     });
 
     // Invalidate related caches
-    this.serviceCache.invalidateRelated("delete", id);
+    await this.serviceCache.invalidateRelated("delete", id);
 
     if (result[this.alapadatokField] && this.serviceName !== "formHistory") {
       scheduleSnapshot(result[this.alapadatokField], this.serviceName);
@@ -225,7 +225,7 @@ export class ServicePattern {
     });
 
     // Invalidate related caches
-    this.serviceCache.invalidateRelated("deleteMany", alapadatokId);
+    await this.serviceCache.invalidateRelated("deleteMany", alapadatokId);
 
     if (alapadatokId && this.serviceName !== "formHistory") {
       scheduleSnapshot(alapadatokId, this.serviceName);
@@ -248,7 +248,7 @@ export class ServicePattern {
     });
 
     // Invalidate related caches
-    this.serviceCache.invalidateRelated("deleteMany", alapadatokId);
+    await this.serviceCache.invalidateRelated("deleteMany", alapadatokId);
 
     return result;
   }
@@ -266,7 +266,7 @@ export class ServicePattern {
     });
 
     // Invalidate related caches
-    this.serviceCache.invalidateRelated("deleteMany", alapadatokId);
+    await this.serviceCache.invalidateRelated("deleteMany", alapadatokId);
 
     if (alapadatokId && this.serviceName !== "formHistory") {
       scheduleSnapshot(alapadatokId, this.serviceName);
@@ -324,7 +324,7 @@ export class ServicePattern {
     const result = await prisma[this.serviceName].deleteMany({ where });
 
     // Invalidate all cache for bulk operations
-    this.serviceCache.invalidateRelated("deleteMany");
+    await this.serviceCache.invalidateRelated("deleteMany");
 
     return result;
   }

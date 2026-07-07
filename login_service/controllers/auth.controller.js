@@ -3,14 +3,14 @@ import rateLimit from "express-rate-limit";
 import { login, refresh, generate2FA, verify2FA, disable2FA, forgotPassword, googleLogin } from "../services/auth.service.js";
 import { verifyToken } from "../utils/token.js";
 
-const authenticateToken = (req, res, next) => {
+const authenticateToken = async (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
 
   if (token == null) return res.status(401).json({ message: "No token provided" });
 
   try {
-    const decoded = verifyToken(token);
+    const decoded = await verifyToken(token);
     // JWT token is generated with subject as the userId (sub property typically, but here it's signed with sub)
     // Actually looking at token.js, the id is usually in the subject. Let's verify token.js again.
     // In token.js: `subject: String(user.id)`

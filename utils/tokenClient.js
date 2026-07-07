@@ -21,10 +21,10 @@ const JWT_DEFAULT_OPTIONS = {
 // Token verification cache settings
 const TOKEN_CACHE_TTL = 60 * 1000; // 1 minute
 
-export function verifyToken(token) {
+export async function verifyToken(token) {
   // Check cache first
   const cacheKey = `token:verify:${token}`;
-  const cachedDecoded = cache.get(cacheKey);
+  const cachedDecoded = await cache.get(cacheKey);
   if (cachedDecoded) {
     return cachedDecoded;
   }
@@ -35,7 +35,7 @@ export function verifyToken(token) {
   });
 
   // Cache the successful verification
-  cache.set(cacheKey, decoded, TOKEN_CACHE_TTL);
+  await cache.set(cacheKey, decoded, TOKEN_CACHE_TTL);
 
   return decoded;
 }
@@ -47,12 +47,12 @@ export async function getUserFromToken(token) {
   try {
     // Check cache first
     const cacheKey = `token:user:${token}`;
-    const cachedUser = cache.get(cacheKey);
+    const cachedUser = await cache.get(cacheKey);
     if (cachedUser) {
       return cachedUser;
     }
 
-    const decoded = verifyToken(token);
+    const decoded = await verifyToken(token);
 
     // For login service tokens, we get more complete user data from the token payload
     // and only fetch from database if we need additional information
@@ -88,7 +88,7 @@ export async function getUserFromToken(token) {
 
     if (user) {
       // Cache the user for this token
-      cache.set(cacheKey, user, USER_TOKEN_CACHE_TTL);
+      await cache.set(cacheKey, user, USER_TOKEN_CACHE_TTL);
     }
 
     return user;

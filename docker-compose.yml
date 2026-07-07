@@ -1,12 +1,10 @@
 services:
   # API Gateway Service - Entry point for all requests
   gateway:
-    build:
-      context: ./gateway_service
-      dockerfile: Dockerfile
+    image: ghcr.io/pollak-belso-projektek/indicator_backend-gateway-service:latest
     container_name: indicator-gateway
     ports:
-      - "5000:5000"
+      - "5001:5000"
     environment:
       - NODE_ENV=${NODE_ENV:-production}
       - PORT=5000
@@ -29,12 +27,13 @@ services:
       start_period: 40s
     networks:
       - indicator-network
+    logging:
+      options:
+        max-size: 50m
 
   # Login Service - Authentication microservice
   login-service:
-    build:
-      context: ./login_service
-      dockerfile: Dockerfile
+    image: ghcr.io/pollak-belso-projektek/indicator_backend-login-service:latest
     container_name: indicator-login
     ports:
       - "5301:5301"
@@ -46,8 +45,12 @@ services:
       - JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET}
       - JWT_EXPIRES_IN=${JWT_EXPIRES_IN:-15m}
       - JWT_REFRESH_EXPIRES_IN=${JWT_REFRESH_EXPIRES_IN:-7d}
-    depends_on:
-      - postgres
+      - REDIS_URL=redis://redis:6379
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5301/health/basic"]
@@ -57,12 +60,13 @@ services:
       start_period: 40s
     networks:
       - indicator-network
+    logging:
+      options:
+        max-size: 50m
 
   # Main Service - Core business logic
   main-service:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/pollak-belso-projektek/indicator_backend-main-service:latest
     container_name: indicator-main
     ports:
       - "5300:5300"
@@ -73,11 +77,14 @@ services:
       - JWT_SECRET=${JWT_SECRET}
       - JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET}
       - LOGIN_SERVICE_URL=http://login-service:5301
+      - REDIS_URL=redis://redis:6379
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
       - TRELLO_API_KEY=${TRELLO_API_KEY}
       - TRELLO_API_TOKEN=${TRELLO_API_TOKEN}
       - TRELLO_LIST_ID=${TRELLO_LIST_ID}
-    depends_on:
-      - postgres
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5300/health"]
@@ -87,58 +94,31 @@ services:
       start_period: 40s
     networks:
       - indicator-network
+    logging:
+      options:
+        max-size: 50m
 
-  # PostgreSQL Database
-  postgres:
-    image: postgres:17-alpine
-    container_name: indicator-postgres
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_DB=${POSTGRES_DB:-indicator_db}
-      - POSTGRES_USER=${POSTGRES_USER:-postgres}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+  frontend:
+    image: ghcr.io/pollak-belso-projektek/indicator_frontend:latest
     restart: unless-stopped
-    healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-indicator_db}",
-        ]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-      start_period: 30s
-    networks:
-      - indicator-network
-
-  # pgAdmin - PostgreSQL Administration Tool
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: indicator-pgadmin
     ports:
-      - "8080:80"
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL:-admin@admin.com}
-      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD:-admin}
-      - PGADMIN_CONFIG_SERVER_MODE=False
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
-    depends_on:
-      - postgres
+      - 5173:80
+    logging:
+      options:
+        max-size: 50m
+
+  redis:
+    image: redis:7-alpine
+    container_name: indicator-redis
+    ports:
+      - "6379:6379"
     restart: unless-stopped
     networks:
       - indicator-network
+    logging:
+      options:
+        max-size: 50m
 
 networks:
   indicator-network:
     driver: bridge
-
-# Volumes for persistent data (if needed)
-volumes:
-  postgres_data:
-    driver: local
-  pgadmin_data:
-    driver: local

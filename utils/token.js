@@ -63,10 +63,10 @@ export function generateToken(user) {
 // Token verification cache settings
 const TOKEN_CACHE_TTL = 60 * 1000; // 1 minute
 
-export function verifyToken(token) {
+export async function verifyToken(token) {
   // Check cache first
   const cacheKey = `token:verify:${token}`;
-  const cachedDecoded = cache.get(cacheKey);
+  const cachedDecoded = await cache.get(cacheKey);
   if (cachedDecoded) {
     return cachedDecoded;
   }
@@ -77,15 +77,15 @@ export function verifyToken(token) {
   });
 
   // Cache the successful verification
-  cache.set(cacheKey, decoded, TOKEN_CACHE_TTL);
+  await cache.set(cacheKey, decoded, TOKEN_CACHE_TTL);
 
   return decoded;
 }
 
-export function verifyRefreshToken(token) {
+export async function verifyRefreshToken(token) {
   // Check cache first
   const cacheKey = `token:refresh:${token}`;
-  const cachedDecoded = cache.get(cacheKey);
+  const cachedDecoded = await cache.get(cacheKey);
   if (cachedDecoded) {
     return cachedDecoded;
   }
@@ -97,7 +97,7 @@ export function verifyRefreshToken(token) {
     });
 
     // Cache the successful verification
-    cache.set(cacheKey, decoded, TOKEN_CACHE_TTL);
+    await cache.set(cacheKey, decoded, TOKEN_CACHE_TTL);
 
     return decoded;
   } catch (error) {
@@ -135,7 +135,7 @@ export function isRefreshTokenExpired(token) {
 }
 
 export async function refreshAccessToken(refreshToken) {
-  const decoded = verifyRefreshToken(refreshToken);
+  const decoded = await verifyRefreshToken(refreshToken);
   if (!decoded) {
     return null; // Invalid refresh token
   }
@@ -155,17 +155,17 @@ export async function getUserFromToken(token) {
   try {
     // Check cache first
     const cacheKey = `token:user:${token}`;
-    const cachedUser = cache.get(cacheKey);
+    const cachedUser = await cache.get(cacheKey);
     if (cachedUser) {
       return cachedUser;
     }
 
-    const decoded = verifyToken(token);
+    const decoded = await verifyToken(token);
     const user = await getByEmail(decoded.email);
 
     if (user) {
       // Cache the user for this token
-      cache.set(cacheKey, user, USER_TOKEN_CACHE_TTL);
+      await cache.set(cacheKey, user, USER_TOKEN_CACHE_TTL);
     }
 
     return user;

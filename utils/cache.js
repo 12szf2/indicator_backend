@@ -1,52 +1,63 @@
-/**
- * Simple in-memory cache utility
- * Provides general-purpose caching with TTL support for the backend
- * Includes max size limit and periodic cleanup to prevent memory leaks
- */
+import { createClient } from "redis";
+import process from "node:process";
 
-// Main cache store
-const cache = new Map();
+const REDIS_URL = process.env.REDIS_URL;
 
-// Default TTL in milliseconds (5 minutes)
+let redisClient = null;
+let useRedis = false;
+
+// Fallback memory cache
+const memoryCache = new Map();
+const MAX_CACHE_SIZE = 10000;
 const DEFAULT_TTL = 5 * 60 * 1000;
 
-// Maximum number of entries to prevent unbounded memory growth
-const MAX_CACHE_SIZE = 10000;
+// Initialize Redis if URL is provided
+if (REDIS_URL) {
+  redisClient = createClient({ url: REDIS_URL });
 
-// Cleanup interval (5 minutes)
-const CLEANUP_INTERVAL = 5 * 60 * 1000;
+  redisClient.on("error", (err) => {
+    console.error("Redis Client Error:", err.message);
+    useRedis = false; // Fallback to memory on error
+  });
+
+  redisClient.on("ready", () => {
+    console.log("Redis connected successfully");
+    useRedis = true;
+  });
+
+  // Connect asynchronously but don't await here at top level to not block module load
+  redisClient.connect().catch((err) => {
+    console.error("Failed to connect to Redis:", err.message);
+  });
+}
 
 /**
- * Evict expired entries and enforce max size limit
+ * Evict expired entries and enforce max size limit for memory cache
  */
 function evictIfNeeded() {
   const now = Date.now();
-
-  // First pass: remove expired entries
-  for (const [key, item] of cache.entries()) {
+  for (const [key, item] of memoryCache.entries()) {
     if (item.expiry && item.expiry < now) {
-      cache.delete(key);
+      memoryCache.delete(key);
     }
   }
-
-  // Second pass: if still over limit, remove oldest entries (by insertion order)
-  if (cache.size > MAX_CACHE_SIZE) {
-    const entriesToRemove = cache.size - MAX_CACHE_SIZE;
+  if (memoryCache.size > MAX_CACHE_SIZE) {
+    const entriesToRemove = memoryCache.size - MAX_CACHE_SIZE;
     let removed = 0;
-    for (const key of cache.keys()) {
+    for (const key of memoryCache.keys()) {
       if (removed >= entriesToRemove) break;
-      cache.delete(key);
+      memoryCache.delete(key);
       removed++;
     }
   }
 }
 
-// Periodic cleanup timer - runs every 5 minutes to clean expired entries
+// Periodic cleanup timer for memory cache
+const CLEANUP_INTERVAL = 5 * 60 * 1000;
 const cleanupTimer = setInterval(() => {
-  evictIfNeeded();
+  if (!useRedis) evictIfNeeded();
 }, CLEANUP_INTERVAL);
 
-// Allow the timer to not prevent process exit
 if (cleanupTimer.unref) {
   cleanupTimer.unref();
 }
@@ -54,77 +65,119 @@ if (cleanupTimer.unref) {
 /**
  * Get a value from the cache
  * @param {string} key - The cache key
- * @returns {any|null} - The cached value or null if not found/expired
+ * @returns {Promise<any|null>} - The cached value or null if not found/expired
  */
-export function get(key) {
-  const item = cache.get(key);
-
-  // Return null if not in cache or key doesn't exist
-  if (!item) return null;
-
-  // Check if item has expired
-  if (item.expiry && item.expiry < Date.now()) {
-    cache.delete(key); // Clean up expired item
-    return null;
+export async function get(key) {
+  if (useRedis) {
+    try {
+      const data = await redisClient.get(key);
+      return data ? JSON.parse(data) : null;
+    } catch (err) {
+      console.error("Redis get error:", err.message);
+      return null;
+    }
+  } else {
+    const item = memoryCache.get(key);
+    if (!item) return null;
+    if (item.expiry && item.expiry < Date.now()) {
+      memoryCache.delete(key);
+      return null;
+    }
+    return item.value;
   }
-
-  return item.value;
 }
 
 /**
  * Set a value in the cache
  * @param {string} key - The cache key
  * @param {any} value - The value to cache
- * @param {number|null} ttl - Time to live in milliseconds (default: 5 minutes)
+ * @param {number|null} ttl - Time to live in milliseconds
  */
-export function set(key, value, ttl = DEFAULT_TTL) {
-  // Evict if we're at the limit and this is a new key
-  if (!cache.has(key) && cache.size >= MAX_CACHE_SIZE) {
-    evictIfNeeded();
+export async function set(key, value, ttl = DEFAULT_TTL) {
+  if (useRedis) {
+    try {
+      const strValue = JSON.stringify(value);
+      if (ttl) {
+        await redisClient.setEx(key, Math.floor(ttl / 1000), strValue);
+      } else {
+        await redisClient.set(key, strValue);
+      }
+    } catch (err) {
+      console.error("Redis set error:", err.message);
+    }
+  } else {
+    if (!memoryCache.has(key) && memoryCache.size >= MAX_CACHE_SIZE) {
+      evictIfNeeded();
+    }
+    const expiry = ttl ? Date.now() + ttl : null;
+    memoryCache.set(key, { value, expiry });
   }
-
-  const expiry = ttl ? Date.now() + ttl : null;
-
-  cache.set(key, {
-    value,
-    expiry,
-  });
 }
 
 /**
  * Check if a key exists in the cache and is not expired
  * @param {string} key - The cache key
- * @returns {boolean} - True if the key exists and is not expired
+ * @returns {Promise<boolean>} - True if the key exists and is not expired
  */
-export function has(key) {
-  const item = cache.get(key);
-  if (!item) return false;
-
-  if (item.expiry && item.expiry < Date.now()) {
-    cache.delete(key);
-    return false;
+export async function has(key) {
+  if (useRedis) {
+    try {
+      return (await redisClient.exists(key)) === 1;
+    } catch (err) {
+      console.error("Redis has error:", err.message);
+      return false;
+    }
+  } else {
+    const item = memoryCache.get(key);
+    if (!item) return false;
+    if (item.expiry && item.expiry < Date.now()) {
+      memoryCache.delete(key);
+      return false;
+    }
+    return true;
   }
-
-  return true;
 }
 
 /**
  * Delete a specific key from the cache
  * @param {string} key - The cache key
  */
-export function del(key) {
-  cache.delete(key);
+export async function del(key) {
+  if (useRedis) {
+    try {
+      await redisClient.del(key);
+    } catch (err) {
+      console.error("Redis del error:", err.message);
+    }
+  } else {
+    memoryCache.delete(key);
+  }
 }
 
 /**
  * Delete all keys that match a pattern
  * @param {string} pattern - The pattern to match keys against
  */
-export function delByPattern(pattern) {
-  const regex = new RegExp(pattern);
-  for (const key of cache.keys()) {
-    if (regex.test(key)) {
-      cache.delete(key);
+export async function delByPattern(pattern) {
+  if (useRedis) {
+    try {
+      // Fetch all keys and filter by regex.
+      // (For larger production datasets, use SCAN or convert regex to redis glob)
+      const keys = await redisClient.keys("*");
+      const regex = new RegExp(pattern);
+      const keysToDelete = keys.filter((k) => regex.test(k));
+      if (keysToDelete.length > 0) {
+        await redisClient.del(keysToDelete);
+      }
+    } catch (err) {
+      console.error("Redis delByPattern error:", err.message);
+    }
+  } else {
+    const regex = new RegExp(pattern);
+    for (const key of memoryCache.keys()) {
+      if (regex.test(key)) {
+        memoryCache.delete(key);
+      }
     }
   }
 }
@@ -132,32 +185,47 @@ export function delByPattern(pattern) {
 /**
  * Clear the entire cache
  */
-export function clear() {
-  cache.clear();
+export async function clear() {
+  if (useRedis) {
+    try {
+      await redisClient.flushDb();
+    } catch (err) {
+      console.error("Redis clear error:", err.message);
+    }
+  } else {
+    memoryCache.clear();
+  }
 }
 
 /**
  * Get stats about the cache
- * @returns {Object} - Stats about the cache
+ * @returns {Promise<Object>} - Stats about the cache
  */
-export function stats() {
-  let size = 0;
-  let expired = 0;
-  const now = Date.now();
-  for (const [_, item] of cache.entries()) {
-    if (item.expiry && item.expiry < now) {
-      expired++;
-    } else {
-      size++;
+export async function stats() {
+  if (useRedis) {
+    return {
+      type: "redis",
+      connected: useRedis,
+    };
+  } else {
+    let size = 0;
+    let expired = 0;
+    const now = Date.now();
+    for (const [_, item] of memoryCache.entries()) {
+      if (item.expiry && item.expiry < now) {
+        expired++;
+      } else {
+        size++;
+      }
     }
+    return {
+      type: "memory",
+      size,
+      expired,
+      total: memoryCache.size,
+      maxSize: MAX_CACHE_SIZE,
+    };
   }
-
-  return {
-    size,
-    expired,
-    total: cache.size,
-    maxSize: MAX_CACHE_SIZE,
-  };
 }
 
 /**
@@ -170,14 +238,14 @@ export function stats() {
 export function cached(fn, keyPrefix, ttl = DEFAULT_TTL) {
   return async (...args) => {
     const key = `${keyPrefix}:${JSON.stringify(args)}`;
-    const cached = get(key);
+    const cachedData = await get(key);
 
-    if (cached !== null) {
-      return cached;
+    if (cachedData !== null) {
+      return cachedData;
     }
 
     const result = await fn(...args);
-    set(key, result, ttl);
+    await set(key, result, ttl);
     return result;
   };
 }
@@ -185,9 +253,9 @@ export function cached(fn, keyPrefix, ttl = DEFAULT_TTL) {
 /**
  * Convenience function to invalidate cache entries by pattern
  * @param {string} pattern - The pattern to match (e.g., 'users:*')
- * @returns {boolean} - Always returns true for ease of use
+ * @returns {Promise<boolean>} - Always returns true for ease of use
  */
-export function invalidate(pattern) {
-  delByPattern(pattern);
+export async function invalidate(pattern) {
+  await delByPattern(pattern);
   return true;
 }
