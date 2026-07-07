@@ -65,12 +65,12 @@ export async function getAll(token) {
     },
   });
   // Enrich each user with permission details
-  data.forEach((user) => enrichUserWithPermissions(user));
+  const enrichedData = data.map((user) => enrichUserWithPermissions(user));
 
   // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.LIST);
+  cache.set(cacheKey, enrichedData, CACHE_TTL.LIST);
 
-  return data;
+  return enrichedData;
 }
 
 export async function getByEmail(email) {
@@ -100,12 +100,12 @@ export async function getByEmail(email) {
     return null;
   }
 
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.DETAIL);
   // Enrich user with permission details
-  enrichUserWithPermissions(data);
+  const enrichedData = enrichUserWithPermissions(data);
+  // Store in cache
+  cache.set(cacheKey, enrichedData, CACHE_TTL.DETAIL);
 
-  return data;
+  return enrichedData;
 }
 
 export async function getById(id) {
@@ -134,12 +134,12 @@ export async function getById(id) {
     return null;
   }
 
-  // Store in cache
-  cache.set(cacheKey, data, CACHE_TTL.DETAIL);
   // Enrich user with permission details
-  enrichUserWithPermissions(data);
+  const enrichedData = enrichUserWithPermissions(data);
+  // Store in cache
+  cache.set(cacheKey, enrichedData, CACHE_TTL.DETAIL);
 
-  return data;
+  return enrichedData;
 }
 
 export async function getAllFiltered(token) {
@@ -240,7 +240,7 @@ export async function create(
           );
         }
 
-        prisma.tableAccess.create({
+        await prisma.tableAccess.create({
           data: {
             userId: user.id,
             tableId: table.id,

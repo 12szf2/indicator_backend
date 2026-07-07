@@ -157,7 +157,6 @@ app.use("/api/v1", apiRouter);
 // Set up Swagger API documentation (requires authentication)
 i.setupSwagger(app);
 
-app.use("/api/v1/auth", i.authRouter);
 
 // Initialize database connection and start server
 const startServer = async () => {

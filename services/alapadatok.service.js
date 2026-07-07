@@ -58,7 +58,7 @@ export async function getAll() {
   });
 
   // Store in cache
-  // cache.set(cacheKey, filteredBySzakma, CACHE_TTL.LIST);
+  cache.set(cacheKey, filteredBySzakma, CACHE_TTL.LIST);
 
   return filteredBySzakma;
 }
@@ -121,7 +121,7 @@ export async function getById(id) {
   };
 
   // Store in cache
-  // cache.set(cacheKey, filteredBySzakma, CACHE_TTL.DETAIL);
+  cache.set(cacheKey, filteredBySzakma, CACHE_TTL.DETAIL);
 
   return filteredBySzakma;
 }

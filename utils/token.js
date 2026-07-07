@@ -1,3 +1,9 @@
+/**
+ * WARNING: Do not merge with tokenClient.js!
+ * This file is responsible for GENERATING tokens for the main API and login service.
+ * tokenClient.js is used for consuming/verifying tokens in microservice communication.
+ * They have different configuration requirements and issuers.
+ */
 import jwt from "jsonwebtoken";
 import { getByEmail } from "../services/user.service.js";
 import * as cache from "./cache.js";

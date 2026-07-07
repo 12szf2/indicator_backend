@@ -145,9 +145,9 @@ const prisma = new PrismaClient({
     },
   },
   log:
-    process.env.NODE_ENV === "development"
+    process.env.DEBUG_DB === "true"
       ? ["query", "info", "warn", "error"]
-      : ["error"],
+      : ["error", "warn"],
   errorFormat: "minimal",
   transactionOptions: {
     timeout: 10000, // 10 seconds
@@ -189,43 +189,11 @@ const initializeDatabase = async (options = {}) => {
   }
 };
 
-// Enhanced Prisma client with retry capabilities
-const enhancedPrisma = new Proxy(prisma, {
-  get(target, prop) {
-    const original = target[prop];
-
-    // Wrap database operations with retry logic
-    if (typeof original === "function" && prop.startsWith("$")) {
-      return async (...args) => {
-        return withRetry(() => original.apply(target, args));
-      };
-    }
-
-    // For model operations, wrap the model proxy
-    if (typeof original === "object" && original !== null) {
-      return new Proxy(original, {
-        get(modelTarget, modelProp) {
-          const modelMethod = modelTarget[modelProp];
-
-          if (typeof modelMethod === "function") {
-            return async (...args) => {
-              return withRetry(() => modelMethod.apply(modelTarget, args));
-            };
-          }
-
-          return modelMethod;
-        },
-      });
-    }
-
-    return original;
-  },
-});
-
+// Graceful shutdown - disconnect Prisma on process termination
 const gracefulShutdown = async (signal) => {
   console.log(`${signal} received, disconnecting from database...`);
   try {
-    await enhancedPrisma.$disconnect();
+    await prisma.$disconnect();
     console.log("Database connection closed.");
   } catch (error) {
     console.error("Error disconnecting from database:", error);
@@ -239,6 +207,10 @@ if (!process.listenerCount("SIGINT")) {
   process.on("SIGINT", () => gracefulShutdown("SIGINT"));
 }
 
-// Export the enhanced prisma client and utility functions
-export default enhancedPrisma;
+// Export the plain prisma client and utility functions
+// NOTE: The enhancedPrisma Proxy was removed to prevent double retry.
+// withRetry is available for explicit use where retry logic is truly needed
+// (e.g., initializeDatabase). Normal CRUD operations rely on Prisma's
+// built-in connection pool retry mechanism.
+export default prisma;
 export { initializeDatabase, testDatabaseConnection, withRetry };

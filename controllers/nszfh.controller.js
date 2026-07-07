@@ -383,59 +383,7 @@ router.get("/:alapadatokId/:tanev", async (req, res) => {
  */
 router.post("/", async (req, res) => {
   try {
-    const {
-      alapadatok_id,
-      szakma_id,
-      tanev_kezdete,
-      kepzes_forma,
-      kat_1_mat_bemeneti,
-      kat_1_mat_kimeneti,
-      kat_1_szoveg_bemeneti,
-      kat_1_szoveg_kimeneti,
-      kat_2_mat_bemeneti,
-      kat_2_mat_kimeneti,
-      kat_2_szoveg_bemeneti,
-      kat_2_szoveg_kimeneti,
-      kat_3_mat_bemeneti,
-      kat_3_mat_kimeneti,
-      kat_3_szoveg_bemeneti,
-      kat_3_szoveg_kimeneti,
-      kat_4_mat_bemeneti,
-      kat_4_mat_kimeneti,
-      kat_4_szoveg_bemeneti,
-      kat_4_szoveg_kimeneti,
-      kat_5_mat_bemeneti,
-      kat_5_mat_kimeneti,
-      kat_5_szoveg_bemeneti,
-      kat_5_szoveg_kimeneti,
-    } = req.body;
-
-    const createdData = await create(
-      alapadatok_id,
-      szakma_id,
-      tanev_kezdete,
-      kepzes_forma,
-      kat_1_mat_bemeneti,
-      kat_1_mat_kimeneti,
-      kat_1_szoveg_bemeneti,
-      kat_1_szoveg_kimeneti,
-      kat_2_mat_bemeneti,
-      kat_2_mat_kimeneti,
-      kat_2_szoveg_bemeneti,
-      kat_2_szoveg_kimeneti,
-      kat_3_mat_bemeneti,
-      kat_3_mat_kimeneti,
-      kat_3_szoveg_bemeneti,
-      kat_3_szoveg_kimeneti,
-      kat_4_mat_bemeneti,
-      kat_4_mat_kimeneti,
-      kat_4_szoveg_bemeneti,
-      kat_4_szoveg_kimeneti,
-      kat_5_mat_bemeneti,
-      kat_5_mat_kimeneti,
-      kat_5_szoveg_bemeneti,
-      kat_5_szoveg_kimeneti
-    );
+    const createdData = await create(req.body);
 
     return res.status(201).json(createdData);
   } catch (error) {
@@ -598,60 +546,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const {
-      alapadatok_id,
-      szakma_id,
-      tanev_kezdete,
-      kepzes_forma,
-      kat_1_mat_bemeneti,
-      kat_1_mat_kimeneti,
-      kat_1_szoveg_bemeneti,
-      kat_1_szoveg_kimeneti,
-      kat_2_mat_bemeneti,
-      kat_2_mat_kimeneti,
-      kat_2_szoveg_bemeneti,
-      kat_2_szoveg_kimeneti,
-      kat_3_mat_bemeneti,
-      kat_3_mat_kimeneti,
-      kat_3_szoveg_bemeneti,
-      kat_3_szoveg_kimeneti,
-      kat_4_mat_bemeneti,
-      kat_4_mat_kimeneti,
-      kat_4_szoveg_bemeneti,
-      kat_4_szoveg_kimeneti,
-      kat_5_mat_bemeneti,
-      kat_5_mat_kimeneti,
-      kat_5_szoveg_bemeneti,
-      kat_5_szoveg_kimeneti,
-    } = req.body;
-
-    const updatedData = await update(
-      id,
-      alapadatok_id,
-      szakma_id,
-      tanev_kezdete,
-      kepzes_forma,
-      kat_1_mat_bemeneti,
-      kat_1_mat_kimeneti,
-      kat_1_szoveg_bemeneti,
-      kat_1_szoveg_kimeneti,
-      kat_2_mat_bemeneti,
-      kat_2_mat_kimeneti,
-      kat_2_szoveg_bemeneti,
-      kat_2_szoveg_kimeneti,
-      kat_3_mat_bemeneti,
-      kat_3_mat_kimeneti,
-      kat_3_szoveg_bemeneti,
-      kat_3_szoveg_kimeneti,
-      kat_4_mat_bemeneti,
-      kat_4_mat_kimeneti,
-      kat_4_szoveg_bemeneti,
-      kat_4_szoveg_kimeneti,
-      kat_5_mat_bemeneti,
-      kat_5_mat_kimeneti,
-      kat_5_szoveg_bemeneti,
-      kat_5_szoveg_kimeneti
-    );
+    const updatedData = await update(id, req.body);
 
     return res.status(200).json(updatedData);
   } catch (error) {

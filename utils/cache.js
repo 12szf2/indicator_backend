@@ -1,6 +1,7 @@
 /**
  * Simple in-memory cache utility
  * Provides general-purpose caching with TTL support for the backend
+ * Includes max size limit and periodic cleanup to prevent memory leaks
  */
 
 // Main cache store
@@ -8,6 +9,47 @@ const cache = new Map();
 
 // Default TTL in milliseconds (5 minutes)
 const DEFAULT_TTL = 5 * 60 * 1000;
+
+// Maximum number of entries to prevent unbounded memory growth
+const MAX_CACHE_SIZE = 10000;
+
+// Cleanup interval (5 minutes)
+const CLEANUP_INTERVAL = 5 * 60 * 1000;
+
+/**
+ * Evict expired entries and enforce max size limit
+ */
+function evictIfNeeded() {
+  const now = Date.now();
+
+  // First pass: remove expired entries
+  for (const [key, item] of cache.entries()) {
+    if (item.expiry && item.expiry < now) {
+      cache.delete(key);
+    }
+  }
+
+  // Second pass: if still over limit, remove oldest entries (by insertion order)
+  if (cache.size > MAX_CACHE_SIZE) {
+    const entriesToRemove = cache.size - MAX_CACHE_SIZE;
+    let removed = 0;
+    for (const key of cache.keys()) {
+      if (removed >= entriesToRemove) break;
+      cache.delete(key);
+      removed++;
+    }
+  }
+}
+
+// Periodic cleanup timer - runs every 5 minutes to clean expired entries
+const cleanupTimer = setInterval(() => {
+  evictIfNeeded();
+}, CLEANUP_INTERVAL);
+
+// Allow the timer to not prevent process exit
+if (cleanupTimer.unref) {
+  cleanupTimer.unref();
+}
 
 /**
  * Get a value from the cache
@@ -36,6 +78,11 @@ export function get(key) {
  * @param {number|null} ttl - Time to live in milliseconds (default: 5 minutes)
  */
 export function set(key, value, ttl = DEFAULT_TTL) {
+  // Evict if we're at the limit and this is a new key
+  if (!cache.has(key) && cache.size >= MAX_CACHE_SIZE) {
+    evictIfNeeded();
+  }
+
   const expiry = ttl ? Date.now() + ttl : null;
 
   cache.set(key, {
@@ -109,6 +156,7 @@ export function stats() {
     size,
     expired,
     total: cache.size,
+    maxSize: MAX_CACHE_SIZE,
   };
 }
 

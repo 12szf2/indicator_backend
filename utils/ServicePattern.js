@@ -19,11 +19,19 @@ export class ServicePattern {
   }
 
   /**
+   * Helper to get select clause (returns undefined if empty, to let Prisma return all fields)
+   */
+  _getSelect() {
+    return Object.keys(this.select).length > 0 ? this.select : undefined;
+  }
+
+  /**
    * Helper method to get current academic year
    */
   getCurrentAcademicYear() {
-    let year = new Date().getFullYear();
-    const month = new Date().getMonth();
+    const now = new Date();
+    let year = now.getFullYear();
+    const month = now.getMonth();
 
     // If month is before June (0-based), we're in the previous academic year
     if (month < 6) {
@@ -50,7 +58,7 @@ export class ServicePattern {
       async () => {
         return await prisma[this.serviceName].findMany({
           include: this.include,
-          select: Object.keys(this.select).length > 0 ? this.select : undefined,
+          select: this._getSelect(),
           orderBy: this.orderBy,
         });
       },
@@ -75,7 +83,7 @@ export class ServicePattern {
         return await prisma[this.serviceName].findMany({
           where: { [this.yearField]: { gte: firstYear, lte: lastYear } },
           include: this.include,
-          select: Object.keys(this.select).length > 0 ? this.select : undefined,
+          select: this._getSelect(),
         });
       },
       CACHE_TTL.SHORT,
@@ -90,7 +98,7 @@ export class ServicePattern {
         return await prisma[this.serviceName].findUnique({
           where: { [this.key]: id },
           include: this.include,
-          select: Object.keys(this.select).length > 0 ? this.select : undefined,
+          select: this._getSelect(),
         });
       },
       CACHE_TTL.MEDIUM,
@@ -105,7 +113,7 @@ export class ServicePattern {
         return await prisma[this.serviceName].findMany({
           where: { [this.alapadatokField]: alapadatokId },
           include: this.include,
-          select: Object.keys(this.select).length > 0 ? this.select : undefined,
+          select: this._getSelect(),
         });
       },
       CACHE_TTL.SHORT,
@@ -133,7 +141,7 @@ export class ServicePattern {
             [this.yearField]: { gte: firstYear, lte: lastYear },
           },
           include: this.include,
-          select: Object.keys(this.select).length > 0 ? this.select : undefined,
+          select: this._getSelect(),
         });
       },
       CACHE_TTL.SHORT,
@@ -146,7 +154,7 @@ export class ServicePattern {
     const result = await prisma[this.serviceName].create({
       data,
       include: this.include,
-      select: Object.keys(this.select).length > 0 ? this.select : undefined,
+      select: this._getSelect(),
     });
 
     // Invalidate related caches
@@ -181,7 +189,7 @@ export class ServicePattern {
       where: { [this.key]: id },
       data,
       include: this.include,
-      select: Object.keys(this.select).length > 0 ? this.select : undefined,
+      select: this._getSelect(),
     });
 
     // Invalidate related caches
@@ -198,7 +206,7 @@ export class ServicePattern {
     const result = await prisma[this.serviceName].delete({
       where: { [this.key]: id },
       include: this.include,
-      select: Object.keys(this.select).length > 0 ? this.select : undefined,
+      select: this._getSelect(),
     });
 
     // Invalidate related caches

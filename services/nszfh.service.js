@@ -12,113 +12,12 @@ export async function getAllByAlapadatok(alapadatokId, tanev) {
   return await pattern.findByAlapadatokIdAndYear(alapadatokId, tanev);
 }
 
-export async function create(
-  alapadatok_id,
-  szakma_id,
-  tanev_kezdete,
-  kepzes_forma,
-  kat_1_mat_bemeneti,
-  kat_1_mat_kimeneti,
-  kat_1_szoveg_bemeneti,
-  kat_1_szoveg_kimeneti,
-  kat_2_mat_bemeneti,
-  kat_2_mat_kimeneti,
-  kat_2_szoveg_bemeneti,
-  kat_2_szoveg_kimeneti,
-  kat_3_mat_bemeneti,
-  kat_3_mat_kimeneti,
-  kat_3_szoveg_bemeneti,
-  kat_3_szoveg_kimeneti,
-  kat_4_mat_bemeneti,
-  kat_4_mat_kimeneti,
-  kat_4_szoveg_bemeneti,
-  kat_4_szoveg_kimeneti,
-  kat_5_mat_bemeneti,
-  kat_5_mat_kimeneti,
-  kat_5_szoveg_bemeneti,
-  kat_5_szoveg_kimeneti
-) {
-  return await pattern.create({
-    alapadatok_id,
-    szakma_id,
-    tanev_kezdete,
-    kepzes_forma,
-    kat_1_mat_bemeneti,
-    kat_1_mat_kimeneti,
-    kat_1_szoveg_bemeneti,
-    kat_1_szoveg_kimeneti,
-    kat_2_mat_bemeneti,
-    kat_2_mat_kimeneti,
-    kat_2_szoveg_bemeneti,
-    kat_2_szoveg_kimeneti,
-    kat_3_mat_bemeneti,
-    kat_3_mat_kimeneti,
-    kat_3_szoveg_bemeneti,
-    kat_3_szoveg_kimeneti,
-    kat_4_mat_bemeneti,
-    kat_4_mat_kimeneti,
-    kat_4_szoveg_bemeneti,
-    kat_4_szoveg_kimeneti,
-    kat_5_mat_bemeneti,
-    kat_5_mat_kimeneti,
-    kat_5_szoveg_bemeneti,
-    kat_5_szoveg_kimeneti,
-  });
+export async function create(data) {
+  return await pattern.create(data);
 }
 
-export async function update(
-  id,
-  alapadatok_id,
-  szakma_id,
-  tanev_kezdete,
-  kepzes_forma,
-  kat_1_mat_bemeneti,
-  kat_1_mat_kimeneti,
-  kat_1_szoveg_bemeneti,
-  kat_1_szoveg_kimeneti,
-  kat_2_mat_bemeneti,
-  kat_2_mat_kimeneti,
-  kat_2_szoveg_bemeneti,
-  kat_2_szoveg_kimeneti,
-  kat_3_mat_bemeneti,
-  kat_3_mat_kimeneti,
-  kat_3_szoveg_bemeneti,
-  kat_3_szoveg_kimeneti,
-  kat_4_mat_bemeneti,
-  kat_4_mat_kimeneti,
-  kat_4_szoveg_bemeneti,
-  kat_4_szoveg_kimeneti,
-  kat_5_mat_bemeneti,
-  kat_5_mat_kimeneti,
-  kat_5_szoveg_bemeneti,
-  kat_5_szoveg_kimeneti
-) {
-  return await pattern.update(id, {
-    alapadatok_id,
-    szakma_id,
-    tanev_kezdete,
-    kepzes_forma,
-    kat_1_mat_bemeneti,
-    kat_1_mat_kimeneti,
-    kat_1_szoveg_bemeneti,
-    kat_1_szoveg_kimeneti,
-    kat_2_mat_bemeneti,
-    kat_2_mat_kimeneti,
-    kat_2_szoveg_bemeneti,
-    kat_2_szoveg_kimeneti,
-    kat_3_mat_bemeneti,
-    kat_3_mat_kimeneti,
-    kat_3_szoveg_bemeneti,
-    kat_3_szoveg_kimeneti,
-    kat_4_mat_bemeneti,
-    kat_4_mat_kimeneti,
-    kat_4_szoveg_bemeneti,
-    kat_4_szoveg_kimeneti,
-    kat_5_mat_bemeneti,
-    kat_5_mat_kimeneti,
-    kat_5_szoveg_bemeneti,
-    kat_5_szoveg_kimeneti,
-  });
+export async function update(id, data) {
+  return await pattern.update(id, data);
 }
 
 export async function deleteAllByAlapadatok(alapadatokId, tanev) {

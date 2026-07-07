@@ -1,3 +1,8 @@
+/**
+ * WARNING: Do not merge with token.js!
+ * This file is a CLIENT utility used to verify tokens issued by the login service.
+ * token.js is responsible for the actual generation and has different issuer configuration.
+ */
 import jwt from "jsonwebtoken";
 import { getByEmail } from "../services/user.service.js";
 import * as cache from "./cache.js";

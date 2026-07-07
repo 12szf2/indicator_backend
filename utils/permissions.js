@@ -86,16 +86,20 @@ export function mapTableAccess(accessBitfield) {
 export function enrichUserWithPermissions(user) {
   if (!user) return user;
 
-  // Add permission details to user
-  user.permissionsDetails = mapUserPermissions(user.permissions);
+  // Create a shallow copy to avoid mutating the original object
+  const enrichedUser = { ...user };
+
+  // Add permission details
+  enrichedUser.permissionsDetails = mapUserPermissions(enrichedUser.permissions);
 
   // Add permission details to table access if available
-  if (user.tableAccess && user.tableAccess.length > 0) {
-    user.tableAccess.forEach((access) => {
-      access.tableName = access.table.name;
-      access.permissionsDetails = mapTableAccess(access.access);
-    });
+  if (enrichedUser.tableAccess && enrichedUser.tableAccess.length > 0) {
+    enrichedUser.tableAccess = enrichedUser.tableAccess.map((access) => ({
+      ...access,
+      tableName: access.table ? access.table.name : undefined,
+      permissionsDetails: mapTableAccess(access.access),
+    }));
   }
 
-  return user;
+  return enrichedUser;
 }
