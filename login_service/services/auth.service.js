@@ -172,7 +172,7 @@ export async function refresh(refreshToken) {
       throw new Error("Refresh token is required");
     }
 
-    const decoded = verifyRefreshToken(refreshToken);
+    const decoded = await verifyRefreshToken(refreshToken);
 
     if (!decoded) {
       throw new Error("Invalid or expired refresh token");
